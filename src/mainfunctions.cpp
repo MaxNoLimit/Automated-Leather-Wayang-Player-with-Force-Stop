@@ -14,6 +14,7 @@ int loop_state = 0;
 
 int pageRoute = StateManagement::PAGE_ROUTE::MENU_PAGE;
 int subPageRouteEpisode = StateManagement::SUB_EPISODE_PAGE_ROUTE::EPISODE123;
+int settingsPageRoute = StateManagement::SETTINGS_PAGE_ROUTE::OPTION_SETTINGS;
 
 CheapStepper LeftWayangHand(BJY0, BJY1, BJY2, BJY3);
 CheapStepper RightWayangHand(BJY4, BJY5, BJY6, BJY7);
@@ -115,7 +116,17 @@ void WayangDisplay::lcd2004loop()
         break;
 
     case StateManagement::PAGE_ROUTE::SETTINGS_PAGE:
-        WayangDisplayLCD_in_main.SettingsDisplay();
+        switch (settingsPageRoute)
+        {
+        case StateManagement::SETTINGS_PAGE_ROUTE::OPTION_SETTINGS:
+            WayangDisplayLCD_in_main.SettingsDisplay();
+            break;
+
+        case StateManagement::SETTINGS_PAGE_ROUTE::VOLUME_SETTINGS:
+            // do nothing
+            break;
+        }
+        
 
         break;
     }

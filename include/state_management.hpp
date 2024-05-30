@@ -26,6 +26,11 @@ namespace StateManagement
         EPISODE1234,
         EPISODE2345,
     };
+
+    enum SETTINGS_PAGE_ROUTE{
+        OPTION_SETTINGS,
+        VOLUME_SETTINGS,
+    };
 };
 
 #endif // STATE_MANAGEMENT_H

@@ -1,4 +1,5 @@
 #include "wayang_lcd_2004.hpp"
+#include "sound_system.hpp"
 
 WayangDisplay::WayangDisplayLCD::WayangDisplayLCD()
     : lcdWayang(get_lcd_Address(), 20, 4)
@@ -61,7 +62,8 @@ void WayangDisplay::WayangDisplayLCD::EpisodeDisplay()
     lcdWayang.print("<<");
 }
 
-void WayangDisplay::WayangDisplayLCD::EpisodeDisplay2(){
+void WayangDisplay::WayangDisplayLCD::EpisodeDisplay2()
+{
     lcdWayang.setCursor(0, 0);
     lcdWayang.print("Episode 1");
     lcdWayang.setCursor(0, 1);
@@ -74,7 +76,8 @@ void WayangDisplay::WayangDisplayLCD::EpisodeDisplay2(){
     lcdWayang.print("<<");
 }
 
-void WayangDisplay::WayangDisplayLCD::EpisodeDisplay3(){
+void WayangDisplay::WayangDisplayLCD::EpisodeDisplay3()
+{
     lcdWayang.setCursor(0, 0);
     lcdWayang.print("Episode 2");
     lcdWayang.setCursor(0, 1);
@@ -87,7 +90,8 @@ void WayangDisplay::WayangDisplayLCD::EpisodeDisplay3(){
     lcdWayang.print("<<");
 }
 
-void WayangDisplay::WayangDisplayLCD::CalibrateDisplay(){
+void WayangDisplay::WayangDisplayLCD::CalibrateDisplay()
+{
     lcdWayang.setCursor(0, 0);
     lcdWayang.print("Calibrate");
     lcdWayang.setCursor(0, 1);
@@ -98,14 +102,16 @@ void WayangDisplay::WayangDisplayLCD::CalibrateDisplay(){
     lcdWayang.print("Wayang's Hand");
     lcdWayang.setCursor(18, get_selection_point());
     lcdWayang.print("<<");
-
 }
 
-void WayangDisplay::WayangDisplayLCD::SettingsDisplay(){
+void WayangDisplay::WayangDisplayLCD::SettingsDisplay()
+{
     lcdWayang.setCursor(0, 0);
     lcdWayang.print("Settings");
     lcdWayang.setCursor(0, 1);
-    lcdWayang.print("Volume");
+    lcdWayang.print("Volume:");
+    lcdWayang.setCursor(8, 1);
+    lcdWayang.print(SoundSystem::soundVolume);
     lcdWayang.setCursor(18, get_selection_point());
     lcdWayang.print("<<");
 }
@@ -139,5 +145,3 @@ void WayangDisplay::WayangDisplayLCD::decrement_selection_point()
 {
     this->selection_point--;
 }
-
-

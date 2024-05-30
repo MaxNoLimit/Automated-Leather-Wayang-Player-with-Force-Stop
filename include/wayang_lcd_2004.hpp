@@ -30,6 +30,7 @@ namespace WayangDisplay
         void CalibrateDisplay();
 
         void SettingsDisplay();
+        void SettingsVolumeDisplay();
 
 
 
