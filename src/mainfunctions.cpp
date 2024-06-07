@@ -16,9 +16,13 @@ int pageRoute = StateManagement::PAGE_ROUTE::MENU_PAGE;
 int subPageRouteEpisode = StateManagement::SUB_EPISODE_PAGE_ROUTE::EPISODE123;
 int settingsPageRoute = StateManagement::SETTINGS_PAGE_ROUTE::OPTION_SETTINGS;
 
+// Identifier buat 28BJY48 sebagai lengan kiri dan kanan dari Wayang
 CheapStepper LeftWayangHand(BJY0, BJY1, BJY2, BJY3);
 CheapStepper RightWayangHand(BJY4, BJY5, BJY6, BJY7);
 
+/*
+Function untuk begin semua GPIO
+*/
 void beginingAllGPIOS()
 {
     // Rotary Encoder
@@ -66,20 +70,36 @@ void beginingAllGPIOS()
     pinMode(WAYANG_HAND_10, OUTPUT);
 }
 
+
+/*
+Function untuk setup LCD 20x4
+*/
 void WayangDisplay::lcd2004setup()
 {
+    // Scanning address I2C yang terhubung
     lcd_2040_address = I2C_Scanner::scan_n_assign();
+
+    // Reconstruct dengan address yang sudah di-scan
     WayangDisplayLCD_in_main = WayangDisplay::WayangDisplayLCD(lcd_2040_address); // re-construct
     WayangDisplayLCD_in_main.introDisplay();
     delay(2000);
     WayangDisplayLCD_in_main.refreshLCD();
     WayangDisplayLCD_in_main.MenuDisplay();
+
+    // Set pageRoute ke MENU_PAGE yang merupakan default page
     pageRoute = StateManagement::PAGE_ROUTE::MENU_PAGE;
+
+    // Memulai Rotary Encoder
     WayangDisplayController::beginRotaryEncoder(OUTPUT_A, OUTPUT_B, BUTTON_ROTARY);
+
+    // attach interrupt ke Rotary Encoder yang membuat fungsi pressRotaryEncoder dan spinRotaryEncoder berjalan
     attachInterrupt(digitalPinToInterrupt(OUTPUT_A), WayangDisplayController::spinRotaryEncoder, FALLING);
     attachInterrupt(digitalPinToInterrupt(BUTTON_ROTARY), WayangDisplayController::pressRotaryEncoder, RISING);
 }
 
+/*
+Function yang isinya looping check dari LCD 20x4
+*/
 void WayangDisplay::lcd2004loop()
 {
     WayangDisplayLCD_in_main.refreshLCD();
@@ -132,6 +152,9 @@ void WayangDisplay::lcd2004loop()
     delay(500);
 }
 
+/*
+Function untuk melakukan action dari current state
+*/
 void WayangDisplay::generalLoop()
 {
     switch (loop_state)
@@ -165,6 +188,9 @@ void WayangDisplay::generalLoop()
     }
 }
 
+/*
+Function interrupt untuk press button dari Rotary Encoder
+*/
 void WayangDisplayController::pressRotaryEncoder()
 {
     if (millis() - last_run > 5)
@@ -269,6 +295,9 @@ void WayangDisplayController::pressRotaryEncoder()
     last_run = millis();
 }
 
+/*
+Function interrupt untuk spin dari Rotary Encoder
+*/
 void WayangDisplayController::spinRotaryEncoder()
 {
     switch (pageRoute)
@@ -423,6 +452,9 @@ void WayangDisplayController::spinRotaryEncoder()
     }
 }
 
+/*
+Function begin class WayangStepper
+*/
 void WayangStepper::begin(int rpm)
 {
     this->rpm = rpm;
@@ -431,6 +463,9 @@ void WayangStepper::begin(int rpm)
     this->delay_time = LeftWayangHand.getDelay();
 }
 
+/*
+Function untuk memutar lengan kiri wayang berdasarkan arah putaran dan derajat
+*/
 void WayangStepper::leftHandSpin(String dir, int degree)
 {
     if (dir == "cw")
@@ -443,6 +478,9 @@ void WayangStepper::leftHandSpin(String dir, int degree)
     }
 }
 
+/*
+Function untuk memutar lengan kanan wayang berdasarkan arah putaran dan derajat
+*/
 void WayangStepper::rightHandSpin(String dir, int degree)
 {
     if (dir == "cw")
@@ -455,6 +493,9 @@ void WayangStepper::rightHandSpin(String dir, int degree)
     }
 }
 
+/*
+Function untuk memberhentikan atau menonaktifkan semua stepper
+*/
 void WayangStepper::stopAllStepper()
 {
     LeftWayangHand.stop();

@@ -1,6 +1,10 @@
 #include "i2c_scan_n_assign.hpp"
 #include "mainheader.hpp"
 
+
+/*
+Function untuk scanning address dari I2C yang terhubung dengan Arduino Mega 2560 dan akan me-return address yang ditemukan
+*/
 int I2C_Scanner::scan_n_assign()
 {
     int lcd_2040_address;

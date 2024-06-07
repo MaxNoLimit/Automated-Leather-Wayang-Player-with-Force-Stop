@@ -17,7 +17,7 @@
 Hanoman hanoman;
 RamaWijaya rama_wijaya;
 
-
+// Execution function for pameran tanggal 2 Mei 2024 di ruang MIS depan 
 void Episodes::Mei2nd_Episode()
 {
     hanoman.begin(20);
@@ -104,18 +104,24 @@ void Episodes::Mei2nd_Episode()
     digitalWrite(LED_BUILTIN, LOW);
 }
 
+// Function untuk testing lengan Hanuman 
 void Episodes::Testing_Hanuman()
 {
     hanoman.talking(20);
     // hanoman.all_high();
 }
 
+// Function untuk testing lengan Rama Wijaya
 void Episodes::Testing_Rama()
 {
     rama_wijaya.talking(20);
     // rama_wijaya.all_high();
 }
 
+/*
+Function untuk begin hanoman dan rama wijaya dari yang passing parameter berupa rpm speed dari stepper lengan
+serta begining nema17 untuk pergerakan horizontal
+*/ 
 void Episodes::manual_begin()
 {
     hanoman.begin(10);
@@ -123,6 +129,9 @@ void Episodes::manual_begin()
 }
 
 
+/*
+Function untuk testing pergerakan horizontal dari hanoman
+*/
 void Episodes::testing_hanuman_horizontal_movement(){
     hanoman.walk_to_scene();
     delay(5);
@@ -133,6 +142,9 @@ void Episodes::testing_hanuman_horizontal_movement(){
     hanoman.leave_from_scene();
 }
 
+/*
+Function untuk testing pergerakan horizontal dari rama wijaya
+*/
 void Episodes::testing_rama_wijaya_horizontal_movement(){
     rama_wijaya.walk_to_scene();
     delay(5);

@@ -3,6 +3,9 @@
 
 #define PERIOD_NEMA 1000
 
+/*
+Function untuk membuat suatu nema wayang bergerak sebanyak step_value dan arah tertentu
+*/
 void HorizontalController::step_for_n_dir(int nema_num, int step_value, String dir)
 {
     // String temp_dir = (String)tolower(dir);

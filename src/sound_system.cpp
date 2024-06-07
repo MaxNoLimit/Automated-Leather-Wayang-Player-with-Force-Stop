@@ -2,6 +2,9 @@
 
 DFRobotDFPlayerMini sound_system;
 
+/*
+Function untuk initiation sound system dari Wayang
+*/
 void SoundSystem::initSound()
 {
     pinMode(LED_BUILTIN, OUTPUT);
@@ -22,6 +25,9 @@ void SoundSystem::initSound()
     sound_system.volume(30);
 }
 
+/*
+Function untuk play suatu dialog yang ada di suatu chapter
+*/
 void SoundSystem::play_dialog(int chapter_number, int dialog_number)
 {
     sound_system.playFolder(chapter_number, dialog_number);
@@ -31,6 +37,10 @@ void SoundSystem::play_dialog(int chapter_number, int dialog_number)
     // }
 }
 
+
+/*
+Callback function dari example library
+*/
 void SoundSystem::printDetail(uint8_t type, int value)
 {
     switch (type)
@@ -95,6 +105,9 @@ void SoundSystem::printDetail(uint8_t type, int value)
     }
 }
 
+/*
+Function untuk play audio dialog dari folder MP3 yang ada di SD card
+*/
 void SoundSystem::play_dialog_direct(int dialog_number)
 {
     sound_system.playMp3Folder(dialog_number + 1);

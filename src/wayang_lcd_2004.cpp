@@ -15,6 +15,9 @@ WayangDisplay::WayangDisplayLCD::~WayangDisplayLCD()
 {
 }
 
+/*
+Function untuk display intro display
+*/
 void WayangDisplay::WayangDisplayLCD::introDisplay()
 {
     // LiquidCrystal_I2C lcdWayang(this->lcd_Address, 20, 4);
@@ -26,11 +29,17 @@ void WayangDisplay::WayangDisplayLCD::introDisplay()
     lcdWayang.print("Wayang Player");
 }
 
+/*
+Function untuk refresh display LCD
+*/
 void WayangDisplay::WayangDisplayLCD::refreshLCD()
 {
     lcdWayang.clear();
 }
 
+/*
+Function untuk display bagian menu
+*/
 void WayangDisplay::WayangDisplayLCD::MenuDisplay()
 {
     // LiquidCrystal_I2C lcdWayang(this->lcd_Address, 20, 4);
@@ -48,6 +57,9 @@ void WayangDisplay::WayangDisplayLCD::MenuDisplay()
     lcdWayang.print("<<");
 }
 
+/*
+Function untuk display bagian episode 1,2,3
+*/
 void WayangDisplay::WayangDisplayLCD::EpisodeDisplay()
 {
     lcdWayang.setCursor(0, 0);
@@ -62,6 +74,9 @@ void WayangDisplay::WayangDisplayLCD::EpisodeDisplay()
     lcdWayang.print("<<");
 }
 
+/*
+Function untuk display bagian episode 1,2,3,4
+*/
 void WayangDisplay::WayangDisplayLCD::EpisodeDisplay2()
 {
     lcdWayang.setCursor(0, 0);
@@ -76,6 +91,9 @@ void WayangDisplay::WayangDisplayLCD::EpisodeDisplay2()
     lcdWayang.print("<<");
 }
 
+/*
+Function untuk display bagian episode 2,3,4,5
+*/
 void WayangDisplay::WayangDisplayLCD::EpisodeDisplay3()
 {
     lcdWayang.setCursor(0, 0);
@@ -90,6 +108,9 @@ void WayangDisplay::WayangDisplayLCD::EpisodeDisplay3()
     lcdWayang.print("<<");
 }
 
+/*
+Function untuk display bagian Calibrate
+*/
 void WayangDisplay::WayangDisplayLCD::CalibrateDisplay()
 {
     lcdWayang.setCursor(0, 0);
@@ -104,6 +125,9 @@ void WayangDisplay::WayangDisplayLCD::CalibrateDisplay()
     lcdWayang.print("<<");
 }
 
+/*
+Function untuk display bagian Settings
+*/
 void WayangDisplay::WayangDisplayLCD::SettingsDisplay()
 {
     lcdWayang.setCursor(0, 0);
@@ -116,31 +140,38 @@ void WayangDisplay::WayangDisplayLCD::SettingsDisplay()
     lcdWayang.print("<<");
 }
 
+// Function untuk mendapat address LCD 20x4
 int WayangDisplay::WayangDisplayLCD::get_lcd_Address()
 {
     return this->lcd_Address;
 }
 
+// Function untuk set address LCD 20x4 pada class
 void WayangDisplay::WayangDisplayLCD::set_lcd_Address(int address)
 {
     this->lcd_Address = address;
 }
 
+// Function untuk mendapat value selection point pada cursor display
 int WayangDisplay::WayangDisplayLCD::get_selection_point()
 {
     return this->selection_point;
 }
 
+
+// Function untuk set value selection point pada cursor display
 void WayangDisplay::WayangDisplayLCD::set_selection_point(int point)
 {
     this->selection_point = point;
 }
 
+// Function untuk menambah value selection point pada cursor display yang membuat cursor bergerak ke bawah
 void WayangDisplay::WayangDisplayLCD::increment_selection_point()
 {
     this->selection_point++;
 }
 
+// Function untuk mengurangi value selection point pada cursor display yang membuat cursor bergerak ke atas
 void WayangDisplay::WayangDisplayLCD::decrement_selection_point()
 {
     this->selection_point--;
