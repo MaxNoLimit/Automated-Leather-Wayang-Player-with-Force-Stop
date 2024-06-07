@@ -118,8 +118,8 @@ void Episodes::Testing_Rama()
 
 void Episodes::manual_begin()
 {
-    hanoman.begin(15);
-    rama_wijaya.begin(15);
+    hanoman.begin(10);
+    rama_wijaya.begin(10);
 }
 
 

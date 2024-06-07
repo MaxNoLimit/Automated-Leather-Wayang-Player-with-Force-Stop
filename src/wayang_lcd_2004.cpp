@@ -111,7 +111,7 @@ void WayangDisplay::WayangDisplayLCD::SettingsDisplay()
     lcdWayang.setCursor(0, 1);
     lcdWayang.print("Volume:");
     lcdWayang.setCursor(8, 1);
-    lcdWayang.print(SoundSystem::soundVolume);
+    lcdWayang.print("30");
     lcdWayang.setCursor(18, get_selection_point());
     lcdWayang.print("<<");
 }

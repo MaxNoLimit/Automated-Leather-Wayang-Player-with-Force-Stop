@@ -6,7 +6,7 @@
 
 namespace SoundSystem
 {
-    int soundVolume = 30;
+    // int soundVolume = 30;
     // enum CHAPTER_NUMBER
     // {
     //     CHAPTER_1,

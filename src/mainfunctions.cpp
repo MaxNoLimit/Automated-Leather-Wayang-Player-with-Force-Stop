@@ -126,7 +126,6 @@ void WayangDisplay::lcd2004loop()
             // do nothing
             break;
         }
-        
 
         break;
     }
@@ -157,6 +156,7 @@ void WayangDisplay::generalLoop()
         break;
 
     case StateManagement::FSA_STATE::WAYANG_HAND_CALIBRATION:
+        Episodes::manual_begin();
         Episodes::Testing_Hanuman();
         Episodes::Testing_Rama();
         loop_state = StateManagement::FSA_STATE::DEFAULT_LOOPING_LCD;
