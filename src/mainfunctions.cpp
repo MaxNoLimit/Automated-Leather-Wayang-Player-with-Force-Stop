@@ -68,6 +68,18 @@ void beginingAllGPIOS()
     pinMode(WAYANG_HAND_8, OUTPUT);
     pinMode(WAYANG_HAND_9, OUTPUT);
     pinMode(WAYANG_HAND_10, OUTPUT);
+
+    // LIMIT SWITCHES
+    pinMode(LIMIT_SWITCH_1, INPUT);
+    pinMode(LIMIT_SWITCH_2, INPUT);
+    pinMode(LIMIT_SWITCH_3, INPUT);
+    pinMode(LIMIT_SWITCH_4, INPUT);
+    pinMode(LIMIT_SWITCH_5, INPUT);
+    pinMode(LIMIT_SWITCH_6, INPUT);
+    pinMode(LIMIT_SWITCH_7, INPUT);
+    pinMode(LIMIT_SWITCH_8, INPUT);
+    pinMode(LIMIT_SWITCH_9, INPUT);
+    pinMode(LIMIT_SWITCH_10, INPUT);
 }
 
 
