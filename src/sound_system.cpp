@@ -22,7 +22,7 @@ void SoundSystem::initSound()
     digitalWrite(LED_BUILTIN, HIGH);
     Serial.println(F("DFPlayer Mini online."));
 
-    sound_system.volume(30);
+    sound_system.volume(20);
 }
 
 /*
