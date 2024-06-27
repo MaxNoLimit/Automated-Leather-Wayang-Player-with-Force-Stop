@@ -133,3 +133,7 @@ void SoundSystem::hold_the_section_until_finished(int delay_time)
         // do nothing, just waiting
     }
 }
+
+void SoundSystem::playDialogFromACertainFolder(int nEpisode, int nDialog){
+    sound_system.playFolder(nEpisode, nDialog);
+}

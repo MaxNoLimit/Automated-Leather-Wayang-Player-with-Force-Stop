@@ -79,6 +79,7 @@ namespace SoundSystem
     void printDetail(uint8_t type, int value);
     void play_dialog_direct(int dialog_number);
     void hold_the_section_until_finished(int delay_time);
+    void playDialogFromACertainFolder(int nEpisode, int nDialog);
 };
 
 #endif // SOUND_SYSTEM_H
