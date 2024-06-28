@@ -14,6 +14,11 @@ namespace SoundSystem
         EPISODE_3 = 3,
         EPISODE_4 = 4,
         EPISODE_5 = 5,
+        INDICATOR_SOUND = 6,
+    };
+
+    enum INDICATOR_SOUND_NUMBER{
+        INDICATOR_AUDIO_1 = 1,
     };
 
     enum EPISODE_1_DIALOG{

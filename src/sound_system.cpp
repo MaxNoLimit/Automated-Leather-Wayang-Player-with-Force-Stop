@@ -1,5 +1,6 @@
 #include "sound_system.hpp"
 
+bool soundSystemStatus = false;
 DFRobotDFPlayerMini sound_system;
 
 /*
@@ -7,9 +8,13 @@ Function untuk initiation sound system dari Wayang
 */
 void SoundSystem::initSound()
 {
-    pinMode(LED_BUILTIN, OUTPUT);
-    Serial2.begin(9600);
-    if (!sound_system.begin(Serial2))
+    if (soundSystemStatus == false)
+    {
+        pinMode(LED_BUILTIN, OUTPUT);
+        Serial2.begin(9600);
+    }
+
+    if (!sound_system.begin(Serial2) && soundSystemStatus == false)
     {
         Serial.println(F("Unable to begin:"));
         Serial.println(F("1.Please recheck the connection!"));
@@ -21,8 +26,11 @@ void SoundSystem::initSound()
     }
     digitalWrite(LED_BUILTIN, HIGH);
     Serial.println(F("DFPlayer Mini online."));
+    soundSystemStatus = true;
 
     sound_system.volume(20);
+    sound_system.playFolder(EPISODE_NUMBER::INDICATOR_SOUND, INDICATOR_SOUND_NUMBER::INDICATOR_AUDIO_1);
+    delay(5000);
 }
 
 /*
@@ -36,7 +44,6 @@ void SoundSystem::play_dialog(int chapter_number, int dialog_number)
     //     printDetail(sound_system.readType(), sound_system.read());
     // }
 }
-
 
 /*
 Callback function dari example library
@@ -134,6 +141,7 @@ void SoundSystem::hold_the_section_until_finished(int delay_time)
     }
 }
 
-void SoundSystem::playDialogFromACertainFolder(int nEpisode, int nDialog){
+void SoundSystem::playDialogFromACertainFolder(int nEpisode, int nDialog)
+{
     sound_system.playFolder(nEpisode, nDialog);
 }
