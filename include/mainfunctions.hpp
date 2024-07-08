@@ -17,6 +17,19 @@ namespace WayangDisplayController
     void pressRotaryEncoder();
 };
 
+namespace WayangHorizontalControl{
+    void wayang1(int distance);
+    void wayang2(int distance);
+    void wayang3(int distance);
+    void wayang4(int distance);
+    void wayang5(int distance);
+    void wayang6(int distance);
+    void wayang7(int distance);
+    void wayang8(int distance);
+    void wayang9(int distance);
+    void wayang10(int distance);
+};
+
 class WayangStepper
 {
 private:

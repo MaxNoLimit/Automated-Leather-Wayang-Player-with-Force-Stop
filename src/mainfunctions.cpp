@@ -6,6 +6,8 @@
 #include "rotary_encoder.hpp"
 #include "sound_system.hpp"
 #include "Episodes.hpp"
+#include "a4988_nema.hpp"
+#include "distanceSensorVL53L0X.hpp"
 
 int lcd_2040_address;
 WayangDisplay::WayangDisplayLCD WayangDisplayLCD_in_main(0x27);
@@ -69,19 +71,18 @@ void beginingAllGPIOS()
     pinMode(WAYANG_HAND_9, OUTPUT);
     pinMode(WAYANG_HAND_10, OUTPUT);
 
-    // LIMIT SWITCHES
-    pinMode(LIMIT_SWITCH_1, INPUT);
-    pinMode(LIMIT_SWITCH_2, INPUT);
-    pinMode(LIMIT_SWITCH_3, INPUT);
-    pinMode(LIMIT_SWITCH_4, INPUT);
-    pinMode(LIMIT_SWITCH_5, INPUT);
-    pinMode(LIMIT_SWITCH_6, INPUT);
-    pinMode(LIMIT_SWITCH_7, INPUT);
-    pinMode(LIMIT_SWITCH_8, INPUT);
-    pinMode(LIMIT_SWITCH_9, INPUT);
-    pinMode(LIMIT_SWITCH_10, INPUT);
+    // // LIMIT SWITCHES
+    // pinMode(LIMIT_SWITCH_1, INPUT);
+    // pinMode(LIMIT_SWITCH_2, INPUT);
+    // pinMode(LIMIT_SWITCH_3, INPUT);
+    // pinMode(LIMIT_SWITCH_4, INPUT);
+    // pinMode(LIMIT_SWITCH_5, INPUT);
+    // pinMode(LIMIT_SWITCH_6, INPUT);
+    // pinMode(LIMIT_SWITCH_7, INPUT);
+    // pinMode(LIMIT_SWITCH_8, INPUT);
+    // pinMode(LIMIT_SWITCH_9, INPUT);
+    // pinMode(LIMIT_SWITCH_10, INPUT);
 }
-
 
 /*
 Function untuk setup LCD 20x4
@@ -180,6 +181,21 @@ void WayangDisplay::generalLoop()
         Episodes::manual_begin();
         Episodes::testing_hanuman_horizontal_movement();
         Episodes::testing_rama_wijaya_horizontal_movement();
+
+        /* Kalibrasi sebenarnya */
+
+        // beginAllSensors();
+        // WayangHorizontalControl::wayang1(20);
+        // WayangHorizontalControl::wayang2(20);
+        // WayangHorizontalControl::wayang3(20);
+        // WayangHorizontalControl::wayang4(20);
+        // WayangHorizontalControl::wayang5(20);
+        // WayangHorizontalControl::wayang6(20);
+        // WayangHorizontalControl::wayang7(20);
+        // WayangHorizontalControl::wayang8(20);
+        // WayangHorizontalControl::wayang9(20);
+        // WayangHorizontalControl::wayang10(20);
+
         loop_state = StateManagement::FSA_STATE::DEFAULT_LOOPING_LCD;
         delay(1);
         break;
@@ -523,3 +539,399 @@ void WayangStepper::stopAllStepper()
     digitalWrite(WAYANG_HAND_9, LOW);
     digitalWrite(WAYANG_HAND_10, LOW);
 }
+
+void WayangHorizontalControl::wayang1(int distance)
+{
+    digitalWrite(WAYANG_HAND_1, HIGH);
+    digitalWrite(EN_NEMA_1, LOW);
+    delay(100);
+    if (distance > getDistanceSensor1())
+    {
+        /* menjauhi sensor, CCW */
+        bool state = true;
+        digitalWrite(NEMA_DIR, LOW);
+        while (distance != getDistanceSensor1())
+        {
+            digitalWrite(NEMA_STEP, state);
+            state = !state;
+            delayMicroseconds(PERIOD_NEMA);
+            if (distance == getDistanceSensor1() || distance < getDistanceSensor1())
+            {
+                break;
+            }
+        }
+        
+    }
+    else if (distance < getDistanceSensor1())
+    {
+        /* mendekati sensor, CW */
+        bool state = true;
+        digitalWrite(NEMA_DIR, HIGH);
+        while (distance != getDistanceSensor1())
+        {
+            digitalWrite(NEMA_STEP, state);
+            state = !state;
+            delayMicroseconds(PERIOD_NEMA);
+            if (distance == getDistanceSensor1() || distance > getDistanceSensor1())
+            {
+                break;
+            }
+        }
+    }
+    digitalWrite(WAYANG_HAND_1, LOW);
+}
+
+void WayangHorizontalControl::wayang2(int distance)
+{
+    digitalWrite(WAYANG_HAND_2, HIGH);
+    digitalWrite(EN_NEMA_2, LOW);
+    delay(100);
+    if (distance > getDistanceSensor2())
+    {
+        /* menjauhi sensor, CCW */
+        bool state = true;
+        digitalWrite(NEMA_DIR, LOW);
+        while (distance != getDistanceSensor2())
+        {
+            digitalWrite(NEMA_STEP, state);
+            state = !state;
+            delayMicroseconds(PERIOD_NEMA);
+            if (distance == getDistanceSensor2() || distance < getDistanceSensor2())
+            {
+                break;
+            }
+        }
+    }
+    else if (distance < getDistanceSensor2())
+    {
+        /* mendekati sensor, CW */
+        bool state = true;
+        digitalWrite(NEMA_DIR, HIGH);
+        while (distance != getDistanceSensor2())
+        {
+            digitalWrite(NEMA_STEP, state);
+            state = !state;
+            delayMicroseconds(PERIOD_NEMA);
+            if (distance == getDistanceSensor2() || distance > getDistanceSensor2())
+            {
+                break;
+            }
+        }
+    }
+    digitalWrite(WAYANG_HAND_2, LOW);
+}
+
+void WayangHorizontalControl::wayang3(int distance)
+{
+    digitalWrite(WAYANG_HAND_3, HIGH);
+    digitalWrite(EN_NEMA_3, LOW);
+    delay(100);
+    if (distance > getDistanceSensor3())
+    {
+        /* menjauhi sensor, CCW */
+        bool state = true;
+        digitalWrite(NEMA_DIR, LOW);
+        while (distance != getDistanceSensor3())
+        {
+            digitalWrite(NEMA_STEP, state);
+            state = !state;
+            delayMicroseconds(PERIOD_NEMA);
+            if (distance == getDistanceSensor3() || distance < getDistanceSensor3())
+            {
+                break;
+            }
+        }
+    }
+    else if (distance < getDistanceSensor3())
+    {
+        /* mendekati sensor, CW */
+        bool state = true;
+        digitalWrite(NEMA_DIR, HIGH);
+        while (distance != getDistanceSensor3())
+        {
+            digitalWrite(NEMA_STEP, state);
+            state = !state;
+            delayMicroseconds(PERIOD_NEMA);
+            if (distance == getDistanceSensor3() || distance > getDistanceSensor3())
+            {
+                break;
+            }
+        }
+    }
+    digitalWrite(WAYANG_HAND_3, LOW);
+}
+
+void WayangHorizontalControl::wayang4(int distance)
+{
+    digitalWrite(WAYANG_HAND_4, HIGH);
+    digitalWrite(EN_NEMA_4, LOW);
+    delay(100);
+    if (distance > getDistanceSensor4())
+    {
+        /* menjauhi sensor, CCW */
+        bool state = true;
+        digitalWrite(NEMA_DIR, LOW);
+        while (distance != getDistanceSensor4())
+        {
+            digitalWrite(NEMA_STEP, state);
+            state = !state;
+            delayMicroseconds(PERIOD_NEMA);
+            if (distance == getDistanceSensor4() || distance < getDistanceSensor4())
+            {
+                break;
+            }
+        }
+    }
+    else if (distance < getDistanceSensor4())
+    {
+        /* mendekati sensor, CW */
+        bool state = true;
+        digitalWrite(NEMA_DIR, HIGH);
+        while (distance != getDistanceSensor4())
+        {
+            digitalWrite(NEMA_STEP, state);
+            state = !state;
+            delayMicroseconds(PERIOD_NEMA);
+            if (distance == getDistanceSensor4() || distance > getDistanceSensor4())
+            {
+                break;
+            }
+        }
+    }
+    digitalWrite(WAYANG_HAND_4, LOW);
+}
+
+void WayangHorizontalControl::wayang5(int distance){
+    digitalWrite(WAYANG_HAND_5, HIGH);
+    digitalWrite(EN_NEMA_5, LOW);
+    delay(100);
+    if (distance > getDistanceSensor5())
+    {
+        /* menjauhi sensor, CCW */
+        bool state = true;
+        digitalWrite(NEMA_DIR, LOW);
+        while (distance != getDistanceSensor5())
+        {
+            digitalWrite(NEMA_STEP, state);
+            state = !state;
+            delayMicroseconds(PERIOD_NEMA);
+            if (distance == getDistanceSensor5() || distance < getDistanceSensor5())
+            {
+                break;
+            }
+        }
+    }
+    else if (distance < getDistanceSensor5())
+    {
+        /* mendekati sensor, CW */
+        bool state = true;
+        digitalWrite(NEMA_DIR, HIGH);
+        while (distance != getDistanceSensor5())
+        {
+            digitalWrite(NEMA_STEP, state);
+            state = !state;
+            delayMicroseconds(PERIOD_NEMA);
+            if (distance == getDistanceSensor5() || distance > getDistanceSensor5())
+            {
+                break;
+            }
+        }
+    }
+    digitalWrite(WAYANG_HAND_5, LOW);
+}
+
+void WayangHorizontalControl::wayang6(int distance){
+    digitalWrite(WAYANG_HAND_6, HIGH);
+    digitalWrite(EN_NEMA_6, LOW);
+    delay(100);
+    if (distance > getDistanceSensor6())
+    {
+        /* menjauhi sensor, CCW */
+        bool state = true;
+        digitalWrite(NEMA_DIR, LOW);
+        while (distance != getDistanceSensor6())
+        {
+            digitalWrite(NEMA_STEP, state);
+            state = !state;
+            delayMicroseconds(PERIOD_NEMA);
+            if (distance == getDistanceSensor6() || distance < getDistanceSensor6())
+            {
+                break;
+            }
+        }
+    }
+    else if (distance < getDistanceSensor6())
+    {
+        /* mendekati sensor, CW */
+        bool state = true;
+        digitalWrite(NEMA_DIR, HIGH);
+        while (distance != getDistanceSensor6())
+        {
+            digitalWrite(NEMA_STEP, state);
+            state = !state;
+            delayMicroseconds(PERIOD_NEMA);
+            if (distance == getDistanceSensor6() || distance > getDistanceSensor6())
+            {
+                break;
+            }
+        }
+    }
+    digitalWrite(WAYANG_HAND_6, LOW);
+}
+
+void WayangHorizontalControl::wayang7(int distance){
+    digitalWrite(WAYANG_HAND_7, HIGH);
+    digitalWrite(EN_NEMA_7, LOW);
+    delay(100);
+    if (distance > getDistanceSensor7())
+    {
+        /* menjauhi sensor, CCW */
+        bool state = true;
+        digitalWrite(NEMA_DIR, LOW);
+        while (distance != getDistanceSensor7())
+        {
+            digitalWrite(NEMA_STEP, state);
+            state = !state;
+            delayMicroseconds(PERIOD_NEMA);
+            if (distance == getDistanceSensor7() || distance < getDistanceSensor7())
+            {
+                break;
+            }
+        }
+    }
+    else if (distance < getDistanceSensor7())
+    {
+        /* mendekati sensor, CW */
+        bool state = true;
+        digitalWrite(NEMA_DIR, HIGH);
+        while (distance != getDistanceSensor7())
+        {
+            digitalWrite(NEMA_STEP, state);
+            state = !state;
+            delayMicroseconds(PERIOD_NEMA);
+            if (distance == getDistanceSensor7() || distance > getDistanceSensor7())
+            {
+                break;
+            }
+        }
+    }
+    digitalWrite(WAYANG_HAND_7, LOW);
+}
+
+void WayangHorizontalControl::wayang8(int distance){
+    digitalWrite(WAYANG_HAND_8, HIGH);
+    digitalWrite(EN_NEMA_8, LOW);
+    delay(100);
+    if (distance > getDistanceSensor8())
+    {
+        /* menjauhi sensor, CCW */
+        bool state = true;
+        digitalWrite(NEMA_DIR, LOW);
+        while (distance != getDistanceSensor8())
+        {
+            digitalWrite(NEMA_STEP, state);
+            state = !state;
+            delayMicroseconds(PERIOD_NEMA);
+            if (distance == getDistanceSensor8() || distance < getDistanceSensor8())
+            {
+                break;
+            }
+        }
+    }
+    else if (distance < getDistanceSensor8())
+    {
+        /* mendekati sensor, CW */
+        bool state = true;
+        digitalWrite(NEMA_DIR, HIGH);
+        while (distance != getDistanceSensor8())
+        {
+            digitalWrite(NEMA_STEP, state);
+            state = !state;
+            delayMicroseconds(PERIOD_NEMA);
+            if (distance == getDistanceSensor8() || distance > getDistanceSensor8())
+            {
+                break;
+            }
+        }
+    }
+    digitalWrite(WAYANG_HAND_8, LOW);
+}
+
+void WayangHorizontalControl::wayang9(int distance){
+    digitalWrite(WAYANG_HAND_9, HIGH);
+    digitalWrite(EN_NEMA_9, LOW);
+    delay(100);
+    if (distance > getDistanceSensor9())
+    {
+        /* menjauhi sensor, CCW */
+        bool state = true;
+        digitalWrite(NEMA_DIR, LOW);
+        while (distance != getDistanceSensor9())
+        {
+            digitalWrite(NEMA_STEP, state);
+            state = !state;
+            delayMicroseconds(PERIOD_NEMA);
+            if (distance == getDistanceSensor9() || distance < getDistanceSensor9())
+            {
+                break;
+            }
+        }
+    }
+    else if (distance < getDistanceSensor9())
+    {
+        /* mendekati sensor, CW */
+        bool state = true;
+        digitalWrite(NEMA_DIR, HIGH);
+        while (distance != getDistanceSensor9())
+        {
+            digitalWrite(NEMA_STEP, state);
+            state = !state;
+            delayMicroseconds(PERIOD_NEMA);
+            if (distance == getDistanceSensor9() || distance > getDistanceSensor9())
+            {
+                break;
+            }
+        }
+    }
+    digitalWrite(WAYANG_HAND_9, LOW);
+}
+
+void WayangHorizontalControl::wayang10(int distance){
+    digitalWrite(WAYANG_HAND_10, HIGH);
+    digitalWrite(EN_NEMA_10, LOW);
+    delay(100);
+    if (distance > getDistanceSensor10())
+    {
+        /* menjauhi sensor, CCW */
+        bool state = true;
+        digitalWrite(NEMA_DIR, LOW);
+        while (distance != getDistanceSensor10())
+        {
+            digitalWrite(NEMA_STEP, state);
+            state = !state;
+            delayMicroseconds(PERIOD_NEMA);
+            if (distance == getDistanceSensor10() || distance < getDistanceSensor10())
+            {
+                break;
+            }
+        }
+    }
+    else if (distance < getDistanceSensor10())
+    {
+        /* mendekati sensor, CW */
+        bool state = true;
+        digitalWrite(NEMA_DIR, HIGH);
+        while (distance != getDistanceSensor10())
+        {
+            digitalWrite(NEMA_STEP, state);
+            state = !state;
+            delayMicroseconds(PERIOD_NEMA);
+            if (distance == getDistanceSensor10() || distance > getDistanceSensor10())
+            {
+                break;
+            }
+        }
+    }
+    digitalWrite(WAYANG_HAND_10, LOW);
+}
+
