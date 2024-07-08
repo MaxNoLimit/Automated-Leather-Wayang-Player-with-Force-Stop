@@ -185,16 +185,16 @@ void WayangDisplay::generalLoop()
         /* Kalibrasi sebenarnya */
 
         // beginAllSensors();
-        // WayangHorizontalControl::wayang1(20);
-        // WayangHorizontalControl::wayang2(20);
-        // WayangHorizontalControl::wayang3(20);
-        // WayangHorizontalControl::wayang4(20);
-        // WayangHorizontalControl::wayang5(20);
-        // WayangHorizontalControl::wayang6(20);
-        // WayangHorizontalControl::wayang7(20);
-        // WayangHorizontalControl::wayang8(20);
-        // WayangHorizontalControl::wayang9(20);
-        // WayangHorizontalControl::wayang10(20);
+        // WayangHorizontalControl::wayang1(50);
+        // WayangHorizontalControl::wayang2(50);
+        // WayangHorizontalControl::wayang3(50);
+        // WayangHorizontalControl::wayang4(50);
+        // WayangHorizontalControl::wayang5(50);
+        // WayangHorizontalControl::wayang6(50);
+        // WayangHorizontalControl::wayang7(50);
+        // WayangHorizontalControl::wayang8(50);
+        // WayangHorizontalControl::wayang9(50);
+        // WayangHorizontalControl::wayang10(50);
 
         loop_state = StateManagement::FSA_STATE::DEFAULT_LOOPING_LCD;
         delay(1);
