@@ -20,8 +20,6 @@ RamaWijaya rama_wijaya;
 // Execution function for pameran tanggal 2 Mei 2024 di ruang MIS depan 
 void Episodes::Mei2nd_Episode()
 {
-    hanoman.begin(20);
-    rama_wijaya.begin(20);
 
     // Narator Opening
     SoundSystem::play_dialog_direct(SoundSystem::DIALOG_NUMBER::NARATOR_INTRO_1);
@@ -124,8 +122,7 @@ serta begining nema17 untuk pergerakan horizontal
 */ 
 void Episodes::manual_begin()
 {
-    hanoman.begin(10);
-    rama_wijaya.begin(10);
+
 }
 
 

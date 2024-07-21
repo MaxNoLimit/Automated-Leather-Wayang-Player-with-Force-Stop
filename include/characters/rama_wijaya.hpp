@@ -5,7 +5,7 @@ class RamaWijaya
 {
 
 public:
-    void begin(int rpm);
+    void defaultHandPosition();
     void walk_to_scene();
     void leave_from_scene();
 
@@ -15,4 +15,5 @@ public:
     void hand_movement_test_4();
 
     void talking(int delay_in_sec);
+
 };

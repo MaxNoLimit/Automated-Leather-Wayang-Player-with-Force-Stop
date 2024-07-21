@@ -28,9 +28,9 @@ void SoundSystem::initSound()
     Serial.println(F("DFPlayer Mini online."));
     soundSystemStatus = true;
 
-    sound_system.volume(20);
+    sound_system.volume(18);
     sound_system.playFolder(EPISODE_NUMBER::INDICATOR_SOUND, INDICATOR_SOUND_NUMBER::INDICATOR_AUDIO_1);
-    delay(5000);
+    delay(3000);
 }
 
 /*

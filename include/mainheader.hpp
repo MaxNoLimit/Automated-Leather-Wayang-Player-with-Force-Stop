@@ -8,16 +8,16 @@
 #define OUTPUT_B 12   
 #define BUTTON_ROTARY 2
 
-// 28 BJY-48
-#define BJY0 22
-#define BJY1 24
-#define BJY2 26
-#define BJY3 28
+// Servo SG90
+#define LEFT_SERVO_1 22
+#define LEFT_SERVO_2 24
+#define LEFT_SERVO_3 26
+#define LEFT_SERVO_4 28
 
-#define BJY4 23
-#define BJY5 25
-#define BJY6 27
-#define BJY7 29
+#define RIGHT_SERVO_1 23
+#define RIGHT_SERVO_2 25
+#define RIGHT_SERVO_3 27
+#define RIGHT_SERVO_4 29
 
 // NEMA-17 & A4988
 #define NEMA_STEP 9

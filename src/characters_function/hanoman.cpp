@@ -1,12 +1,12 @@
 #include "characters/hanoman.hpp"
 #include "a4988_nema.hpp"
 
-WayangStepper hanoman_stepper;
+WayangHandServo Servo_Hanuman(whatSideServo::LEFT);
 HorizontalController HC_hanuman;
 
-void Hanoman::begin(int rpm)
+void Hanoman::defaultHandPosition()
 {
-    hanoman_stepper.begin(rpm);
+    Servo_Hanuman.defaultPosition();
 }
 
 void Hanoman::walk_to_scene()
@@ -65,14 +65,14 @@ void Hanoman::hand_movement_test_5()
 
 void Hanoman::talking(int delay_in_sec)
 {
-    digitalWrite(WAYANG_HAND_2, HIGH);
-    for (int i = 0; i < (delay_in_sec * 1000000 / 4998272) - 2; i++)
-    {
-        hanoman_stepper.leftHandSpin("cw", 90); // 1499136 us
-        hanoman_stepper.leftHandSpin("ccw", 90); // 1499136 us
+    // digitalWrite(WAYANG_HAND_2, HIGH);
+    // for (int i = 0; i < (delay_in_sec * 1000000 / 4998272) - 2; i++)
+    // {
+    //     hanoman_stepper.leftHandSpin("cw", 90); // 1499136 us
+    //     hanoman_stepper.leftHandSpin("ccw", 90); // 1499136 us
 
-        delay(2000);
-    }
-    hanoman_stepper.stopAllStepper();
-    digitalWrite(WAYANG_HAND_2, LOW);
+    //     delay(2000);
+    // }
+    // hanoman_stepper.stopAllStepper();
+    // digitalWrite(WAYANG_HAND_2, LOW);
 }

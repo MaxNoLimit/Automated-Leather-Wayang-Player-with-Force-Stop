@@ -5,7 +5,7 @@ class Hanoman
 {
 
 public:
-    void begin(int rpm);
+    void defaultHandPosition();
     void walk_to_scene();
     void leave_from_scene();
 

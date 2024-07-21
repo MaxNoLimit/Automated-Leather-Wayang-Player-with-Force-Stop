@@ -11,6 +11,7 @@ namespace StateManagement
         CALIBRATING_ALL_NEMA,
         MP3_REINIT,
         WAYANG_HAND_CALIBRATION,
+        SENSOR_CHECK,
     };
 
     enum PAGE_ROUTE
@@ -18,7 +19,8 @@ namespace StateManagement
         MENU_PAGE,
         EPISODE_PAGE,
         CALIBRATE_PAGE,
-        SETTINGS_PAGE
+        SETTINGS_PAGE,
+        SENSOR_STATUS_PAGE,
     };
 
     enum SUB_EPISODE_PAGE_ROUTE{
@@ -31,6 +33,24 @@ namespace StateManagement
         OPTION_SETTINGS,
         VOLUME_SETTINGS,
     };
+
+    enum SUB_CALIBRATE_PAGE_ROUTE{
+        CALIBRATE_1,
+        CALIBRATE_2,
+    };
+
+    enum SENSOR_STATUS_PAGE_ROUTE{
+        SENSOR_123 = 1,
+        SENSOR_1234,
+        SENSOR_2345,
+        SENSOR_3456,
+        SENSOR_4567,
+        SENSOR_5678,
+        SENSOR_6789,
+        SENSOR_78910,
+    };
 };
+
+
 
 #endif // STATE_MANAGEMENT_H

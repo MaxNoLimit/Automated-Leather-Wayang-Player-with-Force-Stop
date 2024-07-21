@@ -12,7 +12,7 @@
 #define SENSOR_ADDRESS_9 0x38
 #define SENSOR_ADDRESS_10 0x39
 
-#include <Adafruit_VL53L0X.h>
+#include <VL53L0X.h>
 #include <Wire.h>
 
 void beginAllSensors();
@@ -38,6 +38,9 @@ int getDistanceSensor7();
 int getDistanceSensor8();
 int getDistanceSensor9();
 int getDistanceSensor10();
+
+bool getSensorStatus(int num);
+
 
 
 #endif // DISTANCE_SENSOR_VL53L0X_HPP

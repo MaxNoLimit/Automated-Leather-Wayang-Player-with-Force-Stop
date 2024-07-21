@@ -28,6 +28,16 @@ namespace WayangDisplay
         void EpisodeDisplay3(); 
 
         void CalibrateDisplay();
+        void CalibrateDisplay2();
+
+        void SensorStatusDisplay();
+        void SensorStatusDisplay2();
+        void SensorStatusDisplay3();
+        void SensorStatusDisplay4();
+        void SensorStatusDisplay5();
+        void SensorStatusDisplay6();
+        void SensorStatusDisplay7();
+        void SensorStatusDisplay8();
 
         void SettingsDisplay();
         void SettingsVolumeDisplay();

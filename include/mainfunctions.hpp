@@ -1,7 +1,7 @@
 #ifndef MAINFUNCTIONS_H
 #define MAINFUNCTIONS_H
 
-#include <CheapStepper.h>
+// #include <CheapStepper.h>
 
 void beginingAllGPIOS();
 namespace WayangDisplay
@@ -17,7 +17,8 @@ namespace WayangDisplayController
     void pressRotaryEncoder();
 };
 
-namespace WayangHorizontalControl{
+namespace WayangHorizontalControl
+{
     void wayang1(int distance);
     void wayang2(int distance);
     void wayang3(int distance);
@@ -30,17 +31,46 @@ namespace WayangHorizontalControl{
     void wayang10(int distance);
 };
 
-class WayangStepper
+enum whatSideServo
 {
-private:
-    int delay_time;
-    int rpm;
+    RIGHT = 0,
+    LEFT = 1,
+};
 
+class WayangHandServo
+{
 public:
-    void begin(int rpm);
-    void leftHandSpin(String dir, int degree);
-    void rightHandSpin(String dir, int degree);
-    void stopAllStepper();
+    enum whatSideServo
+    {
+        LEFT = 0,
+        RIGHT = 1
+    };
+    WayangHandServo(int leftOrRight);
+    virtual ~WayangHandServo();
+    void defaultPosition();
+    void moveWhatServo(int servoNumber, int degree);
+
+    void setServoPin1(int pin);
+    void setServoPin2(int pin);
+    void setServoPin3(int pin);
+    void setServoPin4(int pin);
+
+    int getServoPin1();
+    int getServoPin2();
+    int getServoPin3();
+    int getServoPin4();
+
+    int getAmountOfWaves();
+    int getWavePeriod();
+    int degreeToDelay(int degree);
+
+private:
+    const int wavePeriod = 20000; // in microseconds
+    const int amountOfWaves = 100;
+    int servoPin1;
+    int servoPin2;
+    int servoPin3;
+    int servoPin4;
 };
 
 #endif // MAINFUNCTIONS_H
