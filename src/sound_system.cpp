@@ -6,6 +6,32 @@ DFRobotDFPlayerMini sound_system;
 /*
 Function untuk initiation sound system dari Wayang
 */
+
+void SoundSystem::justInitTheSoundSystem()
+{
+    if (soundSystemStatus == false)
+    {
+        pinMode(LED_BUILTIN, OUTPUT);
+        Serial2.begin(9600);
+    }
+
+    if (!sound_system.begin(Serial2) && soundSystemStatus == false)
+    {
+        Serial.println(F("Unable to begin:"));
+        Serial.println(F("1.Please recheck the connection!"));
+        Serial.println(F("2.Please insert the SD card!"));
+        // while (true)
+        // {
+        //     delay(0);
+        // }
+    }
+    digitalWrite(LED_BUILTIN, HIGH);
+    Serial.println(F("DFPlayer Mini online."));
+    soundSystemStatus = true;
+
+    sound_system.volume(18);
+}
+
 void SoundSystem::initSound()
 {
     if (soundSystemStatus == false)
@@ -131,17 +157,39 @@ void SoundSystem::play_dialog_direct(int dialog_number)
 // }
 
 // function to stop a while loop after df player finished playing current file
-void SoundSystem::hold_the_section_until_finished(int delay_time)
-{
-    static unsigned long stop_watch = millis();
+// void SoundSystem::hold_the_section_until_finished(int delay_time)
+// {
+//     static unsigned long stop_watch = millis();
 
-    while (millis() - stop_watch < delay_time)
-    {
-        // do nothing, just waiting
-    }
-}
+//     while (millis() - stop_watch < delay_time)
+//     {
+//         // do nothing, just waiting
+//     }
+// }
 
 void SoundSystem::playDialogFromACertainFolder(int nEpisode, int nDialog)
 {
     sound_system.playFolder(nEpisode, nDialog);
+}
+
+void SoundSystem::continuePlaying()
+{
+    sound_system.start();
+}
+
+void SoundSystem::pause()
+{
+    sound_system.pause();
+}
+
+void SoundSystem::playMusicWayang()
+{
+    sound_system.volume(15);
+    sound_system.playFolder(EPISODE_NUMBER::EXTRA_MUSIC_WAYANG, MUSIC_NUMBER::MUSIC_GAMELAN);
+}
+
+void SoundSystem::pauseMusicWayang()
+{
+    sound_system.pause();
+    sound_system.volume(18); // 14 best idk why, less fart :v
 }

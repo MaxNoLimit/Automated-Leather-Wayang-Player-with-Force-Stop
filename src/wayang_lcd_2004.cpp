@@ -304,3 +304,11 @@ void WayangDisplay::WayangDisplayLCD::decrement_selection_point()
 {
     this->selection_point--;
 }
+
+void WayangDisplay::WayangDisplayLCD::enableLCD(){
+    lcdWayang.on();
+}
+
+void WayangDisplay::WayangDisplayLCD::disableLCD(){
+    lcdWayang.off();
+}

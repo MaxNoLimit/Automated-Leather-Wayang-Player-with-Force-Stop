@@ -15,10 +15,36 @@ namespace SoundSystem
         EPISODE_4 = 4,
         EPISODE_5 = 5,
         INDICATOR_SOUND = 6,
+        EXTRA_MUSIC_WAYANG = 7,
     };
 
     enum INDICATOR_SOUND_NUMBER{
         INDICATOR_AUDIO_1 = 1,
+        INDICATOR_VSLOT_CALIBRATION = 2,
+        INDICATOR_WAYANG_HAND_CALIBRATION = 3,
+        INDICATOR_FINISHED_SHOWING = 4,
+    };
+
+    enum SPECIAL_EPISODE_29_JULY{
+        // Rama - Sita Dialogue
+        RAMA_SITA__SITA_DIALOG_1 = 1,
+        RAMA_SITA__RAMA_DIALOG_1 = 2,
+
+        // Sita - Rahwana Dialogue
+        SITA_RAHWANA__NARATOR_1 = 3,
+        SITA_RAHWANA__RAHWANA_DIALOG_1 = 4,
+        SITA_RAHWANA__SITA_DIALOG_1 = 5,
+        SITA_RAHWANA__RAHWANA_DIALOG_2 = 6,
+        SITA_RAHWANA__NARATOR_2 = 7,
+        SITA_RAHWANA__NARATOR_3 = 8,
+
+        // Rama - Rahwana Dialogue
+        RAMA_RAHWANA__RAMA_1 = 9,
+        RAMA_RAHWANA__RAHWANA_1 = 10,
+        // FIGHT!
+        RAMA_RAHWANA__RAHWANA_2 = 11,
+        RAMA_RAHWANA__RAMA_2 = 12,
+        RAMA_RAHWANA__SITA_1 = 13,
     };
 
     enum EPISODE_1_DIALOG{
@@ -79,12 +105,21 @@ namespace SoundSystem
         NARATOR_END_1
     };
 
+    enum MUSIC_NUMBER{
+        MUSIC_GAMELAN = 1,
+    };
+
+    void justInitTheSoundSystem();
     void initSound();
     void play_dialog(int chapter_number, int dialog_number); // may be 0-2999 according to the df mini player documentation
     void printDetail(uint8_t type, int value);
     void play_dialog_direct(int dialog_number);
     void hold_the_section_until_finished(int delay_time);
     void playDialogFromACertainFolder(int nEpisode, int nDialog);
+    void continuePlaying();
+    void pause();
+    void playMusicWayang();
+    void pauseMusicWayang();
 };
 
 #endif // SOUND_SYSTEM_H

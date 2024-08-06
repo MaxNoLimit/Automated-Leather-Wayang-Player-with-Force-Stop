@@ -12,6 +12,11 @@ namespace StateManagement
         MP3_REINIT,
         WAYANG_HAND_CALIBRATION,
         SENSOR_CHECK,
+        PLAY_EPISODE_1,
+        PLAY_EPISODE_2,
+        PLAY_EPISODE_3,
+        PLAY_EPISODE_4,
+        PLAY_EPISODE_5,
     };
 
     enum PAGE_ROUTE

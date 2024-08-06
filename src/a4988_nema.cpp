@@ -1,7 +1,7 @@
 #include "a4988_nema.hpp"
 #include "mainfunctions.hpp"
 
-#define PERIOD_NEMA 1000
+#define PERIOD_NEMA 4000
 
 /*
 Function untuk membuat suatu nema wayang bergerak sebanyak step_value dan arah tertentu
@@ -46,6 +46,23 @@ void HorizontalController::step_for_n_dir(int nema_num, int step_value, String d
             // NEMAs.en_num_gpio_a(NEMAs.DISABLE_ALL_EN);
             break;
         }
+
+        case 3:
+        {
+            digitalWrite(EN_NEMA_3, LOW);
+            digitalWrite(NEMA_DIR, HIGH);
+
+            bool state = true;
+            for (int i = 0; i < step_value; i++)
+            {
+                digitalWrite(NEMA_STEP, state);
+                state = !state;
+                delayMicroseconds(PERIOD_NEMA);
+            }
+            digitalWrite(EN_NEMA_3, HIGH);
+            // NEMAs.en_num_gpio_a(NEMAs.DISABLE_ALL_EN);
+            break;
+        }
         }
     }
     else if (dir == "cw")
@@ -87,6 +104,23 @@ void HorizontalController::step_for_n_dir(int nema_num, int step_value, String d
             // digitalWrite(EN_2_NEMA, HIGH);
             // NEMAs.en_num_gpio_a(NEMAs.DISABLE_ALL_EN);
             digitalWrite(EN_NEMA_2, HIGH);
+            break;
+        }
+        case 3:
+        {
+            Serial.println("nema 3 selected");
+            digitalWrite(EN_NEMA_3, LOW);
+            digitalWrite(NEMA_DIR, LOW);
+
+            bool state = true;
+            for (int i = 0; i < step_value; i++)
+            {
+                digitalWrite(NEMA_STEP, state);
+                state = !state;
+                delayMicroseconds(PERIOD_NEMA);
+            }
+            digitalWrite(EN_NEMA_3, HIGH);
+            // NEMAs.en_num_gpio_a(NEMAs.DISABLE_ALL_EN);
             break;
         }
         }

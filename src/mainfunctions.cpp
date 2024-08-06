@@ -9,10 +9,12 @@
 #include "a4988_nema.hpp"
 #include "distanceSensorVL53L0X.hpp"
 #include "characters/rama_wijaya.hpp"
-
+#include "characters/sita.hpp"
+#include "characters/rahwana.hpp"
 
 RamaWijaya wayangRamaWijaya;
-
+Sita wayangSita;
+Rahwana wayangRahwana;
 
 int lcd_2040_address;
 WayangDisplay::WayangDisplayLCD WayangDisplayLCD_in_main(0x27);
@@ -50,6 +52,16 @@ void beginingAllGPIOS()
     pinMode(RIGHT_SERVO_3, OUTPUT);
     pinMode(RIGHT_SERVO_4, OUTPUT);
 
+    // digitalWrite(LEFT_SERVO_1, LOW);
+    // digitalWrite(LEFT_SERVO_2, LOW);
+    // digitalWrite(LEFT_SERVO_3, LOW);
+    // digitalWrite(LEFT_SERVO_4, LOW);
+
+    // digitalWrite(RIGHT_SERVO_1, LOW);
+    // digitalWrite(RIGHT_SERVO_2, LOW);
+    // digitalWrite(RIGHT_SERVO_3, LOW);
+    // digitalWrite(RIGHT_SERVO_4, LOW);
+
     // EN 1-10 A4988
     pinMode(EN_NEMA_1, OUTPUT);
     pinMode(EN_NEMA_2, OUTPUT);
@@ -85,17 +97,38 @@ void beginingAllGPIOS()
     pinMode(WAYANG_HAND_9, OUTPUT);
     pinMode(WAYANG_HAND_10, OUTPUT);
 
-    // Turn on WAYANG_HAND_1 to WAYANG_HAND_10
-    digitalWrite(WAYANG_HAND_1, LOW);
-    digitalWrite(WAYANG_HAND_2, LOW);
-    digitalWrite(WAYANG_HAND_3, LOW);
-    digitalWrite(WAYANG_HAND_4, LOW);
-    digitalWrite(WAYANG_HAND_5, LOW);
-    digitalWrite(WAYANG_HAND_6, LOW);
-    digitalWrite(WAYANG_HAND_7, LOW);
-    digitalWrite(WAYANG_HAND_8, LOW);
-    digitalWrite(WAYANG_HAND_9, LOW);
-    digitalWrite(WAYANG_HAND_10, LOW);
+    // VL53L0X XSHUTS
+    pinMode(XSHUT_1, OUTPUT);
+    pinMode(XSHUT_2, OUTPUT);
+    pinMode(XSHUT_3, OUTPUT);
+
+    Wire.begin();
+    Wire.setClock(400000);
+    Wire.setTimeout(500);
+    Wire.setWireTimeout(5000, true);
+    SoundSystem::justInitTheSoundSystem();
+
+    // beginAllinOneSensor();
+    // setAllMOSFETtoLOW();
+    // Serial.print(getDistanceSensor1_v2());
+    // Serial.print(" mm\n");
+    // setAllMOSFETtoHIGH();
+    beginSensor1();
+    // setAllMOSFETtoHIGH();
+    beginSensor2();
+    // setAllMOSFETtoHIGH();
+    beginSensor3();
+    // beginAllSensors();
+    // setAllMOSFETtoLOW();
+    // setAllXSHUTtoHIGH();
+    setAllMOSFETtoHIGH();
+}
+
+void setAllXSHUTtoHIGH()
+{
+    digitalWrite(XSHUT_1, HIGH);
+    digitalWrite(XSHUT_2, HIGH);
+    digitalWrite(XSHUT_3, HIGH);
 }
 
 /*
@@ -236,38 +269,164 @@ void WayangDisplay::generalLoop()
         break;
 
     case StateManagement::FSA_STATE::CALIBRATING_ALL_NEMA:
+        setAllMOSFETtoLOW();
         // beginAllSensors();
-        Episodes::manual_begin();
-        Episodes::testing_hanuman_horizontal_movement();
-        Episodes::testing_rama_wijaya_horizontal_movement();
+        // wayangRahwana.defaultStandPosition();
+        // wayangRahwana.walk_to_a_certain_distance(100); // 10 cm
+        // wayangRahwana.walk_to_a_certain_distance(200); // 20 cm
+        // wayangRahwana.walk_to_a_certain_distance(300); // 30 cm
+        // wayangRahwana.defaultStandPosition();
+
+        // Episodes::testing_sita_horizontal_movement();
+        // Episodes::testing_rahwana_horizontal_movement();
+        // Episodes::testing_rama_wijaya_horizontal_movement();
 
         /* Kalibrasi sebenarnya */
+        // Wire.begin();
+        // Wire.setClock(200000);
+        // Wire.setTimeout(500);
+        // Wire.setWireTimeout(5000, true);
+        // setAllMOSFETtoHIGH();
+        // delay(100);
+        // if (!getSensorStatus(1))
+        // {
+        // beginSensor1();
+        // }
+        // Serial.println("\nMoving wayang 1!");
+        // WayangHorizontalControl::wayang1(100);
+        // Serial.println("wayang 1 distance: ");
+        // Serial.print(getDistanceSensor1());
+        // Serial.println(" mm \n");
+        // setAllMOSFETtoHIGH();
 
-        // WayangHorizontalControl::wayang1(50);
-        // WayangHorizontalControl::wayang2(50);
-        // WayangHorizontalControl::wayang3(50);
-        // WayangHorizontalControl::wayang4(50);
-        // WayangHorizontalControl::wayang5(50);
-        // WayangHorizontalControl::wayang6(50);
-        // WayangHorizontalControl::wayang7(50);
-        // WayangHorizontalControl::wayang8(50);
-        // WayangHorizontalControl::wayang9(50);
-        // WayangHorizontalControl::wayang10(50);
+        // setAllMOSFETtoLOW();
+        // setAllMOSFETtoHIGH();
+
+        // delay(100);
+        // if (!getSensorStatus(2))
+        // {
+        // beginSensor2();
+        // }
+        // Serial.println("\nMoving wayang 2!");
+        // WayangHorizontalControl::wayang2(100);
+        // Serial.println("wayang 2 distance: ");
+        // int d0 = getDistanceSensor2();
+        // Serial.print(d0);
+        // Serial.println(" mm \n");
+        // setAllMOSFETtoHIGH();
+
+        // wayangRahwana.walk_to_scene(280); // 10 cm
+
+        // beginSensor2();
+
+        // Serial.println("wayang 2 distance: ");
+        // int d1 = getDistanceSensor2();
+        // Serial.print(d1);
+        // Serial.println(" mm \n");
+
+        // Serial.print(d1 - d0);
+
+        // wayangRahwana.leave_from_scene(280); // maybe 10 cm
+
+        // beginSensor2();
+
+        // Serial.println("wayang 2 distance: ");
+        // int d2 = getDistanceSensor2();
+        // Serial.print(d2);
+        // Serial.println(" mm \n");
+
+        // Serial.print(d2 - d1);
+
+        // setAllMOSFETtoLOW();
+
+        // delay(100);
+        // if (!getSensorStatus(3))
+        // {
+        // beginSensor3();
+        // }
+        // Serial.println("\nMoving wayang 3!");
+        // WayangHorizontalControl::wayang3(100);
+        // Serial.println("wayang 3 distance: ");
+        // Serial.print(getDistanceSensor3());
+        // Serial.println(" mm \n");
+        // setAllMOSFETtoHIGH();
+
+        Serial.println("\nSensor 1\n");
+        wayangSita.walk_to_a_certain_distance_before_calibrating_value(60);
+        Serial.println("\nSensor 2\n");
+        wayangRahwana.walk_to_a_certain_distance_before_calibrating_value(60);
+        Serial.println("\nSensor 3\n");
+        wayangRamaWijaya.walk_to_a_certain_distance_before_calibrating_value(60);
+
+        Serial.println("\nSensor 1\n");
+        wayangSita.walk_to_a_certain_distance_before_calibrating_value(100);
+        Serial.println("\nSensor 2\n");
+        wayangRahwana.walk_to_a_certain_distance_before_calibrating_value(100);
+        Serial.println("\nSensor 3\n");
+        wayangRamaWijaya.walk_to_a_certain_distance_before_calibrating_value(100);
+
+        // Serial.println("\nSensor 1\n");
+        // wayangSita.walk_to_a_certain_distance(50);
+        // // Serial.println("\nSensor 2\n");
+        // // wayangRahwana.walk_to_a_certain_distance(50);
+        // Serial.println("\nSensor 3\n");
+        // wayangRamaWijaya.walk_to_a_certain_distance(50);
+
+        SoundSystem::playDialogFromACertainFolder(SoundSystem::INDICATOR_SOUND, SoundSystem::INDICATOR_SOUND_NUMBER::INDICATOR_VSLOT_CALIBRATION);
+        delay(3500);
+
+        setAllMOSFETtoHIGH();
 
         loop_state = StateManagement::FSA_STATE::DEFAULT_LOOPING_LCD;
         delay(1);
         break;
 
     case StateManagement::FSA_STATE::MP3_REINIT:
+        setAllMOSFETtoLOW();
+        WayangDisplayLCD_in_main.disableLCD();
         SoundSystem::initSound();
+        setAllMOSFETtoHIGH();
+        WayangDisplayLCD_in_main.enableLCD();
         loop_state = StateManagement::FSA_STATE::DEFAULT_LOOPING_LCD;
         delay(1);
         break;
 
     case StateManagement::FSA_STATE::WAYANG_HAND_CALIBRATION:
-        wayangRamaWijaya.hand_movement_test_1();
+
+        // testing Sita
+        setAllMOSFETtoLOW();
+        // WayangDisplayLCD_in_main.disableLCD();
+        // wayangSita.hand_movement_test_1();
+        wayangSita.defaultHandPosition();
+
+        // testing Rahwana
+
+        wayangRahwana.defaultHandPosition();
+        // delay(1000);
+        // wayangRahwana.pointToFront();
+        // delay(1000);
+        // wayangRahwana.pointToSelf();
+        // delay(1000);
+        // wayangRahwana.defaultHandPosition();
+        // delay(1000);
+        // testing Rama Wijaya
+        // wayangRamaWijaya.hand_movement_test_1();
         wayangRamaWijaya.defaultHandPosition();
-        
+        // delay(1000);
+        // // wayangRamaWijaya.right_moveHandBackAbit();
+        // // delay(2000);
+        // // wayangRamaWijaya.right_handOnHip();
+        // // delay(2000);
+        // // wayangRamaWijaya.left_pointToFront();
+        // // delay(2000);
+        // wayangRamaWijaya.left_pointToSelf();
+        // delay(2000);
+        // wayangRamaWijaya.defaultHandPosition();
+        setAllMOSFETtoHIGH();
+        SoundSystem::playDialogFromACertainFolder(SoundSystem::INDICATOR_SOUND, SoundSystem::INDICATOR_SOUND_NUMBER::INDICATOR_WAYANG_HAND_CALIBRATION);
+        delay(3500);
+        // WayangDisplayLCD_in_main.enableLCD();
+
         loop_state = StateManagement::FSA_STATE::DEFAULT_LOOPING_LCD;
         delay(1);
         break;
@@ -276,6 +435,14 @@ void WayangDisplay::generalLoop()
         pageRoute = StateManagement::PAGE_ROUTE::SENSOR_STATUS_PAGE;
         subPageRouteSensorStatus = StateManagement::SENSOR_STATUS_PAGE_ROUTE::SENSOR_123;
         WayangDisplayLCD_in_main.set_selection_point(1);
+        loop_state = StateManagement::FSA_STATE::DEFAULT_LOOPING_LCD;
+        delay(1);
+        break;
+
+    case StateManagement::FSA_STATE::PLAY_EPISODE_1:
+        WayangDisplayLCD_in_main.disableLCD();
+        Episodes::July29_Episode();
+        WayangDisplayLCD_in_main.enableLCD();
         loop_state = StateManagement::FSA_STATE::DEFAULT_LOOPING_LCD;
         delay(1);
         break;
@@ -327,6 +494,7 @@ void WayangDisplayController::pressRotaryEncoder()
 
             case 1:
                 // Play Episode 1
+                loop_state = StateManagement::FSA_STATE::PLAY_EPISODE_1;
                 // do nothing
                 break;
 
@@ -838,108 +1006,127 @@ void WayangDisplayController::spinRotaryEncoder()
 
 void WayangHorizontalControl::wayang1(int distance)
 {
-    digitalWrite(WAYANG_HAND_1, HIGH);
+    // digitalWrite(WAYANG_HAND_1, HIGH);
     digitalWrite(EN_NEMA_1, LOW);
-    delay(100);
+    // delay(100);
     if (distance > getDistanceSensor1())
     {
-        /* menjauhi sensor, CCW */
-        bool state = true;
-        digitalWrite(NEMA_DIR, LOW);
-        while (distance != getDistanceSensor1())
+        /* menjauhi sensor, CW */
+        if (getDistanceSensor1() != -1)
         {
-            digitalWrite(NEMA_STEP, state);
-            state = !state;
-            delayMicroseconds(PERIOD_NEMA);
-            if (distance == getDistanceSensor1() || distance < getDistanceSensor1())
+            bool state = true;
+            digitalWrite(NEMA_DIR, LOW);
+            while (distance != getDistanceSensor1())
             {
-                break;
+                digitalWrite(NEMA_STEP, state);
+                state = !state;
+                delayMicroseconds(PERIOD_NEMA); // customed delay for experiment
+                if (distance == getDistanceSensor1() || distance < getDistanceSensor1() || getDistanceSensor1() == -1)
+                {
+                    break;
+                }
             }
+        }
+        else
+        {
+            Serial.println("\nSensor 1 error read, returned -1");
         }
     }
     else if (distance < getDistanceSensor1())
     {
-        /* mendekati sensor, CW */
+        /* mendekati sensor, CCW */
         bool state = true;
         digitalWrite(NEMA_DIR, HIGH);
         while (distance != getDistanceSensor1())
         {
             digitalWrite(NEMA_STEP, state);
             state = !state;
-            delayMicroseconds(PERIOD_NEMA);
-            if (distance == getDistanceSensor1() || distance > getDistanceSensor1())
+            delayMicroseconds(PERIOD_NEMA); // customed delay for experiment
+            if (distance == getDistanceSensor1() || distance > getDistanceSensor1() || getDistanceSensor1() == -1)
             {
                 break;
             }
         }
     }
-    digitalWrite(WAYANG_HAND_1, LOW);
+    digitalWrite(EN_NEMA_1, HIGH);
 }
 
 void WayangHorizontalControl::wayang2(int distance)
 {
-    digitalWrite(WAYANG_HAND_2, HIGH);
     digitalWrite(EN_NEMA_2, LOW);
     delay(100);
     if (distance > getDistanceSensor2())
     {
-        /* menjauhi sensor, CCW */
-        bool state = true;
-        digitalWrite(NEMA_DIR, LOW);
-        while (distance != getDistanceSensor2())
+        /* menjauhi sensor, CW */
+        if (getDistanceSensor2() != -1)
         {
-            digitalWrite(NEMA_STEP, state);
-            state = !state;
-            delayMicroseconds(PERIOD_NEMA);
-            if (distance == getDistanceSensor2() || distance < getDistanceSensor2())
+            bool state = true;
+            digitalWrite(NEMA_DIR, LOW);
+            while (distance != getDistanceSensor2())
             {
-                break;
+                digitalWrite(NEMA_STEP, state);
+                state = !state;
+                // delayMicroseconds(PERIOD_NEMA);
+                if (distance == getDistanceSensor2() || distance < getDistanceSensor2() || getDistanceSensor2() == -1)
+                {
+                    break;
+                }
             }
+        }
+        else
+        {
+            Serial.println("\nSensor 2 error read, returned -1");
         }
     }
     else if (distance < getDistanceSensor2())
     {
-        /* mendekati sensor, CW */
+        /* mendekati sensor, CCW */
         bool state = true;
         digitalWrite(NEMA_DIR, HIGH);
         while (distance != getDistanceSensor2())
         {
             digitalWrite(NEMA_STEP, state);
             state = !state;
-            delayMicroseconds(PERIOD_NEMA);
-            if (distance == getDistanceSensor2() || distance > getDistanceSensor2())
+            // delayMicroseconds(PERIOD_NEMA);
+            if (distance == getDistanceSensor2() || distance > getDistanceSensor2() || getDistanceSensor2() == -1)
             {
                 break;
             }
         }
     }
-    digitalWrite(WAYANG_HAND_2, LOW);
+    digitalWrite(EN_NEMA_2, HIGH);
 }
 
 void WayangHorizontalControl::wayang3(int distance)
 {
-    digitalWrite(WAYANG_HAND_3, HIGH);
     digitalWrite(EN_NEMA_3, LOW);
     delay(100);
     if (distance > getDistanceSensor3())
     {
-        /* menjauhi sensor, CCW */
-        bool state = true;
-        digitalWrite(NEMA_DIR, LOW);
-        while (distance != getDistanceSensor3())
+        /* menjauhi sensor, CW */
+        if (getDistanceSensor3() != -1)
         {
-            digitalWrite(NEMA_STEP, state);
-            state = !state;
-            delayMicroseconds(PERIOD_NEMA);
-            if (distance == getDistanceSensor3() || distance < getDistanceSensor3())
+            bool state = true;
+            digitalWrite(NEMA_DIR, LOW);
+            while (distance != getDistanceSensor3())
             {
-                break;
+                digitalWrite(NEMA_STEP, state);
+                state = !state;
+                delayMicroseconds(PERIOD_NEMA);
+                if (distance == getDistanceSensor3() || distance < getDistanceSensor3() || getDistanceSensor3() == -1)
+                {
+                    break;
+                }
             }
+        }
+        else
+        {
+            Serial.println("\nSensor 3 error read, returned -1");
         }
     }
     else if (distance < getDistanceSensor3())
     {
-        /* mendekati sensor, CW */
+        /* mendekati sensor, CCW */
         bool state = true;
         digitalWrite(NEMA_DIR, HIGH);
         while (distance != getDistanceSensor3())
@@ -947,18 +1134,18 @@ void WayangHorizontalControl::wayang3(int distance)
             digitalWrite(NEMA_STEP, state);
             state = !state;
             delayMicroseconds(PERIOD_NEMA);
-            if (distance == getDistanceSensor3() || distance > getDistanceSensor3())
+            if (distance == getDistanceSensor3() || distance > getDistanceSensor3() || getDistanceSensor3() == -1)
             {
                 break;
             }
         }
     }
-    digitalWrite(WAYANG_HAND_3, LOW);
+    digitalWrite(EN_NEMA_3, HIGH);
 }
 
+// blm tak ubah dirnya
 void WayangHorizontalControl::wayang4(int distance)
 {
-    digitalWrite(WAYANG_HAND_4, HIGH);
     digitalWrite(EN_NEMA_4, LOW);
     delay(100);
     if (distance > getDistanceSensor4())
@@ -971,7 +1158,7 @@ void WayangHorizontalControl::wayang4(int distance)
             digitalWrite(NEMA_STEP, state);
             state = !state;
             delayMicroseconds(PERIOD_NEMA);
-            if (distance == getDistanceSensor4() || distance < getDistanceSensor4())
+            if (distance == getDistanceSensor4() || distance < getDistanceSensor4() || getDistanceSensor4() == -1)
             {
                 break;
             }
@@ -987,18 +1174,17 @@ void WayangHorizontalControl::wayang4(int distance)
             digitalWrite(NEMA_STEP, state);
             state = !state;
             delayMicroseconds(PERIOD_NEMA);
-            if (distance == getDistanceSensor4() || distance > getDistanceSensor4())
+            if (distance == getDistanceSensor4() || distance > getDistanceSensor4() || getDistanceSensor4() == -1)
             {
                 break;
             }
         }
     }
-    digitalWrite(WAYANG_HAND_4, LOW);
+    digitalWrite(EN_NEMA_4, HIGH);
 }
 
 void WayangHorizontalControl::wayang5(int distance)
 {
-    digitalWrite(WAYANG_HAND_5, HIGH);
     digitalWrite(EN_NEMA_5, LOW);
     delay(100);
     if (distance > getDistanceSensor5())
@@ -1011,7 +1197,7 @@ void WayangHorizontalControl::wayang5(int distance)
             digitalWrite(NEMA_STEP, state);
             state = !state;
             delayMicroseconds(PERIOD_NEMA);
-            if (distance == getDistanceSensor5() || distance < getDistanceSensor5())
+            if (distance == getDistanceSensor5() || distance < getDistanceSensor5() || getDistanceSensor5() == -1)
             {
                 break;
             }
@@ -1027,18 +1213,17 @@ void WayangHorizontalControl::wayang5(int distance)
             digitalWrite(NEMA_STEP, state);
             state = !state;
             delayMicroseconds(PERIOD_NEMA);
-            if (distance == getDistanceSensor5() || distance > getDistanceSensor5())
+            if (distance == getDistanceSensor5() || distance > getDistanceSensor5() || getDistanceSensor5() == -1)
             {
                 break;
             }
         }
     }
-    digitalWrite(WAYANG_HAND_5, LOW);
+    digitalWrite(EN_NEMA_5, HIGH);
 }
 
 void WayangHorizontalControl::wayang6(int distance)
 {
-    digitalWrite(WAYANG_HAND_6, HIGH);
     digitalWrite(EN_NEMA_6, LOW);
     delay(100);
     if (distance > getDistanceSensor6())
@@ -1051,7 +1236,7 @@ void WayangHorizontalControl::wayang6(int distance)
             digitalWrite(NEMA_STEP, state);
             state = !state;
             delayMicroseconds(PERIOD_NEMA);
-            if (distance == getDistanceSensor6() || distance < getDistanceSensor6())
+            if (distance == getDistanceSensor6() || distance < getDistanceSensor6() || getDistanceSensor6() == -1)
             {
                 break;
             }
@@ -1067,18 +1252,17 @@ void WayangHorizontalControl::wayang6(int distance)
             digitalWrite(NEMA_STEP, state);
             state = !state;
             delayMicroseconds(PERIOD_NEMA);
-            if (distance == getDistanceSensor6() || distance > getDistanceSensor6())
+            if (distance == getDistanceSensor6() || distance > getDistanceSensor6() || getDistanceSensor6() == -1)
             {
                 break;
             }
         }
     }
-    digitalWrite(WAYANG_HAND_6, LOW);
+    digitalWrite(EN_NEMA_6, HIGH);
 }
 
 void WayangHorizontalControl::wayang7(int distance)
 {
-    digitalWrite(WAYANG_HAND_7, HIGH);
     digitalWrite(EN_NEMA_7, LOW);
     delay(100);
     if (distance > getDistanceSensor7())
@@ -1091,7 +1275,7 @@ void WayangHorizontalControl::wayang7(int distance)
             digitalWrite(NEMA_STEP, state);
             state = !state;
             delayMicroseconds(PERIOD_NEMA);
-            if (distance == getDistanceSensor7() || distance < getDistanceSensor7())
+            if (distance == getDistanceSensor7() || distance < getDistanceSensor7() || getDistanceSensor7() == -1)
             {
                 break;
             }
@@ -1107,18 +1291,17 @@ void WayangHorizontalControl::wayang7(int distance)
             digitalWrite(NEMA_STEP, state);
             state = !state;
             delayMicroseconds(PERIOD_NEMA);
-            if (distance == getDistanceSensor7() || distance > getDistanceSensor7())
+            if (distance == getDistanceSensor7() || distance > getDistanceSensor7() || getDistanceSensor7() == -1)
             {
                 break;
             }
         }
     }
-    digitalWrite(WAYANG_HAND_7, LOW);
+    digitalWrite(EN_NEMA_7, HIGH);
 }
 
 void WayangHorizontalControl::wayang8(int distance)
 {
-    digitalWrite(WAYANG_HAND_8, HIGH);
     digitalWrite(EN_NEMA_8, LOW);
     delay(100);
     if (distance > getDistanceSensor8())
@@ -1131,7 +1314,7 @@ void WayangHorizontalControl::wayang8(int distance)
             digitalWrite(NEMA_STEP, state);
             state = !state;
             delayMicroseconds(PERIOD_NEMA);
-            if (distance == getDistanceSensor8() || distance < getDistanceSensor8())
+            if (distance == getDistanceSensor8() || distance < getDistanceSensor8() || getDistanceSensor8() == -1)
             {
                 break;
             }
@@ -1147,18 +1330,17 @@ void WayangHorizontalControl::wayang8(int distance)
             digitalWrite(NEMA_STEP, state);
             state = !state;
             delayMicroseconds(PERIOD_NEMA);
-            if (distance == getDistanceSensor8() || distance > getDistanceSensor8())
+            if (distance == getDistanceSensor8() || distance > getDistanceSensor8() || getDistanceSensor8() == -1)
             {
                 break;
             }
         }
     }
-    digitalWrite(WAYANG_HAND_8, LOW);
+    digitalWrite(EN_NEMA_8, HIGH);
 }
 
 void WayangHorizontalControl::wayang9(int distance)
 {
-    digitalWrite(WAYANG_HAND_9, HIGH);
     digitalWrite(EN_NEMA_9, LOW);
     delay(100);
     if (distance > getDistanceSensor9())
@@ -1171,7 +1353,7 @@ void WayangHorizontalControl::wayang9(int distance)
             digitalWrite(NEMA_STEP, state);
             state = !state;
             delayMicroseconds(PERIOD_NEMA);
-            if (distance == getDistanceSensor9() || distance < getDistanceSensor9())
+            if (distance == getDistanceSensor9() || distance < getDistanceSensor9() || getDistanceSensor9() == -1)
             {
                 break;
             }
@@ -1187,18 +1369,17 @@ void WayangHorizontalControl::wayang9(int distance)
             digitalWrite(NEMA_STEP, state);
             state = !state;
             delayMicroseconds(PERIOD_NEMA);
-            if (distance == getDistanceSensor9() || distance > getDistanceSensor9())
+            if (distance == getDistanceSensor9() || distance > getDistanceSensor9() || getDistanceSensor9() == -1)
             {
                 break;
             }
         }
     }
-    digitalWrite(WAYANG_HAND_9, LOW);
+    digitalWrite(EN_NEMA_9, HIGH);
 }
 
 void WayangHorizontalControl::wayang10(int distance)
 {
-    digitalWrite(WAYANG_HAND_10, HIGH);
     digitalWrite(EN_NEMA_10, LOW);
     delay(100);
     if (distance > getDistanceSensor10())
@@ -1211,7 +1392,7 @@ void WayangHorizontalControl::wayang10(int distance)
             digitalWrite(NEMA_STEP, state);
             state = !state;
             delayMicroseconds(PERIOD_NEMA);
-            if (distance == getDistanceSensor10() || distance < getDistanceSensor10())
+            if (distance == getDistanceSensor10() || distance < getDistanceSensor10() || getDistanceSensor10() == -1)
             {
                 break;
             }
@@ -1227,13 +1408,13 @@ void WayangHorizontalControl::wayang10(int distance)
             digitalWrite(NEMA_STEP, state);
             state = !state;
             delayMicroseconds(PERIOD_NEMA);
-            if (distance == getDistanceSensor10() || distance > getDistanceSensor10())
+            if (distance == getDistanceSensor10() || distance > getDistanceSensor10() || getDistanceSensor10() == -1)
             {
                 break;
             }
         }
     }
-    digitalWrite(WAYANG_HAND_10, LOW);
+    digitalWrite(EN_NEMA_10, HIGH);
 }
 
 WayangHandServo::WayangHandServo(int leftOrRight)
@@ -1311,89 +1492,232 @@ int WayangHandServo::getWavePeriod()
     return this->wavePeriod;
 }
 
-int WayangHandServo::degreeToDelay(int degree){
+int WayangHandServo::degreeToDelay(int degree)
+{
     return map(degree, 0, 180, 500, 2500);
 }
 
 void WayangHandServo::defaultPosition()
 {
-    // default position is 90 degree
-    for (int i = 0; i < getAmountOfWaves(); i++)
-    {
-        digitalWrite(getServoPin1(), HIGH);
-        delayMicroseconds(degreeToDelay(90));
-        digitalWrite(getServoPin1(), LOW);
-        delayMicroseconds(getWavePeriod() - degreeToDelay(90));
-    }
-
-    for (int i = 0; i < getAmountOfWaves(); i++)
-    {
-        digitalWrite(getServoPin2(), HIGH);
-        delayMicroseconds(degreeToDelay(90));
-        digitalWrite(getServoPin2(), LOW);
-        delayMicroseconds(getWavePeriod() - degreeToDelay(90));
-    }
-
-    for (int i = 0; i < getAmountOfWaves(); i++)
-    {
-        digitalWrite(getServoPin3(), HIGH);
-        delayMicroseconds(degreeToDelay(90));
-        digitalWrite(getServoPin3(), LOW);
-        delayMicroseconds(getWavePeriod() - degreeToDelay(90));
-    }
-
-    for (int i = 0; i < getAmountOfWaves(); i++)
-    {
-        digitalWrite(getServoPin4(), HIGH);
-        delayMicroseconds(degreeToDelay(90));
-        digitalWrite(getServoPin4(), LOW);
-        delayMicroseconds(getWavePeriod() - degreeToDelay(90));
-    }
-
-    
+    moveWhatServo(1, 180, 2000);
+    moveWhatServo(2, 90, 2000);
+    moveWhatServo(3, 0, 2000);
+    moveWhatServo(4, 90, 2000);
 }
 
-void WayangHandServo::moveWhatServo(int servoNumber, int degree){
-    switch (servoNumber)
+void WayangHandServo::resetArray()
+{
+    for (int i = 0; i < 4; i++)
+    {
+        setCurrentDegServo(i + 1, 0);
+    }
+}
+
+int WayangHandServo::getCurrentDegServo(int servoNum)
+{
+    switch (servoNum)
     {
     case 1:
-        for (int i = 0; i < getAmountOfWaves(); i++)
-        {
-            digitalWrite(getServoPin1(), HIGH);
-            delayMicroseconds(degreeToDelay(degree));
-            digitalWrite(getServoPin1(), LOW);
-            delayMicroseconds(getWavePeriod() - degreeToDelay(degree));
-        }
+        return this->currentDeg[0];
         break;
 
     case 2:
-        for (int i = 0; i < getAmountOfWaves(); i++)
-        {
-            digitalWrite(getServoPin2(), HIGH);
-            delayMicroseconds(degreeToDelay(degree));
-            digitalWrite(getServoPin2(), LOW);
-            delayMicroseconds(getWavePeriod() - degreeToDelay(degree));
-        }
+        return this->currentDeg[1];
         break;
 
     case 3:
-        for (int i = 0; i < getAmountOfWaves(); i++)
-        {
-            digitalWrite(getServoPin3(), HIGH);
-            delayMicroseconds(degreeToDelay(degree));
-            digitalWrite(getServoPin3(), LOW);
-            delayMicroseconds(getWavePeriod() - degreeToDelay(degree));
-        }
+        return this->currentDeg[2];
         break;
 
     case 4:
-        for (int i = 0; i < getAmountOfWaves(); i++)
-        {
-            digitalWrite(getServoPin4(), HIGH);
-            delayMicroseconds(degreeToDelay(degree));
-            digitalWrite(getServoPin4(), LOW);
-            delayMicroseconds(getWavePeriod() - degreeToDelay(degree));
-        }
+        return this->currentDeg[3];
         break;
     }
+}
+
+void WayangHandServo::setCurrentDegServo(int servoNum, int degree)
+{
+    switch (servoNum)
+    {
+    case 1:
+        this->currentDeg[0] = degree;
+        break;
+
+    case 2:
+        this->currentDeg[1] = degree;
+        break;
+
+    case 3:
+        this->currentDeg[2] = degree;
+        break;
+
+    case 4:
+        this->currentDeg[3] = degree;
+        break;
+    }
+}
+
+void WayangHandServo::moveWhatServo(int servoNum, int degree, int desiredDuration)
+{
+    int selectedPin;
+    switch (servoNum)
+    {
+    case 1:
+        selectedPin = getServoPin1();
+        break;
+
+    case 2:
+        selectedPin = getServoPin2();
+        break;
+
+    case 3:
+        selectedPin = getServoPin3();
+        break;
+
+    case 4:
+        selectedPin = getServoPin4();
+        break;
+    }
+
+    int curdeg = getCurrentDegServo(servoNum);
+    if (curdeg - degree != 0)
+    {
+        int waveAmount = desiredDuration / 20;
+        int degmismatch = abs(curdeg - degree);
+        int largemismatch = degmismatch;
+        int divVar = 1;
+
+        // subdivide until nondec
+        while (waveAmount / largemismatch < 1)
+        {
+            largemismatch = largemismatch / 2;
+            divVar = divVar * 2;
+        }
+
+        int mismatchremainder = degmismatch % divVar;
+        int remainder = waveAmount % largemismatch;
+        Serial.println((String)largemismatch);
+
+        if (curdeg > degree)
+        {
+            if (mismatchremainder != 0)
+            {
+                for (int i = 0; i < remainder; i++)
+                {
+                    digitalWrite(selectedPin, HIGH);
+                    delayMicroseconds(degreeToDelay(curdeg - mismatchremainder));
+                    digitalWrite(selectedPin, LOW);
+                    delayMicroseconds(getWavePeriod() - degreeToDelay(curdeg - mismatchremainder));
+                }
+            }
+
+            for (int i = 0; i < largemismatch; i++)
+            {
+                for (int j = 0; j < waveAmount / largemismatch; j++)
+                {
+                    digitalWrite(selectedPin, HIGH);
+                    delayMicroseconds(degreeToDelay(curdeg - i * divVar));
+                    digitalWrite(selectedPin, LOW);
+                    delayMicroseconds(getWavePeriod() - degreeToDelay(curdeg - i * divVar));
+                }
+            }
+        }
+        else
+        {
+            if (mismatchremainder != 0)
+            {
+                for (int i = 0; i < remainder; i++)
+                {
+                    digitalWrite(selectedPin, HIGH);
+                    delayMicroseconds(degreeToDelay(curdeg + mismatchremainder));
+                    digitalWrite(selectedPin, LOW);
+                    delayMicroseconds(getWavePeriod() - degreeToDelay(curdeg + mismatchremainder));
+                }
+            }
+
+            for (int i = 0; i < largemismatch; i++)
+            {
+                for (int j = 0; j < waveAmount / largemismatch; j++)
+                {
+                    digitalWrite(selectedPin, HIGH);
+                    delayMicroseconds(degreeToDelay(curdeg + i * divVar));
+                    digitalWrite(selectedPin, LOW);
+                    delayMicroseconds(getWavePeriod() - degreeToDelay(curdeg + i * divVar));
+                }
+            }
+        }
+
+        setCurrentDegServo(servoNum, degree);
+
+        // switch (servoNumber)
+        // {
+        // case 1:
+        //     for (int i = 0; i < getAmountOfWaves(); i++)
+        //     {
+        //         digitalWrite(getServoPin1(), HIGH);
+        //         delayMicroseconds(degreeToDelay(degree));
+        //         digitalWrite(getServoPin1(), LOW);
+        //         delayMicroseconds(getWavePeriod() - degreeToDelay(degree));
+        //     }
+        //     break;
+
+        // case 2:
+        //     for (int i = 0; i < getAmountOfWaves(); i++)
+        //     {
+        //         digitalWrite(getServoPin2(), HIGH);
+        //         delayMicroseconds(degreeToDelay(degree));
+        //         digitalWrite(getServoPin2(), LOW);
+        //         delayMicroseconds(getWavePeriod() - degreeToDelay(degree));
+        //     }
+        //     break;
+
+        // case 3:
+        //     for (int i = 0; i < getAmountOfWaves(); i++)
+        //     {
+        //         digitalWrite(getServoPin3(), HIGH);
+        //         delayMicroseconds(degreeToDelay(degree));
+        //         digitalWrite(getServoPin3(), LOW);
+        //         delayMicroseconds(getWavePeriod() - degreeToDelay(degree));
+        //     }
+        //     break;
+
+        // case 4:
+        //     for (int i = 0; i < getAmountOfWaves(); i++)
+        //     {
+        //         digitalWrite(getServoPin4(), HIGH);
+        //         delayMicroseconds(degreeToDelay(degree));
+        //         digitalWrite(getServoPin4(), LOW);
+        //         delayMicroseconds(getWavePeriod() - degreeToDelay(degree));
+        //     }
+        //     break;
+        // }
+    }
+}
+
+void setAllMOSFETtoHIGH()
+{
+    digitalWrite(WAYANG_HAND_1, HIGH);
+    digitalWrite(WAYANG_HAND_2, HIGH);
+    digitalWrite(WAYANG_HAND_3, HIGH);
+    digitalWrite(WAYANG_HAND_4, HIGH);
+    digitalWrite(WAYANG_HAND_5, HIGH);
+    digitalWrite(WAYANG_HAND_6, HIGH);
+    digitalWrite(WAYANG_HAND_7, HIGH);
+    digitalWrite(WAYANG_HAND_8, HIGH);
+    digitalWrite(WAYANG_HAND_9, HIGH);
+    digitalWrite(WAYANG_HAND_10, HIGH);
+}
+
+void setAllMOSFETtoLOW()
+{
+    digitalWrite(WAYANG_HAND_1, LOW);
+    digitalWrite(WAYANG_HAND_2, LOW);
+    digitalWrite(WAYANG_HAND_3, LOW);
+    digitalWrite(WAYANG_HAND_4, LOW);
+    digitalWrite(WAYANG_HAND_5, LOW);
+    digitalWrite(WAYANG_HAND_6, LOW);
+    digitalWrite(WAYANG_HAND_7, LOW);
+    digitalWrite(WAYANG_HAND_8, LOW);
+    digitalWrite(WAYANG_HAND_9, LOW);
+    digitalWrite(WAYANG_HAND_10, LOW);
 }

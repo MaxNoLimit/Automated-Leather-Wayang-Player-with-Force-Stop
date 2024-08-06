@@ -4,6 +4,9 @@
 // #include <CheapStepper.h>
 
 void beginingAllGPIOS();
+void setAllMOSFETtoHIGH();
+void setAllMOSFETtoLOW();
+void setAllXSHUTtoHIGH();
 namespace WayangDisplay
 {
     void lcd2004setup();
@@ -40,15 +43,10 @@ enum whatSideServo
 class WayangHandServo
 {
 public:
-    enum whatSideServo
-    {
-        LEFT = 0,
-        RIGHT = 1
-    };
     WayangHandServo(int leftOrRight);
     virtual ~WayangHandServo();
     void defaultPosition();
-    void moveWhatServo(int servoNumber, int degree);
+    void moveWhatServo(int servoNumber, int degree, int desiredDuration);
 
     void setServoPin1(int pin);
     void setServoPin2(int pin);
@@ -64,6 +62,11 @@ public:
     int getWavePeriod();
     int degreeToDelay(int degree);
 
+    void setCurrentDegServo(int pin, int degree);
+    int getCurrentDegServo(int pin);
+
+    void resetArray();
+
 private:
     const int wavePeriod = 20000; // in microseconds
     const int amountOfWaves = 100;
@@ -71,6 +74,7 @@ private:
     int servoPin2;
     int servoPin3;
     int servoPin4;
+    int currentDeg[4] = {0, 0, 0, 0};
 };
 
 #endif // MAINFUNCTIONS_H

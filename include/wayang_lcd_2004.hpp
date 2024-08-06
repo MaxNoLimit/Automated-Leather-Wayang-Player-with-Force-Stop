@@ -39,6 +39,9 @@ namespace WayangDisplay
         void SensorStatusDisplay7();
         void SensorStatusDisplay8();
 
+        void enableLCD();
+        void disableLCD();
+
         void SettingsDisplay();
         void SettingsVolumeDisplay();
 

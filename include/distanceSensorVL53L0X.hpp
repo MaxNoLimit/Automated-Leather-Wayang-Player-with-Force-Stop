@@ -15,7 +15,6 @@
 #include <VL53L0X.h>
 #include <Wire.h>
 
-void beginAllSensors();
 
 void beginSensor1();
 void beginSensor2();
@@ -38,6 +37,8 @@ int getDistanceSensor7();
 int getDistanceSensor8();
 int getDistanceSensor9();
 int getDistanceSensor10();
+
+int getDistanceSensor1_v2();
 
 bool getSensorStatus(int num);
 

@@ -50,17 +50,17 @@
 #define WAYANG_HAND_9 47
 #define WAYANG_HAND_10 49
 
-// // LIMIT SWITCHES
-// #define LIMIT_SWITCH_1 54
-// #define LIMIT_SWITCH_2 55
-// #define LIMIT_SWITCH_3 56
-// #define LIMIT_SWITCH_4 57
-// #define LIMIT_SWITCH_5 58
-// #define LIMIT_SWITCH_6 59
-// #define LIMIT_SWITCH_7 60
-// #define LIMIT_SWITCH_8 61
-// #define LIMIT_SWITCH_9 62
-// #define LIMIT_SWITCH_10 63
+// VL53L0X XSHUTS
+#define XSHUT_1 54
+#define XSHUT_2 55
+#define XSHUT_3 56
+// #define XSHUT_4 57
+// #define XSHUT_5 58
+// #define XSHUT_6 59
+// #define XSHUT_7 60
+// #define XSHUT_8 61
+// #define XSHUT_9 62
+// #define XSHUT_10 63
 
 
 

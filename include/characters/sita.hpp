@@ -1,9 +1,8 @@
 #include "mainheader.hpp"
 #include "mainfunctions.hpp"
 
-class RamaWijaya
+class Sita
 {
-
 public:
     void defaultStandPosition();
     void defaultHandPosition();
@@ -18,8 +17,17 @@ public:
     void hand_movement_test_3();
     void hand_movement_test_4();
 
-    void left_pointToSelf();
-    void right_moveHandBackAbit();
+    void left_raise_hand();
+    void left_lower_hand();
+    void left_raise_half_hand();
+    void left_lower_half_hand();
+
+    void right_raise_hand();
+    void right_lower_hand();
+    void right_raise_half_hand();
+    void right_lower_half_hand();
+
+    void pointToSelf();
     void right_handOnHip();
     void left_pointToFront();
 
