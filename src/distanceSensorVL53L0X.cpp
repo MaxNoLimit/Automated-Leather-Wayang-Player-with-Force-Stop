@@ -78,7 +78,7 @@ void beginSensor1()
         distanceSensor[0].setSignalRateLimit(0.1);                                 // 0.1 MCPS
         distanceSensor[0].setVcselPulsePeriod(VL53L0X::VcselPeriodPreRange, 18);   // laser pulse periods 18 PCLKs
         distanceSensor[0].setVcselPulsePeriod(VL53L0X::VcselPeriodFinalRange, 14); // Laser pulse periods 14 PCLKs
-        distanceSensor[0].setMeasurementTimingBudget(20000);                      // HIGH ACCURACY timming budget 200 ms, HIGH SPEED 20 ms
+        distanceSensor[0].setMeasurementTimingBudget(200000);                      // HIGH ACCURACY timming budget 200 ms, HIGH SPEED 20 ms
         // distanceSensor[0].startContinuous(200);
         Serial.println("Sensor 1 distance: ");
         Serial.print(getDistanceSensor1());
@@ -109,7 +109,7 @@ void beginSensor2()
         distanceSensor[1].setSignalRateLimit(0.1);                                 // 0.1 MCPS
         distanceSensor[1].setVcselPulsePeriod(VL53L0X::VcselPeriodPreRange, 18);   // laser pulse periods 18 PCLKs
         distanceSensor[1].setVcselPulsePeriod(VL53L0X::VcselPeriodFinalRange, 14); // Laser pulse periods 14 PCLKs
-        distanceSensor[1].setMeasurementTimingBudget(20000);                      // HIGH ACCURACY timming budget 200 ms, HIGH SPEED 20 ms
+        distanceSensor[1].setMeasurementTimingBudget(200000);                      // HIGH ACCURACY timming budget 200 ms, HIGH SPEED 20 ms
         // distanceSensor[1].startContinuous(200);
         Serial.println("Sensor 2 distance: ");
         Serial.print(getDistanceSensor2());
@@ -140,7 +140,7 @@ void beginSensor3()
         distanceSensor[2].setSignalRateLimit(0.1);                                 // 0.1 MCPS
         distanceSensor[2].setVcselPulsePeriod(VL53L0X::VcselPeriodPreRange, 18);   // laser pulse periods 18 PCLKs
         distanceSensor[2].setVcselPulsePeriod(VL53L0X::VcselPeriodFinalRange, 14); // Laser pulse periods 14 PCLKs
-        distanceSensor[2].setMeasurementTimingBudget(20000);                      // HIGH ACCURACY timming budget 200 ms, HIGH SPEED 20 ms
+        distanceSensor[2].setMeasurementTimingBudget(200000);                      // HIGH ACCURACY timming budget 200 ms, HIGH SPEED 20 ms
         // distanceSensor[2].startContinuous(200);
         Serial.println("Sensor 3 distance: ");
         Serial.print(getDistanceSensor3());

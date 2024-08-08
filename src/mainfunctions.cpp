@@ -352,18 +352,18 @@ void WayangDisplay::generalLoop()
         // setAllMOSFETtoHIGH();
 
         Serial.println("\nSensor 1\n");
-        wayangSita.walk_to_a_certain_distance_before_calibrating_value(60);
+        wayangSita.walk_to_a_certain_distance_before_calibrating_value(200);
         Serial.println("\nSensor 2\n");
-        wayangRahwana.walk_to_a_certain_distance_before_calibrating_value(60);
+        wayangRahwana.walk_to_a_certain_distance_before_calibrating_value(200);
         Serial.println("\nSensor 3\n");
-        wayangRamaWijaya.walk_to_a_certain_distance_before_calibrating_value(60);
+        wayangRamaWijaya.walk_to_a_certain_distance_before_calibrating_value(200);
 
         Serial.println("\nSensor 1\n");
-        wayangSita.walk_to_a_certain_distance_before_calibrating_value(100);
+        wayangSita.defaultStandPosition();
         Serial.println("\nSensor 2\n");
-        wayangRahwana.walk_to_a_certain_distance_before_calibrating_value(100);
+        wayangRahwana.defaultStandPosition();
         Serial.println("\nSensor 3\n");
-        wayangRamaWijaya.walk_to_a_certain_distance_before_calibrating_value(100);
+        wayangRamaWijaya.defaultStandPosition();
 
         // Serial.println("\nSensor 1\n");
         // wayangSita.walk_to_a_certain_distance(50);

@@ -7,6 +7,7 @@ HorizontalController HC_rama_wijaya;
 
 void RamaWijaya::defaultStandPosition()
 {
+    walk_to_a_certain_distance_before_calibrating_value(40);
 }
 
 void RamaWijaya::defaultHandPosition()
@@ -21,12 +22,12 @@ void RamaWijaya::defaultHandPosition()
 
 void RamaWijaya::walk_to_scene(int distanceValue)
 {
-    HC_rama_wijaya.step_for_n_dir(3, distanceValue, "ccw");
+    HC_rama_wijaya.step_for_n_dir(3, distanceValue, "cw");
 }
 
 void RamaWijaya::leave_from_scene(int distanceValue)
 {
-    HC_rama_wijaya.step_for_n_dir(3, distanceValue, "cw");
+    HC_rama_wijaya.step_for_n_dir(3, distanceValue, "ccw");
 }
 
 void RamaWijaya::hand_movement_test_1()
@@ -149,7 +150,7 @@ void RamaWijaya::walk_to_a_certain_distance(int desiredDistance)
     if (difference > 0)
     {
         // difference = difference + 10;
-        float result = (difference / 100) * 280;
+        float result = (difference / 100) * 290;
         int result_int = (int)result + 1;
         Serial.print(result_int);
         Serial.println(" steps\n");
@@ -167,7 +168,7 @@ void RamaWijaya::walk_to_a_certain_distance(int desiredDistance)
 
     {
         // difference = difference - 10;
-        float result = (difference / 100) * 280;
+        float result = (difference / 100) * 290;
         int result_int = (int)result - 1;
         Serial.print(result_int);
         Serial.println(" steps\n");
@@ -189,7 +190,7 @@ void RamaWijaya::walk_to_a_certain_distance(int desiredDistance)
 
 void RamaWijaya::walk_to_a_certain_distance_before_calibrating_value(int desiredDistance)
 {
-    int desiredDistanceAfterCalibratingValue = desiredDistance + (float)desiredDistance * 0.05;
+    int desiredDistanceAfterCalibratingValue = desiredDistance + (float)desiredDistance * (0.025);
     Serial.println("\ndesiredDistance: ");
     Serial.print(desiredDistanceAfterCalibratingValue);
     Serial.println("mm \n");

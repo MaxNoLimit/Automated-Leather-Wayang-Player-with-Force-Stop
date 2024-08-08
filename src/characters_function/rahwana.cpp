@@ -7,35 +7,7 @@ HorizontalController HC_rahwana;
 
 void Rahwana::defaultStandPosition()
 {
-    setAllMOSFETtoLOW();
-    beginSensor2();
-    int readValue = getDistanceSensor2();
-    if (readValue > 1000)
-    {
-        readValue = 800;
-    }
-
-    Serial.println("readValue 1: ");
-    Serial.print(readValue);
-    Serial.println("mm \n");
-    float difference = readValue - 33;
-    Serial.print(difference);
-    Serial.println("mm \n");
-    float result = (difference / 100) * 290;
-    int result_int = (int)result + 1;
-    Serial.print(result_int);
-    Serial.println(" steps\n");
-    leave_from_scene(result_int);
-    Serial.println("readValue 2: ");
-    int finalReadValue = getDistanceSensor2();
-    Serial.print(finalReadValue);
-    Serial.println("mm \n");
-    if (finalReadValue > 35)
-    {
-        defaultStandPosition();
-    }
-
-    setAllMOSFETtoHIGH();
+    walk_to_a_certain_distance_before_calibrating_value(50);
 }
 
 void Rahwana::walk_to_a_certain_distance(int desiredDistance)
@@ -60,7 +32,7 @@ void Rahwana::walk_to_a_certain_distance(int desiredDistance)
     if (difference > 0)
     {
         // difference = difference + 10;
-        float result = (difference / 100) * 280;
+        float result = (difference / 100) * 290;
         int result_int = (int)result + 1;
         Serial.print(result_int);
         Serial.println(" steps\n");
@@ -78,7 +50,7 @@ void Rahwana::walk_to_a_certain_distance(int desiredDistance)
 
     {
         // difference = difference - 10;
-        float result = (difference / 100) * 280;
+        float result = (difference / 100) * 290;
         int result_int = (int)result - 1;
         Serial.print(result_int);
         Serial.println(" steps\n");
@@ -381,7 +353,7 @@ void Rahwana::pointToSelf()
 
 void Rahwana::walk_to_a_certain_distance_before_calibrating_value(int desiredDistance)
 {
-    int desiredDistanceAfterCalibratingValue = desiredDistance + (float)desiredDistance * 0.05;
+    int desiredDistanceAfterCalibratingValue = desiredDistance + (float)desiredDistance * 0.155;
     Serial.println("\ndesiredDistance: ");
     Serial.print(desiredDistanceAfterCalibratingValue);
     Serial.println("mm \n");

@@ -111,14 +111,19 @@ void Episodes::Mei2nd_Episode()
 void Episodes::July29_Episode()
 {
     setAllMOSFETtoLOW();
+    sita.defaultStandPosition();
     sita.defaultHandPosition();
+
+    rahwana.defaultStandPosition();
     rahwana.defaultHandPosition();
+
+    rama_wijaya.defaultStandPosition();
     rama_wijaya.defaultHandPosition();
 
     // // Rama-Sita Dialogue
     SoundSystem::playMusicWayang();
-    sita.walk_to_scene(600);         // going to the dialog position
-    rama_wijaya.walk_to_scene(1200); // going to the dialog position
+    sita.walk_to_a_certain_distance_before_calibrating_value(150);         // going to the dialog position
+    rama_wijaya.walk_to_a_certain_distance_before_calibrating_value(300); // going to the dialog position
     delay(3000);
     SoundSystem::pauseMusicWayang();
 
@@ -183,19 +188,19 @@ void Episodes::July29_Episode()
     delay(50);
 
     SoundSystem::playMusicWayang();
-    rama_wijaya.leave_from_scene(1200); // going back to first position
-    sita.leave_from_scene(600);         // going back to first position
+    rama_wijaya.defaultStandPosition(); // going back to first position
+    sita.defaultStandPosition();       // going back to first position
 
     delay(500);
     delay(1000);
-    sita.walk_to_scene(600); // going to the dialog position
+    sita.walk_to_a_certain_distance_before_calibrating_value(100); // going to the dialog position
     SoundSystem::pauseMusicWayang();
 
     // Narator 1 3s
     SoundSystem::playDialogFromACertainFolder(SoundSystem::EPISODE_NUMBER::EPISODE_1, SoundSystem::SPECIAL_EPISODE_29_JULY::SITA_RAHWANA__NARATOR_1);
     // SoundSystem::hold_the_section_until_finished(3 * 1000);
     delay(3000);
-    rahwana.walk_to_scene(1200); // going to the dialog position
+    rahwana.walk_to_a_certain_distance_before_calibrating_value(350); // going to the dialog position
     delay(2500);
 
     // Rahwana 1 44s
@@ -350,13 +355,13 @@ void Episodes::July29_Episode()
 
     // Rahwana kidnapped Sita
     SoundSystem::playMusicWayang();
-    rahwana.walk_to_scene(100); // going to the dialog position
-    rahwana.walk_to_scene(100); // going to the dialog position
+    rahwana.walk_to_a_certain_distance_before_calibrating_value(370); // going to the dialog position
+    // rahwana.walk_to_scene(100); // going to the dialog position
 
     delay(1000);
 
-    sita.leave_from_scene(600);     // going back to first position
-    rahwana.leave_from_scene(1400); // going back to first position
+    sita.defaultStandPosition();     // going back to first position
+    rahwana.defaultStandPosition(); // going back to first position
     SoundSystem::pauseMusicWayang();
     delay(1000);
     rahwana.defaultHandPosition();
@@ -370,8 +375,8 @@ void Episodes::July29_Episode()
     // Rama-Rahwana Dialogue
 
     SoundSystem::playMusicWayang();
-    rama_wijaya.walk_to_scene(1150); // going to the dialog position
-    rahwana.walk_to_scene(700);      // going to the dialog position
+    rama_wijaya.walk_to_a_certain_distance_before_calibrating_value(350); // going to the dialog position
+    rahwana.walk_to_a_certain_distance_before_calibrating_value(150);     // going to the dialog position
     SoundSystem::pauseMusicWayang();
     delay(2000);
 
@@ -418,7 +423,7 @@ void Episodes::July29_Episode()
     rama_wijaya.left_pointToFront();
     delay(50);
 
-    rahwana.leave_from_scene(500);
+    rahwana.walk_to_a_certain_distance_before_calibrating_value(100);
     delay(1000);
 
     // Rahwana 2 6s
@@ -439,7 +444,7 @@ void Episodes::July29_Episode()
     rahwana.hand_movement_18();
 
     delay(500);
-    sita.walk_to_scene(500); // going to the dialog position
+    sita.walk_to_a_certain_distance_before_calibrating_value(200); // going to the dialog position
 
     // Rama 2 3s
     delay(500);
@@ -459,9 +464,9 @@ void Episodes::July29_Episode()
     delay(3520);
 
     SoundSystem::playMusicWayang();
-    rama_wijaya.leave_from_scene(1150); // going back to first position
-    sita.leave_from_scene(500);         // going back to first position
-    rahwana.leave_from_scene(200);      // going back to first position
+    rama_wijaya.defaultStandPosition(); // going back to first position
+    sita.defaultStandPosition();         // going back to first position
+    rahwana.defaultStandPosition();      // going back to first position
     SoundSystem::pauseMusicWayang();
     delay(3000);
 

@@ -144,11 +144,11 @@ void WayangDisplay::WayangDisplayLCD::SensorStatusDisplay()
     lcdWayang.setCursor(0, 0);
     lcdWayang.print("Sensor Status");
     lcdWayang.setCursor(0, 1);
-    lcdWayang.print("Sensor 1 " + String(getSensorStatus(1)));
+    lcdWayang.print("Sensor 1 " + String(getDistanceSensor1()));
     lcdWayang.setCursor(0, 2);
-    lcdWayang.print("Sensor 2 " + String(getSensorStatus(2)));
+    lcdWayang.print("Sensor 2 " + String(getDistanceSensor2()));
     lcdWayang.setCursor(0, 3);
-    lcdWayang.print("Sensor 3 " + String(getSensorStatus(3)));
+    lcdWayang.print("Sensor 3 " + String(getDistanceSensor3()));
     lcdWayang.setCursor(18, get_selection_point());
     lcdWayang.print("<<");
 }
@@ -156,11 +156,11 @@ void WayangDisplay::WayangDisplayLCD::SensorStatusDisplay()
 void WayangDisplay::WayangDisplayLCD::SensorStatusDisplay2()
 {
     lcdWayang.setCursor(0, 0);
-    lcdWayang.print("Sensor 1 " + String(getSensorStatus(1)));
+    lcdWayang.print("Sensor 1 " + String(getDistanceSensor1()));
     lcdWayang.setCursor(0, 1);
-    lcdWayang.print("Sensor 2 " + String(getSensorStatus(2)));
+    lcdWayang.print("Sensor 2 " + String(getDistanceSensor2()));
     lcdWayang.setCursor(0, 2);
-    lcdWayang.print("Sensor 3 " + String(getSensorStatus(3)));
+    lcdWayang.print("Sensor 3 " + String(getDistanceSensor3()));
     lcdWayang.setCursor(0, 3);
     lcdWayang.print("Sensor 4 " + String(getSensorStatus(4)));
     lcdWayang.setCursor(18, get_selection_point());
@@ -170,9 +170,9 @@ void WayangDisplay::WayangDisplayLCD::SensorStatusDisplay2()
 void WayangDisplay::WayangDisplayLCD::SensorStatusDisplay3()
 {
     lcdWayang.setCursor(0, 0);
-    lcdWayang.print("Sensor 2 " + String(getSensorStatus(2)));
+    lcdWayang.print("Sensor 2 " + String(getDistanceSensor2()));
     lcdWayang.setCursor(0, 1);
-    lcdWayang.print("Sensor 3 " + String(getSensorStatus(3)));
+    lcdWayang.print("Sensor 3 " + String(getDistanceSensor3()));
     lcdWayang.setCursor(0, 2);
     lcdWayang.print("Sensor 4 " + String(getSensorStatus(4)));
     lcdWayang.setCursor(0, 3);
