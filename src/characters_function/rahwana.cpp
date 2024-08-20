@@ -32,7 +32,7 @@ void Rahwana::walk_to_a_certain_distance(int desiredDistance)
     if (difference > 0)
     {
         // difference = difference + 10;
-        float result = (difference / 100) * 290;
+        float result = (difference / 100) * 300;
         int result_int = (int)result + 1;
         Serial.print(result_int);
         Serial.println(" steps\n");
@@ -50,7 +50,7 @@ void Rahwana::walk_to_a_certain_distance(int desiredDistance)
 
     {
         // difference = difference - 10;
-        float result = (difference / 100) * 290;
+        float result = (difference / 100) * 300;
         int result_int = (int)result - 1;
         Serial.print(result_int);
         Serial.println(" steps\n");
