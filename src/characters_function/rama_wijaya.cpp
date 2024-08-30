@@ -7,7 +7,7 @@ HorizontalController HC_rama_wijaya;
 
 void RamaWijaya::defaultStandPosition()
 {
-    walk_to_a_certain_distance_before_calibrating_value(40);
+    walk_to_a_certain_distance_before_calibrating_value(41);
 }
 
 void RamaWijaya::defaultHandPosition()
@@ -22,12 +22,12 @@ void RamaWijaya::defaultHandPosition()
 
 void RamaWijaya::walk_to_scene(int distanceValue)
 {
-    HC_rama_wijaya.step_for_n_dir(3, distanceValue, "cw");
+    HC_rama_wijaya.step_for_n_dir(3, distanceValue, "ccw");
 }
 
 void RamaWijaya::leave_from_scene(int distanceValue)
 {
-    HC_rama_wijaya.step_for_n_dir(3, distanceValue, "ccw");
+    HC_rama_wijaya.step_for_n_dir(3, distanceValue, "cw");
 }
 
 void RamaWijaya::hand_movement_test_1()
@@ -150,11 +150,11 @@ void RamaWijaya::walk_to_a_certain_distance(int desiredDistance)
     if (difference > 0)
     {
         // difference = difference + 10;
-        float result = (difference / 100) * 300;
+        float result = difference / 0.3;
         int result_int = (int)result + 1;
         Serial.print(result_int);
         Serial.println(" steps\n");
-        walk_to_scene(abs(result_int));
+        leave_from_scene(result_int);
         Serial.println("readValue 2: ");
         int finalReadValue = getDistanceSensor3();
         Serial.print(finalReadValue);
@@ -168,12 +168,12 @@ void RamaWijaya::walk_to_a_certain_distance(int desiredDistance)
 
     {
         // difference = difference - 10;
-        float result = (difference / 100) * 300;
+        float result = difference / 0.3;
         int result_int = (int)result - 1;
         Serial.print(result_int);
         Serial.println(" steps\n");
         result_int = abs(result_int);
-        leave_from_scene(result_int);
+        walk_to_scene(result_int);
         Serial.println("readValue 3: ");
         int finalReadValue = getDistanceSensor3();
         Serial.print(finalReadValue);

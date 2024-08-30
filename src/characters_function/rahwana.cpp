@@ -7,7 +7,7 @@ HorizontalController HC_rahwana;
 
 void Rahwana::defaultStandPosition()
 {
-    walk_to_a_certain_distance_before_calibrating_value(50);
+    walk_to_a_certain_distance_before_calibrating_value(41);
 }
 
 void Rahwana::walk_to_a_certain_distance(int desiredDistance)
@@ -32,7 +32,7 @@ void Rahwana::walk_to_a_certain_distance(int desiredDistance)
     if (difference > 0)
     {
         // difference = difference + 10;
-        float result = (difference / 100) * 300;
+        float result = difference / 0.3;
         int result_int = (int)result + 1;
         Serial.print(result_int);
         Serial.println(" steps\n");
@@ -50,7 +50,7 @@ void Rahwana::walk_to_a_certain_distance(int desiredDistance)
 
     {
         // difference = difference - 10;
-        float result = (difference / 100) * 300;
+        float result = difference / 0.3;
         int result_int = (int)result - 1;
         Serial.print(result_int);
         Serial.println(" steps\n");
@@ -64,9 +64,6 @@ void Rahwana::walk_to_a_certain_distance(int desiredDistance)
         {
             walk_to_a_certain_distance(desiredDistance);
         }
-    }
-    else
-    {
     }
 }
 

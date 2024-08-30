@@ -159,7 +159,7 @@ void beginSensor4()
     distanceSensor[3].setTimeout(500);
     if (!distanceSensor[3].init())
     {
-        Serial.println("Failed to boot VL53L0X Sensor 3");
+        Serial.println("Failed to boot VL53L0X Sensor 4");
         sensorsStatus[3] = false;
         digitalWrite(XSHUT_4, LOW);
         // beginSensor3();
@@ -199,18 +199,19 @@ void beginSensor5()
     {
         Serial.println("VL53L0X Sensor 5 booted");
         sensorsStatus[4] = true;
-        distanceSensor[4].setSignalRateLimit(0.1);                                 // 0.1 MCPS
-        distanceSensor[4].setVcselPulsePeriod(VL53L0X::VcselPeriodPreRange, 18);   // laser pulse periods 18 PCLKs
-        distanceSensor[4].setVcselPulsePeriod(VL53L0X::VcselPeriodFinalRange, 14); // Laser pulse periods 14 PCLKs
+
+        distanceSensor[4].setSignalRateLimit(0.1);                                // 0.1 MCPS
+        distanceSensor[4].setVcselPulsePeriod(VL53L0X::VcselPeriodPreRange, 14);   // laser pulse periods 18 PCLKs
+        distanceSensor[4].setVcselPulsePeriod(VL53L0X::VcselPeriodFinalRange, 10); // Laser pulse periods 14 PCLKs
         distanceSensor[4].setMeasurementTimingBudget(200000);                      // HIGH ACCURACY timming budget 200 ms, HIGH SPEED 20 ms
-        // distanceSensor[2].startContinuous(200);
+
+        // distanceSensor[4].startContinuous(200);
         Serial.println("Sensor 5 distance: ");
         Serial.print(getDistanceSensor5());
         Serial.println(" mm\n");
         // digitalWrite(XSHUT_3, LOW);
     }
 }
-
 
 // void beginSensor4()
 // {
@@ -376,7 +377,7 @@ int getDistanceSensor2()
     // digitalWrite(XSHUT_2, HIGH);
     delay(200);
     if (!distanceSensor[1].timeoutOccurred())
-    {   
+    {
         int data = distanceSensor[1].readRangeSingleMillimeters();
         // distanceSensor[1].stopContinuous();
         // digitalWrite(XSHUT_2, LOW);
@@ -435,6 +436,7 @@ int getDistanceSensor5()
     if (!distanceSensor[4].timeoutOccurred())
     {
         int data = distanceSensor[4].readRangeSingleMillimeters();
+        // int data = distanceSensor[4].readRangeContinuousMillimeters();
         // distanceSensor[2].stopContinuous();
         // digitalWrite(XSHUT_3, LOW);
         return data;
@@ -446,7 +448,6 @@ int getDistanceSensor5()
         return -1;
     }
 }
-
 
 // int getDistanceSensor2()
 // {

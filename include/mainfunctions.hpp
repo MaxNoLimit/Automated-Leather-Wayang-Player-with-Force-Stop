@@ -34,6 +34,12 @@ namespace WayangHorizontalControl
     void wayang10(int distance);
 };
 
+namespace CalibratingFunction{
+    void vSlotLinear();
+    void soundSystem();
+    void wayangHand();
+};
+
 enum whatSideServo
 {
     RIGHT = 0,

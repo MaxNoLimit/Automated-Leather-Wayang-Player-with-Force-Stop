@@ -11,10 +11,14 @@
 #include "characters/rama_wijaya.hpp"
 #include "characters/sita.hpp"
 #include "characters/rahwana.hpp"
+#include "characters/hanoman.hpp"
+#include "characters/laksmana.hpp"
 
 RamaWijaya wayangRamaWijaya;
 Sita wayangSita;
 Rahwana wayangRahwana;
+Hanoman wayangHanoman;
+Laksmana wayangLaksmana;
 
 int lcd_2040_address;
 WayangDisplay::WayangDisplayLCD WayangDisplayLCD_in_main(0x27);
@@ -275,163 +279,21 @@ void WayangDisplay::generalLoop()
         break;
 
     case StateManagement::FSA_STATE::CALIBRATING_ALL_NEMA:
-        setAllMOSFETtoLOW();
-        // beginAllSensors();
-        // wayangRahwana.defaultStandPosition();
-        // wayangRahwana.walk_to_a_certain_distance(100); // 10 cm
-        // wayangRahwana.walk_to_a_certain_distance(200); // 20 cm
-        // wayangRahwana.walk_to_a_certain_distance(300); // 30 cm
-        // wayangRahwana.defaultStandPosition();
-
-        // Episodes::testing_sita_horizontal_movement();
-        // Episodes::testing_rahwana_horizontal_movement();
-        // Episodes::testing_rama_wijaya_horizontal_movement();
-
-        /* Kalibrasi sebenarnya */
-        // Wire.begin();
-        // Wire.setClock(200000);
-        // Wire.setTimeout(500);
-        // Wire.setWireTimeout(5000, true);
-        // setAllMOSFETtoHIGH();
-        // delay(100);
-        // if (!getSensorStatus(1))
-        // {
-        // beginSensor1();
-        // }
-        // Serial.println("\nMoving wayang 1!");
-        // WayangHorizontalControl::wayang1(100);
-        // Serial.println("wayang 1 distance: ");
-        // Serial.print(getDistanceSensor1());
-        // Serial.println(" mm \n");
-        // setAllMOSFETtoHIGH();
-
-        // setAllMOSFETtoLOW();
-        // setAllMOSFETtoHIGH();
-
-        // delay(100);
-        // if (!getSensorStatus(2))
-        // {
-        // beginSensor2();
-        // }
-        // Serial.println("\nMoving wayang 2!");
-        // WayangHorizontalControl::wayang2(100);
-        // Serial.println("wayang 2 distance: ");
-        // int d0 = getDistanceSensor2();
-        // Serial.print(d0);
-        // Serial.println(" mm \n");
-        // setAllMOSFETtoHIGH();
-
-        // wayangRahwana.walk_to_scene(280); // 10 cm
-
-        // beginSensor2();
-
-        // Serial.println("wayang 2 distance: ");
-        // int d1 = getDistanceSensor2();
-        // Serial.print(d1);
-        // Serial.println(" mm \n");
-
-        // Serial.print(d1 - d0);
-
-        // wayangRahwana.leave_from_scene(280); // maybe 10 cm
-
-        // beginSensor2();
-
-        // Serial.println("wayang 2 distance: ");
-        // int d2 = getDistanceSensor2();
-        // Serial.print(d2);
-        // Serial.println(" mm \n");
-
-        // Serial.print(d2 - d1);
-
-        // setAllMOSFETtoLOW();
-
-        // delay(100);
-        // if (!getSensorStatus(3))
-        // {
-        // beginSensor3();
-        // }
-        // Serial.println("\nMoving wayang 3!");
-        // WayangHorizontalControl::wayang3(100);
-        // Serial.println("wayang 3 distance: ");
-        // Serial.print(getDistanceSensor3());
-        // Serial.println(" mm \n");
-        // setAllMOSFETtoHIGH();
-
-        Serial.println("\nSensor 1\n");
-        wayangSita.walk_to_a_certain_distance_before_calibrating_value(200);
-        Serial.println("\nSensor 2\n");
-        wayangRahwana.walk_to_a_certain_distance_before_calibrating_value(200);
-        Serial.println("\nSensor 3\n");
-        wayangRamaWijaya.walk_to_a_certain_distance_before_calibrating_value(200);
-
-        Serial.println("\nSensor 1\n");
-        wayangSita.defaultStandPosition();
-        Serial.println("\nSensor 2\n");
-        wayangRahwana.defaultStandPosition();
-        Serial.println("\nSensor 3\n");
-        wayangRamaWijaya.defaultStandPosition();
-
-        // Serial.println("\nSensor 1\n");
-        // wayangSita.walk_to_a_certain_distance(50);
-        // // Serial.println("\nSensor 2\n");
-        // // wayangRahwana.walk_to_a_certain_distance(50);
-        // Serial.println("\nSensor 3\n");
-        // wayangRamaWijaya.walk_to_a_certain_distance(50);
-
-        SoundSystem::playDialogFromACertainFolder(SoundSystem::INDICATOR_SOUND, SoundSystem::INDICATOR_SOUND_NUMBER::INDICATOR_VSLOT_CALIBRATION);
-        delay(3500);
-
-        setAllMOSFETtoHIGH();
+        CalibratingFunction::vSlotLinear();
 
         loop_state = StateManagement::FSA_STATE::DEFAULT_LOOPING_LCD;
         delay(1);
         break;
 
     case StateManagement::FSA_STATE::MP3_REINIT:
-        setAllMOSFETtoLOW();
-        WayangDisplayLCD_in_main.disableLCD();
-        SoundSystem::initSound();
-        setAllMOSFETtoHIGH();
-        WayangDisplayLCD_in_main.enableLCD();
+        CalibratingFunction::soundSystem();
+
         loop_state = StateManagement::FSA_STATE::DEFAULT_LOOPING_LCD;
         delay(1);
         break;
 
     case StateManagement::FSA_STATE::WAYANG_HAND_CALIBRATION:
-
-        // testing Sita
-        setAllMOSFETtoLOW();
-        // WayangDisplayLCD_in_main.disableLCD();
-        // wayangSita.hand_movement_test_1();
-        wayangSita.defaultHandPosition();
-
-        // testing Rahwana
-
-        wayangRahwana.defaultHandPosition();
-        // delay(1000);
-        // wayangRahwana.pointToFront();
-        // delay(1000);
-        // wayangRahwana.pointToSelf();
-        // delay(1000);
-        // wayangRahwana.defaultHandPosition();
-        // delay(1000);
-        // testing Rama Wijaya
-        // wayangRamaWijaya.hand_movement_test_1();
-        wayangRamaWijaya.defaultHandPosition();
-        // delay(1000);
-        // // wayangRamaWijaya.right_moveHandBackAbit();
-        // // delay(2000);
-        // // wayangRamaWijaya.right_handOnHip();
-        // // delay(2000);
-        // // wayangRamaWijaya.left_pointToFront();
-        // // delay(2000);
-        // wayangRamaWijaya.left_pointToSelf();
-        // delay(2000);
-        // wayangRamaWijaya.defaultHandPosition();
-        setAllMOSFETtoHIGH();
-        SoundSystem::playDialogFromACertainFolder(SoundSystem::INDICATOR_SOUND, SoundSystem::INDICATOR_SOUND_NUMBER::INDICATOR_WAYANG_HAND_CALIBRATION);
-        delay(3500);
-        // WayangDisplayLCD_in_main.enableLCD();
+        CalibratingFunction::wayangHand();
 
         loop_state = StateManagement::FSA_STATE::DEFAULT_LOOPING_LCD;
         delay(1);
@@ -1726,4 +1588,95 @@ void setAllMOSFETtoLOW()
     digitalWrite(WAYANG_HAND_8, LOW);
     digitalWrite(WAYANG_HAND_9, LOW);
     digitalWrite(WAYANG_HAND_10, LOW);
+}
+
+void CalibratingFunction::vSlotLinear()
+{
+    setAllMOSFETtoLOW();
+
+
+    Serial.println("\nSensor 1\n");
+    wayangSita.walk_to_a_certain_distance_before_calibrating_value(155);
+    Serial.println("\nSensor 2\n");
+    wayangRahwana.walk_to_a_certain_distance_before_calibrating_value(155);
+    Serial.println("\nSensor 3\n");
+    wayangRamaWijaya.walk_to_a_certain_distance_before_calibrating_value(155);
+    Serial.println("\nSensor 4\n");
+    wayangHanoman.walk_to_a_certain_distance_before_calibrating_value(155);
+    Serial.println("\nSensor 5\n");
+    wayangLaksmana.walk_to_a_certain_distance_before_calibrating_value(155);
+
+    Serial.println("\nSensor 1\n");
+    wayangSita.defaultStandPosition();
+    Serial.println("\nSensor 2\n");
+    wayangRahwana.defaultStandPosition();
+    Serial.println("\nSensor 3\n");
+    wayangRamaWijaya.defaultStandPosition();
+    Serial.println("\nSensor 4\n");
+    wayangHanoman.defaultStandPosition();
+    Serial.println("\nSensor 5\n");
+    wayangLaksmana.defaultStandPosition();
+
+    SoundSystem::playDialogFromACertainFolder(SoundSystem::INDICATOR_SOUND, SoundSystem::INDICATOR_SOUND_NUMBER::INDICATOR_VSLOT_CALIBRATION);
+    delay(3500);
+
+    // Serial.println("\nstep converting algorithm\n");
+    // int firstValue = getDistanceSensor2();
+    // Serial.print("first value: " + String(firstValue) + "\n");
+    // wayangRahwana.walk_to_scene(500);
+    // int secondValue = getDistanceSensor2();
+    // Serial.print("second value: " + String(secondValue) + "\n");
+    // float distance_per_step = abs(firstValue - secondValue) / float(500);
+    // Serial.print("distance per step: " + String(distance_per_step) + "mm/step \n");
+
+    setAllMOSFETtoHIGH();
+}
+
+void CalibratingFunction::soundSystem()
+{
+    setAllMOSFETtoLOW();
+    WayangDisplayLCD_in_main.disableLCD();
+    SoundSystem::initSound();
+    setAllMOSFETtoHIGH();
+    WayangDisplayLCD_in_main.enableLCD();
+}
+
+void CalibratingFunction::wayangHand()
+{
+    setAllMOSFETtoLOW();
+
+
+    wayangSita.walk_to_a_certain_distance_before_calibrating_value(200);
+    delay(500);
+    wayangSita.defaultHandPosition();
+    delay(500);
+    wayangSita.defaultStandPosition();
+    
+    wayangRahwana.walk_to_a_certain_distance_before_calibrating_value(200);
+    delay(500);
+    wayangRahwana.defaultHandPosition();
+    delay(500);
+    wayangRahwana.defaultStandPosition();
+
+    wayangRamaWijaya.walk_to_a_certain_distance_before_calibrating_value(200);
+    delay(500);
+    wayangRamaWijaya.defaultHandPosition();
+    delay(500);
+    wayangRamaWijaya.defaultStandPosition();
+
+    wayangHanoman.walk_to_a_certain_distance_before_calibrating_value(200);
+    delay(500);
+    wayangHanoman.defaultHandPosition();
+    delay(500);
+    wayangHanoman.defaultStandPosition();
+
+    wayangLaksmana.walk_to_a_certain_distance_before_calibrating_value(200);
+    delay(500);
+    wayangLaksmana.defaultHandPosition();
+    delay(500);
+    wayangLaksmana.defaultStandPosition();
+
+    setAllMOSFETtoHIGH();
+    SoundSystem::playDialogFromACertainFolder(SoundSystem::INDICATOR_SOUND, SoundSystem::INDICATOR_SOUND_NUMBER::INDICATOR_WAYANG_HAND_CALIBRATION);
+    delay(3500);
 }

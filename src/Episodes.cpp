@@ -24,89 +24,89 @@ Sita sita;
 Rahwana rahwana;
 
 // Execution function for pameran tanggal 2 Mei 2024 di ruang MIS depan
-void Episodes::Mei2nd_Episode()
-{
+// void Episodes::Mei2nd_Episode()
+// {
 
-    // Narator Opening
-    SoundSystem::play_dialog_direct(SoundSystem::DIALOG_NUMBER::NARATOR_INTRO_1);
-    // SoundSystem::hold_the_section_until_finished(123*1000);
-    static unsigned long stop_watch = millis();
+//     // Narator Opening
+//     SoundSystem::play_dialog_direct(SoundSystem::DIALOG_NUMBER::NARATOR_INTRO_1);
+//     // SoundSystem::hold_the_section_until_finished(123*1000);
+//     static unsigned long stop_watch = millis();
 
-    while (millis() - stop_watch < 123 * 1000)
-    {
-        // put the movement command here
-    }
+//     while (millis() - stop_watch < 123 * 1000)
+//     {
+//         // put the movement command here
+//     }
 
-    Serial.println("\nNarator Opening Done");
-    delay(1000);
+//     Serial.println("\nNarator Opening Done");
+//     delay(1000);
 
-    // Hanuman Dialog 1
-    hanoman.walk_to_scene();         // going to the dialog position
-    rama_wijaya.walk_to_scene(1100); // going to the dialog position
-    SoundSystem::play_dialog_direct(SoundSystem::DIALOG_NUMBER::HANUMAN_1);
-    // SoundSystem::hold_the_section_until_finished(98 * 1000);
-    stop_watch = millis();
-    // starting_hanoman_talking(98);
+//     // Hanuman Dialog 1
+//     hanoman.walk_to_scene();         // going to the dialog position
+//     rama_wijaya.walk_to_scene(1100); // going to the dialog position
+//     SoundSystem::play_dialog_direct(SoundSystem::DIALOG_NUMBER::HANUMAN_1);
+//     // SoundSystem::hold_the_section_until_finished(98 * 1000);
+//     stop_watch = millis();
+//     // starting_hanoman_talking(98);
 
-    if (millis() - stop_watch < 97 * 1000)
-    {
-        // put the movement command here
-        hanoman.talking(96);
-    }
+//     if (millis() - stop_watch < 97 * 1000)
+//     {
+//         // put the movement command here
+//         hanoman.talking(96);
+//     }
 
-    Serial.println("\nHanuman Dialog 1 Done");
-    delay(1000);
+//     Serial.println("\nHanuman Dialog 1 Done");
+//     delay(1000);
 
-    // Rama Dialog 1
-    SoundSystem::play_dialog_direct(SoundSystem::DIALOG_NUMBER::RAMA_1);
-    // SoundSystem::hold_the_section_until_finished(66 * 1000);
-    stop_watch = millis();
-    // starting_rama_talking(66);
+//     // Rama Dialog 1
+//     SoundSystem::play_dialog_direct(SoundSystem::DIALOG_NUMBER::RAMA_1);
+//     // SoundSystem::hold_the_section_until_finished(66 * 1000);
+//     stop_watch = millis();
+//     // starting_rama_talking(66);
 
-    if (millis() - stop_watch < 65 * 1000)
-    {
-        // put the movement command here
-        rama_wijaya.talking(64);
-    }
+//     if (millis() - stop_watch < 65 * 1000)
+//     {
+//         // put the movement command here
+//         rama_wijaya.talking(64);
+//     }
 
-    Serial.println("\nRama Dialog 1 Done");
-    delay(1000);
+//     Serial.println("\nRama Dialog 1 Done");
+//     delay(1000);
 
-    // Hanuman Dialog 2
-    SoundSystem::play_dialog_direct(SoundSystem::DIALOG_NUMBER::HANUMAN_2);
-    // SoundSystem::hold_the_section_until_finished(68 * 1000);
-    stop_watch = millis();
-    // starting_hanoman_talking(68);
-    if (millis() - stop_watch < 67 * 1000)
-    {
-        // put the movement command here
-        hanoman.talking(66);
-    }
+//     // Hanuman Dialog 2
+//     SoundSystem::play_dialog_direct(SoundSystem::DIALOG_NUMBER::HANUMAN_2);
+//     // SoundSystem::hold_the_section_until_finished(68 * 1000);
+//     stop_watch = millis();
+//     // starting_hanoman_talking(68);
+//     if (millis() - stop_watch < 67 * 1000)
+//     {
+//         // put the movement command here
+//         hanoman.talking(66);
+//     }
 
-    Serial.println("\nHanuman Dialog 2 Done");
-    delay(500);
+//     Serial.println("\nHanuman Dialog 2 Done");
+//     delay(500);
 
-    /* Core where the task should run */
+//     /* Core where the task should run */
 
-    // run_both_instant();
+//     // run_both_instant();
 
-    hanoman.leave_from_scene();         // going back to first position
-    rama_wijaya.leave_from_scene(1100); // going back to first position
-    delay(500);
+//     hanoman.leave_from_scene();         // going back to first position
+//     rama_wijaya.leave_from_scene(1100); // going back to first position
+//     delay(500);
 
-    // Narator Ending
-    SoundSystem::play_dialog_direct(SoundSystem::DIALOG_NUMBER::NARATOR_END_1);
-    // SoundSystem::hold_the_section_until_finished(14 * 1000);
-    stop_watch = millis();
+//     // Narator Ending
+//     SoundSystem::play_dialog_direct(SoundSystem::DIALOG_NUMBER::NARATOR_END_1);
+//     // SoundSystem::hold_the_section_until_finished(14 * 1000);
+//     stop_watch = millis();
 
-    while (millis() - stop_watch < 14 * 1000)
-    {
-        // put the movement command here
-    }
+//     while (millis() - stop_watch < 14 * 1000)
+//     {
+//         // put the movement command here
+//     }
 
-    Serial.println("\nDone!");
-    digitalWrite(LED_BUILTIN, LOW);
-}
+//     Serial.println("\nDone!");
+//     digitalWrite(LED_BUILTIN, LOW);
+// }
 
 void Episodes::July29_Episode()
 {
@@ -481,37 +481,37 @@ void Episodes::July29_Episode()
 }
 
 // Function untuk testing lengan Hanuman
-void Episodes::Testing_Hanuman()
-{
-    hanoman.talking(20);
-    // hanoman.all_high();
-}
+// void Episodes::Testing_Hanuman()
+// {
+//     hanoman.talking(20);
+//     // hanoman.all_high();
+// }
 
-// Function untuk testing lengan Rama Wijaya
-void Episodes::Testing_Rama()
-{
-    rama_wijaya.talking(20);
-    // rama_wijaya.all_high();
-}
+// // Function untuk testing lengan Rama Wijaya
+// void Episodes::Testing_Rama()
+// {
+//     rama_wijaya.talking(20);
+//     // rama_wijaya.all_high();
+// }
 
 /*
 Function untuk begin hanoman dan rama wijaya dari yang passing parameter berupa rpm speed dari stepper lengan
 serta begining nema17 untuk pergerakan horizontal
 */
-void Episodes::manual_begin()
-{
-}
+// void Episodes::manual_begin()
+// {
+// }
 
-/*
-Function untuk testing pergerakan horizontal dari hanoman
-*/
-void Episodes::testing_hanuman_horizontal_movement()
-{
-    hanoman.walk_to_scene();
-    delay(5);
-    hanoman.leave_from_scene();
-    delay(5);
-}
+// /*
+// Function untuk testing pergerakan horizontal dari hanoman
+// */
+// void Episodes::testing_hanuman_horizontal_movement()
+// {
+//     hanoman.walk_to_scene();
+//     delay(5);
+//     hanoman.leave_from_scene();
+//     delay(5);
+// }
 
 /*
 Function untuk testing pergerakan horizontal dari rama wijaya

@@ -1,9 +1,8 @@
 #include "mainheader.hpp"
 #include "mainfunctions.hpp"
 
-class Hanoman
+class Laksmana
 {
-
 public:
     void defaultStandPosition();
     void defaultHandPosition();

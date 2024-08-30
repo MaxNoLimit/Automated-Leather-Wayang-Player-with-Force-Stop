@@ -1,40 +1,36 @@
-#include "characters/hanoman.hpp"
+#include "characters/laksmana.hpp"
 #include "a4988_nema.hpp"
 #include "distanceSensorVL53L0X.hpp"
 
-WayangHandServo Servo_Hanuman(whatSideServo::RIGHT);
-HorizontalController HC_hanoman;
+WayangHandServo Servo_Laskmana(whatSideServo::RIGHT);
+HorizontalController HC_laksmana;
 
-void Hanoman::defaultHandPosition()
+void Laksmana::defaultHandPosition()
 {
-    digitalWrite(WAYANG_HAND_4, HIGH);
-    Servo_Hanuman.moveWhatServo(4, 100, 2000);
-    Servo_Hanuman.moveWhatServo(2, 100, 2000);
-    Servo_Hanuman.defaultPosition();
-    Servo_Hanuman.moveWhatServo(4, 110, 1000);
-    Servo_Hanuman.moveWhatServo(2, 110, 2000);
-    Servo_Hanuman.moveWhatServo(1, 80, 1000);
-
-    digitalWrite(WAYANG_HAND_4, LOW);
+    digitalWrite(WAYANG_HAND_5, HIGH);
+    Servo_Laskmana.defaultPosition();
+    Servo_Laskmana.moveWhatServo(4, 100, 2000);
+    Servo_Laskmana.moveWhatServo(1, 45, 2000);
+    digitalWrite(WAYANG_HAND_5, LOW);
 }
-void Hanoman::defaultStandPosition()
+void Laksmana::defaultStandPosition()
 {
-    walk_to_a_certain_distance_before_calibrating_value(28);
+    walk_to_a_certain_distance_before_calibrating_value(52);
 }
 
-void Hanoman::leave_from_scene(int distanceValue)
+void Laksmana::leave_from_scene(int distanceValue)
 {
-    HC_hanoman.step_for_n_dir(4, distanceValue, "ccw");
+    HC_laksmana.step_for_n_dir(5, distanceValue, "ccw");
 }
 
-void Hanoman::walk_to_a_certain_distance(int desiredDistance)
+void Laksmana::walk_to_a_certain_distance(int desiredDistance)
 {
-    if (!getSensorStatus(4))
+    if (!getSensorStatus(5))
     {
-        beginSensor4();
+        beginSensor5();
     }
 
-    int readValue = getDistanceSensor4();
+    int readValue = getDistanceSensor5();
     if (readValue > 1000)
     {
         readValue = 800;
@@ -55,7 +51,7 @@ void Hanoman::walk_to_a_certain_distance(int desiredDistance)
         Serial.println(" steps\n");
         leave_from_scene(result_int);
         Serial.println("readValue 2: ");
-        int finalReadValue = getDistanceSensor4();
+        int finalReadValue = getDistanceSensor5();
         Serial.print(finalReadValue);
         Serial.println("mm \n");
         if (finalReadValue > desiredDistance)
@@ -74,7 +70,7 @@ void Hanoman::walk_to_a_certain_distance(int desiredDistance)
         result_int = abs(result_int);
         walk_to_scene(result_int);
         Serial.println("readValue 2: ");
-        int finalReadValue = getDistanceSensor4();
+        int finalReadValue = getDistanceSensor5();
         Serial.print(finalReadValue);
         Serial.println("mm \n");
         if (finalReadValue < desiredDistance)
@@ -84,7 +80,7 @@ void Hanoman::walk_to_a_certain_distance(int desiredDistance)
     }
 }
 
-void Hanoman::walk_to_a_certain_distance_before_calibrating_value(int desiredDistance)
+void Laksmana::walk_to_a_certain_distance_before_calibrating_value(int desiredDistance)
 {
     int desiredDistanceAfterCalibratingValue = desiredDistance + (float)desiredDistance * 0.155;
     Serial.println("\ndesiredDistance: ");
@@ -93,7 +89,7 @@ void Hanoman::walk_to_a_certain_distance_before_calibrating_value(int desiredDis
     walk_to_a_certain_distance(desiredDistanceAfterCalibratingValue);
 }
 
-void Hanoman::walk_to_scene(int distanceValue)
+void Laksmana::walk_to_scene(int distanceValue)
 {
-    HC_hanoman.step_for_n_dir(4, distanceValue, "cw");
+    HC_laksmana.step_for_n_dir(5, distanceValue, "cw");
 }

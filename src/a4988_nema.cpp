@@ -15,6 +15,7 @@ void HorizontalController::step_for_n_dir(int nema_num, int step_value, String d
         {
         case 1:
         {
+            Serial.println("NEMA 1 CCW");
             digitalWrite(EN_NEMA_1, LOW);
             digitalWrite(NEMA_DIR, HIGH);
 
@@ -32,6 +33,7 @@ void HorizontalController::step_for_n_dir(int nema_num, int step_value, String d
 
         case 2:
         {
+            Serial.println("NEMA 2 CCW");
             digitalWrite(EN_NEMA_2, LOW);
             digitalWrite(NEMA_DIR, HIGH);
 
@@ -49,6 +51,7 @@ void HorizontalController::step_for_n_dir(int nema_num, int step_value, String d
 
         case 3:
         {
+            Serial.println("NEMA 3 CCW");
             digitalWrite(EN_NEMA_3, LOW);
             digitalWrite(NEMA_DIR, HIGH);
 
@@ -63,6 +66,40 @@ void HorizontalController::step_for_n_dir(int nema_num, int step_value, String d
             // NEMAs.en_num_gpio_a(NEMAs.DISABLE_ALL_EN);
             break;
         }
+        case 4:
+        {
+            Serial.println("NEMA 4 CCW");
+            digitalWrite(EN_NEMA_4, LOW);
+            digitalWrite(NEMA_DIR, HIGH);
+
+            bool state = true;
+            for (int i = 0; i < step_value; i++)
+            {
+                digitalWrite(NEMA_STEP, state);
+                state = !state;
+                delayMicroseconds(PERIOD_NEMA);
+            }
+            digitalWrite(EN_NEMA_4, HIGH);
+            // NEMAs.en_num_gpio_a(NEMAs.DISABLE_ALL_EN);
+            break;
+        }
+        case 5:
+        {
+            Serial.println("NEMA 5 CCW");
+            digitalWrite(EN_NEMA_5, LOW);
+            digitalWrite(NEMA_DIR, HIGH);
+
+            bool state = true;
+            for (int i = 0; i < step_value; i++)
+            {
+                digitalWrite(NEMA_STEP, state);
+                state = !state;
+                delayMicroseconds(PERIOD_NEMA);
+            }
+            digitalWrite(EN_NEMA_5, HIGH);
+            // NEMAs.en_num_gpio_a(NEMAs.DISABLE_ALL_EN);
+            break;
+        }
         }
     }
     else if (dir == "cw")
@@ -72,7 +109,7 @@ void HorizontalController::step_for_n_dir(int nema_num, int step_value, String d
         {
         case 1:
         {
-            Serial.println("nema 1 selected");
+            Serial.println("NEMA 1 CW");
             digitalWrite(EN_NEMA_1, LOW);
             digitalWrite(NEMA_DIR, LOW);
 
@@ -90,7 +127,7 @@ void HorizontalController::step_for_n_dir(int nema_num, int step_value, String d
 
         case 2:
         {
-            Serial.println("nema 2 selected");
+            Serial.println("NEMA 2 CW");
             digitalWrite(EN_NEMA_2, LOW);
             digitalWrite(NEMA_DIR, LOW);
 
@@ -108,7 +145,7 @@ void HorizontalController::step_for_n_dir(int nema_num, int step_value, String d
         }
         case 3:
         {
-            Serial.println("nema 3 selected");
+            Serial.println("NEMA 3 CW");
             digitalWrite(EN_NEMA_3, LOW);
             digitalWrite(NEMA_DIR, LOW);
 
@@ -120,6 +157,40 @@ void HorizontalController::step_for_n_dir(int nema_num, int step_value, String d
                 delayMicroseconds(PERIOD_NEMA);
             }
             digitalWrite(EN_NEMA_3, HIGH);
+            // NEMAs.en_num_gpio_a(NEMAs.DISABLE_ALL_EN);
+            break;
+        }
+        case 4:
+        {
+            Serial.println("NEMA 4 CW");
+            digitalWrite(EN_NEMA_4, LOW);
+            digitalWrite(NEMA_DIR, LOW);
+
+            bool state = true;
+            for (int i = 0; i < step_value; i++)
+            {
+                digitalWrite(NEMA_STEP, state);
+                state = !state;
+                delayMicroseconds(PERIOD_NEMA);
+            }
+            digitalWrite(EN_NEMA_4, HIGH);
+            // NEMAs.en_num_gpio_a(NEMAs.DISABLE_ALL_EN);
+            break;
+        }
+        case 5:
+        {
+            Serial.println("NEMA 5 CW");
+            digitalWrite(EN_NEMA_5, LOW);
+            digitalWrite(NEMA_DIR, LOW);
+
+            bool state = true;
+            for (int i = 0; i < step_value; i++)
+            {
+                digitalWrite(NEMA_STEP, state);
+                state = !state;
+                delayMicroseconds(PERIOD_NEMA);
+            }
+            digitalWrite(EN_NEMA_5, HIGH);
             // NEMAs.en_num_gpio_a(NEMAs.DISABLE_ALL_EN);
             break;
         }

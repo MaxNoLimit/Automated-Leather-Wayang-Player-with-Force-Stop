@@ -7,7 +7,7 @@ HorizontalController HC_sita;
 
 void Sita::defaultStandPosition()
 {
-    walk_to_a_certain_distance_before_calibrating_value(40);
+    walk_to_a_certain_distance_before_calibrating_value(41);
 }
 
 void Sita::defaultHandPosition()
@@ -24,12 +24,12 @@ void Sita::defaultHandPosition()
 
 void Sita::walk_to_scene(int distanceValue)
 {
-    HC_sita.step_for_n_dir(1, distanceValue, "cw");
+    HC_sita.step_for_n_dir(1, distanceValue, "ccw");
 }
 
 void Sita::leave_from_scene(int distanceValue)
 {
-    HC_sita.step_for_n_dir(1, distanceValue, "ccw");
+    HC_sita.step_for_n_dir(1, distanceValue, "cw");
 }
 
 void Sita::hand_movement_test_1()
@@ -225,11 +225,11 @@ void Sita::walk_to_a_certain_distance(int desiredDistance)
     if (difference > 0)
     {
         // difference = difference + 10;
-        float result = (difference / 100) * 290;
+        float result = difference / 0.3;
         int result_int = (int)result + 1;
         Serial.print(result_int);
         Serial.println(" steps\n");
-        walk_to_scene(result_int);
+        leave_from_scene(result_int);
         Serial.println("readValue 2: ");
         int finalReadValue = getDistanceSensor1();
         Serial.print(finalReadValue);
@@ -242,12 +242,12 @@ void Sita::walk_to_a_certain_distance(int desiredDistance)
     else if (difference < 0)
     {
         // difference = difference - 10;
-        float result = (difference / 100) * 290;
+        float result = difference / 0.3;
         int result_int = (int)result - 1;
         Serial.print(result_int);
         Serial.println(" steps\n");
         result_int = abs(result_int);
-        leave_from_scene(result_int);
+        walk_to_scene(result_int);
         Serial.println("readValue 2: ");
         int finalReadValue = getDistanceSensor1();
         Serial.print(finalReadValue);
