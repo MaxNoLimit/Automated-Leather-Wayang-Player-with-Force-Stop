@@ -38,4 +38,6 @@ public:
     void hand_movement_16();
     void hand_movement_17();
     void hand_movement_18();
+
+    void rahwana_120_bpm_deathstream();
 };

@@ -309,7 +309,41 @@ void WayangDisplay::generalLoop()
 
     case StateManagement::FSA_STATE::PLAY_EPISODE_1:
         WayangDisplayLCD_in_main.disableLCD();
-        Episodes::July29_Episode();
+        // Episodes::July29_Episode();
+        // Episodes::randomTesting();
+        Episodes::Episode_1();
+        WayangDisplayLCD_in_main.enableLCD();
+        loop_state = StateManagement::FSA_STATE::DEFAULT_LOOPING_LCD;
+        delay(1);
+        break;
+
+    case StateManagement::FSA_STATE::PLAY_EPISODE_2:
+        WayangDisplayLCD_in_main.disableLCD();
+        Episodes::Episode_2();
+        WayangDisplayLCD_in_main.enableLCD();
+        loop_state = StateManagement::FSA_STATE::DEFAULT_LOOPING_LCD;
+        delay(1);
+        break;
+
+    case StateManagement::FSA_STATE::PLAY_EPISODE_3:
+        WayangDisplayLCD_in_main.disableLCD();
+        Episodes::Episode_3();
+        WayangDisplayLCD_in_main.enableLCD();
+        loop_state = StateManagement::FSA_STATE::DEFAULT_LOOPING_LCD;
+        delay(1);
+        break;
+
+    case StateManagement::FSA_STATE::PLAY_EPISODE_4:
+        WayangDisplayLCD_in_main.disableLCD();
+        Episodes::Episode_4();
+        WayangDisplayLCD_in_main.enableLCD();
+        loop_state = StateManagement::FSA_STATE::DEFAULT_LOOPING_LCD;
+        delay(1);
+        break;
+
+    case StateManagement::FSA_STATE::PLAY_EPISODE_5:
+        WayangDisplayLCD_in_main.disableLCD();
+        Episodes::Episode_5();
         WayangDisplayLCD_in_main.enableLCD();
         loop_state = StateManagement::FSA_STATE::DEFAULT_LOOPING_LCD;
         delay(1);
@@ -1594,7 +1628,6 @@ void CalibratingFunction::vSlotLinear()
 {
     setAllMOSFETtoLOW();
 
-
     Serial.println("\nSensor 1\n");
     wayangSita.walk_to_a_certain_distance_before_calibrating_value(155);
     Serial.println("\nSensor 2\n");
@@ -1645,13 +1678,12 @@ void CalibratingFunction::wayangHand()
 {
     setAllMOSFETtoLOW();
 
-
     wayangSita.walk_to_a_certain_distance_before_calibrating_value(200);
     delay(500);
     wayangSita.defaultHandPosition();
     delay(500);
     wayangSita.defaultStandPosition();
-    
+
     wayangRahwana.walk_to_a_certain_distance_before_calibrating_value(200);
     delay(500);
     wayangRahwana.defaultHandPosition();

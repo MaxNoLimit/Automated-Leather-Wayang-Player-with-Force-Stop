@@ -122,7 +122,7 @@ void Episodes::July29_Episode()
 
     // // Rama-Sita Dialogue
     SoundSystem::playMusicWayang();
-    sita.walk_to_a_certain_distance_before_calibrating_value(150);         // going to the dialog position
+    sita.walk_to_a_certain_distance_before_calibrating_value(150);        // going to the dialog position
     rama_wijaya.walk_to_a_certain_distance_before_calibrating_value(300); // going to the dialog position
     delay(3000);
     SoundSystem::pauseMusicWayang();
@@ -189,7 +189,7 @@ void Episodes::July29_Episode()
 
     SoundSystem::playMusicWayang();
     rama_wijaya.defaultStandPosition(); // going back to first position
-    sita.defaultStandPosition();       // going back to first position
+    sita.defaultStandPosition();        // going back to first position
 
     delay(500);
     delay(1000);
@@ -360,7 +360,7 @@ void Episodes::July29_Episode()
 
     delay(1000);
 
-    sita.defaultStandPosition();     // going back to first position
+    sita.defaultStandPosition();    // going back to first position
     rahwana.defaultStandPosition(); // going back to first position
     SoundSystem::pauseMusicWayang();
     delay(1000);
@@ -465,8 +465,8 @@ void Episodes::July29_Episode()
 
     SoundSystem::playMusicWayang();
     rama_wijaya.defaultStandPosition(); // going back to first position
-    sita.defaultStandPosition();         // going back to first position
-    rahwana.defaultStandPosition();      // going back to first position
+    sita.defaultStandPosition();        // going back to first position
+    rahwana.defaultStandPosition();     // going back to first position
     SoundSystem::pauseMusicWayang();
     delay(3000);
 
@@ -552,3 +552,161 @@ void Episodes::testing_rahwana_horizontal_movement()
 //         vTaskDelete(NULL);
 //     }
 // }
+
+void Episodes::randomTesting()
+{
+    setAllMOSFETtoLOW();
+    rahwana.walk_to_a_certain_distance_before_calibrating_value(200); // going to the dialog position
+    delay(2500);
+
+    // SoundSystem::playDialogFromACertainFolder(SoundSystem::EPISODE_NUMBER::EPISODE_2, 1);
+    // rahwana.rahwana_120_bpm_deathstream();
+
+    SoundSystem::playDialogFromACertainFolder(SoundSystem::EPISODE_NUMBER::EPISODE_1, SoundSystem::SPECIAL_EPISODE_29_JULY::SITA_RAHWANA__RAHWANA_DIALOG_1);
+    rahwana.Rahwana_1();
+    setAllMOSFETtoHIGH();
+}
+
+void Episodes::Episode_1()
+{
+    setAllMOSFETtoLOW();
+
+    // Calibrating all wayang first
+    CalibratingFunction::wayangHand();
+
+    // (Sita1Sita-Laksmana dialogue 1) 
+
+
+    // (01 S-L1 Laksmana1F) 
+
+
+    // (Sita2Sita-Laksmana dialogue 1) 
+
+
+    // (02 S-L1 Laksmana2F) 
+
+
+
+    // Rahwana Sita yg nyolong :v
+
+
+
+    // (03 L-R1 Laksmana1F) 
+
+
+
+    // (Rama1Laksmana-Rama Diaglogue(in place of narrator for context)) 
+
+
+
+    // (04 H-R1 Hanuman1F) 
+
+
+
+    // (Rama1Hanuman-Rama dialogue_E) 
+
+
+
+    // (05 H-R1 Hanuman2F) 
+
+
+
+
+    // (06 S-R1 Sugriwa1F) 
+
+
+
+
+    // (07 Duel1 Sugriwa1F) 
+
+
+
+
+    // (Subali round 1 rage) 
+
+
+
+    // (08 Duel1 Sugriwa2F) 
+
+
+    
+    // (09 DuAft1 Sugriwa1F) 
+
+
+    
+    // (Rama1Sugriwa-Rama-Subali dialogue) 
+
+
+
+    // (10 Duel2 Sugriwa1F) 
+
+
+
+    // (Subali round 2 rage) 
+
+
+
+    // (Subali bacotin rama_E) 
+
+
+
+    // (Rama2Sugriwa-Rama-Subali dialogue_E) 
+
+
+
+    // (Subali tobat_E) 
+
+
+
+    // (11 S-R2 Sugriwa1F) 
+
+
+
+    // (Rama1Sugriwa-Rama dialogue 2_E) 
+
+
+
+    // (Rama Sadboi_E) 
+
+
+
+    // (Rama telling laksmana to bacot sugriwa_E) 
+
+
+
+    // (12 SApol Sugriwa1F) 
+
+
+
+    // (13 SApol Sugriwa2F) 
+
+
+
+    // (14 SApol Hanuman1F) 
+
+
+    // (15 SApol Sugriwa3F) 
+
+
+    // (Rama forgives sugriwa) 
+
+    setAllMOSFETtoHIGH();
+    SoundSystem::playDialogFromACertainFolder(SoundSystem::INDICATOR_SOUND, SoundSystem::INDICATOR_SOUND_NUMBER::INDICATOR_FINISHED_SHOWING);
+    delay(2000);
+}
+
+void Episodes::Episode_2()
+{
+}
+
+void Episodes::Episode_3()
+{
+}
+
+void Episodes::Episode_4()
+{
+}
+
+void Episodes::Episode_5()
+{
+}

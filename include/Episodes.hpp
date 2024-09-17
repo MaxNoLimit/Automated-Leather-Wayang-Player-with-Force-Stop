@@ -9,6 +9,7 @@ namespace Episodes{
     void July29_Episode();
     void Testing_Hanuman();
     void Testing_Rama();
+    void randomTesting();
 
 
     void manual_begin();
@@ -16,6 +17,12 @@ namespace Episodes{
     void testing_rama_wijaya_horizontal_movement();
     void testing_sita_horizontal_movement();
     void testing_rahwana_horizontal_movement();
+
+    void Episode_1();
+    void Episode_2();
+    void Episode_3();
+    void Episode_4();
+    void Episode_5();
 
 };
 

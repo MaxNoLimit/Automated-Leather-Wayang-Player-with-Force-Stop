@@ -7,7 +7,7 @@ HorizontalController HC_rahwana;
 
 void Rahwana::defaultStandPosition()
 {
-    walk_to_a_certain_distance_before_calibrating_value(41);
+    walk_to_a_certain_distance_before_calibrating_value(67);
 }
 
 void Rahwana::walk_to_a_certain_distance(int desiredDistance)
@@ -70,47 +70,47 @@ void Rahwana::walk_to_a_certain_distance(int desiredDistance)
 void Rahwana::Rahwana_1()
 {
     digitalWrite(WAYANG_HAND_2, HIGH);
-    Servo_Rahwana.moveWhatServo(4, 90 + 20, 3000);
-    Servo_Rahwana.moveWhatServo(3, 180, 7000);
-    Servo_Rahwana.moveWhatServo(4, 90 + 35, 3000); // 1.3s
-    delay(1350);                                   // 2.65s
+    Servo_Rahwana.moveWhatServo(4, 90 + 20, 300 * 5);
+    Servo_Rahwana.moveWhatServo(3, 180, 700 * 5);
+    Servo_Rahwana.moveWhatServo(4, 90 + 35, 300 * 5); // 1.3s
+    delay(1350);                                      // 2.65s
 
     for (int i = 0; i < 13; i++)
     {
-        Servo_Rahwana.moveWhatServo(4, 90 + 15, 200);
-        Servo_Rahwana.moveWhatServo(4, 90 + 25, 200);
+        Servo_Rahwana.moveWhatServo(4, 90 + 15, 200 * 5);
+        Servo_Rahwana.moveWhatServo(4, 90 + 25, 200 * 5);
     } // 7.85s
 
-    Servo_Rahwana.moveWhatServo(4, 90 + 35, 300); // 8.15s
-    delay(1240);                                  // 9.39s
+    Servo_Rahwana.moveWhatServo(4, 90 + 35, 300 * 5); // 8.15s
+    delay(1240);                                      // 9.39s
 
     for (int i = 0; i < 10; i++)
     {
-        Servo_Rahwana.moveWhatServo(4, 90 + 10, 200);
-        Servo_Rahwana.moveWhatServo(3, 180 - 10, 200);
-        Servo_Rahwana.moveWhatServo(4, 90 + 25, 200);
-        Servo_Rahwana.moveWhatServo(3, 180, 200);
+        Servo_Rahwana.moveWhatServo(4, 90 + 10, 200 * 5);
+        Servo_Rahwana.moveWhatServo(3, 180 - 10, 200 * 5);
+        Servo_Rahwana.moveWhatServo(4, 90 + 25, 200 * 5);
+        Servo_Rahwana.moveWhatServo(3, 180, 200 * 5);
     } // 17.39s
 
     RahwanaSelfTalk(4, 3, 10, 14000, 400); // 31.39s
     delay(2000);
 
-    Servo_Rahwana.moveWhatServo(3, 0, 700);
-    Servo_Rahwana.moveWhatServo(4, 90 + 35, 300);
-    Servo_Rahwana.moveWhatServo(3, 180, 700);
-    Servo_Rahwana.moveWhatServo(4, 90 + 25, 300); // 35.39s
-    delay(900);                                   // 36.29s
+    Servo_Rahwana.moveWhatServo(3, 0, 700 * 5);
+    Servo_Rahwana.moveWhatServo(4, 90 + 35, 300 * 5);
+    Servo_Rahwana.moveWhatServo(3, 180, 700 * 5);
+    Servo_Rahwana.moveWhatServo(4, 90 + 25, 300 * 5); // 35.39s
+    delay(900);                                       // 36.29s
 
     for (int i = 0; i < 16; i++)
     {
-        Servo_Rahwana.moveWhatServo(4, 90 + 15, 200);
-        Servo_Rahwana.moveWhatServo(4, 90 + 25, 200);
+        Servo_Rahwana.moveWhatServo(4, 90 + 15, 200 * 5);
+        Servo_Rahwana.moveWhatServo(4, 90 + 25, 200 * 5);
     } // 42.69s
 
-    Servo_Rahwana.moveWhatServo(4, 90 + 35, 300); // 42.99s
+    Servo_Rahwana.moveWhatServo(4, 90 + 35, 300 * 5); // 42.99s
     delay(2000);
-    Servo_Rahwana.moveWhatServo(3, 0, 700);
-    Servo_Rahwana.moveWhatServo(4, 90, 300);
+    Servo_Rahwana.moveWhatServo(3, 0, 700 * 5);
+    Servo_Rahwana.moveWhatServo(4, 90, 300 * 5);
     delay(9500);
 
     // interlude
@@ -161,8 +161,8 @@ void Rahwana::hand_movement_test_1()
 void Rahwana::RahwanaSelfTalk(int frontpin, int backpin, int oscdeg, int timeMillis, int periodMillis)
 {
     int remainingMillis = timeMillis - 1100;
-    Servo_Rahwana.moveWhatServo(frontpin, 60, 300);
-    Servo_Rahwana.moveWhatServo(backpin, 180, 800);
+    Servo_Rahwana.moveWhatServo(frontpin, 60, 300 * 5);
+    Servo_Rahwana.moveWhatServo(backpin, 180, 800 * 5);
     int loops = remainingMillis / periodMillis;
     int remainderMillis = remainingMillis % periodMillis;
 
@@ -171,16 +171,16 @@ void Rahwana::RahwanaSelfTalk(int frontpin, int backpin, int oscdeg, int timeMil
         Servo_Rahwana.moveWhatServo(frontpin, 90 - oscdeg, remainderMillis);
         for (int i = 0; i < loops; i++)
         {
-            Servo_Rahwana.moveWhatServo(frontpin, 90, periodMillis / 2);
-            Servo_Rahwana.moveWhatServo(frontpin, 90 - oscdeg, periodMillis / 2);
+            Servo_Rahwana.moveWhatServo(frontpin, 90, periodMillis / 2 * 5);
+            Servo_Rahwana.moveWhatServo(frontpin, 90 - oscdeg, periodMillis / 2 * 5);
         }
     }
     else
     {
         for (int i = 0; i < loops; i++)
         {
-            Servo_Rahwana.moveWhatServo(frontpin, 90 - oscdeg, periodMillis / 2);
-            Servo_Rahwana.moveWhatServo(frontpin, 90, periodMillis / 2);
+            Servo_Rahwana.moveWhatServo(frontpin, 90 - oscdeg, periodMillis / 2 * 5);
+            Servo_Rahwana.moveWhatServo(frontpin, 90, periodMillis / 2 * 5);
         }
     }
 }
@@ -355,5 +355,17 @@ void Rahwana::walk_to_a_certain_distance_before_calibrating_value(int desiredDis
     Serial.print(desiredDistanceAfterCalibratingValue);
     Serial.println("mm \n");
     walk_to_a_certain_distance(desiredDistanceAfterCalibratingValue);
+}
 
+void Rahwana::rahwana_120_bpm_deathstream()
+{
+    digitalWrite(WAYANG_HAND_2, HIGH);
+    delay(152);
+
+    for (int i = 0; i < 60; i++)
+    {
+        Servo_Rahwana.moveWhatServo(4, 90 - 15, 500 * 5);
+        Servo_Rahwana.moveWhatServo(4, 90 + 15, 500 * 5);
+    };
+    digitalWrite(WAYANG_HAND_2, LOW);
 }
