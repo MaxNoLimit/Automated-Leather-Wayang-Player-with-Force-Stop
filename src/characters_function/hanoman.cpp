@@ -8,8 +8,8 @@ HorizontalController HC_hanoman;
 void Hanoman::defaultHandPosition()
 {
     digitalWrite(WAYANG_HAND_4, HIGH);
-    Servo_Hanuman.moveWhatServo(4, 100, 2000);
-    Servo_Hanuman.moveWhatServo(2, 100, 2000);
+    Servo_Hanuman.moveWhatServo(4, 100, 1000);
+    Servo_Hanuman.moveWhatServo(2, 100, 1000);
     Servo_Hanuman.defaultPosition();
     Servo_Hanuman.moveWhatServo(4, 110, 1000);
     Servo_Hanuman.moveWhatServo(2, 110, 2000);
@@ -96,4 +96,49 @@ void Hanoman::walk_to_a_certain_distance_before_calibrating_value(int desiredDis
 void Hanoman::walk_to_scene(int distanceValue)
 {
     HC_hanoman.step_for_n_dir(4, distanceValue, "cw");
+}
+
+
+void Hanoman::pointToFront(){
+
+}
+
+void Hanoman::lower_pointToFront(){
+
+}
+
+void Hanoman::middleFront(){
+
+}
+
+void Hanoman::downFront(){
+
+}
+
+void Hanoman::pointToBack(){
+
+}
+
+void Hanoman::downBack(){
+
+}
+
+void Hanoman::onHipBack(){
+
+}
+
+void Hanoman::pointToSelf(){
+
+}
+
+void Hanoman::middleFrontBack(){
+
+}
+
+void Hanoman::lowPointToBack(){
+
+}
+
+void Hanoman::middleBack(){
+
 }

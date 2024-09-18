@@ -10,11 +10,8 @@ public:
 
     void walk_to_a_certain_distance(int desiredDistance);
     void walk_to_a_certain_distance_before_calibrating_value(int desiredDistance);
-    
-    void leave_from_scene(int distanceValue);
 
-    void pointToFront();
-    void pointToSelf();
+    void leave_from_scene(int distanceValue);
 
     void hand_movement_test_1();
     void Rahwana_1();
@@ -40,4 +37,19 @@ public:
     void hand_movement_18();
 
     void rahwana_120_bpm_deathstream();
+
+    // Command list for hand movement
+    void pointToFront();
+    void lower_pointToFront();
+    void middleFront();
+    void downFront();
+    void pointToBack();
+    void downBack();
+    void onHipBack();
+    void pointToSelf();
+    // void lowPointToSelf();
+    void middleFrontBack();
+    void lowPointToBack();
+    void middleBack();
+    // void respect();
 };

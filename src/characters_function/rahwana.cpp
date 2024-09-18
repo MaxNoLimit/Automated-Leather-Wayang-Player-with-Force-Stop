@@ -328,26 +328,6 @@ void Rahwana::hand_movement_18()
     digitalWrite(WAYANG_HAND_2, LOW);
 }
 
-void Rahwana::pointToFront()
-{
-    digitalWrite(WAYANG_HAND_2, HIGH);
-    Servo_Rahwana.defaultPosition();
-    Servo_Rahwana.moveWhatServo(4, 120, 2000);
-    Servo_Rahwana.moveWhatServo(3, 180, 3000);
-    Servo_Rahwana.moveWhatServo(4, 130, 2000);
-    digitalWrite(WAYANG_HAND_2, LOW);
-}
-
-void Rahwana::pointToSelf()
-{
-    digitalWrite(WAYANG_HAND_2, HIGH);
-    Servo_Rahwana.defaultPosition();
-    Servo_Rahwana.moveWhatServo(4, 60, 2000);
-    Servo_Rahwana.moveWhatServo(3, 150, 3000);
-    Servo_Rahwana.moveWhatServo(4, 80, 2000);
-    digitalWrite(WAYANG_HAND_2, LOW);
-}
-
 void Rahwana::walk_to_a_certain_distance_before_calibrating_value(int desiredDistance)
 {
     int desiredDistanceAfterCalibratingValue = desiredDistance + (float)desiredDistance * 0.155;
@@ -368,4 +348,60 @@ void Rahwana::rahwana_120_bpm_deathstream()
         Servo_Rahwana.moveWhatServo(4, 90 + 15, 500 * 5);
     };
     digitalWrite(WAYANG_HAND_2, LOW);
+}
+
+void Rahwana::pointToFront()
+{
+    digitalWrite(WAYANG_HAND_2, HIGH);
+    Servo_Rahwana.defaultPosition();
+    Servo_Rahwana.moveWhatServo(4, 120, 2000);
+    Servo_Rahwana.moveWhatServo(3, 180, 3000);
+    Servo_Rahwana.moveWhatServo(4, 130, 2000);
+    digitalWrite(WAYANG_HAND_2, LOW);
+}
+
+void Rahwana::lower_pointToFront()
+{
+}
+
+void Rahwana::middleFront()
+{
+}
+
+void Rahwana::downFront()
+{
+}
+
+void Rahwana::pointToBack()
+{
+}
+
+void Rahwana::downBack()
+{
+}
+
+void Rahwana::onHipBack()
+{
+}
+
+void Rahwana::pointToSelf()
+{
+    digitalWrite(WAYANG_HAND_2, HIGH);
+    Servo_Rahwana.defaultPosition();
+    Servo_Rahwana.moveWhatServo(4, 60, 2000);
+    Servo_Rahwana.moveWhatServo(3, 150, 3000);
+    Servo_Rahwana.moveWhatServo(4, 80, 2000);
+    digitalWrite(WAYANG_HAND_2, LOW);
+}
+
+void Rahwana::middleFrontBack()
+{
+}
+
+void Rahwana::lowPointToBack()
+{
+}
+
+void Rahwana::middleBack()
+{
 }

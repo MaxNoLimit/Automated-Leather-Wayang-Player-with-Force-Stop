@@ -48,51 +48,71 @@ namespace SoundSystem
     };
 
     enum EPISODE_1_DIALOG{
-        // Sita-Laksmana dialogue 1
-        SITA_DIALOG_1_1 = 1,
-        NARATOR_DIALOG_1_1 = 2,
-        LAKSMANA_DIALOG_1_1 = 3,
-        NARATOR_DIALOG_1_2 = 4,
-        SITA_DIALOG_1_2 = 5,
-        NARATTOR_DIALOG_1_3 = 6,
-        LAKSMANA_DIALOG_1_2 = 7,
+        // 001 (Sita1Sita-Laksmana dialogue 1) 
+        SITA1SITA_LAKS_DIALOGUE_1 = 1,
+        // 002 (01 S-L1 Laksmana1F) 
+        S_L1_LAKS1F = 2,
+        // 003 (Sita2Sita-Laksmana dialogue 1) 
+        SITA2SITA_LAKS_DIALOGUE_1 = 3,
+        // 004 (02 S-L1 Laksmana2F) 
+        S_L1_LAKS2F = 4,
+        // 005 (005SitaRahwanadialogueRahwana1)
+        SITA_RAHWANA_DIALOGUE_RAHWANA_1 = 5,
+        // 006 (006SitaRahwanadialogueSita1)
+        SITA_RAHWANA_DIALOGUE_SITA_1 = 6,
+        // 007 (007SitaRahwanadialogueRahwana2)
+        SITA_RAHWANA_DIALOGUE_RAHWANA_2 = 7,
+        // 008 (03 L-R1 Laksmana1F) 
+        L_R1_LAKS1F = 8,
+        // 009 (Rama1Laksmana-Rama Diaglogue(in place of narrator for context)) 
+        RAMA1LAKS_RAMA_DIALOGUE_IN_PLACE_NARATOR = 9,
+        // 010 (04 H-R1 Hanuman1F)
+        H_R1_HANUMAN1F = 10,
+        // 011 (Rama1Hanuman-Rama dialogue_E)
+        RAMA1HANUMAN_RAMA_DIALOGUE_E = 11,
+        // 012 (05 H-R1 Hanuman2F)
+        H_R1_HANUMAN2F = 12,
+        // 013 (06 S-R1 Sugriwa1F)
+        S_R1_SUGRIWA1F = 13,
+        // 014 (07 Duel1 Sugriwa1F)
+        DUEL1_SUGRIWA1F = 14,
+        // 015 (Subali round 1 rage)
+        SUBALI_ROUND_1_RAGE = 15,
+        // 016 (08 Duel1 Sugriwa2F)
+        DUEL1_SUGRIWA2F = 16,
+        // 017 (09 DuAft1 Sugriwa1F)
+        DUAFT1_SUGRIWA1F = 17,
+        // 018 (Rama1Sugriwa-Rama-Subali dialogue)
+        RAMA1SUGRIWA_RAMA_SUBALI_DIALOGUE = 18,
+        // 019 (10 Duel2 Sugriwa1F)
+        DUEL2_SUGRIWA1F = 19,
+        // 020 (Subali round 2 rage)
+        SUBALI_ROUND_2_RAGE = 20,
+        // 021 (Subali bacotin rama_E)
+        SUBALI_BACOTIN_RAMA_E = 21,
+        // 022 (Rama2Sugriwa-Rama-Subali dialogue_E)
+        RAMA2SUGRIWA_RAMA_SUBALI_DIALOGUE_E = 22,
+        // 023 (Subali tobat_E)
+        SUBALI_TOBAT_E = 23,
+        // 024 (11 S-R2 Sugriwa1F)
+        S_R2_SUGRIWA1F = 24,
+        // 025 (Rama1Sugriwa-Rama dialogue 2_E)
+        RAMA1SUGRIWA_RAMA_DIALOGUE_2_E = 25,
+        // 026 (Rama Sadboi_E)
+        RAMA_SADBOI_E = 26,
+        // 027 (Rama telling laksmana to bacot sugriwa_E)
+        RAMA_TELLING_LAKSMANA_BACOT_SUGRIWA_E = 27,
+        // 028 (12 SApol Sugriwa1F)
+        SApol_Sugriwa1F = 28,
+        // 029 (13 SApol Sugriwa2F)
+        SApol_Sugriwa2F = 29,
+        // 030 (14 SApol Hanuman1F)
+        SApol_Hanuman1F = 30,
+        // 031 (15 SApol Sugriwa3F)
+        SApol_Sugriwa3F = 31,
+        // 032 (Rama forgives sugriwa) 
+        RAMA_FORGIVES_SUGRIWA = 32,
 
-        // Sita-Rahwana dialogue 1
-        NARATOR_DIALOGUE_1_4 = 8,
-        RAHWANA_DIALOG_1_1 = 9,
-        NARATOR_DIALOGUE_1_5 = 10,
-        SITA_DIALOG_1_3 = 11,
-        NARATOR_DIALOGUE_1_6 = 12,
-        RAHWANA_DIALOG_1_2 = 13,
-        RAHWANA_DIALOG_1_3 = 14,
-
-        // Sita-Rahwana dialogue 2
-        RAHWANA_DIALOG_2_1 = 15,
-        NARATOR_DIALOGUE_2_1 = 16,
-
-        // After script of May 2nd
-        NARATOR_DIALOG_3_1 = 17,
-        SUGRIWA_DIALOG_3_1 = 18,
-        NARATOR_DIALOG_3_2 = 19,
-        SUGRIWA_DIALOG_3_2 = 20,
-        RAMA_DIALOG_3_1 = 21,
-        NARATOR_DIALOG_3_3 = 22,
-        SUBALI_DIALOG_3_1 = 23,
-        NARATOR_DIALOG_3_4 = 24,
-        RAMA_DIALOG_3_2 = 25,
-        NARATOR_DIALOG_3_5 = 26,
-        SUBALI_DIALOG_3_2 = 27,
-        NARATOR_DIALOG_3_6 = 28,
-        SUGRIWA_DIALOG_3_3 = 29,
-        NARATOR_DIALOG_3_7 = 30,
-        RAMA_DIALOG_3_3 = 31,
-        NARATOR_DIALOG_3_8 = 32,
-        RAMA_DIALOG_3_4 = 33,
-        NARATOR_DIALOG_3_9 = 34,
-        SUGRIWA_DIALOG_3_4 = 35,
-        NARATOR_DIALOG_3_10 = 36,
-        SUGRIWA_DIALOG_3_5 = 37,
-        NARATOR_DIALOG_3_11 = 38,
 
     };
     

@@ -27,9 +27,23 @@ public:
     void right_raise_half_hand();
     void right_lower_half_hand();
 
-    void pointToSelf();
-    void right_handOnHip();
-    void left_pointToFront();
 
     void talking(int delay_in_sec);
+
+    void oscillate(int desiredDurationForOscillating);
+
+    // Command list for hand movement
+    void pointToFront();
+    void lower_pointToFront();
+    void middleFront();
+    void downFront();
+    void pointToBack();
+    void downBack();
+    void onHipBack();
+    void pointToSelf();
+    // void lowPointToSelf();
+    void middleFrontBack();
+    void lowPointToBack();
+    void middleBack();
+    // void respect();
 };

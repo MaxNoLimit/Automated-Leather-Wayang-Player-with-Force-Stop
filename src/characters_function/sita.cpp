@@ -88,16 +88,16 @@ void Sita::hand_movement_test_4()
 void Sita::left_raise_hand()
 {
     digitalWrite(WAYANG_HAND_1, HIGH);
-    Servo_Sita.moveWhatServo(1, 180, 2000);
-    Servo_Sita.moveWhatServo(2, 65, 2000);
+    Servo_Sita.moveWhatServo(1, 180, 500);
+    Servo_Sita.moveWhatServo(2, 65, 500);
     digitalWrite(WAYANG_HAND_1, LOW);
 }
 
 void Sita::left_raise_half_hand()
 {
     digitalWrite(WAYANG_HAND_1, HIGH);
-    Servo_Sita.moveWhatServo(1, 110, 2000);
-    Servo_Sita.moveWhatServo(2, 65, 2000);
+    Servo_Sita.moveWhatServo(1, 110, 500);
+    Servo_Sita.moveWhatServo(2, 65, 500);
     digitalWrite(WAYANG_HAND_1, LOW);
 }
 
@@ -112,8 +112,8 @@ void Sita::left_lower_hand()
 void Sita::left_lower_half_hand()
 {
     digitalWrite(WAYANG_HAND_1, HIGH);
-    Servo_Sita.moveWhatServo(2, 75, 2000);
-    Servo_Sita.moveWhatServo(1, 70, 2000);
+    Servo_Sita.moveWhatServo(2, 75, 750);
+    Servo_Sita.moveWhatServo(1, 70, 750);
     digitalWrite(WAYANG_HAND_1, LOW);
 }
 
@@ -149,56 +149,6 @@ void Sita::right_lower_half_hand()
     digitalWrite(WAYANG_HAND_1, LOW);
 }
 
-void Sita::pointToSelf()
-{
-    // digitalWrite(WAYANG_HAND_1, HIGH);
-    // Servo_Sita.moveWhatServo(2, 135, 2000);
-    // Servo_Sita.moveWhatServo(1, 30, 2000);
-    // Servo_Sita.moveWhatServo(2, 85, 2000);
-    // digitalWrite(WAYANG_HAND_1, LOW);
-
-    digitalWrite(WAYANG_HAND_1, HIGH);
-    Servo_Sita.defaultPosition();
-    Servo_Sita.moveWhatServo(2, 120, 2000);
-    Servo_Sita.moveWhatServo(1, 0, 2000);
-    digitalWrite(WAYANG_HAND_1, LOW);
-}
-
-void Sita::right_handOnHip()
-{
-    // digitalWrite(WAYANG_HAND_3, HIGH);
-    // Servo_Sita.moveWhatServo(4, 70, 2000);
-    // Servo_Sita.moveWhatServo(3, 80, 2000);
-    // Servo_Sita.moveWhatServo(4, 50, 2000);
-    // digitalWrite(WAYANG_HAND_3, LOW);
-
-    digitalWrite(WAYANG_HAND_1, HIGH);
-    Servo_Sita.defaultPosition();
-    Servo_Sita.moveWhatServo(4, 60 + 10, 2000);
-    Servo_Sita.moveWhatServo(3, 90, 2000);
-    Servo_Sita.moveWhatServo(4, 90, 2000);
-    // Servo_RamaWijaya.moveWhatServo(4, 70, 2500);
-    // Servo_RamaWijaya.moveWhatServo(3, 80, 2500);
-    // Servo_RamaWijaya.moveWhatServo(4, 50, 2500);
-    // Servo_RamaWijaya.moveWhatServo(3, 100, 2500);
-    // Servo_RamaWijaya.moveWhatServo(4, 90, 2500);
-    digitalWrite(WAYANG_HAND_1, LOW);
-}
-
-void Sita::left_pointToFront()
-{
-    // digitalWrite(WAYANG_HAND_3, HIGH);
-    // Servo_Sita.moveWhatServo(1, 0, 2000);
-    // Servo_Sita.moveWhatServo(2, 60, 2000);
-    // digitalWrite(WAYANG_HAND_3, LOW);
-
-    digitalWrite(WAYANG_HAND_1, HIGH);
-    Servo_Sita.defaultPosition();
-    Servo_Sita.moveWhatServo(1, 0, 3000);
-    Servo_Sita.moveWhatServo(2, 50, 2000);
-
-    digitalWrite(WAYANG_HAND_1, LOW);
-}
 
 void Sita::walk_to_a_certain_distance(int desiredDistance)
 {
@@ -269,4 +219,108 @@ void Sita::walk_to_a_certain_distance_before_calibrating_value(int desiredDistan
     Serial.print(desiredDistanceAfterCalibratingValue);
     Serial.println("mm \n");
     walk_to_a_certain_distance(desiredDistanceAfterCalibratingValue);
+}
+
+void Sita::oscillate(int desiredDurationForOscillating)
+{
+    digitalWrite(WAYANG_HAND_1, HIGH);
+    int loopCount = desiredDurationForOscillating / 1000;
+    bool upDown = true;
+
+    for (int i = 0; i < loopCount; i++)
+    {
+        if (upDown)
+        {
+            left_raise_hand(); // takes 1000 ms
+        }
+        else if (!upDown)
+        {
+            left_raise_half_hand(); // takes 1000 ms
+        }
+        upDown = !upDown;
+    }
+    digitalWrite(WAYANG_HAND_1, LOW);
+}
+
+void Sita::pointToFront()
+{
+    // digitalWrite(WAYANG_HAND_3, HIGH);
+    // Servo_Sita.moveWhatServo(1, 0, 2000);
+    // Servo_Sita.moveWhatServo(2, 60, 2000);
+    // digitalWrite(WAYANG_HAND_3, LOW);
+
+    digitalWrite(WAYANG_HAND_1, HIGH);
+    Servo_Sita.defaultPosition();
+    Servo_Sita.moveWhatServo(1, 0, 800);
+    Servo_Sita.moveWhatServo(2, 50, 800);
+
+    digitalWrite(WAYANG_HAND_1, LOW);
+}
+
+void Sita::lower_pointToFront()
+{
+}
+
+void Sita::middleFront()
+{
+}
+
+void Sita::downFront()
+{
+}
+
+void Sita::pointToBack()
+{
+}
+
+void Sita::downBack()
+{
+}
+
+void Sita::onHipBack()
+{
+    // digitalWrite(WAYANG_HAND_3, HIGH);
+    // Servo_Sita.moveWhatServo(4, 70, 2000);
+    // Servo_Sita.moveWhatServo(3, 80, 2000);
+    // Servo_Sita.moveWhatServo(4, 50, 2000);
+    // digitalWrite(WAYANG_HAND_3, LOW);
+
+    digitalWrite(WAYANG_HAND_1, HIGH);
+    Servo_Sita.defaultPosition();
+    Servo_Sita.moveWhatServo(4, 60 + 10, 2000);
+    Servo_Sita.moveWhatServo(3, 90, 2000);
+    Servo_Sita.moveWhatServo(4, 90, 2000);
+    // Servo_RamaWijaya.moveWhatServo(4, 70, 2500);
+    // Servo_RamaWijaya.moveWhatServo(3, 80, 2500);
+    // Servo_RamaWijaya.moveWhatServo(4, 50, 2500);
+    // Servo_RamaWijaya.moveWhatServo(3, 100, 2500);
+    // Servo_RamaWijaya.moveWhatServo(4, 90, 2500);
+    digitalWrite(WAYANG_HAND_1, LOW);
+}
+
+void Sita::pointToSelf()
+{
+    // digitalWrite(WAYANG_HAND_1, HIGH);
+    // Servo_Sita.moveWhatServo(2, 135, 2000);
+    // Servo_Sita.moveWhatServo(1, 30, 2000);
+    // Servo_Sita.moveWhatServo(2, 85, 2000);
+    // digitalWrite(WAYANG_HAND_1, LOW);
+
+    digitalWrite(WAYANG_HAND_1, HIGH);
+    Servo_Sita.defaultPosition();
+    Servo_Sita.moveWhatServo(2, 120, 2000);
+    Servo_Sita.moveWhatServo(1, 0, 2000);
+    digitalWrite(WAYANG_HAND_1, LOW);
+}
+
+void Sita::middleFrontBack()
+{
+}
+
+void Sita::lowPointToBack()
+{
+}
+
+void Sita::middleBack()
+{
 }

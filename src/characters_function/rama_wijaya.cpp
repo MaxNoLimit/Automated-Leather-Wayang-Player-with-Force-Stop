@@ -197,3 +197,47 @@ void RamaWijaya::walk_to_a_certain_distance_before_calibrating_value(int desired
     walk_to_a_certain_distance(desiredDistanceAfterCalibratingValue);
 
 }
+
+void RamaWijaya::pointToFront(){
+
+}
+
+void RamaWijaya::lower_pointToFront(){
+
+}
+
+void RamaWijaya::middleFront(){
+
+}
+
+void RamaWijaya::downFront(){
+
+}
+
+void RamaWijaya::pointToBack(){
+
+}
+
+void RamaWijaya::downBack(){
+
+}
+
+void RamaWijaya::onHipBack(){
+
+}
+
+void RamaWijaya::pointToSelf(){
+
+}
+
+void RamaWijaya::middleFrontBack(){
+
+}
+
+void RamaWijaya::lowPointToBack(){
+
+}
+
+void RamaWijaya::middleBack(){
+
+}

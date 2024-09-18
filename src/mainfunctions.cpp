@@ -294,7 +294,8 @@ void WayangDisplay::generalLoop()
 
     case StateManagement::FSA_STATE::WAYANG_HAND_CALIBRATION:
         CalibratingFunction::wayangHand();
-
+        SoundSystem::playDialogFromACertainFolder(SoundSystem::INDICATOR_SOUND, SoundSystem::INDICATOR_SOUND_NUMBER::INDICATOR_WAYANG_HAND_CALIBRATION);
+        delay(3500);    
         loop_state = StateManagement::FSA_STATE::DEFAULT_LOOPING_LCD;
         delay(1);
         break;
@@ -1401,10 +1402,10 @@ int WayangHandServo::degreeToDelay(int degree)
 
 void WayangHandServo::defaultPosition()
 {
-    moveWhatServo(1, 180, 2000);
-    moveWhatServo(2, 90, 2000);
-    moveWhatServo(3, 0, 2000);
-    moveWhatServo(4, 90, 2000);
+    moveWhatServo(1, 180, 1000);
+    moveWhatServo(2, 90, 1000);
+    moveWhatServo(3, 0, 1000);
+    moveWhatServo(4, 90, 1000);
 }
 
 void WayangHandServo::resetArray()
@@ -1709,6 +1710,4 @@ void CalibratingFunction::wayangHand()
     wayangLaksmana.defaultStandPosition();
 
     setAllMOSFETtoHIGH();
-    SoundSystem::playDialogFromACertainFolder(SoundSystem::INDICATOR_SOUND, SoundSystem::INDICATOR_SOUND_NUMBER::INDICATOR_WAYANG_HAND_CALIBRATION);
-    delay(3500);
 }

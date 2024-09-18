@@ -93,3 +93,47 @@ void Laksmana::walk_to_scene(int distanceValue)
 {
     HC_laksmana.step_for_n_dir(5, distanceValue, "cw");
 }
+
+void Laksmana::pointToFront(){
+
+}
+
+void Laksmana::lower_pointToFront(){
+
+}
+
+void Laksmana::middleFront(){
+
+}
+
+void Laksmana::downFront(){
+
+}
+
+void Laksmana::pointToBack(){
+
+}
+
+void Laksmana::downBack(){
+
+}
+
+void Laksmana::onHipBack(){
+
+}
+
+void Laksmana::pointToSelf(){
+
+}
+
+void Laksmana::middleFrontBack(){
+
+}
+
+void Laksmana::lowPointToBack(){
+
+}
+
+void Laksmana::middleBack(){
+
+}

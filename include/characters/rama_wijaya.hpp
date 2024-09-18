@@ -24,4 +24,19 @@ public:
     void left_pointToFront();
 
     void talking(int delay_in_sec);
+
+    // Command list for hand movement
+    void pointToFront();
+    void lower_pointToFront();
+    void middleFront();
+    void downFront();
+    void pointToBack();
+    void downBack();
+    void onHipBack();
+    void pointToSelf();
+    // void lowPointToSelf();
+    void middleFrontBack();
+    void lowPointToBack();
+    void middleBack();
+    // void respect();
 };
