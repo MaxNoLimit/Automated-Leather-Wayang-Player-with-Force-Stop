@@ -293,9 +293,14 @@ void WayangDisplay::generalLoop()
         break;
 
     case StateManagement::FSA_STATE::WAYANG_HAND_CALIBRATION:
-        CalibratingFunction::wayangHand();
-        SoundSystem::playDialogFromACertainFolder(SoundSystem::INDICATOR_SOUND, SoundSystem::INDICATOR_SOUND_NUMBER::INDICATOR_WAYANG_HAND_CALIBRATION);
-        delay(3500);    
+        // // Final mode
+        // CalibratingFunction::wayangHand();
+
+        // Debug mode
+        CalibratingFunction::commandListHandMovementTest();
+
+        // SoundSystem::playDialogFromACertainFolder(SoundSystem::INDICATOR_SOUND, SoundSystem::INDICATOR_SOUND_NUMBER::INDICATOR_WAYANG_HAND_CALIBRATION);
+        // delay(3500);
         loop_state = StateManagement::FSA_STATE::DEFAULT_LOOPING_LCD;
         delay(1);
         break;
@@ -1708,6 +1713,172 @@ void CalibratingFunction::wayangHand()
     wayangLaksmana.defaultHandPosition();
     delay(500);
     wayangLaksmana.defaultStandPosition();
+
+    setAllMOSFETtoHIGH();
+}
+
+void CalibratingFunction::commandListHandMovementTest()
+{
+
+    setAllMOSFETtoLOW();
+
+    // // Sita
+    // wayangSita.defaultStandPosition();
+    // wayangSita.defaultHandPosition();
+    // wayangSita.walk_to_a_certain_distance_before_calibrating_value(200);
+    // delay(500);
+    // wayangSita.pointToFront();
+    // delay(500);
+    // wayangSita.lower_pointToFront();
+    // delay(500);
+    // wayangSita.middleFront();
+    // delay(500);
+    // wayangSita.downFront();
+    // delay(500);
+    // wayangSita.pointToBack();
+    // delay(500);
+    // wayangSita.downBack();
+    // delay(500);
+    // wayangSita.onHipBack();
+    // delay(500);
+    // wayangSita.pointToSelf();
+    // delay(500);
+    // wayangSita.middleFrontBack();
+    // delay(500);
+    // wayangSita.lowPointToBack();
+    // delay(500);
+    // wayangSita.middleBack();
+    // delay(500);
+    // wayangSita.defaultStandPosition();
+    // wayangSita.defaultHandPosition();
+
+    // // Rahwana
+    // wayangRahwana.defaultStandPosition();
+    // wayangRahwana.defaultHandPosition();
+    // wayangRahwana.walk_to_a_certain_distance_before_calibrating_value(200);
+    // delay(500);
+    // wayangRahwana.pointToFront();
+    // delay(500);
+    // wayangRahwana.lower_pointToFront();
+    // delay(500);
+    // wayangRahwana.middleFront();
+    // delay(500);
+    // wayangRahwana.downFront();
+    // delay(500);
+    // wayangRahwana.pointToBack();
+    // delay(500);
+    // wayangRahwana.downBack();
+    // delay(500);
+    // wayangRahwana.onHipBack();
+    // delay(500);
+    // wayangRahwana.pointToSelf();
+    // delay(500);
+    // wayangRahwana.middleFrontBack();
+    // delay(500);
+    // wayangRahwana.lowPointToBack();
+    // delay(500);
+    // wayangRahwana.middleBack();
+    // delay(500);
+    // wayangRahwana.defaultStandPosition();
+    // wayangRahwana.defaultHandPosition();
+
+    // // Rama Wijaya
+    // wayangRamaWijaya.defaultStandPosition();
+    // wayangRamaWijaya.defaultHandPosition();
+    // wayangRamaWijaya.walk_to_a_certain_distance_before_calibrating_value(200);
+    // delay(500);
+    // wayangRamaWijaya.pointToFront();
+    // delay(500);
+    // wayangRamaWijaya.lower_pointToFront();
+    // delay(500);
+    // wayangRamaWijaya.middleFront();
+    // delay(500);
+    // wayangRamaWijaya.downFront();
+    // delay(500);
+    // wayangRamaWijaya.pointToBack();
+    // delay(500);
+    // wayangRamaWijaya.downBack();
+    // delay(500);
+    // wayangRamaWijaya.onHipBack();
+    // delay(500);
+    // wayangRamaWijaya.pointToSelf();
+    // delay(500);
+    // wayangRamaWijaya.middleFrontBack();
+    // delay(500);
+    // wayangRamaWijaya.lowPointToBack();
+    // delay(500);
+    // wayangRamaWijaya.middleBack();
+    // delay(500);
+    // wayangRamaWijaya.defaultStandPosition();
+    // wayangRamaWijaya.defaultHandPosition();
+
+    // // Hanoman
+    // wayangHanoman.defaultStandPosition();
+    // wayangHanoman.defaultHandPosition();
+    // wayangHanoman.walk_to_a_certain_distance_before_calibrating_value(200);
+    // delay(500);
+    // wayangHanoman.pointToFront();
+    // delay(500);
+    // wayangHanoman.lower_pointToFront();
+    // delay(500);
+    // wayangHanoman.middleFront();
+    // delay(500);
+    // wayangHanoman.downFront();
+    // delay(500);
+    // wayangHanoman.pointToBack();
+    // delay(500);
+    // wayangHanoman.downBack();
+    // delay(500);
+    // wayangHanoman.onHipBack();
+    // delay(500);
+    // wayangHanoman.pointToSelf();
+    // delay(500);
+    // wayangHanoman.middleFrontBack();
+    // delay(500);
+    // wayangHanoman.lowPointToBack();
+    // delay(500);
+    // wayangHanoman.middleBack();
+    // delay(500);
+    // wayangHanoman.defaultStandPosition();
+    // wayangHanoman.defaultHandPosition();
+
+    // Laksmana
+    wayangLaksmana.defaultStandPosition();
+    wayangLaksmana.defaultHandPosition();
+    wayangLaksmana.walk_to_a_certain_distance_before_calibrating_value(250);
+    // delay(500);
+    wayangLaksmana.pointToFront();
+    // delay(500);
+    wayangLaksmana.lower_pointToFront();
+    // delay(500);
+    wayangLaksmana.downFront(); // to make middle front possible
+    // delay(500);
+    wayangLaksmana.middleFront();
+    // delay(500);
+    wayangLaksmana.downFront();
+    // delay(500);
+    wayangLaksmana.pointToBack();
+    // delay(500);
+    wayangLaksmana.downBack();
+    // delay(500);
+    wayangLaksmana.onHipBack();
+    // delay(500);
+    wayangLaksmana.pointToSelf();
+    // delay(500);
+    wayangLaksmana.downFront();
+    // delay(500);
+    wayangLaksmana.middleFrontBack();
+    // delay(500);
+    wayangLaksmana.lowPointToBack();
+    // delay(500);
+    wayangLaksmana.middleBack();
+    // delay(500);
+    wayangLaksmana.downBack();
+    // delay(500); ///
+    wayangLaksmana.middleFrontBack();
+    // delay(500);
+    wayangLaksmana.defaultStandPosition();
+    wayangLaksmana.defaultHandPosition();
 
     setAllMOSFETtoHIGH();
 }

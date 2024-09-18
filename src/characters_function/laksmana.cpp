@@ -94,46 +94,100 @@ void Laksmana::walk_to_scene(int distanceValue)
     HC_laksmana.step_for_n_dir(5, distanceValue, "cw");
 }
 
-void Laksmana::pointToFront(){
-
+void Laksmana::pointToFront()
+{
+    digitalWrite(WAYANG_HAND_5, HIGH);
+    Servo_Laskmana.moveWhatServo(3, 180, 2000);
+    Servo_Laskmana.moveWhatServo(4, 140, 500);
+    digitalWrite(WAYANG_HAND_5, LOW);
 }
 
-void Laksmana::lower_pointToFront(){
+void Laksmana::lower_pointToFront()
+{
 
+    digitalWrite(WAYANG_HAND_5, HIGH);
+    Servo_Laskmana.moveWhatServo(3, 120, 700);
+    Servo_Laskmana.moveWhatServo(4, 140, 500);
+    digitalWrite(WAYANG_HAND_5, LOW);
 }
 
-void Laksmana::middleFront(){
-
+void Laksmana::middleFront()
+{
+    digitalWrite(WAYANG_HAND_5, HIGH);
+    Servo_Laskmana.moveWhatServo(4, 110, 500);
+    Servo_Laskmana.moveWhatServo(3, 180, 2000);
+    Servo_Laskmana.moveWhatServo(4, 120, 500);
+    digitalWrite(WAYANG_HAND_5, LOW);
 }
 
-void Laksmana::downFront(){
-
+void Laksmana::downFront()
+{
+    digitalWrite(WAYANG_HAND_5, HIGH);
+    Servo_Laskmana.moveWhatServo(3, 0, 1000);
+    Servo_Laskmana.moveWhatServo(4, 90, 500);
+    digitalWrite(WAYANG_HAND_5, LOW);
 }
 
-void Laksmana::pointToBack(){
-
+void Laksmana::pointToBack()
+{
+    digitalWrite(WAYANG_HAND_5, HIGH);
+    Servo_Laskmana.moveWhatServo(1, 90, 1000);
+    Servo_Laskmana.moveWhatServo(2, 60, 500);
+    Servo_Laskmana.moveWhatServo(1, 0, 2000);
+    Servo_Laskmana.moveWhatServo(2, 40, 500);
+    digitalWrite(WAYANG_HAND_5, LOW);
 }
 
-void Laksmana::downBack(){
+void Laksmana::downBack()
+{
+    digitalWrite(WAYANG_HAND_5, HIGH);
+    Servo_Laskmana.moveWhatServo(1, 160, 1000);
+    Servo_Laskmana.moveWhatServo(2, 100, 700);
 
+    digitalWrite(WAYANG_HAND_5, LOW);
 }
 
-void Laksmana::onHipBack(){
-
+void Laksmana::onHipBack()
+{
+    digitalWrite(WAYANG_HAND_5, HIGH);
+    Servo_Laskmana.moveWhatServo(1, 180, 1000);
+    Servo_Laskmana.moveWhatServo(2, 90, 1000);
+    Servo_Laskmana.moveWhatServo(1, 45, 2000);
+    digitalWrite(WAYANG_HAND_5, LOW);
 }
 
-void Laksmana::pointToSelf(){
-
+void Laksmana::pointToSelf()
+{
+    digitalWrite(WAYANG_HAND_5, HIGH);
+    Servo_Laskmana.moveWhatServo(4, 80, 500);
+    Servo_Laskmana.moveWhatServo(3, 180, 2000);
+    digitalWrite(WAYANG_HAND_5, LOW);
 }
 
-void Laksmana::middleFrontBack(){
-
+void Laksmana::middleFrontBack()
+{
+    digitalWrite(WAYANG_HAND_5, HIGH);
+    Servo_Laskmana.moveWhatServo(1, 90, 1000);
+    Servo_Laskmana.moveWhatServo(2, 100, 500);
+    digitalWrite(WAYANG_HAND_5, LOW);
 }
 
-void Laksmana::lowPointToBack(){
-
+void Laksmana::lowPointToBack()
+{
+    digitalWrite(WAYANG_HAND_5, HIGH);
+    Servo_Laskmana.moveWhatServo(1, 90, 1000);
+    Servo_Laskmana.moveWhatServo(2, 60, 500);
+    Servo_Laskmana.moveWhatServo(1, 45, 2000);
+    Servo_Laskmana.moveWhatServo(2, 40, 500);
+    digitalWrite(WAYANG_HAND_5, LOW);
 }
 
-void Laksmana::middleBack(){
-
+void Laksmana::middleBack()
+{
+    digitalWrite(WAYANG_HAND_5, HIGH);
+    Servo_Laskmana.moveWhatServo(1, 90, 1000);
+    Servo_Laskmana.moveWhatServo(2, 60, 500);
+    Servo_Laskmana.moveWhatServo(1, 0, 2000);
+    // Servo_Laskmana.moveWhatServo(2, 40, 500);
+    digitalWrite(WAYANG_HAND_5, LOW);
 }

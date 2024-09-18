@@ -38,6 +38,7 @@ namespace CalibratingFunction{
     void vSlotLinear();
     void soundSystem();
     void wayangHand();
+    void commandListHandMovementTest();
 };
 
 enum whatSideServo
