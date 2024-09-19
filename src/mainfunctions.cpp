@@ -1529,6 +1529,17 @@ void WayangHandServo::moveWhatServo(int servoNum, int degree, int desiredDuratio
                     delayMicroseconds(getWavePeriod() - degreeToDelay(curdeg - i * divVar));
                 }
             }
+
+            if (mismatchremainder == 0 && remainder != 0)
+            {
+                for (int i = 0; i < remainder; i++)
+                {
+                    digitalWrite(selectedPin, HIGH);
+                    delayMicroseconds(degreeToDelay(degree));
+                    digitalWrite(selectedPin, LOW);
+                    delayMicroseconds(getWavePeriod() - degreeToDelay(degree));
+                }
+            }
         }
         else
         {
@@ -1551,6 +1562,17 @@ void WayangHandServo::moveWhatServo(int servoNum, int degree, int desiredDuratio
                     delayMicroseconds(degreeToDelay(curdeg + i * divVar));
                     digitalWrite(selectedPin, LOW);
                     delayMicroseconds(getWavePeriod() - degreeToDelay(curdeg + i * divVar));
+                }
+            }
+
+            if (mismatchremainder == 0 && remainder != 0)
+            {
+                for (int i = 0; i < remainder; i++)
+                {
+                    digitalWrite(selectedPin, HIGH);
+                    delayMicroseconds(degreeToDelay(degree));
+                    digitalWrite(selectedPin, LOW);
+                    delayMicroseconds(getWavePeriod() - degreeToDelay(degree));
                 }
             }
         }
@@ -1723,12 +1745,12 @@ void CalibratingFunction::commandListHandMovementTest()
     setAllMOSFETtoLOW();
 
     // // Sita
-    // wayangSita.defaultStandPosition();
-    // wayangSita.defaultHandPosition();
-    // wayangSita.walk_to_a_certain_distance_before_calibrating_value(200);
-    // delay(500);
-    // wayangSita.pointToFront();
-    // delay(500);
+    wayangSita.defaultStandPosition();
+    wayangSita.defaultHandPosition();
+    wayangSita.walk_to_a_certain_distance_before_calibrating_value(200);
+    delay(500);
+    wayangSita.pointToFront();
+    delay(500);
     // wayangSita.lower_pointToFront();
     // delay(500);
     // wayangSita.middleFront();
@@ -1749,8 +1771,8 @@ void CalibratingFunction::commandListHandMovementTest()
     // delay(500);
     // wayangSita.middleBack();
     // delay(500);
-    // wayangSita.defaultStandPosition();
-    // wayangSita.defaultHandPosition();
+    wayangSita.defaultStandPosition();
+    wayangSita.defaultHandPosition();
 
     // // Rahwana
     // wayangRahwana.defaultStandPosition();
@@ -1843,42 +1865,42 @@ void CalibratingFunction::commandListHandMovementTest()
     // wayangHanoman.defaultHandPosition();
 
     // Laksmana
-    wayangLaksmana.defaultStandPosition();
-    wayangLaksmana.defaultHandPosition();
-    wayangLaksmana.walk_to_a_certain_distance_before_calibrating_value(250);
-    // delay(500);
-    wayangLaksmana.pointToFront();
-    // delay(500);
-    wayangLaksmana.lower_pointToFront();
-    // delay(500);
-    wayangLaksmana.downFront(); // to make middle front possible
-    // delay(500);
-    wayangLaksmana.middleFront();
-    // delay(500);
-    wayangLaksmana.downFront();
-    // delay(500);
-    wayangLaksmana.pointToBack();
-    // delay(500);
-    wayangLaksmana.downBack();
-    // delay(500);
-    wayangLaksmana.onHipBack();
-    // delay(500);
-    wayangLaksmana.pointToSelf();
-    // delay(500);
-    wayangLaksmana.downFront();
-    // delay(500);
-    wayangLaksmana.middleFrontBack();
-    // delay(500);
-    wayangLaksmana.lowPointToBack();
-    // delay(500);
-    wayangLaksmana.middleBack();
-    // delay(500);
-    wayangLaksmana.downBack();
-    // delay(500); ///
-    wayangLaksmana.middleFrontBack();
-    // delay(500);
-    wayangLaksmana.defaultStandPosition();
-    wayangLaksmana.defaultHandPosition();
+    // wayangLaksmana.defaultStandPosition();
+    // wayangLaksmana.defaultHandPosition();
+    // wayangLaksmana.walk_to_a_certain_distance_before_calibrating_value(250);
+    // // delay(500);
+    // wayangLaksmana.pointToFront();
+    // // delay(500);
+    // wayangLaksmana.lower_pointToFront();
+    // // delay(500);
+    // wayangLaksmana.downFront(); // to make middle front possible
+    // // delay(500);
+    // wayangLaksmana.middleFront();
+    // // delay(500);
+    // wayangLaksmana.downFront();
+    // // delay(500);
+    // wayangLaksmana.pointToBack();
+    // // delay(500);
+    // wayangLaksmana.downBack();
+    // // delay(500);
+    // wayangLaksmana.onHipBack();
+    // // delay(500);
+    // wayangLaksmana.pointToSelf();
+    // // delay(500);
+    // wayangLaksmana.downFront();
+    // // delay(500);
+    // wayangLaksmana.middleFrontBack();
+    // // delay(500);
+    // wayangLaksmana.lowPointToBack();
+    // // delay(500);
+    // wayangLaksmana.middleBack();
+    // // delay(500);
+    // wayangLaksmana.downBack();
+    // // delay(500); ///
+    // // wayangLaksmana.middleFrontBack();
+    // // delay(500);
+    // wayangLaksmana.defaultStandPosition();
+    // wayangLaksmana.defaultHandPosition();
 
     setAllMOSFETtoHIGH();
 }
