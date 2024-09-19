@@ -43,13 +43,6 @@ public:
     void lower_pointToFront();
     void middleFront();
     void downFront();
-    void pointToBack();
-    void downBack();
-    void onHipBack();
     void pointToSelf();
-    // void lowPointToSelf();
-    void middleFrontBack();
-    void lowPointToBack();
-    void middleBack();
     // void respect();
 };

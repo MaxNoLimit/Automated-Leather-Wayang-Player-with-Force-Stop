@@ -124,7 +124,7 @@ void Laksmana::downFront()
 {
     digitalWrite(WAYANG_HAND_5, HIGH);
     Servo_Laskmana.moveWhatServo(3, 0, 1000);
-    Servo_Laskmana.moveWhatServo(4, 90, 500);
+    Servo_Laskmana.moveWhatServo(4, 100, 500);
     digitalWrite(WAYANG_HAND_5, LOW);
 }
 
