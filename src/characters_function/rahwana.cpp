@@ -41,7 +41,7 @@ void Rahwana::walk_to_a_certain_distance(int desiredDistance)
         int finalReadValue = getDistanceSensor2();
         Serial.print(finalReadValue);
         Serial.println("mm \n");
-        if (finalReadValue > desiredDistance)
+        if (finalReadValue > desiredDistance * 1.1)
         {
             walk_to_a_certain_distance(desiredDistance);
         }
@@ -60,7 +60,7 @@ void Rahwana::walk_to_a_certain_distance(int desiredDistance)
         int finalReadValue = getDistanceSensor2();
         Serial.print(finalReadValue);
         Serial.println("mm \n");
-        if (finalReadValue < desiredDistance)
+        if (finalReadValue < desiredDistance * 0.9)
         {
             walk_to_a_certain_distance(desiredDistance);
         }

@@ -8,12 +8,13 @@ HorizontalController HC_hanoman;
 void Hanoman::defaultHandPosition()
 {
     digitalWrite(WAYANG_HAND_4, HIGH);
-    Servo_Hanuman.moveWhatServo(4, 100, 1000);
-    Servo_Hanuman.moveWhatServo(2, 100, 1000);
+    // Servo_Hanuman.moveWhatServo(4, 100, 500);
+    // Servo_Hanuman.moveWhatServo(2, 140, 500);
     Servo_Hanuman.defaultPosition();
-    Servo_Hanuman.moveWhatServo(4, 110, 1000);
-    Servo_Hanuman.moveWhatServo(2, 110, 2000);
-    Servo_Hanuman.moveWhatServo(1, 80, 1000);
+    Servo_Hanuman.moveWhatServo(4, 110, 500);
+    downBack();
+    onHipBack();
+    Servo_Hanuman.resetArray();
 
     digitalWrite(WAYANG_HAND_4, LOW);
 }
@@ -58,7 +59,7 @@ void Hanoman::walk_to_a_certain_distance(int desiredDistance)
         int finalReadValue = getDistanceSensor4();
         Serial.print(finalReadValue);
         Serial.println("mm \n");
-        if (finalReadValue > desiredDistance)
+        if (finalReadValue > desiredDistance * 1.1)
         {
             walk_to_a_certain_distance(desiredDistance);
         }
@@ -77,7 +78,7 @@ void Hanoman::walk_to_a_certain_distance(int desiredDistance)
         int finalReadValue = getDistanceSensor4();
         Serial.print(finalReadValue);
         Serial.println("mm \n");
-        if (finalReadValue < desiredDistance)
+        if (finalReadValue < desiredDistance * 0.9)
         {
             walk_to_a_certain_distance(desiredDistance);
         }
@@ -98,47 +99,100 @@ void Hanoman::walk_to_scene(int distanceValue)
     HC_hanoman.step_for_n_dir(4, distanceValue, "cw");
 }
 
-
-void Hanoman::pointToFront(){
-
+void Hanoman::pointToFront()
+{
+    digitalWrite(WAYANG_HAND_4, HIGH);
+    Servo_Hanuman.moveWhatServo(4, 120, 500);
+    Servo_Hanuman.moveWhatServo(3, 180, 2000);
+    Servo_Hanuman.moveWhatServo(4, 140, 500);
+    digitalWrite(WAYANG_HAND_4, LOW);
 }
 
-void Hanoman::lower_pointToFront(){
-
+void Hanoman::lower_pointToFront()
+{
+    digitalWrite(WAYANG_HAND_4, HIGH);
+    Servo_Hanuman.moveWhatServo(3, 90, 1000);
+    Servo_Hanuman.moveWhatServo(4, 140, 500);
+    digitalWrite(WAYANG_HAND_4, LOW);
 }
 
-void Hanoman::middleFront(){
-
+void Hanoman::middleFront()
+{
+    digitalWrite(WAYANG_HAND_4, HIGH);
+    Servo_Hanuman.moveWhatServo(3, 30, 1000);
+    Servo_Hanuman.moveWhatServo(4, 110, 500);
+    Servo_Hanuman.moveWhatServo(3, 135, 2000);
+    digitalWrite(WAYANG_HAND_4, LOW);
 }
 
-void Hanoman::downFront(){
-
+void Hanoman::downFront()
+{
+    digitalWrite(WAYANG_HAND_4, HIGH);
+    Servo_Hanuman.moveWhatServo(3, 0, 1000);
+    Servo_Hanuman.moveWhatServo(4, 100, 500);
+    digitalWrite(WAYANG_HAND_4, LOW);
 }
 
-void Hanoman::pointToBack(){
-
+void Hanoman::pointToBack()
+{
+    digitalWrite(WAYANG_HAND_4, HIGH);
+    Servo_Hanuman.moveWhatServo(1, 90, 1000);
+    Servo_Hanuman.moveWhatServo(2, 60, 500);
+    Servo_Hanuman.moveWhatServo(1, 0, 2000);
+    Servo_Hanuman.moveWhatServo(2, 40, 500);
+    digitalWrite(WAYANG_HAND_4, LOW);
 }
 
-void Hanoman::downBack(){
-
+void Hanoman::downBack()
+{
+    digitalWrite(WAYANG_HAND_4, HIGH);
+    Servo_Hanuman.moveWhatServo(1, 160, 1000);
+    Servo_Hanuman.moveWhatServo(2, 100, 700);
+    digitalWrite(WAYANG_HAND_4, LOW);
 }
 
-void Hanoman::onHipBack(){
-
+void Hanoman::onHipBack()
+{
+    digitalWrite(WAYANG_HAND_4, HIGH);
+    Servo_Hanuman.moveWhatServo(2, 110, 1000);
+    Servo_Hanuman.moveWhatServo(1, 80, 2000);
+    digitalWrite(WAYANG_HAND_4, LOW);
 }
 
-void Hanoman::pointToSelf(){
-
+void Hanoman::pointToSelf()
+{
+    digitalWrite(WAYANG_HAND_4, HIGH);
+    Servo_Hanuman.moveWhatServo(4, 60, 500);
+    Servo_Hanuman.moveWhatServo(3, 150, 2000);
+    Servo_Hanuman.moveWhatServo(4, 80, 500);
+    digitalWrite(WAYANG_HAND_4, LOW);
 }
 
-void Hanoman::middleFrontBack(){
-
+void Hanoman::middleFrontBack()
+{
+    digitalWrite(WAYANG_HAND_4, HIGH);
+    Servo_Hanuman.moveWhatServo(1, 90, 2000);
+    Servo_Hanuman.moveWhatServo(2, 120, 500);
+    digitalWrite(WAYANG_HAND_4, LOW);
 }
 
-void Hanoman::lowPointToBack(){
-
+void Hanoman::lowPointToBack()
+{
+    digitalWrite(WAYANG_HAND_4, HIGH);
+    Servo_Hanuman.moveWhatServo(1, 110, 2000);
+    Servo_Hanuman.moveWhatServo(2, 60, 500);
+    // Servo_Hanuman.moveWhatServo(1, 45, 2000);
+    // Servo_Hanuman.moveWhatServo(2, 40, 500);
+    digitalWrite(WAYANG_HAND_4, LOW);
 }
 
-void Hanoman::middleBack(){
-
+void Hanoman::middleBack()
+{
+    digitalWrite(WAYANG_HAND_4, HIGH);
+    Servo_Hanuman.moveWhatServo(1, 90, 2000);
+    Servo_Hanuman.moveWhatServo(2, 70, 1000);
+    Servo_Hanuman.moveWhatServo(1, 0, 2000);
+    Servo_Hanuman.moveWhatServo(2, 90, 1000);
+    // Servo_Hanuman.moveWhatServo(2, 40, 500);
+    digitalWrite(WAYANG_HAND_4, LOW);
 }

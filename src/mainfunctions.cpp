@@ -293,14 +293,14 @@ void WayangDisplay::generalLoop()
         break;
 
     case StateManagement::FSA_STATE::WAYANG_HAND_CALIBRATION:
-        // // Final mode
-        // CalibratingFunction::wayangHand();
+        // Final mode
+        CalibratingFunction::wayangHand();
 
-        // Debug mode
-        CalibratingFunction::commandListHandMovementTest();
+        // // Debug mode
+        // CalibratingFunction::commandListHandMovementTest();
 
-        // SoundSystem::playDialogFromACertainFolder(SoundSystem::INDICATOR_SOUND, SoundSystem::INDICATOR_SOUND_NUMBER::INDICATOR_WAYANG_HAND_CALIBRATION);
-        // delay(3500);
+        SoundSystem::playDialogFromACertainFolder(SoundSystem::INDICATOR_SOUND, SoundSystem::INDICATOR_SOUND_NUMBER::INDICATOR_WAYANG_HAND_CALIBRATION);
+        delay(3500);
         loop_state = StateManagement::FSA_STATE::DEFAULT_LOOPING_LCD;
         delay(1);
         break;
@@ -1818,11 +1818,17 @@ void CalibratingFunction::commandListHandMovementTest()
     // delay(500);
     // wayangRamaWijaya.onHipBack();
     // delay(500);
+    // wayangRamaWijaya.downBack();
+    // delay(500);
     // wayangRamaWijaya.pointToSelf();
     // delay(500);
+    // wayangRamaWijaya.downFront();
     // wayangRamaWijaya.middleFrontBack();
     // delay(500);
     // wayangRamaWijaya.lowPointToBack();
+    // delay(500);
+    // wayangRamaWijaya.defaultHandPosition();
+    // wayangRamaWijaya.downBack();
     // delay(500);
     // wayangRamaWijaya.middleBack();
     // delay(500);
@@ -1837,6 +1843,8 @@ void CalibratingFunction::commandListHandMovementTest()
     // wayangHanoman.pointToFront();
     // delay(500);
     // wayangHanoman.lower_pointToFront();
+    // delay(500);
+    // wayangHanoman.downFront();
     // delay(500);
     // wayangHanoman.middleFront();
     // delay(500);
@@ -1853,6 +1861,8 @@ void CalibratingFunction::commandListHandMovementTest()
     // wayangHanoman.middleFrontBack();
     // delay(500);
     // wayangHanoman.lowPointToBack();
+    // delay(500);
+    // wayangHanoman.downBack();
     // delay(500);
     // wayangHanoman.middleBack();
     // delay(500);
