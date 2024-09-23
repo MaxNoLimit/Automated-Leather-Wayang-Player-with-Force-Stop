@@ -1407,10 +1407,10 @@ int WayangHandServo::degreeToDelay(int degree)
 
 void WayangHandServo::defaultPosition()
 {
-    moveWhatServo(1, 180, 1000);
-    moveWhatServo(2, 90, 1000);
-    moveWhatServo(3, 0, 1000);
-    moveWhatServo(4, 90, 1000);
+    moveWhatServo(1, 180, 500);
+    moveWhatServo(2, 90, 200);
+    moveWhatServo(3, 0, 500);
+    moveWhatServo(4, 90, 200);
 }
 
 void WayangHandServo::resetArray()
@@ -1757,53 +1757,53 @@ void CalibratingFunction::commandListHandMovementTest()
 {
 
     setAllMOSFETtoLOW();
-    int startTime, endTime = 0;
+    // int startTime, endTime = 0;
 
-    // Duration test
-    // Point to Front
-    Serial.println("\n");
-    startTime = millis();
-    wayangRahwana.pointToFront();
-    endTime = millis();
+    // // Duration test
+    // // Point to Front
+    // Serial.println("\n");
+    // startTime = millis();
+    // wayangRahwana.pointToFront();
+    // endTime = millis();
 
-    Serial.println("Point to Front: " + String(endTime - startTime) + "ms");
-    delay(500);
+    // Serial.println("Point to Front: " + String(endTime - startTime) + "ms");
+    // delay(500);
 
-    // Down Front
-    startTime = 0;
-    endTime = 0;
+    // // Down Front
+    // startTime = 0;
+    // endTime = 0;
 
-    startTime = millis();
-    wayangRahwana.downFront();
-    endTime = millis();
+    // startTime = millis();
+    // wayangRahwana.downFront();
+    // endTime = millis();
 
-    Serial.println("Down Front: " + String(endTime - startTime) + "ms");
-    delay(500);
+    // Serial.println("Down Front: " + String(endTime - startTime) + "ms");
+    // delay(500);
 
-    // Middle Front
-    startTime = 0;
-    endTime = 0;
+    // // Middle Front
+    // startTime = 0;
+    // endTime = 0;
 
-    startTime = millis();
-    wayangRahwana.middleFront();
-    endTime = millis();
+    // startTime = millis();
+    // wayangRahwana.middleFront();
+    // endTime = millis();
 
-    Serial.println("Middle Front: " + String(endTime - startTime) + "ms");
-    delay(500);
+    // Serial.println("Middle Front: " + String(endTime - startTime) + "ms");
+    // delay(500);
 
-    wayangRahwana.downFront();
+    // wayangRahwana.downFront();
 
-    startTime = 0;
-    endTime = 0;
+    // startTime = 0;
+    // endTime = 0;
 
-    startTime = millis();
-    delayMicroseconds(10000);
-    delayMicroseconds(10000);
-    endTime = millis();
+    // startTime = millis();
+    // delayMicroseconds(10000);
+    // delayMicroseconds(10000);
+    // endTime = millis();
 
-    Serial.println("Delay 10ms with us: " + String(endTime - startTime) + "ms");
+    // Serial.println("Delay 10ms with us: " + String(endTime - startTime) + "ms");
 
-    // Sita
+    // // Sita
     // wayangSita.defaultStandPosition();
     // wayangSita.defaultHandPosition();
     // wayangSita.walk_to_a_certain_distance_before_calibrating_value(250);
@@ -1840,23 +1840,23 @@ void CalibratingFunction::commandListHandMovementTest()
     // wayangSita.defaultStandPosition();
     // wayangSita.defaultHandPosition();
 
-    // // Rahwana
-    // wayangRahwana.defaultStandPosition();
-    // wayangRahwana.defaultHandPosition();
-    // wayangRahwana.walk_to_a_certain_distance_before_calibrating_value(250);
-    // delay(500);
-    // wayangRahwana.pointToFront();
-    // delay(500);
-    // wayangRahwana.lower_pointToFront();
-    // delay(500);
-    // wayangRahwana.middleFront();
-    // delay(500);
-    // wayangRahwana.downFront();
-    // delay(500);
-    // wayangRahwana.pointToSelf();
-    // delay(500);
-    // wayangRahwana.defaultStandPosition();
-    // wayangRahwana.defaultHandPosition();
+    // Rahwana
+    wayangRahwana.defaultStandPosition();
+    wayangRahwana.defaultHandPosition();
+    wayangRahwana.walk_to_a_certain_distance_before_calibrating_value(250);
+    delay(500);
+    wayangRahwana.pointToFront();
+    delay(500);
+    wayangRahwana.lower_pointToFront();
+    delay(500);
+    wayangRahwana.middleFront();
+    delay(500);
+    wayangRahwana.downFront();
+    delay(500);
+    wayangRahwana.pointToSelf();
+    delay(500);
+    wayangRahwana.defaultStandPosition();
+    wayangRahwana.defaultHandPosition();
 
     // // Rama Wijaya
     // wayangRamaWijaya.defaultStandPosition();
@@ -1928,7 +1928,7 @@ void CalibratingFunction::commandListHandMovementTest()
     // wayangHanoman.defaultStandPosition();
     // wayangHanoman.defaultHandPosition();
 
-    // Laksmana
+    // // Laksmana
     // wayangLaksmana.defaultStandPosition();
     // wayangLaksmana.defaultHandPosition();
     // wayangLaksmana.walk_to_a_certain_distance_before_calibrating_value(250);

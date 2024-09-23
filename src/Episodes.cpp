@@ -585,20 +585,20 @@ void Episodes::Episode_1()
 
     delay(1312);
     // movement 1, 2
-    sita.pointToFront(); // takes 1600 ms
+    sita.pointToFront(); // takes 700 ms
 
-    delay(4796 - 1312 - 1600); // result = 1884 ms
+    delay(4796 - 1312 - 700); // result = 2784 ms
     // movement 3
-    sita.left_lower_half_hand(); // takes 1500 ms
+    sita.lower_pointToFront(); // takes 700 ms
 
-    delay(7339 - 4796 - 1500); // result = 1043 ms
+    delay(7339 - 4796 - 700); // result = 1843 ms
     // movement 4, 5
-    sita.oscillate(3298);       // takes 3000 ms
-    delay(10673 - 7339 - 3000); // result = 334 ms
+    sita.oscillate(3298);       // takes 2800 ms
+    delay(10673 - 7339 - 2800); // result = 1534 ms
 
     // movement 6, 7
-    sita.pointToFront();         // takes 1600 ms
-    delay(12320 - 10673 - 1600); // result = 947 ms
+    sita.pointToFront();         // takes 700 ms
+    delay(12320 - 10673 - 700); // result = 1547 ms
 
     sita.defaultHandPosition(); // takes 2000 ms
 

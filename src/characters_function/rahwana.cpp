@@ -120,7 +120,7 @@ void Rahwana::Rahwana_1()
 void Rahwana::defaultHandPosition()
 {
     digitalWrite(WAYANG_HAND_2, HIGH);
-    Servo_Rahwana.moveWhatServo(3, 90, 2000);
+    Servo_Rahwana.moveWhatServo(3, 90, 500);
     Servo_Rahwana.defaultPosition();
     Servo_Rahwana.resetArray();
     digitalWrite(WAYANG_HAND_2, LOW);
@@ -344,8 +344,8 @@ void Rahwana::rahwana_120_bpm_deathstream()
 
     for (int i = 0; i < 60; i++)
     {
-        Servo_Rahwana.moveWhatServo(4, 90 - 15, 500 * 5);
-        Servo_Rahwana.moveWhatServo(4, 90 + 15, 500 * 5);
+        Servo_Rahwana.moveWhatServo(4, 90 - 15, 500);
+        Servo_Rahwana.moveWhatServo(4, 90 + 15, 500);
     };
     digitalWrite(WAYANG_HAND_2, LOW);
 }
@@ -358,34 +358,34 @@ void Rahwana::pointToFront()
     // Servo_Rahwana.moveWhatServo(3, 180, 3000);
     // Servo_Rahwana.moveWhatServo(4, 130, 2000);
 
-    Servo_Rahwana.moveWhatServo(4, 120, 500);
-    Servo_Rahwana.moveWhatServo(3, 180, 2000);
-    Servo_Rahwana.moveWhatServo(4, 140, 500);
+    Servo_Rahwana.moveWhatServo(4, 120, 200);
+    Servo_Rahwana.moveWhatServo(3, 180, 500);
+    Servo_Rahwana.moveWhatServo(4, 140, 200);
     digitalWrite(WAYANG_HAND_2, LOW);
 }
 
 void Rahwana::lower_pointToFront()
 {
     digitalWrite(WAYANG_HAND_2, HIGH);
-    Servo_Rahwana.moveWhatServo(3, 120, 700);
-    Servo_Rahwana.moveWhatServo(4, 140, 500);
+    Servo_Rahwana.moveWhatServo(3, 120, 500);
+    Servo_Rahwana.moveWhatServo(4, 140, 200);
     digitalWrite(WAYANG_HAND_2, LOW);
 }
 
 void Rahwana::middleFront()
 {
     digitalWrite(WAYANG_HAND_2, HIGH);
-    Servo_Rahwana.moveWhatServo(3, 30, 1000);
-    Servo_Rahwana.moveWhatServo(4, 110, 500);
-    Servo_Rahwana.moveWhatServo(3, 135, 2000);
+    Servo_Rahwana.moveWhatServo(3, 30, 500);
+    Servo_Rahwana.moveWhatServo(4, 110, 200);
+    Servo_Rahwana.moveWhatServo(3, 135, 500);
     digitalWrite(WAYANG_HAND_2, LOW);
 }
 
 void Rahwana::downFront()
 {
     digitalWrite(WAYANG_HAND_2, HIGH);
-    Servo_Rahwana.moveWhatServo(3, 0, 1000);
-    Servo_Rahwana.moveWhatServo(4, 100, 500);
+    Servo_Rahwana.moveWhatServo(3, 0, 500);
+    Servo_Rahwana.moveWhatServo(4, 100, 200);
     digitalWrite(WAYANG_HAND_2, LOW);
 }
 
@@ -393,8 +393,8 @@ void Rahwana::pointToSelf()
 {
     digitalWrite(WAYANG_HAND_2, HIGH);
     Servo_Rahwana.defaultPosition();
-    Servo_Rahwana.moveWhatServo(4, 60, 500);
-    Servo_Rahwana.moveWhatServo(3, 150, 2000);
-    Servo_Rahwana.moveWhatServo(4, 80, 500);
+    Servo_Rahwana.moveWhatServo(4, 60, 200);
+    Servo_Rahwana.moveWhatServo(3, 180, 500);
+    Servo_Rahwana.moveWhatServo(4, 80, 400);
     digitalWrite(WAYANG_HAND_2, LOW);
 }
