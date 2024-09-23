@@ -571,16 +571,18 @@ void Episodes::randomTesting()
 
 void Episodes::Episode_1()
 {
-    setAllMOSFETtoLOW();
     // Calibrating all wayang first
     CalibratingFunction::wayangHand();
 
+    setAllMOSFETtoLOW();
+
+    SoundSystem::playDialogFromACertainFolder(SoundSystem::EXTRA_MUSIC_WAYANG, SoundSystem::MUSIC_NUMBER::MUSIC_GAMELAN);
+    sita.walk_to_a_certain_distance_before_calibrating_value(200);
+    laksmana.walk_to_a_certain_distance_before_calibrating_value(200);
     // 001 (Sita1Sita-Laksmana dialogue 1)
     SoundSystem::playDialogFromACertainFolder(SoundSystem::EPISODE_NUMBER::EPISODE_1, SoundSystem::EPISODE_1_DIALOG::SITA1SITA_LAKS_DIALOGUE_1);
-    sita.walk_to_a_certain_distance_before_calibrating_value(160);
-    laksmana.walk_to_a_certain_distance_before_calibrating_value(160);
+    // delay(3000); // audio test only 3s
 
-    setAllMOSFETtoLOW();
     delay(1312);
     // movement 1, 2
     sita.pointToFront(); // takes 1600 ms
@@ -628,127 +630,127 @@ void Episodes::Episode_1()
 
     // 002 (01 S-L1 Laksmana1F)
     SoundSystem::playDialogFromACertainFolder(SoundSystem::EPISODE_NUMBER::EPISODE_1, SoundSystem::EPISODE_1_DIALOG::S_L1_LAKS1F);
-
+    delay(3000);
 
     // 003 (Sita2Sita-Laksmana dialogue 1)
     SoundSystem::playDialogFromACertainFolder(SoundSystem::EPISODE_NUMBER::EPISODE_1, SoundSystem::EPISODE_1_DIALOG::SITA2SITA_LAKS_DIALOGUE_1);
-
+    delay(3000);
 
     // 004 (02 S-L1 Laksmana2F)
     SoundSystem::playDialogFromACertainFolder(SoundSystem::EPISODE_NUMBER::EPISODE_1, SoundSystem::EPISODE_1_DIALOG::S_L1_LAKS2F);
-
+    delay(3000);
 
     // 005 (005SitaRahwanadialogueRahwana1)
     SoundSystem::playDialogFromACertainFolder(SoundSystem::EPISODE_NUMBER::EPISODE_1, SoundSystem::EPISODE_1_DIALOG::SITA_RAHWANA_DIALOGUE_RAHWANA_1);
-
+    delay(3000);
 
     // 006 (006SitaRahwanadialogueSita1)
     SoundSystem::playDialogFromACertainFolder(SoundSystem::EPISODE_NUMBER::EPISODE_1, SoundSystem::EPISODE_1_DIALOG::SITA_RAHWANA_DIALOGUE_SITA_1);
-
+    delay(3000);
 
     // 007 (007SitaRahwanadialogueRahwana2)
-    SoundSystem::playDialogFromACertainFolder(SoundSystem::EPISODE_NUMBER::EPISODE_1, SoundSystem::EPISODE_1_DIALOG::SITA_RAHWANA_DIALOGUE_RAHWANA_2);  
-
+    SoundSystem::playDialogFromACertainFolder(SoundSystem::EPISODE_NUMBER::EPISODE_1, SoundSystem::EPISODE_1_DIALOG::SITA_RAHWANA_DIALOGUE_RAHWANA_2);
+    delay(3000);
 
     // 008 (03 L-R1 Laksmana1F)
     SoundSystem::playDialogFromACertainFolder(SoundSystem::EPISODE_NUMBER::EPISODE_1, SoundSystem::EPISODE_1_DIALOG::L_R1_LAKS1F);
-
+    delay(3000);
 
     // 009 (Rama1Laksmana-Rama Diaglogue(in place of narrator for context))
     SoundSystem::playDialogFromACertainFolder(SoundSystem::EPISODE_NUMBER::EPISODE_1, SoundSystem::EPISODE_1_DIALOG::RAMA1LAKS_RAMA_DIALOGUE_IN_PLACE_NARATOR);
-
+    delay(3000);
 
     // 010 (04 H-R1 Hanuman1F)
     SoundSystem::playDialogFromACertainFolder(SoundSystem::EPISODE_NUMBER::EPISODE_1, SoundSystem::EPISODE_1_DIALOG::H_R1_HANUMAN1F);
-
+    delay(3000);
 
     // 011 (Rama1Hanuman-Rama dialogue_E)
     SoundSystem::playDialogFromACertainFolder(SoundSystem::EPISODE_NUMBER::EPISODE_1, SoundSystem::EPISODE_1_DIALOG::RAMA1HANUMAN_RAMA_DIALOGUE_E);
-
+    delay(3000);
 
     // 012 (05 H-R1 Hanuman2F)
     SoundSystem::playDialogFromACertainFolder(SoundSystem::EPISODE_NUMBER::EPISODE_1, SoundSystem::EPISODE_1_DIALOG::H_R1_HANUMAN2F);
-
+    delay(3000);
 
     // 013 (06 S-R1 Sugriwa1F)
     SoundSystem::playDialogFromACertainFolder(SoundSystem::EPISODE_NUMBER::EPISODE_1, SoundSystem::EPISODE_1_DIALOG::S_R1_SUGRIWA1F);
-
+    delay(3000);
 
     // 014 (07 Duel1 Sugriwa1F)
     SoundSystem::playDialogFromACertainFolder(SoundSystem::EPISODE_NUMBER::EPISODE_1, SoundSystem::EPISODE_1_DIALOG::DUEL1_SUGRIWA1F);
-
+    delay(3000);
 
     // 015 (Subali round 1 rage)
     SoundSystem::playDialogFromACertainFolder(SoundSystem::EPISODE_NUMBER::EPISODE_1, SoundSystem::EPISODE_1_DIALOG::SUBALI_ROUND_1_RAGE);
-
+    delay(3000);
 
     // 016 (08 Duel1 Sugriwa2F)
     SoundSystem::playDialogFromACertainFolder(SoundSystem::EPISODE_NUMBER::EPISODE_1, SoundSystem::EPISODE_1_DIALOG::DUEL1_SUGRIWA2F);
-
+    delay(3000);
 
     // 017 (09 DuAft1 Sugriwa1F)
     SoundSystem::playDialogFromACertainFolder(SoundSystem::EPISODE_NUMBER::EPISODE_1, SoundSystem::EPISODE_1_DIALOG::DUAFT1_SUGRIWA1F);
-
+    delay(3000);
 
     // 018 (Rama1Sugriwa-Rama-Subali dialogue)
     SoundSystem::playDialogFromACertainFolder(SoundSystem::EPISODE_NUMBER::EPISODE_1, SoundSystem::EPISODE_1_DIALOG::RAMA1SUGRIWA_RAMA_SUBALI_DIALOGUE);
-
+    delay(3000);
 
     // 019 (10 Duel2 Sugriwa1F)
     SoundSystem::playDialogFromACertainFolder(SoundSystem::EPISODE_NUMBER::EPISODE_1, SoundSystem::EPISODE_1_DIALOG::DUEL2_SUGRIWA1F);
-
+    delay(3000);
 
     // 020 (Subali round 2 rage)
     SoundSystem::playDialogFromACertainFolder(SoundSystem::EPISODE_NUMBER::EPISODE_1, SoundSystem::EPISODE_1_DIALOG::SUBALI_ROUND_2_RAGE);
-
+    delay(3000);
 
     // 021 (Subali bacotin rama_E)
     SoundSystem::playDialogFromACertainFolder(SoundSystem::EPISODE_NUMBER::EPISODE_1, SoundSystem::EPISODE_1_DIALOG::SUBALI_BACOTIN_RAMA_E);
-
+    delay(3000);
 
     // 022 (Rama2Sugriwa-Rama-Subali dialogue_E)
     SoundSystem::playDialogFromACertainFolder(SoundSystem::EPISODE_NUMBER::EPISODE_1, SoundSystem::EPISODE_1_DIALOG::RAMA2SUGRIWA_RAMA_SUBALI_DIALOGUE_E);
-
+    delay(3000);
 
     // 023 (Subali tobat_E)
     SoundSystem::playDialogFromACertainFolder(SoundSystem::EPISODE_NUMBER::EPISODE_1, SoundSystem::EPISODE_1_DIALOG::SUBALI_TOBAT_E);
-
+    delay(3000);
 
     // 024 (11 S-R2 Sugriwa1F)
     SoundSystem::playDialogFromACertainFolder(SoundSystem::EPISODE_NUMBER::EPISODE_1, SoundSystem::EPISODE_1_DIALOG::S_R2_SUGRIWA1F);
-
+    delay(3000);
 
     // 025 (Rama1Sugriwa-Rama dialogue 2_E)
     SoundSystem::playDialogFromACertainFolder(SoundSystem::EPISODE_NUMBER::EPISODE_1, SoundSystem::EPISODE_1_DIALOG::RAMA1SUGRIWA_RAMA_DIALOGUE_2_E);
-
+    delay(3000);
 
     // 026 (Rama Sadboi_E)
     SoundSystem::playDialogFromACertainFolder(SoundSystem::EPISODE_NUMBER::EPISODE_1, SoundSystem::EPISODE_1_DIALOG::RAMA_SADBOI_E);
-
+    delay(3000);
 
     // 027 (Rama telling laksmana to bacot sugriwa_E)
     SoundSystem::playDialogFromACertainFolder(SoundSystem::EPISODE_NUMBER::EPISODE_1, SoundSystem::EPISODE_1_DIALOG::RAMA_TELLING_LAKSMANA_BACOT_SUGRIWA_E);
-
+    delay(3000);
 
     // 028 (12 SApol Sugriwa1F)
     SoundSystem::playDialogFromACertainFolder(SoundSystem::EPISODE_NUMBER::EPISODE_1, SoundSystem::EPISODE_1_DIALOG::SApol_Sugriwa1F);
-
+    delay(3000);
 
     // 029 (13 SApol Sugriwa2F)
     SoundSystem::playDialogFromACertainFolder(SoundSystem::EPISODE_NUMBER::EPISODE_1, SoundSystem::EPISODE_1_DIALOG::SApol_Sugriwa2F);
-
+    delay(3000);
 
     // 030 (14 SApol Hanuman1F)
     SoundSystem::playDialogFromACertainFolder(SoundSystem::EPISODE_NUMBER::EPISODE_1, SoundSystem::EPISODE_1_DIALOG::SApol_Hanuman1F);
-
+    delay(3000);
 
     // 031 (15 SApol Sugriwa3F)
     SoundSystem::playDialogFromACertainFolder(SoundSystem::EPISODE_NUMBER::EPISODE_1, SoundSystem::EPISODE_1_DIALOG::SApol_Sugriwa3F);
-
+    delay(3000);
 
     // 032 (Rama forgives sugriwa)
     SoundSystem::playDialogFromACertainFolder(SoundSystem::EPISODE_NUMBER::EPISODE_1, SoundSystem::EPISODE_1_DIALOG::RAMA_FORGIVES_SUGRIWA);
-
+    delay(3000);
 
     setAllMOSFETtoHIGH();
     SoundSystem::playDialogFromACertainFolder(SoundSystem::INDICATOR_SOUND, SoundSystem::INDICATOR_SOUND_NUMBER::INDICATOR_FINISHED_SHOWING);
