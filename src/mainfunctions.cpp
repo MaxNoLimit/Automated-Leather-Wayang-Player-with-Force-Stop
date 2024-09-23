@@ -293,14 +293,14 @@ void WayangDisplay::generalLoop()
         break;
 
     case StateManagement::FSA_STATE::WAYANG_HAND_CALIBRATION:
-        // Final mode
-        CalibratingFunction::wayangHand();
+        // // Final mode
+        // CalibratingFunction::wayangHand();
 
-        // // Debug mode
-        // CalibratingFunction::commandListHandMovementTest();
+        // Debug mode
+        CalibratingFunction::commandListHandMovementTest();
 
-        SoundSystem::playDialogFromACertainFolder(SoundSystem::INDICATOR_SOUND, SoundSystem::INDICATOR_SOUND_NUMBER::INDICATOR_WAYANG_HAND_CALIBRATION);
-        delay(3500);
+        // SoundSystem::playDialogFromACertainFolder(SoundSystem::INDICATOR_SOUND, SoundSystem::INDICATOR_SOUND_NUMBER::INDICATOR_WAYANG_HAND_CALIBRATION);
+        // delay(3500);
         loop_state = StateManagement::FSA_STATE::DEFAULT_LOOPING_LCD;
         delay(1);
         break;
@@ -1491,6 +1491,7 @@ void WayangHandServo::moveWhatServo(int servoNum, int degree, int desiredDuratio
     if (curdeg - degree != 0)
     {
         int waveAmount = desiredDuration / 20;
+        delay(desiredDuration % 20);
         int degmismatch = abs(curdeg - degree);
         int largemismatch = degmismatch;
         int divVar = 1;
@@ -1515,7 +1516,8 @@ void WayangHandServo::moveWhatServo(int servoNum, int degree, int desiredDuratio
                     digitalWrite(selectedPin, HIGH);
                     delayMicroseconds(degreeToDelay(curdeg - mismatchremainder));
                     digitalWrite(selectedPin, LOW);
-                    delayMicroseconds(getWavePeriod() - degreeToDelay(curdeg - mismatchremainder));
+                    delayMicroseconds((getWavePeriod() - degreeToDelay(curdeg - mismatchremainder)) / 2); // to deal with 16ms delayMicroseconds bug
+                    delayMicroseconds((getWavePeriod() - degreeToDelay(curdeg - mismatchremainder)) / 2);
                 }
             }
 
@@ -1526,7 +1528,8 @@ void WayangHandServo::moveWhatServo(int servoNum, int degree, int desiredDuratio
                     digitalWrite(selectedPin, HIGH);
                     delayMicroseconds(degreeToDelay(curdeg - i * divVar));
                     digitalWrite(selectedPin, LOW);
-                    delayMicroseconds(getWavePeriod() - degreeToDelay(curdeg - i * divVar));
+                    delayMicroseconds((getWavePeriod() - degreeToDelay(curdeg - i * divVar)) / 2);
+                    delayMicroseconds((getWavePeriod() - degreeToDelay(curdeg - i * divVar)) / 2);
                 }
             }
 
@@ -1537,7 +1540,8 @@ void WayangHandServo::moveWhatServo(int servoNum, int degree, int desiredDuratio
                     digitalWrite(selectedPin, HIGH);
                     delayMicroseconds(degreeToDelay(degree));
                     digitalWrite(selectedPin, LOW);
-                    delayMicroseconds(getWavePeriod() - degreeToDelay(degree));
+                    delayMicroseconds((getWavePeriod() - degreeToDelay(degree)) / 2);
+                    delayMicroseconds((getWavePeriod() - degreeToDelay(degree)) / 2);
                 }
             }
         }
@@ -1550,7 +1554,8 @@ void WayangHandServo::moveWhatServo(int servoNum, int degree, int desiredDuratio
                     digitalWrite(selectedPin, HIGH);
                     delayMicroseconds(degreeToDelay(curdeg + mismatchremainder));
                     digitalWrite(selectedPin, LOW);
-                    delayMicroseconds(getWavePeriod() - degreeToDelay(curdeg + mismatchremainder));
+                    delayMicroseconds((getWavePeriod() - degreeToDelay(curdeg + mismatchremainder)) / 2);
+                    delayMicroseconds((getWavePeriod() - degreeToDelay(curdeg + mismatchremainder)) / 2);
                 }
             }
 
@@ -1561,18 +1566,27 @@ void WayangHandServo::moveWhatServo(int servoNum, int degree, int desiredDuratio
                     digitalWrite(selectedPin, HIGH);
                     delayMicroseconds(degreeToDelay(curdeg + i * divVar));
                     digitalWrite(selectedPin, LOW);
-                    delayMicroseconds(getWavePeriod() - degreeToDelay(curdeg + i * divVar));
+                    delayMicroseconds((getWavePeriod() - degreeToDelay(curdeg + i * divVar)) / 2);
+                    delayMicroseconds((getWavePeriod() - degreeToDelay(curdeg + i * divVar)) / 2);
                 }
             }
+            // int hajime, sutopu = 0;
 
             if (mismatchremainder == 0 && remainder != 0)
             {
                 for (int i = 0; i < remainder; i++)
                 {
+                    // hajime = 0;
+                    // sutopu = 0;
+                    // hajime = millis();
                     digitalWrite(selectedPin, HIGH);
                     delayMicroseconds(degreeToDelay(degree));
                     digitalWrite(selectedPin, LOW);
-                    delayMicroseconds(getWavePeriod() - degreeToDelay(degree));
+                    delayMicroseconds((getWavePeriod() - degreeToDelay(degree)) / 2);
+                    delayMicroseconds((getWavePeriod() - degreeToDelay(degree)) / 2);
+
+                    // sutopu = millis();
+                    // Serial.println("Duration taken: " + (String)(sutopu - hajime) + "\n");
                 }
             }
         }
@@ -1743,6 +1757,51 @@ void CalibratingFunction::commandListHandMovementTest()
 {
 
     setAllMOSFETtoLOW();
+    int startTime, endTime = 0;
+
+    // Duration test
+    // Point to Front
+    Serial.println("\n");
+    startTime = millis();
+    wayangRahwana.pointToFront();
+    endTime = millis();
+
+    Serial.println("Point to Front: " + String(endTime - startTime) + "ms");
+    delay(500);
+
+    // Down Front
+    startTime = 0;
+    endTime = 0;
+
+    startTime = millis();
+    wayangRahwana.downFront();
+    endTime = millis();
+
+    Serial.println("Down Front: " + String(endTime - startTime) + "ms");
+    delay(500);
+
+    // Middle Front
+    startTime = 0;
+    endTime = 0;
+
+    startTime = millis();
+    wayangRahwana.middleFront();
+    endTime = millis();
+
+    Serial.println("Middle Front: " + String(endTime - startTime) + "ms");
+    delay(500);
+
+    wayangRahwana.downFront();
+
+    startTime = 0;
+    endTime = 0;
+
+    startTime = millis();
+    delayMicroseconds(10000);
+    delayMicroseconds(10000);
+    endTime = millis();
+
+    Serial.println("Delay 10ms with us: " + String(endTime - startTime) + "ms");
 
     // Sita
     // wayangSita.defaultStandPosition();
