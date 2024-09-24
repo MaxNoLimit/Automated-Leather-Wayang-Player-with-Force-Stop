@@ -1841,22 +1841,22 @@ void CalibratingFunction::commandListHandMovementTest()
     // wayangSita.defaultHandPosition();
 
     // Rahwana
-    wayangRahwana.defaultStandPosition();
-    wayangRahwana.defaultHandPosition();
-    wayangRahwana.walk_to_a_certain_distance_before_calibrating_value(250);
-    delay(500);
-    wayangRahwana.pointToFront();
-    delay(500);
-    wayangRahwana.lower_pointToFront();
-    delay(500);
-    wayangRahwana.middleFront();
-    delay(500);
-    wayangRahwana.downFront();
-    delay(500);
-    wayangRahwana.pointToSelf();
-    delay(500);
-    wayangRahwana.defaultStandPosition();
-    wayangRahwana.defaultHandPosition();
+    // wayangRahwana.defaultStandPosition();
+    // wayangRahwana.defaultHandPosition();
+    // wayangRahwana.walk_to_a_certain_distance_before_calibrating_value(250);
+    // delay(500);
+    // wayangRahwana.pointToFront();
+    // delay(500);
+    // wayangRahwana.lower_pointToFront();
+    // delay(500);
+    // wayangRahwana.middleFront();
+    // delay(500);
+    // wayangRahwana.downFront();
+    // delay(500);
+    // wayangRahwana.pointToSelf();
+    // delay(500);
+    // wayangRahwana.defaultStandPosition();
+    // wayangRahwana.defaultHandPosition();
 
     // // Rama Wijaya
     // wayangRamaWijaya.defaultStandPosition();
@@ -1928,11 +1928,11 @@ void CalibratingFunction::commandListHandMovementTest()
     // wayangHanoman.defaultStandPosition();
     // wayangHanoman.defaultHandPosition();
 
-    // // Laksmana
-    // wayangLaksmana.defaultStandPosition();
-    // wayangLaksmana.defaultHandPosition();
-    // wayangLaksmana.walk_to_a_certain_distance_before_calibrating_value(250);
-    // delay(500);
+    // Laksmana
+    wayangLaksmana.defaultStandPosition();
+    wayangLaksmana.defaultHandPosition();
+    wayangLaksmana.walk_to_a_certain_distance_before_calibrating_value(250);
+    delay(500);
     // wayangLaksmana.pointToFront();
     // delay(500);
     // wayangLaksmana.lower_pointToFront();
@@ -1945,8 +1945,8 @@ void CalibratingFunction::commandListHandMovementTest()
     // delay(500);
     // wayangLaksmana.pointToBack();
     // delay(500);
-    // wayangLaksmana.downBack();
-    // delay(500);
+    wayangLaksmana.downBack();
+    delay(500);
     // wayangLaksmana.onHipBack();
     // delay(500);
     // wayangLaksmana.pointToSelf();
@@ -1957,14 +1957,14 @@ void CalibratingFunction::commandListHandMovementTest()
     // delay(500);
     // wayangLaksmana.lowPointToBack();
     // delay(500);
-    // wayangLaksmana.middleBack();
-    // // delay(500);
-    // wayangLaksmana.downBack();
-    // // delay(500); ///
-    // // wayangLaksmana.middleFrontBack();
-    // // delay(500);
-    // wayangLaksmana.defaultStandPosition();
-    // wayangLaksmana.defaultHandPosition();
+    wayangLaksmana.middleBack();
+    // delay(500);
+    wayangLaksmana.downBack();
+    // delay(500); ///
+    // wayangLaksmana.middleFrontBack();
+    // delay(500);
+    wayangLaksmana.defaultStandPosition();
+    wayangLaksmana.defaultHandPosition();
 
     setAllMOSFETtoHIGH();
 }

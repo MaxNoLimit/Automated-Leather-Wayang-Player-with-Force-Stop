@@ -27,7 +27,6 @@ public:
     void right_raise_half_hand();
     void right_lower_half_hand();
 
-
     void talking(int delay_in_sec);
 
     void oscillate(int desiredDurationForOscillating);

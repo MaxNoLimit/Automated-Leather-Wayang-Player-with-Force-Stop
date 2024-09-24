@@ -7,7 +7,7 @@ HorizontalController HC_rahwana;
 
 void Rahwana::defaultStandPosition()
 {
-    walk_to_a_certain_distance_before_calibrating_value(67);
+    walk_to_a_certain_distance_before_calibrating_value(0);
 }
 
 void Rahwana::walk_to_a_certain_distance(int desiredDistance)
@@ -330,7 +330,7 @@ void Rahwana::hand_movement_18()
 
 void Rahwana::walk_to_a_certain_distance_before_calibrating_value(int desiredDistance)
 {
-    int desiredDistanceAfterCalibratingValue = desiredDistance + (float)desiredDistance * 0.155;
+    int desiredDistanceAfterCalibratingValue = desiredDistance + (float)desiredDistance * 0.155 + 49;
     Serial.println("\ndesiredDistance: ");
     Serial.print(desiredDistanceAfterCalibratingValue);
     Serial.println("mm \n");

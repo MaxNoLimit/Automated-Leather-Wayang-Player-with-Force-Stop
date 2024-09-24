@@ -1,7 +1,6 @@
 #include "a4988_nema.hpp"
 #include "mainfunctions.hpp"
 
-#define PERIOD_NEMA 4000
 
 /*
 Function untuk membuat suatu nema wayang bergerak sebanyak step_value dan arah tertentu

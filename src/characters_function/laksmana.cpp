@@ -10,12 +10,14 @@ void Laksmana::defaultHandPosition()
     digitalWrite(WAYANG_HAND_5, HIGH);
     Servo_Laskmana.defaultPosition();
     Servo_Laskmana.moveWhatServo(4, 100, 200);
-    Servo_Laskmana.moveWhatServo(1, 45, 500);
+    // Servo_Laskmana.moveWhatServo(1, 45, 500);
+    downBack();
+    onHipBack();
     digitalWrite(WAYANG_HAND_5, LOW);
 }
 void Laksmana::defaultStandPosition()
 {
-    walk_to_a_certain_distance_before_calibrating_value(52);
+    walk_to_a_certain_distance_before_calibrating_value(0);
 }
 
 void Laksmana::leave_from_scene(int distanceValue)
@@ -82,7 +84,7 @@ void Laksmana::walk_to_a_certain_distance(int desiredDistance)
 
 void Laksmana::walk_to_a_certain_distance_before_calibrating_value(int desiredDistance)
 {
-    int desiredDistanceAfterCalibratingValue = desiredDistance + (float)desiredDistance * 0.155;
+    int desiredDistanceAfterCalibratingValue = desiredDistance + (float)desiredDistance * 0.155 + 47;
     Serial.println("\ndesiredDistance: ");
     Serial.print(desiredDistanceAfterCalibratingValue);
     Serial.println("mm \n");
@@ -187,7 +189,7 @@ void Laksmana::middleBack()
     digitalWrite(WAYANG_HAND_5, HIGH);
     Servo_Laskmana.moveWhatServo(1, 90, 500);
     Servo_Laskmana.moveWhatServo(2, 60, 200);
-    Servo_Laskmana.moveWhatServo(1, 0, 500);
-    // Servo_Laskmana.moveWhatServo(2, 40, 500);
+    Servo_Laskmana.moveWhatServo(1, 45, 500);
+    // Servo_Laskmana.moveWhatServo(2, 40, 200);
     digitalWrite(WAYANG_HAND_5, LOW);
 }

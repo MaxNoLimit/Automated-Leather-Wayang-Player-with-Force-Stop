@@ -7,7 +7,7 @@ HorizontalController HC_rama_wijaya;
 
 void RamaWijaya::defaultStandPosition()
 {
-    walk_to_a_certain_distance_before_calibrating_value(41);
+    walk_to_a_certain_distance_before_calibrating_value(0);
 }
 
 void RamaWijaya::defaultHandPosition()
@@ -192,7 +192,7 @@ void RamaWijaya::walk_to_a_certain_distance(int desiredDistance)
 
 void RamaWijaya::walk_to_a_certain_distance_before_calibrating_value(int desiredDistance)
 {
-    int desiredDistanceAfterCalibratingValue = desiredDistance + (float)desiredDistance * (0.025);
+    int desiredDistanceAfterCalibratingValue = desiredDistance + (float)desiredDistance * (0.025) + 28;
     Serial.println("\ndesiredDistance: ");
     Serial.print(desiredDistanceAfterCalibratingValue);
     Serial.println("mm \n");
@@ -258,7 +258,7 @@ void RamaWijaya::onHipBack()
     digitalWrite(WAYANG_HAND_3, HIGH);
     Servo_RamaWijaya.moveWhatServo(4, 60 + 10, 200);
     Servo_RamaWijaya.moveWhatServo(3, 110, 500);
-    Servo_RamaWijaya.moveWhatServo(4, 80, 200);
+    Servo_RamaWijaya.moveWhatServo(4, 70, 200);
     digitalWrite(WAYANG_HAND_3, LOW);
 }
 
