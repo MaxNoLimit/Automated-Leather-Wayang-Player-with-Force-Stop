@@ -189,7 +189,7 @@ void Laksmana::middleBack()
 {
     digitalWrite(WAYANG_HAND_5, HIGH);
     Servo_Laskmana.moveWhatServo(1, 90, 500);
-    Servo_Laskmana.moveWhatServo(2, 60, 200);
+    Servo_Laskmana.moveWhatServo(2, 50, 200);
     Servo_Laskmana.moveWhatServo(1, 45, 500);
     // Servo_Laskmana.moveWhatServo(2, 40, 200);
     digitalWrite(WAYANG_HAND_5, LOW);

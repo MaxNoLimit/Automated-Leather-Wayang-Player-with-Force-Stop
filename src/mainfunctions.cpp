@@ -1771,7 +1771,7 @@ void CalibratingFunction::commandListHandMovementTest()
 
     /*you are the beloved of my brother,*/
     wayangLaksmana.lower_pointToFront(); //4575 (700)
-    wayangLaksmana.pointToFront() // 5275 (700)
+    wayangLaksmana.pointToFront(); // 5275 (700)
     wayangLaksmana.lower_pointToFront(); //5975 (700)
     delay(6589-5975); //6589 (614)
 
@@ -1818,7 +1818,7 @@ void CalibratingFunction::commandListHandMovementTest()
 
     /*That call was not his,*/
     wayangLaksmana.middleFront(); //36972 (900)
-    wayangLaksmana.directControl();
+    // wayangLaksmana.directControl();
     
 
 
