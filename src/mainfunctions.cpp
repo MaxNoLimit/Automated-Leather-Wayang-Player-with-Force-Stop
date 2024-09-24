@@ -1762,63 +1762,6 @@ void CalibratingFunction::commandListHandMovementTest()
 {
 
     setAllMOSFETtoLOW();
-
-    // // 01 S-L1 Laksmana1F
-    /*You are the wife of the hero from Raghu lineage;*/
-    delay(787); //787
-    wayangLaksmana.pointToFront(); //1487 
-    delay(3875-1487); //3875 (2388)
-
-    /*you are the beloved of my brother,*/
-    wayangLaksmana.lower_pointToFront(); //4575 (700)
-    wayangLaksmana.pointToFront(); // 5275 (700)
-    wayangLaksmana.lower_pointToFront(); //5975 (700)
-    delay(6589-5975); //6589 (614)
-
-    /*also you are the daughter of king Janaka.*/
-    wayangLaksmana.pointToFront(); //7289 (700)
-    delay(9898-7289); //9898 (2609)
-
-    /*Why do you worry and cry so at hearing such a call?*/
-    wayangLaksmana.middleFront(); //10798 (900)
-    delay(13684-10798); //13684 (2886)
-
-    /*Do you know that it is he who calls?*/
-    wayangLaksmana.lower_pointToFront(); //14384 (700)
-    delay(16604-14384); //16604 (2220)
-    
-    /*Do you know who that is? */
-    wayangLaksmana.middleFront(); //17504 (900)
-    delay(18923-17504); //18923 (1419)
-
-    /*You may ask,*/
-    wayangLaksmana.pointToFront(); //19623 (700)
-    delay(20269-19623); //20269 (646)
-
-    /*who is powerful enough in this world to fight prince Rama in battle?*/
-    wayangLaksmana.middleBack(); //21469 (1200)
-    delay(25323-21469); //25323 (3854)
-
-    /*He is the most powerful person,*/
-    wayangLaksmana.lower_pointToFront(); //26023 (700)
-    delay(27655-26023); //27655 (1632)
-
-    /*the most skilled in handling all weapons.*/
-    wayangLaksmana.pointToBack(); //29055 (1400)
-    delay(30722-29055); //30722 (1667)
-
-    /*How could you have fears that he would be killed,*/
-    wayangLaksmana.downBack(); //31422 (700)
-    wayangLaksmana.pointToFront(); //32122 (700)
-    delay(34010-32122); //34010 (1888)
-
-    /*butted by a deer?*/
-    wayangLaksmana.onHipBack(); //35210 (1200)
-    delay(36072-35210); //36072 (862)
-
-    /*That call was not his,*/
-    wayangLaksmana.middleFront(); //36972 (900)
-    // wayangLaksmana.directControl();
     
 
 
