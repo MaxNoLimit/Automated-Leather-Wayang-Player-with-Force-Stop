@@ -15,6 +15,7 @@ void Laksmana::defaultHandPosition()
     onHipBack();
     digitalWrite(WAYANG_HAND_5, LOW);
 }
+
 void Laksmana::defaultStandPosition()
 {
     walk_to_a_certain_distance_before_calibrating_value(0);
@@ -191,5 +192,12 @@ void Laksmana::middleBack()
     Servo_Laskmana.moveWhatServo(2, 60, 200);
     Servo_Laskmana.moveWhatServo(1, 45, 500);
     // Servo_Laskmana.moveWhatServo(2, 40, 200);
+    digitalWrite(WAYANG_HAND_5, LOW);
+}
+
+void Laksmana::directControl(int num, int angle, int duration)
+{
+    digitalWrite(WAYANG_HAND_5, HIGH);
+    Servo_Laskmana.moveWhatServo(num, angle, duration);
     digitalWrite(WAYANG_HAND_5, LOW);
 }
