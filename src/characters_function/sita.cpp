@@ -250,9 +250,9 @@ void Sita::pointToFront()
     // digitalWrite(WAYANG_HAND_3, LOW);
 
     digitalWrite(WAYANG_HAND_1, HIGH);
-    Servo_Sita.defaultPosition();
+    // Servo_Sita.defaultPosition();
     // Servo_Sita.resetArray();
-    Servo_Sita.moveWhatServo(1, 0, 500);
+    Servo_Sita.moveWhatServo(1, 10, 500);
     Servo_Sita.moveWhatServo(2, 50, 200);
 
     digitalWrite(WAYANG_HAND_1, LOW);
