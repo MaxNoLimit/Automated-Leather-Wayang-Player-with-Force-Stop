@@ -8,7 +8,9 @@ HorizontalController HC_laksmana;
 void Laksmana::defaultHandPosition()
 {
     digitalWrite(WAYANG_HAND_5, HIGH);
+    Servo_Laskmana.moveWhatServo(3, 10, 20);
     Servo_Laskmana.defaultPosition();
+    downFront();
     Servo_Laskmana.moveWhatServo(4, 100, 200);
     // Servo_Laskmana.moveWhatServo(1, 45, 500);
     downBack();

@@ -11,7 +11,7 @@ void Hanoman::defaultHandPosition()
     // Servo_Hanuman.moveWhatServo(4, 100, 500);
     // Servo_Hanuman.moveWhatServo(2, 140, 500);
     Servo_Hanuman.defaultPosition();
-    Servo_Hanuman.moveWhatServo(4, 110, 200);
+    // Servo_Hanuman.moveWhatServo(4, 110, 200);
     downBack();
     onHipBack();
     Servo_Hanuman.resetArray();
@@ -156,6 +156,7 @@ void Hanoman::onHipBack()
     digitalWrite(WAYANG_HAND_4, HIGH);
     Servo_Hanuman.moveWhatServo(2, 130, 200);
     Servo_Hanuman.moveWhatServo(1, 80, 500);
+    Servo_Hanuman.moveWhatServo(2, 100, 200);
     digitalWrite(WAYANG_HAND_4, LOW);
 }
 
