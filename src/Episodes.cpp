@@ -939,7 +939,53 @@ void Episodes::Episode_1()
 
     // 008 (03 L-R1 laksmana1F)
     SoundSystem::playDialogFromACertainFolder(SoundSystem::EPISODE_NUMBER::EPISODE_1, SoundSystem::EPISODE_1_DIALOG::L_R1_LAKS1F);
-    delay(3000);
+    // delay(3000);
+    delay(329);
+    /*Brother,*/
+    laksmana.middleFront(); //1029 (700)
+    delay(1431-1029); //1431 (402)
+
+    /*an injured bird told me that it saw Sita got kidnapped by a notorious demon called Rawana */
+    laksmana.pointToFront(); //2131 (700)
+    laksmana.directControl(3, 170, 400); //2531 (400)
+    laksmana.directControl(3, 180, 400); //2931 (400)
+    laksmana.directControl(3, 170, 400); //3331 (400)
+    laksmana.directControl(3, 180, 400); //3731 (400)
+    laksmana.lower_pointToFront(); //4431 (700)
+    for (int i = 0; i < 3; i++) //6831 (800*3)
+    {
+        laksmana.directControl(3, 130, 400);
+        laksmana.directControl(3, 120, 400); 
+    }
+    laksmana.downFront(); //7531 (700)
+    delay(8188-7531); //8188 (657)
+
+    /*and that they are in Lenka across the ocean. */
+    laksmana.pointToBack(); //9588 (1400)
+    delay(11394-9588); //11394 (1806)
+
+    /*It advised me that we should seek Sugriwa through the Resyamuka mountain*/
+    laksmana.pointToSelf(); //12094 (700)
+    for (int i = 0; i < 3; i++) //15294 (800*4)
+    {
+        laksmana.directControl(1, 10, 400);
+        laksmana.directControl(1, 0, 400); 
+    }
+    delay(16292-15294-700); //15592 (998)
+
+    /*for he may be able to help us with his monkey troops. */
+    laksmana.downFront(); //16292 (700)
+    laksmana.middleFront(); //17192 (900)
+    for (int i = 0; i < 3; i++) //19592 (800*3)
+    {
+        laksmana.directControl(3, 170, 400); 
+        laksmana.directControl(3, 180, 400);
+    }
+    delay(19775-19592); //19775 (183)
+
+    /*return to default position*/
+    laksmana.defaultHandPosition();
+    
 
     // 009 (Rama1laksmana-Rama Diaglogue(in place of narrator for context))
     SoundSystem::playDialogFromACertainFolder(SoundSystem::EPISODE_NUMBER::EPISODE_1, SoundSystem::EPISODE_1_DIALOG::RAMA1LAKS_RAMA_DIALOGUE_IN_PLACE_NARATOR);
