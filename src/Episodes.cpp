@@ -602,126 +602,229 @@ void Episodes::Episode_1()
 
     sita.defaultHandPosition(); // takes 2000 ms
 
-    /*
-    1 movement duration = (2580 - 1312) ms = 1268 ms
-    delay(2939 - 2580); = 359 ms
-    2 movement duration = (4263 - 2939) ms = 1324 ms
-    delay(4796 - 4263); = 553 ms
-    1268 + 359 + 1324 + 553 = 3504 ms
-    DONE
-
-    3 movement duration = (6405 - 4796) ms = 1609 ms
-    delay(7339 - 6405); = 934 ms
-    DONE
-
-    4 movement duration = (8638 - 7339) ms = 1299 ms
-    delay(8942 - 8638); = 304 ms
-    5 movement duration = (10080 - 8942) ms = 1138 ms
-    delay(10637 - 10080); = 557 ms
-    1299 + 304 + 1138 + 557 = 3298 ms
-    DONE
-
-    6 movement duration = (11163 - 10637) ms = 526 ms
-    delay(11559 - 11163); = 396 ms
-    7 movement duration = (12320 - 11559) ms = 761 ms
-    526 + 396 + 761 = 1683 ms
-    DONE
-    */
-
     // 002 (01 S-L1 laksmana1F)
     SoundSystem::playDialogFromACertainFolder(SoundSystem::EPISODE_NUMBER::EPISODE_1, SoundSystem::EPISODE_1_DIALOG::S_L1_LAKS1F);
     // delay(3000);
-    
+
     /*You are the wife of the hero from Raghu lineage;*/
-    delay(787);                    // 787
+    delay(787);              // 787
     laksmana.pointToFront(); // 1487
-    delay(3875 - 1487);            // 3875 (2388)
+    delay(3875 - 1487);      // 3875 (2388)
 
     /*you are the beloved of my brother,*/
     laksmana.lower_pointToFront(); // 4575 (700)
     laksmana.pointToFront();       // 5275 (700)
     laksmana.lower_pointToFront(); // 5975 (700)
-    delay(6589 - 5975);                  // 6589 (614)
+    delay(6589 - 5975);            // 6589 (614)
 
     /*also you are the daughter of king Janaka.*/
     laksmana.pointToFront(); // 7289 (700)
-    delay(9898 - 7289);            // 9898 (2609)
+    delay(9898 - 7289);      // 9898 (2609)
 
     /*Why do you worry and cry so at hearing such a call?*/
     laksmana.middleFront(); // 10798 (900)
-    delay(13684 - 10798);         // 13684 (2886)
+    delay(13684 - 10798);   // 13684 (2886)
 
     /*Do you know that it is he who calls?*/
     laksmana.lower_pointToFront(); // 14384 (700)
-    delay(16604 - 14384);                // 16604 (2220)
+    delay(16604 - 14384);          // 16604 (2220)
 
     /*Do you know who that is? */
     laksmana.middleFront(); // 17504 (900)
-    delay(18923 - 17504);         // 18923 (1419)
+    delay(18923 - 17504);   // 18923 (1419)
 
     /*You may ask,*/
     laksmana.pointToFront(); // 19623 (700)
-    delay(20269 - 19623);          // 20269 (646)
+    delay(20269 - 19623);    // 20269 (646)
 
     /*who is powerful enough in this world to fight prince Rama in battle?*/
-    laksmana.downBack();     // 20969 (700)
-    laksmana.middleBack();  // 22369 (1400)
-    delay(25323 - 22369);        // 25323 (2954)
+    laksmana.downBack();   // 20969 (700)
+    laksmana.middleBack(); // 22369 (1400)
+    delay(25323 - 22369);  // 25323 (2954)
 
     /*He is the most powerful person,*/
     laksmana.lower_pointToFront(); // 26023 (700)
-    delay(27655 - 26023);                // 27655 (1632)
+    delay(27655 - 26023);          // 27655 (1632)
 
     /*the most skilled in handling all weapons.*/
     laksmana.pointToBack(); // 29055 (1400)
-    delay(30722 - 29055);         // 30722 (1667)
+    delay(30722 - 29055);   // 30722 (1667)
 
     /*How could you have fears that he would be killed,*/
     laksmana.downBack();     // 31422 (700)
     laksmana.pointToFront(); // 32122 (700)
-    delay(34010 - 32122);          // 34010 (1888)
+    delay(34010 - 32122);    // 34010 (1888)
 
     /*butted by a deer?*/
     laksmana.onHipBack(); // 35210 (1200)
-    delay(36072 - 35210);       // 36072 (862)
+    delay(36072 - 35210); // 36072 (862)
 
     /*That call was not his,*/
-    laksmana.middleFront(); // 36972 (900)
-    laksmana.directControl(4, 115, 400); //37372 (400)
-    laksmana.directControl(4, 120, 400); //37772 (400)
-    laksmana.directControl(4, 115, 400); //38172 (400)
-    laksmana.directControl(4, 120, 400); //38572 (400)
-    delay(38746-38572); //38746 (174)
+    laksmana.middleFront();              // 36972 (900)
+    laksmana.directControl(4, 115, 400); // 37372 (400)
+    laksmana.directControl(4, 120, 400); // 37772 (400)
+    laksmana.directControl(4, 115, 400); // 38172 (400)
+    laksmana.directControl(4, 120, 400); // 38572 (400)
+    delay(38746 - 38572);                // 38746 (174)
 
     /*it was the call of an evil demon, */
-    laksmana.pointToFront(); //39446 (700)
-    delay(41447-39446); //41447 (2001)
+    laksmana.pointToFront(); // 39446 (700)
+    delay(41447 - 39446);    // 41447 (2001)
 
     /*it was a trick with the purpose of deceiving us.*/
-    laksmana.lower_pointToFront(); //42147 (700)
-    delay(44700-42147-700); //44000 (1853)
-    laksmana.downFront(); //44700 (700)
+    laksmana.lower_pointToFront(); // 42147 (700)
+    delay(44700 - 42147 - 700);    // 44000 (1853)
+    laksmana.downFront();          // 44700 (700)
 
     /*I say, it was the cry of the deer*/
-    laksmana.pointToSelf(); //45400 (700)
-    delay(48296-45400); //48296 (2896)
-    laksmana.downFront(); //48996 (700)
+    laksmana.pointToSelf(); // 45400 (700)
+    delay(48296 - 45400);   // 48296 (2896)
+    laksmana.downFront();   // 48996 (700)
 
     /*which was hit by an arrow,*/
-    laksmana.lower_pointToFront(); //49696 (700)
-    delay(50930-49696); //50930 (1234)
-    
+    laksmana.lower_pointToFront(); // 49696 (700)
+    delay(50930 - 49696);          // 50930 (1234)
+
     /*sounding like the voice of Rama. */
-    laksmana.middleFront(); //51830 (900)
-    delay(53233-51830); //53233 (1403)
+    laksmana.middleFront(); // 51830 (900)
+    delay(53233 - 51830);   // 53233 (1403)
 
     /*return to default position*/
-    laksmana.defaultHandPosition(); 
-    
+    laksmana.defaultHandPosition();
 
     // 003 (Sita2Sita-laksmana dialogue 1)
     SoundSystem::playDialogFromACertainFolder(SoundSystem::EPISODE_NUMBER::EPISODE_1, SoundSystem::EPISODE_1_DIALOG::SITA2SITA_LAKS_DIALOGUE_1);
-    delay(3000);
+    // delay(3000);
+
+    // (1114) My brother Laksmana. (2184)
+
+    delay(1114);
+    sita.pointToFront(); // takes 700 ms
+
+    // (2562) What does this mean? (3546)
+
+    delay(2562 - 1114 - 700);
+    sita.lower_pointToFront(); // takes 700 ms
+
+    // (4189) This is the first time that you do not obey my orders. (7113)
+
+    delay(4198 - 2562 - 700);
+    sita.middleFront(); // takes 900 ms
+
+    // (8038) In the past you were very faithful to your brother, (10513)
+
+    delay(8038 - 4189 - 900);
+    sita.oscillate(11095 - 8038); // takes 3057 ~~ 2800
+
+    // (11095) but now he is in trouble, (12326)
+
+    delay((11095 - 8038) - 2800);
+    sita.middleFront(); // takes 900 ms
+
+    // (12747) shame on you, (13502)
+
+    delay(12747 - 11095 - 900);
+    sita.pointToFront(); // takes 700 ms
+
+    // (14078) you do not want to help. (15167)
+
+    delay(14078 - 12747 - 700);
+    sita.middleFront(); // takes 900 ms
+
+    // (15990) You think about Rama like this. (17638)
+
+    delay(15990 - 14078 - 900);
+    sita.downFront(); // takes 700 ms
+
+    // (18440)  ‘Let him be killed by the deer. (19962)
+
+    // (20309) It will be very lucky! (21771)
+
+    // ***MAY NOT SMOOTH MOVEMENT***
+
+    delay(18440 - 15990 - 700);
+    sita.oscillate(22215 - 18440); // takes 3775 ms ~~ 3500 ms
+
+    // (22215) I will take his place and marry Sita. (24250)
+
+    delay(22215 - 18440 - 3500);
+    sita.pointToSelf(); // takes 2100 ms
+
+    // (24956) Who will be her protector, (26144)
+
+    delay(24956 - 22215 - 2100);
+    sita.downFront();          // takes 700 ms
+    sita.lower_pointToFront(); // takes 700 ms
+
+    // (26422) no one else except me.’ (28075)
+
+    delay(26422 - 24956 - 700 - 700);
+    sita.pointToSelf(); // takes 2100 ms
+
+    // (28594) you said this to yourself, didn't you? (30247)
+
+    delay(28594 - 26422 - 2100);
+    sita.downFront();   // takes 700 ms
+    sita.middleFront(); // takes 900 ms
+
+    // (31045) Debased and foolish Laksmana, (32697)
+
+    delay(31045 - 28594 - 700 - 900);
+    sita.pointToFront(); // takes 700 ms
+
+    // (33087) do you think I am wicked, (34225)
+
+    // (34832) capable of such evil, (36212)
+
+    // (36447) such lewdness? (37319)
+
+    delay(33087 - 31045 - 700);
+    sita.oscillate(37913 - 33087); // takes 4826 ms ~~ 4200 ms
+
+    // (37913) I do not have any intention of marrying again, (40389)
+
+    delay(37913 - 33087 - 4200);
+    sita.downFront(); // takes 700 ms
+
+    // (40840) just this once. (41901)
+
+    delay(40840 - 37913 - 700);
+    sita.lower_pointToFront(); // takes 700 ms
+
+    // (42759) I will only serve Rama, nobody else. (45432)
+
+    delay(42759 - 40840 - 700);
+    sita.downFront();   // takes 700 ms
+    sita.pointToSelf(); // takes 2100 ms
+
+    // (46341) If my lord and master died, (48024)
+
+    // (48476) if Rama is killed in battle (50462)
+
+    delay(46341 - 42759 - 700 - 2100);
+    sita.oscillate(50722 - 46341); // takes 4381 ms ~~ 4200 ms
+
+    // (50722) butted by the deer, (51570)
+
+    delay(50722 - 46341 - 4200);
+    sita.downFront(); // takes 700 ms
+
+    // (51781) I will sever my neck (52913)
+
+    // (53241) and burn myself. (54287)
+
+    // (54961) I will follow my husband; (56378)
+
+    delay(51781 - 50722 - 700);
+    sita.pointToSelf(); // takes 2100 ms
+
+    // (56657) I will not take refuge with you. (58501)
+
+    delay(56657 - 51781 - 2100);
+    sita.downFront();    // takes 700 ms
+    sita.pointToFront(); // take 700 ms
+
+    delay(58501 - 56657 - 700 - 700);
 
     // 004 (02 S-L1 laksmana2F)
     SoundSystem::playDialogFromACertainFolder(SoundSystem::EPISODE_NUMBER::EPISODE_1, SoundSystem::EPISODE_1_DIALOG::S_L1_LAKS2F);
@@ -729,90 +832,89 @@ void Episodes::Episode_1()
 
     delay(1188);
     /*You suspect me of being wicked,*/
-    laksmana.pointToFront(); //1888 (700)
-    laksmana.directControl(3, 170, 400); //2288 (400)
-    laksmana.directControl(3, 180, 400); //2688 (400)
-    laksmana.directControl(3, 170, 400); //3088 (400)
-    laksmana.directControl(3, 180, 400); //3488 (400)
-    delay(3670-3488); //3670 (182)
+    laksmana.pointToFront();             // 1888 (700)
+    laksmana.directControl(3, 170, 400); // 2288 (400)
+    laksmana.directControl(3, 180, 400); // 2688 (400)
+    laksmana.directControl(3, 170, 400); // 3088 (400)
+    laksmana.directControl(3, 180, 400); // 3488 (400)
+    delay(3670 - 3488);                  // 3670 (182)
 
     /*having the intention to betray my older brother. */
-    laksmana.lower_pointToFront(); //4370 (700)
-    delay(1000); //5370 (1000)
-    laksmana.downFront(); //6070 (700)
-    delay(6787-6070); //6787 (717)
+    laksmana.lower_pointToFront(); // 4370 (700)
+    delay(1000);                   // 5370 (1000)
+    laksmana.downFront();          // 6070 (700)
+    delay(6787 - 6070);            // 6787 (717)
 
     /*My mind is pure, truthful, and not wicked.*/
-    laksmana.pointToSelf(); //7487 (700)
-    delay(10564-7487); //10564 (3077)
+    laksmana.pointToSelf(); // 7487 (700)
+    delay(10564 - 7487);    // 10564 (3077)
 
-    /* Let all the deities bear witness to the purity of my heart.*/ 
-    laksmana.directControl(3, 0, 1200); //11764 (1200)
-    laksmana.directControl(4, 110, 480); //12244 (480)
-    laksmana.directControl(3, 180, 1200); //13444 (1200)
-    laksmana.directControl(4, 140, 480); //13924 (480)
-    delay(16175-13924); //16175 (2251)
+    /* Let all the deities bear witness to the purity of my heart.*/
+    laksmana.directControl(3, 0, 1200);   // 11764 (1200)
+    laksmana.directControl(4, 110, 480);  // 12244 (480)
+    laksmana.directControl(3, 180, 1200); // 13444 (1200)
+    laksmana.directControl(4, 140, 480);  // 13924 (480)
+    delay(16175 - 13924);                 // 16175 (2251)
 
     /*Let me fall into hell,*/
-    laksmana.directControl(3, 120, 1000); //17175 (1000)
-    laksmana.directControl(4, 140, 400); //17575 (400)
-    delay(18385-17575); //18385 (810)
+    laksmana.directControl(3, 120, 1000); // 17175 (1000)
+    laksmana.directControl(4, 140, 400);  // 17575 (400)
+    delay(18385 - 17575);                 // 18385 (810)
 
     /*let me be overcome by misfortunes, */
-    laksmana.directControl(3, 0, 1000); //19385 (1000)
-    laksmana.directControl(4, 110, 400); //19785 (400)
-    delay(21214-19785); //21214 (1429)
+    laksmana.directControl(3, 0, 1000);  // 19385 (1000)
+    laksmana.directControl(4, 110, 400); // 19785 (400)
+    delay(21214 - 19785);                // 21214 (1429)
 
     /*if I am treacherous.*/
-    laksmana.pointToSelf(); //21914 (700)
-    delay(24277-21914); //24277 (2363)
+    laksmana.pointToSelf(); // 21914 (700)
+    delay(24277 - 21914);   // 24277 (2363)
 
     /*O, daughter of Janaka, */
-    laksmana.directControl(3, 0, 1000); //25277 (1000)
-    laksmana.directControl(4, 110, 400); //25677 (400)
-    laksmana.directControl(3, 180, 1000); //26677 (1000)
-    laksmana.directControl(4, 120, 400); //27077 (400)
-    delay(26796-27077); //26796 (719)
+    laksmana.directControl(3, 0, 1000);   // 25277 (1000)
+    laksmana.directControl(4, 110, 400);  // 25677 (400)
+    laksmana.directControl(3, 180, 1000); // 26677 (1000)
+    laksmana.directControl(4, 120, 400);  // 27077 (400)
+    delay(26796 - 27077);                 // 26796 (719)
 
     /*you have uttered bad words, */
-    laksmana.pointToFront(); //27496 (700)
-    delay(29186-26796); //29186 (2390)
+    laksmana.pointToFront(); // 27496 (700)
+    delay(29186 - 26796);    // 29186 (2390)
 
     /*as if you meant it when you accused me of wanting you to be my wife.*/
-    laksmana.lower_pointToFront(); //29886 (700)
-    laksmana.directControl(3, 130, 400); //30286 (400)
-    laksmana.directControl(3, 120, 400); //30686 (400)
-    laksmana.directControl(3, 130, 400); //31086 (400)
-    laksmana.directControl(3, 120, 400); //31486 (400)
-    laksmana.directControl(3, 130, 400); //31886 (400)
-    laksmana.directControl(3, 120, 400); //32286 (400)
-    laksmana.directControl(3, 130, 400); //32686 (400)
-    laksmana.directControl(3, 120, 400); //33086 (400)
-    delay(33867-33086); //33867 (781)
+    laksmana.lower_pointToFront();       // 29886 (700)
+    laksmana.directControl(3, 130, 400); // 30286 (400)
+    laksmana.directControl(3, 120, 400); // 30686 (400)
+    laksmana.directControl(3, 130, 400); // 31086 (400)
+    laksmana.directControl(3, 120, 400); // 31486 (400)
+    laksmana.directControl(3, 130, 400); // 31886 (400)
+    laksmana.directControl(3, 120, 400); // 32286 (400)
+    laksmana.directControl(3, 130, 400); // 32686 (400)
+    laksmana.directControl(3, 120, 400); // 33086 (400)
+    delay(33867 - 33086);                // 33867 (781)
 
     /*Because of your bad words, */
-    laksmana.pointToFront(); //34567 (700)
-    delay(36000-33867); //36000 (2133)
+    laksmana.pointToFront(); // 34567 (700)
+    delay(36000 - 33867);    // 36000 (2133)
 
     /*may you find great sorrow. */
-    laksmana.lower_pointToFront(); //36700 (700)
-    laksmana.directControl(3, 130, 400); //37100 (400)
-    laksmana.directControl(3, 120, 400); //37500 (400)
-    laksmana.directControl(3, 130, 400); //37900 (400)
-    laksmana.directControl(3, 120, 400); //38300 (400)
-    laksmana.directControl(3, 130, 400); //38700 (400)
-    delay(63); //38763 (63)
+    laksmana.lower_pointToFront();       // 36700 (700)
+    laksmana.directControl(3, 130, 400); // 37100 (400)
+    laksmana.directControl(3, 120, 400); // 37500 (400)
+    laksmana.directControl(3, 130, 400); // 37900 (400)
+    laksmana.directControl(3, 120, 400); // 38300 (400)
+    laksmana.directControl(3, 130, 400); // 38700 (400)
+    delay(63);                           // 38763 (63)
 
     /*You will be captured by the enemy,*/
-    laksmana.middleFront(); //39663 (900)
-    delay(41139-39663); //41139 (1476)
+    laksmana.middleFront(); // 39663 (900)
+    delay(41139 - 39663);   // 41139 (1476)
 
     /*after my leave!*/
-    laksmana.downFront(); //41839 (700)
+    laksmana.downFront(); // 41839 (700)
 
     /*return to default position*/
     laksmana.defaultHandPosition();
-
 
     // 005 (005SitaRahwanadialogueRahwana1)
     SoundSystem::playDialogFromACertainFolder(SoundSystem::EPISODE_NUMBER::EPISODE_1, SoundSystem::EPISODE_1_DIALOG::SITA_RAHWANA_DIALOGUE_RAHWANA_1);
