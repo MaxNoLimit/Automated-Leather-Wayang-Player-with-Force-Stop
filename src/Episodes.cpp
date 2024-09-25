@@ -546,14 +546,6 @@ void Episodes::testing_rahwana_horizontal_movement()
     delay(5);
 }
 
-// void TaskRahwanaMovement1(void *parameter)
-// {
-//     while (1)
-//     {
-//         rahwana.Rahwana_1();
-//         vTaskDelete(NULL);
-//     }
-// }
 
 void Episodes::randomTesting()
 {
