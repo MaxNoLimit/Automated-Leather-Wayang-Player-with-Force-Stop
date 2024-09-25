@@ -926,7 +926,16 @@ void Episodes::Episode_1()
 
     // 009 (Rama1laksmana-Rama Diaglogue(in place of narrator for context))
     SoundSystem::playDialogFromACertainFolder(SoundSystem::EPISODE_NUMBER::EPISODE_1, SoundSystem::EPISODE_1_DIALOG::RAMA1LAKS_RAMA_DIALOGUE_IN_PLACE_NARATOR);
-    delay(3000);
+    // delay(3000);
+
+    // (1139) Yes, let us head to Resyamuka and introduce ourselves. (5074) 
+    delay(1139);
+    rama_wijaya.pointToFront(); // takes 1200 ms
+    rama_wijaya.downFront();    // takes 700 ms
+    rama_wijaya.pointToSelf();  // takes 900 ms
+
+    rama_wijaya.downFront(); // takes 700 ms
+    delay(5074 - 1139 - 1200 - 700 - 900 - 700); // result = 438
 
     // 010 (04 H-R1 Hanuman1F)
     SoundSystem::playDialogFromACertainFolder(SoundSystem::EPISODE_NUMBER::EPISODE_1, SoundSystem::EPISODE_1_DIALOG::H_R1_HANUMAN1F);
