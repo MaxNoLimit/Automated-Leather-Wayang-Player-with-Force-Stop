@@ -546,7 +546,6 @@ void Episodes::testing_rahwana_horizontal_movement()
     delay(5);
 }
 
-
 void Episodes::randomTesting()
 {
     setAllMOSFETtoLOW();
@@ -914,7 +913,23 @@ void Episodes::Episode_1()
 
     // 006 (006SitaRahwanadialogueSita1)
     SoundSystem::playDialogFromACertainFolder(SoundSystem::EPISODE_NUMBER::EPISODE_1, SoundSystem::EPISODE_1_DIALOG::SITA_RAHWANA_DIALOGUE_SITA_1);
-    delay(3000);
+    // delay(3000);
+
+    // (74)I am sorry, I cannot accept for I am already betrothed to Rama, (4700)
+
+    delay(74);
+    sita.pointToSelf(); // takes 2100 ms
+
+    // (5162)son of king Dasaratha (6668)
+
+    delay(5162 - 74 - 2100);
+    sita.downFront();    // takes 700 ms
+    sita.pointToFront(); // takes 700 ms
+
+    // (7272)and it is the duty of a wife to be loyal to her husband and no other. (12304)
+
+    delay(7272 - 5162 - 700 - 700);
+    sita.downFront(); // takes 700 ms
 
     // 007 (007SitaRahwanadialogueRahwana2)
     SoundSystem::playDialogFromACertainFolder(SoundSystem::EPISODE_NUMBER::EPISODE_1, SoundSystem::EPISODE_1_DIALOG::SITA_RAHWANA_DIALOGUE_RAHWANA_2);
@@ -928,13 +943,13 @@ void Episodes::Episode_1()
     SoundSystem::playDialogFromACertainFolder(SoundSystem::EPISODE_NUMBER::EPISODE_1, SoundSystem::EPISODE_1_DIALOG::RAMA1LAKS_RAMA_DIALOGUE_IN_PLACE_NARATOR);
     // delay(3000);
 
-    // (1139) Yes, let us head to Resyamuka and introduce ourselves. (5074) 
+    // (1139) Yes, let us head to Resyamuka and introduce ourselves. (5074)
     delay(1139);
     rama_wijaya.pointToFront(); // takes 1200 ms
     rama_wijaya.downFront();    // takes 700 ms
     rama_wijaya.pointToSelf();  // takes 900 ms
 
-    rama_wijaya.downFront(); // takes 700 ms
+    rama_wijaya.downFront();                     // takes 700 ms
     delay(5074 - 1139 - 1200 - 700 - 900 - 700); // result = 438
 
     // 010 (04 H-R1 Hanuman1F)
