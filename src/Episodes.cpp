@@ -717,6 +717,7 @@ void Episodes::Episode_1()
 
     /*return to default position*/
     laksmana.defaultHandPosition(); 
+    
 
     // 003 (Sita2Sita-laksmana dialogue 1)
     SoundSystem::playDialogFromACertainFolder(SoundSystem::EPISODE_NUMBER::EPISODE_1, SoundSystem::EPISODE_1_DIALOG::SITA2SITA_LAKS_DIALOGUE_1);
@@ -724,7 +725,94 @@ void Episodes::Episode_1()
 
     // 004 (02 S-L1 laksmana2F)
     SoundSystem::playDialogFromACertainFolder(SoundSystem::EPISODE_NUMBER::EPISODE_1, SoundSystem::EPISODE_1_DIALOG::S_L1_LAKS2F);
-    delay(3000);
+    // delay(3000);
+
+    delay(1188);
+    /*You suspect me of being wicked,*/
+    laksmana.pointToFront(); //1888 (700)
+    laksmana.directControl(3, 170, 400); //2288 (400)
+    laksmana.directControl(3, 180, 400); //2688 (400)
+    laksmana.directControl(3, 170, 400); //3088 (400)
+    laksmana.directControl(3, 180, 400); //3488 (400)
+    delay(3670-3488); //3670 (182)
+
+    /*having the intention to betray my older brother. */
+    laksmana.lower_pointToFront(); //4370 (700)
+    delay(1000); //5370 (1000)
+    laksmana.downFront(); //6070 (700)
+    delay(6787-6070); //6787 (717)
+
+    /*My mind is pure, truthful, and not wicked.*/
+    laksmana.pointToSelf(); //7487 (700)
+    delay(10564-7487); //10564 (3077)
+
+    /* Let all the deities bear witness to the purity of my heart.*/ 
+    laksmana.directControl(3, 0, 1200); //11764 (1200)
+    laksmana.directControl(4, 110, 480); //12244 (480)
+    laksmana.directControl(3, 180, 1200); //13444 (1200)
+    laksmana.directControl(4, 140, 480); //13924 (480)
+    delay(16175-13924); //16175 (2251)
+
+    /*Let me fall into hell,*/
+    laksmana.directControl(3, 120, 1000); //17175 (1000)
+    laksmana.directControl(4, 140, 400); //17575 (400)
+    delay(18385-17575); //18385 (810)
+
+    /*let me be overcome by misfortunes, */
+    laksmana.directControl(3, 0, 1000); //19385 (1000)
+    laksmana.directControl(4, 110, 400); //19785 (400)
+    delay(21214-19785); //21214 (1429)
+
+    /*if I am treacherous.*/
+    laksmana.pointToSelf(); //21914 (700)
+    delay(24277-21914); //24277 (2363)
+
+    /*O, daughter of Janaka, */
+    laksmana.directControl(3, 0, 1000); //25277 (1000)
+    laksmana.directControl(4, 110, 400); //25677 (400)
+    laksmana.directControl(3, 180, 1000); //26677 (1000)
+    laksmana.directControl(4, 120, 400); //27077 (400)
+    delay(26796-27077); //26796 (719)
+
+    /*you have uttered bad words, */
+    laksmana.pointToFront(); //27496 (700)
+    delay(29186-26796); //29186 (2390)
+
+    /*as if you meant it when you accused me of wanting you to be my wife.*/
+    laksmana.lower_pointToFront(); //29886 (700)
+    laksmana.directControl(3, 130, 400); //30286 (400)
+    laksmana.directControl(3, 120, 400); //30686 (400)
+    laksmana.directControl(3, 130, 400); //31086 (400)
+    laksmana.directControl(3, 120, 400); //31486 (400)
+    laksmana.directControl(3, 130, 400); //31886 (400)
+    laksmana.directControl(3, 120, 400); //32286 (400)
+    laksmana.directControl(3, 130, 400); //32686 (400)
+    laksmana.directControl(3, 120, 400); //33086 (400)
+    delay(33867-33086); //33867 (781)
+
+    /*Because of your bad words, */
+    laksmana.pointToFront(); //34567 (700)
+    delay(36000-33867); //36000 (2133)
+
+    /*may you find great sorrow. */
+    laksmana.lower_pointToFront(); //36700 (700)
+    laksmana.directControl(3, 130, 400); //37100 (400)
+    laksmana.directControl(3, 120, 400); //37500 (400)
+    laksmana.directControl(3, 130, 400); //37900 (400)
+    laksmana.directControl(3, 120, 400); //38300 (400)
+    laksmana.directControl(3, 130, 400); //38700 (400)
+    delay(63); //38763 (63)
+
+    /*You will be captured by the enemy,*/
+    laksmana.middleFront(); //39663 (900)
+    delay(41139-39663); //41139 (1476)
+
+    /*after my leave!*/
+    laksmana.downFront(); //41839 (700)
+
+    /*return to default position*/
+    laksmana.defaultHandPosition();
+
 
     // 005 (005SitaRahwanadialogueRahwana1)
     SoundSystem::playDialogFromACertainFolder(SoundSystem::EPISODE_NUMBER::EPISODE_1, SoundSystem::EPISODE_1_DIALOG::SITA_RAHWANA_DIALOGUE_RAHWANA_1);
