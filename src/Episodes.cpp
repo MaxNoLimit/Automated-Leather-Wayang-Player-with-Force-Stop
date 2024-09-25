@@ -687,7 +687,36 @@ void Episodes::Episode_1()
 
     /*That call was not his,*/
     laksmana.middleFront(); // 36972 (900)
-    // laksmana.directControl();
+    laksmana.directControl(4, 115, 400); //37372 (400)
+    laksmana.directControl(4, 120, 400); //37772 (400)
+    laksmana.directControl(4, 115, 400); //38172 (400)
+    laksmana.directControl(4, 120, 400); //38572 (400)
+    delay(38746-38572); //38746 (174)
+
+    /*it was the call of an evil demon, */
+    laksmana.pointToFront(); //39446 (700)
+    delay(41447-39446); //41447 (2001)
+
+    /*it was a trick with the purpose of deceiving us.*/
+    laksmana.lower_pointToFront(); //42147 (700)
+    delay(44700-42147-700); //44000 (1853)
+    laksmana.downFront(); //44700 (700)
+
+    /*I say, it was the cry of the deer*/
+    laksmana.pointToSelf(); //45400 (700)
+    delay(48296-45400); //48296 (2896)
+    laksmana.downFront(); //48996 (700)
+
+    /*which was hit by an arrow,*/
+    laksmana.lower_pointToFront(); //49696 (700)
+    delay(50930-49696); //50930 (1234)
+    
+    /*sounding like the voice of Rama. */
+    laksmana.middleFront(); //51830 (900)
+    delay(53233-51830); //53233 (1403)
+
+    /*return to default position*/
+    laksmana.defaultHandPosition(); 
 
     // 003 (Sita2Sita-laksmana dialogue 1)
     SoundSystem::playDialogFromACertainFolder(SoundSystem::EPISODE_NUMBER::EPISODE_1, SoundSystem::EPISODE_1_DIALOG::SITA2SITA_LAKS_DIALOGUE_1);
