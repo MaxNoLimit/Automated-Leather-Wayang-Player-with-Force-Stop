@@ -567,7 +567,7 @@ void Episodes::Episode_1()
 
     setAllMOSFETtoLOW();
 
-    SoundSystem::playDialogFromACertainFolder(SoundSystem::EXTRA_MUSIC_WAYANG, SoundSystem::MUSIC_NUMBER::MUSIC_GAMELAN);
+    SoundSystem::playMusicWayang();
     sita.walk_to_a_certain_distance_before_calibrating_value(200);
     laksmana.walk_to_a_certain_distance_before_calibrating_value(200);
     // 001 (Sita1Sita-laksmana dialogue 1)
@@ -911,18 +911,18 @@ void Episodes::Episode_1()
     // laksmana.downBack();
     // laksmana.onHipBack();
 
-    SoundSystem::playDialogFromACertainFolder(SoundSystem::EXTRA_MUSIC_WAYANG, SoundSystem::MUSIC_NUMBER::MUSIC_GAMELAN);
+    SoundSystem::playMusicWayang();
     laksmana.defaultStandPosition();
     sita.defaultStandPosition();
 
-    sita.walk_to_a_certain_distance_before_calibrating_value(200);
-    rahwana.walk_to_a_certain_distance_before_calibrating_value(200);
+    // sita.walk_to_a_certain_distance_before_calibrating_value(200);
+    // rahwana.walk_to_a_certain_distance_before_calibrating_value(200);
 
     // 005 (005SitaRahwanadialogueRahwana1)
     SoundSystem::playDialogFromACertainFolder(SoundSystem::EPISODE_NUMBER::EPISODE_1, SoundSystem::EPISODE_1_DIALOG::SITA_RAHWANA_DIALOGUE_RAHWANA_1);
-    // delay(3000);
+    delay(3000);
 
-    rahwana.Rahwana_1();
+    // rahwana.Rahwana_1();
 
     // 006 (006SitaRahwanadialogueSita1)
     SoundSystem::playDialogFromACertainFolder(SoundSystem::EPISODE_NUMBER::EPISODE_1, SoundSystem::EPISODE_1_DIALOG::SITA_RAHWANA_DIALOGUE_SITA_1);

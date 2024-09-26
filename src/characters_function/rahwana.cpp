@@ -401,7 +401,7 @@ void Rahwana::pointToSelf()
 
 void Rahwana::directControl(int num, int angle, int duration)
 {
-    digitalWrite(WAYANG_HAND_5, HIGH);
+    digitalWrite(WAYANG_HAND_2, HIGH);
     Servo_Rahwana.moveWhatServo(num, angle, duration);
-    digitalWrite(WAYANG_HAND_5, LOW);
+    digitalWrite(WAYANG_HAND_2, LOW);
 }

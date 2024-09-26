@@ -184,7 +184,7 @@ void SoundSystem::pause()
 
 void SoundSystem::playMusicWayang()
 {
-    sound_system.volume(10);
+    sound_system.volume(8);
     sound_system.playFolder(EPISODE_NUMBER::EXTRA_MUSIC_WAYANG, MUSIC_NUMBER::MUSIC_GAMELAN);
 }
 
