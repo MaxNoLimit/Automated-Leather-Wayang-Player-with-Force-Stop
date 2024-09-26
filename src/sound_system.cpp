@@ -29,7 +29,7 @@ void SoundSystem::justInitTheSoundSystem()
     Serial.println(F("DFPlayer Mini online."));
     soundSystemStatus = true;
 
-    sound_system.volume(20);
+    sound_system.volume(22);
 }
 
 void SoundSystem::initSound()
@@ -184,7 +184,7 @@ void SoundSystem::pause()
 
 void SoundSystem::playMusicWayang()
 {
-    sound_system.volume(15);
+    sound_system.volume(12);
     sound_system.playFolder(EPISODE_NUMBER::EXTRA_MUSIC_WAYANG, MUSIC_NUMBER::MUSIC_GAMELAN);
 }
 

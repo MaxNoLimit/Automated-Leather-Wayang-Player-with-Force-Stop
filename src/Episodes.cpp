@@ -936,6 +936,7 @@ void Episodes::Episode_1()
 
     delay(7272 - 5162 - 700 - 700);
     sita.downFront(); // takes 700 ms
+    delay(12304 - 7272 - 700);
 
     // 007 (007SitaRahwanadialogueRahwana2)
     SoundSystem::playDialogFromACertainFolder(SoundSystem::EPISODE_NUMBER::EPISODE_1, SoundSystem::EPISODE_1_DIALOG::SITA_RAHWANA_DIALOGUE_RAHWANA_2);
