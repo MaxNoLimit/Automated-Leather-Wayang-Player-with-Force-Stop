@@ -1472,7 +1472,143 @@ void Episodes::Episode_1()
 
     // 022 (Rama2Sugriwa-Rama-Subali dialogue_E)
     SoundSystem::playDialogFromACertainFolder(SoundSystem::EPISODE_NUMBER::EPISODE_1, SoundSystem::EPISODE_1_DIALOG::RAMA2SUGRIWA_RAMA_SUBALI_DIALOGUE_E);
-    delay(3000);
+    // delay(3000);
+
+    // (1085) Hey, monkey, (1828)
+
+    delay(1085);
+    rama_wijaya.pointToFront(); // takes 1200 ms
+
+    // (2533) you regard yourself as smart. (4230)
+
+    delay(2533 - 1085 - 1200);
+    rama_wijaya.lower_pointToFront(); // takes 700 ms
+
+    // (4954) I do not sin by killing you. (6440)
+
+    delay(4954 - 2533 - 700);
+    rama_wijaya.downFront();   // takes 700 ms
+    rama_wijaya.middleFront(); // takes 1200 ms
+
+    // (7213) The nature of a ksatriya is my guidance. (9852)
+
+    delay(7213 - 4954 - 700 - 1200);
+    for (int i = 0; i < 4; i++)
+    {
+        rama_wijaya.directControl(1, 10, 400);
+        rama_wijaya.directControl(1, 0, 400);
+    } // takes 800 ms each loop
+
+    // (10476) It is not murder to kill any animal. (12641)
+
+    delay(10476 - 7213 - 800 * 4);
+    rama_wijaya.downFront();    // takes 700 ms
+    rama_wijaya.pointToFront(); // takes 1200 ms
+
+    // (13504) All the ksatriyas in the past I take as an example, (16826)
+
+    delay(13504 - 10476 - 700 - 1200);
+    rama_wijaya.lower_pointToFront(); // takes 700 ms
+
+    // (17429) they did not sin. (18360)
+
+    delay(17429 - 13504 - 700);
+    rama_wijaya.pointToFront(); // takes 1200 ms
+
+    // (19273) Furthermore, (19918)
+
+    // (20205) in fact (20649)
+
+    delay(19273 - 17429 - 1200);
+    rama_wijaya.middleFront(); // takes 1200 ms
+
+    // (21161) animals may be killed in any way, (23279)
+
+    delay(21161 - 19273 - 1200);
+    rama_wijaya.directControl(1, 30, 400); // takes 400 ms
+
+    // (23856) they can be trapped (24655)
+
+    delay(23856 - 21161 - 400);
+    rama_wijaya.directControl(1, 0, 400); // takes 400 ms
+
+    // (24958) with pitfalls, (25722)
+
+    delay(24958 - 23856 - 400);
+    rama_wijaya.directControl(1, 30, 400); // takes 400 ms
+
+    // (25996) snares (26465)
+
+    delay(25996 - 24958 - 400);
+    rama_wijaya.directControl(1, 0, 400); // takes 400 ms
+
+    // (26651) and mantraps. (27473)
+
+    delay(26651 - 25996 - 400);
+    rama_wijaya.directControl(1, 30, 400); // takes 400 ms
+
+    // (28396) All the game in the vast forest whether it is good (31014)
+
+    delay(28396 - 26651 - 400);
+    rama_wijaya.downFront();       // takes 700 ms
+    rama_wijaya.middleFrontBack(); // takes 1200 ms
+
+    // (31411) or bad may be killed. (32727)
+
+    delay(31411 - 28396 - 700 - 1200);
+    rama_wijaya.lower_pointToFront(); // takes 700 ms
+
+    // (33649) But if you say you are not an animal but a human being, (36732)
+
+    delay(33649 - 31411 - 700);
+    rama_wijaya.downBack();  // takes 700 ms
+    rama_wijaya.onHipBack(); // takes 900 ms
+
+    // (36941) then follow my conduct (37983)
+
+    // (38380) as a human being. (39311)
+
+    delay(36941 - 33649 - 700 - 900);
+    rama_wijaya.downFront();   // takes 700 ms
+    rama_wijaya.pointToSelf(); // takes 900 ms
+
+    // (39931) Even then I would not have sinned in any way, (42702)
+
+    delay(39931 - 36941 - 700 - 900);
+    rama_wijaya.downFront();    // takes 700 ms
+    rama_wijaya.pointToFront(); // takes 1200 ms
+
+    // (43127) because I have killed (44174)
+
+    // (44391) an adulterous man. (45589)
+
+    delay(43127 - 39931 - 700 - 1200);
+    rama_wijaya.downFront();   // takes 700 ms
+    rama_wijaya.pointToSelf(); // takes 900 ms
+
+    // (46589) I have heard about your conducts. (48187)
+
+    delay(46589 - 43127 - 700 - 900);
+    rama_wijaya.downFront();   // takes 700 ms
+    rama_wijaya.middleFront(); // takes 1200 ms
+
+    // (48650) You drove away Sugriwa and you stole his wife Tara. (51820)
+
+    delay(48650 - 46589 - 700 - 1200);
+    for (int i = 0; i < 4; i++)
+    {
+        rama_wijaya.directControl(1, 30, 400);
+        rama_wijaya.directControl(1, 0, 400);
+    } // takes 800 ms each loop
+
+    // (52482) O, you will always be condemned by the world. (55499)
+
+    delay(52482 - 48650 - 800 * 4);
+    rama_wijaya.downFront();    // takes 700 ms
+    rama_wijaya.pointToFront(); // takes 1200 ms
+
+    delay(55499 - 52482 - 700 - 1200);
+    // no need to drop the front hand
 
     // 023 (Subali tobat_E)
     SoundSystem::playDialogFromACertainFolder(SoundSystem::EPISODE_NUMBER::EPISODE_1, SoundSystem::EPISODE_1_DIALOG::SUBALI_TOBAT_E);
