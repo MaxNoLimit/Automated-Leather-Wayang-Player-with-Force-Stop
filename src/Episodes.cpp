@@ -819,97 +819,97 @@ void Episodes::Episode_1()
 
     delay(58501 - 56657 - 700 - 700);
 
-    // // 004 (02 S-L1 laksmana2F)
-    // SoundSystem::playDialogFromACertainFolder(SoundSystem::EPISODE_NUMBER::EPISODE_1, SoundSystem::EPISODE_1_DIALOG::S_L1_LAKS2F);
-    // // delay(3000);
+    // 004 (02 S-L1 laksmana2F)
+    SoundSystem::playDialogFromACertainFolder(SoundSystem::EPISODE_NUMBER::EPISODE_1, SoundSystem::EPISODE_1_DIALOG::S_L1_LAKS2F);
+    // delay(3000);
 
-    // delay(1188);
-    // /*You suspect me of being wicked,*/
-    // laksmana.pointToFront();             // 1888 (700)
-    // laksmana.directControl(3, 170, 400); // 2288 (400)
-    // laksmana.directControl(3, 180, 400); // 2688 (400)
-    // laksmana.directControl(3, 170, 400); // 3088 (400)
-    // laksmana.directControl(3, 180, 400); // 3488 (400)
-    // delay(3670 - 3488);                  // 3670 (182)
+    delay(1188);
+    /*You suspect me of being wicked,*/
+    laksmana.pointToFront();             // 1888 (700)
+    laksmana.directControl(3, 170, 400); // 2288 (400)
+    laksmana.directControl(3, 180, 400); // 2688 (400)
+    laksmana.directControl(3, 170, 400); // 3088 (400)
+    laksmana.directControl(3, 180, 400); // 3488 (400)
+    delay(3670 - 3488);                  // 3670 (182)
 
-    // /*having the intention to betray my older brother. */
-    // laksmana.lower_pointToFront(); // 4370 (700)
-    // delay(1000);                   // 5370 (1000)
-    // laksmana.downFront();          // 6070 (700)
-    // delay(6787 - 6070);            // 6787 (717)
+    /*having the intention to betray my older brother. */
+    laksmana.lower_pointToFront(); // 4370 (700)
+    delay(1000);                   // 5370 (1000)
+    laksmana.downFront();          // 6070 (700)
+    delay(6787 - 6070);            // 6787 (717)
 
-    // /*My mind is pure, truthful, and not wicked.*/
-    // laksmana.pointToSelf(); // 7487 (700)
-    // delay(10564 - 7487);    // 10564 (3077)
+    /*My mind is pure, truthful, and not wicked.*/
+    laksmana.pointToSelf(); // 7487 (700)
+    delay(10564 - 7487);    // 10564 (3077)
 
-    // /* Let all the deities bear witness to the purity of my heart.*/
-    // laksmana.directControl(3, 0, 1200);   // 11764 (1200)
-    // laksmana.directControl(4, 110, 400);  // 12244 (480) -> 400
-    // laksmana.directControl(3, 180, 1200); // 13444 (1200)
-    // laksmana.directControl(4, 140, 400);  // 13924 (480) -> 400
-    // delay(16175 - 13924 + 160);                 // 16175 (2251)
+    /* Let all the deities bear witness to the purity of my heart.*/
+    laksmana.directControl(3, 0, 1200);   // 11764 (1200)
+    laksmana.directControl(4, 110, 400);  // 12244 (480) -> 400
+    laksmana.directControl(3, 180, 1200); // 13444 (1200)
+    laksmana.directControl(4, 140, 400);  // 13924 (480) -> 400
+    delay(16175 - 13924 + 160);                 // 16175 (2251)
 
-    // /*Let me fall into hell,*/
-    // laksmana.directControl(3, 120, 1000); // 17175 (1000)
-    // laksmana.directControl(4, 140, 400);  // 17575 (400)
-    // delay(18385 - 17575);                 // 18385 (810)
+    /*Let me fall into hell,*/
+    laksmana.directControl(3, 120, 1000); // 17175 (1000)
+    laksmana.directControl(4, 140, 400);  // 17575 (400)
+    delay(18385 - 17575);                 // 18385 (810)
 
-    // /*let me be overcome by misfortunes, */
-    // laksmana.directControl(3, 0, 1000);  // 19385 (1000)
-    // laksmana.directControl(4, 110, 400); // 19785 (400)
-    // delay(21214 - 19785);                // 21214 (1429)
+    /*let me be overcome by misfortunes, */
+    laksmana.directControl(3, 0, 1000);  // 19385 (1000)
+    laksmana.directControl(4, 110, 400); // 19785 (400)
+    delay(21214 - 19785);                // 21214 (1429)
 
-    // /*if I am treacherous.*/
-    // laksmana.pointToSelf(); // 21914 (700)
-    // delay(24277 - 21914);   // 24277 (2363)
+    /*if I am treacherous.*/
+    laksmana.pointToSelf(); // 21914 (700)
+    delay(24277 - 21914);   // 24277 (2363)
 
-    // /*O, daughter of Janaka, */
-    // laksmana.directControl(3, 0, 1000);   // 25277 (1000)
-    // laksmana.directControl(4, 110, 400);  // 25677 (400)
-    // laksmana.directControl(3, 180, 1000); // 26677 (1000)
-    // laksmana.directControl(4, 120, 400);  // 27077 (400)
-    // delay(26796 - 27077);                 // 26796 (719)
+    /*O, daughter of Janaka, */
+    laksmana.directControl(3, 0, 500);   // 25277 (1000)
+    laksmana.directControl(4, 110, 400);  // 25677 (400)
+    laksmana.directControl(3, 180, 500); // 26677 (1000)
+    laksmana.directControl(4, 120, 400);  // 27077 (400)
+    delay(26796 - 26077);                 // 26796 (719)
 
-    // /*you have uttered bad words, */
-    // laksmana.pointToFront(); // 27496 (700)
-    // delay(29186 - 26796);    // 29186 (2390)
+    /*you have uttered bad words, */
+    laksmana.pointToFront(); // 27496 (700)
+    delay(29186 - 26796);    // 29186 (2390)
 
-    // /*as if you meant it when you accused me of wanting you to be my wife.*/
-    // laksmana.lower_pointToFront();       // 29886 (700)
-    // laksmana.directControl(3, 130, 400); // 30286 (400)
-    // laksmana.directControl(3, 120, 400); // 30686 (400)
-    // laksmana.directControl(3, 130, 400); // 31086 (400)
-    // laksmana.directControl(3, 120, 400); // 31486 (400)
-    // laksmana.directControl(3, 130, 400); // 31886 (400)
-    // laksmana.directControl(3, 120, 400); // 32286 (400)
-    // laksmana.directControl(3, 130, 400); // 32686 (400)
-    // laksmana.directControl(3, 120, 400); // 33086 (400)
-    // delay(33867 - 33086);                // 33867 (781)
+    /*as if you meant it when you accused me of wanting you to be my wife.*/
+    laksmana.lower_pointToFront();       // 29886 (700)
+    laksmana.directControl(3, 130, 400); // 30286 (400)
+    laksmana.directControl(3, 120, 400); // 30686 (400)
+    laksmana.directControl(3, 130, 400); // 31086 (400)
+    laksmana.directControl(3, 120, 400); // 31486 (400)
+    laksmana.directControl(3, 130, 400); // 31886 (400)
+    laksmana.directControl(3, 120, 400); // 32286 (400)
+    laksmana.directControl(3, 130, 400); // 32686 (400)
+    laksmana.directControl(3, 120, 400); // 33086 (400)
+    delay(33867 - 33086);                // 33867 (781)
 
-    // /*Because of your bad words, */
-    // laksmana.pointToFront(); // 34567 (700)
-    // delay(36000 - 33867);    // 36000 (2133)
+    /*Because of your bad words, */
+    laksmana.pointToFront(); // 34567 (700)
+    delay(36000 - 33867);    // 36000 (2133)
 
-    // /*may you find great sorrow. */
-    // laksmana.lower_pointToFront();       // 36700 (700)
-    // laksmana.directControl(3, 130, 400); // 37100 (400)
-    // laksmana.directControl(3, 120, 400); // 37500 (400)
-    // laksmana.directControl(3, 130, 400); // 37900 (400)
-    // laksmana.directControl(3, 120, 400); // 38300 (400)
-    // laksmana.directControl(3, 130, 400); // 38700 (400)
-    // delay(63);                           // 38763 (63)
+    /*may you find great sorrow. */
+    laksmana.lower_pointToFront();       // 36700 (700)
+    laksmana.directControl(3, 130, 400); // 37100 (400)
+    laksmana.directControl(3, 120, 400); // 37500 (400)
+    laksmana.directControl(3, 130, 400); // 37900 (400)
+    laksmana.directControl(3, 120, 400); // 38300 (400)
+    laksmana.directControl(3, 130, 400); // 38700 (400)
+    delay(63);                           // 38763 (63)
 
-    // /*You will be captured by the enemy,*/
-    // laksmana.middleFront(); // 39663 (900)
-    // delay(41139 - 39663);   // 41139 (1476)
+    /*You will be captured by the enemy,*/
+    laksmana.middleFront(); // 39663 (900)
+    delay(41139 - 39663);   // 41139 (1476)
 
-    // /*after my leave!*/
-    // laksmana.downFront(); // 41839 (700)
+    /*after my leave!*/
+    laksmana.downFront(); // 41839 (700)
 
-    // /*return to default position*/
-    // laksmana.downFront();
-    // laksmana.downBack();
-    // laksmana.onHipBack();
+    /*return to default position*/
+    laksmana.downFront();
+    laksmana.downBack();
+    laksmana.onHipBack();
 
     SoundSystem::playMusicWayang();
     laksmana.defaultStandPosition();
@@ -1329,7 +1329,7 @@ void Episodes::Episode_1()
     hanoman.pointToFront();     // 50591 (900)
     for (int i = 0; i < 4; i++) // 53791 (3200)
     {
-        hanoman.directControl(3, 170, 400);
+        hanoman.directControl(3, 135, 400);
         hanoman.directControl(3, 180, 400);
     }
     delay(54515 - 53791); // 54515 (724)
@@ -1338,15 +1338,15 @@ void Episodes::Episode_1()
     hanoman.lower_pointToFront(); // 55215 (700)
     for (int i = 0; i < 3; i++)   // 57615 (2400)
     {
-        hanoman.directControl(3, 100, 400);
+        hanoman.directControl(3, 135, 400);
         hanoman.directControl(3, 90, 400);
     }
     delay(350); // 57965 (350)
 
     /*to kill Dasamukha.*/
-    hanoman.directControl(1, 10, 400);
+    hanoman.directControl(1, 45, 400);
     hanoman.directControl(1, 0, 400);
-    hanoman.directControl(1, 10, 400);
+    hanoman.directControl(1, 45, 400);
     hanoman.directControl(1, 0, 240);
 
     /*return to default position*/
@@ -1424,45 +1424,45 @@ void Episodes::Episode_1()
     // (20686) Now, do this! (21825)
 
     delay(20686 - 16683 - 700 - 700 - 1400);
-    rama_wijaya.downBack();   // takes 700 ms
-    rama_wijaya.middleBack(); // takes 1200 ms
+    rama_wijaya.downBack(); // takes 700 ms
 
     // (22549) Wear leaves around your body as an identification. (25556)
 
-    delay(22549 - 20686 - 700 - 1200);
-    for (int i = 0; i < 4; i++)
+    delay(22549 - 20686 - 700);
+    rama_wijaya.middleBack(); // takes 1200 ms
+    for (int i = 0; i < 3; i++)
     {
-        rama_wijaya.directControl(3, 170, 400);
+        rama_wijaya.directControl(3, 135, 400);
         rama_wijaya.directControl(3, 180, 400);
     } // takes 800 ms each loop
 
     // (26460) After you have them on, (27790)
 
-    delay(26460 - 22549 - 800 * 4);
+    delay(26460 - 22549 - 1200 - 800 * 3);
     rama_wijaya.downBack();       // takes 700 ms
     rama_wijaya.lowPointToBack(); // takes 700 ms
 
     // (28136) fight again, (28811)
 
     delay(28136 - 26460 - 700 - 700);
-    rama_wijaya.directControl(3, 180, 500); // takes 500 ms
+    rama_wijaya.directControl(3, 180, 400); // takes 400 ms
 
     // (29195) do not be afraid. (30104)
 
-    delay(29195 - 28136 - 500);
-    rama_wijaya.directControl(3, 90, 500); // takes 500 ms
+    delay(29195 - 28136 - 400);
+    rama_wijaya.directControl(3, 90, 400); // takes 400 ms
 
     // (30792) For sure Bali will be killed (32301)
 
-    delay(30792 - 29195 - 500);
-    rama_wijaya.directControl(3, 180, 500); // takes 500 ms
+    delay(30792 - 29195 - 400);
+    rama_wijaya.directControl(3, 180, 400); // takes 400 ms
 
     // (32548) and you will not be hit. (33693)
 
-    delay(32548 - 30792 - 500);
-    rama_wijaya.directControl(3, 90, 500); // takes 500 ms
+    delay(32548 - 30792 - 400);
+    rama_wijaya.directControl(3, 90, 400); // takes 400 ms
 
-    delay(33693 - 32548 - 500);
+    delay(33693 - 32548 - 400);
     rama_wijaya.downBack();  // takes 700 ms
     rama_wijaya.onHipBack(); // takes 900 ms
 

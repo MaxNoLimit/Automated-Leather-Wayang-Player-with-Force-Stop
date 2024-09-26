@@ -169,6 +169,7 @@ void SoundSystem::play_dialog_direct(int dialog_number)
 
 void SoundSystem::playDialogFromACertainFolder(int nEpisode, int nDialog)
 {
+    sound_system.volume(15);
     sound_system.playFolder(nEpisode, nDialog);
 }
 
