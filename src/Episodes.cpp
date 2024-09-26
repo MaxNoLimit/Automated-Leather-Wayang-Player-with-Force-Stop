@@ -1223,117 +1223,117 @@ void Episodes::Episode_1()
 
     // 012 (05 H-R1 Hanuman2F)
     SoundSystem::playDialogFromACertainFolder(SoundSystem::EPISODE_NUMBER::EPISODE_1, SoundSystem::EPISODE_1_DIALOG::H_R1_HANUMAN2F);
-    //delay(3000);
+    // delay(3000);
     delay(630);
 
     /*O, Raghawa,*/
-    hanoman.middleFront(); //1830 (1200)
-    hanoman.downFront(); //2530 (700)
+    hanoman.middleFront(); // 1830 (1200)
+    hanoman.downFront();   // 2530 (700)
 
     /* I have been ordered to come here- */
-    hanoman.pointToSelf(); //3430 (900)
-    delay(4094-3430); //4094 (664)
+    hanoman.pointToSelf(); // 3430 (900)
+    delay(4094 - 3430);    // 4094 (664)
 
     /*The king of the monkeys Sugriwa gave me orders to look for you.*/
-    hanoman.middleBack(); //5494 (1400)
-    delay(8162-5494-700); //7462 (1968)
+    hanoman.middleBack();     // 5494 (1400)
+    delay(8162 - 5494 - 700); // 7462 (1968)
 
     /*The situation is like this.*/
-    hanoman.downFront(); //8162 (700)
-    hanoman.lower_pointToFront(); //8862 (700)
-    hanoman.downBack(); //9562 (700)
-    delay(10514-9562-700); //9814 (252)
+    hanoman.downFront();          // 8162 (700)
+    hanoman.lower_pointToFront(); // 8862 (700)
+    hanoman.downBack();           // 9562 (700)
+    delay(10514 - 9562 - 700);    // 9814 (252)
 
     /*There is a great monkey, unequalled in power called Bali.*/
-    hanoman.downFront(); //10514 (700)
-    hanoman.middleFront(); //11714 (1200)
-    hanoman.onHipBack(); //12614 (900)
-    delay(15273-12614); //15273 (2659)
+    hanoman.downFront();   // 10514 (700)
+    hanoman.middleFront(); // 11714 (1200)
+    hanoman.onHipBack();   // 12614 (900)
+    delay(15273 - 12614);  // 15273 (2659)
 
     /*Even God Aditya is inferior to him in power.*/
-    hanoman.pointToFront(); //16173 (900)
-    for (int i=0; i<3; i++) //18573 (2400)
+    hanoman.pointToFront();     // 16173 (900)
+    for (int i = 0; i < 3; i++) // 18573 (2400)
     {
         hanoman.directControl(3, 170, 400);
         hanoman.directControl(3, 180, 400);
     }
-    delay(19453-18573); //19453 (880)
+    delay(19453 - 18573); // 19453 (880)
 
     /*He was savagely outrageous towards my master*/
-    hanoman.downFront(); //20153 (700)
-    hanoman.pointToBack(); //21553 (1400)
-    delay(22688-21553); //22688 (1135)
+    hanoman.downFront();   // 20153 (700)
+    hanoman.pointToBack(); // 21553 (1400)
+    delay(22688 - 21553);  // 22688 (1135)
 
     /*and insulted him.*/
-    hanoman.lowPointToBack(); //23388 (700)
-    delay(24763-23388); //24763 (1375)
+    hanoman.lowPointToBack(); // 23388 (700)
+    delay(24763 - 23388);     // 24763 (1375)
 
     /*Out of fear the monkey-king Bali,*/
-    hanoman.downBack(); //25463 (700)
-    hanoman.middleFront(); //26663 (1200)
-    delay(27691-26663); //27691 (1028)
+    hanoman.downBack();    // 25463 (700)
+    hanoman.middleFront(); // 26663 (1200)
+    delay(27691 - 26663);  // 27691 (1028)
 
     /*my master went to the region of Malaya. */
-    hanoman.downFront(); //28391 (700)
-    hanoman.pointToBack(); //29791 (1400)
-    delay(31040-29791); //31040 (1249)
+    hanoman.downFront();   // 28391 (700)
+    hanoman.pointToBack(); // 29791 (1400)
+    delay(31040 - 29791);  // 31040 (1249)
 
     /*He ordered me to look for you, */
-    hanoman.pointToSelf(); //31940 (900)
-    delay(33058-31940); //33058 (1118)
+    hanoman.pointToSelf(); // 31940 (900)
+    delay(33058 - 31940);  // 33058 (1118)
 
     /*as he intends to be friends with you,*/
-    hanoman.middleBack(); //34458 (1400)
-    delay(35707-34458); //35707 (1249)
+    hanoman.middleBack(); // 34458 (1400)
+    delay(35707 - 34458); // 35707 (1249)
 
     /*to stay and serve at your feet, */
-    hanoman.pointToBack(); //37107 (1400)
-    delay(38619-37107-800); //37819 (802)
+    hanoman.pointToBack();      // 37107 (1400)
+    delay(38619 - 37107 - 800); // 37819 (802)
 
     /*o, lord. */
-    hanoman.directControl(3, 170, 400); //38219 (400)
-    hanoman.directControl(4, 95, 400); //38619 (400)
-    delay(40258-38619); //40258 (1639)
+    hanoman.directControl(3, 170, 400); // 38219 (400)
+    hanoman.directControl(4, 95, 400);  // 38619 (400)
+    delay(40258 - 38619);               // 40258 (1639)
 
     /*I suggest that you may grant him a favor*/
-    hanoman.directControl(4, 80, 400); //40658 (400)
-    hanoman.directControl(3, 150, 400); //41058 (400)
-    delay(42949-41058); //42949 (1891)
+    hanoman.directControl(4, 80, 400);  // 40658 (400)
+    hanoman.directControl(3, 150, 400); // 41058 (400)
+    delay(42949 - 41058);               // 42949 (1891)
 
     /*and make him your ally,*/
-    hanoman.downFront(); //43649 (700)
-    hanoman.lower_pointToFront(); //44349 (700)
-    delay(45225-44349); //45225 (876)
+    hanoman.downFront();          // 43649 (700)
+    hanoman.lower_pointToFront(); // 44349 (700)
+    delay(45225 - 44349);         // 45225 (876)
 
     /*because he is powerful,*/
-    hanoman.directControl(3, 120, 400); //45625 (400)
-    delay(46965-45625); //46965 (1340)
+    hanoman.directControl(3, 120, 400); // 45625 (400)
+    delay(46965 - 45625);               // 46965 (1340)
 
     /*noble,*/
-    hanoman.directControl(3, 100, 400); //47365 (400)
-    delay(47716-47365); //47716 (351)
+    hanoman.directControl(3, 100, 400); // 47365 (400)
+    delay(47716 - 47365);               // 47716 (351)
 
     /*and goodhearted.*/
-    hanoman.lower_pointToFront(); //48416 (700)
-    delay(49691-48416); //49691 (1275)
+    hanoman.lower_pointToFront(); // 48416 (700)
+    delay(49691 - 48416);         // 49691 (1275)
 
     /*Let him follow you and love you and carry out all your orders*/
-    hanoman.pointToFront(); //50591 (900)
-    for(int i=0; i<4; i++) //53791 (3200)
+    hanoman.pointToFront();     // 50591 (900)
+    for (int i = 0; i < 4; i++) // 53791 (3200)
     {
         hanoman.directControl(3, 170, 400);
         hanoman.directControl(3, 180, 400);
     }
-    delay(54515-53791); //54515 (724)
+    delay(54515 - 53791); // 54515 (724)
 
     /*Let him take part as commander in the battlefield*/
-    hanoman.lower_pointToFront(); //55215 (700)
-    for(int i=0; i<3; i++) //57615 (2400)
+    hanoman.lower_pointToFront(); // 55215 (700)
+    for (int i = 0; i < 3; i++)   // 57615 (2400)
     {
         hanoman.directControl(3, 100, 400);
         hanoman.directControl(3, 90, 400);
     }
-    delay(350);//57965 (350)
+    delay(350); // 57965 (350)
 
     /*to kill Dasamukha.*/
     hanoman.directControl(1, 10, 400);
@@ -1345,7 +1345,6 @@ void Episodes::Episode_1()
     hanoman.downFront();
     hanoman.downBack();
     hanoman.onHipBack();
-
 
     // 013 (06 S-R1 Sugriwa1F)
     SoundSystem::playDialogFromACertainFolder(SoundSystem::EPISODE_NUMBER::EPISODE_1, SoundSystem::EPISODE_1_DIALOG::S_R1_SUGRIWA1F);
@@ -1369,7 +1368,95 @@ void Episodes::Episode_1()
 
     // 018 (Rama1Sugriwa-Rama-Subali dialogue)
     SoundSystem::playDialogFromACertainFolder(SoundSystem::EPISODE_NUMBER::EPISODE_1, SoundSystem::EPISODE_1_DIALOG::RAMA1SUGRIWA_RAMA_SUBALI_DIALOGUE);
-    delay(3000);
+    // delay(3000);
+
+    // (1231) This is the reason, why I stood idle, (3242)
+
+    delay(1231);
+    rama_wijaya.lowPointToBack(); // takes 700 ms
+
+    // (3917) as if I do not care. (5229)
+
+    delay(3917 - 1231 - 700);
+    rama_wijaya.downBack();   // takes 700 ms
+    rama_wijaya.middleBack(); // takes 1200 ms
+
+    // (5928) When you were fighting with Bali (7333)
+
+    delay(5928 - 3917 - 700 - 1200);
+    rama_wijaya.downBack();       // takes 700 ms
+    rama_wijaya.lowPointToBack(); // takes 700 ms
+
+    // (7580) I saw you and Bali look alike. (9597)
+
+    delay(7580 - 5928 - 700 - 700);
+    rama_wijaya.downBack();   // takes 700 ms
+    rama_wijaya.middleBack(); // takes 1200 ms
+
+    // (10501) I could not distinguish you from him, (12264)
+
+    delay(10501 - 7580 - 700 - 1200);
+    rama_wijaya.downBack();    // takes 700 ms
+    rama_wijaya.pointToBack(); // takes 1400 ms
+
+    // (12747) and this became more and more confused. (15628)
+
+    delay(12747 - 10501 - 700 - 1200);
+    rama_wijaya.downBack();    // takes 700 ms
+    rama_wijaya.middleBack();  // takes 1200 ms
+    rama_wijaya.middleFront(); // takes 1200 ms
+
+    // (16683) That is the reason I appeared to forget my promise to my friend. (19857)
+
+    delay(16683 - 12747 - 700 - 1200 - 1200);
+    rama_wijaya.downFront();   // takes 700 ms
+    rama_wijaya.downBack();    // takes 700 ms
+    rama_wijaya.pointToBack(); // takes 1400 ms
+
+    // (20686) Now, do this! (21825)
+
+    delay(20686 - 16683 - 700 - 700 - 1400);
+    rama_wijaya.downBack();   // takes 700 ms
+    rama_wijaya.middleBack(); // takes 1200 ms
+
+    // (22549) Wear leaves around your body as an identification. (25556)
+
+    delay(22549 - 20686 - 700 - 1200);
+    for (int i = 0; i < 4; i++)
+    {
+        rama_wijaya.directControl(3, 170, 400);
+        rama_wijaya.directControl(3, 180, 400);
+    } // takes 800 ms each loop
+
+    // (26460) After you have them on, (27790)
+
+    delay(26460 - 22549 - 800 * 4);
+    rama_wijaya.downBack();       // takes 700 ms
+    rama_wijaya.lowPointToBack(); // takes 700 ms
+
+    // (28136) fight again, (28811)
+
+    delay(28136 - 26460 - 700 - 700);
+    rama_wijaya.directControl(3, 180, 500); // takes 500 ms
+
+    // (29195) do not be afraid. (30104)
+
+    delay(29195 - 28136 - 500);
+    rama_wijaya.directControl(3, 90, 500); // takes 500 ms
+
+    // (30792) For sure Bali will be killed (32301)
+
+    delay(30792 - 29195 - 500);
+    rama_wijaya.directControl(3, 180, 500); // takes 500 ms
+
+    // (32548) and you will not be hit. (33693)
+
+    delay(32548 - 30792 - 500);
+    rama_wijaya.directControl(3, 90, 500); // takes 500 ms
+
+    delay(33693 - 32548 - 500);
+    rama_wijaya.downBack();  // takes 700 ms
+    rama_Wijaya.onHipBack(); // takes 900 ms
 
     // 019 (10 Duel2 Sugriwa1F)
     SoundSystem::playDialogFromACertainFolder(SoundSystem::EPISODE_NUMBER::EPISODE_1, SoundSystem::EPISODE_1_DIALOG::DUEL2_SUGRIWA1F);
@@ -1420,9 +1507,9 @@ void Episodes::Episode_1()
     // delay(3000);
 
     /*At once, my lord. */
-    hanoman.pointToSelf(); //900 (900)
-    hanoman.directControl(3, 170, 400); //1300 (400)
-    hanoman.directControl(4, 95, 400); //1700 (400)
+    hanoman.pointToSelf();              // 900 (900)
+    hanoman.directControl(3, 170, 400); // 1300 (400)
+    hanoman.directControl(4, 95, 400);  // 1700 (400)
     delay(2000);
 
     /*return to default position*/
