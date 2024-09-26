@@ -367,3 +367,10 @@ void Sita::middleBack()
     // Servo_Sita.moveWhatServo(4, 120, 200);
     digitalWrite(WAYANG_HAND_1, LOW);
 }
+
+void Sita::directControl(int num, int angle, int duration)
+{
+    digitalWrite(WAYANG_HAND_5, HIGH);
+    Servo_Sita.moveWhatServo(num, angle, duration);
+    digitalWrite(WAYANG_HAND_5, LOW);
+}

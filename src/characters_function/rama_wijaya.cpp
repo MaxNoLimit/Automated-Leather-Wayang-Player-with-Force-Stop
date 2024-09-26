@@ -302,3 +302,10 @@ void RamaWijaya::middleBack()
     Servo_RamaWijaya.moveWhatServo(3, 180, 500);
     digitalWrite(WAYANG_HAND_3, LOW);
 }
+
+void RamaWijaya::directControl(int num, int angle, int duration)
+{
+    digitalWrite(WAYANG_HAND_5, HIGH);
+    Servo_RamaWijaya.moveWhatServo(num, angle, duration);
+    digitalWrite(WAYANG_HAND_5, LOW);
+}

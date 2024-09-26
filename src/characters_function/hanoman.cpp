@@ -198,3 +198,10 @@ void Hanoman::middleBack()
     // Servo_Hanuman.moveWhatServo(2, 40, 500);
     digitalWrite(WAYANG_HAND_4, LOW);
 }
+
+void Hanoman::directControl(int num, int angle, int duration)
+{
+    digitalWrite(WAYANG_HAND_5, HIGH);
+    Servo_Hanuman.moveWhatServo(num, angle, duration);
+    digitalWrite(WAYANG_HAND_5, LOW);
+}
