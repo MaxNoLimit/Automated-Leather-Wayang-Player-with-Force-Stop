@@ -103,9 +103,9 @@ void Hanoman::walk_to_scene(int distanceValue)
 void Hanoman::pointToFront()
 {
     digitalWrite(WAYANG_HAND_4, HIGH);
-    Servo_Hanuman.moveWhatServo(3, 10, 100);
+    Servo_Hanuman.moveWhatServo(3, 30, 200);
     Servo_Hanuman.moveWhatServo(4, 120, 200);
-    Servo_Hanuman.moveWhatServo(3, 180, 500);
+    Servo_Hanuman.moveWhatServo(3, 180, 300);
     Servo_Hanuman.moveWhatServo(4, 140, 200);
     digitalWrite(WAYANG_HAND_4, LOW);
 }
@@ -149,7 +149,7 @@ void Hanoman::downBack()
 {
     digitalWrite(WAYANG_HAND_4, HIGH);
     Servo_Hanuman.moveWhatServo(1, 160, 500);
-    Servo_Hanuman.moveWhatServo(2, 100, 200);
+    Servo_Hanuman.moveWhatServo(2, 110, 200);
     digitalWrite(WAYANG_HAND_4, LOW);
 }
 

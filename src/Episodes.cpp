@@ -1001,7 +1001,94 @@ void Episodes::Episode_1()
 
     // 010 (04 H-R1 Hanuman1F)
     SoundSystem::playDialogFromACertainFolder(SoundSystem::EPISODE_NUMBER::EPISODE_1, SoundSystem::EPISODE_1_DIALOG::H_R1_HANUMAN1F);
-    delay(3000);
+    // delay(3000);
+
+    // (429) O excellent ones. (2307) [Front Middle-Front]
+
+    delay(429);
+    hanoman.middleFront(); // takes 1200 ms
+
+    // (2634) You are marvelous, (4267) [Front Point to front]
+
+    delay(2634 - 429 - 1200);
+    hanoman.downFront();    // takes 700 ms
+    hanoman.pointToFront(); // takes 900 ms
+
+    // (4523) you dare, (5540) [Front Low point to front]
+
+    delay(4523 - 2634 - 700 - 900);
+    hanoman.lower_pointToFront(); // takes 700 ms
+
+    // (5654) and are able to come here. (7701) [Front point to front]
+
+    delay(5654 - 4523 - 700);
+    hanoman.pointToFront(); // takes 900 ms
+
+    // (8317) The mountain of Resyamuka is impassible, (11393) [Back point to back, Front Down]
+
+    delay(8317 - 5654 - 900);
+    hanoman.downBack();    // takes 700 ms
+    hanoman.pointToBack(); // takes 1400 ms
+    hanoman.downFront();   // takes 700 ms
+
+    // (11909) even God Maheswara is reluctant to come here. (15287) [Back hip, Front point to front]
+
+    delay(11909 - 8317 - 700 - 1400 - 700);
+    hanoman.downBack();     // takes 700 ms
+    hanoman.onHipBack();    // takes 900 ms
+    hanoman.pointToFront(); // takes 900 ms
+
+    // (16118) What is your purpose (17263) [Front Middle-Front]
+
+    delay(16118 - 11909 - 700 - 900 - 900);
+    hanoman.middleFront(); // takes 1200 ms
+
+    // (17435) both of you? (18222) [Front Point to front, Oscillate]
+
+    delay(17435 - 16118 - 1200);
+    hanoman.pointToFront(); // takes 900 ms
+    for (int i = 0; i < 2; i++)
+    {
+        hanoman.directControl(3, 170, 100);
+        hanoman.directControl(3, 180, 100);
+    } // takes 200 ms per one loop
+
+    // (18867) There are many things that are highly dangerous here. (22205) [Front Middle-Front, oscillate]
+
+    delay(18867 - 17435 - 900 - 200 * 2);
+    hanoman.middleFront(); // takes 1200 ms
+    for (int i = 0; i < 3; i++)
+    {
+        hanoman.directControl(3, 125, 400);
+        hanoman.directControl(3, 135, 400);
+    } // takes 800 ms per one loop
+
+    // (22702) In the caves there are demons and imps, (25657) [Front Down, Back low point to back]
+
+    delay(22702 - 18867 - 1200 - 800 * 3);
+    hanoman.downFront();      // takes 700 ms
+    hanoman.lowPointToBack(); // takes 700 ms
+
+    // (26238) and the path you come through (28084) [Back hip, Front point to front]
+
+    delay(26238 - 22702 - 700 - 700);
+    hanoman.onHipBack();    // takes 900 ms
+    hanoman.pointToFront(); // takes 900 ms
+
+    // (28299) is thick with undergrowth and difficult to pass. (31694) [Front Middle-Front]
+
+    delay(28299 - 26238 - 900 - 900);
+    hanoman.downFront();   // takes 700 ms
+    hanoman.middleFront(); // takes 1200 ms
+
+    // (32293) Nobody but you have come here. (34495) [Front point to front]
+
+    delay(32293 - 28299);
+    hanoman.downFront();    // takes 700 ms
+    hanoman.pointToFront(); // takes 900 ms
+
+    delay(34495 - 32293 - 700 - 900);
+    hanoman.downFront(); // takes 700 ms
 
     // 011 (Rama1Hanuman-Rama dialogue_E)
     SoundSystem::playDialogFromACertainFolder(SoundSystem::EPISODE_NUMBER::EPISODE_1, SoundSystem::EPISODE_1_DIALOG::RAMA1HANUMAN_RAMA_DIALOGUE_E);
@@ -1027,14 +1114,14 @@ void Episodes::Episode_1()
     // (6801) I will tell you also about the reason of my travel. (9659)
 
     delay(6801 - 5124 - 700 - 700);
-    rama_wijaya.downFront();    // takes 700 ms
-    ramay_wijaya.pointToSelf(); // takes 900 ms
+    rama_wijaya.downFront();   // takes 700 ms
+    rama_wijaya.pointToSelf(); // takes 900 ms
 
     // (10458) The wealthy king Dasaratha, (12011)
 
     delay(10458 - 6801 - 700 - 900);
-    rama_wijaya.downFront();     // takes 700 ms
-    ramay_wijaya.pointToFront(); // takes 1200 ms
+    rama_wijaya.downFront();    // takes 700 ms
+    rama_wijaya.pointToFront(); // takes 1200 ms
 
     // (12555) well known throughout the world, (13997)
 
@@ -1093,7 +1180,7 @@ void Episodes::Episode_1()
 
     delay(36472 - 32573 - 700 - 1200);
     rama_wijaya.downFront();   // takes 700 ms
-    rama_Wijaya.middleFront(); // takes 1200 ms
+    rama_wijaya.middleFront(); // takes 1200 ms
 
     // (40679) My wife Sita went with me formerly. (43080)
 
