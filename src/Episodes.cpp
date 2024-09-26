@@ -1417,7 +1417,18 @@ void Episodes::Episode_1()
 
     // 030 (14 SApol Hanuman1F)
     SoundSystem::playDialogFromACertainFolder(SoundSystem::EPISODE_NUMBER::EPISODE_1, SoundSystem::EPISODE_1_DIALOG::SApol_Hanuman1F);
-    delay(3000);
+    // delay(3000);
+
+    /*At once, my lord. */
+    hanoman.pointToSelf(); //900 (900)
+    hanoman.directControl(3, 170, 400); //1300 (400)
+    hanoman.directControl(4, 95, 400); //1700 (400)
+    delay(2000);
+
+    /*return to default position*/
+    hanoman.directControl(4, 80, 400);
+    hanoman.directControl(3, 150, 400);
+    hanoman.downFront();
 
     // 031 (15 SApol Sugriwa3F)
     SoundSystem::playDialogFromACertainFolder(SoundSystem::EPISODE_NUMBER::EPISODE_1, SoundSystem::EPISODE_1_DIALOG::SApol_Sugriwa3F);
