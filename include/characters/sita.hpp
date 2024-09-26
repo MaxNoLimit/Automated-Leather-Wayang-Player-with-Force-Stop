@@ -45,4 +45,6 @@ public:
     void lowPointToBack();
     void middleBack();
     // void respect();
+
+    void directControl(int num, int angle, int duration);
 };
