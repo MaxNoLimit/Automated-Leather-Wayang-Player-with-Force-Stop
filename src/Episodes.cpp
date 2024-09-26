@@ -681,7 +681,9 @@ void Episodes::Episode_1()
     delay(53233 - 51830);   // 53233 (1403)
 
     /*return to default position*/
-    laksmana.defaultHandPosition();
+    laksmana.downFront();
+    laksmana.downBack();
+    laksmana.onHipBack();
 
     // 003 (Sita2Sita-laksmana dialogue 1)
     SoundSystem::playDialogFromACertainFolder(SoundSystem::EPISODE_NUMBER::EPISODE_1, SoundSystem::EPISODE_1_DIALOG::SITA2SITA_LAKS_DIALOGUE_1);
@@ -905,7 +907,9 @@ void Episodes::Episode_1()
     laksmana.downFront(); // 41839 (700)
 
     /*return to default position*/
-    laksmana.defaultHandPosition();
+    laksmana.downFront();
+    laksmana.downBack();
+    laksmana.onHipBack();
 
     // 005 (005SitaRahwanadialogueRahwana1)
     SoundSystem::playDialogFromACertainFolder(SoundSystem::EPISODE_NUMBER::EPISODE_1, SoundSystem::EPISODE_1_DIALOG::SITA_RAHWANA_DIALOGUE_RAHWANA_1);
@@ -984,7 +988,9 @@ void Episodes::Episode_1()
     delay(19775 - 19592); // 19775 (183)
 
     /*return to default position*/
-    laksmana.defaultHandPosition();
+    laksmana.downFront();
+    laksmana.downBack();
+    laksmana.onHipBack();
 
     // 009 (Rama1laksmana-Rama Diaglogue(in place of narrator for context))
     SoundSystem::playDialogFromACertainFolder(SoundSystem::EPISODE_NUMBER::EPISODE_1, SoundSystem::EPISODE_1_DIALOG::RAMA1LAKS_RAMA_DIALOGUE_IN_PLACE_NARATOR);
@@ -1217,7 +1223,129 @@ void Episodes::Episode_1()
 
     // 012 (05 H-R1 Hanuman2F)
     SoundSystem::playDialogFromACertainFolder(SoundSystem::EPISODE_NUMBER::EPISODE_1, SoundSystem::EPISODE_1_DIALOG::H_R1_HANUMAN2F);
-    delay(3000);
+    //delay(3000);
+    delay(630);
+
+    /*O, Raghawa,*/
+    hanoman.middleFront(); //1830 (1200)
+    hanoman.downFront(); //2530 (700)
+
+    /* I have been ordered to come here- */
+    hanoman.pointToSelf(); //3430 (900)
+    delay(4094-3430); //4094 (664)
+
+    /*The king of the monkeys Sugriwa gave me orders to look for you.*/
+    hanoman.middleBack(); //5494 (1400)
+    delay(8162-5494-700); //7462 (1968)
+
+    /*The situation is like this.*/
+    hanoman.downFront(); //8162 (700)
+    hanoman.lower_pointToFront(); //8862 (700)
+    hanoman.downBack(); //9562 (700)
+    delay(10514-9562-700); //9814 (252)
+
+    /*There is a great monkey, unequalled in power called Bali.*/
+    hanoman.downFront(); //10514 (700)
+    hanoman.middleFront(); //11714 (1200)
+    hanoman.onHipBack(); //12614 (900)
+    delay(15273-12614); //15273 (2659)
+
+    /*Even God Aditya is inferior to him in power.*/
+    hanoman.pointToFront(); //16173 (900)
+    for (int i=0; i<3; i++) //18573 (2400)
+    {
+        hanoman.directControl(3, 170, 400);
+        hanoman.directControl(3, 180, 400);
+    }
+    delay(19453-18573); //19453 (880)
+
+    /*He was savagely outrageous towards my master*/
+    hanoman.downFront(); //20153 (700)
+    hanoman.pointToBack(); //21553 (1400)
+    delay(22688-21553); //22688 (1135)
+
+    /*and insulted him.*/
+    hanoman.lowPointToBack(); //23388 (700)
+    delay(24763-23388); //24763 (1375)
+
+    /*Out of fear the monkey-king Bali,*/
+    hanoman.downBack(); //25463 (700)
+    hanoman.middleFront(); //26663 (1200)
+    delay(27691-26663); //27691 (1028)
+
+    /*my master went to the region of Malaya. */
+    hanoman.downFront(); //28391 (700)
+    hanoman.pointToBack(); //29791 (1400)
+    delay(31040-29791); //31040 (1249)
+
+    /*He ordered me to look for you, */
+    hanoman.pointToSelf(); //31940 (900)
+    delay(33058-31940); //33058 (1118)
+
+    /*as he intends to be friends with you,*/
+    hanoman.middleBack(); //34458 (1400)
+    delay(35707-34458); //35707 (1249)
+
+    /*to stay and serve at your feet, */
+    hanoman.pointToBack(); //37107 (1400)
+    delay(38619-37107-800); //37819 (802)
+
+    /*o, lord. */
+    hanoman.directControl(3, 170, 400); //38219 (400)
+    hanoman.directControl(4, 95, 400); //38619 (400)
+    delay(40258-38619); //40258 (1639)
+
+    /*I suggest that you may grant him a favor*/
+    hanoman.directControl(4, 80, 400); //40658 (400)
+    hanoman.directControl(3, 150, 400); //41058 (400)
+    delay(42949-41058); //42949 (1891)
+
+    /*and make him your ally,*/
+    hanoman.downFront(); //43649 (700)
+    hanoman.lower_pointToFront(); //44349 (700)
+    delay(45225-44349); //45225 (876)
+
+    /*because he is powerful,*/
+    hanoman.directControl(3, 120, 400); //45625 (400)
+    delay(46965-45625); //46965 (1340)
+
+    /*noble,*/
+    hanoman.directControl(3, 100, 400); //47365 (400)
+    delay(47716-47365); //47716 (351)
+
+    /*and goodhearted.*/
+    hanoman.lower_pointToFront(); //48416 (700)
+    delay(49691-48416); //49691 (1275)
+
+    /*Let him follow you and love you and carry out all your orders*/
+    hanoman.pointToFront(); //50591 (900)
+    for(int i=0; i<4; i++) //53791 (3200)
+    {
+        hanoman.directControl(3, 170, 400);
+        hanoman.directControl(3, 180, 400);
+    }
+    delay(54515-53791); //54515 (724)
+
+    /*Let him take part as commander in the battlefield*/
+    hanoman.lower_pointToFront(); //55215 (700)
+    for(int i=0; i<3; i++) //57615 (2400)
+    {
+        hanoman.directControl(3, 100, 400);
+        hanoman.directControl(3, 90, 400);
+    }
+    delay(350);//57965 (350)
+
+    /*to kill Dasamukha.*/
+    hanoman.directControl(1, 10, 400);
+    hanoman.directControl(1, 0, 400);
+    hanoman.directControl(1, 10, 400);
+    hanoman.directControl(1, 0, 240);
+
+    /*return to default position*/
+    hanoman.downFront();
+    hanoman.downBack();
+    hanoman.onHipBack();
+
 
     // 013 (06 S-R1 Sugriwa1F)
     SoundSystem::playDialogFromACertainFolder(SoundSystem::EPISODE_NUMBER::EPISODE_1, SoundSystem::EPISODE_1_DIALOG::S_R1_SUGRIWA1F);
