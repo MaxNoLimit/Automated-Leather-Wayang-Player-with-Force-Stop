@@ -942,50 +942,49 @@ void Episodes::Episode_1()
     // delay(3000);
     delay(329);
     /*Brother,*/
-    laksmana.middleFront(); //1029 (700)
-    delay(1431-1029); //1431 (402)
+    laksmana.middleFront(); // 1029 (700)
+    delay(1431 - 1029);     // 1431 (402)
 
     /*an injured bird told me that it saw Sita got kidnapped by a notorious demon called Rawana */
-    laksmana.pointToFront(); //2131 (700)
-    laksmana.directControl(3, 170, 400); //2531 (400)
-    laksmana.directControl(3, 180, 400); //2931 (400)
-    laksmana.directControl(3, 170, 400); //3331 (400)
-    laksmana.directControl(3, 180, 400); //3731 (400)
-    laksmana.lower_pointToFront(); //4431 (700)
-    for (int i = 0; i < 3; i++) //6831 (800*3)
+    laksmana.pointToFront();             // 2131 (700)
+    laksmana.directControl(3, 170, 400); // 2531 (400)
+    laksmana.directControl(3, 180, 400); // 2931 (400)
+    laksmana.directControl(3, 170, 400); // 3331 (400)
+    laksmana.directControl(3, 180, 400); // 3731 (400)
+    laksmana.lower_pointToFront();       // 4431 (700)
+    for (int i = 0; i < 3; i++)          // 6831 (800*3)
     {
         laksmana.directControl(3, 130, 400);
-        laksmana.directControl(3, 120, 400); 
+        laksmana.directControl(3, 120, 400);
     }
-    laksmana.downFront(); //7531 (700)
-    delay(8188-7531); //8188 (657)
+    laksmana.downFront(); // 7531 (700)
+    delay(8188 - 7531);   // 8188 (657)
 
     /*and that they are in Lenka across the ocean. */
-    laksmana.pointToBack(); //9588 (1400)
-    delay(11394-9588); //11394 (1806)
+    laksmana.pointToBack(); // 9588 (1400)
+    delay(11394 - 9588);    // 11394 (1806)
 
     /*It advised me that we should seek Sugriwa through the Resyamuka mountain*/
-    laksmana.pointToSelf(); //12094 (700)
-    for (int i = 0; i < 3; i++) //15294 (800*4)
+    laksmana.pointToSelf();     // 12094 (700)
+    for (int i = 0; i < 3; i++) // 15294 (800*4)
     {
         laksmana.directControl(1, 10, 400);
-        laksmana.directControl(1, 0, 400); 
+        laksmana.directControl(1, 0, 400);
     }
-    delay(16292-15294-700); //15592 (998)
+    delay(16292 - 15294 - 700); // 15592 (998)
 
     /*for he may be able to help us with his monkey troops. */
-    laksmana.downFront(); //16292 (700)
-    laksmana.middleFront(); //17192 (900)
-    for (int i = 0; i < 3; i++) //19592 (800*3)
+    laksmana.downFront();       // 16292 (700)
+    laksmana.middleFront();     // 17192 (900)
+    for (int i = 0; i < 3; i++) // 19592 (800*3)
     {
-        laksmana.directControl(3, 170, 400); 
+        laksmana.directControl(3, 170, 400);
         laksmana.directControl(3, 180, 400);
     }
-    delay(19775-19592); //19775 (183)
+    delay(19775 - 19592); // 19775 (183)
 
     /*return to default position*/
     laksmana.defaultHandPosition();
-    
 
     // 009 (Rama1laksmana-Rama Diaglogue(in place of narrator for context))
     SoundSystem::playDialogFromACertainFolder(SoundSystem::EPISODE_NUMBER::EPISODE_1, SoundSystem::EPISODE_1_DIALOG::RAMA1LAKS_RAMA_DIALOGUE_IN_PLACE_NARATOR);
@@ -1006,7 +1005,128 @@ void Episodes::Episode_1()
 
     // 011 (Rama1Hanuman-Rama dialogue_E)
     SoundSystem::playDialogFromACertainFolder(SoundSystem::EPISODE_NUMBER::EPISODE_1, SoundSystem::EPISODE_1_DIALOG::RAMA1HANUMAN_RAMA_DIALOGUE_E);
-    delay(3000);
+    // delay(3000);
+
+    // (1182) O, holy man, (2568)
+
+    delay(1182);
+    rama_wijaya.pointToFront(); // takes 1200 ms
+
+    // (3137) my purpose is like this. (4616)
+
+    delay(3137 - 1182 - 1200);
+    rama_wijaya.downFront();   // takes 700 ms
+    rama_wijaya.middleFront(); // takes 1200 ms
+
+    // (5124) Come near and listen. (6268)
+
+    delay(5124 - 3137 - 700 - 1200);
+    rama_wijaya.downFront();          // takes 700 ms
+    rama_wijaya.lower_pointToFront(); // takes 700 ms
+
+    // (6801) I will tell you also about the reason of my travel. (9659)
+
+    delay(6801 - 5124 - 700 - 700);
+    rama_wijaya.downFront();    // takes 700 ms
+    ramay_wijaya.pointToSelf(); // takes 900 ms
+
+    // (10458) The wealthy king Dasaratha, (12011)
+
+    delay(10458 - 6801 - 700 - 900);
+    rama_wijaya.downFront();     // takes 700 ms
+    ramay_wijaya.pointToFront(); // takes 1200 ms
+
+    // (12555) well known throughout the world, (13997)
+
+    delay(12555 - 10458 - 700 - 1200);
+    rama_wijaya.lower_pointToFront(); // takes 700 ms
+
+    // (14498) possessing all kinds of luxury, (16448)
+
+    delay(14498 - 12555 - 700);
+    rama_wijaya.downFront(); // takes 700 ms
+
+    // (16881) has many sons. (17951)
+
+    delay(16881 - 14498 - 700);
+    rama_wijaya.lower_pointToFront(); // takes 700 ms
+
+    // (18780) All my brothers (19721)
+
+    delay(18780 - 16881 - 700);
+    rama_wijaya.middleFront(); // takes 900 ms
+
+    // (19907) are excellent and powerful. (21398)
+
+    delay(19907 - 18780 - 900);
+    rama_wijaya.downFront();          // takes 700 ms
+    delay(1000);                      // takes 1000 ms
+    rama_wijaya.lower_pointToFront(); // takes 700 ms
+
+    // (22406) I am the exception, (23923)
+
+    // (24387) the unfortunate. (25346)
+
+    delay(22406 - 19907 - 700 - 1000 - 700);
+    rama_wijaya.downFront();   // takes 700 ms
+    rama_wijaya.pointToSelf(); // takes 900 ms
+
+    // (26076) His orders to go to the impassible forests, (28984)
+
+    delay(26076 - 22406 - 700 - 900);
+    rama_wijaya.downFront();    // takes 700 ms
+    rama_wijaya.pointToFront(); // takes 1200 ms
+
+    // (29529) is the reason that we both are here. (31682)
+
+    delay(29529 - 26076 - 700 - 1200);
+    rama_wijaya.downFront();   // takes 700 ms
+    rama_wijaya.pointToSelf(); // takes 900 ms
+
+    // (32573) I have been to the hermitage of the sage Sutiksna. (35630)
+
+    delay(32573 - 29529 - 700 - 900);
+    rama_wijaya.downFront();    // takes 700 ms
+    rama_wijaya.pointToFront(); // takes 1200 ms
+
+    // (36472) There I stayed a while to care for the hermitage. (39844)
+
+    delay(36472 - 32573 - 700 - 1200);
+    rama_wijaya.downFront();   // takes 700 ms
+    rama_Wijaya.middleFront(); // takes 1200 ms
+
+    // (40679) My wife Sita went with me formerly. (43080)
+
+    delay(40679 - 36472 - 700 - 1200);
+    rama_wijaya.downFront();   // takes 700 ms
+    rama_wijaya.pointToSelf(); // takes 900 ms
+
+    // (43823) Then the wicked Rawana abducted her (46131)
+
+    delay(43823 - 40679 - 700 - 900);
+    rama_wijaya.downFront();          // takes 700 ms
+    rama_wijaya.lower_pointToFront(); // takes 700 ms
+
+    // (46558) and fled away so quickly. (48371)
+
+    delay(46558 - 43823 - 700 - 700);
+    rama_wijaya.downFront();   // takes 700 ms
+    rama_wijaya.middleFront(); // takes 1200 ms
+
+    // (49361) I have come here to look for Sita. (51471)
+
+    delay(49361 - 46558 - 700 - 1200);
+    rama_wijaya.downFront();   // takes 700 ms
+    rama_wijaya.pointToSelf(); // takes 900 ms
+
+    // (52133) That is the reason why I go everywhere through the forests. (55252)
+
+    delay(52133 - 49361 - 700 - 900);
+    rama_wijaya.downFront();    // takes 700 ms
+    rama_wijaya.pointToFront(); // takes 1200 ms
+
+    delay(55252 - 52133 - 700 - 1200);
+    rama_wijaya.downFront(); // takes 700 ms
 
     // 012 (05 H-R1 Hanuman2F)
     SoundSystem::playDialogFromACertainFolder(SoundSystem::EPISODE_NUMBER::EPISODE_1, SoundSystem::EPISODE_1_DIALOG::H_R1_HANUMAN2F);

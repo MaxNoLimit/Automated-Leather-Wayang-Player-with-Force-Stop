@@ -265,7 +265,7 @@ void RamaWijaya::onHipBack()
 void RamaWijaya::pointToSelf()
 {
     digitalWrite(WAYANG_HAND_3, HIGH);
-    Servo_RamaWijaya.defaultPosition();
+    // Servo_RamaWijaya.defaultPosition();
     Servo_RamaWijaya.moveWhatServo(2, 140, 200);
     Servo_RamaWijaya.moveWhatServo(1, 22, 500);
     Servo_RamaWijaya.moveWhatServo(2, 120, 200);
