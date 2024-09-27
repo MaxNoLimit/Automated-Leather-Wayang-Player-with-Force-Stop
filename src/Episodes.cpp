@@ -1868,7 +1868,161 @@ void Episodes::Episode_1()
 
     // 027 (Rama telling laksmana to bacot sugriwa_E)
     SoundSystem::playDialogFromACertainFolder(SoundSystem::EPISODE_NUMBER::EPISODE_1, SoundSystem::EPISODE_1_DIALOG::RAMA_TELLING_LAKSMANA_BACOT_SUGRIWA_E);
-    delay(3000);
+    // delay(3000);
+
+    // (1038) My brother, (1618)
+    delay(1038);
+    rama_wijaya.lower_pointToFront(); // takes 700 ms
+
+    // (1993) look at the sky! (2992)
+    delay(1993 - 1038 - 700);
+    rama_wijaya.pointToFront(); // takes 1200 ms
+
+    // (3528) Beautiful swans are flying heading for a lake that they sound so happy. (7233)
+    delay(3528 - 1993 - 1200);
+    for (int i = 0; i < 5; i++)
+    {
+        rama_wijaya.directControl(1, 45, 400);
+        rama_wijaya.directControl(1, 0, 400);
+    } // takes 800 ms each loop
+
+    // (7947) Clearly the dry season has come, (9874)
+    delay(7947 - 3528 - (800 * 5));
+    rama_wijaya.downFront();   // takes 700 ms
+    rama_wijaya.middleFront(); // takes 1200 ms
+
+    // (10448) the time agreed upon. (11703)
+    delay(10448 - 7947 - 700 - 1200);
+    rama_wijaya.directControl(1, 45, 400); // takes 400 ms
+    rama_wijaya.directControl(1, 0, 400);  // takes 400 ms
+    rama_wijaya.downFront();               // takes 700 ms
+
+    // (12142) Ah! The king of the apes has lied, (14017)
+    delay(12142 - 10448 - 400 - 400 - 700);
+    rama_wijaya.pointToFront(); // takes 1200 ms
+
+    // (14577) he has not held to his promise. (16268)
+    delay(14577 - 12142 - 1200);
+    rama_wijaya.lower_pointToFront(); // takes 700 ms
+
+    // (16826) He dares to make an offence, (18226)
+    delay(16826 - 14577 - 700);
+    rama_wijaya.directControl(1, 130, 400); // takes 400 ms
+    rama_wijaya.directControl(1, 100, 400); // takes 400 ms
+    rama_wijaya.directControl(1, 130, 400); // takes 400 ms
+    rama_wijaya.directControl(1, 100, 400); // takes 400 ms
+
+    // (18536) that ape is negligent. (19817)
+    delay(18536 - 16826 - 400 - 400 - 400 - 400);
+    rama_wijaya.pointToFront(); // takes 1200 ms
+
+    // (20383) He does not come, (21384)
+    delay(20383 - 18536 - 1200);
+    rama_wijaya.lower_pointToFront(); // takes 700 ms
+
+    // (21663) his promise formerly is a gross deception. (23762)
+    delay(21663 - 20383 - 700);
+    rama_wijaya.downFront();   // takes 700 ms
+    rama_wijaya.middleFront(); // takes 1200 ms
+
+    // (24442) He has enjoyed luxury all the time, (26515)
+    delay(24442 - 21663 - 700 - 1200);
+    for (int i = 0; i < 2; i++)
+    {
+        rama_wijaya.directControl(1, 45, 500);
+        rama_wijaya.directControl(1, 0, 500);
+    } // takes 1000 ms each loop
+
+    // (26837) without looking at the sky from time to time (29022)
+    delay(26837 - 24442 - (1000 * 2));
+    rama_wijaya.downFront();    // takes 700 ms
+    rama_wijaya.pointToFront(); // takes 1200 ms
+
+    // (29324) to see whether it has cleared or not. (31262)
+    delay(29324 - 26837 - 700 - 1200);
+    rama_wijaya.lower_pointToFront(); // takes 700 ms
+
+    // (31908) It is clear now, (32774)
+    delay(31908 - 29324 - 700);
+    rama_wijaya.downBack();     // takes 700 ms
+    rama_wijaya.pointToFront(); // takes 1200 ms
+
+    // (33000) with stars even. (34102)
+    delay(33000 - 31908 - 700 - 1200);
+    rama_wijaya.lower_pointToFront(); // takes 700 ms
+
+    // (34519) Ah! He is really blind not to see them. (36798)
+    delay(34519 - 33000 - 700);
+    rama_wijaya.middleBack();   // takes 1200 ms
+    rama_wijaya.pointToFront(); // takes 1200 ms
+
+    // (37542) He is preoccupied with the reunion with his wife and children. (40890)
+    delay(37542 - 34519 - 1200 - 1200);
+    for (int i = 0; i < 4; i++)
+    {
+        rama_wijaya.directControl(3, 135, 400);
+        rama_wijaya.directControl(3, 180, 400);
+    } // takes 800 ms each loop
+    rama_wijaya.downBack(); // takes 700 ms
+
+    // (41659) That makes him thoughtless. (42831)
+    delay(41659 - 37542 - (800 * 4) - 700);
+    rama_wijaya.pointToBack(); // takes 1400 ms
+
+    // (43214) My younger brother, (44111)
+    delay(43214 - 41659 - 1400);
+    rama_wijaya.lower_pointToFront(); // takes 700 ms
+
+    // (44402) go to him quickly. (45395)
+    delay(44402 - 43214 - 700);
+    rama_wijaya.pointToFront(); // takes 1200 ms
+
+    // (45801) Do not be afraid. (46659)
+    delay(45801 - 44402 - 1200);
+    rama_wijaya.downFront(); // takes 700 ms
+
+    // (47167) Speak to that stupid ape with harsh words until it hurts, (50215)
+    delay(47167 - 45801 - 700);
+    rama_wijaya.middleBack(); // takes 1200 ms
+    for (int i = 0; i < 2; i++)
+    {
+        rama_wijaya.directControl(3, 135, 400);
+        rama_wijaya.directControl(3, 180, 400);
+    } // takes 800 ms each loop
+
+    // (50614) because he has done first by not respecting you, lying to you. (53883)
+    delay(50614 - 47167 - (800 * 2) - 1200);
+    for (int i = 0; i < 5; i++)
+    {
+        rama_wijaya.directControl(3, 135, 400);
+        rama_wijaya.directControl(3, 180, 400);
+    } // takes 800 ms each loop
+
+    // (54729) He does not remember at all where all that luxury came from. (58059)
+    delay(54729 - 50614 - (800 * 5));
+    for (int i = 0; i < 3; i++)
+    {
+        rama_wijaya.directControl(3, 135, 400);
+        rama_wijaya.directControl(3, 180, 400);
+    } // takes 800 ms each loop
+    rama_wijaya.downBack(); // takes 700 ms
+
+    // (58406) Ah! He is stupid. (59612)
+    delay(58406 - 54729 - (800 * 3) - 700);
+    rama_wijaya.pointToBack(); // takes 1400 ms
+
+    // (60029) Therefore go! (60924)
+    delay(60029 - 58406 - 1400);
+    rama_wijaya.pointToFront(); // takes 1200 ms
+
+    // (61173) Tell him that he is sinful. (62555)
+    delay(61173 - 60029 - 1200);
+    rama_wijaya.lower_pointToFront(); // takes 700 ms
+
+    delay(62555 - 61173 - 700);
+    rama_wijaya.downBack(); // takes 700 ms
+    rama_wijaya.downFront(); // takes 700 ms
+    rama_wijaya.onHipBack(); // takes 900 ms
 
     // 028 (12 SApol Sugriwa1F)
     SoundSystem::playDialogFromACertainFolder(SoundSystem::EPISODE_NUMBER::EPISODE_1, SoundSystem::EPISODE_1_DIALOG::SApol_Sugriwa1F);
