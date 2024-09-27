@@ -630,8 +630,8 @@ void Episodes::Episode_1()
 
     /*who is powerful enough in this world to fight prince Rama in battle?*/
     laksmana.downBack();   // 20969 (700)
-    laksmana.middleBack(); // 22369 (1400)
-    delay(25323 - 22369);  // 25323 (2954)
+    laksmana.middleBack(); // 21669 (700)
+    delay(25323 - 21669);  // 25323 (2954)
 
     /*He is the most powerful person,*/
     laksmana.lower_pointToFront(); // 26023 (700)
