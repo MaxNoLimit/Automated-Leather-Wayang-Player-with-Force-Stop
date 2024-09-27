@@ -707,27 +707,33 @@ void Episodes::Episode_1()
     // (8038) In the past you were very faithful to your brother, (10513)
 
     delay(8038 - 4189 - 900);
-    sita.oscillate(11095 - 8038); // takes 3057 ~~ 2800
+    for (int i = 0; i < 3; i++)
+    {
+        sita.directControl(1, 45, 500);
+        sita.directControl(1, 0, 500);
+    } // takes 1000 ms each loop
 
     // (11095) but now he is in trouble, (12326)
 
-    delay((11095 - 8038) - 2800);
-    sita.middleFront(); // takes 900 ms
+    delay(11095 - 8038 - 1000 * 3);
+    sita.downFront();          // takes 700 ms
+    sita.lower_pointToFront(); // takes 700 ms
 
     // (12747) shame on you, (13502)
 
-    delay(12747 - 11095 - 900);
+    delay(12747 - 11095 - 700 - 700);
     sita.pointToFront(); // takes 700 ms
 
     // (14078) you do not want to help. (15167)
 
     delay(14078 - 12747 - 700);
-    sita.middleFront(); // takes 900 ms
+    sita.lower_pointToFront(); // takes 700 ms
 
     // (15990) You think about Rama like this. (17638)
 
-    delay(15990 - 14078 - 900);
-    sita.downFront(); // takes 700 ms
+    delay(15990 - 14078 - 700);
+    sita.downFront();   // takes 700 ms
+    sita.middleFront(); // takes 900 ms
 
     // (18440)  ‘Let him be killed by the deer. (19962)
 
@@ -735,12 +741,16 @@ void Episodes::Episode_1()
 
     // ***MAY NOT SMOOTH MOVEMENT***
 
-    delay(18440 - 15990 - 700);
-    sita.oscillate(22215 - 18440); // takes 3775 ms ~~ 3500 ms
+    delay(18440 - 15990 - 700 - 900);
+    for (int i = 0; i < 4; i++)
+    {
+        sita.directControl(1, 45, 400);
+        sita.directControl(1, 0, 400);
+    } // takes 800 ms each loop
 
     // (22215) I will take his place and marry Sita. (24250)
 
-    delay(22215 - 18440 - 3500);
+    delay(22215 - 18440 - 800 * 4);
     sita.pointToSelf(); // takes 2100 ms
 
     // (24956) Who will be her protector, (26144)
@@ -772,11 +782,16 @@ void Episodes::Episode_1()
     // (36447) such lewdness? (37319)
 
     delay(33087 - 31045 - 700);
-    sita.oscillate(37913 - 33087); // takes 4826 ms ~~ 4200 ms
+    // sita.oscillate(37913 - 33087); // takes 4826 ms ~~ 4200 ms
+    for (int i = 0; i < 6; i++)
+    {
+        sita.directControl(1, 55, 400);
+        sita.directControl(1, 10, 400);
+    } // takes 800 ms each loop
 
     // (37913) I do not have any intention of marrying again, (40389)
 
-    delay(37913 - 33087 - 4200);
+    delay(37913 - 33087 - 800 * 6);
     sita.downFront(); // takes 700 ms
 
     // (40840) just this once. (41901)
@@ -795,11 +810,18 @@ void Episodes::Episode_1()
     // (48476) if Rama is killed in battle (50462)
 
     delay(46341 - 42759 - 700 - 2100);
-    sita.oscillate(50722 - 46341); // takes 4381 ms ~~ 4200 ms
-
+    // sita.oscillate(50722 - 46341); // takes 4381 ms ~~ 4200 ms
+    sita.downBack(); // takes 700 ms
+    sita.middleFrontBack(); // takes 700 ms
+    for (int i = 0; i < 3; i++)
+    {
+        sita.directControl(3, 90, 400);
+        sita.directControl(3, 120, 400);
+    } // takes 800 ms each loop
+    
     // (50722) butted by the deer, (51570)
 
-    delay(50722 - 46341 - 4200);
+    delay(50722 - 46341 - 700 - 700 - 800 * 3);
     sita.downFront(); // takes 700 ms
 
     // (51781) I will sever my neck (52913)
@@ -847,7 +869,7 @@ void Episodes::Episode_1()
     laksmana.directControl(4, 110, 400);  // 12244 (480) -> 400
     laksmana.directControl(3, 180, 1200); // 13444 (1200)
     laksmana.directControl(4, 140, 400);  // 13924 (480) -> 400
-    delay(16175 - 13924 + 160);                 // 16175 (2251)
+    delay(16175 - 13924 + 160);           // 16175 (2251)
 
     /*Let me fall into hell,*/
     laksmana.directControl(3, 120, 1000); // 17175 (1000)
@@ -865,10 +887,10 @@ void Episodes::Episode_1()
 
     /*O, daughter of Janaka, */
     laksmana.directControl(3, 0, 500);   // 25277 (1000)
-    laksmana.directControl(4, 110, 400);  // 25677 (400)
+    laksmana.directControl(4, 110, 400); // 25677 (400)
     laksmana.directControl(3, 180, 500); // 26677 (1000)
-    laksmana.directControl(4, 120, 400);  // 27077 (400)
-    delay(26796 - 26077);                 // 26796 (719)
+    laksmana.directControl(4, 120, 400); // 27077 (400)
+    delay(26796 - 26077);                // 26796 (719)
 
     /*you have uttered bad words, */
     laksmana.pointToFront(); // 27496 (700)
