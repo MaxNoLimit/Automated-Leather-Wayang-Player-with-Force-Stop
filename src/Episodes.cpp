@@ -1669,7 +1669,202 @@ void Episodes::Episode_1()
 
     // 026 (Rama Sadboi_E)
     SoundSystem::playDialogFromACertainFolder(SoundSystem::EPISODE_NUMBER::EPISODE_1, SoundSystem::EPISODE_1_DIALOG::RAMA_SADBOI_E);
-    delay(3000);
+    // delay(3000);
+
+    // (1769) Ah, the breeze is blowing from north to the south, (4908)
+    delay(1769);
+    rama_wijaya.middleFront(); // takes 1200 ms
+    for (int i = 0; i < 3; i++)
+    {
+        rama_wijaya.directControl(1, 45, 400);
+        rama_wijaya.directControl(1, 0, 400);
+    } // takes 800 ms each loop
+
+    // (5399) taking along the fragrance (6925)
+    delay(5399 - 1769 - 1200 - (800 * 3));
+    rama_wijaya.downFront();          // takes 700 ms
+    rama_wijaya.lower_pointToFront(); // takes 700 ms
+
+    // (7077) of the lovely kadamba flowers. (9089)
+    delay(7077 - 5399 - 700 - 700);
+    rama_wijaya.pointToFront(); // takes 1200 ms
+
+    // (9975) Even the passionless in the forests would truly be thrown into confusion. (14309)
+    delay(9975 - 7077 - 1200);
+    for (int i = 0; i < 6; i++)
+    {
+        rama_wijaya.directControl(1, 45, 400);
+        rama_wijaya.directControl(1, 0, 400);
+    } // takes 800 ms each loop
+
+    // (15092) Sad is the heart of the pessimist (17360)
+    delay(15092 - 9975 - (800 * 6));
+    rama_wijaya.downFront();   // takes 700 ms
+    rama_wijaya.middleFront(); // takes 1200 ms
+
+    // (17731) who sees only darkness all around, (20081)
+
+    // (20761) darkness (21287)
+
+    // (21707) what in no way will lift. (23406)
+    delay(17731 - 15092 - 700 - 1200);
+    for (int i = 0; i < 8; i++)
+    {
+        rama_wijaya.directControl(1, 45, 400);
+        rama_wijaya.directControl(1, 0, 400);
+    } // takes 800 ms each loop
+
+    // (24147) It is like the prison (25229)
+    delay(24147 - 17731 - (800 * 8));
+    rama_wijaya.downFront(); // takes 700 ms
+
+    // (25538) of the god of love. (26637)
+    delay(25538 - 24147 - 700);
+    rama_wijaya.pointToFront(); // takes 1200 ms
+
+    // (27156) It is tenuous, (28020)
+    delay(27156 - 25538 - 1200);
+    rama_wijaya.lower_pointToFront(); // takes 700 ms
+
+    // (28495) hard to grasp, (29288)
+    delay(28495 - 27156 - 700);
+    rama_wijaya.downFront(); // takes 700 ms
+
+    // (29690) but it exists. (30676)
+    delay(29690 - 28495 - 700);
+    rama_wijaya.pointToFront(); // takes 1200 ms
+
+    // (31506) Besides (32107)
+    delay(31506 - 29690 - 1200);
+    rama_wijaya.lower_pointToFront(); // takes 700 ms
+
+    // (32439) the lightning is tormenting my dazzled eyes. (35124)
+    delay(32439 - 31506 - 700);
+    rama_wijaya.pointToFront(); // takes 1200 ms
+
+    // (35769) I am sad (36396)
+
+    // (36825) and startled by its flashes. (38573)
+    delay(35769 - 32439 - 1200);
+    rama_wijaya.downFront();   // takes 700 ms
+    rama_wijaya.pointToSelf(); // takes 900 ms
+
+    // (39506) Just one flash (40389)
+    delay(39506 - 35769 - 700 - 900);
+    rama_wijaya.downFront(); // takes 700 ms
+
+    // (40570) and quickly it disappears. (42189)
+    delay(40570 - 39506 - 700);
+    rama_wijaya.middleFront(); // takes 1200 ms
+
+    // (42867) O, it is highly irritating and agonizing. (46267)
+    delay(42867 - 40570 - 1200);
+    rama_wijaya.downFront();   // takes 700 ms
+    rama_wijaya.pointToSelf(); // takes 900 ms
+
+    // (47258) Janaki (47935)
+
+    // (48339) how unhappy you must be. (49884)
+    delay(47258 - 42867 - 700 - 900);
+    rama_wijaya.downFront();    // takes 700 ms
+    rama_wijaya.pointToFront(); // takes 1200 ms
+
+    // (50436) You were never separated from me for long. (52745)
+    delay(50436 - 47258 - 700 - 1200);
+    rama_wijaya.lower_pointToFront(); // takes 700 ms
+
+    // (53217) Ah! (53537)
+
+    // (53945) How cruel is Fate (55058)
+    delay(53217 - 50436 - 700);
+    rama_wijaya.downFront();    // takes 700 ms
+    rama_wijaya.pointToFront(); // takes 1200 ms
+
+    // (55538) who allows you to be separated violently from me. (58352)
+    delay(55538 - 53217 - 700 - 1200);
+    for (int i = 0; i < 4; i++)
+    {
+        rama_wijaya.directControl(1, 45, 400);
+        rama_wijaya.directControl(1, 0, 400);
+    } // takes 800 ms each loop
+
+    // (59252) My longing is terrible, (60621)
+
+    // (61144) beyond description. (62319)
+    delay(59252 - 55538 - (800 * 4));
+    rama_wijaya.downFront();   // takes 700 ms
+    rama_wijaya.pointToSelf(); // takes 900 ms
+
+    // (62883) My eyes ache severely when I look into the sky (66010)
+    delay(62883 - 59252 - 700 - 900);
+    for (int i = 0; i < 4; i++)
+    {
+        rama_wijaya.directControl(1, 52, 400);
+        rama_wijaya.directControl(1, 22, 400);
+    } // takes 800 ms each loop
+
+    // (66223) or to the woods. (67126)
+    delay(66223 - 62883 - (800 * 4));
+    rama_wijaya.downFront(); // takes 700 ms
+
+    // (67651) All gives rise to memories. (69594)
+    delay(67651 - 66223 - 700);
+    rama_wijaya.middleFront(); // takes 1200 ms
+
+    // (70409) I wish (71045)
+    delay(70409 - 67651 - 1200);
+    rama_wijaya.lower_pointToFront(); // takes 700 ms
+
+    // (71288) that the night would be brief, (72636)
+    delay(71288 - 70409 - 700);
+    rama_wijaya.pointToFront(); // takes 1200 ms
+
+    // (72975) and it always daytime be. (74274)
+    delay(72975 - 71288 - 1200);
+    rama_wijaya.lower_pointToFront(); // takes 700 ms
+
+    // (75254) Ah, (75645)
+    delay(75254 - 72975 - 700);
+    rama_wijaya.downFront(); // takes 700 ms
+
+    // (76143) I am weak (76727)
+    delay(76143 - 75254 - 700);
+    rama_wijaya.pointToSelf(); // takes 900 ms
+
+    // (77456) and in grief, (78216)
+    delay(77456 - 76143 - 900);
+    rama_wijaya.downFront(); // takes 700 ms
+
+    // (78528) at night the memory of you is haunting me. (80847)
+    delay(78528 - 77456 - 700);
+    rama_wijaya.middleFront(); // takes 1200 ms
+
+    // (82046) O, I wake up at night (83626)
+
+    // (84029) seized by the agony of love, (85763)
+
+    // (86311) kept awake I could not fall in slumber, (88826)
+    delay(82046 - 78528 - 1200);
+    for (int i = 0; i < 9; i++)
+    {
+        rama_wijaya.directControl(1, 45, 400);
+        rama_wijaya.directControl(1, 0, 400);
+    } // takes 800 ms each loop
+
+    // (89380) I have lost my taste and feeling (91336)
+
+    // (91647) because of my suffering,
+    delay(89380 - 82046 - (800 * 9));
+    rama_wijaya.downFront();   // takes 700 ms
+    rama_wijaya.pointToSelf(); // takes 900 ms
+
+    // (93430) Ah there is no cure for the pangs of yearning. (96438)
+    delay(93430 - 89380 - 700 - 900);
+    rama_wijaya.downFront();   // takes 700 ms
+    rama_wijaya.middleFront(); // takes 1200 ms
+
+    delay(96438 - 93430 - 700 - 1200);
+    rama_wijaya.downFront(); // takes 700 ms
 
     // 027 (Rama telling laksmana to bacot sugriwa_E)
     SoundSystem::playDialogFromACertainFolder(SoundSystem::EPISODE_NUMBER::EPISODE_1, SoundSystem::EPISODE_1_DIALOG::RAMA_TELLING_LAKSMANA_BACOT_SUGRIWA_E);
