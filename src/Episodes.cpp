@@ -1704,7 +1704,34 @@ void Episodes::Episode_1()
 
     // 032 (Rama forgives sugriwa)
     SoundSystem::playDialogFromACertainFolder(SoundSystem::EPISODE_NUMBER::EPISODE_1, SoundSystem::EPISODE_1_DIALOG::RAMA_FORGIVES_SUGRIWA);
-    delay(3000);
+    // delay(3000);
+
+    // (820) I forgive you, (1847)
+
+    delay(820);
+    rama_wijaya.lower_pointToFront(); // takes 700 ms
+
+    // (1985) for bringing numerous troops to aid me (4166)
+
+    delay(1985 - 820 - 700);
+    rama_wijaya.pointToFront(); // takes 1200 ms
+
+    // (4519) and they all seem very powerful and vigorous. (7174)
+
+    delay(4519 - 1985 - 1200);
+    rama_wijaya.directControl(1, 45, 500);
+    rama_wijaya.directControl(1, 0, 500);
+    rama_wijaya.directControl(1, 45, 500);
+    rama_wijaya.directControl(1, 0, 500);
+    rama_wijaya.lower_pointToFront(); // takes 700 ms
+
+    // (7550) Surely Rawana will be destroyed. (9353)
+
+    delay(7550 - 4519 - 700 - 500 * 4);
+    rama_wijaya.pointToFront(); // takes 1200 ms
+
+    delay(9353 - 7550 - 1200);
+    rama_wijaya.downFront(); // takes 700 ms
 
     setAllMOSFETtoHIGH();
     SoundSystem::playDialogFromACertainFolder(SoundSystem::INDICATOR_SOUND, SoundSystem::INDICATOR_SOUND_NUMBER::INDICATOR_FINISHED_SHOWING);
