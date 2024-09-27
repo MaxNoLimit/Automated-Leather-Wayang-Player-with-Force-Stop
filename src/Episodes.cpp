@@ -811,14 +811,14 @@ void Episodes::Episode_1()
 
     delay(46341 - 42759 - 700 - 2100);
     // sita.oscillate(50722 - 46341); // takes 4381 ms ~~ 4200 ms
-    sita.downBack(); // takes 700 ms
+    sita.downBack();        // takes 700 ms
     sita.middleFrontBack(); // takes 700 ms
     for (int i = 0; i < 3; i++)
     {
         sita.directControl(3, 90, 400);
         sita.directControl(3, 120, 400);
     } // takes 800 ms each loop
-    
+
     // (50722) butted by the deer, (51570)
 
     delay(50722 - 46341 - 700 - 700 - 800 * 3);
@@ -1650,7 +1650,22 @@ void Episodes::Episode_1()
 
     // 025 (Rama1Sugriwa-Rama dialogue 2_E)
     SoundSystem::playDialogFromACertainFolder(SoundSystem::EPISODE_NUMBER::EPISODE_1, SoundSystem::EPISODE_1_DIALOG::RAMA1SUGRIWA_RAMA_DIALOGUE_2_E);
-    delay(3000);
+    // delay(3000);
+
+    // (892) Very well, (1742)
+    delay(892);
+    rama_wijaya.pointToFront(); // takes 1200 ms
+
+    // (2387) I shall wait for you and your troops (4446)
+    delay(2387 - 892 - 1200);
+    rama_wijaya.lower_pointToFront(); // takes 700 ms
+
+    // (4700) on the mountain of Malyawan. (6128)
+    delay(4700 - 2387 - 700);
+    rama_wijaya.pointToFront(); // takes 1200 ms
+
+    delay(6128 - 4700 - 1200);
+    rama_wijaya.downFront(); // takes 700 ms
 
     // 026 (Rama Sadboi_E)
     SoundSystem::playDialogFromACertainFolder(SoundSystem::EPISODE_NUMBER::EPISODE_1, SoundSystem::EPISODE_1_DIALOG::RAMA_SADBOI_E);
