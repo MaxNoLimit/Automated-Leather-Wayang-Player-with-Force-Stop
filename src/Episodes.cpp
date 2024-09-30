@@ -6,7 +6,7 @@
 #include "characters/rahwana.hpp"
 #include "characters/laksmana.hpp"
 #include "mainheader.hpp"
-
+#include "characters/sugriwa.hpp"
 // TaskHandle_t Hanoman_talking;
 // TaskHandle_t Rama_talking;
 // TaskHandle_t Dub_delay;
@@ -24,6 +24,7 @@ RamaWijaya rama_wijaya;
 Sita sita;
 Rahwana rahwana;
 Laksmana laksmana;
+Sugriwa sugriwa;
 
 // Execution function for pameran tanggal 2 Mei 2024 di ruang MIS depan
 // void Episodes::Mei2nd_Episode()
