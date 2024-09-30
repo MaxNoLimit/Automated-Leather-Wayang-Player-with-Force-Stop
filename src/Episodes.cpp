@@ -1063,140 +1063,139 @@ void Episodes::Episode_1()
 
     /*Why do you want to stay with him in this extreme destitution.*/
     rahwana.pointToFront(); // 700
-    for (int i=0; i<5) // 800*5
+    for (int i = 0; i < 5)  // 800*5
     {
         rahwana.directControl(3, 160, 400); // 400
         rahwana.directControl(3, 180, 400); // 400
     }
 
-    delay(11047 - 5451 - 700 - (800*5)-500);
+    delay(11047 - 5451 - 700 - (800 * 5) - 500);
 
     /*He is debased */
     rahwana.middleFront(); // 1200
-    delay(12527 - 11047 - (1200-500));
+    delay(12527 - 11047 - (1200 - 500));
 
     /*and inferior to all his clever brothers.*/
     rahwana.lower_pointToFront(); // 700
-    for (int i=0; i<3; i++) // 800*3
+    for (int i = 0; i < 3; i++)   // 800*3
     {
         rahwana.directControl(3, 100, 400); // 400
         rahwana.directControl(3, 120, 400); // 400
     }
     rahwana.directControl(3, 100, 400); // 400
-    delay(17084-12527-700-(800*3)-400);
+    delay(17084 - 12527 - 700 - (800 * 3) - 400);
 
     /*He is the eldest, */
     rahwana.lower_pointToFront(); // 700
-    delay(188778-17084-700);
+    delay(188778 - 17084 - 700);
 
     /*fit to be king*/
     rahwana.pointToFront(); // 700
-    delay(20968-18878-700);
+    delay(20968 - 18878 - 700);
 
     /*yet he is banished into the forests. */
     rahwana.downFront(); // 700
-    delay(24973-20968-700-700);
+    delay(24973 - 20968 - 700 - 700);
 
     /*I*/
     rahwana.pointToSelf(); // 1100
-    delay(25687-24973-(1100-700));
+    delay(25687 - 24973 - (1100 - 700));
 
     /*am victorious over deities,*/
-    rahwana.directControl(3, 0, 740); // 740
+    rahwana.directControl(3, 0, 740);   // 740
     rahwana.directControl(4, 120, 600); // 600
     rahwana.directControl(3, 180, 740); // 740
     rahwana.directControl(4, 140, 300); // 300
-    delay(28938-25687-740-600-740-300);
+    delay(28938 - 25687 - 740 - 600 - 740 - 300);
 
     /*men and animals.*/
     rahwana.lower_pointToFront(); // 700
-    delay(31492-28938-700);
+    delay(31492 - 28938 - 700);
 
     /*God Waisrawana is defeated and has submitted.*/
-    rahwana.pointToFront(); // 700
-    for (int i=0; i<3; i++) // 800*3
+    rahwana.pointToFront();     // 700
+    for (int i = 0; i < 3; i++) // 800*3
     {
         rahwana.directControl(3, 160, 400); // 400
         rahwana.directControl(3, 180, 400); // 400
     }
-    delay(35933-31492-700-(800*3)-700);
+    delay(35933 - 31492 - 700 - (800 * 3) - 700);
 
     /*God Yama has begged for his life */
-    rahwana.middleFront(); // 1200
-    for (int i=0; i<2; i++) // 800*2
+    rahwana.middleFront();      // 1200
+    for (int i = 0; i < 2; i++) // 800*2
     {
         rahwana.directControl(3, 115, 400); // 400
         rahwana.directControl(3, 135, 400); // 400
     }
-    delay(39230-35933-(1200-700)-(800*2));
+    delay(39230 - 35933 - (1200 - 700) - (800 * 2));
 
     /*out of fear of death.*/
     rahwana.lower_pointToFront(); // 700
-    delay(42104-39230-700);
+    delay(42104 - 39230 - 700);
 
     /*the king of the gods,*/
     rahwana.pointToFront(); // 700
-    delay(44275-42104-700-700);
+    delay(44275 - 42104 - 700 - 700);
 
     /*God Indra,*/
     rahwana.middleFront(); // 1200
-    delay(45732-44275-(1200-700));
+    delay(45732 - 44275 - (1200 - 700));
 
     /*has paid tribute.*/
     rahwana.downFront(); // 700
-    delay(48286-45732-700-700);
+    delay(48286 - 45732 - 700 - 700);
 
     /*All of them respect me. */
     rahwana.pointToSelf(); // 1100
-    delay(50051-48286-(1100-700));
+    delay(50051 - 48286 - (1100 - 700));
 
     /*I say it is perfectly fitting*/
-    rahwana.downFront(); // 700
+    rahwana.downFront();   // 700
     rahwana.middleFront(); // 1200
-    delay(54195-50051-700-1200);
+    delay(54195 - 50051 - 700 - 1200);
 
     /*that we love each other*/
     rahwana.pointToFront(); // 700
-    delay(55734-54195-700);
+    delay(55734 - 54195 - 700);
 
     /*I am young and powerful, */
-    rahwana.downFront(); // 700
+    rahwana.downFront();   // 700
     rahwana.pointToSelf(); // 1100
-    delay(58706-55734-700-1100);
+    delay(58706 - 55734 - 700 - 1100);
 
     /*you are a beautiful lady*/
-    rahwana.downFront(); // 700
+    rahwana.downFront();   // 700
     rahwana.middleFront(); // 1200
-    delay(61701-58706-700-1200);
+    delay(61701 - 58706 - 700 - 1200);
 
     /*in the prime of womanhood. */
     rahwana.pointToFront(); // 700
-    delay(64917-61701-700);
+    delay(64917 - 61701 - 700);
 
     /*Rama is worthless my dear, */
     rahwana.lower_pointToFront(); // 700
-    delay(67663-64917-700);
+    delay(67663 - 64917 - 700);
 
     /*leave him!*/
     rahwana.downFront(); // 700
-    delay(71024-67663-700);
+    delay(71024 - 67663 - 700);
 
     /*grr*/
     rahwana.lower_pointToFront(); // 700
-    delay(72435-71024-700-700);
-    
+    delay(72435 - 71024 - 700 - 700);
+
     /*If you won’t give me an answer*/
     rahwana.middleFront(); // 1200
-    delay(75093-72435-(1200-700));
+    delay(75093 - 72435 - (1200 - 700));
 
     /*then i shall show you my might! */
     rahwana.pointToFront(); // 700
-    delay(76693-75093-700);
+    delay(76693 - 75093 - 700);
     rahwana.downFront(); // 700
     delay(2000);
 
     /*insert kidnapping sequence below*/
-
 
     // 008 (03 L-R1 laksmana1F)
     SoundSystem::playDialogFromACertainFolder(SoundSystem::EPISODE_NUMBER::EPISODE_1, SoundSystem::EPISODE_1_DIALOG::L_R1_LAKS1F);
@@ -1839,7 +1838,87 @@ void Episodes::Episode_1()
 
     // 021 (Subali bacotin rama_E)
     SoundSystem::playDialogFromACertainFolder(SoundSystem::EPISODE_NUMBER::EPISODE_1, SoundSystem::EPISODE_1_DIALOG::SUBALI_BACOTIN_RAMA_E);
-    delay(3000);
+    // delay(3000);
+
+    // (897) Ah Rama, (1806)
+    delay(897);
+    subali.pointToFront(); // takes 900 ms
+
+    // (2460) wicked, debased and silly. (4237)
+    delay(2460 - 897 - 900);
+    subali.lower_pointToFront(); // takes 700 ms
+
+    // (4757) You look peaceful, but you are very mean. (6741)
+
+    // (7350) May all kinds of sins befall you, (9391)
+
+    // (9968) because you shot at one who only fights with his brother (13119)
+
+    // (13517) and does nothing to you. (14597)
+
+    // (15272) O, you are wicked beyond limits. (17006)
+
+    // (17710) You do not uphold the good name of your father. (19619)
+
+    // (20589) You know I have not done anything wrong. (22348)
+
+    // (22972) You are extremely depraved, (24108)
+
+    // (24599) your mind is corrupt. (25466)
+
+    // (26316) If you follow the ascetics, (27533)
+
+    // (27776) then the main dharmma is to be a teacher (29933)
+
+    // (30339) for the people inferior to him, (31757)
+
+    // (32111) to be a cure for discord, (33298)
+
+    // (33828) a mediator for brothers in disagreement. (35929)
+
+    // (36386) He should best be a cure for me who has done wrong. (39440)
+
+    // (40302) Besides, (40823)
+
+    // (40998) you take the wrong side. (42092)
+
+    // (42613) That is foolish. (43501)
+
+    // (44347) You think you have the judicious insight, (46367)
+
+    // (47105) but (47212)
+
+    // (47584) in fact you are foolish. (48908)
+
+    // (48510) You think it is good for you, (51188)
+
+    // (51654) now (51931)
+
+    // (52281) that I am dead. (53311)
+
+    // (54118) You are wrong, (54946)
+
+    // (55395) because your act (56082)
+
+    // (56638) is an act of murder. (57923)
+
+    // (58602) And you were known formerly to be of good conduct, (60618)
+
+    // (61455) to be a protector of the world (62783)
+
+    // (63560) and to care for the people. (64876)
+
+    // (65427) Your merits and cancelled out, (66926)
+
+    // (67558) because of killing a monkey. (68591)
+
+    // (69334) Are you not ashamed in front of your younger brother? (71461)
+
+    // (72614) Even though I am in fact fighting with my brother, (74899)
+
+    // (75082) in the future we might come together again, (77064)
+
+    // (77649) you love Sugriwa, a monkey of improper and debased nature. (80792)
 
     // 022 (Rama2Sugriwa-Rama-Subali dialogue_E)
     SoundSystem::playDialogFromACertainFolder(SoundSystem::EPISODE_NUMBER::EPISODE_1, SoundSystem::EPISODE_1_DIALOG::RAMA2SUGRIWA_RAMA_SUBALI_DIALOGUE_E);
@@ -2354,13 +2433,13 @@ void Episodes::Episode_1()
 
     // (60029) Therefore go! (60924)
     delay(60029 - 58406 - 1400);
-    rama_wijaya.pointToFront(); // takes 1200 ms
-
-    // (61173) Tell him that he is sinful. (62555)
-    delay(61173 - 60029 - 1200);
     rama_wijaya.lower_pointToFront(); // takes 700 ms
 
-    delay(62555 - 61173 - 700);
+    // (61173) Tell him that he is sinful. (62555)
+    delay(61173 - 60029 - 700);
+    rama_wijaya.pointToFront(); // takes 1200 ms
+
+    delay(62555 - 61173 - 1200);
     rama_wijaya.downBack();  // takes 700 ms
     rama_wijaya.downFront(); // takes 700 ms
     rama_wijaya.onHipBack(); // takes 900 ms
