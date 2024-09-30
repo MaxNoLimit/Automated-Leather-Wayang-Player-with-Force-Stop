@@ -1666,7 +1666,30 @@ void Episodes::Episode_1()
 
     // 020 (Subali round 2 rage)
     SoundSystem::playDialogFromACertainFolder(SoundSystem::EPISODE_NUMBER::EPISODE_1, SoundSystem::EPISODE_1_DIALOG::SUBALI_ROUND_2_RAGE);
-    delay(3000);
+    // delay(3000);
+
+    // (1046) You dare challenge me again (2827)
+    delay(1046);
+    subali.pointToFront(); // takes 900 ms
+
+    // (3267) even though you already lost once? (5176)
+    delay(3267 - 1046 - 900);
+    subali.lower_pointToFront(); // takes 700 ms
+
+    // (5659) How pathetic (6440)
+    delay(5659 - 3267 - 700);
+    subali.pointToFront(); // takes 900 ms
+
+    // (6974) *roar* (7858)
+    delay(6974 - 5659 - 900);
+    for (int i = 0; i < 1; i++)
+    {
+        subali.directControl(3, 135, 400);
+        subali.directControl(3, 180, 400);
+    } // takes 800 ms each loop
+
+    delay(7858 - 6974 - 800 * 1);
+    subali.downFront(); // takes 700 ms
 
     // 021 (Subali bacotin rama_E)
     SoundSystem::playDialogFromACertainFolder(SoundSystem::EPISODE_NUMBER::EPISODE_1, SoundSystem::EPISODE_1_DIALOG::SUBALI_BACOTIN_RAMA_E);
