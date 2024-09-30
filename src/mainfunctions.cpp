@@ -107,6 +107,8 @@ void beginingAllGPIOS()
     pinMode(XSHUT_3, OUTPUT);
     pinMode(XSHUT_4, OUTPUT);
     pinMode(XSHUT_5, OUTPUT);
+    pinMode(XSHUT_6, OUTPUT);
+    pinMode(XSHUT_7, OUTPUT);
 
     Wire.begin();
     Wire.setClock(400000);
@@ -126,6 +128,11 @@ void beginingAllGPIOS()
     beginSensor3();
     beginSensor4();
     beginSensor5();
+    // beginSensor6();
+    // beginSensor7();
+    // beginSensor8();
+    // beginSensor9();
+    // beginSensor10();
     // beginAllSensors();
     // setAllMOSFETtoLOW();
     // setAllXSHUTtoHIGH();
@@ -139,6 +146,8 @@ void setAllXSHUTtoHIGH()
     digitalWrite(XSHUT_3, HIGH);
     digitalWrite(XSHUT_4, HIGH);
     digitalWrite(XSHUT_5, HIGH);
+    digitalWrite(XSHUT_6, HIGH);
+    digitalWrite(XSHUT_7, HIGH);
 }
 
 /*

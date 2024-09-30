@@ -1382,7 +1382,17 @@ void Episodes::Episode_1()
 
     // 014 (07 Duel1 Sugriwa1F)
     SoundSystem::playDialogFromACertainFolder(SoundSystem::EPISODE_NUMBER::EPISODE_1, SoundSystem::EPISODE_1_DIALOG::DUEL1_SUGRIWA1F);
-    delay(3000);
+    // delay(3000);
+
+    // (315) BALI!! (1274) [Front point to front]
+    delay(315);
+
+    // (1439) I challenge you to a duel, (3364) [Front low point to front]
+    delay(1439 - 315);
+
+    // (3779) come out here and fight me. (5454) [Back point to back, Front point to front]
+
+    // (5819) *roar* (7021) [Horizontal oscillation]
 
     // 015 (Subali round 1 rage)
     SoundSystem::playDialogFromACertainFolder(SoundSystem::EPISODE_NUMBER::EPISODE_1, SoundSystem::EPISODE_1_DIALOG::SUBALI_ROUND_1_RAGE);
@@ -2020,7 +2030,7 @@ void Episodes::Episode_1()
     rama_wijaya.lower_pointToFront(); // takes 700 ms
 
     delay(62555 - 61173 - 700);
-    rama_wijaya.downBack(); // takes 700 ms
+    rama_wijaya.downBack();  // takes 700 ms
     rama_wijaya.downFront(); // takes 700 ms
     rama_wijaya.onHipBack(); // takes 900 ms
 
