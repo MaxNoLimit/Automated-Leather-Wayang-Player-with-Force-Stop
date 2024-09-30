@@ -9,7 +9,6 @@
 #include "characters/subali.hpp"
 #include "characters/sugriwa.hpp"
 
-
 Hanoman hanoman;
 RamaWijaya rama_wijaya;
 Sita sita;
@@ -937,91 +936,91 @@ void Episodes::Episode_1()
     SoundSystem::playDialogFromACertainFolder(SoundSystem::EPISODE_NUMBER::EPISODE_1, SoundSystem::EPISODE_1_DIALOG::SITA_RAHWANA_DIALOGUE_RAHWANA_1);
     // delay(3000);
     /*Who are you, o beautiful one,*/
-    rahwana.pointToFront(); // 900 
-    delay(2660-900);
+    rahwana.pointToFront(); // 900
+    delay(2660 - 900);
 
     /*who enters the forest to pick flowers. */
     rahwana.downFront(); // 700
-    delay(5682-2660-700-500);
+    delay(5682 - 2660 - 700 - 500);
 
     /*How unparalleled is your beauty,*/
     rahwana.middleFront(); // 1200
-    delay(7910-5682-(1200-500));
+    delay(7910 - 5682 - (1200 - 500));
 
     /*most perfect.*/
     rahwana.pointToFront(); // 700
-    delay(9579-7910-700);
+    delay(9579 - 7910 - 700);
 
     /*Even an extremely poor ascetic who has overcome his sensual impulses,*/
-    rahwana.pointToFront(); // 700
+    rahwana.pointToFront();     // 700
     for (int i = 0; i < 3; i++) // 800*3
     {
         rahwana.directControl(3, 160, 400);
         rahwana.directControl(3, 180, 400);
     }
     rahwana.directControl(3, 160, 400); // 400
-    delay(13390-9579-700-(800*3)-400);
+    delay(13390 - 9579 - 700 - (800 * 3) - 400);
 
     /* would be crazy about you */
-    rahwana.downFront(); // 700
-    delay(400); // 400
+    rahwana.downFront();   // 700
+    delay(400);            // 400
     rahwana.middleFront(); // 1200
-    delay(16906-13390-700-400-1200);
+    delay(16906 - 13390 - 700 - 400 - 1200);
     rahwana.pointToFront(); // 700
-    rahwana.downFront(); // 700
+    rahwana.downFront();    // 700
 
     /*My name is Rawana, */
-    rahwana.pointToSelf(); // 1100
-    delay(20828-(1100-(19101-16906-700-700))); //sus asf fr, tp kekny bekerja
+    rahwana.pointToSelf();                               // 1100
+    delay(20828 - (1100 - (19101 - 16906 - 700 - 700))); // sus asf fr, tp kekny bekerja
 
     /*I am the king ruling over the country of Lenka, */
-    rahwana.directControl(3, 0, 740); // 740
+    rahwana.directControl(3, 0, 740);   // 740
     rahwana.directControl(4, 120, 600); // 600
     rahwana.directControl(3, 180, 740); // 740
     rahwana.directControl(4, 140, 300); // 300
-    delay(24113-20828-740-600-740-300);
+    delay(24113 - 20828 - 740 - 600 - 740 - 300);
 
     /*my palace is on the beach and there are */
     rahwana.lower_pointToFront(); // 700
-    delay(26298-24113-700);
+    delay(26298 - 24113 - 700);
 
     /*plenty of brilliant jewels*/
     rahwana.pointToFront(); // 700
-    delay(28573-26298-700);
+    delay(28573 - 26298 - 700);
 
     /*and precious stones decorating it,*/
     rahwana.lower_pointToFront(); // 700
-    delay(30925-28573-700);
+    delay(30925 - 28573 - 700);
 
     /*making it as glorious as the moon. */
-    rahwana.middleFront(); // 1200
+    rahwana.middleFront();              // 1200
     rahwana.directControl(3, 160, 400); // 400
     rahwana.directControl(3, 180, 400); // 400
     rahwana.directControl(3, 160, 400); // 400
     rahwana.directControl(3, 180, 400); // 400
-    delay(34625-30925-1200-(400*4));
+    delay(34625 - 30925 - 1200 - (400 * 4));
 
     /*you may rule over it,*/
     rahwana.pointToFront(); // 700
-    delay(36311-34625-700-700);
+    delay(36311 - 34625 - 700 - 700);
     rahwana.downFront(); // 700
 
     /*and share a luxurious life with me. */
     rahwana.pointToSelf(); // 1100
-    delay(39143-36311-1100-700);
+    delay(39143 - 36311 - 1100 - 700);
     rahwana.downFront(); // 700
 
     /*Have no doubt,*/
     rahwana.lower_pointToFront(); // 700
-    delay(40529-39143-700);
+    delay(40529 - 39143 - 700);
 
     /*everything you wish for is there.*/
     rahwana.pointToFront(); // 700
-    delay(42971-40529-700-700);
+    delay(42971 - 40529 - 700 - 700);
 
     /*what do you think?*/
     rahwana.middleFront(); // 1200
-    delay(44024-42971-(1200-700));
+    delay(44024 - 42971 - (1200 - 700));
 
     /*O beautiful one? */
     rahwana.pointToFront(); // 700
@@ -1479,16 +1478,29 @@ void Episodes::Episode_1()
         sugriwa.directControl(1, 45, 400);
         sugriwa.directControl(1, 0, 400);
     } // takes 800 ms each loop
-    
 
     // (5819) *roar* (7021) [Horizontal oscillation]
     delay(7021 - 1439 - 800 * 6);
     sugriwa.downFront(); // takes 700 ms
 
-
     // 015 (Subali round 1 rage)
     SoundSystem::playDialogFromACertainFolder(SoundSystem::EPISODE_NUMBER::EPISODE_1, SoundSystem::EPISODE_1_DIALOG::SUBALI_ROUND_1_RAGE);
-    delay(3000);
+    // delay(3000);
+
+    // (717) you DARE challenge me? (2349) [Front point to front]
+    delay(717);
+    subali.pointToFront(); // takes 900 ms
+
+    // (2887) *roars in response* (3989) [Horizontal oscillation]
+    delay(2887 - 717 - 900);
+    for (int i = 0; i < 1; i++)
+    {
+        subali.directControl(3, 135, 400);
+        subali.directControl(3, 180, 400);
+    } // takes 800 ms each loop
+    
+    delay(3989 - 2887 - 800 * 1);
+    subali.downFront(); // takes 700 ms
 
     // 016 (08 Duel1 Sugriwa2F)
     SoundSystem::playDialogFromACertainFolder(SoundSystem::EPISODE_NUMBER::EPISODE_1, SoundSystem::EPISODE_1_DIALOG::DUEL1_SUGRIWA2F);
