@@ -969,9 +969,9 @@ void Episodes::Episode_1()
     rahwana.pointToFront(); // 700
     rahwana.downFront();    // 700
 
-    /*My name is Rawana, */
-    rahwana.pointToSelf();                               // 1100
-    delay(20828 - (1100 - (19101 - 16906 - 700 - 700))); // sus asf fr, tp kekny bekerja
+    /*My name is Rawana, */ //(18306)
+    rahwana.pointToSelf(); // 1100                   
+    delay(20828-18306-1100);
 
     /*I am the king ruling over the country of Lenka, */
     rahwana.directControl(3, 0, 740);   // 740
