@@ -1051,7 +1051,153 @@ void Episodes::Episode_1()
 
     // 007 (007SitaRahwanadialogueRahwana2)
     SoundSystem::playDialogFromACertainFolder(SoundSystem::EPISODE_NUMBER::EPISODE_1, SoundSystem::EPISODE_1_DIALOG::SITA_RAHWANA_DIALOGUE_RAHWANA_2);
-    delay(3000);
+    // delay(3000);
+
+    /*I know that Rama,*/
+    delay(464);
+    rahwana.pointToFront(); // 700
+    delay(3158 - 464 - 700);
+
+    /*he is worthless. */
+    rahwana.lower_pointToFront(); // 700
+    delay(5451 - 3158 - 700);
+
+    /*Why do you want to stay with him in this extreme destitution.*/
+    rahwana.pointToFront(); // 700
+    for (int i=0; i<5) // 800*5
+    {
+        rahwana.directControl(3, 160, 400); // 400
+        rahwana.directControl(3, 180, 400); // 400
+    }
+
+    delay(11047 - 5451 - 700 - (800*5)-500);
+
+    /*He is debased */
+    rahwana.middleFront(); // 1200
+    delay(12527 - 11047 - (1200-500));
+
+    /*and inferior to all his clever brothers.*/
+    rahwana.lower_pointToFront(); // 700
+    for (int i=0; i<3; i++) // 800*3
+    {
+        rahwana.directControl(3, 100, 400); // 400
+        rahwana.directControl(3, 120, 400); // 400
+    }
+    rahwana.directControl(3, 100, 400); // 400
+    delay(17084-12527-700-(800*3)-400);
+
+    /*He is the eldest, */
+    rahwana.lower_pointToFront(); // 700
+    delay(188778-17084-700);
+
+    /*fit to be king*/
+    rahwana.pointToFront(); // 700
+    delay(20968-18878-700);
+
+    /*yet he is banished into the forests. */
+    rahwana.downFront(); // 700
+    delay(24973-20968-700-700);
+
+    /*I*/
+    rahwana.pointToSelf(); // 1100
+    delay(25687-24973-(1100-700));
+
+    /*am victorious over deities,*/
+    rahwana.directControl(3, 0, 740); // 740
+    rahwana.directControl(4, 120, 600); // 600
+    rahwana.directControl(3, 180, 740); // 740
+    rahwana.directControl(4, 140, 300); // 300
+    delay(28938-25687-740-600-740-300);
+
+    /*men and animals.*/
+    rahwana.lower_pointToFront(); // 700
+    delay(31492-28938-700);
+
+    /*God Waisrawana is defeated and has submitted.*/
+    rahwana.pointToFront(); // 700
+    for (int i=0; i<3; i++) // 800*3
+    {
+        rahwana.directControl(3, 160, 400); // 400
+        rahwana.directControl(3, 180, 400); // 400
+    }
+    delay(35933-31492-700-(800*3)-700);
+
+    /*God Yama has begged for his life */
+    rahwana.middleFront(); // 1200
+    for (int i=0; i<2; i++) // 800*2
+    {
+        rahwana.directControl(3, 115, 400); // 400
+        rahwana.directControl(3, 135, 400); // 400
+    }
+    delay(39230-35933-(1200-700)-(800*2));
+
+    /*out of fear of death.*/
+    rahwana.lower_pointToFront(); // 700
+    delay(42104-39230-700);
+
+    /*the king of the gods,*/
+    rahwana.pointToFront(); // 700
+    delay(44275-42104-700-700);
+
+    /*God Indra,*/
+    rahwana.middleFront(); // 1200
+    delay(45732-44275-(1200-700));
+
+    /*has paid tribute.*/
+    rahwana.downFront(); // 700
+    delay(48286-45732-700-700);
+
+    /*All of them respect me. */
+    rahwana.pointToSelf(); // 1100
+    delay(50051-48286-(1100-700));
+
+    /*I say it is perfectly fitting*/
+    rahwana.downFront(); // 700
+    rahwana.middleFront(); // 1200
+    delay(54195-50051-700-1200);
+
+    /*that we love each other*/
+    rahwana.pointToFront(); // 700
+    delay(55734-54195-700);
+
+    /*I am young and powerful, */
+    rahwana.downFront(); // 700
+    rahwana.pointToSelf(); // 1100
+    delay(58706-55734-700-1100);
+
+    /*you are a beautiful lady*/
+    rahwana.downFront(); // 700
+    rahwana.middleFront(); // 1200
+    delay(61701-58706-700-1200);
+
+    /*in the prime of womanhood. */
+    rahwana.pointToFront(); // 700
+    delay(64917-61701-700);
+
+    /*Rama is worthless my dear, */
+    rahwana.lower_pointToFront(); // 700
+    delay(67663-64917-700);
+
+    /*leave him!*/
+    rahwana.downFront(); // 700
+    delay(71024-67663-700);
+
+    /*grr*/
+    rahwana.lower_pointToFront(); // 700
+    delay(72435-71024-700-700);
+    
+    /*If you won’t give me an answer*/
+    rahwana.middleFront(); // 1200
+    delay(75093-72435-(1200-700));
+
+    /*then i shall show you my might! */
+    rahwana.pointToFront(); // 700
+    delay(76693-75093-700);
+    rahwana.downFront(); // 700
+    delay(2000);
+
+    /*insert kidnapping sequence below*/
+
 
     // 008 (03 L-R1 laksmana1F)
     SoundSystem::playDialogFromACertainFolder(SoundSystem::EPISODE_NUMBER::EPISODE_1, SoundSystem::EPISODE_1_DIALOG::L_R1_LAKS1F);
