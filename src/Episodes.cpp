@@ -1062,8 +1062,8 @@ void Episodes::Episode_1()
     delay(5451 - 3158 - 700);
 
     /*Why do you want to stay with him in this extreme destitution.*/
-    rahwana.pointToFront(); // 700
-    for (int i = 0; i < 5; i++)  // 800*5
+    rahwana.pointToFront();     // 700
+    for (int i = 0; i < 5; i++) // 800*5
     {
         rahwana.directControl(3, 160, 400); // 400
         rahwana.directControl(3, 180, 400); // 400
@@ -2363,16 +2363,14 @@ void Episodes::Episode_1()
     rama_wijaya.lower_pointToFront(); // takes 700 ms
 
     // (31908) It is clear now, (32774)
+
+    // (33000) with stars even. (34102)
     delay(31908 - 29324 - 700);
     rama_wijaya.downBack();     // takes 700 ms
     rama_wijaya.pointToFront(); // takes 1200 ms
 
-    // (33000) with stars even. (34102)
-    delay(33000 - 31908 - 700 - 1200);
-    rama_wijaya.lower_pointToFront(); // takes 700 ms
-
     // (34519) Ah! He is really blind not to see them. (36798)
-    delay(34519 - 33000 - 700);
+    delay(34519 - 31908 - 700 - 1200);
     rama_wijaya.middleBack();   // takes 1200 ms
     rama_wijaya.pointToFront(); // takes 1200 ms
 
