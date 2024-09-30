@@ -1527,17 +1527,17 @@ void Episodes::Episode_1()
 
     // (1818) why did you not keep your promise, (3836) [Front Middle-Front]
     delay(1818 - 315 - 700);
-    sugriwa.downFront(); // takes 700 ms
+    sugriwa.downFront();   // takes 700 ms
     sugriwa.middleFront(); // takes 1200 ms
 
     // (4323) you lied. (5024) [Front point to front]
     delay(4323 - 1818 - 700 - 1200);
-    sugriwa.downFront(); // takes 700 ms
+    sugriwa.downFront();    // takes 700 ms
     sugriwa.pointToFront(); // takes 900 ms
 
     // (6005) Why did you just watch our fight without doing anything? (8968) [Front Middle-Front]
     delay(6005 - 4323 - 700 - 900);
-    sugriwa.downFront(); // takes 700 ms
+    sugriwa.downFront();   // takes 700 ms
     sugriwa.middleFront(); // takes 1200 ms
 
     delay(8968 - 6005 - 700 - 1200);
@@ -1637,7 +1637,32 @@ void Episodes::Episode_1()
 
     // 019 (10 Duel2 Sugriwa1F)
     SoundSystem::playDialogFromACertainFolder(SoundSystem::EPISODE_NUMBER::EPISODE_1, SoundSystem::EPISODE_1_DIALOG::DUEL2_SUGRIWA1F);
-    delay(3000);
+    // delay(3000);
+
+    // (565) BALI!! (1281)
+    delay(565);
+    sugriwa.pointToFront(); // takes 900 ms
+
+    // (1510) This is not (2312)
+    delay(1510 - 565 - 900);
+    sugriwa.lower_pointToFront(); // takes 700 ms
+
+    // (2519) over, (3214)
+    delay(2519 - 1510 - 700);
+    sugriwa.pointToFront(); // takes 900 ms
+
+    // (3528) come out here and fight me. (5275)
+
+    // (5690) *roar* (7365)
+    delay(3528 - 2519 - 900);
+    for (int i = 0; i < 4; i++)
+    {
+        sugriwa.directControl(1, 45, 400);
+        sugriwa.directControl(1, 0, 400);
+    } // takes 800 ms each loop
+
+    delay(7365 - 3528 - 800 * 4);
+    sugriwa.downFront(); // takes 700 ms
 
     // 020 (Subali round 2 rage)
     SoundSystem::playDialogFromACertainFolder(SoundSystem::EPISODE_NUMBER::EPISODE_1, SoundSystem::EPISODE_1_DIALOG::SUBALI_ROUND_2_RAGE);
