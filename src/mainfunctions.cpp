@@ -128,7 +128,7 @@ void beginingAllGPIOS()
     beginSensor3();
     beginSensor4();
     beginSensor5();
-    // beginSensor6();
+    beginSensor6();
     // beginSensor7();
     // beginSensor8();
     // beginSensor9();
@@ -147,7 +147,7 @@ void setAllXSHUTtoHIGH()
     digitalWrite(XSHUT_4, HIGH);
     digitalWrite(XSHUT_5, HIGH);
     digitalWrite(XSHUT_6, HIGH);
-    digitalWrite(XSHUT_7, HIGH);
+    // digitalWrite(XSHUT_7, HIGH);
 }
 
 /*
