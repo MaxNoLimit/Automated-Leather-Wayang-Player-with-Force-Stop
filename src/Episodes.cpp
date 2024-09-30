@@ -1063,7 +1063,7 @@ void Episodes::Episode_1()
 
     /*Why do you want to stay with him in this extreme destitution.*/
     rahwana.pointToFront(); // 700
-    for (int i = 0; i < 5)  // 800*5
+    for (int i = 0; i < 5; i++)  // 800*5
     {
         rahwana.directControl(3, 160, 400); // 400
         rahwana.directControl(3, 180, 400); // 400
