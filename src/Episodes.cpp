@@ -6,24 +6,16 @@
 #include "characters/rahwana.hpp"
 #include "characters/laksmana.hpp"
 #include "mainheader.hpp"
+#include "characters/subali.hpp"
 
-// TaskHandle_t Hanoman_talking;
-// TaskHandle_t Rama_talking;
-// TaskHandle_t Dub_delay;
-
-// TaskHandle_t RahwanaHandler;
-
-// void TaskRahwanaMovement1(void *parameter);
-
-// void hanoman_talking_loop(void *parameter);
-// void rama_talking_loop(void *parameter);
-// void gap_for_dub_delay(void *parameter);
 
 Hanoman hanoman;
 RamaWijaya rama_wijaya;
 Sita sita;
 Rahwana rahwana;
 Laksmana laksmana;
+Subali subali;
+
 
 // Execution function for pameran tanggal 2 Mei 2024 di ruang MIS depan
 // void Episodes::Mei2nd_Episode()
