@@ -7,6 +7,7 @@
 #include "characters/laksmana.hpp"
 #include "mainheader.hpp"
 #include "characters/subali.hpp"
+#include "characters/sugriwa.hpp"
 
 
 Hanoman hanoman;
@@ -15,7 +16,7 @@ Sita sita;
 Rahwana rahwana;
 Laksmana laksmana;
 Subali subali;
-
+Sugriwa sugriwa;
 
 // Execution function for pameran tanggal 2 Mei 2024 di ruang MIS depan
 // void Episodes::Mei2nd_Episode()

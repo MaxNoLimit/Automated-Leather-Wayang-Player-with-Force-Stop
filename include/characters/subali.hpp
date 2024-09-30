@@ -29,4 +29,4 @@ public:
     // void respect();
 
     void directControl(int num, int angle, int duration);
-}
+};
