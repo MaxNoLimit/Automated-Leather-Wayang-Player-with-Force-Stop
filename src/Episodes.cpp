@@ -1498,13 +1498,24 @@ void Episodes::Episode_1()
         subali.directControl(3, 135, 400);
         subali.directControl(3, 180, 400);
     } // takes 800 ms each loop
-    
+
     delay(3989 - 2887 - 800 * 1);
     subali.downFront(); // takes 700 ms
 
     // 016 (08 Duel1 Sugriwa2F)
     SoundSystem::playDialogFromACertainFolder(SoundSystem::EPISODE_NUMBER::EPISODE_1, SoundSystem::EPISODE_1_DIALOG::DUEL1_SUGRIWA2F);
-    delay(3000);
+    // delay(3000);
+
+    // (594) I yield! (1353) [Front point to front, Back Middle-Front, Horizontal move back]
+    delay(594);
+    sugriwa.pointToFront(); // takes 900 ms
+
+    // (1653) I yield! (2412) [Horizontal move back]
+    delay(1653 - 594 - 900);
+    sugriwa.lower_pointToFront(); // takes 700 ms
+
+    delay(2412 - 1653 - 700);
+    sugriwa.downFront(); // takes 700 ms
 
     // 017 (09 DuAft1 Sugriwa1F)
     SoundSystem::playDialogFromACertainFolder(SoundSystem::EPISODE_NUMBER::EPISODE_1, SoundSystem::EPISODE_1_DIALOG::DUAFT1_SUGRIWA1F);
