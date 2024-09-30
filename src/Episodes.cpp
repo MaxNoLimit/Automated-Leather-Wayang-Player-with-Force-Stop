@@ -1519,7 +1519,29 @@ void Episodes::Episode_1()
 
     // 017 (09 DuAft1 Sugriwa1F)
     SoundSystem::playDialogFromACertainFolder(SoundSystem::EPISODE_NUMBER::EPISODE_1, SoundSystem::EPISODE_1_DIALOG::DUAFT1_SUGRIWA1F);
-    delay(3000);
+    // delay(3000);
+
+    // (315) O, my lord, (1453) [Front low point to front]
+    delay(315);
+    sugriwa.lower_pointToFront(); // takes 700 ms
+
+    // (1818) why did you not keep your promise, (3836) [Front Middle-Front]
+    delay(1818 - 315 - 700);
+    sugriwa.downFront(); // takes 700 ms
+    sugriwa.middleFront(); // takes 1200 ms
+
+    // (4323) you lied. (5024) [Front point to front]
+    delay(4323 - 1818 - 700 - 1200);
+    sugriwa.downFront(); // takes 700 ms
+    sugriwa.pointToFront(); // takes 900 ms
+
+    // (6005) Why did you just watch our fight without doing anything? (8968) [Front Middle-Front]
+    delay(6005 - 4323 - 700 - 900);
+    sugriwa.downFront(); // takes 700 ms
+    sugriwa.middleFront(); // takes 1200 ms
+
+    delay(8968 - 6005 - 700 - 1200);
+    sugriwa.downFront(); // takes 700 ms
 
     // 018 (Rama1Sugriwa-Rama-Subali dialogue)
     SoundSystem::playDialogFromACertainFolder(SoundSystem::EPISODE_NUMBER::EPISODE_1, SoundSystem::EPISODE_1_DIALOG::RAMA1SUGRIWA_RAMA_SUBALI_DIALOGUE);
