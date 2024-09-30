@@ -1468,13 +1468,23 @@ void Episodes::Episode_1()
 
     // (315) BALI!! (1274) [Front point to front]
     delay(315);
+    sugriwa.pointToFront(); // takes 900 ms
 
     // (1439) I challenge you to a duel, (3364) [Front low point to front]
-    delay(1439 - 315);
 
     // (3779) come out here and fight me. (5454) [Back point to back, Front point to front]
+    delay(1439 - 315 - 900);
+    for (int i = 0; i < 6; i++)
+    {
+        sugriwa.directControl(1, 45, 400);
+        sugriwa.directControl(1, 0, 400);
+    } // takes 800 ms each loop
+    
 
     // (5819) *roar* (7021) [Horizontal oscillation]
+    delay(7021 - 1439 - 800 * 6);
+    sugriwa.downFront(); // takes 700 ms
+
 
     // 015 (Subali round 1 rage)
     SoundSystem::playDialogFromACertainFolder(SoundSystem::EPISODE_NUMBER::EPISODE_1, SoundSystem::EPISODE_1_DIALOG::SUBALI_ROUND_1_RAGE);
