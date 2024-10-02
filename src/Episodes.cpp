@@ -2198,7 +2198,56 @@ void Episodes::Episode_1()
 
     // 024 (11 S-R2 Sugriwa1F)
     SoundSystem::playDialogFromACertainFolder(SoundSystem::EPISODE_NUMBER::EPISODE_1, SoundSystem::EPISODE_1_DIALOG::S_R2_SUGRIWA1F);
-    delay(3000);
+    // delay(3000);
+
+    /*Ah, my lord, */
+    delay(358);
+    sugriwa.pointToFront(); // 900
+    delay(1746 - 358 - 900);
+
+    /*how great and unlimited is your mercy towards us,*/
+    sugriwa.lower_pointToFront(); // 700
+    sugriwa.directControl(1, 110, 400); // 400
+    sugriwa.directControl(1, 90, 400); // 400
+    sugriwa.directControl(1, 110, 400); // 400
+    sugriwa.directControl(1, 90, 400); // 400
+    sugriwa.downFront(); // 700
+    delay(5217-1746-700-1600-700);
+
+    /*but we cannot return it right away. */
+    sugriwa.pointToSelf(); // 900
+    delay(7794-5217-900);
+
+    /*Let it be delayed for a while,*/
+    sugriwa.pointToBack(); // 1400
+    delay(10242-7794-1400-700);
+    sugriwa.downBack(); // 700
+
+    /*because the rainy season has come,*/
+    sugriwa.downFront(); // 700
+    sugriwa.pointToFront(); // 900
+    delay(12876-10242-700-900);
+
+    /*and the monkeys are troubled by the cold. */
+    sugriwa.lower_pointToFront(); // 700
+    sugriwa.onHipBack(); // 900
+    delay(15853-12876-700-900);
+
+    /*with the dry season*/
+    sugriwa.pointToFront(); // 900
+    delay(17262-15853-900-700);
+    sugriwa.downFront(); // 700
+
+    /*we will search for Sita and destroy the enemy.*/
+    sugriwa.pointToSelf(); // 900
+    sugriwa.pointToBack(); // 1400
+    delay(19925-17262-900-1400);
+    delay(2000);
+
+    /*return to default position*/
+    sugriwa.downBack();
+    sugriwa.downFront();
+    sugriwa.onHipBack();
 
     // 025 (Rama1Sugriwa-Rama dialogue 2_E)
     SoundSystem::playDialogFromACertainFolder(SoundSystem::EPISODE_NUMBER::EPISODE_1, SoundSystem::EPISODE_1_DIALOG::RAMA1SUGRIWA_RAMA_DIALOGUE_2_E);
