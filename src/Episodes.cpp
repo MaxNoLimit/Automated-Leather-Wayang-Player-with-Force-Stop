@@ -1604,7 +1604,139 @@ void Episodes::Episode_1()
 
     // 013 (06 S-R1 Sugriwa1F)
     SoundSystem::playDialogFromACertainFolder(SoundSystem::EPISODE_NUMBER::EPISODE_1, SoundSystem::EPISODE_1_DIALOG::S_R1_SUGRIWA1F);
-    delay(3000);
+    // delay(3000);
+
+    /*O, Raghawa!*/
+    sugriwa.middleFront(); // 1200
+    delay(1861-1200);
+
+    /*The monkey king Bali is extremely powerful. */
+    sugriwa.pointToFront(); // 900
+    delay(5146-1861-900);
+
+    /*There is no match for him in this threefold world.*/
+    sugriwa.middleFront(); // 1200
+    sugriwa.directControl(2, 80, 400); // 400
+    sugriwa.directControl(2, 60, 400); // 400
+    sugriwa.directControl(2, 80, 400); // 400
+    sugriwa.directControl(2, 60, 400); // 400
+    delay(9927-5146-1200-1600);
+
+    /*It is not out of disdain that I talk to you like this, my lord,*/
+    sugriwa.lower_pointToFront(); // 700
+    sugriwa.directControl(1, 110, 400); // 400
+    sugriwa.directControl(1, 90, 400); // 400
+    delay(12117-9927-700-800);
+    sugriwa.downFront(); // 700
+    delay(14600-12117-700);
+
+    /*but it is because of out friendship*/
+    sugriwa.pointToFront(); // 900
+    delay(16806-14600-900-700);
+    sugriwa.downFront(); // 700
+
+    /* that I wish to explain the matter.*/
+    sugriwa.pointToSelf(); // 900
+    delay(19982-16806-900-500);
+
+    /*Although Bali is famed for his power, */
+    sugriwa.pointToBack(); // 1400
+    delay(23332-19982-1400+500);
+
+    /*he will certainly be killed by your irresistible arrows.*/
+    sugriwa.pointToFront(); // 900
+    sugriwa.downBack(); // 700
+    sugriwa.onHipBack(); // 900
+    delay(27727-23332-900-700-900);
+
+    /*Well!*/
+    sugriwa.downFront(); //700
+    delay(28800-27727-700);
+
+    /*This is the story of how he obtained that extraordinary power in the world.*/
+    sugriwa.middleFront(); // 1200
+    delay(34590-28800-1200);
+
+    /*It was a boon from a compassionate monk. */
+    sugriwa.pointToBack(); //1400
+    delay(37961-34590-1400-500);
+
+    /*He became more and more powerful */
+    sugriwa.middleFront(); // 1400
+    sugriwa.downBack(); // 700
+    sugriwa.onHipBack(); // 900
+    delay(40852-37961-1400-700-900+500);
+
+    /*and finally irresistible.*/
+    sugriwa.lower_pointToFront(); // 700
+    delay(43472-40852-700);
+
+    /*He is equal to the Sun,*/
+    sugriwa.pointToFront(); // 900
+    delay(45762-43472-900);
+
+    /*whilst his opponents are Darkness. */
+    sugriwa.lower_pointToFront(); // 700
+    sugriwa.directControl(1, 110, 400); // 400
+    sugriwa.directControl(1, 90, 400); // 400
+    sugriwa.directControl(1, 110, 400); // 400
+    sugriwa.directControl(1, 90, 400); // 400
+    delay(49326-45762-700-1600-700);
+    sugriwa.downFront(); // 700
+
+    /*I am sad and afraid to see his power. */
+    sugriwa.pointToSelf(); // 900
+    delay(53635-49326-900);
+
+    /*Formerly I had no idea that he could ever be killed.*/
+    sugriwa.downBack(); // 700
+    sugriwa.middleBack(); // 1400
+    delay(58244-53635-700-1400-700);
+    sugriwa.downFront();
+
+    /*But now you, my lord, have come.*/
+    sugriwa.middleFront(); // 1200
+    sugriwa.downBack(); // 700
+    sugriwa.onHipBack(); // 900
+    delay(61669-58244-1200-700-900);
+
+    /*You are unsurpassingly powerful,*/
+    sugriwa.pointToFront(); // 900
+    sugriwa.directControl(1, 20, 400); // 400
+    sugriwa.directControl(1, 0, 400); // 400
+    sugriwa.directControl(1, 20, 400); // 400
+    sugriwa.directControl(1, 0, 400); // 400
+    delay(64601-61669-900-1600);
+
+    /*and I think,*/
+    sugriwa.lower_pointToFront(); // 700
+    delay(65888-64601-700);
+
+    /*he will be killed by you. */
+    sugriwa.pointToFront(); // 900
+    sugriwa.directControl(1, 20, 400); // 400
+    sugriwa.directControl(1, 0, 400); // 400
+    delay(68221-65888-900-800);
+
+    /*I think we should go immediately to Kiskindha, */
+    sugriwa.downFront(); // 700
+    sugriwa.pointToSelf(); // 900
+    delay(72351-68221-700-900);
+
+    /* I will challenge him */
+    sugriwa.pointToBack(); // 1400
+    delay(73660-72351-1400-700);
+    sugriwa.downBack();
+
+    /*and you will shoot him whilst we duel.*/
+    sugriwa.downFront(); // 700
+    sugriwa.pointToFront(); // 900 
+    delay(75908-73660-700-900);
+
+    /*return to default position*/
+    sugriwa.onHipBack();
+    sugriwa.downFront();
+
 
     // 014 (07 Duel1 Sugriwa1F)
     SoundSystem::playDialogFromACertainFolder(SoundSystem::EPISODE_NUMBER::EPISODE_1, SoundSystem::EPISODE_1_DIALOG::DUEL1_SUGRIWA1F);
