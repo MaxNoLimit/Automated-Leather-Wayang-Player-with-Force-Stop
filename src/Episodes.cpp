@@ -2629,7 +2629,21 @@ void Episodes::Episode_1()
 
     // 029 (13 SApol Sugriwa2F)
     SoundSystem::playDialogFromACertainFolder(SoundSystem::EPISODE_NUMBER::EPISODE_1, SoundSystem::EPISODE_1_DIALOG::SApol_Sugriwa2F);
-    delay(3000);
+    // delay(3000);
+    /* Hanuman, */
+    sugriwa.pointToBack(); // 1400
+    delay(1632-1400);
+
+    /*gather all the monkey troops and have them march to Malyawan.*/
+    sugriwa.downBack(); // 700
+    sugriwa.middleBack(); // 1200
+    delay(5239-1632-700-1200);
+    delay(2000);
+
+    /*return to default position*/
+    sugriwa.downFront();
+    sugriwa.downBack();
+    sugriwa.onHipBack();
 
     // 030 (14 SApol Hanuman1F)
     SoundSystem::playDialogFromACertainFolder(SoundSystem::EPISODE_NUMBER::EPISODE_1, SoundSystem::EPISODE_1_DIALOG::SApol_Hanuman1F);
