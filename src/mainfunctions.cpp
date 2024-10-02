@@ -13,12 +13,16 @@
 #include "characters/rahwana.hpp"
 #include "characters/hanoman.hpp"
 #include "characters/laksmana.hpp"
+#include "characters/sugriwa.hpp"
+#include "characters/subali.hpp"
 
 RamaWijaya wayangRamaWijaya;
 Sita wayangSita;
 Rahwana wayangRahwana;
 Hanoman wayangHanoman;
 Laksmana wayangLaksmana;
+Sugriwa wayangSugriwa;
+Subali wayangSubali;
 
 int lcd_2040_address;
 WayangDisplay::WayangDisplayLCD WayangDisplayLCD_in_main(0x27);
@@ -1944,45 +1948,86 @@ void CalibratingFunction::commandListHandMovementTest()
     // wayangHanoman.defaultStandPosition();
     // wayangHanoman.defaultHandPosition();
 
-    // Laksmana
-    wayangLaksmana.defaultStandPosition();
-    wayangLaksmana.defaultHandPosition();
-    wayangLaksmana.walk_to_a_certain_distance_before_calibrating_value(250);
+    // // Laksmana
+    // wayangLaksmana.defaultStandPosition();
+    // wayangLaksmana.defaultHandPosition();
+    // wayangLaksmana.walk_to_a_certain_distance_before_calibrating_value(250);
+    // delay(500);
+    // wayangLaksmana.pointToFront();
+    // delay(500);
+    // wayangLaksmana.lower_pointToFront();
+    // delay(500);
+    // wayangLaksmana.downFront(); // to make middle front possible
+    // delay(500);
+    // wayangLaksmana.middleFront();
+    // delay(500);
+    // wayangLaksmana.downFront();
+    // delay(500);
+    // wayangLaksmana.pointToBack();
+    // delay(500);
+    // wayangLaksmana.downBack();
+    // delay(500);
+    // wayangLaksmana.onHipBack();
+    // delay(500);
+    // wayangLaksmana.pointToSelf();
+    // delay(500);
+    // wayangLaksmana.downFront();
+    // delay(500);
+    // wayangLaksmana.middleFrontBack();
+    // delay(500);
+    // wayangLaksmana.lowPointToBack();
+    // delay(500);
+    // wayangLaksmana.downBack();
+    // delay(500); ///
+    // wayangLaksmana.middleBack();
+    // delay(500);
+    // wayangLaksmana.downBack();
+    // delay(500); ///
+    // wayangLaksmana.middleFrontBack();
+    // delay(500);
+    // wayangLaksmana.defaultStandPosition();
+    // wayangLaksmana.defaultHandPosition();
+
+    // Sugriwa
+    wayangSugriwa.defaultStandPosition();
+    wayangSugriwa.defaultHandPosition();
+    wayangSugriwa.walk_to_a_certain_distance_before_calibrating_value(250);
     delay(500);
-    wayangLaksmana.pointToFront();
+    wayangSugriwa.pointToFront();
     delay(500);
-    wayangLaksmana.lower_pointToFront();
+    wayangSugriwa.lower_pointToFront();
     delay(500);
-    wayangLaksmana.downFront(); // to make middle front possible
+    wayangSugriwa.downFront();
     delay(500);
-    wayangLaksmana.middleFront();
+    wayangSugriwa.middleFront();
     delay(500);
-    wayangLaksmana.downFront();
+    wayangSugriwa.downFront();
     delay(500);
-    wayangLaksmana.pointToBack();
+    wayangSugriwa.pointToBack();
     delay(500);
-    wayangLaksmana.downBack();
+    wayangSugriwa.downBack();
     delay(500);
-    wayangLaksmana.onHipBack();
+    wayangSugriwa.onHipBack();
     delay(500);
-    wayangLaksmana.pointToSelf();
+    wayangSugriwa.downBack();
     delay(500);
-    wayangLaksmana.downFront();
+    wayangSugriwa.pointToSelf();
     delay(500);
-    wayangLaksmana.middleFrontBack();
+    wayangSugriwa.downFront();
+    wayangSugriwa.middleFrontBack();
     delay(500);
-    wayangLaksmana.lowPointToBack();
+    wayangSugriwa.lowPointToBack();
     delay(500);
-    wayangLaksmana.downBack();
-    delay(500); ///
-    wayangLaksmana.middleBack();
+    wayangSugriwa.downBack();
     delay(500);
-    wayangLaksmana.downBack();
-    delay(500); ///
-    wayangLaksmana.middleFrontBack();
+    wayangSugriwa.middleBack();
     delay(500);
-    wayangLaksmana.defaultStandPosition();
-    wayangLaksmana.defaultHandPosition();
+    wayangSugriwa.downBack();
+    delay(500);
+    wayangSugriwa.middleFrontBack();
+    delay(500);
+    wayangSugriwa.defaultStandPosition();
+    wayangSugriwa.defaultHandPosition();
 
     setAllMOSFETtoHIGH();
 }
