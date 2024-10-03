@@ -2625,7 +2625,91 @@ void Episodes::Episode_1()
 
     // 028 (12 SApol Sugriwa1F)
     SoundSystem::playDialogFromACertainFolder(SoundSystem::EPISODE_NUMBER::EPISODE_1, SoundSystem::EPISODE_1_DIALOG::SApol_Sugriwa1F);
-    delay(3000);
+    // delay(3000);
+
+    /*I am a negligent slave,*/
+    delay(644);
+    sugriwa.pointToSelf(); // 900
+    sugriwa.lowPointToBack(); // 700
+    delay(2891-644-900-700);
+
+    /*indulging in luxury instead of coming to you.*/
+    sugriwa.downBack(); // 700
+    sugriwa.middleBack(); // 1400
+    delay(6527-2891-700-1400-700);
+    sugriwa.downFront(); // 700
+
+    /*Please*/
+    sugriwa.lower_pointToFront(); // 700
+    delay(7257-6527-700);
+
+    /*accept my humble apologies.*/
+    sugriwa.downFront(); // 700
+    sugriwa.pointToSelf(); // 900
+    sugriwa.downBack(); // 700
+    delay(9608-7257-700-900-700);
+
+    /*it is very bad of me*/
+    sugriwa.downFront(); // 700
+    sugriwa.lower_pointToFront(); // 700
+    delay(11902-9608-700-700);
+
+    /*I was lost in the luxury you gave me, */
+    sugriwa.downFront(); // 700
+    sugriwa.pointToSelf(); // 900
+    delay(14851-11902-700-900);
+
+    /*until I became neglectful of the agreement to come*/
+    sugriwa.middleBack(); // 1400
+    delay(18351-14851-1400);
+
+    /*when the dry season has come*/
+    sugriwa.lowPointToBack(); // 700
+    delay(20813-18351-700);
+
+    /*because I am too pre-occupied.*/
+    sugriwa.downBack(); // 700
+    sugriwa.downFront(); // 700
+    sugriwa.lower_pointToFront(); // 700
+    delay(23797-20813-700-700-700);
+
+    /*Now I will order the monkeys to depart.*/
+    sugriwa.downFront(); // 700
+    sugriwa.pointToSelf(); // 900
+    delay(26860-23797-700-900-700);
+    sugriwa.downFront(); // 700
+
+    /*Do not worry.*/
+    sugriwa.lower_pointToFront(); // 700
+    delay(28399-26860-700);
+
+    /*Order the monkeys to search*/
+    sugriwa.pointToFront(); // 900
+    delay(30253-28399-900);
+
+    /*all the mountains and forests,*/
+    sugriwa.lower_pointToFront(); // 700
+    delay(33116-30253-700-700);
+    sugriwa.downFront(); // 700
+
+    /* how impassible the forests may be, */
+    sugriwa.middleBack(); // 1400
+    delay(35907-33116-1400);
+
+    /*the search will be carried out.*/
+    sugriwa.pointToBack(); // 1400
+    delay(38705-35907-1400-700);
+    sugriwa.downBack(); // 700
+
+    /*Wherever Sita be staying,*/
+    sugriwa.middleFront(); // 1200
+    delay(40810-38705-1200);
+
+    /*she will be found*/
+    sugriwa.pointToFront(); // 900
+    delay(41948-40810-900);
+    delay(2000);
+    sugriwa.downFront(); // 700
 
     // 029 (13 SApol Sugriwa2F)
     SoundSystem::playDialogFromACertainFolder(SoundSystem::EPISODE_NUMBER::EPISODE_1, SoundSystem::EPISODE_1_DIALOG::SApol_Sugriwa2F);
@@ -2636,8 +2720,8 @@ void Episodes::Episode_1()
 
     /*gather all the monkey troops and have them march to Malyawan.*/
     sugriwa.downBack(); // 700
-    sugriwa.middleBack(); // 1200
-    delay(5239-1632-700-1200);
+    sugriwa.middleBack(); // 1400
+    delay(5239-1632-700-1400);
     delay(2000);
 
     /*return to default position*/
@@ -2692,8 +2776,8 @@ void Episodes::Episode_1()
     sugriwa.downBack(); // 700
 
     /* living in luxury, */
-    sugriwa.middleBack(); // 1200
-    delay(16891-15030-1200);
+    sugriwa.middleBack(); // 1400
+    delay(16891-15030-1400);
 
     /*as if I have attained it myself.*/
     sugriwa.downBack(); // 700
