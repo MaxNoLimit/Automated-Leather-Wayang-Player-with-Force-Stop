@@ -2662,7 +2662,101 @@ void Episodes::Episode_1()
 
     // 031 (15 SApol Sugriwa3F)
     SoundSystem::playDialogFromACertainFolder(SoundSystem::EPISODE_NUMBER::EPISODE_1, SoundSystem::EPISODE_1_DIALOG::SApol_Sugriwa3F);
-    delay(3000);
+    //delay(3000);
+    /*O, my lord, */
+    delay(594);
+    sugriwa.pointToFront(); // 900
+    delay(2161-594-900-700);
+    sugriwa.downFront();
+
+    /*please accept my humble apologies because I have not been truthful */
+    sugriwa.pointToSelf(); // 900
+    sugriwa.pointToBack(); // 1400
+    delay(7536-2161-900-1400);
+
+    /*and have lied to you.*/
+    sugriwa.downBack(); // 700
+    sugriwa.downFront(); // 700
+    sugriwa.pointToFront(); // 900
+    delay(10006-7536-700-700-900-700);
+    sugriwa.downFront(); // 700
+
+    /*I forget about my promise to come,*/
+    sugriwa.pointToSelf(); // 900
+    sugriwa.pointToBack(); // 1400
+    delay(13348-10006-900-1400);
+
+    /* and kept away,*/
+    sugriwa.lowPointToBack(); // 700
+    delay(15030-13348-700-700);
+    sugriwa.downBack(); // 700
+
+    /* living in luxury, */
+    sugriwa.middleBack(); // 1200
+    delay(16891-15030-1200);
+
+    /*as if I have attained it myself.*/
+    sugriwa.downBack(); // 700
+    sugriwa.downFront(); // 700
+    sugriwa.middleFront(); // 1200
+    delay(19904-16891-700-700-1200);
+
+    /*I have not thought about your mercy towards me.*/
+    sugriwa.downFront(); // 700
+    sugriwa.pointToSelf(); // 900
+    sugriwa.pointToBack(); // 1400
+    delay(23747-19904-700-900-1400);
+
+    /*I am stupid, */
+    sugriwa.lower_pointToBack(); // 700
+    delay(25658-23747-700);
+
+    /*I am too slothful.*/
+    sugriwa.downBack(); // 700
+    delay(27812-25658-700-700);
+    sugriwa.downFront(); // 700
+
+    /*I am really foolish not to remember friendship,*/
+    sugriwa.lower_pointToFront(); // 700
+    delay(31563-27812-700);
+
+    /*and not to realize that I have been cared for,*/
+    sugriwa.pointToFront(); // 900
+    delay(35241-31563-700-900);
+
+    /* the more so to return the favor.*/
+    sugriwa.lower_pointToFront(); // 700
+    delay(38483-35241-700-800);
+    sugriwa.downFront(); // 700
+
+    /*Therefore forgive me my lord,*/
+    sugriwa.pointToSelf(); // 900
+    sugriwa.pointToBack(); // 1400
+    delay(40702-38483-900-1400+100);
+
+    /*as I am stupid, */
+    sugriwa.lowPointToBack(); // 700
+    delay(42234-40702-700);
+
+    /*debased and dumb.*/
+    sugriwa.downBack(); // 700
+    delay(44624-42234-700-700);
+    sugriwa.downFront(); // 700
+
+    /*It is because my lord has reminded me,*/
+    sugriwa.pointToFront(); // 900
+    delay(47501-44624-700-900);
+
+    /*that you foolish slave has come now.*/
+    sugriwa.lower_pointToFront(); // 700
+    delay(50135-47501-700);
+    delay(2000);
+
+    /*lower hands (default position would be disrespectful)*/
+    sugriwa.downFront();
+    
+
+
 
     // 032 (Rama forgives sugriwa)
     SoundSystem::playDialogFromACertainFolder(SoundSystem::EPISODE_NUMBER::EPISODE_1, SoundSystem::EPISODE_1_DIALOG::RAMA_FORGIVES_SUGRIWA);
