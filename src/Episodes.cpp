@@ -1981,76 +1981,155 @@ void Episodes::Episode_1()
     subali.lower_pointToFront(); // takes 700 ms
 
     // (4757) You look peaceful, but you are very mean. (6741)
+    delay(4757 - 2460 - 700);
+    subali.pointToFront(); // takes 900 ms
 
     // (7350) May all kinds of sins befall you, (9391)
+    delay(7350 - 4757 - 900);
+    subali.downFront(); // takes 700 ms
+    subali.middleFront(); // takes 1200 ms
 
     // (9968) because you shot at one who only fights with his brother (13119)
+    delay(9968 - 7350 - 700 - 1200);
+    subali.pointToFront(); // takes 900 ms
 
     // (13517) and does nothing to you. (14597)
+    delay(13517 - 9968 - 900);
+    subali.downFront(); // takes 700 ms
 
     // (15272) O, you are wicked beyond limits. (17006)
+    delay(15272 - 13517 - 700);
+    subali.lower_pointToFront(); // takes 700 ms
 
     // (17710) You do not uphold the good name of your father. (19619)
+    delay(17710 - 15272 - 700);
+    subali.pointToFront(); // takes 900 ms
 
     // (20589) You know I have not done anything wrong. (22348)
+    delay(20589 - 17710 - 900 - 700);
+    subali.downFront(); // takes 700 ms
+    subali.pointToSelf(); // takes 900 ms
 
     // (22972) You are extremely depraved, (24108)
+    delay(22972 - 20589 - 900 - 700);
+    subali.downFront(); // takes 700 ms
+    subali.lower_pointToFront(); // takes 700 ms
 
     // (24599) your mind is corrupt. (25466)
+    delay(24599 - 22972 - 700);
+    subali.pointToFront(); // takes 900 ms
 
     // (26316) If you follow the ascetics, (27533)
+    delay(26316 - 24599 - 900);
+    subali.lower_pointToFront(); // takes 700 ms
 
     // (27776) then the main dharmma is to be a teacher (29933)
+    delay(27776 - 26316 - 700);
+    subali.pointToFront(); // takes 900 ms
 
     // (30339) for the people inferior to him, (31757)
+    delay(30339 - 27776 - 900);
+    subali.downFront(); // takes 700 ms
 
     // (32111) to be a cure for discord, (33298)
+    delay(32111 - 30339 - 700);
+    subali.middleFront(); // takes 1200 ms
 
     // (33828) a mediator for brothers in disagreement. (35929)
+    delay(33828 - 32111 - 1200);
+    subali.lower_pointToFront(); // takes 700 ms
 
     // (36386) He should best be a cure for me who has done wrong. (39440)
+    delay(36386 - 33828 - 700);
+    subali.pointToFront(); // takes 900 ms
 
     // (40302) Besides, (40823)
+    delay(40302 - 36386 - 900 - 100);
+    subali.lower_pointToFront(); // takes 700 ms
 
     // (40998) you take the wrong side. (42092)
+    delay(40998 - 40302 - 600);
+    subali.pointToFront(); // takes 900 ms
 
     // (42613) That is foolish. (43501)
+    delay(42613 - 40998 - 900);
+    subali.downFront(); // takes 700 ms
 
     // (44347) You think you have the judicious insight, (46367)
+    delay(44347 - 42613 - 700);
+    subali.middleFront(); // takes 1200 ms
 
     // (47105) but (47212)
 
     // (47584) in fact you are foolish. (48908)
+    delay(47105 - 44347 - 1200);
+    subali.pointToFront(); // takes 900 ms
 
     // (48510) You think it is good for you, (51188)
+    delay(48510 - 47105 - 900);
+    subali.downFront(); // takes 700 ms
 
     // (51654) now (51931)
 
     // (52281) that I am dead. (53311)
+    delay(51654 - 48510 - 700);
+    subali.pointToSelf(); // takes 900 ms
 
     // (54118) You are wrong, (54946)
+    delay(54118 - 51654 - 900 - 200);
+    subali.downFront(); // takes 700 ms
+    subali.lower_pointToFront(); // takes 700 ms
 
     // (55395) because your act (56082)
+    delay(55395 - 54118 - 700 - 500);
+    subali.pointToFront(); // takes 900 ms
 
     // (56638) is an act of murder. (57923)
+    delay(56638 - 55395 - 900);
+    subali.lower_pointToFront(); // takes 700 ms
 
     // (58602) And you were known formerly to be of good conduct, (60618)
-
+    delay(58602 - 56638 - 700);
+    subali.pointToFront(); // takes 900 ms
+    
     // (61455) to be a protector of the world (62783)
+    delay(61455 - 58602 - 900);
+    subali.middleBack(); // 1400
 
     // (63560) and to care for the people. (64876)
+    delay(63560 - 61455 - 1400 - 700);
+    subali.downFront(); // 700
+    subali.pointToBack(); // 1400
 
     // (65427) Your merits and cancelled out, (66926)
+    delay(65427 - 63560 - 1400);
+    subali.downBack(); // 700
+    subali.lower_pointToFront(); // 700
 
     // (67558) because of killing a monkey. (68591)
+    delay(67558 - 65427 - 700 - 700);
+    subali.pointToFront(); // 900
 
     // (69334) Are you not ashamed in front of your younger brother? (71461)
+    delay(69334 - 67558 - 900);
+    subali.downFront(); // 700
+    subali.lowPointToBack(); // 700
 
     // (72614) Even though I am in fact fighting with my brother, (74899)
+    delay(72614 - 69334 - 700 - 700);
+    subali.pointToSelf(); // 900
 
     // (75082) in the future we might come together again, (77064)
+    delay(75082 - 72614 - 900);
+    subali.downBack(); // 700
+    subali.middleBack(); // 1400
 
     // (77649) you love Sugriwa, a monkey of improper and debased nature. (80792)
+    delay(77649 - 75082 - 700 - 1400);
+    subali.downBack(); // 700
+    subali.downFront(); // 700
+    subali.pointToFront(); // 900
+    delay(2000);
 
     // 022 (Rama2Sugriwa-Rama-Subali dialogue_E)
     SoundSystem::playDialogFromACertainFolder(SoundSystem::EPISODE_NUMBER::EPISODE_1, SoundSystem::EPISODE_1_DIALOG::RAMA2SUGRIWA_RAMA_SUBALI_DIALOGUE_E);
