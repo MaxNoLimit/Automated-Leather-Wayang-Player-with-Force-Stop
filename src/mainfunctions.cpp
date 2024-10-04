@@ -124,15 +124,13 @@ void beginingAllGPIOS()
     // setAllMOSFETtoLOW();
     // Serial.print(getDistanceSensor1_v2());
     // Serial.print(" mm\n");
-    // setAllMOSFETtoHIGH();
-    beginSensor1();
-    // setAllMOSFETtoHIGH();
-    beginSensor2();
-    // setAllMOSFETtoHIGH();
-    beginSensor3();
-    beginSensor4();
-    beginSensor5();
-    beginSensor6();
+    
+    // beginSensor1();
+    // beginSensor2();
+    // beginSensor3();
+    // beginSensor4();
+    // beginSensor5();
+    // beginSensor6();
     // beginSensor7();
     // beginSensor8();
     // beginSensor9();
