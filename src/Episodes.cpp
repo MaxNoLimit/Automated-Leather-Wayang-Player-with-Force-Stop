@@ -2273,7 +2273,138 @@ void Episodes::Episode_1()
 
     // 023 (Subali tobat_E)
     SoundSystem::playDialogFromACertainFolder(SoundSystem::EPISODE_NUMBER::EPISODE_1, SoundSystem::EPISODE_1_DIALOG::SUBALI_TOBAT_E);
-    delay(3000);
+    // delay(3000);
+
+    /*(944) O, Raghawa (1806) */
+    delay(944);
+    subali.pointToFront(); // 900
+
+    /*(2237) how noble you are, (3231)  */
+    delay(2237-944-900);
+    subali.lower_pointToFront(); // 700
+
+    /*(3696) that you kill any evildoer who commits evil in the world. (7019)  */
+    delay(3696-2237-700);
+    subali.pointToFront(); // 900
+    subali.directControl(3, 160, 400); // 400
+    subali.directControl(3, 180, 400); // 400
+    subali.directControl(3, 160, 400); // 400
+    subali.directControl(3, 180, 400); // 400
+
+    /*(8037) But (8277)  
+
+    (8772) may your benevolence be without limit, (10861)  */
+    delay(8037-3696-900-1600);
+    subali.downFront(); // 700
+    subali.lowPointToBack(); // 700
+
+    /*(11784) may you save the life of my child. (13305) */
+    delay(11784-8037-700-700);
+    subali.pointToSelf(); // 900
+
+    /*(14185) As for you my brother, (15197)  */
+    delay(14185-11784-900);
+    subali.downFront(); // 700
+    subali.lower_pointToFront(); // 700
+
+    /*(16024) come near! Sugriwa, (17258) */
+    delay(16024-14185-700-700);
+    subali.pointToFront(); // 900
+
+    /*(17879) I ask leave to die. (19034)  */
+    delay(17879-16024-900);
+    subali.downFront(); // 700
+
+    /*(19799) In the future incarnations, (21099)  */
+    delay(19799-17879-700-(700));
+    subali.downBack(); // 700
+    subali.pointToFront(); // 900
+
+    /*(21567) by the grace of the gods, (22585)  */
+    delay(21567-19799-(700)-900);
+    subali.downFront(); // 700
+    subali.pointToBack(); // 1400
+
+    /*(23000) may we be brothers again. (24317) */
+    delay(23000-21567-1400);
+    subali.pointToSelf(); // 900
+
+    /*(25242) Let us in the future be of the same abode, (27529)  */
+    delay(25242-23000-900);
+    subali.downFront(); // 700
+    subali.pointToFront(); // 900
+
+    /*(28206) whether it will be a mountain of a tree with ripe fruits and plenty of honey, (32653)  */
+    delay(28206-25242-700-900);
+    subali.downBack(); // 700
+    subali.lower_pointToFront(); // 700
+
+    /*(33192) never exhausted to be enjoyed forever. (35288) */
+    delay(33192-28206-700-700);
+    subali.pointToFront(); // 900
+
+    /*(35997) My conduct was very wrong, (37168)  */
+    delay(35997-33192-900-(700));
+    subali.downFront(); // 700
+    subali.pointToSelf(); // 900
+
+    /*(38504) but the reason was not evil. (39811)  */
+    delay(38504-35997-900-(700));
+    subali.downFront(); // 700
+    subali.pointToFront(); // 900
+
+    /*(40635) It was the trick of the gods (41996) */
+    delay(40635-38504-900);
+    subali.middleBack(); // 1400
+
+    /*(42203) that we, (42691)  */
+    /*(42960) brothers are fighting each other. (44325)  */
+    delay(42203-40635-1400);
+    subali.downFront(); // 700
+    subali.pointToSelf(); // 900
+
+    /*(44960) Let it be so! (45709)  */
+    delay(44960-42203-700-900-(700));
+    subali.downFront(); // 700
+    subali.lower_pointToFront(); // 700
+
+    /*(46286) Because it is God’s will. (47695) */
+    delay(46286-44960-700);
+    subali.pointToBack(); // 1400
+
+    /*(48122) Besides (48641)  
+
+    (48826) the powerful god Acintya (50217)  */
+    delay(48122-46286-1400);
+    subali.lowPointToBack(); // 700
+
+    /*(50488) does not permit us (51463)  */
+    delay(50488-48122-700);
+    subali.downFront(); // 700
+
+    /*(51598) to live together in happiness. (52823)*/
+    delay(51598-50488-700);
+    subali.downBack(); // 700
+    subali.lower_pointToFront(); // 700
+
+    /*(53490) So I will go ahead (54707) */
+    delay(53490-51598-700-700-(100));
+    subali.downFront(); // 700
+    subali.pointToSelf(); // 900
+
+    /*(55062) to find heavenly bliss, (56509)  */
+    delay(55062-53490-700-900+100);
+    subali.downFront(); // 700
+    subali.lower_pointToFront(); // 700
+
+    /*(56757) to follow the decree of the gods. (58567) */
+    delay(56757-55062-700-700);
+    subali.pointToFront(); // 900
+    delay(58567-56757-900);
+    delay(2000);
+
+    /*lower arms*/
+    subali.downFront();
 
     // 024 (11 S-R2 Sugriwa1F)
     SoundSystem::playDialogFromACertainFolder(SoundSystem::EPISODE_NUMBER::EPISODE_1, SoundSystem::EPISODE_1_DIALOG::S_R2_SUGRIWA1F);
