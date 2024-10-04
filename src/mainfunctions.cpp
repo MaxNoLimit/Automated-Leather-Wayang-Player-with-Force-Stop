@@ -1987,9 +1987,9 @@ void CalibratingFunction::commandListHandMovementTest()
     // wayangLaksmana.defaultHandPosition();
 
     // Sugriwa
-    wayangSugriwa.defaultStandPosition();
+    // wayangSugriwa.defaultStandPosition();
     wayangSugriwa.defaultHandPosition();
-    wayangSugriwa.walk_to_a_certain_distance_before_calibrating_value(250);
+    // wayangSugriwa.walk_to_a_certain_distance_before_calibrating_value(250);
     delay(500);
     wayangSugriwa.pointToFront();
     delay(500);
@@ -2024,7 +2024,7 @@ void CalibratingFunction::commandListHandMovementTest()
     delay(500);
     wayangSugriwa.middleFrontBack();
     delay(500);
-    wayangSugriwa.defaultStandPosition();
+    // wayangSugriwa.defaultStandPosition();
     wayangSugriwa.defaultHandPosition();
 
     setAllMOSFETtoHIGH();

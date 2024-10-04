@@ -1604,7 +1604,139 @@ void Episodes::Episode_1()
 
     // 013 (06 S-R1 Sugriwa1F)
     SoundSystem::playDialogFromACertainFolder(SoundSystem::EPISODE_NUMBER::EPISODE_1, SoundSystem::EPISODE_1_DIALOG::S_R1_SUGRIWA1F);
-    delay(3000);
+    // delay(3000);
+
+    /*O, Raghawa!*/
+    sugriwa.middleFront(); // 1200
+    delay(1861-1200);
+
+    /*The monkey king Bali is extremely powerful. */
+    sugriwa.pointToFront(); // 900
+    delay(5146-1861-900);
+
+    /*There is no match for him in this threefold world.*/
+    sugriwa.middleFront(); // 1200
+    sugriwa.directControl(2, 80, 400); // 400
+    sugriwa.directControl(2, 60, 400); // 400
+    sugriwa.directControl(2, 80, 400); // 400
+    sugriwa.directControl(2, 60, 400); // 400
+    delay(9927-5146-1200-1600);
+
+    /*It is not out of disdain that I talk to you like this, my lord,*/
+    sugriwa.lower_pointToFront(); // 700
+    sugriwa.directControl(1, 110, 400); // 400
+    sugriwa.directControl(1, 90, 400); // 400
+    delay(12117-9927-700-800);
+    sugriwa.downFront(); // 700
+    delay(14600-12117-700);
+
+    /*but it is because of out friendship*/
+    sugriwa.pointToFront(); // 900
+    delay(16806-14600-900-700);
+    sugriwa.downFront(); // 700
+
+    /* that I wish to explain the matter.*/
+    sugriwa.pointToSelf(); // 900
+    delay(19982-16806-900-500);
+
+    /*Although Bali is famed for his power, */
+    sugriwa.pointToBack(); // 1400
+    delay(23332-19982-1400+500);
+
+    /*he will certainly be killed by your irresistible arrows.*/
+    sugriwa.pointToFront(); // 900
+    sugriwa.downBack(); // 700
+    sugriwa.onHipBack(); // 900
+    delay(27727-23332-900-700-900);
+
+    /*Well!*/
+    sugriwa.downFront(); //700
+    delay(28800-27727-700);
+
+    /*This is the story of how he obtained that extraordinary power in the world.*/
+    sugriwa.middleFront(); // 1200
+    delay(34590-28800-1200);
+
+    /*It was a boon from a compassionate monk. */
+    sugriwa.pointToBack(); //1400
+    delay(37961-34590-1400-500);
+
+    /*He became more and more powerful */
+    sugriwa.middleFront(); // 1400
+    sugriwa.downBack(); // 700
+    sugriwa.onHipBack(); // 900
+    delay(40852-37961-1400-700-900+500);
+
+    /*and finally irresistible.*/
+    sugriwa.lower_pointToFront(); // 700
+    delay(43472-40852-700);
+
+    /*He is equal to the Sun,*/
+    sugriwa.pointToFront(); // 900
+    delay(45762-43472-900);
+
+    /*whilst his opponents are Darkness. */
+    sugriwa.lower_pointToFront(); // 700
+    sugriwa.directControl(1, 110, 400); // 400
+    sugriwa.directControl(1, 90, 400); // 400
+    sugriwa.directControl(1, 110, 400); // 400
+    sugriwa.directControl(1, 90, 400); // 400
+    delay(49326-45762-700-1600-700);
+    sugriwa.downFront(); // 700
+
+    /*I am sad and afraid to see his power. */
+    sugriwa.pointToSelf(); // 900
+    delay(53635-49326-900);
+
+    /*Formerly I had no idea that he could ever be killed.*/
+    sugriwa.downBack(); // 700
+    sugriwa.middleBack(); // 1400
+    delay(58244-53635-700-1400-700);
+    sugriwa.downFront();
+
+    /*But now you, my lord, have come.*/
+    sugriwa.middleFront(); // 1200
+    sugriwa.downBack(); // 700
+    sugriwa.onHipBack(); // 900
+    delay(61669-58244-1200-700-900);
+
+    /*You are unsurpassingly powerful,*/
+    sugriwa.pointToFront(); // 900
+    sugriwa.directControl(1, 20, 400); // 400
+    sugriwa.directControl(1, 0, 400); // 400
+    sugriwa.directControl(1, 20, 400); // 400
+    sugriwa.directControl(1, 0, 400); // 400
+    delay(64601-61669-900-1600);
+
+    /*and I think,*/
+    sugriwa.lower_pointToFront(); // 700
+    delay(65888-64601-700);
+
+    /*he will be killed by you. */
+    sugriwa.pointToFront(); // 900
+    sugriwa.directControl(1, 20, 400); // 400
+    sugriwa.directControl(1, 0, 400); // 400
+    delay(68221-65888-900-800);
+
+    /*I think we should go immediately to Kiskindha, */
+    sugriwa.downFront(); // 700
+    sugriwa.pointToSelf(); // 900
+    delay(72351-68221-700-900);
+
+    /* I will challenge him */
+    sugriwa.pointToBack(); // 1400
+    delay(73660-72351-1400-700);
+    sugriwa.downBack();
+
+    /*and you will shoot him whilst we duel.*/
+    sugriwa.downFront(); // 700
+    sugriwa.pointToFront(); // 900 
+    delay(75908-73660-700-900);
+
+    /*return to default position*/
+    sugriwa.onHipBack();
+    sugriwa.downFront();
+
 
     // 014 (07 Duel1 Sugriwa1F)
     SoundSystem::playDialogFromACertainFolder(SoundSystem::EPISODE_NUMBER::EPISODE_1, SoundSystem::EPISODE_1_DIALOG::DUEL1_SUGRIWA1F);
@@ -1849,76 +1981,155 @@ void Episodes::Episode_1()
     subali.lower_pointToFront(); // takes 700 ms
 
     // (4757) You look peaceful, but you are very mean. (6741)
+    delay(4757 - 2460 - 700);
+    subali.pointToFront(); // takes 900 ms
 
     // (7350) May all kinds of sins befall you, (9391)
+    delay(7350 - 4757 - 900);
+    subali.downFront(); // takes 700 ms
+    subali.middleFront(); // takes 1200 ms
 
     // (9968) because you shot at one who only fights with his brother (13119)
+    delay(9968 - 7350 - 700 - 1200);
+    subali.pointToFront(); // takes 900 ms
 
     // (13517) and does nothing to you. (14597)
+    delay(13517 - 9968 - 900);
+    subali.downFront(); // takes 700 ms
 
     // (15272) O, you are wicked beyond limits. (17006)
+    delay(15272 - 13517 - 700);
+    subali.lower_pointToFront(); // takes 700 ms
 
     // (17710) You do not uphold the good name of your father. (19619)
+    delay(17710 - 15272 - 700);
+    subali.pointToFront(); // takes 900 ms
 
     // (20589) You know I have not done anything wrong. (22348)
+    delay(20589 - 17710 - 900 - 700);
+    subali.downFront(); // takes 700 ms
+    subali.pointToSelf(); // takes 900 ms
 
     // (22972) You are extremely depraved, (24108)
+    delay(22972 - 20589 - 900 - 700);
+    subali.downFront(); // takes 700 ms
+    subali.lower_pointToFront(); // takes 700 ms
 
     // (24599) your mind is corrupt. (25466)
+    delay(24599 - 22972 - 700);
+    subali.pointToFront(); // takes 900 ms
 
     // (26316) If you follow the ascetics, (27533)
+    delay(26316 - 24599 - 900);
+    subali.lower_pointToFront(); // takes 700 ms
 
     // (27776) then the main dharmma is to be a teacher (29933)
+    delay(27776 - 26316 - 700);
+    subali.pointToFront(); // takes 900 ms
 
     // (30339) for the people inferior to him, (31757)
+    delay(30339 - 27776 - 900);
+    subali.downFront(); // takes 700 ms
 
     // (32111) to be a cure for discord, (33298)
+    delay(32111 - 30339 - 700);
+    subali.middleFront(); // takes 1200 ms
 
     // (33828) a mediator for brothers in disagreement. (35929)
+    delay(33828 - 32111 - 1200);
+    subali.lower_pointToFront(); // takes 700 ms
 
     // (36386) He should best be a cure for me who has done wrong. (39440)
+    delay(36386 - 33828 - 700);
+    subali.pointToFront(); // takes 900 ms
 
     // (40302) Besides, (40823)
+    delay(40302 - 36386 - 900 - 100);
+    subali.lower_pointToFront(); // takes 700 ms
 
     // (40998) you take the wrong side. (42092)
+    delay(40998 - 40302 - 600);
+    subali.pointToFront(); // takes 900 ms
 
     // (42613) That is foolish. (43501)
+    delay(42613 - 40998 - 900);
+    subali.downFront(); // takes 700 ms
 
     // (44347) You think you have the judicious insight, (46367)
+    delay(44347 - 42613 - 700);
+    subali.middleFront(); // takes 1200 ms
 
     // (47105) but (47212)
 
     // (47584) in fact you are foolish. (48908)
+    delay(47105 - 44347 - 1200);
+    subali.pointToFront(); // takes 900 ms
 
     // (48510) You think it is good for you, (51188)
+    delay(48510 - 47105 - 900);
+    subali.downFront(); // takes 700 ms
 
     // (51654) now (51931)
 
     // (52281) that I am dead. (53311)
+    delay(51654 - 48510 - 700);
+    subali.pointToSelf(); // takes 900 ms
 
     // (54118) You are wrong, (54946)
+    delay(54118 - 51654 - 900 - 200);
+    subali.downFront(); // takes 700 ms
+    subali.lower_pointToFront(); // takes 700 ms
 
     // (55395) because your act (56082)
+    delay(55395 - 54118 - 700 - 500);
+    subali.pointToFront(); // takes 900 ms
 
     // (56638) is an act of murder. (57923)
+    delay(56638 - 55395 - 900);
+    subali.lower_pointToFront(); // takes 700 ms
 
     // (58602) And you were known formerly to be of good conduct, (60618)
-
+    delay(58602 - 56638 - 700);
+    subali.pointToFront(); // takes 900 ms
+    
     // (61455) to be a protector of the world (62783)
+    delay(61455 - 58602 - 900);
+    subali.middleBack(); // 1400
 
     // (63560) and to care for the people. (64876)
+    delay(63560 - 61455 - 1400 - 700);
+    subali.downFront(); // 700
+    subali.pointToBack(); // 1400
 
     // (65427) Your merits and cancelled out, (66926)
+    delay(65427 - 63560 - 1400);
+    subali.downBack(); // 700
+    subali.lower_pointToFront(); // 700
 
     // (67558) because of killing a monkey. (68591)
+    delay(67558 - 65427 - 700 - 700);
+    subali.pointToFront(); // 900
 
     // (69334) Are you not ashamed in front of your younger brother? (71461)
+    delay(69334 - 67558 - 900);
+    subali.downFront(); // 700
+    subali.lowPointToBack(); // 700
 
     // (72614) Even though I am in fact fighting with my brother, (74899)
+    delay(72614 - 69334 - 700 - 700);
+    subali.pointToSelf(); // 900
 
     // (75082) in the future we might come together again, (77064)
+    delay(75082 - 72614 - 900);
+    subali.downBack(); // 700
+    subali.middleBack(); // 1400
 
     // (77649) you love Sugriwa, a monkey of improper and debased nature. (80792)
+    delay(77649 - 75082 - 700 - 1400);
+    subali.downBack(); // 700
+    subali.downFront(); // 700
+    subali.pointToFront(); // 900
+    delay(2000);
 
     // 022 (Rama2Sugriwa-Rama-Subali dialogue_E)
     SoundSystem::playDialogFromACertainFolder(SoundSystem::EPISODE_NUMBER::EPISODE_1, SoundSystem::EPISODE_1_DIALOG::RAMA2SUGRIWA_RAMA_SUBALI_DIALOGUE_E);
@@ -2062,11 +2273,191 @@ void Episodes::Episode_1()
 
     // 023 (Subali tobat_E)
     SoundSystem::playDialogFromACertainFolder(SoundSystem::EPISODE_NUMBER::EPISODE_1, SoundSystem::EPISODE_1_DIALOG::SUBALI_TOBAT_E);
-    delay(3000);
+    // delay(3000);
+
+    /*(944) O, Raghawa (1806) */
+    delay(944);
+    subali.pointToFront(); // 900
+
+    /*(2237) how noble you are, (3231)  */
+    delay(2237-944-900);
+    subali.lower_pointToFront(); // 700
+
+    /*(3696) that you kill any evildoer who commits evil in the world. (7019)  */
+    delay(3696-2237-700);
+    subali.pointToFront(); // 900
+    subali.directControl(3, 160, 400); // 400
+    subali.directControl(3, 180, 400); // 400
+    subali.directControl(3, 160, 400); // 400
+    subali.directControl(3, 180, 400); // 400
+
+    /*(8037) But (8277)  
+
+    (8772) may your benevolence be without limit, (10861)  */
+    delay(8037-3696-900-1600);
+    subali.downFront(); // 700
+    subali.lowPointToBack(); // 700
+
+    /*(11784) may you save the life of my child. (13305) */
+    delay(11784-8037-700-700);
+    subali.pointToSelf(); // 900
+
+    /*(14185) As for you my brother, (15197)  */
+    delay(14185-11784-900);
+    subali.downFront(); // 700
+    subali.lower_pointToFront(); // 700
+
+    /*(16024) come near! Sugriwa, (17258) */
+    delay(16024-14185-700-700);
+    subali.pointToFront(); // 900
+
+    /*(17879) I ask leave to die. (19034)  */
+    delay(17879-16024-900);
+    subali.downFront(); // 700
+
+    /*(19799) In the future incarnations, (21099)  */
+    delay(19799-17879-700-(700));
+    subali.downBack(); // 700
+    subali.pointToFront(); // 900
+
+    /*(21567) by the grace of the gods, (22585)  */
+    delay(21567-19799-(700)-900);
+    subali.downFront(); // 700
+    subali.pointToBack(); // 1400
+
+    /*(23000) may we be brothers again. (24317) */
+    delay(23000-21567-1400);
+    subali.pointToSelf(); // 900
+
+    /*(25242) Let us in the future be of the same abode, (27529)  */
+    delay(25242-23000-900);
+    subali.downFront(); // 700
+    subali.pointToFront(); // 900
+
+    /*(28206) whether it will be a mountain of a tree with ripe fruits and plenty of honey, (32653)  */
+    delay(28206-25242-700-900);
+    subali.downBack(); // 700
+    subali.lower_pointToFront(); // 700
+
+    /*(33192) never exhausted to be enjoyed forever. (35288) */
+    delay(33192-28206-700-700);
+    subali.pointToFront(); // 900
+
+    /*(35997) My conduct was very wrong, (37168)  */
+    delay(35997-33192-900-(700));
+    subali.downFront(); // 700
+    subali.pointToSelf(); // 900
+
+    /*(38504) but the reason was not evil. (39811)  */
+    delay(38504-35997-900-(700));
+    subali.downFront(); // 700
+    subali.pointToFront(); // 900
+
+    /*(40635) It was the trick of the gods (41996) */
+    delay(40635-38504-900);
+    subali.middleBack(); // 1400
+
+    /*(42203) that we, (42691)  */
+    /*(42960) brothers are fighting each other. (44325)  */
+    delay(42203-40635-1400);
+    subali.downFront(); // 700
+    subali.pointToSelf(); // 900
+
+    /*(44960) Let it be so! (45709)  */
+    delay(44960-42203-700-900-(700));
+    subali.downFront(); // 700
+    subali.lower_pointToFront(); // 700
+
+    /*(46286) Because it is God’s will. (47695) */
+    delay(46286-44960-700);
+    subali.pointToBack(); // 1400
+
+    /*(48122) Besides (48641)  
+
+    (48826) the powerful god Acintya (50217)  */
+    delay(48122-46286-1400);
+    subali.lowPointToBack(); // 700
+
+    /*(50488) does not permit us (51463)  */
+    delay(50488-48122-700);
+    subali.downFront(); // 700
+
+    /*(51598) to live together in happiness. (52823)*/
+    delay(51598-50488-700);
+    subali.downBack(); // 700
+    subali.lower_pointToFront(); // 700
+
+    /*(53490) So I will go ahead (54707) */
+    delay(53490-51598-700-700-(100));
+    subali.downFront(); // 700
+    subali.pointToSelf(); // 900
+
+    /*(55062) to find heavenly bliss, (56509)  */
+    delay(55062-53490-700-900+100);
+    subali.downFront(); // 700
+    subali.lower_pointToFront(); // 700
+
+    /*(56757) to follow the decree of the gods. (58567) */
+    delay(56757-55062-700-700);
+    subali.pointToFront(); // 900
+    delay(58567-56757-900);
+    delay(2000);
+
+    /*lower arms*/
+    subali.downFront();
 
     // 024 (11 S-R2 Sugriwa1F)
     SoundSystem::playDialogFromACertainFolder(SoundSystem::EPISODE_NUMBER::EPISODE_1, SoundSystem::EPISODE_1_DIALOG::S_R2_SUGRIWA1F);
-    delay(3000);
+    // delay(3000);
+
+    /*Ah, my lord, */
+    delay(358);
+    sugriwa.pointToFront(); // 900
+    delay(1746 - 358 - 900);
+
+    /*how great and unlimited is your mercy towards us,*/
+    sugriwa.lower_pointToFront(); // 700
+    sugriwa.directControl(1, 110, 400); // 400
+    sugriwa.directControl(1, 90, 400); // 400
+    sugriwa.directControl(1, 110, 400); // 400
+    sugriwa.directControl(1, 90, 400); // 400
+    sugriwa.downFront(); // 700
+    delay(5217-1746-700-1600-700);
+
+    /*but we cannot return it right away. */
+    sugriwa.pointToSelf(); // 900
+    delay(7794-5217-900);
+
+    /*Let it be delayed for a while,*/
+    sugriwa.pointToBack(); // 1400
+    delay(10242-7794-1400-700);
+    sugriwa.downBack(); // 700
+
+    /*because the rainy season has come,*/
+    sugriwa.downFront(); // 700
+    sugriwa.pointToFront(); // 900
+    delay(12876-10242-700-900);
+
+    /*and the monkeys are troubled by the cold. */
+    sugriwa.lower_pointToFront(); // 700
+    sugriwa.onHipBack(); // 900
+    delay(15853-12876-700-900);
+
+    /*with the dry season*/
+    sugriwa.pointToFront(); // 900
+    delay(17262-15853-900-700);
+    sugriwa.downFront(); // 700
+
+    /*we will search for Sita and destroy the enemy.*/
+    sugriwa.pointToSelf(); // 900
+    sugriwa.pointToBack(); // 1400
+    delay(19925-17262-900-1400);
+    delay(2000);
+
+    /*return to default position*/
+    sugriwa.downBack();
+    sugriwa.downFront();
+    sugriwa.onHipBack();
 
     // 025 (Rama1Sugriwa-Rama dialogue 2_E)
     SoundSystem::playDialogFromACertainFolder(SoundSystem::EPISODE_NUMBER::EPISODE_1, SoundSystem::EPISODE_1_DIALOG::RAMA1SUGRIWA_RAMA_DIALOGUE_2_E);
@@ -2444,11 +2835,109 @@ void Episodes::Episode_1()
 
     // 028 (12 SApol Sugriwa1F)
     SoundSystem::playDialogFromACertainFolder(SoundSystem::EPISODE_NUMBER::EPISODE_1, SoundSystem::EPISODE_1_DIALOG::SApol_Sugriwa1F);
-    delay(3000);
+    // delay(3000);
+
+    /*I am a negligent slave,*/
+    delay(644);
+    sugriwa.pointToSelf(); // 900
+    sugriwa.lowPointToBack(); // 700
+    delay(2891-644-900-700);
+
+    /*indulging in luxury instead of coming to you.*/
+    sugriwa.downBack(); // 700
+    sugriwa.middleBack(); // 1400
+    delay(6527-2891-700-1400-700);
+    sugriwa.downFront(); // 700
+
+    /*Please*/
+    sugriwa.lower_pointToFront(); // 700
+    delay(7257-6527-700);
+
+    /*accept my humble apologies.*/
+    sugriwa.downFront(); // 700
+    sugriwa.pointToSelf(); // 900
+    sugriwa.downBack(); // 700
+    delay(9608-7257-700-900-700);
+
+    /*it is very bad of me*/
+    sugriwa.downFront(); // 700
+    sugriwa.lower_pointToFront(); // 700
+    delay(11902-9608-700-700);
+
+    /*I was lost in the luxury you gave me, */
+    sugriwa.downFront(); // 700
+    sugriwa.pointToSelf(); // 900
+    delay(14851-11902-700-900);
+
+    /*until I became neglectful of the agreement to come*/
+    sugriwa.middleBack(); // 1400
+    delay(18351-14851-1400);
+
+    /*when the dry season has come*/
+    sugriwa.lowPointToBack(); // 700
+    delay(20813-18351-700);
+
+    /*because I am too pre-occupied.*/
+    sugriwa.downBack(); // 700
+    sugriwa.downFront(); // 700
+    sugriwa.lower_pointToFront(); // 700
+    delay(23797-20813-700-700-700);
+
+    /*Now I will order the monkeys to depart.*/
+    sugriwa.downFront(); // 700
+    sugriwa.pointToSelf(); // 900
+    delay(26860-23797-700-900-700);
+    sugriwa.downFront(); // 700
+
+    /*Do not worry.*/
+    sugriwa.lower_pointToFront(); // 700
+    delay(28399-26860-700);
+
+    /*Order the monkeys to search*/
+    sugriwa.pointToFront(); // 900
+    delay(30253-28399-900);
+
+    /*all the mountains and forests,*/
+    sugriwa.lower_pointToFront(); // 700
+    delay(33116-30253-700-700);
+    sugriwa.downFront(); // 700
+
+    /* how impassible the forests may be, */
+    sugriwa.middleBack(); // 1400
+    delay(35907-33116-1400);
+
+    /*the search will be carried out.*/
+    sugriwa.pointToBack(); // 1400
+    delay(38705-35907-1400-700);
+    sugriwa.downBack(); // 700
+
+    /*Wherever Sita be staying,*/
+    sugriwa.middleFront(); // 1200
+    delay(40810-38705-1200);
+
+    /*she will be found*/
+    sugriwa.pointToFront(); // 900
+    delay(41948-40810-900);
+    delay(2000);
+    sugriwa.downFront(); // 700
 
     // 029 (13 SApol Sugriwa2F)
     SoundSystem::playDialogFromACertainFolder(SoundSystem::EPISODE_NUMBER::EPISODE_1, SoundSystem::EPISODE_1_DIALOG::SApol_Sugriwa2F);
-    delay(3000);
+    // delay(3000);
+    /* Hanuman, */
+    sugriwa.pointToBack(); // 1400
+    delay(1632-1400);
+
+    /*gather all the monkey troops and have them march to Malyawan.*/
+    sugriwa.downBack(); // 700
+    sugriwa.middleBack(); // 1400
+    delay(5239-1632-700-1400);
+    delay(2000);
+
+    /*return to default position*/
+    sugriwa.downFront();
+    sugriwa.downBack();
+    sugriwa.onHipBack();
 
     // 030 (14 SApol Hanuman1F)
     SoundSystem::playDialogFromACertainFolder(SoundSystem::EPISODE_NUMBER::EPISODE_1, SoundSystem::EPISODE_1_DIALOG::SApol_Hanuman1F);
@@ -2467,7 +2956,101 @@ void Episodes::Episode_1()
 
     // 031 (15 SApol Sugriwa3F)
     SoundSystem::playDialogFromACertainFolder(SoundSystem::EPISODE_NUMBER::EPISODE_1, SoundSystem::EPISODE_1_DIALOG::SApol_Sugriwa3F);
-    delay(3000);
+    //delay(3000);
+    /*O, my lord, */
+    delay(594);
+    sugriwa.pointToFront(); // 900
+    delay(2161-594-900-700);
+    sugriwa.downFront();
+
+    /*please accept my humble apologies because I have not been truthful */
+    sugriwa.pointToSelf(); // 900
+    sugriwa.pointToBack(); // 1400
+    delay(7536-2161-900-1400);
+
+    /*and have lied to you.*/
+    sugriwa.downBack(); // 700
+    sugriwa.downFront(); // 700
+    sugriwa.pointToFront(); // 900
+    delay(10006-7536-700-700-900-700);
+    sugriwa.downFront(); // 700
+
+    /*I forget about my promise to come,*/
+    sugriwa.pointToSelf(); // 900
+    sugriwa.pointToBack(); // 1400
+    delay(13348-10006-900-1400);
+
+    /* and kept away,*/
+    sugriwa.lowPointToBack(); // 700
+    delay(15030-13348-700-700);
+    sugriwa.downBack(); // 700
+
+    /* living in luxury, */
+    sugriwa.middleBack(); // 1400
+    delay(16891-15030-1400);
+
+    /*as if I have attained it myself.*/
+    sugriwa.downBack(); // 700
+    sugriwa.downFront(); // 700
+    sugriwa.middleFront(); // 1200
+    delay(19904-16891-700-700-1200);
+
+    /*I have not thought about your mercy towards me.*/
+    sugriwa.downFront(); // 700
+    sugriwa.pointToSelf(); // 900
+    sugriwa.pointToBack(); // 1400
+    delay(23747-19904-700-900-1400);
+
+    /*I am stupid, */
+    sugriwa.lowPointToBack(); // 700
+    delay(25658-23747-700);
+
+    /*I am too slothful.*/
+    sugriwa.downBack(); // 700
+    delay(27812-25658-700-700);
+    sugriwa.downFront(); // 700
+
+    /*I am really foolish not to remember friendship,*/
+    sugriwa.lower_pointToFront(); // 700
+    delay(31563-27812-700);
+
+    /*and not to realize that I have been cared for,*/
+    sugriwa.pointToFront(); // 900
+    delay(35241-31563-700-900);
+
+    /* the more so to return the favor.*/
+    sugriwa.lower_pointToFront(); // 700
+    delay(38483-35241-700-800);
+    sugriwa.downFront(); // 700
+
+    /*Therefore forgive me my lord,*/
+    sugriwa.pointToSelf(); // 900
+    sugriwa.pointToBack(); // 1400
+    delay(40702-38483-900-1400+100);
+
+    /*as I am stupid, */
+    sugriwa.lowPointToBack(); // 700
+    delay(42234-40702-700);
+
+    /*debased and dumb.*/
+    sugriwa.downBack(); // 700
+    delay(44624-42234-700-700);
+    sugriwa.downFront(); // 700
+
+    /*It is because my lord has reminded me,*/
+    sugriwa.pointToFront(); // 900
+    delay(47501-44624-700-900);
+
+    /*that you foolish slave has come now.*/
+    sugriwa.lower_pointToFront(); // 700
+    delay(50135-47501-700);
+    delay(2000);
+
+    /*lower hands (default position would be disrespectful)*/
+    sugriwa.downFront();
+    
+
+
 
     // 032 (Rama forgives sugriwa)
     SoundSystem::playDialogFromACertainFolder(SoundSystem::EPISODE_NUMBER::EPISODE_1, SoundSystem::EPISODE_1_DIALOG::RAMA_FORGIVES_SUGRIWA);
