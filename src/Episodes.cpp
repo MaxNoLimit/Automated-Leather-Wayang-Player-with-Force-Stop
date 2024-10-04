@@ -2792,7 +2792,7 @@ void Episodes::Episode_1()
     delay(23747-19904-700-900-1400);
 
     /*I am stupid, */
-    sugriwa.lower_pointToBack(); // 700
+    sugriwa.lowPointToBack(); // 700
     delay(25658-23747-700);
 
     /*I am too slothful.*/
