@@ -32,10 +32,7 @@ void Subali::leave_from_scene(int distanceValue)
 
 void Subali::walk_to_a_certain_distance(int desiredDistance)
 {
-    if (!getSensorStatus(7))
-    {
-        beginSensor7();
-    }
+
 
     int readValue = getDistanceSensor7();
     if (readValue > 1000)

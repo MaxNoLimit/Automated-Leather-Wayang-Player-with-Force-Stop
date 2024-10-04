@@ -152,10 +152,7 @@ void Sita::right_lower_half_hand()
 
 void Sita::walk_to_a_certain_distance(int desiredDistance)
 {
-    if (!getSensorStatus(1))
-    {
-        beginSensor1();
-    }
+
     // desiredDistance = desiredDistance + (float)desiredDistance * 0.093;
     // Serial.println("\ndesiredDistance: ");
     // Serial.print(desiredDistance);

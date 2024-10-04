@@ -31,10 +31,6 @@ void Hanoman::leave_from_scene(int distanceValue)
 
 void Hanoman::walk_to_a_certain_distance(int desiredDistance)
 {
-    if (!getSensorStatus(4))
-    {
-        beginSensor4();
-    }
 
     int readValue = getDistanceSensor4();
     if (readValue > 1000)

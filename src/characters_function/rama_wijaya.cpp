@@ -129,10 +129,7 @@ void RamaWijaya::left_pointToSelf()
 
 void RamaWijaya::walk_to_a_certain_distance(int desiredDistance)
 {
-    if (!getSensorStatus(3))
-    {
-        beginSensor3();
-    }
+
     // desiredDistance = desiredDistance + (float)desiredDistance * 0.093;
     // Serial.println("\ndesiredDistance: ");
     // Serial.print(desiredDistance);

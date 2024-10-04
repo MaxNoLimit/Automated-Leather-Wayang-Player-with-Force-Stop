@@ -30,10 +30,7 @@ void Laksmana::leave_from_scene(int distanceValue)
 
 void Laksmana::walk_to_a_certain_distance(int desiredDistance)
 {
-    if (!getSensorStatus(5))
-    {
-        beginSensor5();
-    }
+
 
     int readValue = getDistanceSensor5();
     if (readValue > 1000)

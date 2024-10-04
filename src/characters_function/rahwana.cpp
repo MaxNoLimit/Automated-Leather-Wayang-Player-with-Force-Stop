@@ -12,10 +12,7 @@ void Rahwana::defaultStandPosition()
 
 void Rahwana::walk_to_a_certain_distance(int desiredDistance)
 {
-    if (!getSensorStatus(2))
-    {
-        beginSensor2();
-    }
+
 
     int readValue = getDistanceSensor2();
     if (readValue > 1000)

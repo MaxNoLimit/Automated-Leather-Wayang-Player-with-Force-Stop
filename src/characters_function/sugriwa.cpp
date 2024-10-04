@@ -37,10 +37,7 @@ void Sugriwa::walk_to_scene(int distanceValue)
 
 void Sugriwa::walk_to_a_certain_distance(int desiredDistance)
 {
-    if (!getSensorStatus(6))
-    {
-        beginSensor6();
-    }
+
 
     int readValue = getDistanceSensor6();
     if (readValue > 1000)
@@ -93,7 +90,7 @@ void Sugriwa::walk_to_a_certain_distance(int desiredDistance)
 
 void Sugriwa::walk_to_a_certain_distance_before_calibrating_value(int desiredDistance)
 {
-    int desiredDistanceAfterCalibratingValue = desiredDistance + (float)desiredDistance * 0.155 + 25;
+    int desiredDistanceAfterCalibratingValue = desiredDistance + (float)desiredDistance * 0.155 + 63;
     Serial.println("\ndesiredDistance: ");
     Serial.print(desiredDistanceAfterCalibratingValue);
     Serial.println("mm \n");
@@ -149,23 +146,23 @@ void Sugriwa::downBack()
 {
     digitalWrite(WAYANG_HAND_6, HIGH);
     Servo_Sugriwa.moveWhatServo(3, 20, 500);
-    Servo_Sugriwa.moveWhatServo(4, 70, 200);
+    Servo_Sugriwa.moveWhatServo(4, 85, 200);
     digitalWrite(WAYANG_HAND_6, LOW);
 }
 
 void Sugriwa::onHipBack()
 {
     digitalWrite(WAYANG_HAND_6, HIGH);
-    Servo_Sugriwa.moveWhatServo(4, 50, 200);
+    // Servo_Sugriwa.moveWhatServo(4, 70, 200);
     Servo_Sugriwa.moveWhatServo(3, 100, 500);
-    Servo_Sugriwa.moveWhatServo(4, 80, 200);
+    Servo_Sugriwa.moveWhatServo(4, 110, 200);
     digitalWrite(WAYANG_HAND_6, LOW);
 }
 
 void Sugriwa::pointToSelf()
 {
     digitalWrite(WAYANG_HAND_6, HIGH);
-    Servo_Sugriwa.moveWhatServo(2, 120, 200);
+    Servo_Sugriwa.moveWhatServo(2, 135, 200);
     Servo_Sugriwa.moveWhatServo(1, 30, 500);
     Servo_Sugriwa.moveWhatServo(2, 100, 200);
     digitalWrite(WAYANG_HAND_6, LOW);
