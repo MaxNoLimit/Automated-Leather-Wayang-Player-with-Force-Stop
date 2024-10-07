@@ -1,42 +1,32 @@
 #ifndef DISTANCE_SENSOR_VL53L0X_HPP
 #define DISTANCE_SENSOR_VL53L0X_HPP
 
-#define REQUEST_DATA_SENSOR_1 0x31
-#define REQUEST_DATA_SENSOR_2 0x32
-#define REQUEST_DATA_SENSOR_3 0x33
-#define REQUEST_DATA_SENSOR_4 0x34
-#define REQUEST_DATA_SENSOR_5 0x35
-#define REQUEST_DATA_SENSOR_6 0x36
-#define REQUEST_DATA_SENSOR_7 0x37
-#define REQUEST_DATA_SENSOR_8 0x38
-#define REQUEST_DATA_SENSOR_9 0x39
-#define REQUEST_DATA_SENSOR_10 0x40
 
-// #define SENSOR_ADDRESS_1 0x30
-// #define SENSOR_ADDRESS_2 0x31
-// #define SENSOR_ADDRESS_3 0x32
-// #define SENSOR_ADDRESS_4 0x33
-// #define SENSOR_ADDRESS_5 0x34
-// #define SENSOR_ADDRESS_6 0x35
-// #define SENSOR_ADDRESS_7 0x36
-// #define SENSOR_ADDRESS_8 0x37
-// #define SENSOR_ADDRESS_9 0x38
-// #define SENSOR_ADDRESS_10 0x39
+#define SENSOR_ADDRESS_1 0x30
+#define SENSOR_ADDRESS_2 0x31
+#define SENSOR_ADDRESS_3 0x32
+#define SENSOR_ADDRESS_4 0x33
+#define SENSOR_ADDRESS_5 0x34
+#define SENSOR_ADDRESS_6 0x35
+#define SENSOR_ADDRESS_7 0x36
+#define SENSOR_ADDRESS_8 0x37
+#define SENSOR_ADDRESS_9 0x38
+#define SENSOR_ADDRESS_10 0x39
 
-// #include <VL53L0X.h>
-// #include <Wire.h>
+#include <VL53L0X.h>
+#include <Wire.h>
 
 
-// void beginSensor1();
-// void beginSensor2();
-// void beginSensor3();
-// void beginSensor4();
-// void beginSensor5();
-// void beginSensor6();
-// void beginSensor7();
-// void beginSensor8();
-// void beginSensor9();
-// void beginSensor10();
+void beginSensor1();
+void beginSensor2();
+void beginSensor3();
+void beginSensor4();
+void beginSensor5();
+void beginSensor6();
+void beginSensor7();
+void beginSensor8();
+void beginSensor9();
+void beginSensor10();
 
 int getDistanceSensor1();
 int getDistanceSensor2();
