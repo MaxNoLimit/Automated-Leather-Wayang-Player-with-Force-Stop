@@ -131,10 +131,10 @@ void beginingAllGPIOS()
     beginSensor4();
     beginSensor5();
     beginSensor6();
-    // beginSensor7();
-    // beginSensor8();
-    // beginSensor9();
-    // beginSensor10();
+    beginSensor7();
+    beginSensor8();
+    beginSensor9();
+    beginSensor10();
     // beginAllSensors();
     // setAllMOSFETtoLOW();
     // setAllXSHUTtoHIGH();
@@ -1696,6 +1696,10 @@ void CalibratingFunction::vSlotLinear()
     wayangHanoman.walk_to_a_certain_distance_before_calibrating_value(155);
     Serial.println("\nSensor 5\n");
     wayangLaksmana.walk_to_a_certain_distance_before_calibrating_value(155);
+    Serial.println("\nSensor 6\n");
+    wayangSugriwa.walk_to_a_certain_distance_before_calibrating_value(155);
+    Serial.println("\nSensor 7\n");
+    wayangSubali.walk_to_a_certain_distance_before_calibrating_value(155);
 
     Serial.println("\nSensor 1\n");
     wayangSita.defaultStandPosition();
@@ -1707,6 +1711,10 @@ void CalibratingFunction::vSlotLinear()
     wayangHanoman.defaultStandPosition();
     Serial.println("\nSensor 5\n");
     wayangLaksmana.defaultStandPosition();
+    Serial.println("\nSensor 6\n");
+    wayangSugriwa.defaultStandPosition();
+    Serial.println("\nSensor 7\n");
+    wayangSubali.defaultStandPosition();
 
     SoundSystem::playDialogFromACertainFolder(SoundSystem::INDICATOR_SOUND, SoundSystem::INDICATOR_SOUND_NUMBER::INDICATOR_VSLOT_CALIBRATION);
     delay(3500);

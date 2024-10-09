@@ -58,9 +58,9 @@
 #define XSHUT_5 58
 #define XSHUT_6 59
 #define XSHUT_7 60
-// #define XSHUT_8 61
-// #define XSHUT_9 62
-// #define XSHUT_10 63
+#define XSHUT_8 61
+#define XSHUT_9 62
+#define XSHUT_10 63
 
 
 

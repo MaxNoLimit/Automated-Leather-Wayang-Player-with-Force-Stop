@@ -204,7 +204,7 @@ void WayangDisplay::WayangDisplayLCD::SensorStatusDisplay5()
     lcdWayang.setCursor(0, 2);
     lcdWayang.print("Sensor 6 " + String(getDistanceSensor6()));
     lcdWayang.setCursor(0, 3);
-    lcdWayang.print("Sensor 7 " + String(getSensorStatus(7)));
+    lcdWayang.print("Sensor 7 " + String(getDistanceSensor7()));
     lcdWayang.setCursor(18, get_selection_point());
     lcdWayang.print("<<");
 }
@@ -216,9 +216,9 @@ void WayangDisplay::WayangDisplayLCD::SensorStatusDisplay6()
     lcdWayang.setCursor(0, 1);
     lcdWayang.print("Sensor 6 " + String(getDistanceSensor6()));
     lcdWayang.setCursor(0, 2);
-    lcdWayang.print("Sensor 7 " + String(getSensorStatus(7)));
+    lcdWayang.print("Sensor 7 " + String(getDistanceSensor7()));
     lcdWayang.setCursor(0, 3);
-    lcdWayang.print("Sensor 8 " + String(getSensorStatus(8)));
+    lcdWayang.print("Sensor 8 " + String(getDistanceSensor8()));
     lcdWayang.setCursor(18, get_selection_point());
     lcdWayang.print("<<");
 }
@@ -228,11 +228,11 @@ void WayangDisplay::WayangDisplayLCD::SensorStatusDisplay7()
     lcdWayang.setCursor(0, 0);
     lcdWayang.print("Sensor 6 " + String(getDistanceSensor6()));
     lcdWayang.setCursor(0, 1);
-    lcdWayang.print("Sensor 7 " + String(getSensorStatus(7)));
+    lcdWayang.print("Sensor 7 " + String(getDistanceSensor7()));
     lcdWayang.setCursor(0, 2);
-    lcdWayang.print("Sensor 8 " + String(getSensorStatus(8)));
+    lcdWayang.print("Sensor 8 " + String(getDistanceSensor8()));
     lcdWayang.setCursor(0, 3);
-    lcdWayang.print("Sensor 9 " + String(getSensorStatus(9)));
+    lcdWayang.print("Sensor 9 " + String(getDistanceSensor9()));
     lcdWayang.setCursor(18, get_selection_point());
     lcdWayang.print("<<");
 }
@@ -240,13 +240,13 @@ void WayangDisplay::WayangDisplayLCD::SensorStatusDisplay7()
 void WayangDisplay::WayangDisplayLCD::SensorStatusDisplay8()
 {
     lcdWayang.setCursor(0, 0);
-    lcdWayang.print("Sensor 7 " + String(getSensorStatus(7)));
+    lcdWayang.print("Sensor 7 " + String(getDistanceSensor7()));
     lcdWayang.setCursor(0, 1);
-    lcdWayang.print("Sensor 8 " + String(getSensorStatus(8)));
+    lcdWayang.print("Sensor 8 " + String(getDistanceSensor8()));
     lcdWayang.setCursor(0, 2);
-    lcdWayang.print("Sensor 9 " + String(getSensorStatus(9)));
+    lcdWayang.print("Sensor 9 " + String(getDistanceSensor9()));
     lcdWayang.setCursor(0, 3);
-    lcdWayang.print("Sensor 10 " + String(getSensorStatus(10)));
+    lcdWayang.print("Sensor 10 " + String(getDistanceSensor10()));
     lcdWayang.setCursor(18, get_selection_point());
     lcdWayang.print("<<");
 }

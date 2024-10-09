@@ -246,6 +246,102 @@ void beginSensor7()
     }
 }
 
+void beginSensor8(){
+    Serial.println(F("\nBegining sensor 8"));
+    // Wire.begin();
+    digitalWrite(XSHUT_8, HIGH);
+    delay(100);
+    distanceSensor[7].setAddress(SENSOR_ADDRESS_8);
+    distanceSensor[7].setTimeout(500);
+    if (!distanceSensor[7].init())
+    {
+        Serial.println("Failed to boot VL53L0X Sensor 8");
+        sensorsStatus[7] = false;
+        digitalWrite(XSHUT_8, LOW);
+        // beginSensor3();
+    }
+    else
+    {
+        Serial.println("VL53L0X Sensor 8 booted");
+        sensorsStatus[7] = true;
+
+        distanceSensor[7].setSignalRateLimit(0.1);                                 // 0.1 MCPS
+        distanceSensor[7].setVcselPulsePeriod(VL53L0X::VcselPeriodPreRange, 14);   // laser pulse periods 18 PCLKs
+        distanceSensor[7].setVcselPulsePeriod(VL53L0X::VcselPeriodFinalRange, 10); // Laser pulse periods 14 PCLKs
+        distanceSensor[7].setMeasurementTimingBudget(200000);                      // HIGH ACCURACY timming budget 200 ms, HIGH SPEED 20 ms
+
+        // distanceSensor[7].startContinuous(200);
+        Serial.println("Sensor 8 distance: ");
+        Serial.print(getDistanceSensor8());
+        Serial.println(" mm\n");
+        // digitalWrite(XSHUT_3, LOW);
+    }
+}
+
+void beginSensor9(){
+    Serial.println(F("\nBegining sensor 9"));
+    // Wire.begin();
+    digitalWrite(XSHUT_9, HIGH);
+    delay(100);
+    distanceSensor[8].setAddress(SENSOR_ADDRESS_9);
+    distanceSensor[8].setTimeout(500);
+    if (!distanceSensor[8].init())
+    {
+        Serial.println("Failed to boot VL53L0X Sensor 9");
+        sensorsStatus[8] = false;
+        digitalWrite(XSHUT_9, LOW);
+        // beginSensor3();
+    }
+    else
+    {
+        Serial.println("VL53L0X Sensor 9 booted");
+        sensorsStatus[8] = true;
+
+        distanceSensor[8].setSignalRateLimit(0.1);                                 // 0.1 MCPS
+        distanceSensor[8].setVcselPulsePeriod(VL53L0X::VcselPeriodPreRange, 14);   // laser pulse periods 18 PCLKs
+        distanceSensor[8].setVcselPulsePeriod(VL53L0X::VcselPeriodFinalRange, 10); // Laser pulse periods 14 PCLKs
+        distanceSensor[8].setMeasurementTimingBudget(200000);                      // HIGH ACCURACY timming budget 200 ms, HIGH SPEED 20 ms
+
+        // distanceSensor[8].startContinuous(200);
+        Serial.println("Sensor 9 distance: ");
+        Serial.print(getDistanceSensor9());
+        Serial.println(" mm\n");
+        // digitalWrite(XSHUT_3, LOW);
+    }
+}
+
+void beginSensor10(){
+    Serial.println(F("\nBegining sensor 10"));
+    // Wire.begin();
+    digitalWrite(XSHUT_10, HIGH);
+    delay(100);
+    distanceSensor[9].setAddress(SENSOR_ADDRESS_10);
+    distanceSensor[9].setTimeout(500);
+    if (!distanceSensor[9].init())
+    {
+        Serial.println("Failed to boot VL53L0X Sensor 10");
+        sensorsStatus[9] = false;
+        digitalWrite(XSHUT_10, LOW);
+        // beginSensor3();
+    }
+    else
+    {
+        Serial.println("VL53L0X Sensor 10 booted");
+        sensorsStatus[9] = true;
+
+        distanceSensor[9].setSignalRateLimit(0.1);                                 // 0.1 MCPS
+        distanceSensor[9].setVcselPulsePeriod(VL53L0X::VcselPeriodPreRange, 14);   // laser pulse periods 18 PCLKs
+        distanceSensor[9].setVcselPulsePeriod(VL53L0X::VcselPeriodFinalRange, 10); // Laser pulse periods 14 PCLKs
+        distanceSensor[9].setMeasurementTimingBudget(200000);                      // HIGH ACCURACY timming budget 200 ms, HIGH SPEED 20 ms
+
+        // distanceSensor[9].startContinuous(200);
+        Serial.println("Sensor 10 distance: ");
+        Serial.print(getDistanceSensor10());
+        Serial.println(" mm\n");
+        // digitalWrite(XSHUT_3, LOW);
+    }
+}
+
 int getDistanceSensor1()
 {
     // digitalWrite(XSHUT_1, HIGH);
@@ -381,6 +477,67 @@ int getDistanceSensor7()
         return -1;
     }
 }
+
+int getDistanceSensor8()
+{
+    // digitalWrite(XSHUT_3, HIGH);
+    delay(200);
+    if (!distanceSensor[7].timeoutOccurred())
+    {
+        int data = distanceSensor[7].readRangeSingleMillimeters();
+        // int data = distanceSensor[4].readRangeContinuousMillimeters();
+        // distanceSensor[2].stopContinuous();
+        // digitalWrite(XSHUT_3, LOW);
+        return data;
+    }
+    else
+    {
+        Serial.println("Sensor 8 out of range!");
+        // digitalWrite(XSHUT_3, LOW);
+        return -1;
+    }
+}
+
+int getDistanceSensor9()
+{
+    // digitalWrite(XSHUT_3, HIGH);
+    delay(200);
+    if (!distanceSensor[8].timeoutOccurred())
+    {
+        int data = distanceSensor[8].readRangeSingleMillimeters();
+        // int data = distanceSensor[4].readRangeContinuousMillimeters();
+        // distanceSensor[2].stopContinuous();
+        // digitalWrite(XSHUT_3, LOW);
+        return data;
+    }
+    else
+    {
+        Serial.println("Sensor 9 out of range!");
+        // digitalWrite(XSHUT_3, LOW);
+        return -1;
+    }
+}
+
+int getDistanceSensor10()
+{
+    // digitalWrite(XSHUT_3, HIGH);
+    delay(200);
+    if (!distanceSensor[9].timeoutOccurred())
+    {
+        int data = distanceSensor[9].readRangeSingleMillimeters();
+        // int data = distanceSensor[4].readRangeContinuousMillimeters();
+        // distanceSensor[2].stopContinuous();
+        // digitalWrite(XSHUT_3, LOW);
+        return data;
+    }
+    else
+    {
+        Serial.println("Sensor 10 out of range!");
+        // digitalWrite(XSHUT_3, LOW);
+        return -1;
+    }
+}
+
 
 bool getSensorStatus(int num)
 {

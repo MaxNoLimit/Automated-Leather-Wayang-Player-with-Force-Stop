@@ -87,7 +87,7 @@ void Subali::walk_to_a_certain_distance(int desiredDistance)
 
 void Subali::walk_to_a_certain_distance_before_calibrating_value(int desiredDistance)
 {
-    int desiredDistanceAfterCalibratingValue = desiredDistance + (float)desiredDistance * 0.155 + 25;
+    int desiredDistanceAfterCalibratingValue = desiredDistance + (float)desiredDistance * 0.155 + 60;
     Serial.println("\ndesiredDistance: ");
     Serial.print(desiredDistanceAfterCalibratingValue);
     Serial.println("mm \n");
