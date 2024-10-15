@@ -10,12 +10,12 @@ void Subali::defaultHandPosition()
     digitalWrite(WAYANG_HAND_7, HIGH);
     // Servo_Subali.moveWhatServo(4, 100, 500);
     // Servo_Subali.moveWhatServo(2, 140, 500);
-    Servo_Subali.defaultPosition();
+    // Servo_Subali.defaultPosition();
     // Servo_Subali.moveWhatServo(4, 110, 200);
     downFront();
     downBack();
     onHipBack();
-    Servo_Subali.resetArray();
+    // Servo_Subali.resetArray();
 
     digitalWrite(WAYANG_HAND_7, LOW);
 }
@@ -102,10 +102,10 @@ void Subali::walk_to_scene(int distanceValue)
 void Subali::pointToFront()
 {
     digitalWrite(WAYANG_HAND_7, HIGH);
-    Servo_Subali.moveWhatServo(3, 30, 200);
-    Servo_Subali.moveWhatServo(4, 120, 200);
-    Servo_Subali.moveWhatServo(3, 180, 300);
-    Servo_Subali.moveWhatServo(4, 140, 200);
+    // Servo_Subali.moveWhatServo(3, 30, 200);
+    Servo_Subali.moveWhatServo(4, 100, 200); // 200 ms
+    Servo_Subali.moveWhatServo(3, 170, 500); // 500 ms
+    Servo_Subali.moveWhatServo(4, 120, 200); // 200 ms
     digitalWrite(WAYANG_HAND_7, LOW);
 }
 
@@ -129,7 +129,7 @@ void Subali::middleFront()
 void Subali::downFront()
 {
     digitalWrite(WAYANG_HAND_7, HIGH);
-    Servo_Subali.moveWhatServo(3, 0, 500);
+    Servo_Subali.moveWhatServo(3, 45, 500);
     Servo_Subali.moveWhatServo(4, 95, 200);
     digitalWrite(WAYANG_HAND_7, LOW);
 }
@@ -155,9 +155,9 @@ void Subali::downBack()
 void Subali::onHipBack()
 {
     digitalWrite(WAYANG_HAND_7, HIGH);
-    Servo_Subali.moveWhatServo(2, 130, 200);
-    Servo_Subali.moveWhatServo(1, 80, 500);
-    Servo_Subali.moveWhatServo(2, 100, 200);
+    Servo_Subali.moveWhatServo(2, 110, 200);
+    Servo_Subali.moveWhatServo(1, 100, 500);
+    Servo_Subali.moveWhatServo(2, 85, 200);
     digitalWrite(WAYANG_HAND_7, LOW);
 }
 

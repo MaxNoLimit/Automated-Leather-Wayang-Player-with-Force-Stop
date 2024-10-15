@@ -929,8 +929,9 @@ void Episodes::Episode_1()
     laksmana.defaultStandPosition();
     sita.defaultStandPosition();
 
-    // sita.walk_to_a_certain_distance_before_calibrating_value(200);
-    // rahwana.walk_to_a_certain_distance_before_calibrating_value(200);
+    delay(1000);
+    sita.walk_to_a_certain_distance_before_calibrating_value(200);
+    rahwana.walk_to_a_certain_distance_before_calibrating_value(200);
 
     // 005 (005SitaRahwanadialogueRahwana1)
     SoundSystem::playDialogFromACertainFolder(SoundSystem::EPISODE_NUMBER::EPISODE_1, SoundSystem::EPISODE_1_DIALOG::SITA_RAHWANA_DIALOGUE_RAHWANA_1);
@@ -1196,8 +1197,18 @@ void Episodes::Episode_1()
     delay(2000);
 
     /*insert kidnapping sequence below*/
+    SoundSystem::playMusicWayang();
+    rahwana.pointToFront();
+    rahwana.walk_to_a_certain_distance_before_calibrating_value(300);
+    delay(1000);
+
+    sita.defaultStandPosition();
+    rahwana.defaultStandPosition();
 
     // 008 (03 L-R1 laksmana1F)
+    rama_wijaya.walk_to_a_certain_distance_before_calibrating_value(200);
+    laksmana.walk_to_a_certain_distance_before_calibrating_value(200);
+
     SoundSystem::playDialogFromACertainFolder(SoundSystem::EPISODE_NUMBER::EPISODE_1, SoundSystem::EPISODE_1_DIALOG::L_R1_LAKS1F);
     // delay(3000);
     delay(329);
@@ -1260,6 +1271,14 @@ void Episodes::Episode_1()
 
     rama_wijaya.downFront();                     // takes 700 ms
     delay(5074 - 1139 - 1200 - 700 - 900 - 700); // result = 438
+
+    SoundSystem::playMusicWayang();
+    rama_wijaya.defaultStandPosition();
+    laksmana.defaultStandPosition();
+    
+    delay(1000);
+    rama_wijaya.walk_to_a_certain_distance_before_calibrating_value(200);
+    hanoman.walk_to_a_certain_distance_before_calibrating_value(200);
 
     // 010 (04 H-R1 Hanuman1F)
     SoundSystem::playDialogFromACertainFolder(SoundSystem::EPISODE_NUMBER::EPISODE_1, SoundSystem::EPISODE_1_DIALOG::H_R1_HANUMAN1F);
@@ -1602,6 +1621,14 @@ void Episodes::Episode_1()
     hanoman.downBack();
     hanoman.onHipBack();
 
+    SoundSystem::playMusicWayang(); 
+    rama_wijaya.defaultStandPosition();
+    hanoman.defaultStandPosition();
+
+    delay(1000);
+    sugriwa.walk_to_a_certain_distance_before_calibrating_value(400);
+    rama_wijaya.walk_to_a_certain_distance_before_calibrating_value(200);
+
     // 013 (06 S-R1 Sugriwa1F)
     SoundSystem::playDialogFromACertainFolder(SoundSystem::EPISODE_NUMBER::EPISODE_1, SoundSystem::EPISODE_1_DIALOG::S_R1_SUGRIWA1F);
     // delay(3000);
@@ -1737,6 +1764,14 @@ void Episodes::Episode_1()
     sugriwa.onHipBack();
     sugriwa.downFront();
 
+    SoundSystem::playMusicWayang();
+    sugriwa.defaultStandPosition();
+    rama_wijaya.defaultStandPosition();
+
+    delay(1000);
+    sugriwa.walk_to_a_certain_distance_before_calibrating_value(260);
+    rama_wijaya.walk_to_a_certain_distance_before_calibrating_value(160);
+
 
     // 014 (07 Duel1 Sugriwa1F)
     SoundSystem::playDialogFromACertainFolder(SoundSystem::EPISODE_NUMBER::EPISODE_1, SoundSystem::EPISODE_1_DIALOG::DUEL1_SUGRIWA1F);
@@ -1759,6 +1794,9 @@ void Episodes::Episode_1()
     // (5819) *roar* (7021) [Horizontal oscillation]
     delay(7021 - 1439 - 800 * 6);
     sugriwa.downFront(); // takes 700 ms
+
+    SoundSystem::playMusicWayang();
+    subali.walk_to_a_certain_distance_before_calibrating_value(200);
 
     // 015 (Subali round 1 rage)
     SoundSystem::playDialogFromACertainFolder(SoundSystem::EPISODE_NUMBER::EPISODE_1, SoundSystem::EPISODE_1_DIALOG::SUBALI_ROUND_1_RAGE);
@@ -1793,6 +1831,15 @@ void Episodes::Episode_1()
 
     delay(2412 - 1653 - 700);
     sugriwa.downFront(); // takes 700 ms
+
+    SoundSystem::playMusicWayang();
+    sugriwa.defaultStandPosition();
+    rama_wijaya.defaultStandPosition();
+    subali.defaultStandPosition();
+
+    delay(1000);
+    sugriwa.walk_to_a_certain_distance_before_calibrating_value(350);
+    rama_wijaya.walk_to_a_certain_distance_before_calibrating_value(200);
 
     // 017 (09 DuAft1 Sugriwa1F)
     SoundSystem::playDialogFromACertainFolder(SoundSystem::EPISODE_NUMBER::EPISODE_1, SoundSystem::EPISODE_1_DIALOG::DUAFT1_SUGRIWA1F);
@@ -1912,6 +1959,10 @@ void Episodes::Episode_1()
     rama_wijaya.downBack();  // takes 700 ms
     rama_wijaya.onHipBack(); // takes 900 ms
 
+    SoundSystem::playMusicWayang();
+    sugriwa.walk_to_a_certain_distance_before_calibrating_value(260);
+    rama_wijaya.walk_to_a_certain_distance_before_calibrating_value(160);
+
     // 019 (10 Duel2 Sugriwa1F)
     SoundSystem::playDialogFromACertainFolder(SoundSystem::EPISODE_NUMBER::EPISODE_1, SoundSystem::EPISODE_1_DIALOG::DUEL2_SUGRIWA1F);
     // delay(3000);
@@ -1942,6 +1993,9 @@ void Episodes::Episode_1()
     sugriwa.downFront(); // takes 700 ms
 
     // 020 (Subali round 2 rage)
+    SoundSystem::playMusicWayang();
+    subali.walk_to_a_certain_distance_before_calibrating_value(200);
+
     SoundSystem::playDialogFromACertainFolder(SoundSystem::EPISODE_NUMBER::EPISODE_1, SoundSystem::EPISODE_1_DIALOG::SUBALI_ROUND_2_RAGE);
     // delay(3000);
 
@@ -2406,6 +2460,15 @@ void Episodes::Episode_1()
     /*lower arms*/
     subali.downFront();
 
+    SoundSystem::playMusicWayang();
+    rama_wijaya.defaultStandPosition();
+    sugriwa.defaultStandPosition();
+    subali.defaultStandPosition();
+
+    delay(1000);
+    sugriwa.walk_to_a_certain_distance_before_calibrating_value(350);
+    rama_wijaya.walk_to_a_certain_distance_before_calibrating_value(200);
+
     // 024 (11 S-R2 Sugriwa1F)
     SoundSystem::playDialogFromACertainFolder(SoundSystem::EPISODE_NUMBER::EPISODE_1, SoundSystem::EPISODE_1_DIALOG::S_R2_SUGRIWA1F);
     // delay(3000);
@@ -2477,6 +2540,13 @@ void Episodes::Episode_1()
 
     delay(6128 - 4700 - 1200);
     rama_wijaya.downFront(); // takes 700 ms
+
+    SoundSystem::playMusicWayang();
+    rama_wijaya.defaultStandPosition();
+    sugriwa.defaultStandPosition();
+
+    delay(1000);
+    rama_wijaya.walk_to_a_certain_distance_before_calibrating_value(200);
 
     // 026 (Rama Sadboi_E)
     SoundSystem::playDialogFromACertainFolder(SoundSystem::EPISODE_NUMBER::EPISODE_1, SoundSystem::EPISODE_1_DIALOG::RAMA_SADBOI_E);
@@ -2677,6 +2747,9 @@ void Episodes::Episode_1()
     delay(96438 - 93430 - 700 - 1200);
     rama_wijaya.downFront(); // takes 700 ms
 
+    SoundSystem::playMusicWayang();
+    laksmana.walk_to_a_certain_distance_before_calibrating_value(200);
+
     // 027 (Rama telling laksmana to bacot sugriwa_E)
     SoundSystem::playDialogFromACertainFolder(SoundSystem::EPISODE_NUMBER::EPISODE_1, SoundSystem::EPISODE_1_DIALOG::RAMA_TELLING_LAKSMANA_BACOT_SUGRIWA_E);
     // delay(3000);
@@ -2833,6 +2906,14 @@ void Episodes::Episode_1()
     rama_wijaya.downFront(); // takes 700 ms
     rama_wijaya.onHipBack(); // takes 900 ms
 
+    SoundSystem::playMusicWayang();
+    laksmana.defaultStandPosition();
+    rama_wijaya.defaultStandPosition();
+
+    delay(1000);
+    sugriwa.walk_to_a_certain_distance_before_calibrating_value(350);
+    rama_wijaya.walk_to_a_certain_distance_before_calibrating_value(200);
+
     // 028 (12 SApol Sugriwa1F)
     SoundSystem::playDialogFromACertainFolder(SoundSystem::EPISODE_NUMBER::EPISODE_1, SoundSystem::EPISODE_1_DIALOG::SApol_Sugriwa1F);
     // delay(3000);
@@ -2928,6 +3009,10 @@ void Episodes::Episode_1()
     sugriwa.pointToBack(); // 1400
     delay(1632-1400);
 
+    SoundSystem::pauseMusicWayang();
+    hanoman.walk_to_a_certain_distance_before_calibrating_value(160);
+    SoundSystem::continuePlaying();
+
     /*gather all the monkey troops and have them march to Malyawan.*/
     sugriwa.downBack(); // 700
     sugriwa.middleBack(); // 1400
@@ -2953,6 +3038,9 @@ void Episodes::Episode_1()
     hanoman.directControl(4, 80, 400);
     hanoman.directControl(3, 150, 400);
     hanoman.downFront();
+
+    SoundSystem::playMusicWayang();
+    hanoman.defaultStandPosition();
 
     // 031 (15 SApol Sugriwa3F)
     SoundSystem::playDialogFromACertainFolder(SoundSystem::EPISODE_NUMBER::EPISODE_1, SoundSystem::EPISODE_1_DIALOG::SApol_Sugriwa3F);
@@ -3082,6 +3170,10 @@ void Episodes::Episode_1()
 
     delay(9353 - 7550 - 1200);
     rama_wijaya.downFront(); // takes 700 ms
+
+    SoundSystem::playMusicWayang();
+    rama_wijaya.defaultStandPosition();
+    sugriwa.defaultStandPosition();
 
     setAllMOSFETtoHIGH();
     SoundSystem::playDialogFromACertainFolder(SoundSystem::INDICATOR_SOUND, SoundSystem::INDICATOR_SOUND_NUMBER::INDICATOR_FINISHED_SHOWING);

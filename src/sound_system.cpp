@@ -192,5 +192,5 @@ void SoundSystem::playMusicWayang()
 void SoundSystem::pauseMusicWayang()
 {
     sound_system.pause();
-    sound_system.volume(20); // 14 best idk why, less fart :v
+    sound_system.volume(15); // 14 best idk why, less fart :v
 }
