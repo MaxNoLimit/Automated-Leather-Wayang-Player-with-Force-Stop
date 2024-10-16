@@ -39,7 +39,6 @@ void Sugriwa::walk_to_scene(int distanceValue)
 void Sugriwa::walk_to_a_certain_distance(int desiredDistance)
 {
 
-
     int readValue = getDistanceSensor6();
     if (readValue > 1000)
     {
@@ -119,8 +118,8 @@ void Sugriwa::lower_pointToFront()
 void Sugriwa::middleFront()
 {
     digitalWrite(WAYANG_HAND_6, HIGH);
-    Servo_Sugriwa.moveWhatServo(1, 150, 500);
-    Servo_Sugriwa.moveWhatServo(2, 65, 200);
+    Servo_Sugriwa.moveWhatServo(1, 135, 500);
+    Servo_Sugriwa.moveWhatServo(2, 80, 200);
     Servo_Sugriwa.moveWhatServo(1, 45, 500);
     digitalWrite(WAYANG_HAND_6, LOW);
 }
@@ -128,7 +127,7 @@ void Sugriwa::middleFront()
 void Sugriwa::downFront()
 {
     digitalWrite(WAYANG_HAND_6, HIGH);
-    Servo_Sugriwa.moveWhatServo(1, 180, 500);
+    Servo_Sugriwa.moveWhatServo(1, 150, 500);
     Servo_Sugriwa.moveWhatServo(2, 70, 200);
     digitalWrite(WAYANG_HAND_6, LOW);
 }
@@ -146,8 +145,8 @@ void Sugriwa::pointToBack()
 void Sugriwa::downBack()
 {
     digitalWrite(WAYANG_HAND_6, HIGH);
-    Servo_Sugriwa.moveWhatServo(3, 90, 500);
-    Servo_Sugriwa.moveWhatServo(4, 40, 200);
+    Servo_Sugriwa.moveWhatServo(3, 60, 500);
+    Servo_Sugriwa.moveWhatServo(4, 80, 200);
     digitalWrite(WAYANG_HAND_6, LOW);
 }
 
@@ -160,19 +159,21 @@ void Sugriwa::onHipBack()
     digitalWrite(WAYANG_HAND_6, LOW);
 }
 
-void Sugriwa::mathentengA(){
+void Sugriwa::mathentengA()
+{
     downBack();
     onHipBack();
     downFront();
 }
 
-void Sugriwa::mathentengC(){
+void Sugriwa::mathentengC()
+{
     downBack();
     downFront();
     digitalWrite(WAYANG_HAND_6, HIGH);
     // Servo_Sugriwa.moveWhatServo(4, 105, 200);
     Servo_Sugriwa.moveWhatServo(3, 180, 500);
-    Servo_Sugriwa.moveWhatServo(4, 105, 200);
+    Servo_Sugriwa.moveWhatServo(4, 110, 200);
     Servo_Sugriwa.moveWhatServo(2, 60, 200);
     digitalWrite(WAYANG_HAND_6, LOW);
 }
@@ -180,9 +181,10 @@ void Sugriwa::mathentengC(){
 void Sugriwa::pointToSelf()
 {
     digitalWrite(WAYANG_HAND_6, HIGH);
-    Servo_Sugriwa.moveWhatServo(2, 115, 200);
-    Servo_Sugriwa.moveWhatServo(1, 30, 500);
-    Servo_Sugriwa.moveWhatServo(2, 90, 200);
+    // Servo_Sugriwa.moveWhatServo(1, 135, 500);
+    Servo_Sugriwa.moveWhatServo(2, 120, 200);
+    Servo_Sugriwa.moveWhatServo(1, 20, 500);
+    Servo_Sugriwa.moveWhatServo(2, 100, 200);
     digitalWrite(WAYANG_HAND_6, LOW);
 }
 
@@ -197,8 +199,8 @@ void Sugriwa::middleFrontBack()
 void Sugriwa::lowPointToBack()
 {
     digitalWrite(WAYANG_HAND_6, HIGH);
-    Servo_Sugriwa.moveWhatServo(3, 70, 500);
-    Servo_Sugriwa.moveWhatServo(4, 120, 200);
+    Servo_Sugriwa.moveWhatServo(3, 135, 500);
+    Servo_Sugriwa.moveWhatServo(4, 125, 200);
     // Servo_Sugriwa.moveWhatServo(1, 45, 2000);
     // Servo_Sugriwa.moveWhatServo(2, 40, 500);
     digitalWrite(WAYANG_HAND_6, LOW);
@@ -210,7 +212,7 @@ void Sugriwa::middleBack()
     Servo_Sugriwa.moveWhatServo(3, 90, 500);
     Servo_Sugriwa.moveWhatServo(4, 110, 200);
     Servo_Sugriwa.moveWhatServo(3, 180, 500);
-    Servo_Sugriwa.moveWhatServo(4, 90, 200);
+    Servo_Sugriwa.moveWhatServo(4, 115, 200);
     // Servo_Sugriwa.moveWhatServo(2, 40, 500);
     digitalWrite(WAYANG_HAND_6, LOW);
 }
@@ -221,4 +223,3 @@ void Sugriwa::directControl(int num, int angle, int duration)
     Servo_Sugriwa.moveWhatServo(num, angle, duration);
     digitalWrite(WAYANG_HAND_6, LOW);
 }
-

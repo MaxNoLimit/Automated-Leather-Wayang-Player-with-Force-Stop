@@ -317,6 +317,7 @@ void WayangDisplay::generalLoop()
         break;
 
     case StateManagement::FSA_STATE::SENSOR_CHECK:
+        WayangDisplayLCD_in_main.setSensorValueData();
         pageRoute = StateManagement::PAGE_ROUTE::SENSOR_STATUS_PAGE;
         subPageRouteSensorStatus = StateManagement::SENSOR_STATUS_PAGE_ROUTE::SENSOR_123;
         WayangDisplayLCD_in_main.set_selection_point(1);
@@ -1996,7 +1997,7 @@ void CalibratingFunction::commandListHandMovementTest()
 
     // Sugriwa
     //
-    wayangSugriwa.defaultStandPosition();
+    // wayangSugriwa.defaultStandPosition();
     wayangSugriwa.mathentengA();
     wayangSugriwa.mathentengC();
     wayangSugriwa.walk_to_a_certain_distance_before_calibrating_value(250);
@@ -2013,27 +2014,32 @@ void CalibratingFunction::commandListHandMovementTest()
     wayangSugriwa.downFront();
     delay(500);
 
-    // wayangSugriwa.pointToBack();
-    // delay(500);
-    // wayangSugriwa.downBack();
-    // delay(500);
+    wayangSugriwa.downBack();
+    wayangSugriwa.pointToBack();
+    delay(500);
+    wayangSugriwa.downBack();
+    delay(500);
     // wayangSugriwa.onHipBack();
     // delay(500);
     // wayangSugriwa.downBack();
     // delay(500);
+
+    wayangSugriwa.mathentengA();
     //
-    // wayangSugriwa.pointToSelf();
-    // delay(500);
+    wayangSugriwa.downFront();
+    wayangSugriwa.pointToSelf();
+    delay(500);
 
     // wayangSugriwa.downFront();
-    // wayangSugriwa.middleFrontBack();
+    // wayangSugriwa.middleFrontBack(); // ignore this
     // delay(500);
-    // wayangSugriwa.lowPointToBack();
-    // delay(500);
-    // wayangSugriwa.downBack();
-    // delay(500);
-    // wayangSugriwa.middleBack();
-    // delay(500);
+    wayangSugriwa.downBack();
+    wayangSugriwa.lowPointToBack();
+    delay(500);
+    wayangSugriwa.downBack();
+    delay(500);
+    wayangSugriwa.middleBack();
+    delay(500);
     // wayangSugriwa.downBack();
     // delay(500);
     // wayangSugriwa.middleFrontBack();
