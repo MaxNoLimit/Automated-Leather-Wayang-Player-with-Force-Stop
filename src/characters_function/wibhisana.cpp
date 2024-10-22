@@ -1,0 +1,228 @@
+#include "characters/wibhisana.hpp"
+#include "a4988_nema.hpp"
+#include "distanceSensorVL53L0X.hpp"
+
+WayangHandServo Servo_Wibhisana(whatSideServo::LEFT);
+HorizontalController HC_wibhisana;
+
+void Wibhisana::defaultHandPosition()
+{
+    // digitalWrite(WAYANG_HAND_8, HIGH);
+    // // Servo_Wibhisana.moveWhatServo(4, 100, 500);
+    // // Servo_Wibhisana.moveWhatServo(2, 140, 500);
+    // // Servo_Wibhisana.defaultPosition();
+    // // Servo_Wibhisana.moveWhatServo(4, 110, 200);
+    // downFront();
+    // downBack();
+    // onHipBack();
+    // directControl(2, 70, 200);
+    // Servo_Wibhisana.resetArray();
+
+    // digitalWrite(WAYANG_HAND_8, LOW);
+    mathentengA();
+}
+
+void Wibhisana::defaultStandPosition()
+{
+    walk_to_a_certain_distance_before_calibrating_value(0);
+}
+
+void Wibhisana::leave_from_scene(int distanceValue)
+{
+    HC_wibhisana.step_for_n_dir(6, distanceValue, "cw");
+}
+
+void Wibhisana::walk_to_scene(int distanceValue)
+{
+    HC_wibhisana.step_for_n_dir(6, distanceValue, "ccw");
+}
+
+void Wibhisana::walk_to_a_certain_distance(int desiredDistance)
+{
+
+    int readValue = getDistanceSensor6();
+    if (readValue > 1000)
+    {
+        readValue = 800;
+    }
+
+    Serial.println("readValue 1: ");
+    Serial.print(readValue);
+    Serial.println("mm \n");
+    float difference = readValue - desiredDistance;
+    Serial.print(difference);
+    Serial.println("mm \n");
+    if (difference > 0)
+    {
+        // difference = difference + 10;
+        float result = difference / 0.3;
+        int result_int = (int)result + 1;
+        Serial.print(result_int);
+        Serial.println(" steps\n");
+        leave_from_scene(result_int);
+        Serial.println("readValue 2: ");
+        int finalReadValue = getDistanceSensor6();
+        Serial.print(finalReadValue);
+        Serial.println("mm \n");
+        if (finalReadValue > desiredDistance * 1.1)
+        {
+            walk_to_a_certain_distance(desiredDistance);
+        }
+    }
+    else if (difference < 0)
+    {
+        // difference = difference - 10;
+        float result = difference / 0.3;
+        int result_int = (int)result - 1;
+        Serial.print(result_int);
+        Serial.println(" steps\n");
+        result_int = abs(result_int);
+        walk_to_scene(result_int);
+        Serial.println("readValue 2: ");
+        int finalReadValue = getDistanceSensor6();
+        Serial.print(finalReadValue);
+        Serial.println("mm \n");
+        if (finalReadValue < desiredDistance * 0.9)
+        {
+            walk_to_a_certain_distance(desiredDistance);
+        }
+    }
+}
+
+void Wibhisana::walk_to_a_certain_distance_before_calibrating_value(int desiredDistance)
+{
+    int desiredDistanceAfterCalibratingValue = desiredDistance + (float)desiredDistance * 0.155 + 63;
+    Serial.println("\ndesiredDistance: ");
+    Serial.print(desiredDistanceAfterCalibratingValue);
+    Serial.println("mm \n");
+    walk_to_a_certain_distance(desiredDistanceAfterCalibratingValue);
+}
+
+void Wibhisana::pointToFront()
+{
+    digitalWrite(WAYANG_HAND_8, HIGH);
+    // Servo_Wibhisana.moveWhatServo(1, 150, 200);
+    Servo_Wibhisana.moveWhatServo(2, 75, 200);
+    Servo_Wibhisana.moveWhatServo(1, 0, 500);
+    Servo_Wibhisana.moveWhatServo(2, 35, 200);
+    digitalWrite(WAYANG_HAND_8, LOW);
+}
+
+void Wibhisana::lower_pointToFront()
+{
+    digitalWrite(WAYANG_HAND_8, HIGH);
+    Servo_Wibhisana.moveWhatServo(1, 90, 500);
+    Servo_Wibhisana.moveWhatServo(2, 40, 200);
+    digitalWrite(WAYANG_HAND_8, LOW);
+}
+
+void Wibhisana::middleFront()
+{
+    digitalWrite(WAYANG_HAND_8, HIGH);
+    Servo_Wibhisana.moveWhatServo(1, 135, 500);
+    Servo_Wibhisana.moveWhatServo(2, 80, 200);
+    Servo_Wibhisana.moveWhatServo(1, 45, 500);
+    digitalWrite(WAYANG_HAND_8, LOW);
+}
+
+void Wibhisana::downFront()
+{
+    digitalWrite(WAYANG_HAND_8, HIGH);
+    Servo_Wibhisana.moveWhatServo(1, 150, 500);
+    Servo_Wibhisana.moveWhatServo(2, 70, 200);
+    digitalWrite(WAYANG_HAND_8, LOW);
+}
+
+void Wibhisana::pointToBack()
+{
+    digitalWrite(WAYANG_HAND_8, HIGH);
+    Servo_Wibhisana.moveWhatServo(3, 90, 500);
+    Servo_Wibhisana.moveWhatServo(4, 120, 200);
+    Servo_Wibhisana.moveWhatServo(3, 180, 500);
+    Servo_Wibhisana.moveWhatServo(4, 140, 200);
+    digitalWrite(WAYANG_HAND_8, LOW);
+}
+
+void Wibhisana::downBack()
+{
+    digitalWrite(WAYANG_HAND_8, HIGH);
+    Servo_Wibhisana.moveWhatServo(3, 60, 500);
+    Servo_Wibhisana.moveWhatServo(4, 80, 200);
+    digitalWrite(WAYANG_HAND_8, LOW);
+}
+
+void Wibhisana::onHipBack()
+{
+    digitalWrite(WAYANG_HAND_8, HIGH);
+    // Servo_Wibhisana.moveWhatServo(4, 80, 200);
+    Servo_Wibhisana.moveWhatServo(3, 160, 500);
+    Servo_Wibhisana.moveWhatServo(4, 95, 200);
+    digitalWrite(WAYANG_HAND_8, LOW);
+}
+
+void Wibhisana::mathentengA()
+{
+    Servo_Wibhisana.resetArray();
+    downBack();
+    onHipBack();
+    downFront();
+}
+
+void Wibhisana::mathentengC()
+{
+    Servo_Wibhisana.resetArray();
+    downBack();
+    downFront();
+    digitalWrite(WAYANG_HAND_8, HIGH);
+    // Servo_Wibhisana.moveWhatServo(4, 105, 200);
+    Servo_Wibhisana.moveWhatServo(3, 180, 500);
+    Servo_Wibhisana.moveWhatServo(4, 110, 200);
+    Servo_Wibhisana.moveWhatServo(2, 60, 200);
+    digitalWrite(WAYANG_HAND_8, LOW);
+}
+
+void Wibhisana::pointToSelf()
+{
+    digitalWrite(WAYANG_HAND_8, HIGH);
+    // Servo_Wibhisana.moveWhatServo(1, 135, 500);
+    Servo_Wibhisana.moveWhatServo(2, 120, 200);
+    Servo_Wibhisana.moveWhatServo(1, 20, 500);
+    Servo_Wibhisana.moveWhatServo(2, 100, 200);
+    digitalWrite(WAYANG_HAND_8, LOW);
+}
+
+void Wibhisana::middleFrontBack()
+{
+    digitalWrite(WAYANG_HAND_8, HIGH);
+    Servo_Wibhisana.moveWhatServo(3, 90, 500);
+    Servo_Wibhisana.moveWhatServo(4, 60, 200);
+    digitalWrite(WAYANG_HAND_8, LOW);
+}
+
+void Wibhisana::lowPointToBack()
+{
+    digitalWrite(WAYANG_HAND_8, HIGH);
+    Servo_Wibhisana.moveWhatServo(3, 135, 500);
+    Servo_Wibhisana.moveWhatServo(4, 125, 200);
+    // Servo_Wibhisana.moveWhatServo(1, 45, 2000);
+    // Servo_Wibhisana.moveWhatServo(2, 40, 500);
+    digitalWrite(WAYANG_HAND_8, LOW);
+}
+
+void Wibhisana::middleBack()
+{
+    digitalWrite(WAYANG_HAND_8, HIGH);
+    Servo_Wibhisana.moveWhatServo(3, 90, 500);
+    Servo_Wibhisana.moveWhatServo(4, 110, 200);
+    Servo_Wibhisana.moveWhatServo(3, 180, 500);
+    Servo_Wibhisana.moveWhatServo(4, 115, 200);
+    // Servo_Wibhisana.moveWhatServo(2, 40, 500);
+    digitalWrite(WAYANG_HAND_8, LOW);
+}
+
+void Wibhisana::directControl(int num, int angle, int duration)
+{
+    digitalWrite(WAYANG_HAND_8, HIGH);
+    Servo_Wibhisana.moveWhatServo(num, angle, duration);
+    digitalWrite(WAYANG_HAND_8, LOW);
+}
