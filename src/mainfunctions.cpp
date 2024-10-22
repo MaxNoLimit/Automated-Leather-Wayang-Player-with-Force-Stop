@@ -115,6 +115,9 @@ void beginingAllGPIOS()
     pinMode(XSHUT_5, OUTPUT);
     pinMode(XSHUT_6, OUTPUT);
     pinMode(XSHUT_7, OUTPUT);
+    pinMode(XSHUT_8, OUTPUT);
+    pinMode(XSHUT_9, OUTPUT);
+    pinMode(XSHUT_10, OUTPUT);
 
     Wire.begin();
     Wire.setClock(400000);
@@ -422,6 +425,7 @@ void WayangDisplayController::pressRotaryEncoder()
 
             case 2:
                 // Play Episode 2
+                loop_state = StateManagement::FSA_STATE::PLAY_EPISODE_2;
                 // do nothing
                 break;
 

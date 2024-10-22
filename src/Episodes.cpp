@@ -1629,6 +1629,20 @@ void Episodes::Episode_1()
     rama_wijaya.defaultStandPosition();
     hanoman.defaultStandPosition();
 
+
+    setAllMOSFETtoHIGH();
+    SoundSystem::playDialogFromACertainFolder(SoundSystem::INDICATOR_SOUND, SoundSystem::INDICATOR_SOUND_NUMBER::INDICATOR_FINISHED_SHOWING);
+    delay(2000);
+}
+
+void Episodes::Episode_2()
+{
+    CalibratingFunction::wayangHand();
+
+    setAllMOSFETtoLOW();
+
+    SoundSystem::playMusicWayang();
+    
     delay(1000);
     sugriwa.walk_to_a_certain_distance_before_calibrating_value(250);
     rama_wijaya.walk_to_a_certain_distance_before_calibrating_value(135);
@@ -1752,17 +1766,17 @@ void Episodes::Episode_1()
     /*I think we should go immediately to Kiskindha, */
     sugriwa.downFront();   // 700
     sugriwa.pointToSelf(); // 900
-    delay(72351 - 68221 - 700 - 900 - 700);
+    delay(72351 - 68221 - 700 - 900 - (700));
 
     /* I will challenge him */
     sugriwa.pointToBack(); // 1400
-    delay(73660 - 72351 - 1400);
+    delay(73660 - 72351 - 700 - (600));
     sugriwa.downBack();
 
     /*and you will shoot him whilst we duel.*/
     sugriwa.downFront();    // 700
     sugriwa.pointToFront(); // 900
-    delay(75908 - 73660 - 700 - 900);
+    delay(75908 - 73660 - 700 - 900 - (100));
 
     /*return to default position*/
     sugriwa.onHipBack();
@@ -2511,7 +2525,7 @@ void Episodes::Episode_1()
 
     /*with the dry season*/
     sugriwa.pointToFront(); // 900
-    delay(17262 - 15853 - 900 - 700);
+    delay(17262 - 15853 - 900 - (500)); //slightly faster to avoid delay -
     sugriwa.downFront(); // 700
 
     /*we will search for Sita and destroy the enemy.*/
@@ -3051,25 +3065,25 @@ void Episodes::Episode_1()
     /*O, my lord, */
     delay(594);
     sugriwa.pointToFront(); // 900
-    delay(2161 - 594 - 900 - 700);
+    delay(2161 - 544 - 900 - 700);
     sugriwa.downFront();
 
     /*please accept my humble apologies because I have not been truthful */
     sugriwa.pointToSelf(); // 900
     sugriwa.pointToBack(); // 1400
-    delay(7536 - 2161 - 900 - 1400);
+    delay(7536 - 2161 - 900 - 1400 - (50));
 
     /*and have lied to you.*/
     sugriwa.downBack();     // 700
     sugriwa.downFront();    // 700
     sugriwa.pointToFront(); // 900
-    delay(10006 - 7536 - 700 - 700 - 900 - 700);
+    delay(10006 - 7536 - 700 - 700 - 900);
     sugriwa.downFront(); // 700
 
     /*I forget about my promise to come,*/
     sugriwa.pointToSelf(); // 900
     sugriwa.pointToBack(); // 1400
-    delay(13348 - 10006 - 900 - 1400);
+    delay(13348 - 10006 - 900 - 1400 - (700));
 
     /* and kept away,*/
     sugriwa.lowPointToBack(); // 700
@@ -3117,7 +3131,7 @@ void Episodes::Episode_1()
     /*Therefore forgive me my lord,*/
     sugriwa.pointToSelf(); // 900
     sugriwa.pointToBack(); // 1400
-    delay(40702 - 38483 - 900 - 1400 + 100);
+    delay(40702 - 38483 - 900 - 1400 + (100));
 
     /*as I am stupid, */
     sugriwa.lowPointToBack(); // 700
@@ -3178,10 +3192,6 @@ void Episodes::Episode_1()
     setAllMOSFETtoHIGH();
     SoundSystem::playDialogFromACertainFolder(SoundSystem::INDICATOR_SOUND, SoundSystem::INDICATOR_SOUND_NUMBER::INDICATOR_FINISHED_SHOWING);
     delay(2000);
-}
-
-void Episodes::Episode_2()
-{
 }
 
 void Episodes::Episode_3()
