@@ -132,6 +132,57 @@ void HorizontalController::step_for_n_dir(int nema_num, int step_value, String d
             // NEMAs.en_num_gpio_a(NEMAs.DISABLE_ALL_EN);
             break;
         }
+        case 8:
+        {
+            Serial.println("NEMA 8 CCW");
+            digitalWrite(EN_NEMA_8, LOW);
+            digitalWrite(NEMA_DIR, HIGH);
+
+            bool state = true;
+            for (int i = 0; i < step_value; i++)
+            {
+                digitalWrite(NEMA_STEP, state);
+                state = !state;
+                delayMicroseconds(PERIOD_NEMA);
+            }
+            digitalWrite(EN_NEMA_8, HIGH);
+            // NEMAs.en_num_gpio_a(NEMAs.DISABLE_ALL_EN);
+            break;
+        }
+        case 9:
+        {
+            Serial.println("NEMA 9 CCW");
+            digitalWrite(EN_NEMA_9, LOW);
+            digitalWrite(NEMA_DIR, HIGH);
+
+            bool state = true;
+            for (int i = 0; i < step_value; i++)
+            {
+                digitalWrite(NEMA_STEP, state);
+                state = !state;
+                delayMicroseconds(PERIOD_NEMA);
+            }
+            digitalWrite(EN_NEMA_9, HIGH);
+            // NEMAs.en_num_gpio_a(NEMAs.DISABLE_ALL_EN);
+            break;
+        }
+        case 10:
+        {
+            Serial.println("NEMA 10 CCW");
+            digitalWrite(EN_NEMA_10, LOW);
+            digitalWrite(NEMA_DIR, HIGH);
+
+            bool state = true;
+            for (int i = 0; i < step_value; i++)
+            {
+                digitalWrite(NEMA_STEP, state);
+                state = !state;
+                delayMicroseconds(PERIOD_NEMA);
+            }
+            digitalWrite(EN_NEMA_10, HIGH);
+            // NEMAs.en_num_gpio_a(NEMAs.DISABLE_ALL_EN);
+            break;
+        }
         }
     }
     else if (dir == "cw")
@@ -257,6 +308,57 @@ void HorizontalController::step_for_n_dir(int nema_num, int step_value, String d
                 delayMicroseconds(PERIOD_NEMA);
             }
             digitalWrite(EN_NEMA_7, HIGH);
+            // NEMAs.en_num_gpio_a(NEMAs.DISABLE_ALL_EN);
+            break;
+        }
+        case 8:
+        {
+            Serial.println("NEMA 8 CW");
+            digitalWrite(EN_NEMA_8, LOW);
+            digitalWrite(NEMA_DIR, LOW);
+
+            bool state = true;
+            for (int i = 0; i < step_value; i++)
+            {
+                digitalWrite(NEMA_STEP, state);
+                state = !state;
+                delayMicroseconds(PERIOD_NEMA);
+            }
+            digitalWrite(EN_NEMA_8, HIGH);
+            // NEMAs.en_num_gpio_a(NEMAs.DISABLE_ALL_EN);
+            break;
+        }
+        case 9:
+        {
+            Serial.println("NEMA 9 CW");
+            digitalWrite(EN_NEMA_9, LOW);
+            digitalWrite(NEMA_DIR, LOW);
+
+            bool state = true;
+            for (int i = 0; i < step_value; i++)
+            {
+                digitalWrite(NEMA_STEP, state);
+                state = !state;
+                delayMicroseconds(PERIOD_NEMA);
+            }
+            digitalWrite(EN_NEMA_9, HIGH);
+            // NEMAs.en_num_gpio_a(NEMAs.DISABLE_ALL_EN);
+            break;
+        }
+        case 10:
+        {
+            Serial.println("NEMA 10 CW");
+            digitalWrite(EN_NEMA_10, LOW);
+            digitalWrite(NEMA_DIR, LOW);
+
+            bool state = true;
+            for (int i = 0; i < step_value; i++)
+            {
+                digitalWrite(NEMA_STEP, state);
+                state = !state;
+                delayMicroseconds(PERIOD_NEMA);
+            }
+            digitalWrite(EN_NEMA_10, HIGH);
             // NEMAs.en_num_gpio_a(NEMAs.DISABLE_ALL_EN);
             break;
         }

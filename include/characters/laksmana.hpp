@@ -27,5 +27,8 @@ public:
     void middleBack();
     // void respect();
 
+    // Gerakan diam
+    void mathenthengA();
+
     void directControl(int num, int angle, int duration);
 };

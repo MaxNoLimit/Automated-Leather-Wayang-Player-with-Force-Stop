@@ -7,18 +7,19 @@ HorizontalController HC_sugriwa;
 
 void Sugriwa::defaultHandPosition()
 {
-    digitalWrite(WAYANG_HAND_6, HIGH);
-    // Servo_Sugriwa.moveWhatServo(4, 100, 500);
-    // Servo_Sugriwa.moveWhatServo(2, 140, 500);
-    // Servo_Sugriwa.defaultPosition();
-    // Servo_Sugriwa.moveWhatServo(4, 110, 200);
-    downFront();
-    downBack();
-    onHipBack();
-    directControl(2, 70, 200);
-    Servo_Sugriwa.resetArray();
+    // digitalWrite(WAYANG_HAND_6, HIGH);
+    // // Servo_Sugriwa.moveWhatServo(4, 100, 500);
+    // // Servo_Sugriwa.moveWhatServo(2, 140, 500);
+    // // Servo_Sugriwa.defaultPosition();
+    // // Servo_Sugriwa.moveWhatServo(4, 110, 200);
+    // downFront();
+    // downBack();
+    // onHipBack();
+    // directControl(2, 70, 200);
+    // Servo_Sugriwa.resetArray();
 
-    digitalWrite(WAYANG_HAND_6, LOW);
+    // digitalWrite(WAYANG_HAND_6, LOW);
+    mathentengA();
 }
 
 void Sugriwa::defaultStandPosition()
@@ -161,6 +162,7 @@ void Sugriwa::onHipBack()
 
 void Sugriwa::mathentengA()
 {
+    Servo_Sugriwa.resetArray();
     downBack();
     onHipBack();
     downFront();
@@ -168,6 +170,7 @@ void Sugriwa::mathentengA()
 
 void Sugriwa::mathentengC()
 {
+    Servo_Sugriwa.resetArray();
     downBack();
     downFront();
     digitalWrite(WAYANG_HAND_6, HIGH);

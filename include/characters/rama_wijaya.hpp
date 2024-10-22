@@ -40,5 +40,10 @@ public:
     void middleBack();
     // void respect();
 
+    // Gerakan diam
+    void anjujur();
+    void mathenthengA();
+    void mathentengC();
+
     void directControl(int num, int angle, int duration);
 };

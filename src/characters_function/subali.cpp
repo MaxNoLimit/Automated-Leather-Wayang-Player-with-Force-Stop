@@ -7,17 +7,18 @@ HorizontalController HC_subali;
 
 void Subali::defaultHandPosition()
 {
-    digitalWrite(WAYANG_HAND_7, HIGH);
-    // Servo_Subali.moveWhatServo(4, 100, 500);
-    // Servo_Subali.moveWhatServo(2, 140, 500);
-    // Servo_Subali.defaultPosition();
-    // Servo_Subali.moveWhatServo(4, 110, 200);
-    downFront();
-    downBack();
-    onHipBack();
-    // Servo_Subali.resetArray();
+    // digitalWrite(WAYANG_HAND_7, HIGH);
+    // // Servo_Subali.moveWhatServo(4, 100, 500);
+    // // Servo_Subali.moveWhatServo(2, 140, 500);
+    // // Servo_Subali.defaultPosition();
+    // // Servo_Subali.moveWhatServo(4, 110, 200);
+    // downFront();
+    // downBack();
+    // onHipBack();
+    // // Servo_Subali.resetArray();
 
-    digitalWrite(WAYANG_HAND_7, LOW);
+    // digitalWrite(WAYANG_HAND_7, LOW);
+    mathenthengA();
 }
 
 void Subali::defaultStandPosition()
@@ -84,7 +85,7 @@ void Subali::walk_to_a_certain_distance(int desiredDistance)
 
 void Subali::walk_to_a_certain_distance_before_calibrating_value(int desiredDistance)
 {
-    int desiredDistanceAfterCalibratingValue = desiredDistance + (float)desiredDistance * 0.155 + 60;
+    int desiredDistanceAfterCalibratingValue = desiredDistance + (float)desiredDistance * 0.155 + 63;
     Serial.println("\ndesiredDistance: ");
     Serial.print(desiredDistanceAfterCalibratingValue);
     Serial.println("mm \n");
@@ -127,7 +128,7 @@ void Subali::downFront()
 {
     digitalWrite(WAYANG_HAND_7, HIGH);
     Servo_Subali.moveWhatServo(3, 30, 500);
-    Servo_Subali.moveWhatServo(4, 110, 200);
+    Servo_Subali.moveWhatServo(4, 120, 200);
     digitalWrite(WAYANG_HAND_7, LOW);
 }
 
@@ -154,21 +155,23 @@ void Subali::onHipBack()
     digitalWrite(WAYANG_HAND_7, HIGH);
     Servo_Subali.moveWhatServo(2, 110, 200);
     Servo_Subali.moveWhatServo(1, 100, 500);
-    Servo_Subali.moveWhatServo(2, 77, 200);
+    Servo_Subali.moveWhatServo(2, 75, 200);
     digitalWrite(WAYANG_HAND_7, LOW);
 }
 
 void Subali::mathenthengA()
 {
-    downFront();
+    Servo_Subali.resetArray();
     downBack();
+    downFront();
     onHipBack();
 }
 
 void Subali::mathenthengC()
 {
-    downFront();
+    Servo_Subali.resetArray();
     downBack();
+    downFront();
     digitalWrite(WAYANG_HAND_7, HIGH);
     Servo_Subali.moveWhatServo(2, 110, 200);
     Servo_Subali.moveWhatServo(1, 50, 500);

@@ -29,7 +29,7 @@ void SoundSystem::justInitTheSoundSystem()
     Serial.println(F("DFPlayer Mini online."));
     soundSystemStatus = true;
 
-    sound_system.volume(22);
+    sound_system.volume(18);
 }
 
 void SoundSystem::initSound()
@@ -54,7 +54,7 @@ void SoundSystem::initSound()
     Serial.println(F("DFPlayer Mini online."));
     soundSystemStatus = true;
 
-    sound_system.volume(20);
+    sound_system.volume(18);
     sound_system.playFolder(EPISODE_NUMBER::INDICATOR_SOUND, INDICATOR_SOUND_NUMBER::INDICATOR_AUDIO_1);
     delay(3000);
 }
@@ -169,7 +169,7 @@ void SoundSystem::play_dialog_direct(int dialog_number)
 
 void SoundSystem::playDialogFromACertainFolder(int nEpisode, int nDialog)
 {
-    sound_system.volume(15);
+    sound_system.volume(18);
     sound_system.playFolder(nEpisode, nDialog);
 }
 
@@ -185,12 +185,12 @@ void SoundSystem::pause()
 
 void SoundSystem::playMusicWayang()
 {
-    sound_system.volume(8);
+    sound_system.volume(10);
     sound_system.playFolder(EPISODE_NUMBER::EXTRA_MUSIC_WAYANG, MUSIC_NUMBER::MUSIC_GAMELAN);
 }
 
 void SoundSystem::pauseMusicWayang()
 {
     sound_system.pause();
-    sound_system.volume(15); // 14 best idk why, less fart :v
+    sound_system.volume(18); // 14 best idk why, less fart :v
 }

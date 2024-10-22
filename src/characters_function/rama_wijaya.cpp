@@ -12,14 +12,15 @@ void RamaWijaya::defaultStandPosition()
 
 void RamaWijaya::defaultHandPosition()
 {
-    digitalWrite(WAYANG_HAND_3, HIGH);
-    Servo_RamaWijaya.defaultPosition();
-    // Servo_RamaWijaya.moveWhatServo(2, 60, 2000);
-    // Servo_RamaWijaya.moveWhatServo(4, 60, 2000);
-    downBack();
-    onHipBack();
-    Servo_RamaWijaya.resetArray();
-    digitalWrite(WAYANG_HAND_3, LOW);
+    // digitalWrite(WAYANG_HAND_3, HIGH);
+    // Servo_RamaWijaya.defaultPosition();
+    // // Servo_RamaWijaya.moveWhatServo(2, 60, 2000);
+    // // Servo_RamaWijaya.moveWhatServo(4, 60, 2000);
+    // downBack();
+    // onHipBack();
+    // Servo_RamaWijaya.resetArray();
+    // digitalWrite(WAYANG_HAND_3, LOW);
+    anjujur();
 }
 
 void RamaWijaya::walk_to_scene(int distanceValue)
@@ -305,4 +306,24 @@ void RamaWijaya::directControl(int num, int angle, int duration)
     digitalWrite(WAYANG_HAND_2, HIGH);
     Servo_RamaWijaya.moveWhatServo(num, angle, duration);
     digitalWrite(WAYANG_HAND_2, LOW);
+}
+
+void RamaWijaya::anjujur(){
+    Servo_RamaWijaya.resetArray();
+    downBack();
+    downFront();
+}
+
+void RamaWijaya::mathenthengA(){
+    anjujur();
+    onHipBack();
+}
+
+void RamaWijaya::mathentengC(){
+    anjujur();
+    digitalWrite(WAYANG_HAND_3, HIGH);
+    Servo_RamaWijaya.moveWhatServo(4, 60 + 10, 200);
+    Servo_RamaWijaya.moveWhatServo(3, 120, 500);
+    Servo_RamaWijaya.moveWhatServo(4, 90, 200);
+    digitalWrite(WAYANG_HAND_3, LOW);
 }

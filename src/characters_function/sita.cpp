@@ -12,15 +12,16 @@ void Sita::defaultStandPosition()
 
 void Sita::defaultHandPosition()
 {
-    digitalWrite(WAYANG_HAND_1, HIGH);
-    // Servo_Sita.moveWhatServo(1, 120, 2000);
-    // Servo_Sita.moveWhatServo(3, 60, 2000);
-    Servo_Sita.defaultPosition();
-    // Servo_Sita.moveWhatServo(2, 60, 2000);
-    downBack();
-    onHipBack();
-    Servo_Sita.resetArray();
-    digitalWrite(WAYANG_HAND_1, LOW);
+    // digitalWrite(WAYANG_HAND_1, HIGH);
+    // // Servo_Sita.moveWhatServo(1, 120, 2000);
+    // // Servo_Sita.moveWhatServo(3, 60, 2000);
+    // Servo_Sita.defaultPosition();
+    // // Servo_Sita.moveWhatServo(2, 60, 2000);
+    // downBack();
+    // onHipBack();
+    // Servo_Sita.resetArray();
+    // digitalWrite(WAYANG_HAND_1, LOW);
+    anjujur();
 }
 
 void Sita::walk_to_scene(int distanceValue)
@@ -278,8 +279,8 @@ void Sita::middleFront()
 void Sita::downFront()
 {
     digitalWrite(WAYANG_HAND_1, HIGH);
-    Servo_Sita.moveWhatServo(1, 180, 500);
-    Servo_Sita.moveWhatServo(2, 90, 200);
+    Servo_Sita.moveWhatServo(1, 170, 500);
+    Servo_Sita.moveWhatServo(2, 95, 200);
     digitalWrite(WAYANG_HAND_1, LOW);
 }
 
@@ -296,8 +297,8 @@ void Sita::pointToBack()
 void Sita::downBack()
 {
     digitalWrite(WAYANG_HAND_1, HIGH);
-    Servo_Sita.moveWhatServo(3, 20, 500);
-    Servo_Sita.moveWhatServo(4, 70, 200);
+    Servo_Sita.moveWhatServo(3, 10, 500);
+    Servo_Sita.moveWhatServo(4, 100, 200);
     digitalWrite(WAYANG_HAND_1, LOW);
 }
 
@@ -330,8 +331,8 @@ void Sita::pointToSelf()
     // Servo_Sita.moveWhatServo(2, 85, 2000);
     // digitalWrite(WAYANG_HAND_1, LOW);
 
+    downFront(); // takes 700 ms
     digitalWrite(WAYANG_HAND_1, HIGH);
-    Servo_Sita.defaultPosition();
     Servo_Sita.moveWhatServo(2, 100, 200);
     Servo_Sita.moveWhatServo(1, 45, 500);
     // Servo_Sita.moveWhatServo(2, 80, 200);
@@ -370,4 +371,11 @@ void Sita::directControl(int num, int angle, int duration)
     digitalWrite(WAYANG_HAND_2, HIGH);
     Servo_Sita.moveWhatServo(num, angle, duration);
     digitalWrite(WAYANG_HAND_2, LOW);
+}
+
+void Sita::anjujur()
+{
+    Servo_Sita.resetArray();
+    downBack();
+    downFront();
 }

@@ -7,17 +7,18 @@ HorizontalController HC_hanoman;
 
 void Hanoman::defaultHandPosition()
 {
-    digitalWrite(WAYANG_HAND_4, HIGH);
-    // Servo_Hanuman.moveWhatServo(4, 100, 500);
-    // Servo_Hanuman.moveWhatServo(2, 140, 500);
-    Servo_Hanuman.defaultPosition();
-    // Servo_Hanuman.moveWhatServo(4, 110, 200);
-    downFront();
-    downBack();
-    onHipBack();
-    Servo_Hanuman.resetArray();
+    // digitalWrite(WAYANG_HAND_4, HIGH);
+    // // Servo_Hanuman.moveWhatServo(4, 100, 500);
+    // // Servo_Hanuman.moveWhatServo(2, 140, 500);
+    // Servo_Hanuman.defaultPosition();
+    // // Servo_Hanuman.moveWhatServo(4, 110, 200);
+    // downFront();
+    // downBack();
+    // onHipBack();
+    // Servo_Hanuman.resetArray();
 
-    digitalWrite(WAYANG_HAND_4, LOW);
+    // digitalWrite(WAYANG_HAND_4, LOW);
+    mathenthengA();
 }
 void Hanoman::defaultStandPosition()
 {
@@ -84,7 +85,7 @@ void Hanoman::walk_to_a_certain_distance(int desiredDistance)
 
 void Hanoman::walk_to_a_certain_distance_before_calibrating_value(int desiredDistance)
 {
-    int desiredDistanceAfterCalibratingValue = desiredDistance + (float)desiredDistance * 0.155 + 25;
+    int desiredDistanceAfterCalibratingValue = desiredDistance + (float)desiredDistance * 0.155 + 17;
     Serial.println("\ndesiredDistance: ");
     Serial.print(desiredDistanceAfterCalibratingValue);
     Serial.println("mm \n");
@@ -127,7 +128,7 @@ void Hanoman::downFront()
 {
     digitalWrite(WAYANG_HAND_4, HIGH);
     Servo_Hanuman.moveWhatServo(3, 0, 500);
-    Servo_Hanuman.moveWhatServo(4, 95, 200);
+    Servo_Hanuman.moveWhatServo(4, 97, 200);
     digitalWrite(WAYANG_HAND_4, LOW);
 }
 
@@ -200,5 +201,25 @@ void Hanoman::directControl(int num, int angle, int duration)
 {
     digitalWrite(WAYANG_HAND_4, HIGH);
     Servo_Hanuman.moveWhatServo(num, angle, duration);
+    digitalWrite(WAYANG_HAND_4, LOW);
+}
+
+void Hanoman::mathenthengA()
+{
+    Servo_Hanuman.resetArray();
+    downBack();
+    downFront();
+    onHipBack();
+}
+
+void Hanoman::mathenthengC()
+{
+    Servo_Hanuman.resetArray();
+    downBack();
+    downFront();
+    digitalWrite(WAYANG_HAND_4, HIGH);
+    Servo_Hanuman.moveWhatServo(2, 130, 200);
+    Servo_Hanuman.moveWhatServo(1, 80, 500);
+    Servo_Hanuman.moveWhatServo(2, 120, 200);
     digitalWrite(WAYANG_HAND_4, LOW);
 }

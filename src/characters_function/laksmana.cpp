@@ -7,15 +7,16 @@ HorizontalController HC_laksmana;
 
 void Laksmana::defaultHandPosition()
 {
-    digitalWrite(WAYANG_HAND_5, HIGH);
-    Servo_Laskmana.moveWhatServo(3, 10, 20);
-    Servo_Laskmana.defaultPosition();
-    downFront();
-    Servo_Laskmana.moveWhatServo(4, 100, 200);
-    // Servo_Laskmana.moveWhatServo(1, 45, 500);
-    downBack();
-    onHipBack();
-    digitalWrite(WAYANG_HAND_5, LOW);
+    // digitalWrite(WAYANG_HAND_5, HIGH);
+    // Servo_Laskmana.moveWhatServo(3, 10, 20);
+    // Servo_Laskmana.defaultPosition();
+    // downFront();
+    // Servo_Laskmana.moveWhatServo(4, 100, 200);
+    // // Servo_Laskmana.moveWhatServo(1, 45, 500);
+    // downBack();
+    // onHipBack();
+    // digitalWrite(WAYANG_HAND_5, LOW);
+    mathenthengA();
 }
 
 void Laksmana::defaultStandPosition()
@@ -153,7 +154,7 @@ void Laksmana::onHipBack()
 {
     digitalWrite(WAYANG_HAND_5, HIGH);
     Servo_Laskmana.moveWhatServo(1, 180, 500);
-    Servo_Laskmana.moveWhatServo(2, 85, 200);
+    Servo_Laskmana.moveWhatServo(2, 80, 200);
     Servo_Laskmana.moveWhatServo(1, 30, 500);
     digitalWrite(WAYANG_HAND_5, LOW);
 }
@@ -199,4 +200,11 @@ void Laksmana::directControl(int num, int angle, int duration)
     digitalWrite(WAYANG_HAND_5, HIGH);
     Servo_Laskmana.moveWhatServo(num, angle, duration);
     digitalWrite(WAYANG_HAND_5, LOW);
+}
+
+void Laksmana::mathenthengA(){
+    Servo_Laskmana.resetArray();
+    downBack();
+    downFront();
+    onHipBack();
 }

@@ -46,5 +46,9 @@ public:
     void middleBack();
     // void respect();
 
+
+    // Gerakan diam
+    void anjujur();
+
     void directControl(int num, int angle, int duration);
 };

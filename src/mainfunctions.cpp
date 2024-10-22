@@ -304,11 +304,11 @@ void WayangDisplay::generalLoop()
         break;
 
     case StateManagement::FSA_STATE::WAYANG_HAND_CALIBRATION:
-        // // Final mode
-        // CalibratingFunction::wayangHand();
+        // Final mode
+        CalibratingFunction::wayangHand();
 
         // Debug mode
-        CalibratingFunction::commandListHandMovementTest();
+        // CalibratingFunction::commandListHandMovementTest();
 
         // SoundSystem::playDialogFromACertainFolder(SoundSystem::INDICATOR_SOUND, SoundSystem::INDICATOR_SOUND_NUMBER::INDICATOR_WAYANG_HAND_CALIBRATION);
         // delay(3500);
@@ -1775,6 +1775,18 @@ void CalibratingFunction::wayangHand()
     delay(500);
     wayangLaksmana.defaultStandPosition();
 
+    wayangSugriwa.walk_to_a_certain_distance_before_calibrating_value(200);
+    delay(500);
+    wayangSugriwa.mathentengA();
+    delay(500);
+    wayangSugriwa.defaultStandPosition();
+
+    wayangSubali.walk_to_a_certain_distance_before_calibrating_value(200);
+    delay(500);
+    wayangSubali.mathenthengA();
+    delay(500);
+    wayangSubali.defaultStandPosition();
+
     setAllMOSFETtoHIGH();
 }
 
@@ -1831,7 +1843,7 @@ void CalibratingFunction::commandListHandMovementTest()
 
     // // Sita
     // wayangSita.defaultStandPosition();
-    // wayangSita.defaultHandPosition();
+    wayangSita.anjujur();
     // wayangSita.walk_to_a_certain_distance_before_calibrating_value(250);
     // delay(500);
     // wayangSita.pointToFront();
@@ -1886,7 +1898,12 @@ void CalibratingFunction::commandListHandMovementTest()
 
     // // Rama Wijaya
     // wayangRamaWijaya.defaultStandPosition();
-    // wayangRamaWijaya.defaultHandPosition();
+    // wayangRamaWijaya.anjujur();
+    wayangRamaWijaya.mathentengC();
+    delay(500);
+    wayangRamaWijaya.mathenthengA();
+    delay(500);
+
     // wayangRamaWijaya.walk_to_a_certain_distance_before_calibrating_value(250);
     // delay(500);
     // wayangRamaWijaya.pointToFront();
@@ -1998,56 +2015,56 @@ void CalibratingFunction::commandListHandMovementTest()
     // Sugriwa
     //
     // wayangSugriwa.defaultStandPosition();
-    wayangSugriwa.mathentengA();
-    wayangSugriwa.mathentengC();
-    wayangSugriwa.walk_to_a_certain_distance_before_calibrating_value(250);
-    wayangSugriwa.mathentengA();
-    delay(500);
-    wayangSugriwa.pointToFront();
-    delay(500);
-    wayangSugriwa.lower_pointToFront();
-    delay(500);
-    wayangSugriwa.downFront();
-    delay(500);
-    wayangSugriwa.middleFront();
-    delay(500);
-    wayangSugriwa.downFront();
-    delay(500);
+    // wayangSugriwa.mathentengA();
+    // wayangSugriwa.mathentengC();
+    // wayangSugriwa.walk_to_a_certain_distance_before_calibrating_value(250);
+    // wayangSugriwa.mathentengA();
+    // delay(500);
+    // wayangSugriwa.pointToFront();
+    // delay(500);
+    // wayangSugriwa.lower_pointToFront();
+    // delay(500);
+    // wayangSugriwa.downFront();
+    // delay(500);
+    // wayangSugriwa.middleFront();
+    // delay(500);
+    // wayangSugriwa.downFront();
+    // delay(500);
 
-    wayangSugriwa.downBack();
-    wayangSugriwa.pointToBack();
-    delay(500);
-    wayangSugriwa.downBack();
-    delay(500);
+    // wayangSugriwa.downBack();
+    // wayangSugriwa.pointToBack();
+    // delay(500);
+    // wayangSugriwa.downBack();
+    // delay(500);
     // wayangSugriwa.onHipBack();
     // delay(500);
     // wayangSugriwa.downBack();
     // delay(500);
 
-    wayangSugriwa.mathentengA();
+    // wayangSugriwa.mathentengA();
     //
-    wayangSugriwa.downFront();
-    wayangSugriwa.pointToSelf();
-    delay(500);
+    // wayangSugriwa.downFront();
+    // wayangSugriwa.pointToSelf();
+    // delay(500);
 
     // wayangSugriwa.downFront();
     // wayangSugriwa.middleFrontBack(); // ignore this
     // delay(500);
-    wayangSugriwa.downBack();
-    wayangSugriwa.lowPointToBack();
-    delay(500);
-    wayangSugriwa.downBack();
-    delay(500);
-    wayangSugriwa.middleBack();
-    delay(500);
+    // wayangSugriwa.downBack();
+    // wayangSugriwa.lowPointToBack();
+    // delay(500);
+    // wayangSugriwa.downBack();
+    // delay(500);
+    // wayangSugriwa.middleBack();
+    // delay(500);
     // wayangSugriwa.downBack();
     // delay(500);
     // wayangSugriwa.middleFrontBack();
     // delay(500);
     //
-    wayangSugriwa.mathentengC();
-    wayangSugriwa.defaultStandPosition();
-    wayangSugriwa.mathentengA();
+    // wayangSugriwa.mathentengC();
+    // wayangSugriwa.defaultStandPosition();
+    // wayangSugriwa.mathentengA();
 
     // Subali
     // wayangSubali.defaultStandPosition();
