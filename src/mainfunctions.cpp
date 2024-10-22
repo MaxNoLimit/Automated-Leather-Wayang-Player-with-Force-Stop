@@ -15,6 +15,7 @@
 #include "characters/laksmana.hpp"
 #include "characters/sugriwa.hpp"
 #include "characters/subali.hpp"
+#include "characters/wibhisana.hpp"
 
 RamaWijaya wayangRamaWijaya;
 Sita wayangSita;
@@ -23,6 +24,7 @@ Hanoman wayangHanoman;
 Laksmana wayangLaksmana;
 Sugriwa wayangSugriwa;
 Subali wayangSubali;
+Wibhisana wayangWibhisana;
 
 int lcd_2040_address;
 WayangDisplay::WayangDisplayLCD WayangDisplayLCD_in_main(0x27);
@@ -1701,6 +1703,8 @@ void CalibratingFunction::vSlotLinear()
     wayangSugriwa.walk_to_a_certain_distance_before_calibrating_value(155);
     Serial.println("\nSensor 7\n");
     wayangSubali.walk_to_a_certain_distance_before_calibrating_value(155);
+    Serial.println("\nSensor 8\n");
+    wayangWibhisana.walk_to_a_certain_distance_before_calibrating_value(155);
 
     Serial.println("\nSensor 1\n");
     wayangSita.defaultStandPosition();
@@ -1716,6 +1720,8 @@ void CalibratingFunction::vSlotLinear()
     wayangSugriwa.defaultStandPosition();
     Serial.println("\nSensor 7\n");
     wayangSubali.defaultStandPosition();
+    Serial.println("\nSensor 8\n");
+    wayangWibhisana.defaultStandPosition();
 
     SoundSystem::playDialogFromACertainFolder(SoundSystem::INDICATOR_SOUND, SoundSystem::INDICATOR_SOUND_NUMBER::INDICATOR_VSLOT_CALIBRATION);
     delay(3500);
@@ -1786,6 +1792,12 @@ void CalibratingFunction::wayangHand()
     wayangSubali.mathenthengA();
     delay(500);
     wayangSubali.defaultStandPosition();
+
+    wayangWibhisana.walk_to_a_certain_distance_before_calibrating_value(200);
+    delay(500);
+    wayangWibhisana.defaultHandPosition();
+    delay(500);
+    wayangWibhisana.defaultStandPosition();
 
     setAllMOSFETtoHIGH();
 }

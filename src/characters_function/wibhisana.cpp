@@ -29,12 +29,12 @@ void Wibhisana::defaultStandPosition()
 
 void Wibhisana::leave_from_scene(int distanceValue)
 {
-    HC_wibhisana.step_for_n_dir(6, distanceValue, "cw");
+    HC_wibhisana.step_for_n_dir(8, distanceValue, "cw");
 }
 
 void Wibhisana::walk_to_scene(int distanceValue)
 {
-    HC_wibhisana.step_for_n_dir(6, distanceValue, "ccw");
+    HC_wibhisana.step_for_n_dir(8, distanceValue, "ccw");
 }
 
 void Wibhisana::walk_to_a_certain_distance(int desiredDistance)
@@ -91,7 +91,7 @@ void Wibhisana::walk_to_a_certain_distance(int desiredDistance)
 
 void Wibhisana::walk_to_a_certain_distance_before_calibrating_value(int desiredDistance)
 {
-    int desiredDistanceAfterCalibratingValue = desiredDistance + (float)desiredDistance * 0.155 + 63;
+    int desiredDistanceAfterCalibratingValue = desiredDistance + (float)desiredDistance * 0.155 + 65;
     Serial.println("\ndesiredDistance: ");
     Serial.print(desiredDistanceAfterCalibratingValue);
     Serial.println("mm \n");
