@@ -153,9 +153,9 @@ void Subali::downBack()
 void Subali::onHipBack()
 {
     digitalWrite(WAYANG_HAND_7, HIGH);
-    Servo_Subali.moveWhatServo(2, 110, 200);
-    Servo_Subali.moveWhatServo(1, 100, 500);
-    Servo_Subali.moveWhatServo(2, 75, 200);
+    Servo_Subali.moveWhatServo(2, 100, 200);
+    Servo_Subali.moveWhatServo(1, 70, 500);
+    Servo_Subali.moveWhatServo(2, 80, 200);
     digitalWrite(WAYANG_HAND_7, LOW);
 }
 

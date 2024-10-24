@@ -204,7 +204,7 @@ void RamaWijaya::pointToFront()
     // Servo_RamaWijaya.moveWhatServo(2, 70, 500);
     Servo_RamaWijaya.moveWhatServo(1, 30, 500); // this is to avoid resetArray bug that skip servo1 to 0 deg or move to highest position
     Servo_RamaWijaya.moveWhatServo(1, 0, 500);
-    Servo_RamaWijaya.moveWhatServo(2, 50, 200);
+    Servo_RamaWijaya.moveWhatServo(2, 10, 200);
     digitalWrite(WAYANG_HAND_3, LOW);
 }
 
@@ -212,14 +212,14 @@ void RamaWijaya::lower_pointToFront()
 {
     digitalWrite(WAYANG_HAND_3, HIGH);
     Servo_RamaWijaya.moveWhatServo(1, 100, 500);
-    Servo_RamaWijaya.moveWhatServo(2, 50, 200);
+    Servo_RamaWijaya.moveWhatServo(2, 10, 200);
     digitalWrite(WAYANG_HAND_3, LOW);
 }
 
 void RamaWijaya::middleFront()
 {
     digitalWrite(WAYANG_HAND_3, HIGH);
-    Servo_RamaWijaya.moveWhatServo(2, 80, 200);
+    Servo_RamaWijaya.moveWhatServo(2, 50, 200);
     Servo_RamaWijaya.moveWhatServo(1, 30, 500);
     Servo_RamaWijaya.moveWhatServo(1, 0, 500);
     digitalWrite(WAYANG_HAND_3, LOW);
@@ -229,7 +229,7 @@ void RamaWijaya::downFront()
 {
     digitalWrite(WAYANG_HAND_3, HIGH);
     Servo_RamaWijaya.moveWhatServo(1, 180, 500);
-    Servo_RamaWijaya.moveWhatServo(2, 90, 200);
+    Servo_RamaWijaya.moveWhatServo(2, 70, 200);
     digitalWrite(WAYANG_HAND_3, LOW);
 }
 
@@ -264,9 +264,9 @@ void RamaWijaya::pointToSelf()
 {
     digitalWrite(WAYANG_HAND_3, HIGH);
     // Servo_RamaWijaya.defaultPosition();
-    Servo_RamaWijaya.moveWhatServo(2, 140, 200);
+    Servo_RamaWijaya.moveWhatServo(2, 105, 200);
     Servo_RamaWijaya.moveWhatServo(1, 22, 500);
-    Servo_RamaWijaya.moveWhatServo(2, 120, 200);
+    Servo_RamaWijaya.moveWhatServo(2, 80, 200);
     digitalWrite(WAYANG_HAND_3, LOW);
 }
 

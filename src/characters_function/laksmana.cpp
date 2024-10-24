@@ -127,7 +127,7 @@ void Laksmana::downFront()
 {
     digitalWrite(WAYANG_HAND_5, HIGH);
     Servo_Laskmana.moveWhatServo(3, 0, 500);
-    Servo_Laskmana.moveWhatServo(4, 110, 200);
+    Servo_Laskmana.moveWhatServo(4, 125, 200);
     digitalWrite(WAYANG_HAND_5, LOW);
 }
 
@@ -145,7 +145,7 @@ void Laksmana::downBack()
 {
     digitalWrite(WAYANG_HAND_5, HIGH);
     Servo_Laskmana.moveWhatServo(1, 135, 500);
-    Servo_Laskmana.moveWhatServo(2, 120, 200);
+    Servo_Laskmana.moveWhatServo(2, 110, 200);
 
     digitalWrite(WAYANG_HAND_5, LOW);
 }
@@ -153,16 +153,16 @@ void Laksmana::downBack()
 void Laksmana::onHipBack()
 {
     digitalWrite(WAYANG_HAND_5, HIGH);
-    Servo_Laskmana.moveWhatServo(1, 180, 500);
-    Servo_Laskmana.moveWhatServo(2, 80, 200);
+    Servo_Laskmana.moveWhatServo(2, 90, 200);
     Servo_Laskmana.moveWhatServo(1, 30, 500);
+    Servo_Laskmana.moveWhatServo(2, 75, 500);
     digitalWrite(WAYANG_HAND_5, LOW);
 }
 
 void Laksmana::pointToSelf()
 {
     digitalWrite(WAYANG_HAND_5, HIGH);
-    Servo_Laskmana.moveWhatServo(4, 80, 200);
+    Servo_Laskmana.moveWhatServo(4, 60, 200);
     Servo_Laskmana.moveWhatServo(3, 180, 500);
     digitalWrite(WAYANG_HAND_5, LOW);
 }

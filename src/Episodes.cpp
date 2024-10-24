@@ -770,6 +770,7 @@ void Episodes::Episode_1()
     // (31045) Debased and foolish Laksmana, (32697)
 
     delay(31045 - 28594 - 700 - 900);
+    sita.downFront(); // takes 700 ms
     sita.pointToFront(); // takes 700 ms
 
     // (33087) do you think I am wicked, (34225)
@@ -778,7 +779,7 @@ void Episodes::Episode_1()
 
     // (36447) such lewdness? (37319)
 
-    delay(33087 - 31045 - 700);
+    delay(33087 - 31045 - 700 - 700);
     // sita.oscillate(37913 - 33087); // takes 4826 ms ~~ 4200 ms
     for (int i = 0; i < 6; i++)
     {
@@ -799,26 +800,25 @@ void Episodes::Episode_1()
     // (42759) I will only serve Rama, nobody else. (45432)
 
     delay(42759 - 40840 - 700);
-    sita.downFront();   // takes 700 ms
     sita.pointToSelf(); // takes 1400 ms
 
     // (46341) If my lord and master died, (48024)
 
     // (48476) if Rama is killed in battle (50462)
 
-    delay(46341 - 42759 - 700 - 1400);
+    delay(46341 - 42759 - 1400);
     // sita.oscillate(50722 - 46341); // takes 4381 ms ~~ 4200 ms
     sita.downBack();        // takes 700 ms
-    sita.middleFrontBack(); // takes 700 ms
-    for (int i = 0; i < 3; i++)
-    {
-        sita.directControl(3, 90, 400);
-        sita.directControl(3, 120, 400);
-    } // takes 800 ms each loop
+    // sita.middleFrontBack(); // takes 700 ms
+    // for (int i = 0; i < 3; i++)
+    // {
+    //     sita.directControl(3, 90, 400);
+    //     sita.directControl(3, 120, 400);
+    // } // takes 800 ms each loop
 
     // (50722) butted by the deer, (51570)
 
-    delay(50722 - 46341 - 700 - 700 - 800 * 3);
+    delay(50722 - 46341 - 700);
     sita.downFront(); // takes 700 ms
 
     // (51781) I will sever my neck (52913)
@@ -1207,6 +1207,7 @@ void Episodes::Episode_1()
     delay(1000);
 
     sita.defaultStandPosition();
+    rahwana.defaultHandPosition();
     rahwana.defaultStandPosition();
 
     // 008 (03 L-R1 laksmana1F)
@@ -1686,7 +1687,8 @@ void Episodes::Episode_2()
 
     /*Although Bali is famed for his power, */
     sugriwa.pointToBack(); // 1400
-    delay(23332 - 19982 - 1400 + 500);
+    sugriwa.downFront(); // 700
+    delay(23332 - 19982 - 1400 - 700 + 500);
 
     /*he will certainly be killed by your irresistible arrows.*/
     sugriwa.pointToFront(); // 900
@@ -1813,7 +1815,7 @@ void Episodes::Episode_2()
     sugriwa.downFront(); // takes 700 ms
 
     SoundSystem::playMusicWayang();
-    subali.walk_to_a_certain_distance_before_calibrating_value(230);
+    subali.walk_to_a_certain_distance_before_calibrating_value(155);
 
     // 015 (Subali round 1 rage)
     SoundSystem::playDialogFromACertainFolder(SoundSystem::EPISODE_NUMBER::EPISODE_1, SoundSystem::EPISODE_1_DIALOG::SUBALI_ROUND_1_RAGE);
@@ -2011,7 +2013,7 @@ void Episodes::Episode_2()
 
     // 020 (Subali round 2 rage)
     SoundSystem::playMusicWayang();
-    subali.walk_to_a_certain_distance_before_calibrating_value(230);
+    subali.walk_to_a_certain_distance_before_calibrating_value(155);
 
     SoundSystem::playDialogFromACertainFolder(SoundSystem::EPISODE_NUMBER::EPISODE_1, SoundSystem::EPISODE_1_DIALOG::SUBALI_ROUND_2_RAGE);
     // delay(3000);
@@ -2535,9 +2537,7 @@ void Episodes::Episode_2()
     delay(2000);
 
     /*return to default position*/
-    sugriwa.downBack();
-    sugriwa.downFront();
-    sugriwa.onHipBack();
+    sugriwa.mathentengA();
 
     // 025 (Rama1Sugriwa-Rama dialogue 2_E)
     SoundSystem::playDialogFromACertainFolder(SoundSystem::EPISODE_NUMBER::EPISODE_1, SoundSystem::EPISODE_1_DIALOG::RAMA1SUGRIWA_RAMA_DIALOGUE_2_E);
@@ -3027,7 +3027,7 @@ void Episodes::Episode_2()
     delay(1632 - 1400);
 
     SoundSystem::pauseMusicWayang();
-    hanoman.walk_to_a_certain_distance_before_calibrating_value(140);
+    hanoman.walk_to_a_certain_distance_before_calibrating_value(135);
     SoundSystem::continuePlaying();
 
     /*gather all the monkey troops and have them march to Malyawan.*/
