@@ -24,6 +24,12 @@ namespace Episodes{
     void Episode_4();
     void Episode_5();
 
+    // void sugriwaTaskFight1(void *pvParameters);
+    // void sugriwaTaskFight2(void *pvParameters);
+
+    // void subaliTaskFight1(void *pvParameters);
+    // void subaliTaskFight2(void *pvParamaters);
+
 };
 
 

@@ -132,7 +132,7 @@ void Hanoman::downFront()
 {
     digitalWrite(WAYANG_HAND_4, HIGH);
     Servo_Hanuman.moveWhatServo(3, 0, 500);
-    Servo_Hanuman.moveWhatServo(4, 97, 200);
+    Servo_Hanuman.moveWhatServo(4, 120, 200);
     digitalWrite(WAYANG_HAND_4, LOW);
 }
 
