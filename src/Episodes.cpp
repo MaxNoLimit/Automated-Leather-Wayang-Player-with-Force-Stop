@@ -966,13 +966,16 @@ void Episodes::Episode_1()
     rahwana.directControl(3, 160, 400); // 400
     delay(13390 - 9579 - 700 - (800 * 3) - 400);
 
-    /* would be crazy about you */
+    /* would be crazy about you and fall heels over ears */
     rahwana.downFront();   // 700
     delay(400);            // 400
     rahwana.middleFront(); // 1200
     delay(16906 - 13390 - 700 - 400 - 1200);
+
+    /*in love with you */
     rahwana.pointToFront(); // 700
     rahwana.downFront();    // 700
+    // delay(19101-16906-700-700);
 
     /*My name is Rawana, */ //(18306)
     rahwana.pointToSelf();  // 1100
