@@ -389,7 +389,7 @@ void Rahwana::downFront()
 void Rahwana::pointToSelf()
 {
     digitalWrite(WAYANG_HAND_2, HIGH);
-    Servo_Rahwana.defaultPosition();
+    // Servo_Rahwana.defaultPosition();
     Servo_Rahwana.moveWhatServo(4, 60, 200);
     Servo_Rahwana.moveWhatServo(3, 180, 500);
     Servo_Rahwana.moveWhatServo(4, 80, 400);
