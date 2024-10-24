@@ -26,6 +26,8 @@ public:
     void talking(int delay_in_sec);
 
     // Command list for hand movement
+
+    
     void pointToFront();
     void lower_pointToFront();
     void middleFront();

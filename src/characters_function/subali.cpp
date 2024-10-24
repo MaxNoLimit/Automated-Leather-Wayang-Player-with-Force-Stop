@@ -97,6 +97,7 @@ void Subali::walk_to_scene(int distanceValue)
     HC_subali.step_for_n_dir(7, distanceValue, "cw");
 }
 
+// takes 900 ms
 void Subali::pointToFront()
 {
     digitalWrite(WAYANG_HAND_7, HIGH);
@@ -107,6 +108,7 @@ void Subali::pointToFront()
     digitalWrite(WAYANG_HAND_7, LOW);
 }
 
+// takes 700 ms
 void Subali::lower_pointToFront()
 {
     digitalWrite(WAYANG_HAND_7, HIGH);
@@ -115,6 +117,7 @@ void Subali::lower_pointToFront()
     digitalWrite(WAYANG_HAND_7, LOW);
 }
 
+// takes 1200 ms
 void Subali::middleFront()
 {
     digitalWrite(WAYANG_HAND_7, HIGH);
@@ -124,6 +127,7 @@ void Subali::middleFront()
     digitalWrite(WAYANG_HAND_7, LOW);
 }
 
+// takes 700 ms
 void Subali::downFront()
 {
     digitalWrite(WAYANG_HAND_7, HIGH);
@@ -132,6 +136,7 @@ void Subali::downFront()
     digitalWrite(WAYANG_HAND_7, LOW);
 }
 
+// takes 1400 ms
 void Subali::pointToBack()
 {
     digitalWrite(WAYANG_HAND_7, HIGH);
@@ -142,6 +147,7 @@ void Subali::pointToBack()
     digitalWrite(WAYANG_HAND_7, LOW);
 }
 
+// takes 700 ms
 void Subali::downBack()
 {
     digitalWrite(WAYANG_HAND_7, HIGH);
@@ -150,6 +156,7 @@ void Subali::downBack()
     digitalWrite(WAYANG_HAND_7, LOW);
 }
 
+// takes 900 ms
 void Subali::onHipBack()
 {
     digitalWrite(WAYANG_HAND_7, HIGH);
@@ -159,6 +166,7 @@ void Subali::onHipBack()
     digitalWrite(WAYANG_HAND_7, LOW);
 }
 
+// takes 2300 ms
 void Subali::mathenthengA()
 {
     Servo_Subali.resetArray();
@@ -167,6 +175,7 @@ void Subali::mathenthengA()
     onHipBack();
 }
 
+// takes 2500 ms
 void Subali::mathenthengC()
 {
     Servo_Subali.resetArray();
@@ -180,6 +189,7 @@ void Subali::mathenthengC()
     digitalWrite(WAYANG_HAND_7, LOW);
 }
 
+// takes 900 ms
 void Subali::pointToSelf()
 {
     digitalWrite(WAYANG_HAND_7, HIGH);
@@ -189,6 +199,7 @@ void Subali::pointToSelf()
     digitalWrite(WAYANG_HAND_7, LOW);
 }
 
+// takes 900 ms
 void Subali::middleFrontBack()
 {
     digitalWrite(WAYANG_HAND_7, HIGH);
@@ -198,6 +209,7 @@ void Subali::middleFrontBack()
     digitalWrite(WAYANG_HAND_7, LOW);
 }
 
+// takes 700 ms
 void Subali::lowPointToBack()
 {
     digitalWrite(WAYANG_HAND_7, HIGH);
@@ -208,6 +220,7 @@ void Subali::lowPointToBack()
     digitalWrite(WAYANG_HAND_7, LOW);
 }
 
+// takes 900 ms
 void Subali::middleBack()
 {
     digitalWrite(WAYANG_HAND_7, HIGH);
@@ -220,6 +233,7 @@ void Subali::middleBack()
     digitalWrite(WAYANG_HAND_7, LOW);
 }
 
+// takes the duration value
 void Subali::directControl(int num, int angle, int duration)
 {
     digitalWrite(WAYANG_HAND_7, HIGH);

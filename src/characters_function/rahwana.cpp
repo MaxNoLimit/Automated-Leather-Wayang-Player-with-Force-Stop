@@ -347,6 +347,7 @@ void Rahwana::rahwana_120_bpm_deathstream()
     digitalWrite(WAYANG_HAND_2, LOW);
 }
 
+// tKes 900 ms
 void Rahwana::pointToFront()
 {
     digitalWrite(WAYANG_HAND_2, HIGH);
@@ -361,6 +362,7 @@ void Rahwana::pointToFront()
     digitalWrite(WAYANG_HAND_2, LOW);
 }
 
+// takes 700 ms
 void Rahwana::lower_pointToFront()
 {
     digitalWrite(WAYANG_HAND_2, HIGH);
@@ -369,6 +371,7 @@ void Rahwana::lower_pointToFront()
     digitalWrite(WAYANG_HAND_2, LOW);
 }
 
+// takes 1200 ms
 void Rahwana::middleFront()
 {
     digitalWrite(WAYANG_HAND_2, HIGH);
@@ -378,6 +381,7 @@ void Rahwana::middleFront()
     digitalWrite(WAYANG_HAND_2, LOW);
 }
 
+// takes 700 ms
 void Rahwana::downFront()
 {
     digitalWrite(WAYANG_HAND_2, HIGH);
@@ -386,6 +390,7 @@ void Rahwana::downFront()
     digitalWrite(WAYANG_HAND_2, LOW);
 }
 
+// takes 1100 ms
 void Rahwana::pointToSelf()
 {
     digitalWrite(WAYANG_HAND_2, HIGH);
@@ -396,6 +401,7 @@ void Rahwana::pointToSelf()
     digitalWrite(WAYANG_HAND_2, LOW);
 }
 
+// takes the duration value
 void Rahwana::directControl(int num, int angle, int duration)
 {
     digitalWrite(WAYANG_HAND_2, HIGH);

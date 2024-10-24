@@ -98,6 +98,7 @@ void Anggada::walk_to_a_certain_distance_before_calibrating_value(int desiredDis
     walk_to_a_certain_distance(desiredDistanceAfterCalibratingValue);
 }
 
+// takes 900 ms
 void Anggada::pointToFront()
 {
     digitalWrite(WAYANG_HAND_9, HIGH);
@@ -108,6 +109,7 @@ void Anggada::pointToFront()
     digitalWrite(WAYANG_HAND_9, LOW);
 }
 
+// takes 700 ms
 void Anggada::lower_pointToFront()
 {
     digitalWrite(WAYANG_HAND_9, HIGH);
@@ -116,6 +118,7 @@ void Anggada::lower_pointToFront()
     digitalWrite(WAYANG_HAND_9, LOW);
 }
 
+// takes 1200 ms
 void Anggada::middleFront()
 {
     digitalWrite(WAYANG_HAND_9, HIGH);
@@ -125,6 +128,7 @@ void Anggada::middleFront()
     digitalWrite(WAYANG_HAND_9, LOW);
 }
 
+// takes 700 ms
 void Anggada::downFront()
 {
     digitalWrite(WAYANG_HAND_9, HIGH);
@@ -133,6 +137,7 @@ void Anggada::downFront()
     digitalWrite(WAYANG_HAND_9, LOW);
 }
 
+// takes 1400 ms
 void Anggada::pointToBack()
 {
     digitalWrite(WAYANG_HAND_9, HIGH);
@@ -143,6 +148,7 @@ void Anggada::pointToBack()
     digitalWrite(WAYANG_HAND_9, LOW);
 }
 
+// takes 700 ms
 void Anggada::downBack()
 {
     digitalWrite(WAYANG_HAND_9, HIGH);
@@ -151,6 +157,7 @@ void Anggada::downBack()
     digitalWrite(WAYANG_HAND_9, LOW);
 }
 
+// takes 700 ms
 void Anggada::onHipBack()
 {
     digitalWrite(WAYANG_HAND_9, HIGH);
@@ -160,6 +167,7 @@ void Anggada::onHipBack()
     digitalWrite(WAYANG_HAND_9, LOW);
 }
 
+// takes 2100 ms
 void Anggada::mathentengA()
 {
     Servo_Anggada.resetArray();
@@ -168,6 +176,7 @@ void Anggada::mathentengA()
     downFront();
 }
 
+// takes 2300 ms
 void Anggada::mathentengC()
 {
     Servo_Anggada.resetArray();
@@ -181,6 +190,7 @@ void Anggada::mathentengC()
     digitalWrite(WAYANG_HAND_9, LOW);
 }
 
+// takes 900 ms
 void Anggada::pointToSelf()
 {
     digitalWrite(WAYANG_HAND_9, HIGH);
@@ -191,6 +201,7 @@ void Anggada::pointToSelf()
     digitalWrite(WAYANG_HAND_9, LOW);
 }
 
+// takes 700 ms
 void Anggada::middleFrontBack()
 {
     digitalWrite(WAYANG_HAND_9, HIGH);
@@ -199,6 +210,7 @@ void Anggada::middleFrontBack()
     digitalWrite(WAYANG_HAND_9, LOW);
 }
 
+// takes 700 ms
 void Anggada::lowPointToBack()
 {
     digitalWrite(WAYANG_HAND_9, HIGH);
@@ -209,6 +221,7 @@ void Anggada::lowPointToBack()
     digitalWrite(WAYANG_HAND_9, LOW);
 }
 
+// takes 1400 ms
 void Anggada::middleBack()
 {
     digitalWrite(WAYANG_HAND_9, HIGH);
@@ -220,6 +233,7 @@ void Anggada::middleBack()
     digitalWrite(WAYANG_HAND_9, LOW);
 }
 
+// takes the duration value
 void Anggada::directControl(int num, int angle, int duration)
 {
     digitalWrite(WAYANG_HAND_9, HIGH);

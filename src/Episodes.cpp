@@ -588,7 +588,7 @@ void Episodes::Episode_1()
     sita.pointToFront();        // takes 700 ms
     delay(12320 - 10673 - 700); // result = 1547 ms
 
-    sita.defaultHandPosition(); // takes 2000 ms
+    sita.defaultHandPosition(); // takes 1400 ms
 
     // 002 (01 S-L1 laksmana1F)
     SoundSystem::playDialogFromACertainFolder(SoundSystem::EPISODE_NUMBER::EPISODE_1, SoundSystem::EPISODE_1_DIALOG::S_L1_LAKS1F);
@@ -1893,92 +1893,98 @@ void Episodes::Episode_2()
     // (1231) This is the reason, why I stood idle, (3242)
 
     delay(1231);
-    rama_wijaya.lowPointToBack(); // takes 700 ms
+    rama_wijaya.lower_pointToFront(); // takes 700 ms
 
     // (3917) as if I do not care. (5229)
 
     delay(3917 - 1231 - 700);
-    rama_wijaya.downBack();   // takes 700 ms
-    rama_wijaya.middleBack(); // takes 1200 ms
+    rama_wijaya.downFront();   // takes 700 ms
+    rama_wijaya.middleFront(); // takes 1200 ms
 
     // (5928) When you were fighting with Bali (7333)
 
     delay(5928 - 3917 - 700 - 1200);
-    rama_wijaya.downBack();       // takes 700 ms
-    rama_wijaya.lowPointToBack(); // takes 700 ms
+    rama_wijaya.downFront();       // takes 700 ms
+    rama_wijaya.lower_pointToFront(); // takes 700 ms
 
     // (7580) I saw you and Bali look alike. (9597)
 
     delay(7580 - 5928 - 700 - 700);
-    rama_wijaya.downBack();   // takes 700 ms
-    rama_wijaya.middleBack(); // takes 1200 ms
+    rama_wijaya.downFront();   // takes 700 ms
+    rama_wijaya.middleFront(); // takes 1200 ms
 
     // (10501) I could not distinguish you from him, (12264)
 
     delay(10501 - 7580 - 700 - 1200);
-    rama_wijaya.downBack();    // takes 700 ms
-    rama_wijaya.pointToBack(); // takes 1400 ms
+    rama_wijaya.downFront();    // takes 700 ms
+    rama_wijaya.pointToFront(); // takes 1200 ms
 
     // (12747) and this became more and more confused. (15628)
 
     delay(12747 - 10501 - 700 - 1200);
-    rama_wijaya.downBack();    // takes 700 ms
-    rama_wijaya.middleBack();  // takes 1200 ms
+    rama_wijaya.downFront();    // takes 700 ms
+    rama_wijaya.onHipBack();  // takes 900 ms
     rama_wijaya.middleFront(); // takes 1200 ms
 
     // (16683) That is the reason I appeared to forget my promise to my friend. (19857)
 
-    delay(16683 - 12747 - 700 - 1200 - 1200);
+    delay(16683 - 12747 - 700 - 900 - 1200);
     rama_wijaya.downFront();   // takes 700 ms
     rama_wijaya.downBack();    // takes 700 ms
-    rama_wijaya.pointToBack(); // takes 1400 ms
+    rama_wijaya.pointToFront(); // takes 1200 ms
 
     // (20686) Now, do this! (21825)
 
-    delay(20686 - 16683 - 700 - 700 - 1400);
-    rama_wijaya.downBack(); // takes 700 ms
+    delay(20686 - 16683 - 700 - 700 - 1200);
+    rama_wijaya.downFront(); // takes 700 ms
 
     // (22549) Wear leaves around your body as an identification. (25556)
 
     delay(22549 - 20686 - 700);
-    rama_wijaya.middleBack(); // takes 1200 ms
+    rama_wijaya.middleFront(); // takes 1200 ms
     for (int i = 0; i < 3; i++)
     {
-        rama_wijaya.directControl(3, 135, 400);
-        rama_wijaya.directControl(3, 180, 400);
+        rama_wijaya.directControl(1, 30, 400);
+        rama_wijaya.directControl(1, 0, 400);
     } // takes 800 ms each loop
 
     // (26460) After you have them on, (27790)
 
     delay(26460 - 22549 - 1200 - 800 * 3);
-    rama_wijaya.downBack();       // takes 700 ms
-    rama_wijaya.lowPointToBack(); // takes 700 ms
+    rama_wijaya.downFront();       // takes 700 ms
+    rama_wijaya.lower_pointToFront(); // takes 700 ms
 
     // (28136) fight again, (28811)
 
     delay(28136 - 26460 - 700 - 700);
-    rama_wijaya.directControl(3, 180, 400); // takes 400 ms
+    rama_wijaya.directControl(1, 0, 400); // takes 400 ms
 
     // (29195) do not be afraid. (30104)
 
     delay(29195 - 28136 - 400);
-    rama_wijaya.directControl(3, 90, 400); // takes 400 ms
+    rama_wijaya.directControl(1, 90, 400); // takes 400 ms
 
     // (30792) For sure Bali will be killed (32301)
 
     delay(30792 - 29195 - 400);
-    rama_wijaya.directControl(3, 180, 400); // takes 400 ms
+    rama_wijaya.directControl(1, 0, 400); // takes 400 ms
 
     // (32548) and you will not be hit. (33693)
 
     delay(32548 - 30792 - 400);
-    rama_wijaya.directControl(3, 90, 400); // takes 400 ms
+    rama_wijaya.directControl(1, 90, 400); // takes 400 ms
 
     delay(33693 - 32548 - 400);
-    rama_wijaya.downBack();  // takes 700 ms
+    rama_wijaya.downFront();  // takes 700 ms
     rama_wijaya.onHipBack(); // takes 900 ms
 
     SoundSystem::playMusicWayang();
+    rama_wijaya.defaultHandPosition();
+
+    rama_wijaya.defaultStandPosition();
+    sugriwa.defaultStandPosition();
+    delay(500);
+
     sugriwa.walk_to_a_certain_distance_before_calibrating_value(215);
     rama_wijaya.walk_to_a_certain_distance_before_calibrating_value(135);
 
@@ -2285,11 +2291,11 @@ void Episodes::Episode_2()
 
     delay(28396 - 26651 - 400);
     rama_wijaya.downFront();       // takes 700 ms
-    rama_wijaya.middleFrontBack(); // takes 1200 ms
+    // rama_wijaya.middleFrontBack(); // takes 1200 ms
 
     // (31411) or bad may be killed. (32727)
 
-    delay(31411 - 28396 - 700 - 1200);
+    delay(31411 - 28396 - 700);
     rama_wijaya.lower_pointToFront(); // takes 700 ms
 
     // (33649) But if you say you are not an animal but a human being, (36732)

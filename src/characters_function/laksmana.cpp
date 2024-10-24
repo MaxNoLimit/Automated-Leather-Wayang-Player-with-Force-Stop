@@ -97,6 +97,7 @@ void Laksmana::walk_to_scene(int distanceValue)
     HC_laksmana.step_for_n_dir(5, distanceValue, "cw");
 }
 
+// takes 700 ms
 void Laksmana::pointToFront()
 {
     digitalWrite(WAYANG_HAND_5, HIGH);
@@ -105,6 +106,7 @@ void Laksmana::pointToFront()
     digitalWrite(WAYANG_HAND_5, LOW);
 }
 
+// takes 700 ms
 void Laksmana::lower_pointToFront()
 {
 
@@ -114,6 +116,7 @@ void Laksmana::lower_pointToFront()
     digitalWrite(WAYANG_HAND_5, LOW);
 }
 
+// takes 900 ms
 void Laksmana::middleFront()
 {
     digitalWrite(WAYANG_HAND_5, HIGH);
@@ -123,6 +126,7 @@ void Laksmana::middleFront()
     digitalWrite(WAYANG_HAND_5, LOW);
 }
 
+// takes 700 ms
 void Laksmana::downFront()
 {
     digitalWrite(WAYANG_HAND_5, HIGH);
@@ -131,6 +135,7 @@ void Laksmana::downFront()
     digitalWrite(WAYANG_HAND_5, LOW);
 }
 
+// takes 1400 ms
 void Laksmana::pointToBack()
 {
     digitalWrite(WAYANG_HAND_5, HIGH);
@@ -141,6 +146,7 @@ void Laksmana::pointToBack()
     digitalWrite(WAYANG_HAND_5, LOW);
 }
 
+// takes 700 ms
 void Laksmana::downBack()
 {
     digitalWrite(WAYANG_HAND_5, HIGH);
@@ -150,6 +156,7 @@ void Laksmana::downBack()
     digitalWrite(WAYANG_HAND_5, LOW);
 }
 
+// takes 1200 ms
 void Laksmana::onHipBack()
 {
     digitalWrite(WAYANG_HAND_5, HIGH);
@@ -159,6 +166,7 @@ void Laksmana::onHipBack()
     digitalWrite(WAYANG_HAND_5, LOW);
 }
 
+// takes 700 ms
 void Laksmana::pointToSelf()
 {
     digitalWrite(WAYANG_HAND_5, HIGH);
@@ -167,6 +175,7 @@ void Laksmana::pointToSelf()
     digitalWrite(WAYANG_HAND_5, LOW);
 }
 
+// takes 700 ms
 void Laksmana::middleFrontBack()
 {
     digitalWrite(WAYANG_HAND_5, HIGH);
@@ -175,6 +184,7 @@ void Laksmana::middleFrontBack()
     digitalWrite(WAYANG_HAND_5, LOW);
 }
 
+// takes 1400 ms
 void Laksmana::lowPointToBack()
 {
     digitalWrite(WAYANG_HAND_5, HIGH);
@@ -185,6 +195,7 @@ void Laksmana::lowPointToBack()
     digitalWrite(WAYANG_HAND_5, LOW);
 }
 
+// takes 700 ms
 void Laksmana::middleBack()
 {
     digitalWrite(WAYANG_HAND_5, HIGH);
@@ -195,6 +206,7 @@ void Laksmana::middleBack()
     digitalWrite(WAYANG_HAND_5, LOW);
 }
 
+// takes the duration value
 void Laksmana::directControl(int num, int angle, int duration)
 {
     digitalWrite(WAYANG_HAND_5, HIGH);
@@ -202,6 +214,7 @@ void Laksmana::directControl(int num, int angle, int duration)
     digitalWrite(WAYANG_HAND_5, LOW);
 }
 
+// takes 2600 ms
 void Laksmana::mathenthengA(){
     Servo_Laskmana.resetArray();
     downBack();

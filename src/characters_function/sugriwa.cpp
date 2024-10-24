@@ -98,6 +98,7 @@ void Sugriwa::walk_to_a_certain_distance_before_calibrating_value(int desiredDis
     walk_to_a_certain_distance(desiredDistanceAfterCalibratingValue);
 }
 
+// takes 900 ms
 void Sugriwa::pointToFront()
 {
     digitalWrite(WAYANG_HAND_6, HIGH);
@@ -108,6 +109,7 @@ void Sugriwa::pointToFront()
     digitalWrite(WAYANG_HAND_6, LOW);
 }
 
+// takes 700 ms
 void Sugriwa::lower_pointToFront()
 {
     digitalWrite(WAYANG_HAND_6, HIGH);
@@ -116,6 +118,7 @@ void Sugriwa::lower_pointToFront()
     digitalWrite(WAYANG_HAND_6, LOW);
 }
 
+// takes 1200 ms
 void Sugriwa::middleFront()
 {
     digitalWrite(WAYANG_HAND_6, HIGH);
@@ -125,6 +128,7 @@ void Sugriwa::middleFront()
     digitalWrite(WAYANG_HAND_6, LOW);
 }
 
+// takes 700 ms
 void Sugriwa::downFront()
 {
     digitalWrite(WAYANG_HAND_6, HIGH);
@@ -133,6 +137,7 @@ void Sugriwa::downFront()
     digitalWrite(WAYANG_HAND_6, LOW);
 }
 
+// takes 1400 ms
 void Sugriwa::pointToBack()
 {
     digitalWrite(WAYANG_HAND_6, HIGH);
@@ -143,6 +148,7 @@ void Sugriwa::pointToBack()
     digitalWrite(WAYANG_HAND_6, LOW);
 }
 
+// takes 700 ms
 void Sugriwa::downBack()
 {
     digitalWrite(WAYANG_HAND_6, HIGH);
@@ -151,6 +157,7 @@ void Sugriwa::downBack()
     digitalWrite(WAYANG_HAND_6, LOW);
 }
 
+// takes 700 ms
 void Sugriwa::onHipBack()
 {
     digitalWrite(WAYANG_HAND_6, HIGH);
@@ -160,6 +167,7 @@ void Sugriwa::onHipBack()
     digitalWrite(WAYANG_HAND_6, LOW);
 }
 
+// takes 2100 ms
 void Sugriwa::mathentengA()
 {
     Servo_Sugriwa.resetArray();
@@ -168,6 +176,7 @@ void Sugriwa::mathentengA()
     downFront();
 }
 
+// takes 2300 ms
 void Sugriwa::mathentengC()
 {
     Servo_Sugriwa.resetArray();
@@ -181,6 +190,7 @@ void Sugriwa::mathentengC()
     digitalWrite(WAYANG_HAND_6, LOW);
 }
 
+// takes 900 ms
 void Sugriwa::pointToSelf()
 {
     digitalWrite(WAYANG_HAND_6, HIGH);
@@ -191,6 +201,7 @@ void Sugriwa::pointToSelf()
     digitalWrite(WAYANG_HAND_6, LOW);
 }
 
+// takes 700 ms
 void Sugriwa::middleFrontBack()
 {
     digitalWrite(WAYANG_HAND_6, HIGH);
@@ -199,6 +210,7 @@ void Sugriwa::middleFrontBack()
     digitalWrite(WAYANG_HAND_6, LOW);
 }
 
+// takes 700 ms
 void Sugriwa::lowPointToBack()
 {
     digitalWrite(WAYANG_HAND_6, HIGH);
@@ -209,6 +221,7 @@ void Sugriwa::lowPointToBack()
     digitalWrite(WAYANG_HAND_6, LOW);
 }
 
+// takes 1400 ms
 void Sugriwa::middleBack()
 {
     digitalWrite(WAYANG_HAND_6, HIGH);
@@ -220,6 +233,7 @@ void Sugriwa::middleBack()
     digitalWrite(WAYANG_HAND_6, LOW);
 }
 
+// takes the duration value
 void Sugriwa::directControl(int num, int angle, int duration)
 {
     digitalWrite(WAYANG_HAND_6, HIGH);

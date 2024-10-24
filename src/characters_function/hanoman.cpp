@@ -97,6 +97,7 @@ void Hanoman::walk_to_scene(int distanceValue)
     HC_hanoman.step_for_n_dir(4, distanceValue, "cw");
 }
 
+// takes 900 ms
 void Hanoman::pointToFront()
 {
     digitalWrite(WAYANG_HAND_4, HIGH);
@@ -107,6 +108,7 @@ void Hanoman::pointToFront()
     digitalWrite(WAYANG_HAND_4, LOW);
 }
 
+// takes 700 ms
 void Hanoman::lower_pointToFront()
 {
     digitalWrite(WAYANG_HAND_4, HIGH);
@@ -115,6 +117,7 @@ void Hanoman::lower_pointToFront()
     digitalWrite(WAYANG_HAND_4, LOW);
 }
 
+// takes 1200 ms
 void Hanoman::middleFront()
 {
     digitalWrite(WAYANG_HAND_4, HIGH);
@@ -124,6 +127,7 @@ void Hanoman::middleFront()
     digitalWrite(WAYANG_HAND_4, LOW);
 }
 
+// takes 700 ms
 void Hanoman::downFront()
 {
     digitalWrite(WAYANG_HAND_4, HIGH);
@@ -132,6 +136,7 @@ void Hanoman::downFront()
     digitalWrite(WAYANG_HAND_4, LOW);
 }
 
+// takes 1400 ms
 void Hanoman::pointToBack()
 {
     digitalWrite(WAYANG_HAND_4, HIGH);
@@ -142,6 +147,7 @@ void Hanoman::pointToBack()
     digitalWrite(WAYANG_HAND_4, LOW);
 }
 
+// takes 700 ms
 void Hanoman::downBack()
 {
     digitalWrite(WAYANG_HAND_4, HIGH);
@@ -150,6 +156,7 @@ void Hanoman::downBack()
     digitalWrite(WAYANG_HAND_4, LOW);
 }
 
+// takes 900 ms
 void Hanoman::onHipBack()
 {
     digitalWrite(WAYANG_HAND_4, HIGH);
@@ -159,6 +166,7 @@ void Hanoman::onHipBack()
     digitalWrite(WAYANG_HAND_4, LOW);
 }
 
+// takes 900 ms
 void Hanoman::pointToSelf()
 {
     digitalWrite(WAYANG_HAND_4, HIGH);
@@ -168,6 +176,7 @@ void Hanoman::pointToSelf()
     digitalWrite(WAYANG_HAND_4, LOW);
 }
 
+// takes 700 ms
 void Hanoman::middleFrontBack()
 {
     digitalWrite(WAYANG_HAND_4, HIGH);
@@ -176,6 +185,7 @@ void Hanoman::middleFrontBack()
     digitalWrite(WAYANG_HAND_4, LOW);
 }
 
+// takes 700 ms
 void Hanoman::lowPointToBack()
 {
     digitalWrite(WAYANG_HAND_4, HIGH);
@@ -186,6 +196,7 @@ void Hanoman::lowPointToBack()
     digitalWrite(WAYANG_HAND_4, LOW);
 }
 
+// takes 1400 ms
 void Hanoman::middleBack()
 {
     digitalWrite(WAYANG_HAND_4, HIGH);
@@ -197,6 +208,7 @@ void Hanoman::middleBack()
     digitalWrite(WAYANG_HAND_4, LOW);
 }
 
+// takes the duration value
 void Hanoman::directControl(int num, int angle, int duration)
 {
     digitalWrite(WAYANG_HAND_4, HIGH);
@@ -204,6 +216,7 @@ void Hanoman::directControl(int num, int angle, int duration)
     digitalWrite(WAYANG_HAND_4, LOW);
 }
 
+// takes 2300 ms
 void Hanoman::mathenthengA()
 {
     Servo_Hanuman.resetArray();
@@ -212,6 +225,7 @@ void Hanoman::mathenthengA()
     onHipBack();
 }
 
+// takes 2300 ms
 void Hanoman::mathenthengC()
 {
     Servo_Hanuman.resetArray();

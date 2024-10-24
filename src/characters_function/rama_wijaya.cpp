@@ -197,6 +197,7 @@ void RamaWijaya::walk_to_a_certain_distance_before_calibrating_value(int desired
     walk_to_a_certain_distance(desiredDistanceAfterCalibratingValue);
 }
 
+// takes 1200 ms
 void RamaWijaya::pointToFront()
 {
     digitalWrite(WAYANG_HAND_3, HIGH);
@@ -208,6 +209,7 @@ void RamaWijaya::pointToFront()
     digitalWrite(WAYANG_HAND_3, LOW);
 }
 
+// takes 700 ms
 void RamaWijaya::lower_pointToFront()
 {
     digitalWrite(WAYANG_HAND_3, HIGH);
@@ -216,6 +218,7 @@ void RamaWijaya::lower_pointToFront()
     digitalWrite(WAYANG_HAND_3, LOW);
 }
 
+// takes 1200 ms
 void RamaWijaya::middleFront()
 {
     digitalWrite(WAYANG_HAND_3, HIGH);
@@ -225,6 +228,7 @@ void RamaWijaya::middleFront()
     digitalWrite(WAYANG_HAND_3, LOW);
 }
 
+// takes 700 ms
 void RamaWijaya::downFront()
 {
     digitalWrite(WAYANG_HAND_3, HIGH);
@@ -233,6 +237,7 @@ void RamaWijaya::downFront()
     digitalWrite(WAYANG_HAND_3, LOW);
 }
 
+// takes 1400 ms
 void RamaWijaya::pointToBack()
 {
     digitalWrite(WAYANG_HAND_3, HIGH);
@@ -243,6 +248,7 @@ void RamaWijaya::pointToBack()
     digitalWrite(WAYANG_HAND_3, LOW);
 }
 
+// takes 700 ms
 void RamaWijaya::downBack()
 {
     digitalWrite(WAYANG_HAND_3, HIGH);
@@ -251,6 +257,7 @@ void RamaWijaya::downBack()
     digitalWrite(WAYANG_HAND_3, LOW);
 }
 
+// takes 900 ms
 void RamaWijaya::onHipBack()
 {
     digitalWrite(WAYANG_HAND_3, HIGH);
@@ -260,6 +267,7 @@ void RamaWijaya::onHipBack()
     digitalWrite(WAYANG_HAND_3, LOW);
 }
 
+// takes 900 ms
 void RamaWijaya::pointToSelf()
 {
     digitalWrite(WAYANG_HAND_3, HIGH);
@@ -270,6 +278,7 @@ void RamaWijaya::pointToSelf()
     digitalWrite(WAYANG_HAND_3, LOW);
 }
 
+// takes 1200 ms
 void RamaWijaya::middleFrontBack()
 {
     digitalWrite(WAYANG_HAND_3, HIGH);
@@ -282,6 +291,7 @@ void RamaWijaya::middleFrontBack()
     digitalWrite(WAYANG_HAND_3, LOW);
 }
 
+// takes 700 ms
 void RamaWijaya::lowPointToBack()
 {
     digitalWrite(WAYANG_HAND_3, HIGH);
@@ -292,6 +302,7 @@ void RamaWijaya::lowPointToBack()
     digitalWrite(WAYANG_HAND_3, LOW);
 }
 
+// takes 1200 ms
 void RamaWijaya::middleBack()
 {
     digitalWrite(WAYANG_HAND_3, HIGH);
@@ -301,6 +312,7 @@ void RamaWijaya::middleBack()
     digitalWrite(WAYANG_HAND_3, LOW);
 }
 
+// takes duration value
 void RamaWijaya::directControl(int num, int angle, int duration)
 {
     digitalWrite(WAYANG_HAND_2, HIGH);
@@ -308,17 +320,20 @@ void RamaWijaya::directControl(int num, int angle, int duration)
     digitalWrite(WAYANG_HAND_2, LOW);
 }
 
+// takes 1400 ms
 void RamaWijaya::anjujur(){
     Servo_RamaWijaya.resetArray();
     downBack();
     downFront();
 }
 
+// takes 2300 ms
 void RamaWijaya::mathenthengA(){
     anjujur();
     onHipBack();
 }
 
+// takes 2300 ms
 void RamaWijaya::mathentengC(){
     anjujur();
     digitalWrite(WAYANG_HAND_3, HIGH);

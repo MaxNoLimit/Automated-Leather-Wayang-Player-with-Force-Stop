@@ -10,6 +10,7 @@ void Sita::defaultStandPosition()
     walk_to_a_certain_distance_before_calibrating_value(0);
 }
 
+// takes 1400 ms
 void Sita::defaultHandPosition()
 {
     // digitalWrite(WAYANG_HAND_1, HIGH);
@@ -240,6 +241,7 @@ void Sita::oscillate(int desiredDurationForOscillating)
     digitalWrite(WAYANG_HAND_1, LOW);
 }
 
+// takes 700 ms
 void Sita::pointToFront()
 {
     // digitalWrite(WAYANG_HAND_3, HIGH);
@@ -256,6 +258,7 @@ void Sita::pointToFront()
     digitalWrite(WAYANG_HAND_1, LOW);
 }
 
+// takes 700 ms
 void Sita::lower_pointToFront()
 {
     digitalWrite(WAYANG_HAND_1, HIGH);
@@ -266,16 +269,17 @@ void Sita::lower_pointToFront()
     digitalWrite(WAYANG_HAND_1, LOW);
 }
 
+// takes 900 ms
 void Sita::middleFront()
 {
     digitalWrite(WAYANG_HAND_1, HIGH);
-    Servo_Sita.defaultPosition();
     Servo_Sita.moveWhatServo(2, 70, 200);
     Servo_Sita.moveWhatServo(1, 0, 500);
     Servo_Sita.moveWhatServo(2, 60, 200);
     digitalWrite(WAYANG_HAND_1, LOW);
 }
 
+// takes 700 ms
 void Sita::downFront()
 {
     digitalWrite(WAYANG_HAND_1, HIGH);
@@ -284,6 +288,7 @@ void Sita::downFront()
     digitalWrite(WAYANG_HAND_1, LOW);
 }
 
+// takes 1400 ms
 void Sita::pointToBack()
 {
     digitalWrite(WAYANG_HAND_1, HIGH);
@@ -294,6 +299,7 @@ void Sita::pointToBack()
     digitalWrite(WAYANG_HAND_1, LOW);
 }
 
+// takes 700 ms
 void Sita::downBack()
 {
     digitalWrite(WAYANG_HAND_1, HIGH);
@@ -302,6 +308,7 @@ void Sita::downBack()
     digitalWrite(WAYANG_HAND_1, LOW);
 }
 
+// takes 900 ms
 void Sita::onHipBack()
 {
     // digitalWrite(WAYANG_HAND_3, HIGH);
@@ -323,6 +330,7 @@ void Sita::onHipBack()
     digitalWrite(WAYANG_HAND_1, LOW);
 }
 
+// takes 1400 ms
 void Sita::pointToSelf()
 {
     // digitalWrite(WAYANG_HAND_1, HIGH);
@@ -339,6 +347,7 @@ void Sita::pointToSelf()
     digitalWrite(WAYANG_HAND_1, LOW);
 }
 
+// takes 700 ms
 void Sita::middleFrontBack()
 {
     digitalWrite(WAYANG_HAND_1, HIGH);
@@ -347,6 +356,7 @@ void Sita::middleFrontBack()
     digitalWrite(WAYANG_HAND_1, LOW);
 }
 
+// takes 1200 ms
 void Sita::lowPointToBack()
 {
     digitalWrite(WAYANG_HAND_1, HIGH);
@@ -357,6 +367,7 @@ void Sita::lowPointToBack()
     digitalWrite(WAYANG_HAND_1, LOW);
 }
 
+// takes 700 ms
 void Sita::middleBack()
 {
     digitalWrite(WAYANG_HAND_1, HIGH);
@@ -366,6 +377,7 @@ void Sita::middleBack()
     digitalWrite(WAYANG_HAND_1, LOW);
 }
 
+// takes the duration value
 void Sita::directControl(int num, int angle, int duration)
 {
     digitalWrite(WAYANG_HAND_2, HIGH);
@@ -373,6 +385,7 @@ void Sita::directControl(int num, int angle, int duration)
     digitalWrite(WAYANG_HAND_2, LOW);
 }
 
+// takes 1400 ms
 void Sita::anjujur()
 {
     Servo_Sita.resetArray();

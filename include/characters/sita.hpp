@@ -32,6 +32,8 @@ public:
     void oscillate(int desiredDurationForOscillating);
 
     // Command list for hand movement
+
+    
     void pointToFront();
     void lower_pointToFront();
     void middleFront();

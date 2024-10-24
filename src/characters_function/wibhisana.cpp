@@ -98,6 +98,7 @@ void Wibhisana::walk_to_a_certain_distance_before_calibrating_value(int desiredD
     walk_to_a_certain_distance(desiredDistanceAfterCalibratingValue);
 }
 
+// takes 900 ms
 void Wibhisana::pointToFront()
 {
     digitalWrite(WAYANG_HAND_8, HIGH);
@@ -108,6 +109,7 @@ void Wibhisana::pointToFront()
     digitalWrite(WAYANG_HAND_8, LOW);
 }
 
+// takes 700 ms
 void Wibhisana::lower_pointToFront()
 {
     digitalWrite(WAYANG_HAND_8, HIGH);
@@ -116,6 +118,7 @@ void Wibhisana::lower_pointToFront()
     digitalWrite(WAYANG_HAND_8, LOW);
 }
 
+// takes 1200 ms
 void Wibhisana::middleFront()
 {
     digitalWrite(WAYANG_HAND_8, HIGH);
@@ -125,6 +128,7 @@ void Wibhisana::middleFront()
     digitalWrite(WAYANG_HAND_8, LOW);
 }
 
+// takes 700 ms
 void Wibhisana::downFront()
 {
     digitalWrite(WAYANG_HAND_8, HIGH);
@@ -133,6 +137,7 @@ void Wibhisana::downFront()
     digitalWrite(WAYANG_HAND_8, LOW);
 }
 
+// takes 1400 ms
 void Wibhisana::pointToBack()
 {
     digitalWrite(WAYANG_HAND_8, HIGH);
@@ -143,6 +148,7 @@ void Wibhisana::pointToBack()
     digitalWrite(WAYANG_HAND_8, LOW);
 }
 
+// takes 700 ms
 void Wibhisana::downBack()
 {
     digitalWrite(WAYANG_HAND_8, HIGH);
@@ -151,6 +157,7 @@ void Wibhisana::downBack()
     digitalWrite(WAYANG_HAND_8, LOW);
 }
 
+// takes 700 ms
 void Wibhisana::onHipBack()
 {
     digitalWrite(WAYANG_HAND_8, HIGH);
@@ -160,6 +167,7 @@ void Wibhisana::onHipBack()
     digitalWrite(WAYANG_HAND_8, LOW);
 }
 
+// takes 2100 ms
 void Wibhisana::mathentengA()
 {
     Servo_Wibhisana.resetArray();
@@ -168,6 +176,7 @@ void Wibhisana::mathentengA()
     downFront();
 }
 
+// takes 2300 ms
 void Wibhisana::mathentengC()
 {
     Servo_Wibhisana.resetArray();
@@ -181,6 +190,7 @@ void Wibhisana::mathentengC()
     digitalWrite(WAYANG_HAND_8, LOW);
 }
 
+// takes 900 ms
 void Wibhisana::pointToSelf()
 {
     digitalWrite(WAYANG_HAND_8, HIGH);
@@ -191,6 +201,7 @@ void Wibhisana::pointToSelf()
     digitalWrite(WAYANG_HAND_8, LOW);
 }
 
+// takes 700 ms
 void Wibhisana::middleFrontBack()
 {
     digitalWrite(WAYANG_HAND_8, HIGH);
@@ -199,6 +210,7 @@ void Wibhisana::middleFrontBack()
     digitalWrite(WAYANG_HAND_8, LOW);
 }
 
+// takes 700 ms
 void Wibhisana::lowPointToBack()
 {
     digitalWrite(WAYANG_HAND_8, HIGH);
@@ -209,6 +221,7 @@ void Wibhisana::lowPointToBack()
     digitalWrite(WAYANG_HAND_8, LOW);
 }
 
+// takes 1400 ms
 void Wibhisana::middleBack()
 {
     digitalWrite(WAYANG_HAND_8, HIGH);
@@ -220,6 +233,7 @@ void Wibhisana::middleBack()
     digitalWrite(WAYANG_HAND_8, LOW);
 }
 
+// takes the duration value
 void Wibhisana::directControl(int num, int angle, int duration)
 {
     digitalWrite(WAYANG_HAND_8, HIGH);

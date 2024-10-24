@@ -97,6 +97,7 @@ void Anila::walk_to_scene(int distanceValue)
     HC_anila.step_for_n_dir(10, distanceValue, "cw");
 }
 
+// takes 900 ms
 void Anila::pointToFront()
 {
     digitalWrite(WAYANG_HAND_10, HIGH);
@@ -107,6 +108,7 @@ void Anila::pointToFront()
     digitalWrite(WAYANG_HAND_10, LOW);
 }
 
+// takes 700 ms
 void Anila::lower_pointToFront()
 {
     digitalWrite(WAYANG_HAND_10, HIGH);
@@ -115,6 +117,7 @@ void Anila::lower_pointToFront()
     digitalWrite(WAYANG_HAND_10, LOW);
 }
 
+// takes 1200 ms
 void Anila::middleFront()
 {
     digitalWrite(WAYANG_HAND_10, HIGH);
@@ -124,6 +127,7 @@ void Anila::middleFront()
     digitalWrite(WAYANG_HAND_10, LOW);
 }
 
+// takes 700 ms
 void Anila::downFront()
 {
     digitalWrite(WAYANG_HAND_10, HIGH);
@@ -132,6 +136,7 @@ void Anila::downFront()
     digitalWrite(WAYANG_HAND_10, LOW);
 }
 
+// takes 1400 ms
 void Anila::pointToBack()
 {
     digitalWrite(WAYANG_HAND_10, HIGH);
@@ -142,6 +147,7 @@ void Anila::pointToBack()
     digitalWrite(WAYANG_HAND_10, LOW);
 }
 
+// takes 700 ms
 void Anila::downBack()
 {
     digitalWrite(WAYANG_HAND_10, HIGH);
@@ -150,6 +156,7 @@ void Anila::downBack()
     digitalWrite(WAYANG_HAND_10, LOW);
 }
 
+// takes 900 ms
 void Anila::onHipBack()
 {
     digitalWrite(WAYANG_HAND_10, HIGH);
@@ -159,6 +166,7 @@ void Anila::onHipBack()
     digitalWrite(WAYANG_HAND_10, LOW);
 }
 
+// takes 2300 ms
 void Anila::mathentengA()
 {
     Servo_Anila.resetArray();
@@ -167,6 +175,7 @@ void Anila::mathentengA()
     onHipBack();
 }
 
+// takes 2500 ms
 void Anila::mathentengC()
 {
     Servo_Anila.resetArray();
@@ -180,6 +189,7 @@ void Anila::mathentengC()
     digitalWrite(WAYANG_HAND_10, LOW);
 }
 
+// takes 900 ms
 void Anila::pointToSelf()
 {
     digitalWrite(WAYANG_HAND_10, HIGH);
@@ -189,6 +199,7 @@ void Anila::pointToSelf()
     digitalWrite(WAYANG_HAND_10, LOW);
 }
 
+// takes 900 ms
 void Anila::middleFrontBack()
 {
     digitalWrite(WAYANG_HAND_10, HIGH);
@@ -198,6 +209,7 @@ void Anila::middleFrontBack()
     digitalWrite(WAYANG_HAND_10, LOW);
 }
 
+// takes 700 ms
 void Anila::lowPointToBack()
 {
     digitalWrite(WAYANG_HAND_10, HIGH);
@@ -208,6 +220,7 @@ void Anila::lowPointToBack()
     digitalWrite(WAYANG_HAND_10, LOW);
 }
 
+// takes 900 ms
 void Anila::middleBack()
 {
     digitalWrite(WAYANG_HAND_10, HIGH);
@@ -220,6 +233,7 @@ void Anila::middleBack()
     digitalWrite(WAYANG_HAND_10, LOW);
 }
 
+// takes the duration value 
 void Anila::directControl(int num, int angle, int duration)
 {
     digitalWrite(WAYANG_HAND_10, HIGH);
