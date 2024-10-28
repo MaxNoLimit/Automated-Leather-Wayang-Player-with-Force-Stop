@@ -131,7 +131,7 @@ void Subali::middleFront()
 void Subali::downFront()
 {
     digitalWrite(WAYANG_HAND_7, HIGH);
-    Servo_Subali.moveWhatServo(3, 30, 500);
+    Servo_Subali.moveWhatServo(3, 20, 500); // before is 30 deg
     Servo_Subali.moveWhatServo(4, 120, 200);
     digitalWrite(WAYANG_HAND_7, LOW);
 }

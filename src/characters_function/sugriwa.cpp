@@ -132,7 +132,7 @@ void Sugriwa::middleFront()
 void Sugriwa::downFront()
 {
     digitalWrite(WAYANG_HAND_6, HIGH);
-    Servo_Sugriwa.moveWhatServo(1, 140, 500);
+    Servo_Sugriwa.moveWhatServo(1, 150, 500);
     Servo_Sugriwa.moveWhatServo(2, 65, 200);
     digitalWrite(WAYANG_HAND_6, LOW);
 }
@@ -153,7 +153,7 @@ void Sugriwa::downBack()
 {
     digitalWrite(WAYANG_HAND_6, HIGH);
     Servo_Sugriwa.moveWhatServo(3, 60, 500);
-    Servo_Sugriwa.moveWhatServo(4, 80, 200);
+    Servo_Sugriwa.moveWhatServo(4, 85, 200); // before is 80 deg
     digitalWrite(WAYANG_HAND_6, LOW);
 }
 
