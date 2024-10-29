@@ -106,6 +106,71 @@ Sugriwa sugriwa;
 //     digitalWrite(LED_BUILTIN, LOW);
 // }
 
+static void sugriwaTaskFight1(void *pvParameters)
+{
+    while (1)
+    {
+        Serial.println("Running sugriwaTaskFight1: " + String(uxTaskGetStackHighWaterMark(NULL)));
+        sugriwa.pointToFront();       // takes 900 ms
+        sugriwa.lower_pointToFront(); // takes 700 ms
+        sugriwa.downFront();          // takes 700 ms
+        sugriwa.lower_pointToFront(); // takes 700 ms
+        // vTaskDelay(200 / portTICK_PERIOD_MS);
+
+        // deleting sugriwaTaskFight1 task
+        // Serial.println("sugriwaTaskFight1 stack: " + String(uxTaskGetStackHighWaterMark(NULL)));
+        vTaskDelete(NULL);
+    }
+}
+
+static void subaliTaskFight1(void *pvParameters)
+{
+    // vTaskSuspend(mainLoopTaskHandler);
+    while (1)
+    {
+        Serial.println("Running subaliTaskFight1: " + String(uxTaskGetStackHighWaterMark(NULL)));
+        subali.pointToFront();       // takes 900 ms
+        subali.lower_pointToFront(); // takes 700 ms
+        subali.downFront();          // takes 700 ms
+        subali.pointToFront();       // takes 900 ms
+        // deleting subaliTaskFight1 task
+        // Serial.println("subaliTaskFight1 stack: " + String(uxTaskGetStackHighWaterMark(NULL)));
+        vTaskResume(mainLoopTaskHandler);
+        vTaskDelete(NULL);
+    }
+}
+
+static void subaliTaskFight2(void *pvParameters)
+{
+    while (1)
+    {
+        Serial.println("Running subaliTaskFight2: " + String(uxTaskGetStackHighWaterMark(NULL)));
+        subali.pointToFront();       // takes 900 ms
+        subali.lower_pointToFront(); // takes 700 ms
+        subali.downFront();          // takes 700 ms
+        subali.lower_pointToFront(); // takes 900 ms
+        // deleting subaliTaskFight2 task
+        // Serial.println("subaliTaskFight2 stack: " + String(uxTaskGetStackHighWaterMark(NULL)));
+        vTaskDelete(NULL);
+    }
+}
+
+static void ramaTaskFight1(void *pvParameters)
+{
+    while (1)
+    {    
+        Serial.println("Running ramaTaskFight1 : " + String(uxTaskGetStackHighWaterMark(NULL)));
+        rama_wijaya.pointToFront();       // takes 900 ms
+        rama_wijaya.lower_pointToFront(); // takes 700 ms
+        rama_wijaya.downFront();          // takes 700 ms
+        rama_wijaya.pointToFront();       // takes 700 ms
+        // deleting ramaTaskFight1 task
+        // Serial.println("ramaTaskFight1 stack: " + String(uxTaskGetStackHighWaterMark(NULL)));
+        vTaskResume(mainLoopTaskHandler);
+        vTaskDelete(NULL);
+    }
+}
+
 void Episodes::July29_Episode()
 {
     setAllMOSFETtoLOW();
@@ -1786,17 +1851,17 @@ void Episodes::Episode_2()
     sugriwa.pointToFront(); // 900
     delay(75908 - 73660 - 700 - 900 - (100));
 
-    /*return to default position*/
-    sugriwa.onHipBack();
-    sugriwa.downFront();
+    // /*return to default position*/
+    sugriwa.defaultHandPosition();
 
     SoundSystem::playMusicWayang();
     sugriwa.defaultStandPosition();
     rama_wijaya.defaultStandPosition();
 
     delay(1000);
-    sugriwa.walk_to_a_certain_distance_before_calibrating_value(215);
-    rama_wijaya.walk_to_a_certain_distance_before_calibrating_value(135);
+    sugriwa.walk_to_a_certain_distance_before_calibrating_value(185);
+    // rama just hides
+    // rama_wijaya.walk_to_a_certain_distance_before_calibrating_value(135);
 
     // 014 (07 Duel1 Sugriwa1F)
     SoundSystem::playDialogFromACertainFolder(SoundSystem::EPISODE_NUMBER::EPISODE_1, SoundSystem::EPISODE_1_DIALOG::DUEL1_SUGRIWA1F);
@@ -1826,7 +1891,7 @@ void Episodes::Episode_2()
     // 015 (Subali round 1 rage)
     SoundSystem::playDialogFromACertainFolder(SoundSystem::EPISODE_NUMBER::EPISODE_1, SoundSystem::EPISODE_1_DIALOG::SUBALI_ROUND_1_RAGE);
     // delay(3000);
-
+    Serial.println("Current stack size: " + String(uxTaskGetStackHighWaterMark(NULL)));
     // (717) you DARE challenge me? (2349) [Front point to front]
     delay(717);
     subali.pointToFront(); // takes 900 ms
@@ -1845,21 +1910,28 @@ void Episodes::Episode_2()
     SoundSystem::playMusicWayang();
     subali.walk_to_a_certain_distance_before_calibrating_value(165);
 
-    sugriwa.pointToFront();       // takes 900 ms
-    subali.pointToFront();        // takes 900 ms
-    sugriwa.lower_pointToFront(); // takes 700 ms
-    subali.lower_pointToFront();  // takes 700 ms
-    sugriwa.downFront();          // takes 700 ms
-    subali.downFront();           // takes 700 ms
-    sugriwa.lower_pointToFront(); // takes 700 ms
-    subali.pointToFront();        // takes 900 ms
+    Serial.println("Current stack size: " + String(uxTaskGetStackHighWaterMark(NULL)));
+
+    xTaskCreate(sugriwaTaskFight1, "sugriwaTaskFight1", 512, NULL, 1, NULL);
+    xTaskCreate(subaliTaskFight1, "subaliTaskFight1", 512, NULL, 1, NULL);
+
+    // vTaskStartScheduler();
+
+    vTaskSuspend(mainLoopTaskHandler);
+    // sugriwa.pointToFront();       // takes 900 ms
+    // subali.pointToFront();        // takes 900 ms
+    // sugriwa.lower_pointToFront(); // takes 700 ms
+    // subali.lower_pointToFront();  // takes 700 ms
+    // sugriwa.downFront();          // takes 700 ms
+    // subali.downFront();           // takes 700 ms
+    // sugriwa.lower_pointToFront(); // takes 700 ms
+    // subali.pointToFront();        // takes 900 ms
 
     // Sugriwa fight Subali 1st loss
-    // xTaskCreate(sugriwaTaskFight1, "sugriwaTaskFight1", 128, NULL, 1, NULL);
-    // xTaskCreate(subaliTaskFight1, "subaliTaskFight1", 128, NULL, 1, NULL);
+
     // delay(5000);
 
-    sugriwa.walk_to_a_certain_distance_before_calibrating_value(190);
+    sugriwa.walk_to_a_certain_distance_before_calibrating_value(145);
     subali.downFront(); // takes 700 ms
     subali.walk_to_a_certain_distance_before_calibrating_value(190);
 
@@ -2011,8 +2083,9 @@ void Episodes::Episode_2()
     sugriwa.defaultStandPosition();
     delay(500);
 
-    sugriwa.walk_to_a_certain_distance_before_calibrating_value(215);
-    rama_wijaya.walk_to_a_certain_distance_before_calibrating_value(135);
+    sugriwa.walk_to_a_certain_distance_before_calibrating_value(185);
+    // rama hides
+    // rama_wijaya.walk_to_a_certain_distance_before_calibrating_value(135);
 
     // 019 (10 Duel2 Sugriwa1F)
     SoundSystem::playDialogFromACertainFolder(SoundSystem::EPISODE_NUMBER::EPISODE_1, SoundSystem::EPISODE_1_DIALOG::DUEL2_SUGRIWA1F);
@@ -2042,7 +2115,6 @@ void Episodes::Episode_2()
 
     delay(7365 - 3528 - 800 * 4);
     sugriwa.downFront(); // takes 700 ms
-
 
     // 020 (Subali round 2 rage)
     SoundSystem::playMusicWayang();
@@ -2077,32 +2149,42 @@ void Episodes::Episode_2()
     SoundSystem::playMusicWayang();
     subali.walk_to_a_certain_distance_before_calibrating_value(165);
 
-    sugriwa.pointToFront();       // takes 900 ms
-    subali.pointToFront();        // takes 900 ms
-    sugriwa.lower_pointToFront(); // takes 700 ms
-    subali.lower_pointToFront();  // takes 700 ms
-    sugriwa.downFront();          // takes 700 ms
-    subali.downFront();           // takes 700 ms
-    sugriwa.lower_pointToFront(); // takes 700 ms
-    subali.pointToFront();        // takes 900 ms
+    xTaskCreate(sugriwaTaskFight1, "sugriwaTaskFight1", 512, NULL, 1, NULL);
+    xTaskCreate(subaliTaskFight1, "subaliTaskFight1", 512, NULL, 1, NULL);
+
+    vTaskSuspend(mainLoopTaskHandler);
+
+    // sugriwa.pointToFront();       // takes 900 ms
+    // subali.pointToFront();        // takes 900 ms
+    // sugriwa.lower_pointToFront(); // takes 700 ms
+    // subali.lower_pointToFront();  // takes 700 ms
+    // sugriwa.downFront();          // takes 700 ms
+    // subali.downFront();           // takes 700 ms
+    // sugriwa.lower_pointToFront(); // takes 700 ms
+    // subali.pointToFront();        // takes 900 ms
 
     // Sugriwa fight Subali 1st loss
     // xTaskCreate(sugriwaTaskFight1, "sugriwaTaskFight1", 128, NULL, 1, NULL);
     // xTaskCreate(subaliTaskFight1, "subaliTaskFight1", 128, NULL, 1, NULL);
     // delay(5000);
 
-    sugriwa.walk_to_a_certain_distance_before_calibrating_value(155);
+    sugriwa.defaultStandPosition();
     subali.downFront(); // takes 700 ms
     subali.walk_to_a_certain_distance_before_calibrating_value(190);
-    rama_wijaya.walk_to_a_certain_distance_before_calibrating_value(276);
-    rama_wijaya.pointToFront();       // takes 900 ms
-    subali.pointToFront();            // takes 900 ms
-    rama_wijaya.lower_pointToFront(); // takes 700 ms
-    subali.lower_pointToFront();      // takes 700 ms
-    rama_wijaya.downFront();          // takes 700 ms
-    subali.downFront();               // takes 700 ms
-    rama_wijaya.pointToFront();       // takes 900 ms
-    subali.lower_pointToFront();      // takes 700 ms
+    rama_wijaya.walk_to_a_certain_distance_before_calibrating_value(190);
+
+    xTaskCreate(subaliTaskFight2, "subaliTaskFight2", 512, NULL, 1, NULL);
+    xTaskCreate(ramaTaskFight1, "ramaTaskFight1", 512, NULL, 1, NULL);
+
+    vTaskSuspend(mainLoopTaskHandler);
+    // rama_wijaya.pointToFront();       // takes 900 ms
+    // subali.pointToFront();            // takes 900 ms
+    // rama_wijaya.lower_pointToFront(); // takes 700 ms
+    // subali.lower_pointToFront();      // takes 700 ms
+    // rama_wijaya.downFront();          // takes 700 ms
+    // subali.downFront();               // takes 700 ms
+    // rama_wijaya.pointToFront();       // takes 900 ms
+    // subali.lower_pointToFront();      // takes 700 ms
     subali.walk_to_a_certain_distance_before_calibrating_value(155);
     subali.downFront(); // takes 700 ms
     rama_wijaya.downFront();
@@ -3270,33 +3352,24 @@ void Episodes::Episode_5()
 {
 }
 
-// void Episodes::sugriwaTaskFight1(void *pvParameters)
-// {
-//     (void)pvParameters;
-//     for (;;)
-//     {
-//         sugriwa.pointToFront();       // takes 900 ms
-//         sugriwa.lower_pointToFront(); // takes 700 ms
-//         sugriwa.downFront();          // takes 700 ms
-//         sugriwa.lower_pointToFront(); // takes 700 ms
-//         vTaskDelay(200 / portTICK_PERIOD_MS);
+void Episodes::Episode_1_task(void *pvParameters)
+{
+    Serial.println("Episode 1");
+    // Episode_1();
+    while (1)
+    {
+        vTaskResume(mainLoopTaskHandler);
+        vTaskDelete(NULL);
+    }
+}
 
-//         // deleting sugriwaTaskFight1 task
-//         vTaskDelete(NULL);
-//     }
-// }
-
-// void Episodes::subaliTaskFight1(void *pvParameters)
-// {
-//     (void)pvParameters;
-//     for (;;)
-//     {
-//         subali.pointToFront();       // takes 900 ms
-//         subali.lower_pointToFront(); // takes 700 ms
-//         subali.downFront();          // takes 700 ms
-//         subali.pointToFront();       // takes 900 ms
-
-//         // deleting subaliTaskFight1 task
-//         vTaskDelete(NULL);
-//     }
-// }
+void Episodes::Episode_2_task(void *pvParameters)
+{
+    Serial.println("Episode 2");
+    // Episode_2();
+    while (1)
+    {
+        vTaskResume(mainLoopTaskHandler);
+        vTaskDelete(NULL);
+    }
+}

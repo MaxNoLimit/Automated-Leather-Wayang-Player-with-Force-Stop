@@ -335,6 +335,8 @@ void WayangDisplay::generalLoop()
         // Episodes::July29_Episode();
         // Episodes::randomTesting();
         Episodes::Episode_1();
+        // xTaskCreate(Episodes::Episode_1_task, "Episode_1_task", 128, NULL, 2, NULL);
+        // vTaskSuspend(NULL);
         WayangDisplayLCD_in_main.enableLCD();
         loop_state = StateManagement::FSA_STATE::DEFAULT_LOOPING_LCD;
         delay(1);
@@ -343,6 +345,8 @@ void WayangDisplay::generalLoop()
     case StateManagement::FSA_STATE::PLAY_EPISODE_2:
         WayangDisplayLCD_in_main.disableLCD();
         Episodes::Episode_2();
+        // xTaskCreate(Episodes::Episode_2_task, "Episode_2_task", 128, NULL, 2, NULL);
+        // vTaskSuspend(NULL);
         WayangDisplayLCD_in_main.enableLCD();
         loop_state = StateManagement::FSA_STATE::DEFAULT_LOOPING_LCD;
         delay(1);
@@ -350,6 +354,7 @@ void WayangDisplay::generalLoop()
 
     case StateManagement::FSA_STATE::PLAY_EPISODE_3:
         WayangDisplayLCD_in_main.disableLCD();
+        Serial.println("Episode 3");
         Episodes::Episode_3();
         WayangDisplayLCD_in_main.enableLCD();
         loop_state = StateManagement::FSA_STATE::DEFAULT_LOOPING_LCD;
@@ -358,6 +363,7 @@ void WayangDisplay::generalLoop()
 
     case StateManagement::FSA_STATE::PLAY_EPISODE_4:
         WayangDisplayLCD_in_main.disableLCD();
+        Serial.println("Episode 4");
         Episodes::Episode_4();
         WayangDisplayLCD_in_main.enableLCD();
         loop_state = StateManagement::FSA_STATE::DEFAULT_LOOPING_LCD;
@@ -366,6 +372,7 @@ void WayangDisplay::generalLoop()
 
     case StateManagement::FSA_STATE::PLAY_EPISODE_5:
         WayangDisplayLCD_in_main.disableLCD();
+        Serial.println("Episode 5");
         Episodes::Episode_5();
         WayangDisplayLCD_in_main.enableLCD();
         loop_state = StateManagement::FSA_STATE::DEFAULT_LOOPING_LCD;
@@ -1989,46 +1996,46 @@ void CalibratingFunction::commandListHandMovementTest()
     // wayangHanoman.defaultStandPosition();
     // wayangHanoman.defaultHandPosition();
 
-    // Laksmana
-    wayangLaksmana.defaultStandPosition();
-    wayangLaksmana.defaultHandPosition();
-    wayangLaksmana.walk_to_a_certain_distance_before_calibrating_value(250);
-    delay(500);
-    wayangLaksmana.pointToFront();
-    delay(500);
-    wayangLaksmana.lower_pointToFront();
-    delay(500);
-    wayangLaksmana.downFront(); // to make middle front possible
-    delay(500);
-    wayangLaksmana.middleFront();
-    delay(500);
-    wayangLaksmana.downFront();
-    delay(500);
-    wayangLaksmana.pointToBack();
-    delay(500);
+    // // Laksmana
+    // wayangLaksmana.defaultStandPosition();
+    // wayangLaksmana.defaultHandPosition();
+    // wayangLaksmana.walk_to_a_certain_distance_before_calibrating_value(250);
+    // delay(500);
+    // wayangLaksmana.pointToFront();
+    // delay(500);
+    // wayangLaksmana.lower_pointToFront();
+    // delay(500);
+    // wayangLaksmana.downFront(); // to make middle front possible
+    // delay(500);
+    // wayangLaksmana.middleFront();
+    // delay(500);
+    // wayangLaksmana.downFront();
+    // delay(500);
+    // wayangLaksmana.pointToBack();
+    // delay(500);
+    // // wayangLaksmana.downBack();
+    // // delay(500);
+    // wayangLaksmana.mathenthengA();
+    // // wayangLaksmana.onHipBack();
+    // // delay(500);
+    // wayangLaksmana.pointToSelf();
+    // delay(500);
+    // wayangLaksmana.downFront();
+    // delay(500);
+    // // wayangLaksmana.middleFrontBack();
+    // // delay(500);
+    // wayangLaksmana.lowPointToBack();
+    // delay(500);
     // wayangLaksmana.downBack();
+    // delay(500); ///
+    // wayangLaksmana.middleBack();
     // delay(500);
-    wayangLaksmana.mathenthengA();
-    // wayangLaksmana.onHipBack();
-    // delay(500);
-    wayangLaksmana.pointToSelf();
-    delay(500);
-    wayangLaksmana.downFront();
-    delay(500);
-    // wayangLaksmana.middleFrontBack();
-    // delay(500);
-    wayangLaksmana.lowPointToBack();
-    delay(500);
-    wayangLaksmana.downBack();
-    delay(500); ///
-    wayangLaksmana.middleBack();
-    delay(500);
-    wayangLaksmana.downBack();
-    delay(500); ///
-    // wayangLaksmana.middleFrontBack();
-    // delay(500);
-    wayangLaksmana.defaultHandPosition();
-    wayangLaksmana.defaultStandPosition();
+    // wayangLaksmana.downBack();
+    // delay(500); ///
+    // // wayangLaksmana.middleFrontBack();
+    // // delay(500);
+    // wayangLaksmana.defaultHandPosition();
+    // wayangLaksmana.defaultStandPosition();
 
     // Sugriwa
     //
@@ -2085,22 +2092,22 @@ void CalibratingFunction::commandListHandMovementTest()
     // wayangSugriwa.mathentengA();
 
     // Subali
-    // wayangSubali.defaultStandPosition();
-    // wayangSubali.defaultHandPosition();
+    wayangSubali.defaultStandPosition();
+    wayangSubali.defaultHandPosition();
 
-    // wayangSubali.mathenthengC();
-    // wayangSubali.walk_to_a_certain_distance_before_calibrating_value(250);
-    // delay(500);
-    // wayangSubali.mathenthengA();
-    // delay(500);
-    // wayangSubali.pointToFront();
-    // delay(500);
-    // wayangSubali.lower_pointToFront();
-    // delay(500);
-    // wayangSubali.downFront();
-    // delay(500);
-    // wayangSubali.middleFront();
-    // delay(500);
+    wayangSubali.mathenthengC();
+    wayangSubali.walk_to_a_certain_distance_before_calibrating_value(250);
+    delay(500);
+    wayangSubali.mathenthengA();
+    delay(500);
+    wayangSubali.pointToFront();
+    delay(500);
+    wayangSubali.lower_pointToFront();
+    delay(500);
+    wayangSubali.downFront();
+    delay(500);
+    wayangSubali.middleFront();
+    delay(500);
     // wayangSubali.downFront();
     // delay(500);
     // wayangSubali.downBack();
@@ -2131,9 +2138,9 @@ void CalibratingFunction::commandListHandMovementTest()
     // delay(500);
     // wayangSubali.middleFrontBack();
     // delay(500);
-    // wayangSubali.mathenthengC();
-    // wayangSubali.defaultStandPosition();
-    // wayangSubali.mathenthengA();
+    wayangSubali.mathenthengC();
+    wayangSubali.defaultStandPosition();
+    wayangSubali.mathenthengA();
 
     setAllMOSFETtoHIGH();
 }

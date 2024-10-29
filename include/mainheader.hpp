@@ -66,6 +66,9 @@
 
 #include <Arduino.h>
 #include <Wire.h>
+#include <Arduino_FreeRTOS.h>
+
+extern TaskHandle_t mainLoopTaskHandler;
 
 
 #endif //MAINHEADER_H
