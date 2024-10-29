@@ -2628,6 +2628,10 @@ void Episodes::Episode_2()
     subali.downFront();
 
     SoundSystem::playMusicWayang();
+    rama_wijaya.defaultHandPosition();
+    subali.defaultHandPosition();
+    sugriwa.defaultHandPosition();
+    
     rama_wijaya.defaultStandPosition();
     sugriwa.defaultStandPosition();
     subali.defaultStandPosition();
