@@ -160,7 +160,7 @@ void setAllXSHUTtoHIGH()
 /*
 Function untuk setup LCD 20x4
 */
-void WayangDisplay::lcd2004setup()
+void WayangDisplay::lcd2004setupIntro()
 {
     // Scanning address I2C yang terhubung
     lcd_2040_address = I2C_Scanner::scan_n_assign();
@@ -168,7 +168,10 @@ void WayangDisplay::lcd2004setup()
     // Reconstruct dengan address yang sudah di-scan
     WayangDisplayLCD_in_main = WayangDisplay::WayangDisplayLCD(lcd_2040_address); // re-construct
     WayangDisplayLCD_in_main.introDisplay();
-    delay(2000);
+}
+
+void WayangDisplay::lcd2004final()
+{
     WayangDisplayLCD_in_main.refreshLCD();
     WayangDisplayLCD_in_main.MenuDisplay();
 
@@ -2039,28 +2042,29 @@ void CalibratingFunction::commandListHandMovementTest()
 
     // Sugriwa
     //
-    // wayangSugriwa.defaultStandPosition();
+    wayangSugriwa.defaultStandPosition();
     // wayangSugriwa.mathentengA();
-    // wayangSugriwa.mathentengC();
-    // wayangSugriwa.walk_to_a_certain_distance_before_calibrating_value(250);
-    // wayangSugriwa.mathentengA();
-    // delay(500);
-    // wayangSugriwa.pointToFront();
-    // delay(500);
-    // wayangSugriwa.lower_pointToFront();
-    // delay(500);
-    // wayangSugriwa.downFront();
-    // delay(500);
-    // wayangSugriwa.middleFront();
-    // delay(500);
-    // wayangSugriwa.downFront();
-    // delay(500);
+    wayangSugriwa.mathentengC();
+    wayangSugriwa.walk_to_a_certain_distance_before_calibrating_value(250);
+    wayangSugriwa.mathentengA();
+    delay(500);
+    wayangSugriwa.pointToFront();
+    delay(500);
+    wayangSugriwa.lower_pointToFront();
+    delay(500);
+    wayangSugriwa.downFront();
+    delay(500);
+    wayangSugriwa.middleFront();
+    delay(500);
+    wayangSugriwa.downFront();
+    delay(500);
 
+    wayangSugriwa.downBack();
+    wayangSugriwa.pointToBack();
+    delay(500);
     // wayangSugriwa.downBack();
-    // wayangSugriwa.pointToBack();
     // delay(500);
-    // wayangSugriwa.downBack();
-    // delay(500);
+    wayangSugriwa.mathentengA();
     // wayangSugriwa.onHipBack();
     // delay(500);
     // wayangSugriwa.downBack();
@@ -2069,8 +2073,8 @@ void CalibratingFunction::commandListHandMovementTest()
     // wayangSugriwa.mathentengA();
     //
     // wayangSugriwa.downFront();
-    // wayangSugriwa.pointToSelf();
-    // delay(500);
+    wayangSugriwa.pointToSelf();
+    delay(500);
 
     // wayangSugriwa.downFront();
     // wayangSugriwa.middleFrontBack(); // ignore this
@@ -2087,27 +2091,27 @@ void CalibratingFunction::commandListHandMovementTest()
     // wayangSugriwa.middleFrontBack();
     // delay(500);
     //
-    // wayangSugriwa.mathentengC();
-    // wayangSugriwa.defaultStandPosition();
-    // wayangSugriwa.mathentengA();
+    wayangSugriwa.mathentengC();
+    wayangSugriwa.defaultStandPosition();
+    wayangSugriwa.mathentengA();
 
     // Subali
-    wayangSubali.defaultStandPosition();
-    wayangSubali.defaultHandPosition();
+    // wayangSubali.defaultStandPosition();
+    // wayangSubali.defaultHandPosition();
 
-    wayangSubali.mathenthengC();
-    wayangSubali.walk_to_a_certain_distance_before_calibrating_value(250);
-    delay(500);
-    wayangSubali.mathenthengA();
-    delay(500);
-    wayangSubali.pointToFront();
-    delay(500);
-    wayangSubali.lower_pointToFront();
-    delay(500);
-    wayangSubali.downFront();
-    delay(500);
-    wayangSubali.middleFront();
-    delay(500);
+    // wayangSubali.mathenthengC();
+    // wayangSubali.walk_to_a_certain_distance_before_calibrating_value(250);
+    // delay(500);
+    // wayangSubali.mathenthengA();
+    // delay(500);
+    // wayangSubali.pointToFront();
+    // delay(500);
+    // wayangSubali.lower_pointToFront();
+    // delay(500);
+    // wayangSubali.downFront();
+    // delay(500);
+    // wayangSubali.middleFront();
+    // delay(500);
     // wayangSubali.downFront();
     // delay(500);
     // wayangSubali.downBack();
@@ -2138,9 +2142,9 @@ void CalibratingFunction::commandListHandMovementTest()
     // delay(500);
     // wayangSubali.middleFrontBack();
     // delay(500);
-    wayangSubali.mathenthengC();
-    wayangSubali.defaultStandPosition();
-    wayangSubali.mathenthengA();
+    // wayangSubali.mathenthengC();
+    // wayangSubali.defaultStandPosition();
+    // wayangSubali.mathenthengA();
 
     setAllMOSFETtoHIGH();
 }

@@ -3,8 +3,8 @@
 bool soundSystemStatus = false;
 DFRobotDFPlayerMini sound_system;
 
-int volumeHardcoded = 13;
-int volumeHardcodedMusic = 8;
+int volumeHardcoded = 20;
+int volumeHardcodedMusic = 10;
 
 /*
 Function untuk initiation sound system dari Wayang
@@ -15,7 +15,6 @@ void SoundSystem::justInitTheSoundSystem()
     if (soundSystemStatus == false)
     {
         pinMode(LED_BUILTIN, OUTPUT);
-        Serial2.begin(9600);
     }
 
     if (!sound_system.begin(Serial2) && soundSystemStatus == false)
@@ -30,9 +29,9 @@ void SoundSystem::justInitTheSoundSystem()
     }
     digitalWrite(LED_BUILTIN, HIGH);
     Serial.println(F("DFPlayer Mini online."));
-    soundSystemStatus = true;
-
     sound_system.volume(volumeHardcoded);
+    sound_system.playFolder(EPISODE_NUMBER::INDICATOR_SOUND, INDICATOR_SOUND_NUMBER::INDICATOR_AUDIO_1);
+    soundSystemStatus = true;
 }
 
 void SoundSystem::initSound()
@@ -41,25 +40,30 @@ void SoundSystem::initSound()
     {
         pinMode(LED_BUILTIN, OUTPUT);
         Serial2.begin(9600);
-    }
+        if (!sound_system.begin(Serial2))
+        {
+            Serial.println(F("Unable to begin:"));
+            Serial.println(F("1.Please recheck the connection!"));
+            Serial.println(F("2.Please insert the SD card!"));
+            // while (true)
+            // {
+            //     delay(0);
+            // }
+        }
+        else
+        {
+            digitalWrite(LED_BUILTIN, HIGH);
+            Serial.println(F("DFPlayer Mini online."));
+            soundSystemStatus = true;
 
-    if (!sound_system.begin(Serial2) && soundSystemStatus == false)
+            sound_system.volume(volumeHardcoded);
+            delay(3000);
+        }
+    } else
     {
-        Serial.println(F("Unable to begin:"));
-        Serial.println(F("1.Please recheck the connection!"));
-        Serial.println(F("2.Please insert the SD card!"));
-        // while (true)
-        // {
-        //     delay(0);
-        // }
+        Serial.println(F("\nSound system is already initiated!\n"));
     }
-    digitalWrite(LED_BUILTIN, HIGH);
-    Serial.println(F("DFPlayer Mini online."));
-    soundSystemStatus = true;
-
-    sound_system.volume(volumeHardcoded);
-    sound_system.playFolder(EPISODE_NUMBER::INDICATOR_SOUND, INDICATOR_SOUND_NUMBER::INDICATOR_AUDIO_1);
-    delay(3000);
+    
 }
 
 /*

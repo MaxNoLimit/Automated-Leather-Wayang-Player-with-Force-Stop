@@ -28,6 +28,8 @@ void WayangDisplay::WayangDisplayLCD::introDisplay()
     lcdWayang.print("Automated Leather");
     lcdWayang.setCursor(0, 1);
     lcdWayang.print("Wayang Player");
+    // lcdWayang.setCursor(0, 3);
+    // lcdWayang.print("Please wait...");
 }
 
 /*

@@ -85,7 +85,7 @@ void Subali::walk_to_a_certain_distance(int desiredDistance)
 
 void Subali::walk_to_a_certain_distance_before_calibrating_value(int desiredDistance)
 {
-    int desiredDistanceAfterCalibratingValue = desiredDistance + (float)desiredDistance * 0.155 + 63;
+    int desiredDistanceAfterCalibratingValue = desiredDistance + 56;
     Serial.println("\ndesiredDistance: ");
     Serial.print(desiredDistanceAfterCalibratingValue);
     Serial.println("mm \n");
@@ -126,7 +126,7 @@ void Subali::middleFront()
     digitalWrite(WAYANG_HAND_7, HIGH);
     Servo_Subali.moveWhatServo(3, 30, 500);
     Servo_Subali.moveWhatServo(4, 120, 200);
-    Servo_Subali.moveWhatServo(3, 135, 500);
+    Servo_Subali.moveWhatServo(3, 150, 500);
     digitalWrite(WAYANG_HAND_7, LOW);
 }
 
@@ -190,7 +190,7 @@ void Subali::mathenthengC()
     digitalWrite(WAYANG_HAND_7, HIGH);
     Servo_Subali.moveWhatServo(2, 110, 200);
     Servo_Subali.moveWhatServo(1, 30, 500);
-    Servo_Subali.moveWhatServo(2, 70, 200);
+    Servo_Subali.moveWhatServo(2, 73, 200);
     digitalWrite(WAYANG_HAND_7, LOW);
 }
 
@@ -198,9 +198,9 @@ void Subali::mathenthengC()
 void Subali::pointToSelf()
 {
     digitalWrite(WAYANG_HAND_7, HIGH);
-    Servo_Subali.moveWhatServo(4, 65, 200);
+    Servo_Subali.moveWhatServo(4, 75, 200);
     Servo_Subali.moveWhatServo(3, 150, 500);
-    Servo_Subali.moveWhatServo(4, 80, 200);
+    Servo_Subali.moveWhatServo(4, 90, 200);
     digitalWrite(WAYANG_HAND_7, LOW);
 }
 

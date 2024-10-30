@@ -158,7 +158,7 @@ static void subaliTaskFight2(void *pvParameters)
 static void ramaTaskFight1(void *pvParameters)
 {
     while (1)
-    {    
+    {
         Serial.println("Running ramaTaskFight1 : " + String(uxTaskGetStackHighWaterMark(NULL)));
         rama_wijaya.pointToFront();       // takes 900 ms
         rama_wijaya.lower_pointToFront(); // takes 700 ms
@@ -1859,7 +1859,7 @@ void Episodes::Episode_2()
     rama_wijaya.defaultStandPosition();
 
     delay(1000);
-    sugriwa.walk_to_a_certain_distance_before_calibrating_value(185);
+    sugriwa.walk_to_a_certain_distance_before_calibrating_value(235);
     // rama just hides
     // rama_wijaya.walk_to_a_certain_distance_before_calibrating_value(135);
 
@@ -1886,7 +1886,7 @@ void Episodes::Episode_2()
     sugriwa.downFront(); // takes 700 ms
 
     SoundSystem::playMusicWayang();
-    subali.walk_to_a_certain_distance_before_calibrating_value(155);
+    subali.walk_to_a_certain_distance_before_calibrating_value(160);
 
     // 015 (Subali round 1 rage)
     SoundSystem::playDialogFromACertainFolder(SoundSystem::EPISODE_NUMBER::EPISODE_1, SoundSystem::EPISODE_1_DIALOG::SUBALI_ROUND_1_RAGE);
@@ -1908,12 +1908,12 @@ void Episodes::Episode_2()
     subali.downFront(); // takes 700 ms
 
     SoundSystem::playMusicWayang();
-    subali.walk_to_a_certain_distance_before_calibrating_value(165);
+    subali.walk_to_a_certain_distance_before_calibrating_value(170);
 
     Serial.println("Current stack size: " + String(uxTaskGetStackHighWaterMark(NULL)));
 
-    xTaskCreate(sugriwaTaskFight1, "sugriwaTaskFight1", 512, NULL, 1, NULL);
-    xTaskCreate(subaliTaskFight1, "subaliTaskFight1", 512, NULL, 1, NULL);
+    xTaskCreate(sugriwaTaskFight1, "sugriwaTaskFight1", 1024, NULL, 1, NULL);
+    xTaskCreate(subaliTaskFight1, "subaliTaskFight1", 1024, NULL, 1, NULL);
 
     // vTaskStartScheduler();
 
@@ -1931,9 +1931,9 @@ void Episodes::Episode_2()
 
     // delay(5000);
 
-    sugriwa.walk_to_a_certain_distance_before_calibrating_value(145);
+    sugriwa.walk_to_a_certain_distance_before_calibrating_value(170);
     subali.downFront(); // takes 700 ms
-    subali.walk_to_a_certain_distance_before_calibrating_value(190);
+    subali.walk_to_a_certain_distance_before_calibrating_value(225);
 
     // 016 (08 Duel1 Sugriwa2F)
     SoundSystem::playDialogFromACertainFolder(SoundSystem::EPISODE_NUMBER::EPISODE_1, SoundSystem::EPISODE_1_DIALOG::DUEL1_SUGRIWA2F);
@@ -2083,7 +2083,7 @@ void Episodes::Episode_2()
     sugriwa.defaultStandPosition();
     delay(500);
 
-    sugriwa.walk_to_a_certain_distance_before_calibrating_value(185);
+    sugriwa.walk_to_a_certain_distance_before_calibrating_value(235);
     // rama hides
     // rama_wijaya.walk_to_a_certain_distance_before_calibrating_value(135);
 
@@ -2118,7 +2118,7 @@ void Episodes::Episode_2()
 
     // 020 (Subali round 2 rage)
     SoundSystem::playMusicWayang();
-    subali.walk_to_a_certain_distance_before_calibrating_value(155);
+    subali.walk_to_a_certain_distance_before_calibrating_value(160);
 
     SoundSystem::playDialogFromACertainFolder(SoundSystem::EPISODE_NUMBER::EPISODE_1, SoundSystem::EPISODE_1_DIALOG::SUBALI_ROUND_2_RAGE);
     // delay(3000);
@@ -2147,10 +2147,10 @@ void Episodes::Episode_2()
     subali.downFront(); // takes 700 ms
 
     SoundSystem::playMusicWayang();
-    subali.walk_to_a_certain_distance_before_calibrating_value(165);
+    subali.walk_to_a_certain_distance_before_calibrating_value(170);
 
-    xTaskCreate(sugriwaTaskFight1, "sugriwaTaskFight1", 512, NULL, 1, NULL);
-    xTaskCreate(subaliTaskFight1, "subaliTaskFight1", 512, NULL, 1, NULL);
+    xTaskCreate(sugriwaTaskFight1, "sugriwaTaskFight1", 1024, NULL, 1, NULL);
+    xTaskCreate(subaliTaskFight1, "subaliTaskFight1", 1024, NULL, 1, NULL);
 
     vTaskSuspend(mainLoopTaskHandler);
 
@@ -2170,11 +2170,11 @@ void Episodes::Episode_2()
 
     sugriwa.defaultStandPosition();
     subali.downFront(); // takes 700 ms
-    subali.walk_to_a_certain_distance_before_calibrating_value(190);
-    rama_wijaya.walk_to_a_certain_distance_before_calibrating_value(190);
+    subali.walk_to_a_certain_distance_before_calibrating_value(225);
+    rama_wijaya.walk_to_a_certain_distance_before_calibrating_value(225);
 
-    xTaskCreate(subaliTaskFight2, "subaliTaskFight2", 512, NULL, 1, NULL);
-    xTaskCreate(ramaTaskFight1, "ramaTaskFight1", 512, NULL, 1, NULL);
+    xTaskCreate(subaliTaskFight2, "subaliTaskFight2", 1024, NULL, 1, NULL);
+    xTaskCreate(ramaTaskFight1, "ramaTaskFight1", 1024, NULL, 1, NULL);
 
     vTaskSuspend(mainLoopTaskHandler);
     // rama_wijaya.pointToFront();       // takes 900 ms
@@ -2185,7 +2185,7 @@ void Episodes::Episode_2()
     // subali.downFront();               // takes 700 ms
     // rama_wijaya.pointToFront();       // takes 900 ms
     // subali.lower_pointToFront();      // takes 700 ms
-    subali.walk_to_a_certain_distance_before_calibrating_value(155);
+    subali.walk_to_a_certain_distance_before_calibrating_value(170);
     subali.downFront(); // takes 700 ms
     rama_wijaya.downFront();
 
@@ -2350,7 +2350,9 @@ void Episodes::Episode_2()
     subali.downBack();     // 700
     subali.downFront();    // 700
     subali.pointToFront(); // 900
-    delay(2000);
+    delay(500);
+
+    subali.downFront(); // 700
 
     // 022 (Rama2Sugriwa-Rama-Subali dialogue_E)
     SoundSystem::playDialogFromACertainFolder(SoundSystem::EPISODE_NUMBER::EPISODE_1, SoundSystem::EPISODE_1_DIALOG::RAMA2SUGRIWA_RAMA_SUBALI_DIALOGUE_E);
@@ -2490,7 +2492,8 @@ void Episodes::Episode_2()
     rama_wijaya.pointToFront(); // takes 1200 ms
 
     delay(55499 - 52482 - 700 - 1200);
-    // no need to drop the front hand
+    delay(1000);
+    rama_wijaya.downFront(); // takes 700 ms
 
     // 023 (Subali tobat_E)
     SoundSystem::playDialogFromACertainFolder(SoundSystem::EPISODE_NUMBER::EPISODE_1, SoundSystem::EPISODE_1_DIALOG::SUBALI_TOBAT_E);
@@ -2631,13 +2634,13 @@ void Episodes::Episode_2()
     rama_wijaya.defaultHandPosition();
     subali.defaultHandPosition();
     sugriwa.defaultHandPosition();
-    
+
     rama_wijaya.defaultStandPosition();
     sugriwa.defaultStandPosition();
     subali.defaultStandPosition();
 
     delay(1000);
-    sugriwa.walk_to_a_certain_distance_before_calibrating_value(250);
+    sugriwa.walk_to_a_certain_distance_before_calibrating_value(270);
     rama_wijaya.walk_to_a_certain_distance_before_calibrating_value(150);
 
     // 024 (11 S-R2 Sugriwa1F)
@@ -3078,7 +3081,7 @@ void Episodes::Episode_2()
     rama_wijaya.defaultStandPosition();
 
     delay(1000);
-    sugriwa.walk_to_a_certain_distance_before_calibrating_value(250);
+    sugriwa.walk_to_a_certain_distance_before_calibrating_value(270);
     rama_wijaya.walk_to_a_certain_distance_before_calibrating_value(150);
 
     // 028 (12 SApol Sugriwa1F)
@@ -3184,12 +3187,10 @@ void Episodes::Episode_2()
     sugriwa.downBack();   // 700
     sugriwa.middleBack(); // 1400
     delay(5239 - 1632 - 700 - 1400);
-    delay(2000);
+    delay(1000);
 
     /*return to default position*/
-    sugriwa.downFront();
-    sugriwa.downBack();
-    sugriwa.onHipBack();
+    sugriwa.mathentengA();
 
     // 030 (14 SApol Hanuman1F)
     SoundSystem::playDialogFromACertainFolder(SoundSystem::EPISODE_NUMBER::EPISODE_1, SoundSystem::EPISODE_1_DIALOG::SApol_Hanuman1F);
@@ -3336,6 +3337,9 @@ void Episodes::Episode_2()
     rama_wijaya.downFront(); // takes 700 ms
 
     SoundSystem::playMusicWayang();
+    rama_wijaya.defaultHandPosition();
+    sugriwa.defaultHandPosition();
+
     rama_wijaya.defaultStandPosition();
     sugriwa.defaultStandPosition();
 

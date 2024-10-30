@@ -6,15 +6,14 @@
 // TaskHandle_t MainTaskHandler;
 TaskHandle_t mainLoopTaskHandler;
 
-// void mainLoop(void *pvParameters);
-
 static void mainLoop(void *pvParameters)
 {
   Serial.println(F("\n\nWayang Debug Serial Monitor!"));
+  WayangDisplay::lcd2004setupIntro();
   beginingAllGPIOS();
+  WayangDisplay::lcd2004final();
 
-  Serial.println(F("Setup done!"));
-  WayangDisplay::lcd2004setup();
+  Serial.println(F("\nSetup done!"));
   while (1)
   {
     WayangDisplay::generalLoop();
@@ -25,15 +24,15 @@ static void mainLoop(void *pvParameters)
 void setup()
 {
   Serial.begin(9600);
+  Serial2.begin(9600);
   Serial.println(F("Setup..."));
   xTaskCreate(
       mainLoop,              /* Task function. */
       "MainLoop",            /* name of task. */
-      1024 * 3,              /* Stack size of task */
+      1024 * 2,              /* Stack size of task */
       NULL,                  /* parameter of the task */
       1,                     /* priority of the task */
       &mainLoopTaskHandler); /* Task handle to keep track of created task */
-  // vTaskStartScheduler();
 }
 
 void loop()

@@ -327,7 +327,7 @@ void Rahwana::hand_movement_18()
 
 void Rahwana::walk_to_a_certain_distance_before_calibrating_value(int desiredDistance)
 {
-    int desiredDistanceAfterCalibratingValue = desiredDistance + (float)desiredDistance * 0.155 + 49;
+    int desiredDistanceAfterCalibratingValue = desiredDistance + 49;
     Serial.println("\ndesiredDistance: ");
     Serial.print(desiredDistanceAfterCalibratingValue);
     Serial.println("mm \n");
