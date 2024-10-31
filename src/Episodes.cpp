@@ -648,12 +648,16 @@ void Episodes::Episode_1()
     delay(36072 - 35210); // 36072 (862)
 
     /*That call was not his,*/
-    laksmana.middleFront();              // 36972 (900)
+    // laksmana.middleFront();              // 36972 (900)
+    laksmana.directControl(4, 110, 400); //1800
+    laksmana.directControl(3, 180, 1000);
+    laksmana.directControl(4, 120, 400);
+
     laksmana.directControl(4, 115, 400); // 37372 (400)
     laksmana.directControl(4, 120, 400); // 37772 (400)
-    laksmana.directControl(4, 115, 400); // 38172 (400)
-    laksmana.directControl(4, 120, 400); // 38572 (400)
-    delay(38746 - 38572);                // 38746 (174)
+    // laksmana.directControl(4, 115, 400); // 38172 (400)
+    // laksmana.directControl(4, 120, 400); // 38572 (400)
+    delay(38746 - 38572 - 100);                // 38746 (174-100)
 
     /*it was the call of an evil demon, */
     laksmana.pointToFront(); // 39446 (700)
