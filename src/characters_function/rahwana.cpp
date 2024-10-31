@@ -347,7 +347,7 @@ void Rahwana::rahwana_120_bpm_deathstream()
     digitalWrite(WAYANG_HAND_2, LOW);
 }
 
-// tKes 900 ms
+// takes 900 ms
 void Rahwana::pointToFront()
 {
     digitalWrite(WAYANG_HAND_2, HIGH);

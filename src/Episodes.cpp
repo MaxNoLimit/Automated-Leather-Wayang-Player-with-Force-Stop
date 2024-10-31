@@ -717,12 +717,16 @@ void Episodes::Episode_1()
     delay(36072 - 35210); // 36072 (862)
 
     /*That call was not his,*/
-    laksmana.middleFront();              // 36972 (900)
+    // laksmana.middleFront();              // 36972 (900)
+    laksmana.directControl(4, 110, 400); //1800
+    laksmana.directControl(3, 180, 1000);
+    laksmana.directControl(4, 120, 400);
+
     laksmana.directControl(4, 115, 400); // 37372 (400)
     laksmana.directControl(4, 120, 400); // 37772 (400)
-    laksmana.directControl(4, 115, 400); // 38172 (400)
-    laksmana.directControl(4, 120, 400); // 38572 (400)
-    delay(38746 - 38572);                // 38746 (174)
+    // laksmana.directControl(4, 115, 400); // 38172 (400)
+    // laksmana.directControl(4, 120, 400); // 38572 (400)
+    delay(38746 - 38572 - 100);                // 38746 (174-100)
 
     /*it was the call of an evil demon, */
     laksmana.pointToFront(); // 39446 (700)
@@ -3350,6 +3354,288 @@ void Episodes::Episode_2()
 
 void Episodes::Episode_3()
 {
+    CalibratingFunction::wayangHand();
+
+    setAllMOSFETtoLOW();
+
+    SoundSystem::playMusicWayang();
+
+    delay(1000);
+    rahwana.walk_to_a_certain_distance_before_calibrating_value(350); // going to the dialog position
+    sita.walk_to_a_certain_distance_before_calibrating_value(100); // going to the dialog position
+
+
+    /*insert 001_Sita-Rawana-Hanuman_Rawana1v here*/
+
+    delay(821);
+    // (821) Hey Maithili, (1930)  
+    rahwana.pointToFront(); // takes 900 ms
+    delay(2516-821-900);
+
+    // (2516) you are very cruel towards me. (4681)  
+    rahwana.middleFront(); // takes 1200 ms
+    delay(5486-2516-1200);
+
+    // (5486) Let me fall into hell if I lie. (7893)  
+    rahwana.downFront(); // takes 700 ms
+    delay(8862-5486-1200);
+
+    // (8862) You are the only one, my dear, (11206)  
+    rahwana.lower_pointToFront(); // takes 700 ms
+    delay(11644-8862-700-(700));
+    rahwana.downFront(); // takes 700 ms
+
+    // (11644) who always stays in my mind. (13410) 
+    rahwana.pointToSelf(); // takes 1100 ms
+    delay(14481-11644-1100-(700));
+    rahwana.downFront(); // takes 700 ms
+
+    // (14481) Janakatmaja, (15583)  
+    rahwana.middleFront(); // takes 1200 ms
+    delay(16317-14481-1200);
+
+    // (16317) you hurt me more and more. (18162)  
+    rahwana.directControl(3, 180, 500); // takes 500 ms
+    rahwana.directControl(4, 140, 200); // takes 200 ms
+    delay(18888-16317-500-200);
+
+    // (18888) You should not be so cruel in all your deeds, my dear. (22342)  
+    rahwana.lower_pointToFront(); // takes 700 ms
+    delay(23382-18888-700-(700));
+    rahwana.downFront(); // takes 700 ms
+
+    // (23382) Now my longing for you is profound. (25804)  
+    rahwana.pointToFront(); // takes 1200 ms
+    delay(26570-23382-1200-(700));
+    rahwana.downFront(); // takes 700 ms
+
+    // (26570) I prefer to die, (28024)  
+    rahwana.pointToSelf(); // takes 1100 ms
+    delay(28485-26570-1100);
+
+    // (28485) than be tortured like this, (30532)  
+    rahwana.downFront(); // takes 700 ms
+    delay(31376-28485-700);
+
+    // (31376) because you have no pity for me. (33478) 
+    rahwana.lower_pointToFront(); // takes 700 ms
+    delay(34478-31376-700);
+    rahwana.downFront(); // takes 700 ms
+
+
+    /*sita silence */
+    delay(5000);
+
+    /*insert 002_Sita-Rawana-Hanuman_Rawana2v here*/
+
+    delay(516); 
+    // (516) Janakatmaja! (1649) 
+    rahwana.pointToFront(); // takes 900 ms
+    delay(2209-516-900);
+
+    // (2209) What is the use of remaining silent? (4531)  
+    rahwana.lower_pointToFront(); // takes 700 ms
+    for (int i=0; i<2; i++){ // takes 800 ms *2
+        rahwana.directControl(3, 150, 400); // takes 400 ms
+        rahwana.directControl(3, 120, 400); // takes 400 ms
+    }
+    delay(5153-2209-700-(800*2));
+
+    // (5153) That is not the way to stop me from asking, (7721)  
+    rahwana.downFront(); // takes 700 ms
+    delay(8282-5153-700);
+
+    // (8282) because I do not think I am wrong, my dear. (11002)
+    rahwana.pointToSelf(); // takes 1100 ms  
+    delay(11781-8282-1100);
+
+    // (11781) I am only following the behavior of a raksasa, (14815)  
+    rahwana.downFront(); // takes 700 ms
+    delay(15336-11781-700);
+
+    // (15336) nothing else. (16295) 
+    rahwana.lower_pointToFront(); // takes 700 ms
+    delay(17411-15336-700);
+
+    // (17411) I have reserved for you a jeweled pavilion. (20019)  
+    rahwana.middleFront(); // takes 1200 ms
+    delay(20785-17411-1200);
+
+    // (20787) Let us sleep there and have fun together, my dear. (23658)  
+    rahwana.directControl(3, 180, 500); // takes 500 ms
+    rahwana.directControl(4, 140, 200); // takes 200 ms
+    delay(24650-20787-500-200);
+
+    // (24650) Is it not very cold to sleep on the ground? (27321) 
+    rahwana.lower_pointToFront(); // takes 700 ms
+    delay(28256-24650-700);
+
+    // (28256) You are in my heart, (29478)  
+    rahwana.pointToFront(); // takes 900
+    delay(29826-28256-900);
+
+    // (29826) you alone, (30634)  
+    rahwana.lower_pointToFront(); // takes 700 ms
+    delay(31088-29826-700);
+
+    // (31088) so that you will not be far wherever I go. (33634) 
+    rahwana.middleFront(); // takes 1200 ms
+    delay(34323-31088-1200-(700)); 
+    rahwana.downFront(); // takes 700 ms
+
+    // (34323) Or let me stay in your heart, (36095)  
+    rahwana.pointToSelf(); // takes 1100 ms
+    delay(36235-34323-1100-(700));
+    rahwana.downFront(); // takes 700 ms
+
+    // (36235) so that I will not be far from you, my beloved. (39247) 
+    rahwana.pointToFront(); // takes 900 ms
+    delay(40424-36235-900);
+
+    // (40424) Please, (41075)  
+    rahwana.lower_pointToFront(); // takes 700 ms
+    delay(41731-40424-700);
+
+    // (41731) listen to my words my dear, (43609) 
+    rahwana.pointToFront(); // takes 1200 ms
+    delay(44285-41731-1200); 
+
+    // (44249) they are true. (45291)  
+    rahwana.lower_pointToFront(); // takes 700 ms
+    delay(45880-44249-700);
+
+    // (45880) No one else shall I serve (48241) and love. (48987)  
+    rahwana.middleFront(); // takes 1200 ms
+    delay(48241-45880-1200);
+    rahwana.directControl(3, 180, 500); // takes 500 ms
+    rahwana.directControl(4, 140, 200); // takes 200 ms
+    delay(49834-48241-500-200);
+
+    // (49834) Besides, (50641)  
+    rahwana.lower_pointToFront(); // takes 700 ms
+    delay(51045-49834-700);
+
+    // (51045) your life at my side will be a success. (54017)  
+    rahwana.pointToFront(); // takes 900 ms
+    delay(54662-51045-900);
+
+    // (54662) What is the use grieving over Raghuputra? (57727) 
+    rahwana.lower_pointToFront(); // takes 700 ms
+    delay(58333-54662-700);
+
+    // (59097) If milk could be obtained from squeezing sand, (62529)  
+    rahwana.middleFront(); // takes 1200 ms
+    delay(63219-59097-1200);
+
+    // (63219) then you will find happiness with Raghawa. (65630)  
+    rahwana.directControl(3, 180, 500); // takes 500 ms
+    rahwana.directControl(4, 140, 200); // takes 200 ms
+    delay(66493-63219-500-200);
+
+    // (66493) Therefore do not deprecate my words, my dear. (69432)  
+    rahwana.lower_pointToFront(); // takes 700 ms
+    delay(70205-66493-700-(700));
+    rahwana.downFront(); // takes 700 ms
+
+    // (70205) Let me be your protector and lord. (72577) 
+    rahwana.pointToSelf(); // takes 1100 ms
+    delay(73918-70205-1100-(700));
+    rahwana.downFront(); // takes 700 ms
+
+    // (73918) If I am happy with your service, (75948)  
+    rahwana.middleFront(); // takes 1200 ms
+    delay(76435-73918-1200);
+
+    // (76435) I will make you the queen of the threefold world. (79749)  
+    rahwana.directControl(3, 180, 500); // takes 500 ms
+    rahwana.directControl(4, 140, 200); // takes 200 ms
+    delay(80574-76435-500-200);
+
+    // (80574) What is the use of all this weeping? (83476)  
+    rahwana.lower_pointToFront(); // takes 700 ms
+    delay(83977-80574-700);
+
+    // (83977) Stop it! (84785)  
+    rahwana.downFront(); // takes 700 ms
+    delay(85615-83977-700);
+
+    // (85615) I will be the cure, (86983)  
+    rahwana.pointToSelf(); // takes 1100 ms
+    delay(87437-85615-1100-(700));
+    rahwana.downFront(); // takes 700 ms
+
+    // (87437) I will heal your depressed heart. (89764)
+    rahwana.middleFront(); // takes 1200 ms
+    delay(90762-87437-1200); 
+
+    // (90762) You may reign over my demon-army. (93538)  
+    rahwana.directControl(3, 180, 500); // takes 500 ms
+    rahwana.directControl(4, 140, 200); // takes 200 ms
+    delay(94138-90762-500-200);
+
+    // (94138) All what you wish, (95473)  
+    rahwana.downFront(); // takes 700 ms
+    delay(95719-94138-700);
+
+    // (95719) I will give to you. (96897)  
+    rahwana.pointToSelf(); // takes 1100 ms
+    delay(97727-95719-1100-(700));
+    rahwana.downFront(); // takes 700 ms
+
+    // (97727) If you want Indra to wait upon you, (100043)  
+    rahwana.pointToFront(); // takes 900 ms
+    delay(100441-97727-900);
+
+    // (100441) just say so. (101540) 
+    rahwana.lower_pointToFront(); // takes 700 ms
+    delay(102376-100441-700); 
+
+    // (102376) Do not worry, (103290)  
+    rahwana.middleFront(); // takes 1200 ms
+    delay(103648-102376-1200);
+
+    // (103648) if that is what you want. (105219) 
+    rahwana.directControl(3, 180, 500); // takes 500 ms
+    rahwana.directControl(4, 140, 200); // takes 200 ms
+    delay(105219-103648-500-200);
+
+    delay(2000);
+    rahwana.downFront(); // takes 700 ms
+    delay(2000);
+
+    /*insert 003_Sita-Rahwana-Hanuman_Sita1 here*/
+
+    /*insert 004_Sita-Rawana-Hanuman_Rawana3v here*/
+    delay(370);
+    // (370) Janakatmaja, (1518)  
+    rahwana.middleFront(); // takes 1200 ms
+    delay(2115-370-1200);
+
+    // (2115) look carefully at what this is, (4942)  
+    rahwana.directControl(3, 180, 500); // takes 500 ms
+    rahwana.directControl(4, 140, 200); // takes 200 ms
+    delay(5867-2115-500-200);
+
+    // (5867) which is like death in my perilous hand. (8820)  
+    rahwana.lower_pointToFront(); // takes 700 ms
+    delay(10157-5867-700);
+
+    // (10157) If you do not obey the order of Rawana, (13341)  
+    rahwana.downFront(); // takes 700 ms
+    delay(14340-10157-700);
+
+    // (14340) for sure it will fall upon your neck (17843) savagely. (19018)
+    rahwana.pointToFront(); // takes 900 ms
+    delay(17843-14340-700);
+    rahwana.lower_pointToFront(); // takes 700 ms
+    delay(19018-17843-700);
+    rahwana.downFront(); // takes 700 ms 
+
+    // *Leaves from scene* 
+    rahwana.defaultStandPosition();
+
+    /*insert 005_Sita-Rahwana-Hanuman_Sita2*/
+    
 }
 
 void Episodes::Episode_4()
