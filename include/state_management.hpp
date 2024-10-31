@@ -17,6 +17,39 @@ namespace StateManagement
         PLAY_EPISODE_3,
         PLAY_EPISODE_4,
         PLAY_EPISODE_5,
+        SIMPLE_WAYANG_HAND_CALIBRATION,
+
+        SITA_HAND,
+        EXIT_SITA_HAND,
+        SITA_POINT_TO_FRONT,
+        SITA_LOW_POINT_TO_FRONT,
+        SITA_MIDDLE_FRONT,
+        SITA_DOWN_FRONT,
+        SITA_POINT_TO_SELF,
+        SITA_DOWN_BACK,
+        SITA_ON_HIP_BACK,
+        SITA_POINT_TO_BACK,
+        SITA_LOW_POINT_TO_BACK,
+        SITA_MIDDLE_BACK,
+
+        RAHWANA_HAND,
+
+        RAMA_WIJAYA_HAND,
+
+        HANOMAN_HAND,
+
+        LAKSMANA_HAND,
+
+        SUGRIWA_HAND,
+
+        SUBALI_HAND,
+
+        WIBHISANA_HAND,
+
+        ANGGADA_HAND,
+
+        ANILA_HAND,
+
     };
 
     enum PAGE_ROUTE
@@ -26,26 +59,42 @@ namespace StateManagement
         CALIBRATE_PAGE,
         SETTINGS_PAGE,
         SENSOR_STATUS_PAGE,
+        WAYANG_HAND_CALIBRATION_PAGE,
+        SITA_HAND_PAGE,
+        RAHWANA_HAND_PAGE,
+        RAMA_WIJAYA_HAND_PAGE,
+        HANOMAN_HAND_PAGE,
+        LAKSMANA_HAND_PAGE,
+        SUGRIWA_HAND_PAGE,
+        SUBALI_HAND_PAGE,
+        WIBHISANA_HAND_PAGE,
+        ANGGADA_HAND_PAGE,
+        ANILA_HAND_PAGE,
+
     };
 
-    enum SUB_EPISODE_PAGE_ROUTE{
+    enum SUB_EPISODE_PAGE_ROUTE
+    {
         EPISODE123,
         EPISODE1234,
         EPISODE2345,
     };
 
-    enum SETTINGS_PAGE_ROUTE{
+    enum SETTINGS_PAGE_ROUTE
+    {
         OPTION_SETTINGS,
         VOLUME_SETTINGS,
     };
 
-    enum SUB_CALIBRATE_PAGE_ROUTE{
+    enum SUB_CALIBRATE_PAGE_ROUTE
+    {
         CALIBRATE_1,
         CALIBRATE_2,
     };
 
-    enum SENSOR_STATUS_PAGE_ROUTE{
-        SENSOR_123 = 1,
+    enum SENSOR_STATUS_PAGE_ROUTE
+    {
+        SENSOR_123,
         SENSOR_1234,
         SENSOR_2345,
         SENSOR_3456,
@@ -54,8 +103,31 @@ namespace StateManagement
         SENSOR_6789,
         SENSOR_78910,
     };
+
+    enum WAYANG_HAND_CALIBRATION_SUB_PAGE_ROUTE
+    {
+        WAYANG_HAND_CALIBRATION_1,
+        WAYANG_HAND_CALIBRATION_2,
+        WAYANG_HAND_CALIBRATION_3,
+        WAYANG_HAND_CALIBRATION_4,
+        WAYANG_HAND_CALIBRATION_5,
+        WAYANG_HAND_CALIBRATION_6,
+        WAYANG_HAND_CALIBRATION_7,
+        WAYANG_HAND_CALIBRATION_8,
+        WAYANG_HAND_CALIBRATION_9,
+    };
+
+    enum WAYANG_HAND_CALIBRATION_SUB_PAGE_ROUTE_SITA
+    {
+        SITA_HAND_CALIBRATION_1,
+        SITA_HAND_CALIBRATION_2,
+        SITA_HAND_CALIBRATION_3,
+        SITA_HAND_CALIBRATION_4,
+        SITA_HAND_CALIBRATION_5,
+        SITA_HAND_CALIBRATION_6,
+        SITA_HAND_CALIBRATION_7,
+        SITA_HAND_CALIBRATION_8,
+    };
 };
-
-
 
 #endif // STATE_MANAGEMENT_H

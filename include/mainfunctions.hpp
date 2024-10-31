@@ -1,7 +1,7 @@
 #ifndef MAINFUNCTIONS_H
 #define MAINFUNCTIONS_H
 
-// #include <CheapStepper.h>
+#include <Arduino_FreeRTOS.h>
 
 void beginingAllGPIOS();
 void setAllMOSFETtoHIGH();
@@ -84,5 +84,12 @@ private:
     int servoPin4;
     int currentDeg[4] = {0, 0, 0, 0};
 };
+
+extern TaskHandle_t serialReaderTaskHandler;
+void serialReaderTask(void *pvParameters);
+bool isModeChanged();
+
+int getSubPageRoute();
+int getSubSubPageRoute();
 
 #endif // MAINFUNCTIONS_H

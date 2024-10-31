@@ -24,26 +24,48 @@ namespace WayangDisplay
         void MenuDisplay();
 
         void EpisodeDisplay();
-        void EpisodeDisplay2();
-        void EpisodeDisplay3();
 
         void CalibrateDisplay();
-        void CalibrateDisplay2();
 
         void SensorStatusDisplay();
-        void SensorStatusDisplay2();
-        void SensorStatusDisplay3();
-        void SensorStatusDisplay4();
-        void SensorStatusDisplay5();
-        void SensorStatusDisplay6();
-        void SensorStatusDisplay7();
-        void SensorStatusDisplay8();
+
+        void WayangHandCalibrationDisplay();
+
+        // Wayang Hand Calibration options
+        // Sita
+        void SitaHandCalibration();
+
+        // Rahwana
+        void RahwanaHandCalibration();
+
+        // Rama Wijaya
+        void RamaWijayaHandCalibration();
+
+        // Hanoman
+        void HanomanHandCalibration();
+
+        // Laksmana
+        void LaksmanaHandCalibration();
+
+        // Sugriwa
+        void SugriwaHandCalibration();
+
+        // Subali
+        void SubaliHandCalibration();
+
+        // Wibhisana
+        void WibhisanaHandCalibration();
+
+        // Anggada
+        void AnggadaHandCalibration();
+
+        // Anila
+        void AnilaHandCalibration();
 
         void enableLCD();
         void disableLCD();
 
         void SettingsDisplay();
-        void SettingsVolumeDisplay();
 
         int get_lcd_Address();
         void set_lcd_Address(int address);

@@ -1,6 +1,68 @@
 #include "wayang_lcd_2004.hpp"
 #include "sound_system.hpp"
 #include "distanceSensorVL53L0X.hpp"
+#include "mainfunctions.hpp"
+
+String menuList[4] = {
+    "Menu",
+    "Play episode",
+    "Calibrate",
+    "Settings"};
+
+String episodeList[6] = {
+    "Play Episode",
+    "Episode 1",
+    "Episode 2",
+    "Episode 3",
+    "Episode 4",
+    "Episode 5"};
+
+String calibratingList[5] = {
+    "Calibrate",
+    "V-Slot Linear",
+    "Mp3 Player",
+    "Wayang's Hand",
+    "Sensor Data"};
+
+String calibratingWayangHandList[12] = {
+    "Wayang's Hand",
+    "s1mple Calibration",
+    "Wayang Sita",
+    "Wayang Rahwana",
+    "Wayang Rama Wijaya",
+    "Wayang Hanuman",
+    "Wayang Laksmana",
+    "Wayang Sugriwa",
+    "Wayang Subali",
+    "Wayang Wibhisana",
+    "Wayang Anggada",
+    "Wayang Anila"};
+
+String calibratingSensorList[11] = {
+    "Sensor data",
+    "Sensor 1:    ",
+    "Sensor 2:    ",
+    "Sensor 3:    ",
+    "Sensor 4:    ",
+    "Sensor 5:    ",
+    "Sensor 6:    ",
+    "Sensor 7:    ",
+    "Sensor 8:    ",
+    "Sensor 9:    ",
+    "Sensor 10:   "};
+
+String sitaHandOption[11] = {
+    "Wayang Sita",
+    "Point to Front",
+    "Low Point to Front",
+    "Middle Front",
+    "Down Front",
+    "Point To Self",
+    "Down Back",
+    "On Hip Back",
+    "Point to Back",
+    "Low Point to Back",
+    "Middle Back"};
 
 WayangDisplay::WayangDisplayLCD::WayangDisplayLCD()
     : lcdWayang(get_lcd_Address(), 20, 4)
@@ -24,6 +86,7 @@ void WayangDisplay::WayangDisplayLCD::introDisplay()
     // LiquidCrystal_I2C lcdWayang(this->lcd_Address, 20, 4);
     lcdWayang.init();
     lcdWayang.backlight();
+    lcdWayang.clear();
     lcdWayang.setCursor(0, 0);
     lcdWayang.print("Automated Leather");
     lcdWayang.setCursor(0, 1);
@@ -48,14 +111,11 @@ void WayangDisplay::WayangDisplayLCD::MenuDisplay()
     // LiquidCrystal_I2C lcdWayang(this->lcd_Address, 20, 4);
     // lcdWayang.init();
     // lcdWayang.backlight();
-    lcdWayang.setCursor(0, 0);
-    lcdWayang.print("Menu");
-    lcdWayang.setCursor(0, 1);
-    lcdWayang.print("Play episode");
-    lcdWayang.setCursor(0, 2);
-    lcdWayang.print("Calibrate");
-    lcdWayang.setCursor(0, 3);
-    lcdWayang.print("Settings");
+    for (int i = 0; i < 4; i++)
+    {
+        lcdWayang.setCursor(0, i);
+        lcdWayang.print(menuList[i]);
+    }
     lcdWayang.setCursor(18, get_selection_point());
     lcdWayang.print("<<");
 }
@@ -65,48 +125,11 @@ Function untuk display bagian episode 1,2,3
 */
 void WayangDisplay::WayangDisplayLCD::EpisodeDisplay()
 {
-    lcdWayang.setCursor(0, 0);
-    lcdWayang.print("Play Episode");
-    lcdWayang.setCursor(0, 1);
-    lcdWayang.print("Episode 1");
-    lcdWayang.setCursor(0, 2);
-    lcdWayang.print("Episode 2");
-    lcdWayang.setCursor(0, 3);
-    lcdWayang.print("Episode 3");
-    lcdWayang.setCursor(18, get_selection_point());
-    lcdWayang.print("<<");
-}
-
-/*
-Function untuk display bagian episode 1,2,3,4
-*/
-void WayangDisplay::WayangDisplayLCD::EpisodeDisplay2()
-{
-    lcdWayang.setCursor(0, 0);
-    lcdWayang.print("Episode 1");
-    lcdWayang.setCursor(0, 1);
-    lcdWayang.print("Episode 2");
-    lcdWayang.setCursor(0, 2);
-    lcdWayang.print("Episode 3");
-    lcdWayang.setCursor(0, 3);
-    lcdWayang.print("Episode 4");
-    lcdWayang.setCursor(18, get_selection_point());
-    lcdWayang.print("<<");
-}
-
-/*
-Function untuk display bagian episode 2,3,4,5
-*/
-void WayangDisplay::WayangDisplayLCD::EpisodeDisplay3()
-{
-    lcdWayang.setCursor(0, 0);
-    lcdWayang.print("Episode 2");
-    lcdWayang.setCursor(0, 1);
-    lcdWayang.print("Episode 3");
-    lcdWayang.setCursor(0, 2);
-    lcdWayang.print("Episode 4");
-    lcdWayang.setCursor(0, 3);
-    lcdWayang.print("Episode 5");
+    for (int i = 0; i < 4; i++)
+    {
+        lcdWayang.setCursor(0, i);
+        lcdWayang.print(episodeList[i + getSubPageRoute()]);
+    }
     lcdWayang.setCursor(18, get_selection_point());
     lcdWayang.print("<<");
 }
@@ -116,144 +139,58 @@ Function untuk display bagian Calibrate
 */
 void WayangDisplay::WayangDisplayLCD::CalibrateDisplay()
 {
-    lcdWayang.setCursor(0, 0);
-    lcdWayang.print("Calibrate");
-    lcdWayang.setCursor(0, 1);
-    lcdWayang.print("V-Slot Linear");
-    lcdWayang.setCursor(0, 2);
-    lcdWayang.print("Mp3 Player");
-    lcdWayang.setCursor(0, 3);
-    lcdWayang.print("Wayang's Hand");
+    for (int i = 0; i < 4; i++)
+    {
+        lcdWayang.setCursor(0, i);
+        lcdWayang.print(calibratingList[i + getSubPageRoute()]);
+    }
     lcdWayang.setCursor(18, get_selection_point());
     lcdWayang.print("<<");
 }
 
-void WayangDisplay::WayangDisplayLCD::CalibrateDisplay2(){
-    lcdWayang.setCursor(0, 0);
-    lcdWayang.print("V-Slot Linear");
-    lcdWayang.setCursor(0, 1);
-    lcdWayang.print("Mp3 Player");
-    lcdWayang.setCursor(0, 2);
-    lcdWayang.print("Wayang's Hand");
-    lcdWayang.setCursor(0, 3);
-    lcdWayang.print("Sensor status");
-    lcdWayang.setCursor(18, get_selection_point());
-    lcdWayang.print("<<");
-}
+// void WayangDisplay::WayangDisplayLCD::CalibrateDisplay2()
+// {
+//     lcdWayang.setCursor(0, 0);
+//     lcdWayang.print("V-Slot Linear");
+//     lcdWayang.setCursor(0, 1);
+//     lcdWayang.print("Mp3 Player");
+//     lcdWayang.setCursor(0, 2);
+//     lcdWayang.print("Wayang's Hand");
+//     lcdWayang.setCursor(0, 3);
+//     lcdWayang.print("Sensor status");
+//     lcdWayang.setCursor(18, get_selection_point());
+//     lcdWayang.print("<<");
+// }
 
 void WayangDisplay::WayangDisplayLCD::SensorStatusDisplay()
 {
-    lcdWayang.setCursor(0, 0);
-    lcdWayang.print("Sensor Status");
-    lcdWayang.setCursor(0, 1);
-    lcdWayang.print("Sensor 1 " + String(sensorValueData[0]));
-    lcdWayang.setCursor(0, 2);
-    lcdWayang.print("Sensor 2 " + String(sensorValueData[1]));
-    lcdWayang.setCursor(0, 3);
-    lcdWayang.print("Sensor 3 " + String(sensorValueData[2]));
+    for (int i = 0; i < 4; i++)
+    {
+        lcdWayang.setCursor(0, i);
+        if (i + getSubSubPageRoute() == 0)
+        {
+            lcdWayang.print(calibratingSensorList[i]);
+        }
+        else
+        {
+            lcdWayang.print(calibratingSensorList[i + getSubSubPageRoute()] + String(sensorValueData[i - 1 + getSubSubPageRoute()]));
+        }
+    }
+
     lcdWayang.setCursor(18, get_selection_point());
     lcdWayang.print("<<");
 }
 
-void WayangDisplay::WayangDisplayLCD::SensorStatusDisplay2()
+void WayangDisplay::WayangDisplayLCD::WayangHandCalibrationDisplay()
 {
-    lcdWayang.setCursor(0, 0);
-    lcdWayang.print("Sensor 1 " + String(sensorValueData[0]));
-    lcdWayang.setCursor(0, 1);
-    lcdWayang.print("Sensor 2 " + String(sensorValueData[1]));
-    lcdWayang.setCursor(0, 2);
-    lcdWayang.print("Sensor 3 " + String(sensorValueData[2]));
-    lcdWayang.setCursor(0, 3);
-    lcdWayang.print("Sensor 4 " + String(sensorValueData[3]));
+    for (int i = 0; i < 4; i++)
+    {
+        lcdWayang.setCursor(0, i);
+        lcdWayang.print(calibratingWayangHandList[i + getSubSubPageRoute()]);
+    }
     lcdWayang.setCursor(18, get_selection_point());
     lcdWayang.print("<<");
 }
-
-void WayangDisplay::WayangDisplayLCD::SensorStatusDisplay3()
-{
-    lcdWayang.setCursor(0, 0);
-    lcdWayang.print("Sensor 2 " + String(sensorValueData[1]));
-    lcdWayang.setCursor(0, 1);
-    lcdWayang.print("Sensor 3 " + String(sensorValueData[2]));
-    lcdWayang.setCursor(0, 2);
-    lcdWayang.print("Sensor 4 " + String(sensorValueData[3]));
-    lcdWayang.setCursor(0, 3);
-    lcdWayang.print("Sensor 5 " + String(sensorValueData[4]));
-    lcdWayang.setCursor(18, get_selection_point());
-    lcdWayang.print("<<");
-}
-
-void WayangDisplay::WayangDisplayLCD::SensorStatusDisplay4()
-{
-    lcdWayang.setCursor(0, 0);
-    lcdWayang.print("Sensor 3 " + String(sensorValueData[2]));
-    lcdWayang.setCursor(0, 1);
-    lcdWayang.print("Sensor 4 " + String(sensorValueData[3]));
-    lcdWayang.setCursor(0, 2);
-    lcdWayang.print("Sensor 5 " + String(sensorValueData[4]));
-    lcdWayang.setCursor(0, 3);
-    lcdWayang.print("Sensor 6 " + String(sensorValueData[5]));
-    lcdWayang.setCursor(18, get_selection_point());
-    lcdWayang.print("<<");
-}
-
-void WayangDisplay::WayangDisplayLCD::SensorStatusDisplay5()
-{
-    lcdWayang.setCursor(0, 0);
-    lcdWayang.print("Sensor 4 " + String(sensorValueData[3]));
-    lcdWayang.setCursor(0, 1);
-    lcdWayang.print("Sensor 5 " + String(sensorValueData[4]));
-    lcdWayang.setCursor(0, 2);
-    lcdWayang.print("Sensor 6 " + String(sensorValueData[5]));
-    lcdWayang.setCursor(0, 3);
-    lcdWayang.print("Sensor 7 " + String(sensorValueData[6]));
-    lcdWayang.setCursor(18, get_selection_point());
-    lcdWayang.print("<<");
-}
-
-void WayangDisplay::WayangDisplayLCD::SensorStatusDisplay6()
-{
-    lcdWayang.setCursor(0, 0);
-    lcdWayang.print("Sensor 5 " + String(sensorValueData[4]));
-    lcdWayang.setCursor(0, 1);
-    lcdWayang.print("Sensor 6 " + String(sensorValueData[5]));
-    lcdWayang.setCursor(0, 2);
-    lcdWayang.print("Sensor 7 " + String(sensorValueData[6]));
-    lcdWayang.setCursor(0, 3);
-    lcdWayang.print("Sensor 8 " + String(sensorValueData[7]));
-    lcdWayang.setCursor(18, get_selection_point());
-    lcdWayang.print("<<");
-}
-
-void WayangDisplay::WayangDisplayLCD::SensorStatusDisplay7()
-{
-    lcdWayang.setCursor(0, 0);
-    lcdWayang.print("Sensor 6 " + String(sensorValueData[5]));
-    lcdWayang.setCursor(0, 1);
-    lcdWayang.print("Sensor 7 " + String(sensorValueData[6]));
-    lcdWayang.setCursor(0, 2);
-    lcdWayang.print("Sensor 8 " + String(sensorValueData[7]));
-    lcdWayang.setCursor(0, 3);
-    lcdWayang.print("Sensor 9 " + String(sensorValueData[8]));
-    lcdWayang.setCursor(18, get_selection_point());
-    lcdWayang.print("<<");
-}
-
-void WayangDisplay::WayangDisplayLCD::SensorStatusDisplay8()
-{
-    lcdWayang.setCursor(0, 0);
-    lcdWayang.print("Sensor 7 " + String(sensorValueData[6]));
-    lcdWayang.setCursor(0, 1);
-    lcdWayang.print("Sensor 8 " + String(sensorValueData[7]));
-    lcdWayang.setCursor(0, 2);
-    lcdWayang.print("Sensor 9 " + String(sensorValueData[8]));
-    lcdWayang.setCursor(0, 3);
-    lcdWayang.print("Sensor 10 " + String(sensorValueData[9]));
-    lcdWayang.setCursor(18, get_selection_point());
-    lcdWayang.print("<<");
-}
-
-
 
 /*
 Function untuk display bagian Settings
@@ -266,6 +203,17 @@ void WayangDisplay::WayangDisplayLCD::SettingsDisplay()
     lcdWayang.print("Volume:");
     lcdWayang.setCursor(8, 1);
     lcdWayang.print("30");
+    lcdWayang.setCursor(18, get_selection_point());
+    lcdWayang.print("<<");
+}
+
+void WayangDisplay::WayangDisplayLCD::SitaHandCalibration()
+{
+    for (int i = 0; i < 4; i++)
+    {
+        lcdWayang.setCursor(0, i);
+        lcdWayang.print(sitaHandOption[i + getSubSubPageRoute()]);
+    }
     lcdWayang.setCursor(18, get_selection_point());
     lcdWayang.print("<<");
 }
@@ -288,7 +236,6 @@ int WayangDisplay::WayangDisplayLCD::get_selection_point()
     return this->selection_point;
 }
 
-
 // Function untuk set value selection point pada cursor display
 void WayangDisplay::WayangDisplayLCD::set_selection_point(int point)
 {
@@ -307,15 +254,18 @@ void WayangDisplay::WayangDisplayLCD::decrement_selection_point()
     this->selection_point--;
 }
 
-void WayangDisplay::WayangDisplayLCD::enableLCD(){
+void WayangDisplay::WayangDisplayLCD::enableLCD()
+{
     lcdWayang.on();
 }
 
-void WayangDisplay::WayangDisplayLCD::disableLCD(){
+void WayangDisplay::WayangDisplayLCD::disableLCD()
+{
     lcdWayang.off();
 }
 
-void WayangDisplay::WayangDisplayLCD::setSensorValueData(){
+void WayangDisplay::WayangDisplayLCD::setSensorValueData()
+{
     sensorValueData[0] = getDistanceSensor1();
     sensorValueData[1] = getDistanceSensor2();
     sensorValueData[2] = getDistanceSensor3();
