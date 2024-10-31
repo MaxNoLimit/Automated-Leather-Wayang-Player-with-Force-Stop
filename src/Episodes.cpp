@@ -3605,7 +3605,37 @@ void Episodes::Episode_3()
 
     /*insert 003_Sita-Rahwana-Hanuman_Sita1 here*/
 
+    /*insert 004_Sita-Rawana-Hanuman_Rawana3v here*/
+    delay(370);
+    // (370) Janakatmaja, (1518)  
+    rahwana.middleFront(); // takes 1200 ms
+    delay(2115-370-1200);
 
+    // (2115) look carefully at what this is, (4942)  
+    rahwana.directControl(3, 180, 500); // takes 500 ms
+    rahwana.directControl(4, 140, 200); // takes 200 ms
+    delay(5867-2115-500-200);
+
+    // (5867) which is like death in my perilous hand. (8820)  
+    rahwana.lower_pointToFront(); // takes 700 ms
+    delay(10157-5867-700);
+
+    // (10157) If you do not obey the order of Rawana, (13341)  
+    rahwana.downFront(); // takes 700 ms
+    delay(14340-10157-700);
+
+    // (14340) for sure it will fall upon your neck (17843) savagely. (19018)
+    rahwana.pointToFront(); // takes 900 ms
+    delay(17843-14340-700);
+    rahwana.lower_pointToFront(); // takes 700 ms
+    delay(19018-17843-700);
+    rahwana.downFront(); // takes 700 ms 
+
+    // *Leaves from scene* 
+    rahwana.defaultStandPosition();
+
+    /*insert 005_Sita-Rahwana-Hanuman_Sita2*/
+    
 }
 
 void Episodes::Episode_4()
