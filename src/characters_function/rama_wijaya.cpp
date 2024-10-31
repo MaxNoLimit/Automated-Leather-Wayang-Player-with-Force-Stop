@@ -190,7 +190,7 @@ void RamaWijaya::walk_to_a_certain_distance(int desiredDistance)
 
 void RamaWijaya::walk_to_a_certain_distance_before_calibrating_value(int desiredDistance)
 {
-    int desiredDistanceAfterCalibratingValue = desiredDistance + (float)desiredDistance * (0.025) + 28;
+    int desiredDistanceAfterCalibratingValue = desiredDistance + 28;
     Serial.println("\ndesiredDistance: ");
     Serial.print(desiredDistanceAfterCalibratingValue);
     Serial.println("mm \n");

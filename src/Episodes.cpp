@@ -1,3 +1,4 @@
+// #include <Arduino_FreeRTOS.h>
 #include "Episodes.hpp"
 #include "sound_system.hpp"
 #include "characters/hanoman.hpp"
@@ -16,6 +17,9 @@ Rahwana rahwana;
 Laksmana laksmana;
 Subali subali;
 Sugriwa sugriwa;
+
+// TaskHandle_t taskSugriwa;
+// TaskHandle_t taskSubali;
 
 // Execution function for pameran tanggal 2 Mei 2024 di ruang MIS depan
 // void Episodes::Mei2nd_Episode()
@@ -101,6 +105,71 @@ Sugriwa sugriwa;
 //     Serial.println("\nDone!");
 //     digitalWrite(LED_BUILTIN, LOW);
 // }
+
+static void sugriwaTaskFight1(void *pvParameters)
+{
+    while (1)
+    {
+        Serial.println("Running sugriwaTaskFight1: " + String(uxTaskGetStackHighWaterMark(NULL)));
+        sugriwa.pointToFront();       // takes 900 ms
+        sugriwa.lower_pointToFront(); // takes 700 ms
+        sugriwa.downFront();          // takes 700 ms
+        sugriwa.lower_pointToFront(); // takes 700 ms
+        // vTaskDelay(200 / portTICK_PERIOD_MS);
+
+        // deleting sugriwaTaskFight1 task
+        // Serial.println("sugriwaTaskFight1 stack: " + String(uxTaskGetStackHighWaterMark(NULL)));
+        vTaskDelete(NULL);
+    }
+}
+
+static void subaliTaskFight1(void *pvParameters)
+{
+    // vTaskSuspend(mainLoopTaskHandler);
+    while (1)
+    {
+        Serial.println("Running subaliTaskFight1: " + String(uxTaskGetStackHighWaterMark(NULL)));
+        subali.pointToFront();       // takes 900 ms
+        subali.lower_pointToFront(); // takes 700 ms
+        subali.downFront();          // takes 700 ms
+        subali.pointToFront();       // takes 900 ms
+        // deleting subaliTaskFight1 task
+        // Serial.println("subaliTaskFight1 stack: " + String(uxTaskGetStackHighWaterMark(NULL)));
+        vTaskResume(mainLoopTaskHandler);
+        vTaskDelete(NULL);
+    }
+}
+
+static void subaliTaskFight2(void *pvParameters)
+{
+    while (1)
+    {
+        Serial.println("Running subaliTaskFight2: " + String(uxTaskGetStackHighWaterMark(NULL)));
+        subali.pointToFront();       // takes 900 ms
+        subali.lower_pointToFront(); // takes 700 ms
+        subali.downFront();          // takes 700 ms
+        subali.lower_pointToFront(); // takes 900 ms
+        // deleting subaliTaskFight2 task
+        // Serial.println("subaliTaskFight2 stack: " + String(uxTaskGetStackHighWaterMark(NULL)));
+        vTaskDelete(NULL);
+    }
+}
+
+static void ramaTaskFight1(void *pvParameters)
+{
+    while (1)
+    {
+        Serial.println("Running ramaTaskFight1 : " + String(uxTaskGetStackHighWaterMark(NULL)));
+        rama_wijaya.pointToFront();       // takes 900 ms
+        rama_wijaya.lower_pointToFront(); // takes 700 ms
+        rama_wijaya.downFront();          // takes 700 ms
+        rama_wijaya.pointToFront();       // takes 700 ms
+        // deleting ramaTaskFight1 task
+        // Serial.println("ramaTaskFight1 stack: " + String(uxTaskGetStackHighWaterMark(NULL)));
+        vTaskResume(mainLoopTaskHandler);
+        vTaskDelete(NULL);
+    }
+}
 
 void Episodes::July29_Episode()
 {
@@ -560,8 +629,8 @@ void Episodes::Episode_1()
     setAllMOSFETtoLOW();
 
     SoundSystem::playMusicWayang();
-    sita.walk_to_a_certain_distance_before_calibrating_value(200);
-    laksmana.walk_to_a_certain_distance_before_calibrating_value(200);
+    sita.walk_to_a_certain_distance_before_calibrating_value(160);
+    laksmana.walk_to_a_certain_distance_before_calibrating_value(160);
     // 001 (Sita1Sita-laksmana dialogue 1)
     SoundSystem::playDialogFromACertainFolder(SoundSystem::EPISODE_NUMBER::EPISODE_1, SoundSystem::EPISODE_1_DIALOG::SITA1SITA_LAKS_DIALOGUE_1);
     // delay(3000); // audio test only 3s
@@ -582,7 +651,7 @@ void Episodes::Episode_1()
         sita.directControl(1, 100, 400);
     } // takes 800 ms each loop
 
-    delay(10673 - 7339 - 800 * 4); 
+    delay(10673 - 7339 - 800 * 4);
 
     // movement 6, 7
     sita.pointToFront();        // takes 700 ms
@@ -774,7 +843,7 @@ void Episodes::Episode_1()
     // (31045) Debased and foolish Laksmana, (32697)
 
     delay(31045 - 28594 - 700 - 900);
-    sita.downFront(); // takes 700 ms
+    sita.downFront();    // takes 700 ms
     sita.pointToFront(); // takes 700 ms
 
     // (33087) do you think I am wicked, (34225)
@@ -812,7 +881,7 @@ void Episodes::Episode_1()
 
     delay(46341 - 42759 - 1400);
     // sita.oscillate(50722 - 46341); // takes 4381 ms ~~ 4200 ms
-    sita.downBack();        // takes 700 ms
+    sita.downBack(); // takes 700 ms
     // sita.middleFrontBack(); // takes 700 ms
     // for (int i = 0; i < 3; i++)
     // {
@@ -938,7 +1007,7 @@ void Episodes::Episode_1()
     sita.defaultStandPosition();
 
     delay(1000);
-    sita.walk_to_a_certain_distance_before_calibrating_value(200);
+    sita.walk_to_a_certain_distance_before_calibrating_value(160);
     rahwana.walk_to_a_certain_distance_before_calibrating_value(200);
 
     // 005 (005SitaRahwanadialogueRahwana1)
@@ -1210,7 +1279,7 @@ void Episodes::Episode_1()
     /*insert kidnapping sequence below*/
     SoundSystem::playMusicWayang();
     rahwana.pointToFront();
-    rahwana.walk_to_a_certain_distance_before_calibrating_value(300);
+    rahwana.walk_to_a_certain_distance_before_calibrating_value(340);
     delay(1000);
 
     sita.defaultStandPosition();
@@ -1218,8 +1287,8 @@ void Episodes::Episode_1()
     rahwana.defaultStandPosition();
 
     // 008 (03 L-R1 laksmana1F)
-    rama_wijaya.walk_to_a_certain_distance_before_calibrating_value(200);
-    laksmana.walk_to_a_certain_distance_before_calibrating_value(200);
+    rama_wijaya.walk_to_a_certain_distance_before_calibrating_value(160);
+    laksmana.walk_to_a_certain_distance_before_calibrating_value(160);
 
     SoundSystem::playDialogFromACertainFolder(SoundSystem::EPISODE_NUMBER::EPISODE_1, SoundSystem::EPISODE_1_DIALOG::L_R1_LAKS1F);
     // delay(3000);
@@ -1289,8 +1358,8 @@ void Episodes::Episode_1()
     laksmana.defaultStandPosition();
 
     delay(1000);
-    rama_wijaya.walk_to_a_certain_distance_before_calibrating_value(200);
-    hanoman.walk_to_a_certain_distance_before_calibrating_value(200);
+    rama_wijaya.walk_to_a_certain_distance_before_calibrating_value(160);
+    hanoman.walk_to_a_certain_distance_before_calibrating_value(160);
 
     // 010 (04 H-R1 Hanuman1F)
     SoundSystem::playDialogFromACertainFolder(SoundSystem::EPISODE_NUMBER::EPISODE_1, SoundSystem::EPISODE_1_DIALOG::H_R1_HANUMAN1F);
@@ -1637,7 +1706,6 @@ void Episodes::Episode_1()
     rama_wijaya.defaultStandPosition();
     hanoman.defaultStandPosition();
 
-
     setAllMOSFETtoHIGH();
     SoundSystem::playDialogFromACertainFolder(SoundSystem::INDICATOR_SOUND, SoundSystem::INDICATOR_SOUND_NUMBER::INDICATOR_FINISHED_SHOWING);
     delay(2000);
@@ -1650,7 +1718,7 @@ void Episodes::Episode_2()
     setAllMOSFETtoLOW();
 
     SoundSystem::playMusicWayang();
-    
+
     delay(1000);
     sugriwa.walk_to_a_certain_distance_before_calibrating_value(250);
     rama_wijaya.walk_to_a_certain_distance_before_calibrating_value(135);
@@ -1694,7 +1762,7 @@ void Episodes::Episode_2()
 
     /*Although Bali is famed for his power, */
     sugriwa.pointToBack(); // 1400
-    sugriwa.downFront(); // 700
+    sugriwa.downFront();   // 700
     delay(23332 - 19982 - 1400 - 700 + 500);
 
     /*he will certainly be killed by your irresistible arrows.*/
@@ -1787,17 +1855,17 @@ void Episodes::Episode_2()
     sugriwa.pointToFront(); // 900
     delay(75908 - 73660 - 700 - 900 - (100));
 
-    /*return to default position*/
-    sugriwa.onHipBack();
-    sugriwa.downFront();
+    // /*return to default position*/
+    sugriwa.defaultHandPosition();
 
     SoundSystem::playMusicWayang();
     sugriwa.defaultStandPosition();
     rama_wijaya.defaultStandPosition();
 
     delay(1000);
-    sugriwa.walk_to_a_certain_distance_before_calibrating_value(215);
-    rama_wijaya.walk_to_a_certain_distance_before_calibrating_value(135);
+    sugriwa.walk_to_a_certain_distance_before_calibrating_value(235);
+    // rama just hides
+    // rama_wijaya.walk_to_a_certain_distance_before_calibrating_value(135);
 
     // 014 (07 Duel1 Sugriwa1F)
     SoundSystem::playDialogFromACertainFolder(SoundSystem::EPISODE_NUMBER::EPISODE_1, SoundSystem::EPISODE_1_DIALOG::DUEL1_SUGRIWA1F);
@@ -1822,12 +1890,12 @@ void Episodes::Episode_2()
     sugriwa.downFront(); // takes 700 ms
 
     SoundSystem::playMusicWayang();
-    subali.walk_to_a_certain_distance_before_calibrating_value(155);
+    subali.walk_to_a_certain_distance_before_calibrating_value(160);
 
     // 015 (Subali round 1 rage)
     SoundSystem::playDialogFromACertainFolder(SoundSystem::EPISODE_NUMBER::EPISODE_1, SoundSystem::EPISODE_1_DIALOG::SUBALI_ROUND_1_RAGE);
     // delay(3000);
-
+    Serial.println("Current stack size: " + String(uxTaskGetStackHighWaterMark(NULL)));
     // (717) you DARE challenge me? (2349) [Front point to front]
     delay(717);
     subali.pointToFront(); // takes 900 ms
@@ -1843,13 +1911,40 @@ void Episodes::Episode_2()
     delay(3989 - 2887 - 800 * 1);
     subali.downFront(); // takes 700 ms
 
+    SoundSystem::playMusicWayang();
+    subali.walk_to_a_certain_distance_before_calibrating_value(170);
+
+    Serial.println("Current stack size: " + String(uxTaskGetStackHighWaterMark(NULL)));
+
+    xTaskCreate(sugriwaTaskFight1, "sugriwaTaskFight1", 1024, NULL, 1, NULL);
+    xTaskCreate(subaliTaskFight1, "subaliTaskFight1", 1024, NULL, 1, NULL);
+
+    // vTaskStartScheduler();
+
+    vTaskSuspend(mainLoopTaskHandler);
+    // sugriwa.pointToFront();       // takes 900 ms
+    // subali.pointToFront();        // takes 900 ms
+    // sugriwa.lower_pointToFront(); // takes 700 ms
+    // subali.lower_pointToFront();  // takes 700 ms
+    // sugriwa.downFront();          // takes 700 ms
+    // subali.downFront();           // takes 700 ms
+    // sugriwa.lower_pointToFront(); // takes 700 ms
+    // subali.pointToFront();        // takes 900 ms
+
+    // Sugriwa fight Subali 1st loss
+
+    // delay(5000);
+
+    sugriwa.walk_to_a_certain_distance_before_calibrating_value(170);
+    subali.downFront(); // takes 700 ms
+    subali.walk_to_a_certain_distance_before_calibrating_value(225);
+
     // 016 (08 Duel1 Sugriwa2F)
     SoundSystem::playDialogFromACertainFolder(SoundSystem::EPISODE_NUMBER::EPISODE_1, SoundSystem::EPISODE_1_DIALOG::DUEL1_SUGRIWA2F);
     // delay(3000);
 
     // (594) I yield! (1353) [Front point to front, Back Middle-Front, Horizontal move back]
     delay(594);
-    sugriwa.pointToFront(); // takes 900 ms
 
     // (1653) I yield! (2412) [Horizontal move back]
     delay(1653 - 594 - 900);
@@ -1911,7 +2006,7 @@ void Episodes::Episode_2()
     // (5928) When you were fighting with Bali (7333)
 
     delay(5928 - 3917 - 700 - 1200);
-    rama_wijaya.downFront();       // takes 700 ms
+    rama_wijaya.downFront();          // takes 700 ms
     rama_wijaya.lower_pointToFront(); // takes 700 ms
 
     // (7580) I saw you and Bali look alike. (9597)
@@ -1929,15 +2024,15 @@ void Episodes::Episode_2()
     // (12747) and this became more and more confused. (15628)
 
     delay(12747 - 10501 - 700 - 1200);
-    rama_wijaya.downFront();    // takes 700 ms
-    rama_wijaya.onHipBack();  // takes 900 ms
+    rama_wijaya.downFront();   // takes 700 ms
+    rama_wijaya.onHipBack();   // takes 900 ms
     rama_wijaya.middleFront(); // takes 1200 ms
 
     // (16683) That is the reason I appeared to forget my promise to my friend. (19857)
 
     delay(16683 - 12747 - 700 - 900 - 1200);
-    rama_wijaya.downFront();   // takes 700 ms
-    rama_wijaya.downBack();    // takes 700 ms
+    rama_wijaya.downFront();    // takes 700 ms
+    rama_wijaya.downBack();     // takes 700 ms
     rama_wijaya.pointToFront(); // takes 1200 ms
 
     // (20686) Now, do this! (21825)
@@ -1958,7 +2053,7 @@ void Episodes::Episode_2()
     // (26460) After you have them on, (27790)
 
     delay(26460 - 22549 - 1200 - 800 * 3);
-    rama_wijaya.downFront();       // takes 700 ms
+    rama_wijaya.downFront();          // takes 700 ms
     rama_wijaya.lower_pointToFront(); // takes 700 ms
 
     // (28136) fight again, (28811)
@@ -1982,7 +2077,7 @@ void Episodes::Episode_2()
     rama_wijaya.directControl(1, 90, 400); // takes 400 ms
 
     delay(33693 - 32548 - 400);
-    rama_wijaya.downFront();  // takes 700 ms
+    rama_wijaya.downFront(); // takes 700 ms
     rama_wijaya.onHipBack(); // takes 900 ms
 
     SoundSystem::playMusicWayang();
@@ -1992,8 +2087,9 @@ void Episodes::Episode_2()
     sugriwa.defaultStandPosition();
     delay(500);
 
-    sugriwa.walk_to_a_certain_distance_before_calibrating_value(215);
-    rama_wijaya.walk_to_a_certain_distance_before_calibrating_value(135);
+    sugriwa.walk_to_a_certain_distance_before_calibrating_value(235);
+    // rama hides
+    // rama_wijaya.walk_to_a_certain_distance_before_calibrating_value(135);
 
     // 019 (10 Duel2 Sugriwa1F)
     SoundSystem::playDialogFromACertainFolder(SoundSystem::EPISODE_NUMBER::EPISODE_1, SoundSystem::EPISODE_1_DIALOG::DUEL2_SUGRIWA1F);
@@ -2026,7 +2122,7 @@ void Episodes::Episode_2()
 
     // 020 (Subali round 2 rage)
     SoundSystem::playMusicWayang();
-    subali.walk_to_a_certain_distance_before_calibrating_value(155);
+    subali.walk_to_a_certain_distance_before_calibrating_value(160);
 
     SoundSystem::playDialogFromACertainFolder(SoundSystem::EPISODE_NUMBER::EPISODE_1, SoundSystem::EPISODE_1_DIALOG::SUBALI_ROUND_2_RAGE);
     // delay(3000);
@@ -2053,6 +2149,49 @@ void Episodes::Episode_2()
 
     delay(7858 - 6974 - 800 * 1);
     subali.downFront(); // takes 700 ms
+
+    SoundSystem::playMusicWayang();
+    subali.walk_to_a_certain_distance_before_calibrating_value(170);
+
+    xTaskCreate(sugriwaTaskFight1, "sugriwaTaskFight1", 1024, NULL, 1, NULL);
+    xTaskCreate(subaliTaskFight1, "subaliTaskFight1", 1024, NULL, 1, NULL);
+
+    vTaskSuspend(mainLoopTaskHandler);
+
+    // sugriwa.pointToFront();       // takes 900 ms
+    // subali.pointToFront();        // takes 900 ms
+    // sugriwa.lower_pointToFront(); // takes 700 ms
+    // subali.lower_pointToFront();  // takes 700 ms
+    // sugriwa.downFront();          // takes 700 ms
+    // subali.downFront();           // takes 700 ms
+    // sugriwa.lower_pointToFront(); // takes 700 ms
+    // subali.pointToFront();        // takes 900 ms
+
+    // Sugriwa fight Subali 1st loss
+    // xTaskCreate(sugriwaTaskFight1, "sugriwaTaskFight1", 128, NULL, 1, NULL);
+    // xTaskCreate(subaliTaskFight1, "subaliTaskFight1", 128, NULL, 1, NULL);
+    // delay(5000);
+
+    sugriwa.defaultStandPosition();
+    subali.downFront(); // takes 700 ms
+    subali.walk_to_a_certain_distance_before_calibrating_value(225);
+    rama_wijaya.walk_to_a_certain_distance_before_calibrating_value(225);
+
+    xTaskCreate(subaliTaskFight2, "subaliTaskFight2", 1024, NULL, 1, NULL);
+    xTaskCreate(ramaTaskFight1, "ramaTaskFight1", 1024, NULL, 1, NULL);
+
+    vTaskSuspend(mainLoopTaskHandler);
+    // rama_wijaya.pointToFront();       // takes 900 ms
+    // subali.pointToFront();            // takes 900 ms
+    // rama_wijaya.lower_pointToFront(); // takes 700 ms
+    // subali.lower_pointToFront();      // takes 700 ms
+    // rama_wijaya.downFront();          // takes 700 ms
+    // subali.downFront();               // takes 700 ms
+    // rama_wijaya.pointToFront();       // takes 900 ms
+    // subali.lower_pointToFront();      // takes 700 ms
+    subali.walk_to_a_certain_distance_before_calibrating_value(170);
+    subali.downFront(); // takes 700 ms
+    rama_wijaya.downFront();
 
     // 021 (Subali bacotin rama_E)
     SoundSystem::playDialogFromACertainFolder(SoundSystem::EPISODE_NUMBER::EPISODE_1, SoundSystem::EPISODE_1_DIALOG::SUBALI_BACOTIN_RAMA_E);
@@ -2215,7 +2354,9 @@ void Episodes::Episode_2()
     subali.downBack();     // 700
     subali.downFront();    // 700
     subali.pointToFront(); // 900
-    delay(2000);
+    delay(500);
+
+    subali.downFront(); // 700
 
     // 022 (Rama2Sugriwa-Rama-Subali dialogue_E)
     SoundSystem::playDialogFromACertainFolder(SoundSystem::EPISODE_NUMBER::EPISODE_1, SoundSystem::EPISODE_1_DIALOG::RAMA2SUGRIWA_RAMA_SUBALI_DIALOGUE_E);
@@ -2297,7 +2438,7 @@ void Episodes::Episode_2()
     // (28396) All the game in the vast forest whether it is good (31014)
 
     delay(28396 - 26651 - 400);
-    rama_wijaya.downFront();       // takes 700 ms
+    rama_wijaya.downFront(); // takes 700 ms
     // rama_wijaya.middleFrontBack(); // takes 1200 ms
 
     // (31411) or bad may be killed. (32727)
@@ -2355,7 +2496,8 @@ void Episodes::Episode_2()
     rama_wijaya.pointToFront(); // takes 1200 ms
 
     delay(55499 - 52482 - 700 - 1200);
-    // no need to drop the front hand
+    delay(1000);
+    rama_wijaya.downFront(); // takes 700 ms
 
     // 023 (Subali tobat_E)
     SoundSystem::playDialogFromACertainFolder(SoundSystem::EPISODE_NUMBER::EPISODE_1, SoundSystem::EPISODE_1_DIALOG::SUBALI_TOBAT_E);
@@ -2493,12 +2635,16 @@ void Episodes::Episode_2()
     subali.downFront();
 
     SoundSystem::playMusicWayang();
+    rama_wijaya.defaultHandPosition();
+    subali.defaultHandPosition();
+    sugriwa.defaultHandPosition();
+
     rama_wijaya.defaultStandPosition();
     sugriwa.defaultStandPosition();
     subali.defaultStandPosition();
 
     delay(1000);
-    sugriwa.walk_to_a_certain_distance_before_calibrating_value(250);
+    sugriwa.walk_to_a_certain_distance_before_calibrating_value(270);
     rama_wijaya.walk_to_a_certain_distance_before_calibrating_value(150);
 
     // 024 (11 S-R2 Sugriwa1F)
@@ -2539,9 +2685,9 @@ void Episodes::Episode_2()
     delay(15853 - 12876 - 700 - 900);
 
     /*with the dry season*/
-    sugriwa.pointToFront(); // 900
-    delay(17262 - 15853 - 900 - (500)); //slightly faster to avoid delay -
-    sugriwa.downFront(); // 700
+    sugriwa.pointToFront();             // 900
+    delay(17262 - 15853 - 900 - (500)); // slightly faster to avoid delay -
+    sugriwa.downFront();                // 700
 
     /*we will search for Sita and destroy the enemy.*/
     sugriwa.pointToSelf(); // 900
@@ -2932,16 +3078,14 @@ void Episodes::Episode_2()
     rama_wijaya.pointToFront(); // takes 1200 ms
 
     delay(62555 - 61173 - 1200);
-    rama_wijaya.downBack();  // takes 700 ms
-    rama_wijaya.downFront(); // takes 700 ms
-    rama_wijaya.onHipBack(); // takes 900 ms
+    rama_wijaya.defaultHandPosition();
 
     SoundSystem::playMusicWayang();
     laksmana.defaultStandPosition();
     rama_wijaya.defaultStandPosition();
 
     delay(1000);
-    sugriwa.walk_to_a_certain_distance_before_calibrating_value(250);
+    sugriwa.walk_to_a_certain_distance_before_calibrating_value(270);
     rama_wijaya.walk_to_a_certain_distance_before_calibrating_value(150);
 
     // 028 (12 SApol Sugriwa1F)
@@ -3047,12 +3191,10 @@ void Episodes::Episode_2()
     sugriwa.downBack();   // 700
     sugriwa.middleBack(); // 1400
     delay(5239 - 1632 - 700 - 1400);
-    delay(2000);
+    delay(1000);
 
     /*return to default position*/
-    sugriwa.downFront();
-    sugriwa.downBack();
-    sugriwa.onHipBack();
+    sugriwa.mathentengA();
 
     // 030 (14 SApol Hanuman1F)
     SoundSystem::playDialogFromACertainFolder(SoundSystem::EPISODE_NUMBER::EPISODE_1, SoundSystem::EPISODE_1_DIALOG::SApol_Hanuman1F);
@@ -3199,6 +3341,9 @@ void Episodes::Episode_2()
     rama_wijaya.downFront(); // takes 700 ms
 
     SoundSystem::playMusicWayang();
+    rama_wijaya.defaultHandPosition();
+    sugriwa.defaultHandPosition();
+
     rama_wijaya.defaultStandPosition();
     sugriwa.defaultStandPosition();
 
@@ -3217,4 +3362,26 @@ void Episodes::Episode_4()
 
 void Episodes::Episode_5()
 {
+}
+
+void Episodes::Episode_1_task(void *pvParameters)
+{
+    Serial.println("Episode 1");
+    // Episode_1();
+    while (1)
+    {
+        vTaskResume(mainLoopTaskHandler);
+        vTaskDelete(NULL);
+    }
+}
+
+void Episodes::Episode_2_task(void *pvParameters)
+{
+    Serial.println("Episode 2");
+    // Episode_2();
+    while (1)
+    {
+        vTaskResume(mainLoopTaskHandler);
+        vTaskDelete(NULL);
+    }
 }

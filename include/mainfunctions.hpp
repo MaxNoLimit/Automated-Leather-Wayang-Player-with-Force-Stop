@@ -9,7 +9,8 @@ void setAllMOSFETtoLOW();
 void setAllXSHUTtoHIGH();
 namespace WayangDisplay
 {
-    void lcd2004setup();
+    void lcd2004setupIntro();
+    void lcd2004final();
     void lcd2004loop();
     void generalLoop();
 };

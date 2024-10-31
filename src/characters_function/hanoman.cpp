@@ -85,7 +85,7 @@ void Hanoman::walk_to_a_certain_distance(int desiredDistance)
 
 void Hanoman::walk_to_a_certain_distance_before_calibrating_value(int desiredDistance)
 {
-    int desiredDistanceAfterCalibratingValue = desiredDistance + (float)desiredDistance * 0.155 + 17;
+    int desiredDistanceAfterCalibratingValue = desiredDistance + 17;
     Serial.println("\ndesiredDistance: ");
     Serial.print(desiredDistanceAfterCalibratingValue);
     Serial.println("mm \n");
@@ -132,7 +132,7 @@ void Hanoman::downFront()
 {
     digitalWrite(WAYANG_HAND_4, HIGH);
     Servo_Hanuman.moveWhatServo(3, 0, 500);
-    Servo_Hanuman.moveWhatServo(4, 97, 200);
+    Servo_Hanuman.moveWhatServo(4, 120, 200);
     digitalWrite(WAYANG_HAND_4, LOW);
 }
 
