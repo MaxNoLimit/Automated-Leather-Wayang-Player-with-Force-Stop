@@ -2,15 +2,15 @@
 #define EPISODES_H
 
 #include <Arduino.h>
+#define fighting_STACK_SIZE 512
 
-
-namespace Episodes{
+namespace Episodes
+{
     void Mei2nd_Episode();
     void July29_Episode();
     void Testing_Hanuman();
     void Testing_Rama();
     void randomTesting();
-
 
     void manual_begin();
     void testing_hanuman_horizontal_movement();
@@ -30,7 +30,6 @@ namespace Episodes{
     void Episode_4_task(void *pvParameters);
     void Episode_5_task(void *pvParameters);
 
-
     // static void sugriwaTaskFight1(void *pvParameters);
     // // void sugriwaTaskFight2(void *pvParameters);
 
@@ -40,6 +39,5 @@ namespace Episodes{
     // static void ramaTaskFight1(void *pvParameters);
 
 };
-
 
 #endif // EPISODES_H

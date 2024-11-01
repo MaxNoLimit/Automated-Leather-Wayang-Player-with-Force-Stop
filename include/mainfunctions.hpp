@@ -21,20 +21,6 @@ namespace WayangDisplayController
     void pressRotaryEncoder();
 };
 
-namespace WayangHorizontalControl
-{
-    void wayang1(int distance);
-    void wayang2(int distance);
-    void wayang3(int distance);
-    void wayang4(int distance);
-    void wayang5(int distance);
-    void wayang6(int distance);
-    void wayang7(int distance);
-    void wayang8(int distance);
-    void wayang9(int distance);
-    void wayang10(int distance);
-};
-
 namespace CalibratingFunction{
     void vSlotLinear();
     void soundSystem();
@@ -85,11 +71,7 @@ private:
     int currentDeg[4] = {0, 0, 0, 0};
 };
 
-extern TaskHandle_t serialReaderTaskHandler;
-void serialReaderTask(void *pvParameters);
-bool isModeChanged();
 
 int getSubPageRoute();
-int getSubSubPageRoute();
 
 #endif // MAINFUNCTIONS_H

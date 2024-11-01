@@ -32,14 +32,6 @@ void setup()
       1,                     /* priority of the task */
       &mainLoopTaskHandler); /* Task handle to keep track of created task */
 
-  // xTaskCreate(
-  //     serialReaderTask,        /* Task function. */
-  //     "SerialReader",          /* name of task. */
-  //     1024 * 4,                /* Stack size of task */
-  //     NULL,                    /* parameter of the task */
-  //     1,                       /* priority of the task */
-  //     &serialReaderTaskHandler /* Task handle to keep track of created task */
-  // );
 }
 
 void loop()

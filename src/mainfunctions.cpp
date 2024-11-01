@@ -16,6 +16,8 @@
 #include "characters/sugriwa.hpp"
 #include "characters/subali.hpp"
 #include "characters/wibhisana.hpp"
+#include "characters/anggada.hpp"
+#include "characters/anila.hpp"
 
 RamaWijaya wayangRamaWijaya;
 Sita wayangSita;
@@ -25,8 +27,8 @@ Laksmana wayangLaksmana;
 Sugriwa wayangSugriwa;
 Subali wayangSubali;
 Wibhisana wayangWibhisana;
-
-TaskHandle_t serialReaderTaskHandler;
+Anggada wayangAnggada;
+Anila wayangAnila;
 
 int lcd_2040_address;
 WayangDisplay::WayangDisplayLCD WayangDisplayLCD_in_main(0x27);
@@ -35,7 +37,6 @@ int loop_state = 0;
 
 int pageRoute = 0;
 int subPageRoute = 0;
-int subSubPageRoute = 0;
 
 /*
 Function untuk begin semua GPIO
@@ -218,8 +219,45 @@ void WayangDisplay::lcd2004loop()
     case StateManagement::PAGE_ROUTE::WAYANG_HAND_CALIBRATION_PAGE:
         WayangDisplayLCD_in_main.WayangHandCalibrationDisplay();
         break;
+
     case StateManagement::PAGE_ROUTE::SITA_HAND_PAGE:
         WayangDisplayLCD_in_main.SitaHandCalibration();
+        break;
+
+    case StateManagement::PAGE_ROUTE::RAHWANA_HAND_PAGE:
+        WayangDisplayLCD_in_main.RahwanaHandCalibration();
+        break;
+
+    case StateManagement::PAGE_ROUTE::RAMA_WIJAYA_HAND_PAGE:
+        WayangDisplayLCD_in_main.RamaWijayaHandCalibration();
+        break;
+
+    case StateManagement::PAGE_ROUTE::HANOMAN_HAND_PAGE:
+        WayangDisplayLCD_in_main.HanomanHandCalibration();
+        break;
+
+    case StateManagement::PAGE_ROUTE::LAKSMANA_HAND_PAGE:
+        WayangDisplayLCD_in_main.LaksmanaHandCalibration();
+        break;
+
+    case StateManagement::PAGE_ROUTE::SUGRIWA_HAND_PAGE:
+        WayangDisplayLCD_in_main.SugriwaHandCalibration();
+        break;
+
+    case StateManagement::PAGE_ROUTE::SUBALI_HAND_PAGE:
+        WayangDisplayLCD_in_main.SubaliHandCalibration();
+        break;
+
+    case StateManagement::PAGE_ROUTE::WIBHISANA_HAND_PAGE:
+        WayangDisplayLCD_in_main.WibhisanaHandCalibration();
+        break;
+
+    case StateManagement::PAGE_ROUTE::ANGGADA_HAND_PAGE:
+        WayangDisplayLCD_in_main.AnggadaHandCalibration();
+        break;
+
+    case StateManagement::PAGE_ROUTE::ANILA_HAND_PAGE:
+        WayangDisplayLCD_in_main.AnilaHandCalibration();
         break;
     }
     delay(500);
@@ -239,25 +277,17 @@ void WayangDisplay::generalLoop()
 
     case StateManagement::FSA_STATE::CALIBRATING_ALL_NEMA:
         CalibratingFunction::vSlotLinear();
-
         loop_state = StateManagement::FSA_STATE::DEFAULT_LOOPING_LCD;
         delay(1);
         break;
 
     case StateManagement::FSA_STATE::MP3_REINIT:
         CalibratingFunction::soundSystem();
-
         loop_state = StateManagement::FSA_STATE::DEFAULT_LOOPING_LCD;
         delay(1);
         break;
 
     case StateManagement::FSA_STATE::WAYANG_HAND_CALIBRATION:
-        // Final mode
-        // CalibratingFunction::wayangHand();
-
-        // Debug mode
-        // CalibratingFunction::commandListHandMovementTest();
-
         pageRoute = StateManagement::PAGE_ROUTE::WAYANG_HAND_CALIBRATION_PAGE;
         subPageRoute = StateManagement::WAYANG_HAND_CALIBRATION_SUB_PAGE_ROUTE::WAYANG_HAND_CALIBRATION_1;
         WayangDisplayLCD_in_main.set_selection_point(1);
@@ -268,6 +298,7 @@ void WayangDisplay::generalLoop()
     case StateManagement::FSA_STATE::SENSOR_CHECK:
         WayangDisplayLCD_in_main.setSensorValueData();
         pageRoute = StateManagement::PAGE_ROUTE::SENSOR_STATUS_PAGE;
+        subPageRoute = StateManagement::SENSOR_STATUS_SUB_PAGE_ROUTE::SENSOR_123;
         WayangDisplayLCD_in_main.set_selection_point(1);
         loop_state = StateManagement::FSA_STATE::DEFAULT_LOOPING_LCD;
         delay(1);
@@ -275,11 +306,8 @@ void WayangDisplay::generalLoop()
 
     case StateManagement::FSA_STATE::PLAY_EPISODE_1:
         WayangDisplayLCD_in_main.disableLCD();
-        // Episodes::July29_Episode();
-        // Episodes::randomTesting();
+        Serial.println("Episode 1");
         Episodes::Episode_1();
-        // xTaskCreate(Episodes::Episode_1_task, "Episode_1_task", 128, NULL, 2, NULL);
-        // vTaskSuspend(NULL);
         WayangDisplayLCD_in_main.enableLCD();
         loop_state = StateManagement::FSA_STATE::DEFAULT_LOOPING_LCD;
         delay(1);
@@ -287,9 +315,8 @@ void WayangDisplay::generalLoop()
 
     case StateManagement::FSA_STATE::PLAY_EPISODE_2:
         WayangDisplayLCD_in_main.disableLCD();
+        Serial.println("Episode 2");
         Episodes::Episode_2();
-        // xTaskCreate(Episodes::Episode_2_task, "Episode_2_task", 128, NULL, 2, NULL);
-        // vTaskSuspend(NULL);
         WayangDisplayLCD_in_main.enableLCD();
         loop_state = StateManagement::FSA_STATE::DEFAULT_LOOPING_LCD;
         delay(1);
@@ -330,87 +357,1010 @@ void WayangDisplay::generalLoop()
         delay(1);
         break;
 
-    case StateManagement::FSA_STATE::SITA_HAND:
-        wayangSita.walk_to_a_certain_distance_before_calibrating_value(250);
-        pageRoute = StateManagement::PAGE_ROUTE::SITA_HAND_PAGE;
-        subSubPageRoute = StateManagement::WAYANG_HAND_CALIBRATION_SUB_PAGE_ROUTE_SITA::SITA_HAND_CALIBRATION_1;
-        WayangDisplayLCD_in_main.set_selection_point(1);
-        loop_state = StateManagement::FSA_STATE::DEFAULT_LOOPING_LCD;
-        delay(1);
-        break;
+        if (pageRoute == StateManagement::PAGE_ROUTE::WAYANG_HAND_CALIBRATION_PAGE)
+        {
+        // SITA GENERAL LOOP
+        case StateManagement::FSA_STATE::SITA_HAND:
+            wayangSita.walk_to_a_certain_distance_before_calibrating_value(250);
+            pageRoute = StateManagement::PAGE_ROUTE::SITA_HAND_PAGE;
+            subPageRoute = StateManagement::SITA_SUB_PAGE_ROUTE::SITA_HAND_CALIBRATION_1;
+            WayangDisplayLCD_in_main.set_selection_point(1);
+            loop_state = StateManagement::FSA_STATE::DEFAULT_LOOPING_LCD;
+            delay(1);
+            break;
 
-    case StateManagement::FSA_STATE::EXIT_SITA_HAND:
-        wayangSita.defaultStandPosition();
-        pageRoute = StateManagement::PAGE_ROUTE::WAYANG_HAND_CALIBRATION_PAGE;
-        subPageRoute = StateManagement::WAYANG_HAND_CALIBRATION_SUB_PAGE_ROUTE::WAYANG_HAND_CALIBRATION_1;
-        WayangDisplayLCD_in_main.set_selection_point(2);
-        loop_state = StateManagement::FSA_STATE::DEFAULT_LOOPING_LCD;
-        delay(1);
-        break;
+        // RAHWANA GENERAL LOOP
+        case StateManagement::FSA_STATE::RAHWANA_HAND:
+            wayangRahwana.walk_to_a_certain_distance_before_calibrating_value(250);
+            pageRoute = StateManagement::PAGE_ROUTE::RAHWANA_HAND_PAGE;
+            subPageRoute = StateManagement::RAHWANA_SUB_PAGE_ROUTE::RAHWANA_HAND_CALIBRATION_1;
+            WayangDisplayLCD_in_main.set_selection_point(1);
+            loop_state = StateManagement::FSA_STATE::DEFAULT_LOOPING_LCD;
+            delay(1);
+            break;
 
-    case StateManagement::FSA_STATE::SITA_POINT_TO_FRONT:
-        wayangSita.pointToFront();
-        loop_state = StateManagement::FSA_STATE::DEFAULT_LOOPING_LCD;
-        delay(1);
-        break;
+        // RAMA WIJAYA GENERAL LOOP
+        case StateManagement::FSA_STATE::RAMA_WIJAYA_HAND:
+            wayangRamaWijaya.walk_to_a_certain_distance_before_calibrating_value(250);
+            pageRoute = StateManagement::PAGE_ROUTE::RAMA_WIJAYA_HAND_PAGE;
+            subPageRoute = StateManagement::RAMA_WIJAYA_SUB_PAGE_ROUTE::RAMA_WIJAYA_HAND_CALIBRATION_1;
+            WayangDisplayLCD_in_main.set_selection_point(1);
+            loop_state = StateManagement::FSA_STATE::DEFAULT_LOOPING_LCD;
+            delay(1);
+            break;
 
-    case StateManagement::FSA_STATE::SITA_LOW_POINT_TO_FRONT:
-        wayangSita.lower_pointToFront();
-        loop_state = StateManagement::FSA_STATE::DEFAULT_LOOPING_LCD;
-        delay(1);
-        break;
+        // HANOMAN GENERAL LOOP
+        case StateManagement::FSA_STATE::HANOMAN_HAND:
+            wayangHanoman.walk_to_a_certain_distance_before_calibrating_value(250);
+            pageRoute = StateManagement::PAGE_ROUTE::HANOMAN_HAND_PAGE;
+            subPageRoute = StateManagement::HANOMAN_SUB_PAGE_ROUTE::HANOMAN_HAND_CALIBRATION_1;
+            WayangDisplayLCD_in_main.set_selection_point(1);
+            loop_state = StateManagement::FSA_STATE::DEFAULT_LOOPING_LCD;
+            delay(1);
+            break;
 
-    case StateManagement::FSA_STATE::SITA_MIDDLE_FRONT:
-        wayangSita.middleFront();
-        loop_state = StateManagement::FSA_STATE::DEFAULT_LOOPING_LCD;
-        delay(1);
-        break;
+        // LAKSMANA GENERAL LOOP
+        case StateManagement::FSA_STATE::LAKSMANA_HAND:
+            wayangLaksmana.walk_to_a_certain_distance_before_calibrating_value(250);
+            pageRoute = StateManagement::PAGE_ROUTE::LAKSMANA_HAND_PAGE;
+            subPageRoute = StateManagement::LAKSMANA_SUB_PAGE_ROUTE::LAKSMANA_HAND_CALIBRATION_1;
+            WayangDisplayLCD_in_main.set_selection_point(1);
+            loop_state = StateManagement::FSA_STATE::DEFAULT_LOOPING_LCD;
+            delay(1);
+            break;
 
-    case StateManagement::FSA_STATE::SITA_DOWN_FRONT:
-        wayangSita.downFront();
-        loop_state = StateManagement::FSA_STATE::DEFAULT_LOOPING_LCD;
-        delay(1);
-        break;
+        // SUGRIWA GENERAL LOOP
+        case StateManagement::FSA_STATE::SUGRIWA_HAND:
+            wayangSugriwa.walk_to_a_certain_distance_before_calibrating_value(250);
+            pageRoute = StateManagement::PAGE_ROUTE::SUGRIWA_HAND_PAGE;
+            subPageRoute = StateManagement::SUGRIWA_SUB_PAGE_ROUTE::SUGRIWA_HAND_CALIBRATION_1;
+            WayangDisplayLCD_in_main.set_selection_point(1);
+            loop_state = StateManagement::FSA_STATE::DEFAULT_LOOPING_LCD;
+            delay(1);
+            break;
 
-    case StateManagement::FSA_STATE::SITA_POINT_TO_SELF:
-        wayangSita.pointToSelf();
-        loop_state = StateManagement::FSA_STATE::DEFAULT_LOOPING_LCD;
-        delay(1);
-        break;
+        // SUBALI GENERAL LOOP
+        case StateManagement::FSA_STATE::SUBALI_HAND:
+            wayangSubali.walk_to_a_certain_distance_before_calibrating_value(250);
+            pageRoute = StateManagement::PAGE_ROUTE::SUBALI_HAND_PAGE;
+            subPageRoute = StateManagement::SUBALI_SUB_PAGE_ROUTE::SUBALI_HAND_CALIBRATION_1;
+            WayangDisplayLCD_in_main.set_selection_point(1);
+            loop_state = StateManagement::FSA_STATE::DEFAULT_LOOPING_LCD;
+            delay(1);
+            break;
 
-    case StateManagement::FSA_STATE::SITA_DOWN_BACK:
-        wayangSita.downBack();
-        loop_state = StateManagement::FSA_STATE::DEFAULT_LOOPING_LCD;
-        delay(1);
-        break;
+        // WIBHISANA GENERAL LOOP
+        case StateManagement::FSA_STATE::WIBHISANA_HAND:
+            wayangWibhisana.walk_to_a_certain_distance_before_calibrating_value(250);
+            pageRoute = StateManagement::PAGE_ROUTE::WIBHISANA_HAND_PAGE;
+            subPageRoute = StateManagement::WIBHISANA_SUB_PAGE_ROUTE::WIBHISANA_HAND_CALIBRATION_1;
+            WayangDisplayLCD_in_main.set_selection_point(1);
+            loop_state = StateManagement::FSA_STATE::DEFAULT_LOOPING_LCD;
+            delay(1);
+            break;
 
-    case StateManagement::FSA_STATE::SITA_ON_HIP_BACK:
-        wayangSita.onHipBack();
-        loop_state = StateManagement::FSA_STATE::DEFAULT_LOOPING_LCD;
-        delay(1);
-        break;  
+        // ANGGADA GENERAL LOOP
+        case StateManagement::FSA_STATE::ANGGADA_HAND:
+            wayangAnggada.walk_to_a_certain_distance_before_calibrating_value(250);
+            pageRoute = StateManagement::PAGE_ROUTE::ANGGADA_HAND_PAGE;
+            subPageRoute = StateManagement::ANGGADA_SUB_PAGE_ROUTE::ANGGADA_HAND_CALIBRATION_1;
+            WayangDisplayLCD_in_main.set_selection_point(1);
+            loop_state = StateManagement::FSA_STATE::DEFAULT_LOOPING_LCD;
+            delay(1);
+            break;
 
-    case StateManagement::FSA_STATE::SITA_POINT_TO_BACK:
-        wayangSita.pointToBack();
-        loop_state = StateManagement::FSA_STATE::DEFAULT_LOOPING_LCD;
-        delay(1);
-        break;
+        // ANILA GENERAL LOOP
+        case StateManagement::FSA_STATE::ANILA_HAND:
+            wayangAnila.walk_to_a_certain_distance_before_calibrating_value(250);
+            pageRoute = StateManagement::PAGE_ROUTE::ANILA_HAND_PAGE;
+            subPageRoute = StateManagement::ANILA_SUB_PAGE_ROUTE::ANILA_HAND_CALIBRATION_1;
+            WayangDisplayLCD_in_main.set_selection_point(1);
+            loop_state = StateManagement::FSA_STATE::DEFAULT_LOOPING_LCD;
+            delay(1);
+            break;
+        }
+        else if (pageRoute == StateManagement::PAGE_ROUTE::SITA_HAND_PAGE)
+        {
+        case StateManagement::FSA_STATE::EXIT_SITA_HAND:
+            setAllMOSFETtoLOW();
+            wayangSita.defaultHandPosition();
+            wayangSita.defaultStandPosition();
+            setAllMOSFETtoHIGH();
+            pageRoute = StateManagement::PAGE_ROUTE::WAYANG_HAND_CALIBRATION_PAGE;
+            subPageRoute = StateManagement::WAYANG_HAND_CALIBRATION_SUB_PAGE_ROUTE::WAYANG_HAND_CALIBRATION_1;
+            WayangDisplayLCD_in_main.set_selection_point(2);
+            loop_state = StateManagement::FSA_STATE::DEFAULT_LOOPING_LCD;
+            delay(1);
+            break;
 
-    case StateManagement::FSA_STATE::SITA_LOW_POINT_TO_BACK:
-        wayangSita.lowPointToBack();
-        loop_state = StateManagement::FSA_STATE::DEFAULT_LOOPING_LCD;
-        delay(1);
-        break;
+        case StateManagement::FSA_STATE::SITA_POINT_TO_FRONT:
+            setAllMOSFETtoLOW();
+            wayangSita.pointToFront();
+            setAllMOSFETtoHIGH();
+            loop_state = StateManagement::FSA_STATE::DEFAULT_LOOPING_LCD;
+            delay(1);
+            break;
 
-    case StateManagement::FSA_STATE::SITA_MIDDLE_BACK:
-        wayangSita.middleBack();
-        loop_state = StateManagement::FSA_STATE::DEFAULT_LOOPING_LCD;
-        delay(1);
-        break;
-    
+        case StateManagement::FSA_STATE::SITA_LOW_POINT_TO_FRONT:
+            setAllMOSFETtoLOW();
+            wayangSita.lower_pointToFront();
+            setAllMOSFETtoHIGH();
+            loop_state = StateManagement::FSA_STATE::DEFAULT_LOOPING_LCD;
+            delay(1);
+            break;
+
+        case StateManagement::FSA_STATE::SITA_MIDDLE_FRONT:
+            setAllMOSFETtoLOW();
+            wayangSita.middleFront();
+            setAllMOSFETtoHIGH();
+            loop_state = StateManagement::FSA_STATE::DEFAULT_LOOPING_LCD;
+            delay(1);
+            break;
+
+        case StateManagement::FSA_STATE::SITA_DOWN_FRONT:
+            setAllMOSFETtoLOW();
+            wayangSita.downFront();
+            setAllMOSFETtoHIGH();
+            loop_state = StateManagement::FSA_STATE::DEFAULT_LOOPING_LCD;
+            delay(1);
+            break;
+
+        case StateManagement::FSA_STATE::SITA_POINT_TO_SELF:
+            setAllMOSFETtoLOW();
+            wayangSita.pointToSelf();
+            setAllMOSFETtoHIGH();
+            loop_state = StateManagement::FSA_STATE::DEFAULT_LOOPING_LCD;
+            delay(1);
+            break;
+
+        case StateManagement::FSA_STATE::SITA_DOWN_BACK:
+            setAllMOSFETtoLOW();
+            wayangSita.downBack();
+            setAllMOSFETtoHIGH();
+            loop_state = StateManagement::FSA_STATE::DEFAULT_LOOPING_LCD;
+            delay(1);
+            break;
+
+        case StateManagement::FSA_STATE::SITA_ON_HIP_BACK:
+            setAllMOSFETtoLOW();
+            wayangSita.onHipBack();
+            setAllMOSFETtoHIGH();
+            loop_state = StateManagement::FSA_STATE::DEFAULT_LOOPING_LCD;
+            delay(1);
+            break;
+
+        case StateManagement::FSA_STATE::SITA_POINT_TO_BACK:
+            setAllMOSFETtoLOW();
+            wayangSita.pointToBack();
+            setAllMOSFETtoHIGH();
+            loop_state = StateManagement::FSA_STATE::DEFAULT_LOOPING_LCD;
+            delay(1);
+            break;
+
+        case StateManagement::FSA_STATE::SITA_LOW_POINT_TO_BACK:
+            setAllMOSFETtoLOW();
+            wayangSita.lowPointToBack();
+            setAllMOSFETtoHIGH();
+            loop_state = StateManagement::FSA_STATE::DEFAULT_LOOPING_LCD;
+            delay(1);
+            break;
+
+        case StateManagement::FSA_STATE::SITA_MIDDLE_BACK:
+            setAllMOSFETtoLOW();
+            wayangSita.middleBack();
+            setAllMOSFETtoHIGH();
+            loop_state = StateManagement::FSA_STATE::DEFAULT_LOOPING_LCD;
+            delay(1);
+            break;
+        }
+        else if (pageRoute == StateManagement::PAGE_ROUTE::RAHWANA_HAND_PAGE)
+        {
+        case StateManagement::FSA_STATE::EXIT_RAHWANA_HAND:
+            setAllMOSFETtoLOW();
+            wayangRahwana.defaultHandPosition();
+            wayangRahwana.defaultStandPosition();
+            setAllMOSFETtoHIGH();
+            pageRoute = StateManagement::PAGE_ROUTE::WAYANG_HAND_CALIBRATION_PAGE;
+            subPageRoute = StateManagement::WAYANG_HAND_CALIBRATION_SUB_PAGE_ROUTE::WAYANG_HAND_CALIBRATION_1;
+            WayangDisplayLCD_in_main.set_selection_point(3);
+            loop_state = StateManagement::FSA_STATE::DEFAULT_LOOPING_LCD;
+            delay(1);
+            break;
+
+        case StateManagement::FSA_STATE::RAHWANA_POINT_TO_FRONT:
+            setAllMOSFETtoLOW();
+            wayangRahwana.pointToFront();
+            setAllMOSFETtoHIGH();
+            loop_state = StateManagement::FSA_STATE::DEFAULT_LOOPING_LCD;
+            delay(1);
+            break;
+
+        case StateManagement::FSA_STATE::RAHWANA_LOW_POINT_TO_FRONT:
+            setAllMOSFETtoLOW();
+            wayangRahwana.lower_pointToFront();
+            setAllMOSFETtoHIGH();
+            loop_state = StateManagement::FSA_STATE::DEFAULT_LOOPING_LCD;
+            delay(1);
+            break;
+
+        case StateManagement::FSA_STATE::RAHWANA_MIDDLE_FRONT:
+            setAllMOSFETtoLOW();
+            wayangRahwana.middleFront();
+            setAllMOSFETtoHIGH();
+            loop_state = StateManagement::FSA_STATE::DEFAULT_LOOPING_LCD;
+            delay(1);
+            break;
+
+        case StateManagement::FSA_STATE::RAHWANA_DOWN_FRONT:
+            setAllMOSFETtoLOW();
+            wayangRahwana.downFront();
+            setAllMOSFETtoHIGH();
+            loop_state = StateManagement::FSA_STATE::DEFAULT_LOOPING_LCD;
+            delay(1);
+            break;
+
+        case StateManagement::FSA_STATE::RAHWANA_POINT_TO_SELF:
+            setAllMOSFETtoLOW();
+            wayangRahwana.pointToSelf();
+            setAllMOSFETtoHIGH();
+            loop_state = StateManagement::FSA_STATE::DEFAULT_LOOPING_LCD;
+            delay(1);
+            break;
+        }
+        else if (pageRoute == StateManagement::PAGE_ROUTE::RAMA_WIJAYA_HAND_PAGE)
+        {
+        case StateManagement::FSA_STATE::EXIT_RAMA_WIJAYA_HAND:
+            setAllMOSFETtoLOW();
+            wayangRamaWijaya.defaultHandPosition();
+            wayangRamaWijaya.defaultStandPosition();
+            setAllMOSFETtoHIGH();
+            pageRoute = StateManagement::PAGE_ROUTE::WAYANG_HAND_CALIBRATION_PAGE;
+            subPageRoute = StateManagement::WAYANG_HAND_CALIBRATION_SUB_PAGE_ROUTE::WAYANG_HAND_CALIBRATION_1;
+            WayangDisplayLCD_in_main.set_selection_point(4);
+            loop_state = StateManagement::FSA_STATE::DEFAULT_LOOPING_LCD;
+            delay(1);
+            break;
+
+        case StateManagement::FSA_STATE::RAMA_WIJAYA_POINT_TO_FRONT:
+            setAllMOSFETtoLOW();
+            wayangRamaWijaya.pointToFront();
+            setAllMOSFETtoHIGH();
+            loop_state = StateManagement::FSA_STATE::DEFAULT_LOOPING_LCD;
+            delay(1);
+            break;
+
+        case StateManagement::FSA_STATE::RAMA_WIJAYA_LOW_POINT_TO_FRONT:
+            setAllMOSFETtoLOW();
+            wayangRamaWijaya.lower_pointToFront();
+            setAllMOSFETtoHIGH();
+            loop_state = StateManagement::FSA_STATE::DEFAULT_LOOPING_LCD;
+            delay(1);
+            break;
+
+        case StateManagement::FSA_STATE::RAMA_WIJAYA_MIDDLE_FRONT:
+            setAllMOSFETtoLOW();
+            wayangRamaWijaya.middleFront();
+            setAllMOSFETtoHIGH();
+            loop_state = StateManagement::FSA_STATE::DEFAULT_LOOPING_LCD;
+            delay(1);
+            break;
+
+        case StateManagement::FSA_STATE::RAMA_WIJAYA_DOWN_FRONT:
+            setAllMOSFETtoLOW();
+            wayangRamaWijaya.downFront();
+            setAllMOSFETtoHIGH();
+            loop_state = StateManagement::FSA_STATE::DEFAULT_LOOPING_LCD;
+            delay(1);
+            break;
+
+        case StateManagement::FSA_STATE::RAMA_WIJAYA_POINT_TO_SELF:
+            setAllMOSFETtoLOW();
+            wayangRamaWijaya.pointToSelf();
+            setAllMOSFETtoHIGH();
+            loop_state = StateManagement::FSA_STATE::DEFAULT_LOOPING_LCD;
+            delay(1);
+            break;
+
+        case StateManagement::FSA_STATE::RAMA_WIJAYA_DOWN_BACK:
+            setAllMOSFETtoLOW();
+            wayangRamaWijaya.downBack();
+            setAllMOSFETtoHIGH();
+            loop_state = StateManagement::FSA_STATE::DEFAULT_LOOPING_LCD;
+            delay(1);
+            break;
+
+        case StateManagement::FSA_STATE::RAMA_WIJAYA_ON_HIP_BACK:
+            setAllMOSFETtoLOW();
+            wayangRamaWijaya.onHipBack();
+            setAllMOSFETtoHIGH();
+            loop_state = StateManagement::FSA_STATE::DEFAULT_LOOPING_LCD;
+            delay(1);
+            break;
+
+        case StateManagement::FSA_STATE::RAMA_WIJAYA_POINT_TO_BACK:
+            setAllMOSFETtoLOW();
+            wayangRamaWijaya.pointToBack();
+            setAllMOSFETtoHIGH();
+            loop_state = StateManagement::FSA_STATE::DEFAULT_LOOPING_LCD;
+            delay(1);
+            break;
+
+        case StateManagement::FSA_STATE::RAMA_WIJAYA_LOW_POINT_TO_BACK:
+            setAllMOSFETtoLOW();
+            wayangRamaWijaya.lowPointToBack();
+            setAllMOSFETtoHIGH();
+            loop_state = StateManagement::FSA_STATE::DEFAULT_LOOPING_LCD;
+            delay(1);
+            break;
+
+        case StateManagement::FSA_STATE::RAMA_WIJAYA_MIDDLE_BACK:
+            setAllMOSFETtoLOW();
+            wayangRamaWijaya.middleBack();
+            setAllMOSFETtoHIGH();
+            loop_state = StateManagement::FSA_STATE::DEFAULT_LOOPING_LCD;
+            delay(1);
+            break;
+        }
+        else if (pageRoute == StateManagement::PAGE_ROUTE::HANOMAN_HAND_PAGE)
+        {
+        case StateManagement::FSA_STATE::EXIT_HANOMAN_HAND:
+            setAllMOSFETtoLOW();
+            wayangHanoman.defaultHandPosition();
+            wayangHanoman.defaultStandPosition();
+            setAllMOSFETtoHIGH();
+            pageRoute = StateManagement::PAGE_ROUTE::WAYANG_HAND_CALIBRATION_PAGE;
+            subPageRoute = StateManagement::WAYANG_HAND_CALIBRATION_SUB_PAGE_ROUTE::WAYANG_HAND_CALIBRATION_1;
+            WayangDisplayLCD_in_main.set_selection_point(5);
+            loop_state = StateManagement::FSA_STATE::DEFAULT_LOOPING_LCD;
+            delay(1);
+            break;
+
+        case StateManagement::FSA_STATE::HANOMAN_POINT_TO_FRONT:
+            setAllMOSFETtoLOW();
+            wayangHanoman.pointToFront();
+            setAllMOSFETtoHIGH();
+            loop_state = StateManagement::FSA_STATE::DEFAULT_LOOPING_LCD;
+            delay(1);
+            break;
+
+        case StateManagement::FSA_STATE::HANOMAN_LOW_POINT_TO_FRONT:
+            setAllMOSFETtoLOW();
+            wayangHanoman.lower_pointToFront();
+            setAllMOSFETtoHIGH();
+            loop_state = StateManagement::FSA_STATE::DEFAULT_LOOPING_LCD;
+            delay(1);
+            break;
+
+        case StateManagement::FSA_STATE::HANOMAN_MIDDLE_FRONT:
+            setAllMOSFETtoLOW();
+            wayangHanoman.middleFront();
+            setAllMOSFETtoHIGH();
+            loop_state = StateManagement::FSA_STATE::DEFAULT_LOOPING_LCD;
+            delay(1);
+            break;
+
+        case StateManagement::FSA_STATE::HANOMAN_DOWN_FRONT:
+            setAllMOSFETtoLOW();
+            wayangHanoman.downFront();
+            setAllMOSFETtoHIGH();
+            loop_state = StateManagement::FSA_STATE::DEFAULT_LOOPING_LCD;
+            delay(1);
+            break;
+
+        case StateManagement::FSA_STATE::HANOMAN_POINT_TO_SELF:
+            setAllMOSFETtoLOW();
+            wayangHanoman.pointToSelf();
+            setAllMOSFETtoHIGH();
+            loop_state = StateManagement::FSA_STATE::DEFAULT_LOOPING_LCD;
+            delay(1);
+            break;
+
+        case StateManagement::FSA_STATE::HANOMAN_DOWN_BACK:
+            setAllMOSFETtoLOW();
+            wayangHanoman.downBack();
+            setAllMOSFETtoHIGH();
+            loop_state = StateManagement::FSA_STATE::DEFAULT_LOOPING_LCD;
+            delay(1);
+            break;
+
+        case StateManagement::FSA_STATE::HANOMAN_ON_HIP_BACK:
+            setAllMOSFETtoLOW();
+            wayangHanoman.onHipBack();
+            setAllMOSFETtoHIGH();
+            loop_state = StateManagement::FSA_STATE::DEFAULT_LOOPING_LCD;
+            delay(1);
+            break;
+
+        case StateManagement::FSA_STATE::HANOMAN_POINT_TO_BACK:
+            setAllMOSFETtoLOW();
+            wayangHanoman.pointToBack();
+            setAllMOSFETtoHIGH();
+            loop_state = StateManagement::FSA_STATE::DEFAULT_LOOPING_LCD;
+            delay(1);
+            break;
+
+        case StateManagement::FSA_STATE::HANOMAN_LOW_POINT_TO_BACK:
+            setAllMOSFETtoLOW();
+            wayangHanoman.lowPointToBack();
+            setAllMOSFETtoHIGH();
+            loop_state = StateManagement::FSA_STATE::DEFAULT_LOOPING_LCD;
+            delay(1);
+            break;
+
+        case StateManagement::FSA_STATE::HANOMAN_MIDDLE_BACK:
+            setAllMOSFETtoLOW();
+            wayangHanoman.middleBack();
+            setAllMOSFETtoHIGH();
+            loop_state = StateManagement::FSA_STATE::DEFAULT_LOOPING_LCD;
+            delay(1);
+            break;
+        }
+        else if (pageRoute == StateManagement::PAGE_ROUTE::LAKSMANA_HAND_PAGE)
+        {
+        case StateManagement::FSA_STATE::EXIT_LAKSMANA_HAND:
+            setAllMOSFETtoLOW();
+            wayangLaksmana.defaultHandPosition();
+            wayangLaksmana.defaultStandPosition();
+            setAllMOSFETtoHIGH();
+            pageRoute = StateManagement::PAGE_ROUTE::WAYANG_HAND_CALIBRATION_PAGE;
+            subPageRoute = StateManagement::WAYANG_HAND_CALIBRATION_SUB_PAGE_ROUTE::WAYANG_HAND_CALIBRATION_1;
+            WayangDisplayLCD_in_main.set_selection_point(6);
+            loop_state = StateManagement::FSA_STATE::DEFAULT_LOOPING_LCD;
+            delay(1);
+            break;
+
+        case StateManagement::FSA_STATE::LAKSMANA_POINT_TO_FRONT:
+            setAllMOSFETtoLOW();
+            wayangLaksmana.pointToFront();
+            setAllMOSFETtoHIGH();
+            loop_state = StateManagement::FSA_STATE::DEFAULT_LOOPING_LCD;
+            delay(1);
+            break;
+
+        case StateManagement::FSA_STATE::LAKSMANA_LOW_POINT_TO_FRONT:
+            setAllMOSFETtoLOW();
+            wayangLaksmana.lower_pointToFront();
+            setAllMOSFETtoHIGH();
+            loop_state = StateManagement::FSA_STATE::DEFAULT_LOOPING_LCD;
+            delay(1);
+            break;
+
+        case StateManagement::FSA_STATE::LAKSMANA_MIDDLE_FRONT:
+            setAllMOSFETtoLOW();
+            wayangLaksmana.middleFront();
+            setAllMOSFETtoHIGH();
+            loop_state = StateManagement::FSA_STATE::DEFAULT_LOOPING_LCD;
+            delay(1);
+            break;
+
+        case StateManagement::FSA_STATE::LAKSMANA_DOWN_FRONT:
+            setAllMOSFETtoLOW();
+            wayangLaksmana.downFront();
+            setAllMOSFETtoHIGH();
+            loop_state = StateManagement::FSA_STATE::DEFAULT_LOOPING_LCD;
+            delay(1);
+            break;
+
+        case StateManagement::FSA_STATE::LAKSMANA_POINT_TO_SELF:
+            setAllMOSFETtoLOW();
+            wayangLaksmana.pointToSelf();
+            setAllMOSFETtoHIGH();
+            loop_state = StateManagement::FSA_STATE::DEFAULT_LOOPING_LCD;
+            delay(1);
+            break;
+
+        case StateManagement::FSA_STATE::LAKSMANA_DOWN_BACK:
+            setAllMOSFETtoLOW();
+            wayangLaksmana.downBack();
+            setAllMOSFETtoHIGH();
+            loop_state = StateManagement::FSA_STATE::DEFAULT_LOOPING_LCD;
+            delay(1);
+            break;
+
+        case StateManagement::FSA_STATE::LAKSMANA_ON_HIP_BACK:
+            setAllMOSFETtoLOW();
+            wayangLaksmana.onHipBack();
+            setAllMOSFETtoHIGH();
+            loop_state = StateManagement::FSA_STATE::DEFAULT_LOOPING_LCD;
+            delay(1);
+            break;
+
+        case StateManagement::FSA_STATE::LAKSMANA_POINT_TO_BACK:
+            setAllMOSFETtoLOW();
+            wayangLaksmana.pointToBack();
+            setAllMOSFETtoHIGH();
+            loop_state = StateManagement::FSA_STATE::DEFAULT_LOOPING_LCD;
+            delay(1);
+            break;
+
+        case StateManagement::FSA_STATE::LAKSMANA_LOW_POINT_TO_BACK:
+            setAllMOSFETtoLOW();
+            wayangLaksmana.lowPointToBack();
+            setAllMOSFETtoHIGH();
+            loop_state = StateManagement::FSA_STATE::DEFAULT_LOOPING_LCD;
+            delay(1);
+            break;
+
+        case StateManagement::FSA_STATE::LAKSMANA_MIDDLE_BACK:
+            setAllMOSFETtoLOW();
+            wayangLaksmana.middleBack();
+            setAllMOSFETtoHIGH();
+            loop_state = StateManagement::FSA_STATE::DEFAULT_LOOPING_LCD;
+            delay(1);
+            break;
+        }
+        else if (pageRoute == StateManagement::PAGE_ROUTE::SUGRIWA_HAND_PAGE)
+        {
+        case StateManagement::FSA_STATE::EXIT_SUGRIWA_HAND:
+            setAllMOSFETtoLOW();
+            wayangSugriwa.defaultHandPosition();
+            wayangSugriwa.defaultStandPosition();
+            setAllMOSFETtoHIGH();
+            pageRoute = StateManagement::PAGE_ROUTE::WAYANG_HAND_CALIBRATION_PAGE;
+            subPageRoute = StateManagement::WAYANG_HAND_CALIBRATION_SUB_PAGE_ROUTE::WAYANG_HAND_CALIBRATION_1;
+            WayangDisplayLCD_in_main.set_selection_point(7);
+            loop_state = StateManagement::FSA_STATE::DEFAULT_LOOPING_LCD;
+            delay(1);
+            break;
+
+        case StateManagement::FSA_STATE::SUGRIWA_POINT_TO_FRONT:
+            setAllMOSFETtoLOW();
+            wayangSugriwa.pointToFront();
+            setAllMOSFETtoHIGH();
+            loop_state = StateManagement::FSA_STATE::DEFAULT_LOOPING_LCD;
+            delay(1);
+            break;
+
+        case StateManagement::FSA_STATE::SUGRIWA_LOW_POINT_TO_FRONT:
+            setAllMOSFETtoLOW();
+            wayangSugriwa.lower_pointToFront();
+            setAllMOSFETtoHIGH();
+            loop_state = StateManagement::FSA_STATE::DEFAULT_LOOPING_LCD;
+            delay(1);
+            break;
+
+        case StateManagement::FSA_STATE::SUGRIWA_MIDDLE_FRONT:
+            setAllMOSFETtoLOW();
+            wayangSugriwa.middleFront();
+            setAllMOSFETtoHIGH();
+            loop_state = StateManagement::FSA_STATE::DEFAULT_LOOPING_LCD;
+            delay(1);
+            break;
+
+        case StateManagement::FSA_STATE::SUGRIWA_DOWN_FRONT:
+            setAllMOSFETtoLOW();
+            wayangSugriwa.downFront();
+            setAllMOSFETtoHIGH();
+            loop_state = StateManagement::FSA_STATE::DEFAULT_LOOPING_LCD;
+            delay(1);
+            break;
+
+        case StateManagement::FSA_STATE::SUGRIWA_POINT_TO_SELF:
+            setAllMOSFETtoLOW();
+            wayangSugriwa.pointToSelf();
+            setAllMOSFETtoHIGH();
+            loop_state = StateManagement::FSA_STATE::DEFAULT_LOOPING_LCD;
+            delay(1);
+            break;
+
+        case StateManagement::FSA_STATE::SUGRIWA_DOWN_BACK:
+            setAllMOSFETtoLOW();
+            wayangSugriwa.downBack();
+            setAllMOSFETtoHIGH();
+            loop_state = StateManagement::FSA_STATE::DEFAULT_LOOPING_LCD;
+            delay(1);
+            break;
+
+        case StateManagement::FSA_STATE::SUGRIWA_ON_HIP_BACK:
+            setAllMOSFETtoLOW();
+            wayangSugriwa.onHipBack();
+            setAllMOSFETtoHIGH();
+            loop_state = StateManagement::FSA_STATE::DEFAULT_LOOPING_LCD;
+            delay(1);
+            break;
+
+        case StateManagement::FSA_STATE::SUGRIWA_POINT_TO_BACK:
+            setAllMOSFETtoLOW();
+            wayangSugriwa.pointToBack();
+            setAllMOSFETtoHIGH();
+            loop_state = StateManagement::FSA_STATE::DEFAULT_LOOPING_LCD;
+            delay(1);
+            break;
+
+        case StateManagement::FSA_STATE::SUGRIWA_LOW_POINT_TO_BACK:
+            setAllMOSFETtoLOW();
+            wayangSugriwa.lowPointToBack();
+            setAllMOSFETtoHIGH();
+            loop_state = StateManagement::FSA_STATE::DEFAULT_LOOPING_LCD;
+            delay(1);
+            break;
+
+        case StateManagement::FSA_STATE::SUGRIWA_MIDDLE_BACK:
+            setAllMOSFETtoLOW();
+            wayangSugriwa.middleBack();
+            setAllMOSFETtoHIGH();
+            loop_state = StateManagement::FSA_STATE::DEFAULT_LOOPING_LCD;
+            delay(1);
+            break;
+        }
+        else if (pageRoute == StateManagement::PAGE_ROUTE::SUBALI_HAND_PAGE)
+        {
+        case StateManagement::FSA_STATE::EXIT_SUBALI_HAND:
+            setAllMOSFETtoLOW();
+            wayangSubali.defaultHandPosition();
+            wayangSubali.defaultStandPosition();
+            setAllMOSFETtoHIGH();
+            pageRoute = StateManagement::PAGE_ROUTE::WAYANG_HAND_CALIBRATION_PAGE;
+            subPageRoute = StateManagement::WAYANG_HAND_CALIBRATION_SUB_PAGE_ROUTE::WAYANG_HAND_CALIBRATION_1;
+            WayangDisplayLCD_in_main.set_selection_point(8);
+            loop_state = StateManagement::FSA_STATE::DEFAULT_LOOPING_LCD;
+            delay(1);
+            break;
+
+        case StateManagement::FSA_STATE::SUBALI_POINT_TO_FRONT:
+            setAllMOSFETtoLOW();
+            wayangSubali.pointToFront();
+            setAllMOSFETtoHIGH();
+            loop_state = StateManagement::FSA_STATE::DEFAULT_LOOPING_LCD;
+            delay(1);
+            break;
+
+        case StateManagement::FSA_STATE::SUBALI_LOW_POINT_TO_FRONT:
+            setAllMOSFETtoLOW();
+            wayangSubali.lower_pointToFront();
+            setAllMOSFETtoHIGH();
+            loop_state = StateManagement::FSA_STATE::DEFAULT_LOOPING_LCD;
+            delay(1);
+            break;
+
+        case StateManagement::FSA_STATE::SUBALI_MIDDLE_FRONT:
+            setAllMOSFETtoLOW();
+            wayangSubali.middleFront();
+            setAllMOSFETtoHIGH();
+            loop_state = StateManagement::FSA_STATE::DEFAULT_LOOPING_LCD;
+            delay(1);
+            break;
+
+        case StateManagement::FSA_STATE::SUBALI_DOWN_FRONT:
+            setAllMOSFETtoLOW();
+            wayangSubali.downFront();
+            setAllMOSFETtoHIGH();
+            loop_state = StateManagement::FSA_STATE::DEFAULT_LOOPING_LCD;
+            delay(1);
+            break;
+
+        case StateManagement::FSA_STATE::SUBALI_POINT_TO_SELF:
+            setAllMOSFETtoLOW();
+            wayangSubali.pointToSelf();
+            setAllMOSFETtoHIGH();
+            loop_state = StateManagement::FSA_STATE::DEFAULT_LOOPING_LCD;
+            delay(1);
+            break;
+
+        case StateManagement::FSA_STATE::SUBALI_DOWN_BACK:
+            setAllMOSFETtoLOW();
+            wayangSubali.downBack();
+            setAllMOSFETtoHIGH();
+            loop_state = StateManagement::FSA_STATE::DEFAULT_LOOPING_LCD;
+            delay(1);
+            break;
+
+        case StateManagement::FSA_STATE::SUBALI_ON_HIP_BACK:
+            setAllMOSFETtoLOW();
+            wayangSubali.onHipBack();
+            setAllMOSFETtoHIGH();
+            loop_state = StateManagement::FSA_STATE::DEFAULT_LOOPING_LCD;
+            delay(1);
+            break;
+
+        case StateManagement::FSA_STATE::SUBALI_POINT_TO_BACK:
+            setAllMOSFETtoLOW();
+            wayangSubali.pointToBack();
+            setAllMOSFETtoHIGH();
+            loop_state = StateManagement::FSA_STATE::DEFAULT_LOOPING_LCD;
+            delay(1);
+            break;
+
+        case StateManagement::FSA_STATE::SUBALI_LOW_POINT_TO_BACK:
+            setAllMOSFETtoLOW();
+            wayangSubali.lowPointToBack();
+            setAllMOSFETtoHIGH();
+            loop_state = StateManagement::FSA_STATE::DEFAULT_LOOPING_LCD;
+            delay(1);
+            break;
+
+        case StateManagement::FSA_STATE::SUBALI_MIDDLE_BACK:
+            setAllMOSFETtoLOW();
+            wayangSubali.middleBack();
+            setAllMOSFETtoHIGH();
+            loop_state = StateManagement::FSA_STATE::DEFAULT_LOOPING_LCD;
+            delay(1);
+            break;
+        }
+        else if (pageRoute == StateManagement::PAGE_ROUTE::WIBHISANA_HAND_PAGE)
+        {
+        case StateManagement::FSA_STATE::EXIT_WIBHISANA_HAND:
+            setAllMOSFETtoLOW();
+            wayangWibhisana.defaultHandPosition();
+            wayangWibhisana.defaultStandPosition();
+            setAllMOSFETtoHIGH();
+            pageRoute = StateManagement::PAGE_ROUTE::WAYANG_HAND_CALIBRATION_PAGE;
+            subPageRoute = StateManagement::WAYANG_HAND_CALIBRATION_SUB_PAGE_ROUTE::WAYANG_HAND_CALIBRATION_1;
+            WayangDisplayLCD_in_main.set_selection_point(9);
+            loop_state = StateManagement::FSA_STATE::DEFAULT_LOOPING_LCD;
+            delay(1);
+            break;
+
+        case StateManagement::FSA_STATE::WIBHISANA_POINT_TO_FRONT:
+            setAllMOSFETtoLOW();
+            wayangWibhisana.pointToFront();
+            setAllMOSFETtoHIGH();
+            loop_state = StateManagement::FSA_STATE::DEFAULT_LOOPING_LCD;
+            delay(1);
+            break;
+
+        case StateManagement::FSA_STATE::WIBHISANA_LOW_POINT_TO_FRONT:
+            setAllMOSFETtoLOW();
+            wayangWibhisana.lower_pointToFront();
+            setAllMOSFETtoHIGH();
+            loop_state = StateManagement::FSA_STATE::DEFAULT_LOOPING_LCD;
+            delay(1);
+            break;
+
+        case StateManagement::FSA_STATE::WIBHISANA_MIDDLE_FRONT:
+            setAllMOSFETtoLOW();
+            wayangWibhisana.middleFront();
+            setAllMOSFETtoHIGH();
+            loop_state = StateManagement::FSA_STATE::DEFAULT_LOOPING_LCD;
+            delay(1);
+            break;
+
+        case StateManagement::FSA_STATE::WIBHISANA_DOWN_FRONT:
+            setAllMOSFETtoLOW();
+            wayangWibhisana.downFront();
+            setAllMOSFETtoHIGH();
+            loop_state = StateManagement::FSA_STATE::DEFAULT_LOOPING_LCD;
+            delay(1);
+            break;
+
+        case StateManagement::FSA_STATE::WIBHISANA_POINT_TO_SELF:
+            setAllMOSFETtoLOW();
+            wayangWibhisana.pointToSelf();
+            setAllMOSFETtoHIGH();
+            loop_state = StateManagement::FSA_STATE::DEFAULT_LOOPING_LCD;
+            delay(1);
+            break;
+
+        case StateManagement::FSA_STATE::WIBHISANA_DOWN_BACK:
+            setAllMOSFETtoLOW();
+            wayangWibhisana.downBack();
+            setAllMOSFETtoHIGH();
+            loop_state = StateManagement::FSA_STATE::DEFAULT_LOOPING_LCD;
+            delay(1);
+            break;
+
+        case StateManagement::FSA_STATE::WIBHISANA_ON_HIP_BACK:
+            setAllMOSFETtoLOW();
+            wayangWibhisana.onHipBack();
+            setAllMOSFETtoHIGH();
+            loop_state = StateManagement::FSA_STATE::DEFAULT_LOOPING_LCD;
+            delay(1);
+            break;
+
+        case StateManagement::FSA_STATE::WIBHISANA_POINT_TO_BACK:
+            setAllMOSFETtoLOW();
+            wayangWibhisana.pointToBack();
+            setAllMOSFETtoHIGH();
+            loop_state = StateManagement::FSA_STATE::DEFAULT_LOOPING_LCD;
+            delay(1);
+            break;
+
+        case StateManagement::FSA_STATE::WIBHISANA_LOW_POINT_TO_BACK:
+            setAllMOSFETtoLOW();
+            wayangWibhisana.lowPointToBack();
+            setAllMOSFETtoHIGH();
+            loop_state = StateManagement::FSA_STATE::DEFAULT_LOOPING_LCD;
+            delay(1);
+            break;
+
+        case StateManagement::FSA_STATE::WIBHISANA_MIDDLE_BACK:
+            setAllMOSFETtoLOW();
+            wayangWibhisana.middleBack();
+            setAllMOSFETtoHIGH();
+            loop_state = StateManagement::FSA_STATE::DEFAULT_LOOPING_LCD;
+            delay(1);
+            break;
+        }
+        else if (pageRoute == StateManagement::PAGE_ROUTE::ANGGADA_HAND_PAGE)
+        {
+        case StateManagement::FSA_STATE::EXIT_ANGGADA_HAND:
+            setAllMOSFETtoLOW();
+            wayangAnggada.defaultHandPosition();
+            wayangAnggada.defaultStandPosition();
+            setAllMOSFETtoHIGH();
+            pageRoute = StateManagement::PAGE_ROUTE::WAYANG_HAND_CALIBRATION_PAGE;
+            subPageRoute = StateManagement::WAYANG_HAND_CALIBRATION_SUB_PAGE_ROUTE::WAYANG_HAND_CALIBRATION_1;
+            WayangDisplayLCD_in_main.set_selection_point(10);
+            loop_state = StateManagement::FSA_STATE::DEFAULT_LOOPING_LCD;
+            delay(1);
+            break;
+
+        case StateManagement::FSA_STATE::ANGGADA_POINT_TO_FRONT:
+            setAllMOSFETtoLOW();
+            wayangAnggada.pointToFront();
+            setAllMOSFETtoHIGH();
+            loop_state = StateManagement::FSA_STATE::DEFAULT_LOOPING_LCD;
+            delay(1);
+            break;
+
+        case StateManagement::FSA_STATE::ANGGADA_LOW_POINT_TO_FRONT:
+            setAllMOSFETtoLOW();
+            wayangAnggada.lower_pointToFront();
+            setAllMOSFETtoHIGH();
+            loop_state = StateManagement::FSA_STATE::DEFAULT_LOOPING_LCD;
+            delay(1);
+            break;
+
+        case StateManagement::FSA_STATE::ANGGADA_MIDDLE_FRONT:
+            setAllMOSFETtoLOW();
+            wayangAnggada.middleFront();
+            setAllMOSFETtoHIGH();
+            loop_state = StateManagement::FSA_STATE::DEFAULT_LOOPING_LCD;
+            delay(1);
+            break;
+
+        case StateManagement::FSA_STATE::ANGGADA_DOWN_FRONT:
+            setAllMOSFETtoLOW();
+            wayangAnggada.downFront();
+            setAllMOSFETtoHIGH();
+            loop_state = StateManagement::FSA_STATE::DEFAULT_LOOPING_LCD;
+            delay(1);
+            break;
+
+        case StateManagement::FSA_STATE::ANGGADA_POINT_TO_SELF:
+            setAllMOSFETtoLOW();
+            wayangAnggada.pointToSelf();
+            setAllMOSFETtoHIGH();
+            loop_state = StateManagement::FSA_STATE::DEFAULT_LOOPING_LCD;
+            delay(1);
+            break;
+
+        case StateManagement::FSA_STATE::ANGGADA_DOWN_BACK:
+            setAllMOSFETtoLOW();
+            wayangAnggada.downBack();
+            setAllMOSFETtoHIGH();
+            loop_state = StateManagement::FSA_STATE::DEFAULT_LOOPING_LCD;
+            delay(1);
+            break;
+
+        case StateManagement::FSA_STATE::ANGGADA_ON_HIP_BACK:
+            setAllMOSFETtoLOW();
+            wayangAnggada.onHipBack();
+            setAllMOSFETtoHIGH();
+            loop_state = StateManagement::FSA_STATE::DEFAULT_LOOPING_LCD;
+            delay(1);
+            break;
+
+        case StateManagement::FSA_STATE::ANGGADA_POINT_TO_BACK:
+            setAllMOSFETtoLOW();
+            wayangAnggada.pointToBack();
+            setAllMOSFETtoHIGH();
+            loop_state = StateManagement::FSA_STATE::DEFAULT_LOOPING_LCD;
+            delay(1);
+            break;
+
+        case StateManagement::FSA_STATE::ANGGADA_LOW_POINT_TO_BACK:
+            setAllMOSFETtoLOW();
+            wayangAnggada.lowPointToBack();
+            setAllMOSFETtoHIGH();
+            loop_state = StateManagement::FSA_STATE::DEFAULT_LOOPING_LCD;
+            delay(1);
+            break;
+
+        case StateManagement::FSA_STATE::ANGGADA_MIDDLE_BACK:
+            setAllMOSFETtoLOW();
+            wayangAnggada.middleBack();
+            setAllMOSFETtoHIGH();
+            loop_state = StateManagement::FSA_STATE::DEFAULT_LOOPING_LCD;
+            delay(1);
+            break;
+        }
+        else if (pageRoute == StateManagement::PAGE_ROUTE::ANILA_HAND_PAGE)
+        {
+        case StateManagement::FSA_STATE::EXIT_ANILA_HAND:
+            setAllMOSFETtoLOW();
+            wayangAnila.defaultHandPosition();
+            wayangAnila.defaultStandPosition();
+            setAllMOSFETtoHIGH();
+            pageRoute = StateManagement::PAGE_ROUTE::WAYANG_HAND_CALIBRATION_PAGE;
+            subPageRoute = StateManagement::WAYANG_HAND_CALIBRATION_SUB_PAGE_ROUTE::WAYANG_HAND_CALIBRATION_1;
+            WayangDisplayLCD_in_main.set_selection_point(11);
+            loop_state = StateManagement::FSA_STATE::DEFAULT_LOOPING_LCD;
+            delay(1);
+            break;
+
+        case StateManagement::FSA_STATE::ANILA_POINT_TO_FRONT:
+            setAllMOSFETtoLOW();
+            wayangAnila.pointToFront();
+            setAllMOSFETtoHIGH();
+            loop_state = StateManagement::FSA_STATE::DEFAULT_LOOPING_LCD;
+            delay(1);
+            break;
+
+        case StateManagement::FSA_STATE::ANILA_LOW_POINT_TO_FRONT:
+            setAllMOSFETtoLOW();
+            wayangAnila.lower_pointToFront();
+            setAllMOSFETtoHIGH();
+            loop_state = StateManagement::FSA_STATE::DEFAULT_LOOPING_LCD;
+            delay(1);
+            break;
+
+        case StateManagement::FSA_STATE::ANILA_MIDDLE_FRONT:
+            setAllMOSFETtoLOW();
+            wayangAnila.middleFront();
+            setAllMOSFETtoHIGH();
+            loop_state = StateManagement::FSA_STATE::DEFAULT_LOOPING_LCD;
+            delay(1);
+            break;
+
+        case StateManagement::FSA_STATE::ANILA_DOWN_FRONT:
+            setAllMOSFETtoLOW();
+            wayangAnila.downFront();
+            setAllMOSFETtoHIGH();
+            loop_state = StateManagement::FSA_STATE::DEFAULT_LOOPING_LCD;
+            delay(1);
+            break;
+
+        case StateManagement::FSA_STATE::ANILA_POINT_TO_SELF:
+            setAllMOSFETtoLOW();
+            wayangAnila.pointToSelf();
+            setAllMOSFETtoHIGH();
+            loop_state = StateManagement::FSA_STATE::DEFAULT_LOOPING_LCD;
+            delay(1);
+            break;
+
+        case StateManagement::FSA_STATE::ANILA_DOWN_BACK:
+            setAllMOSFETtoLOW();
+            wayangAnila.downBack();
+            setAllMOSFETtoHIGH();
+            loop_state = StateManagement::FSA_STATE::DEFAULT_LOOPING_LCD;
+            delay(1);
+            break;
+
+        case StateManagement::FSA_STATE::ANILA_ON_HIP_BACK:
+            setAllMOSFETtoLOW();
+            wayangAnila.onHipBack();
+            setAllMOSFETtoHIGH();
+            loop_state = StateManagement::FSA_STATE::DEFAULT_LOOPING_LCD;
+            delay(1);
+            break;
+
+        case StateManagement::FSA_STATE::ANILA_POINT_TO_BACK:
+            setAllMOSFETtoLOW();
+            wayangAnila.pointToBack();
+            setAllMOSFETtoHIGH();
+            loop_state = StateManagement::FSA_STATE::DEFAULT_LOOPING_LCD;
+            delay(1);
+            break;
+
+        case StateManagement::FSA_STATE::ANILA_LOW_POINT_TO_BACK:
+            setAllMOSFETtoLOW();
+            wayangAnila.lowPointToBack();
+            setAllMOSFETtoHIGH();
+            loop_state = StateManagement::FSA_STATE::DEFAULT_LOOPING_LCD;
+            delay(1);
+            break;
+
+        case StateManagement::FSA_STATE::ANILA_MIDDLE_BACK:
+            setAllMOSFETtoLOW();
+            wayangAnila.middleBack();
+            setAllMOSFETtoHIGH();
+            loop_state = StateManagement::FSA_STATE::DEFAULT_LOOPING_LCD;
+            delay(1);
+            break;
+        }
     }
 }
-
 /*
 Function interrupt untuk press button dari Rotary Encoder
 */
@@ -436,7 +1386,7 @@ void WayangDisplayController::pressRotaryEncoder()
 
             case 2:
                 pageRoute = StateManagement::PAGE_ROUTE::CALIBRATE_PAGE;
-                // subPageRoute = StateManagement::SUB_CALIBRATE_PAGE_ROUTE::CALIBRATE_1;
+                // subPageRoute = StateManagement::CALIBRATE_SUB_PAGE_ROUTE::CALIBRATE_1;
                 WayangDisplayLCD_in_main.set_selection_point(1);
                 break;
 
@@ -525,24 +1475,25 @@ void WayangDisplayController::pressRotaryEncoder()
             break;
 
         case StateManagement::PAGE_ROUTE::SENSOR_STATUS_PAGE:
-            switch (WayangDisplayLCD_in_main.get_selection_point())
+            switch (WayangDisplayLCD_in_main.get_selection_point() + subPageRoute)
             {
             case 0:
                 pageRoute = StateManagement::PAGE_ROUTE::CALIBRATE_PAGE;
-                subPageRoute = StateManagement::SUB_CALIBRATE_PAGE_ROUTE::CALIBRATE_2;
+                subPageRoute = StateManagement::CALIBRATE_SUB_PAGE_ROUTE::CALIBRATE_2;
                 WayangDisplayLCD_in_main.set_selection_point(3);
                 break;
 
             default:
                 break;
             }
+            break;
 
         case StateManagement::PAGE_ROUTE::WAYANG_HAND_CALIBRATION_PAGE:
-            switch (WayangDisplayLCD_in_main.get_selection_point())
+            switch (WayangDisplayLCD_in_main.get_selection_point() + subPageRoute)
             {
             case 0:
                 pageRoute = StateManagement::PAGE_ROUTE::CALIBRATE_PAGE;
-                subPageRoute = StateManagement::SUB_CALIBRATE_PAGE_ROUTE::CALIBRATE_1;
+                subPageRoute = StateManagement::CALIBRATE_SUB_PAGE_ROUTE::CALIBRATE_1;
                 WayangDisplayLCD_in_main.set_selection_point(3);
                 break;
 
@@ -555,91 +1506,515 @@ void WayangDisplayController::pressRotaryEncoder()
                 break;
 
             case 3:
-                // Rahwana
+                loop_state = StateManagement::FSA_STATE::RAHWANA_HAND;
                 break;
 
             case 4:
-                // Rama Wijaya
+                loop_state = StateManagement::FSA_STATE::RAMA_WIJAYA_HAND;
                 break;
 
             case 5:
-                // Hanoman
+                loop_state = StateManagement::FSA_STATE::HANOMAN_HAND;
                 break;
 
             case 6:
-                // Laksmana
+                loop_state = StateManagement::FSA_STATE::LAKSMANA_HAND;
                 break;
 
             case 7:
-                // Sugriwa
+                loop_state = StateManagement::FSA_STATE::SUGRIWA_HAND;
                 break;
 
             case 8:
-                // Subali
+                loop_state = StateManagement::FSA_STATE::SUBALI_HAND;
                 break;
 
             case 9:
-                // Wibhisana
+                loop_state = StateManagement::FSA_STATE::WIBHISANA_HAND;
                 break;
 
             case 10:
-                // Anggada
+                // loop_state = StateManagement::FSA_STATE::ANGGADA_HAND;
                 break;
 
             case 11:
-                // Anila
+                // loop_state = StateManagement::FSA_STATE::ANILA_HAND;
                 break;
             }
+            break;
+
         case StateManagement::PAGE_ROUTE::SITA_HAND_PAGE:
-            switch (WayangDisplayLCD_in_main.get_selection_point())
+            switch (WayangDisplayLCD_in_main.get_selection_point() + subPageRoute)
             {
             case 0:
                 loop_state = StateManagement::FSA_STATE::EXIT_SITA_HAND;
                 break;
 
             case 1:
-                // loop_state = StateManagement::FSA_STATE::SITA_POINT_TO_FRONT;
+                loop_state = StateManagement::FSA_STATE::SITA_POINT_TO_FRONT;
                 break;
 
             case 2:
-                // loop_state = StateManagement::FSA_STATE::SITA_LOW_POINT_TO_FRONT;
+                loop_state = StateManagement::FSA_STATE::SITA_LOW_POINT_TO_FRONT;
                 break;
 
             case 3:
-                // loop_state = StateManagement::FSA_STATE::SITA_MIDDLE_FRONT;
+                loop_state = StateManagement::FSA_STATE::SITA_MIDDLE_FRONT;
                 break;
 
             case 4:
-                // loop_state = StateManagement::FSA_STATE::SITA_DOWN_FRONT;
+                loop_state = StateManagement::FSA_STATE::SITA_DOWN_FRONT;
                 break;
 
             case 5:
-                // loop_state = StateManagement::FSA_STATE::SITA_POINT_TO_SELF;
+                loop_state = StateManagement::FSA_STATE::SITA_POINT_TO_SELF;
                 break;
 
             case 6:
-                // loop_state = StateManagement::FSA_STATE::SITA_DOWN_BACK;
+                loop_state = StateManagement::FSA_STATE::SITA_DOWN_BACK;
                 break;
 
             case 7:
-                // loop_state = StateManagement::FSA_STATE::SITA_ON_HIP_BACK;
+                loop_state = StateManagement::FSA_STATE::SITA_ON_HIP_BACK;
                 break;
 
             case 8:
-                // loop_state = StateManagement::FSA_STATE::SITA_POINT_TO_BACK;
+                loop_state = StateManagement::FSA_STATE::SITA_POINT_TO_BACK;
                 break;
 
             case 9:
-                // loop_state = StateManagement::FSA_STATE::SITA_LOW_POINT_TO_BACK;
+                loop_state = StateManagement::FSA_STATE::SITA_LOW_POINT_TO_BACK;
                 break;
 
             case 10:
-                // loop_state = StateManagement::FSA_STATE::SITA_MIDDLE_BACK;
+                loop_state = StateManagement::FSA_STATE::SITA_MIDDLE_BACK;
                 break;
             }
+            break;
+
+        case StateManagement::PAGE_ROUTE::RAHWANA_HAND_PAGE:
+            switch (WayangDisplayLCD_in_main.get_selection_point() + subPageRoute)
+            {
+            case 0:
+                loop_state = StateManagement::FSA_STATE::EXIT_RAHWANA_HAND;
+                break;
+
+            case 1:
+                loop_state = StateManagement::FSA_STATE::RAHWANA_POINT_TO_FRONT;
+                break;
+
+            case 2:
+                loop_state = StateManagement::FSA_STATE::RAHWANA_LOW_POINT_TO_FRONT;
+                break;
+
+            case 3:
+                loop_state = StateManagement::FSA_STATE::RAHWANA_MIDDLE_FRONT;
+                break;
+
+            case 4:
+                loop_state = StateManagement::FSA_STATE::RAHWANA_DOWN_FRONT;
+                break;
+
+            case 5:
+                loop_state = StateManagement::FSA_STATE::RAHWANA_POINT_TO_SELF;
+                break;
+            }
+            break;
+
+        case StateManagement::PAGE_ROUTE::RAMA_WIJAYA_HAND_PAGE:
+            switch (WayangDisplayLCD_in_main.get_selection_point() + subPageRoute)
+            {
+            case 0:
+                loop_state = StateManagement::FSA_STATE::EXIT_RAMA_WIJAYA_HAND;
+                break;
+
+            case 1:
+                loop_state = StateManagement::FSA_STATE::RAMA_WIJAYA_POINT_TO_FRONT;
+                break;
+
+            case 2:
+                loop_state = StateManagement::FSA_STATE::RAMA_WIJAYA_LOW_POINT_TO_FRONT;
+                break;
+
+            case 3:
+                loop_state = StateManagement::FSA_STATE::RAMA_WIJAYA_MIDDLE_FRONT;
+                break;
+
+            case 4:
+                loop_state = StateManagement::FSA_STATE::RAMA_WIJAYA_DOWN_FRONT;
+                break;
+
+            case 5:
+                loop_state = StateManagement::FSA_STATE::RAMA_WIJAYA_POINT_TO_SELF;
+                break;
+
+            case 6:
+                loop_state = StateManagement::FSA_STATE::RAMA_WIJAYA_DOWN_BACK;
+                break;
+
+            case 7:
+                loop_state = StateManagement::FSA_STATE::RAMA_WIJAYA_ON_HIP_BACK;
+                break;
+
+            case 8:
+                loop_state = StateManagement::FSA_STATE::RAMA_WIJAYA_POINT_TO_BACK;
+                break;
+
+            case 9:
+                loop_state = StateManagement::FSA_STATE::RAMA_WIJAYA_LOW_POINT_TO_BACK;
+                break;
+
+            case 10:
+                loop_state = StateManagement::FSA_STATE::RAMA_WIJAYA_MIDDLE_BACK;
+                break;
+            }
+            break;
+
+        case StateManagement::PAGE_ROUTE::HANOMAN_HAND_PAGE:
+            switch (WayangDisplayLCD_in_main.get_selection_point() + subPageRoute)
+            {
+            case 0:
+                loop_state = StateManagement::FSA_STATE::EXIT_HANOMAN_HAND;
+                break;
+
+            case 1:
+                loop_state = StateManagement::FSA_STATE::HANOMAN_POINT_TO_FRONT;
+                break;
+
+            case 2:
+                loop_state = StateManagement::FSA_STATE::HANOMAN_LOW_POINT_TO_FRONT;
+                break;
+
+            case 3:
+                loop_state = StateManagement::FSA_STATE::HANOMAN_MIDDLE_FRONT;
+                break;
+
+            case 4:
+                loop_state = StateManagement::FSA_STATE::HANOMAN_DOWN_FRONT;
+                break;
+
+            case 5:
+                loop_state = StateManagement::FSA_STATE::HANOMAN_POINT_TO_SELF;
+                break;
+
+            case 6:
+                loop_state = StateManagement::FSA_STATE::HANOMAN_DOWN_BACK;
+                break;
+
+            case 7:
+                loop_state = StateManagement::FSA_STATE::HANOMAN_ON_HIP_BACK;
+                break;
+
+            case 8:
+                loop_state = StateManagement::FSA_STATE::HANOMAN_POINT_TO_BACK;
+                break;
+
+            case 9:
+                loop_state = StateManagement::FSA_STATE::HANOMAN_LOW_POINT_TO_BACK;
+                break;
+
+            case 10:
+                loop_state = StateManagement::FSA_STATE::HANOMAN_MIDDLE_BACK;
+                break;
+            }
+            break;
+
+        case StateManagement::PAGE_ROUTE::LAKSMANA_HAND_PAGE:
+            switch (WayangDisplayLCD_in_main.get_selection_point() + subPageRoute)
+            {
+            case 0:
+                loop_state = StateManagement::FSA_STATE::EXIT_LAKSMANA_HAND;
+                break;
+
+            case 1:
+                loop_state = StateManagement::FSA_STATE::LAKSMANA_POINT_TO_FRONT;
+                break;
+
+            case 2:
+                loop_state = StateManagement::FSA_STATE::LAKSMANA_LOW_POINT_TO_FRONT;
+                break;
+
+            case 3:
+                loop_state = StateManagement::FSA_STATE::LAKSMANA_MIDDLE_FRONT;
+                break;
+
+            case 4:
+                loop_state = StateManagement::FSA_STATE::LAKSMANA_DOWN_FRONT;
+                break;
+
+            case 5:
+                loop_state = StateManagement::FSA_STATE::LAKSMANA_POINT_TO_SELF;
+                break;
+
+            case 6:
+                loop_state = StateManagement::FSA_STATE::LAKSMANA_DOWN_BACK;
+                break;
+
+            case 7:
+                loop_state = StateManagement::FSA_STATE::LAKSMANA_ON_HIP_BACK;
+                break;
+
+            case 8:
+                loop_state = StateManagement::FSA_STATE::LAKSMANA_POINT_TO_BACK;
+                break;
+
+            case 9:
+                loop_state = StateManagement::FSA_STATE::LAKSMANA_LOW_POINT_TO_BACK;
+                break;
+
+            case 10:
+                loop_state = StateManagement::FSA_STATE::LAKSMANA_MIDDLE_BACK;
+                break;
+            }
+            break;
+
+        case StateManagement::PAGE_ROUTE::SUGRIWA_HAND_PAGE:
+            switch (WayangDisplayLCD_in_main.get_selection_point() + subPageRoute)
+            {
+            case 0:
+                loop_state = StateManagement::FSA_STATE::EXIT_SUGRIWA_HAND;
+                break;
+
+            case 1:
+                loop_state = StateManagement::FSA_STATE::SUGRIWA_POINT_TO_FRONT;
+                break;
+
+            case 2:
+                loop_state = StateManagement::FSA_STATE::SUGRIWA_LOW_POINT_TO_FRONT;
+                break;
+
+            case 3:
+                loop_state = StateManagement::FSA_STATE::SUGRIWA_MIDDLE_FRONT;
+                break;
+
+            case 4:
+                loop_state = StateManagement::FSA_STATE::SUGRIWA_DOWN_FRONT;
+                break;
+
+            case 5:
+                loop_state = StateManagement::FSA_STATE::SUGRIWA_POINT_TO_SELF;
+                break;
+
+            case 6:
+                loop_state = StateManagement::FSA_STATE::SUGRIWA_DOWN_BACK;
+                break;
+
+            case 7:
+                loop_state = StateManagement::FSA_STATE::SUGRIWA_ON_HIP_BACK;
+                break;
+
+            case 8:
+                loop_state = StateManagement::FSA_STATE::SUGRIWA_POINT_TO_BACK;
+                break;
+
+            case 9:
+                loop_state = StateManagement::FSA_STATE::SUGRIWA_LOW_POINT_TO_BACK;
+                break;
+
+            case 10:
+                loop_state = StateManagement::FSA_STATE::SUGRIWA_MIDDLE_BACK;
+                break;
+            }
+            break;
+
+        case StateManagement::PAGE_ROUTE::SUBALI_HAND_PAGE:
+            switch (WayangDisplayLCD_in_main.get_selection_point() + subPageRoute)
+            {
+            case 0:
+                loop_state = StateManagement::FSA_STATE::EXIT_SUBALI_HAND;
+                break;
+
+            case 1:
+                loop_state = StateManagement::FSA_STATE::SUBALI_POINT_TO_FRONT;
+                break;
+
+            case 2:
+                loop_state = StateManagement::FSA_STATE::SUBALI_LOW_POINT_TO_FRONT;
+                break;
+
+            case 3:
+                loop_state = StateManagement::FSA_STATE::SUBALI_MIDDLE_FRONT;
+                break;
+
+            case 4:
+                loop_state = StateManagement::FSA_STATE::SUBALI_DOWN_FRONT;
+                break;
+
+            case 5:
+                loop_state = StateManagement::FSA_STATE::SUBALI_POINT_TO_SELF;
+                break;
+
+            case 6:
+                loop_state = StateManagement::FSA_STATE::SUBALI_DOWN_BACK;
+                break;
+
+            case 7:
+                loop_state = StateManagement::FSA_STATE::SUBALI_ON_HIP_BACK;
+                break;
+
+            case 8:
+                loop_state = StateManagement::FSA_STATE::SUBALI_POINT_TO_BACK;
+                break;
+
+            case 9:
+                loop_state = StateManagement::FSA_STATE::SUBALI_LOW_POINT_TO_BACK;
+                break;
+
+            case 10:
+                loop_state = StateManagement::FSA_STATE::SUBALI_MIDDLE_BACK;
+                break;
+            }
+            break;
+
+        case StateManagement::PAGE_ROUTE::WIBHISANA_HAND_PAGE:
+            switch (WayangDisplayLCD_in_main.get_selection_point() + subPageRoute)
+            {
+            case 0:
+                loop_state = StateManagement::FSA_STATE::EXIT_WIBHISANA_HAND;
+                break;
+
+            case 1:
+                loop_state = StateManagement::FSA_STATE::WIBHISANA_POINT_TO_FRONT;
+                break;
+
+            case 2:
+                loop_state = StateManagement::FSA_STATE::WIBHISANA_LOW_POINT_TO_FRONT;
+                break;
+
+            case 3:
+                loop_state = StateManagement::FSA_STATE::WIBHISANA_MIDDLE_FRONT;
+                break;
+
+            case 4:
+                loop_state = StateManagement::FSA_STATE::WIBHISANA_DOWN_FRONT;
+                break;
+
+            case 5:
+                loop_state = StateManagement::FSA_STATE::WIBHISANA_POINT_TO_SELF;
+                break;
+
+            case 6:
+                loop_state = StateManagement::FSA_STATE::WIBHISANA_DOWN_BACK;
+                break;
+
+            case 7:
+                loop_state = StateManagement::FSA_STATE::WIBHISANA_ON_HIP_BACK;
+                break;
+
+            case 8:
+                loop_state = StateManagement::FSA_STATE::WIBHISANA_POINT_TO_BACK;
+                break;
+
+            case 9:
+                loop_state = StateManagement::FSA_STATE::WIBHISANA_LOW_POINT_TO_BACK;
+                break;
+
+            case 10:
+                loop_state = StateManagement::FSA_STATE::WIBHISANA_MIDDLE_BACK;
+                break;
+            }
+            break;
+
+        case StateManagement::PAGE_ROUTE::ANGGADA_HAND_PAGE:
+            switch (WayangDisplayLCD_in_main.get_selection_point() + subPageRoute)
+            {
+            case 0:
+                loop_state = StateManagement::FSA_STATE::EXIT_ANGGADA_HAND;
+                break;
+
+            case 1:
+                // loop_state = StateManagement::FSA_STATE::ANGGADA_POINT_TO_FRONT;
+                break;
+
+            case 2:
+                // loop_state = StateManagement::FSA_STATE::ANGGADA_LOW_POINT_TO_FRONT;
+                break;
+
+            case 3:
+                // loop_state = StateManagement::FSA_STATE::ANGGADA_MIDDLE_FRONT;
+                break;
+
+            case 4:
+                // loop_state = StateManagement::FSA_STATE::ANGGADA_DOWN_FRONT;
+                break;
+
+            case 5:
+                // loop_state = StateManagement::FSA_STATE::ANGGADA_POINT_TO_SELF;
+                break;
+
+            case 6:
+                // loop_state = StateManagement::FSA_STATE::ANGGADA_DOWN_BACK;
+                break;
+
+            case 7:
+                // loop_state = StateManagement::FSA_STATE::ANGGADA_ON_HIP_BACK;
+                break;
+
+            case 8:
+                // loop_state = StateManagement::FSA_STATE::ANGGADA_POINT_TO_BACK;
+                break;
+
+            case 9:
+                // loop_state = StateManagement::FSA_STATE::ANGGADA_LOW_POINT_TO_BACK;
+                break;
+
+            case 10:
+                // loop_state = StateManagement::FSA_STATE::ANGGADA_MIDDLE_BACK;
+                break;
+            }
+            break;
+
+        case StateManagement::PAGE_ROUTE::ANILA_HAND_PAGE:
+            switch (WayangDisplayLCD_in_main.get_selection_point() + subPageRoute)
+            {
+            case 0:
+                // loop_state = StateManagement::FSA_STATE::EXIT_ANILA_HAND;
+                break;
+
+            case 1:
+                // loop_state = StateManagement::FSA_STATE::ANILA_POINT_TO_FRONT;
+                break;
+
+            case 2:
+                // loop_state = StateManagement::FSA_STATE::ANILA_LOW_POINT_TO_FRONT;
+                break;
+
+            case 3:
+                // loop_state = StateManagement::FSA_STATE::ANILA_MIDDLE_FRONT;
+                break;
+
+            case 4:
+                // loop_state = StateManagement::FSA_STATE::ANILA_DOWN_FRONT;
+                break;
+
+            case 5:
+                // loop_state = StateManagement::FSA_STATE::ANILA_POINT_TO_SELF;
+                break;
+
+            case 6:
+                // loop_state = StateManagement::FSA_STATE::ANILA_DOWN_BACK;
+                break;
+
+            case 7:
+                // loop_state = StateManagement::FSA_STATE::ANILA_ON_HIP_BACK;
+                break;
+
+            case 8:
+                // loop_state = StateManagement::FSA_STATE::ANILA_POINT_TO_BACK;
+                break;
+
+            case 9:
+                // loop_state = StateManagement::FSA_STATE::ANILA_LOW_POINT_TO_BACK;
+                break;
+
+            case 10:
+                // loop_state = StateManagement::FSA_STATE::ANILA_MIDDLE_BACK;
+                break;
+            }
+            break;
         }
+        last_run = millis();
     }
-    last_run = millis();
 }
 
 /*
@@ -698,7 +2073,7 @@ void WayangDisplayController::spinRotaryEncoder()
                 }
                 else
                 {
-                    if (subPageRoute < StateManagement::SUB_EPISODE_PAGE_ROUTE::EPISODE2345)
+                    if (subPageRoute < StateManagement::EPISODE_SUB_PAGE_ROUTE::EPISODE2345)
                     {
                         subPageRoute++;
                         WayangDisplayLCD_in_main.set_selection_point(2);
@@ -716,7 +2091,7 @@ void WayangDisplayController::spinRotaryEncoder()
                 }
                 else
                 {
-                    if (subPageRoute > StateManagement::SUB_EPISODE_PAGE_ROUTE::EPISODE123)
+                    if (subPageRoute > StateManagement::EPISODE_SUB_PAGE_ROUTE::EPISODE123)
                     {
                         subPageRoute--;
                         WayangDisplayLCD_in_main.set_selection_point(1);
@@ -741,7 +2116,7 @@ void WayangDisplayController::spinRotaryEncoder()
                 }
                 else
                 {
-                    if (subPageRoute < StateManagement::SUB_CALIBRATE_PAGE_ROUTE::CALIBRATE_2)
+                    if (subPageRoute < StateManagement::CALIBRATE_SUB_PAGE_ROUTE::CALIBRATE_2)
                     {
                         subPageRoute++;
                         WayangDisplayLCD_in_main.set_selection_point(2);
@@ -759,7 +2134,7 @@ void WayangDisplayController::spinRotaryEncoder()
                 }
                 else
                 {
-                    if (subPageRoute > StateManagement::SUB_CALIBRATE_PAGE_ROUTE::CALIBRATE_1)
+                    if (subPageRoute > StateManagement::CALIBRATE_SUB_PAGE_ROUTE::CALIBRATE_1)
                     {
                         subPageRoute--;
                         WayangDisplayLCD_in_main.set_selection_point(1);
@@ -819,9 +2194,9 @@ void WayangDisplayController::spinRotaryEncoder()
                 }
                 else
                 {
-                    if (subSubPageRoute < StateManagement::SENSOR_STATUS_PAGE_ROUTE::SENSOR_78910)
+                    if (subPageRoute < StateManagement::SENSOR_STATUS_SUB_PAGE_ROUTE::SENSOR_78910)
                     {
-                        subSubPageRoute++;
+                        subPageRoute++;
                         WayangDisplayLCD_in_main.set_selection_point(2);
                     }
                 }
@@ -837,9 +2212,9 @@ void WayangDisplayController::spinRotaryEncoder()
                 }
                 else
                 {
-                    if (subSubPageRoute > StateManagement::SENSOR_STATUS_PAGE_ROUTE::SENSOR_123)
+                    if (subPageRoute > StateManagement::SENSOR_STATUS_SUB_PAGE_ROUTE::SENSOR_123)
                     {
-                        subSubPageRoute--;
+                        subPageRoute--;
                         WayangDisplayLCD_in_main.set_selection_point(1);
                     }
                 }
@@ -862,9 +2237,9 @@ void WayangDisplayController::spinRotaryEncoder()
                 }
                 else
                 {
-                    if (subSubPageRoute < StateManagement::WAYANG_HAND_CALIBRATION_SUB_PAGE_ROUTE::WAYANG_HAND_CALIBRATION_9)
+                    if (subPageRoute < StateManagement::WAYANG_HAND_CALIBRATION_SUB_PAGE_ROUTE::WAYANG_HAND_CALIBRATION_9)
                     {
-                        subSubPageRoute++;
+                        subPageRoute++;
                         WayangDisplayLCD_in_main.set_selection_point(2);
                     }
                 }
@@ -880,9 +2255,9 @@ void WayangDisplayController::spinRotaryEncoder()
                 }
                 else
                 {
-                    if (subSubPageRoute > StateManagement::WAYANG_HAND_CALIBRATION_SUB_PAGE_ROUTE::WAYANG_HAND_CALIBRATION_1)
+                    if (subPageRoute > StateManagement::WAYANG_HAND_CALIBRATION_SUB_PAGE_ROUTE::WAYANG_HAND_CALIBRATION_1)
                     {
-                        subSubPageRoute--;
+                        subPageRoute--;
                         WayangDisplayLCD_in_main.set_selection_point(1);
                     }
                 }
@@ -904,9 +2279,9 @@ void WayangDisplayController::spinRotaryEncoder()
                 }
                 else
                 {
-                    if (subSubPageRoute < StateManagement::WAYANG_HAND_CALIBRATION_SUB_PAGE_ROUTE_SITA::SITA_HAND_CALIBRATION_8)
+                    if (subPageRoute < StateManagement::SITA_SUB_PAGE_ROUTE::SITA_HAND_CALIBRATION_8)
                     {
-                        subSubPageRoute++;
+                        subPageRoute++;
                         WayangDisplayLCD_in_main.set_selection_point(2);
                     }
                 }
@@ -922,9 +2297,396 @@ void WayangDisplayController::spinRotaryEncoder()
                 }
                 else
                 {
-                    if (subSubPageRoute > StateManagement::WAYANG_HAND_CALIBRATION_SUB_PAGE_ROUTE_SITA::SITA_HAND_CALIBRATION_1)
+                    if (subPageRoute > StateManagement::SITA_SUB_PAGE_ROUTE::SITA_HAND_CALIBRATION_1)
                     {
-                        subSubPageRoute--;
+                        subPageRoute--;
+                        WayangDisplayLCD_in_main.set_selection_point(1);
+                    }
+                }
+            }
+        }
+        last_run = millis();
+        break;
+
+    case StateManagement::PAGE_ROUTE::RAHWANA_HAND_PAGE:
+        if (millis() - last_run > 5)
+        {
+            if (digitalRead(OUTPUT_B) == HIGH)
+            {
+                if (WayangDisplayLCD_in_main.get_selection_point() < 3)
+                {
+                    // Serial.print(WayangDisplayLCD_in_main.get_selection_point());
+                    WayangDisplayLCD_in_main.increment_selection_point();
+                    // WayangDisplayLCD_in_main.refreshLCD();
+                    // WayangDisplayLCD_in_main.MenuDisplay();
+                }
+                else
+                {
+                    if (subPageRoute < StateManagement::RAHWANA_SUB_PAGE_ROUTE::RAHWANA_HAND_CALIBRATION_3)
+                    {
+                        subPageRoute++;
+                        WayangDisplayLCD_in_main.set_selection_point(2);
+                    }
+                }
+            }
+            else if (digitalRead(OUTPUT_B) == LOW)
+            {
+                if (WayangDisplayLCD_in_main.get_selection_point() > 0)
+                {
+                    Serial.print(WayangDisplayLCD_in_main.get_selection_point());
+                    WayangDisplayLCD_in_main.decrement_selection_point();
+                    // WayangDisplayLCD_in_main.refreshLCD();
+                    // WayangDisplayLCD_in_main.MenuDisplay();
+                }
+                else
+                {
+                    if (subPageRoute > StateManagement::RAHWANA_SUB_PAGE_ROUTE::RAHWANA_HAND_CALIBRATION_1)
+                    {
+                        subPageRoute--;
+                        WayangDisplayLCD_in_main.set_selection_point(1);
+                    }
+                }
+            }
+        }
+        last_run = millis();
+        break;
+
+    case StateManagement::PAGE_ROUTE::RAMA_WIJAYA_HAND_PAGE:
+        if (millis() - last_run > 5)
+        {
+            if (digitalRead(OUTPUT_B) == HIGH)
+            {
+                if (WayangDisplayLCD_in_main.get_selection_point() < 3)
+                {
+                    // Serial.print(WayangDisplayLCD_in_main.get_selection_point());
+                    WayangDisplayLCD_in_main.increment_selection_point();
+                    // WayangDisplayLCD_in_main.refreshLCD();
+                    // WayangDisplayLCD_in_main.MenuDisplay();
+                }
+                else
+                {
+                    if (subPageRoute < StateManagement::RAMA_WIJAYA_SUB_PAGE_ROUTE::RAMA_WIJAYA_HAND_CALIBRATION_8)
+                    {
+                        subPageRoute++;
+                        WayangDisplayLCD_in_main.set_selection_point(2);
+                    }
+                }
+            }
+            else if (digitalRead(OUTPUT_B) == LOW)
+            {
+                if (WayangDisplayLCD_in_main.get_selection_point() > 0)
+                {
+                    Serial.print(WayangDisplayLCD_in_main.get_selection_point());
+                    WayangDisplayLCD_in_main.decrement_selection_point();
+                    // WayangDisplayLCD_in_main.refreshLCD();
+                    // WayangDisplayLCD_in_main.MenuDisplay();
+                }
+                else
+                {
+                    if (subPageRoute > StateManagement::RAMA_WIJAYA_SUB_PAGE_ROUTE::RAMA_WIJAYA_HAND_CALIBRATION_1)
+                    {
+                        subPageRoute--;
+                        WayangDisplayLCD_in_main.set_selection_point(1);
+                    }
+                }
+            }
+        }
+        last_run = millis();
+        break;
+
+    case StateManagement::PAGE_ROUTE::HANOMAN_HAND_PAGE:
+        if (millis() - last_run > 5)
+        {
+            if (digitalRead(OUTPUT_B) == HIGH)
+            {
+                if (WayangDisplayLCD_in_main.get_selection_point() < 3)
+                {
+                    // Serial.print(WayangDisplayLCD_in_main.get_selection_point());
+                    WayangDisplayLCD_in_main.increment_selection_point();
+                    // WayangDisplayLCD_in_main.refreshLCD();
+                    // WayangDisplayLCD_in_main.MenuDisplay();
+                }
+                else
+                {
+                    if (subPageRoute < StateManagement::HANOMAN_SUB_PAGE_ROUTE::HANOMAN_HAND_CALIBRATION_8)
+                    {
+                        subPageRoute++;
+                        WayangDisplayLCD_in_main.set_selection_point(2);
+                    }
+                }
+            }
+            else if (digitalRead(OUTPUT_B) == LOW)
+            {
+                if (WayangDisplayLCD_in_main.get_selection_point() > 0)
+                {
+                    Serial.print(WayangDisplayLCD_in_main.get_selection_point());
+                    WayangDisplayLCD_in_main.decrement_selection_point();
+                    // WayangDisplayLCD_in_main.refreshLCD();
+                    // WayangDisplayLCD_in_main.MenuDisplay();
+                }
+                else
+                {
+                    if (subPageRoute > StateManagement::HANOMAN_SUB_PAGE_ROUTE::HANOMAN_HAND_CALIBRATION_1)
+                    {
+                        subPageRoute--;
+                        WayangDisplayLCD_in_main.set_selection_point(1);
+                    }
+                }
+            }
+        }
+        last_run = millis();
+        break;
+
+    case StateManagement::PAGE_ROUTE::LAKSMANA_HAND_PAGE:
+        if (millis() - last_run > 5)
+        {
+            if (digitalRead(OUTPUT_B) == HIGH)
+            {
+                if (WayangDisplayLCD_in_main.get_selection_point() < 3)
+                {
+                    // Serial.print(WayangDisplayLCD_in_main.get_selection_point());
+                    WayangDisplayLCD_in_main.increment_selection_point();
+                    // WayangDisplayLCD_in_main.refreshLCD();
+                    // WayangDisplayLCD_in_main.MenuDisplay();
+                }
+                else
+                {
+                    if (subPageRoute < StateManagement::LAKSMANA_SUB_PAGE_ROUTE::LAKSMANA_HAND_CALIBRATION_8)
+                    {
+                        subPageRoute++;
+                        WayangDisplayLCD_in_main.set_selection_point(2);
+                    }
+                }
+            }
+            else if (digitalRead(OUTPUT_B) == LOW)
+            {
+                if (WayangDisplayLCD_in_main.get_selection_point() > 0)
+                {
+                    Serial.print(WayangDisplayLCD_in_main.get_selection_point());
+                    WayangDisplayLCD_in_main.decrement_selection_point();
+                    // WayangDisplayLCD_in_main.refreshLCD();
+                    // WayangDisplayLCD_in_main.MenuDisplay();
+                }
+                else
+                {
+                    if (subPageRoute > StateManagement::LAKSMANA_SUB_PAGE_ROUTE::LAKSMANA_HAND_CALIBRATION_1)
+                    {
+                        subPageRoute--;
+                        WayangDisplayLCD_in_main.set_selection_point(1);
+                    }
+                }
+            }
+        }
+        last_run = millis();
+        break;
+
+    case StateManagement::PAGE_ROUTE::SUGRIWA_HAND_PAGE:
+        if (millis() - last_run > 5)
+        {
+            if (digitalRead(OUTPUT_B) == HIGH)
+            {
+                if (WayangDisplayLCD_in_main.get_selection_point() < 3)
+                {
+                    // Serial.print(WayangDisplayLCD_in_main.get_selection_point());
+                    WayangDisplayLCD_in_main.increment_selection_point();
+                    // WayangDisplayLCD_in_main.refreshLCD();
+                    // WayangDisplayLCD_in_main.MenuDisplay();
+                }
+                else
+                {
+                    if (subPageRoute < StateManagement::SUGRIWA_SUB_PAGE_ROUTE::SUGRIWA_HAND_CALIBRATION_8)
+                    {
+                        subPageRoute++;
+                        WayangDisplayLCD_in_main.set_selection_point(2);
+                    }
+                }
+            }
+            else if (digitalRead(OUTPUT_B) == LOW)
+            {
+                if (WayangDisplayLCD_in_main.get_selection_point() > 0)
+                {
+                    Serial.print(WayangDisplayLCD_in_main.get_selection_point());
+                    WayangDisplayLCD_in_main.decrement_selection_point();
+                    // WayangDisplayLCD_in_main.refreshLCD();
+                    // WayangDisplayLCD_in_main.MenuDisplay();
+                }
+                else
+                {
+                    if (subPageRoute > StateManagement::SUGRIWA_SUB_PAGE_ROUTE::SUGRIWA_HAND_CALIBRATION_1)
+                    {
+                        subPageRoute--;
+                        WayangDisplayLCD_in_main.set_selection_point(1);
+                    }
+                }
+            }
+        }
+        last_run = millis();
+        break;
+
+    case StateManagement::PAGE_ROUTE::SUBALI_HAND_PAGE:
+        if (millis() - last_run > 5)
+        {
+            if (digitalRead(OUTPUT_B) == HIGH)
+            {
+                if (WayangDisplayLCD_in_main.get_selection_point() < 3)
+                {
+                    // Serial.print(WayangDisplayLCD_in_main.get_selection_point());
+                    WayangDisplayLCD_in_main.increment_selection_point();
+                    // WayangDisplayLCD_in_main.refreshLCD();
+                    // WayangDisplayLCD_in_main.MenuDisplay();
+                }
+                else
+                {
+                    if (subPageRoute < StateManagement::SUBALI_SUB_PAGE_ROUTE::SUBALI_HAND_CALIBRATION_8)
+                    {
+                        subPageRoute++;
+                        WayangDisplayLCD_in_main.set_selection_point(2);
+                    }
+                }
+            }
+            else if (digitalRead(OUTPUT_B) == LOW)
+            {
+                if (WayangDisplayLCD_in_main.get_selection_point() > 0)
+                {
+                    Serial.print(WayangDisplayLCD_in_main.get_selection_point());
+                    WayangDisplayLCD_in_main.decrement_selection_point();
+                    // WayangDisplayLCD_in_main.refreshLCD();
+                    // WayangDisplayLCD_in_main.MenuDisplay();
+                }
+                else
+                {
+                    if (subPageRoute > StateManagement::SUBALI_SUB_PAGE_ROUTE::SUBALI_HAND_CALIBRATION_1)
+                    {
+                        subPageRoute--;
+                        WayangDisplayLCD_in_main.set_selection_point(1);
+                    }
+                }
+            }
+        }
+        last_run = millis();
+        break;
+
+    case StateManagement::PAGE_ROUTE::WIBHISANA_HAND_PAGE:
+        if (millis() - last_run > 5)
+        {
+            if (digitalRead(OUTPUT_B) == HIGH)
+            {
+                if (WayangDisplayLCD_in_main.get_selection_point() < 3)
+                {
+                    // Serial.print(WayangDisplayLCD_in_main.get_selection_point());
+                    WayangDisplayLCD_in_main.increment_selection_point();
+                    // WayangDisplayLCD_in_main.refreshLCD();
+                    // WayangDisplayLCD_in_main.MenuDisplay();
+                }
+                else
+                {
+                    if (subPageRoute < StateManagement::WIBHISANA_SUB_PAGE_ROUTE::WIBHISANA_HAND_CALIBRATION_8)
+                    {
+                        subPageRoute++;
+                        WayangDisplayLCD_in_main.set_selection_point(2);
+                    }
+                }
+            }
+            else if (digitalRead(OUTPUT_B) == LOW)
+            {
+                if (WayangDisplayLCD_in_main.get_selection_point() > 0)
+                {
+                    Serial.print(WayangDisplayLCD_in_main.get_selection_point());
+                    WayangDisplayLCD_in_main.decrement_selection_point();
+                    // WayangDisplayLCD_in_main.refreshLCD();
+                    // WayangDisplayLCD_in_main.MenuDisplay();
+                }
+                else
+                {
+                    if (subPageRoute > StateManagement::WIBHISANA_SUB_PAGE_ROUTE::WIBHISANA_HAND_CALIBRATION_1)
+                    {
+                        subPageRoute--;
+                        WayangDisplayLCD_in_main.set_selection_point(1);
+                    }
+                }
+            }
+        }
+        last_run = millis();
+        break;
+
+    case StateManagement::PAGE_ROUTE::ANGGADA_HAND_PAGE:
+        if (millis() - last_run > 5)
+        {
+            if (digitalRead(OUTPUT_B) == HIGH)
+            {
+                if (WayangDisplayLCD_in_main.get_selection_point() < 3)
+                {
+                    // Serial.print(WayangDisplayLCD_in_main.get_selection_point());
+                    WayangDisplayLCD_in_main.increment_selection_point();
+                    // WayangDisplayLCD_in_main.refreshLCD();
+                    // WayangDisplayLCD_in_main.MenuDisplay();
+                }
+                else
+                {
+                    if (subPageRoute < StateManagement::ANGGADA_SUB_PAGE_ROUTE::ANGGADA_HAND_CALIBRATION_8)
+                    {
+                        subPageRoute++;
+                        WayangDisplayLCD_in_main.set_selection_point(2);
+                    }
+                }
+            }
+            else if (digitalRead(OUTPUT_B) == LOW)
+            {
+                if (WayangDisplayLCD_in_main.get_selection_point() > 0)
+                {
+                    Serial.print(WayangDisplayLCD_in_main.get_selection_point());
+                    WayangDisplayLCD_in_main.decrement_selection_point();
+                    // WayangDisplayLCD_in_main.refreshLCD();
+                    // WayangDisplayLCD_in_main.MenuDisplay();
+                }
+                else
+                {
+                    if (subPageRoute > StateManagement::ANGGADA_SUB_PAGE_ROUTE::ANGGADA_HAND_CALIBRATION_1)
+                    {
+                        subPageRoute--;
+                        WayangDisplayLCD_in_main.set_selection_point(1);
+                    }
+                }
+            }
+        }
+        last_run = millis();
+        break;
+
+    case StateManagement::PAGE_ROUTE::ANILA_HAND_PAGE:
+        if (millis() - last_run > 5)
+        {
+            if (digitalRead(OUTPUT_B) == HIGH)
+            {
+                if (WayangDisplayLCD_in_main.get_selection_point() < 3)
+                {
+                    // Serial.print(WayangDisplayLCD_in_main.get_selection_point());
+                    WayangDisplayLCD_in_main.increment_selection_point();
+                    // WayangDisplayLCD_in_main.refreshLCD();
+                    // WayangDisplayLCD_in_main.MenuDisplay();
+                }
+                else
+                {
+                    if (subPageRoute < StateManagement::ANILA_SUB_PAGE_ROUTE::ANILA_HAND_CALIBRATION_8)
+                    {
+                        subPageRoute++;
+                        WayangDisplayLCD_in_main.set_selection_point(2);
+                    }
+                }
+            }
+            else if (digitalRead(OUTPUT_B) == LOW)
+            {
+                if (WayangDisplayLCD_in_main.get_selection_point() > 0)
+                {
+                    Serial.print(WayangDisplayLCD_in_main.get_selection_point());
+                    WayangDisplayLCD_in_main.decrement_selection_point();
+                    // WayangDisplayLCD_in_main.refreshLCD();
+                    // WayangDisplayLCD_in_main.MenuDisplay();
+                }
+                else
+                {
+                    if (subPageRoute > StateManagement::ANILA_SUB_PAGE_ROUTE::ANILA_HAND_CALIBRATION_1)
+                    {
+                        subPageRoute--;
                         WayangDisplayLCD_in_main.set_selection_point(1);
                     }
                 }
@@ -933,419 +2695,6 @@ void WayangDisplayController::spinRotaryEncoder()
         last_run = millis();
         break;
     }
-}
-
-void WayangHorizontalControl::wayang1(int distance)
-{
-    // digitalWrite(WAYANG_HAND_1, HIGH);
-    digitalWrite(EN_NEMA_1, LOW);
-    // delay(100);
-    if (distance > getDistanceSensor1())
-    {
-        /* menjauhi sensor, CW */
-        if (getDistanceSensor1() != -1)
-        {
-            bool state = true;
-            digitalWrite(NEMA_DIR, LOW);
-            while (distance != getDistanceSensor1())
-            {
-                digitalWrite(NEMA_STEP, state);
-                state = !state;
-                delayMicroseconds(PERIOD_NEMA); // customed delay for experiment
-                if (distance == getDistanceSensor1() || distance < getDistanceSensor1() || getDistanceSensor1() == -1)
-                {
-                    break;
-                }
-            }
-        }
-        else
-        {
-            Serial.println("\nSensor 1 error read, returned -1");
-        }
-    }
-    else if (distance < getDistanceSensor1())
-    {
-        /* mendekati sensor, CCW */
-        bool state = true;
-        digitalWrite(NEMA_DIR, HIGH);
-        while (distance != getDistanceSensor1())
-        {
-            digitalWrite(NEMA_STEP, state);
-            state = !state;
-            delayMicroseconds(PERIOD_NEMA); // customed delay for experiment
-            if (distance == getDistanceSensor1() || distance > getDistanceSensor1() || getDistanceSensor1() == -1)
-            {
-                break;
-            }
-        }
-    }
-    digitalWrite(EN_NEMA_1, HIGH);
-}
-
-void WayangHorizontalControl::wayang2(int distance)
-{
-    digitalWrite(EN_NEMA_2, LOW);
-    delay(100);
-    if (distance > getDistanceSensor2())
-    {
-        /* menjauhi sensor, CW */
-        if (getDistanceSensor2() != -1)
-        {
-            bool state = true;
-            digitalWrite(NEMA_DIR, LOW);
-            while (distance != getDistanceSensor2())
-            {
-                digitalWrite(NEMA_STEP, state);
-                state = !state;
-                // delayMicroseconds(PERIOD_NEMA);
-                if (distance == getDistanceSensor2() || distance < getDistanceSensor2() || getDistanceSensor2() == -1)
-                {
-                    break;
-                }
-            }
-        }
-        else
-        {
-            Serial.println("\nSensor 2 error read, returned -1");
-        }
-    }
-    else if (distance < getDistanceSensor2())
-    {
-        /* mendekati sensor, CCW */
-        bool state = true;
-        digitalWrite(NEMA_DIR, HIGH);
-        while (distance != getDistanceSensor2())
-        {
-            digitalWrite(NEMA_STEP, state);
-            state = !state;
-            // delayMicroseconds(PERIOD_NEMA);
-            if (distance == getDistanceSensor2() || distance > getDistanceSensor2() || getDistanceSensor2() == -1)
-            {
-                break;
-            }
-        }
-    }
-    digitalWrite(EN_NEMA_2, HIGH);
-}
-
-void WayangHorizontalControl::wayang3(int distance)
-{
-    digitalWrite(EN_NEMA_3, LOW);
-    delay(100);
-    if (distance > getDistanceSensor3())
-    {
-        /* menjauhi sensor, CW */
-        if (getDistanceSensor3() != -1)
-        {
-            bool state = true;
-            digitalWrite(NEMA_DIR, LOW);
-            while (distance != getDistanceSensor3())
-            {
-                digitalWrite(NEMA_STEP, state);
-                state = !state;
-                delayMicroseconds(PERIOD_NEMA);
-                if (distance == getDistanceSensor3() || distance < getDistanceSensor3() || getDistanceSensor3() == -1)
-                {
-                    break;
-                }
-            }
-        }
-        else
-        {
-            Serial.println("\nSensor 3 error read, returned -1");
-        }
-    }
-    else if (distance < getDistanceSensor3())
-    {
-        /* mendekati sensor, CCW */
-        bool state = true;
-        digitalWrite(NEMA_DIR, HIGH);
-        while (distance != getDistanceSensor3())
-        {
-            digitalWrite(NEMA_STEP, state);
-            state = !state;
-            delayMicroseconds(PERIOD_NEMA);
-            if (distance == getDistanceSensor3() || distance > getDistanceSensor3() || getDistanceSensor3() == -1)
-            {
-                break;
-            }
-        }
-    }
-    digitalWrite(EN_NEMA_3, HIGH);
-}
-
-// blm tak ubah dirnya
-void WayangHorizontalControl::wayang4(int distance)
-{
-    digitalWrite(EN_NEMA_4, LOW);
-    delay(100);
-    if (distance > getDistanceSensor4())
-    {
-        /* menjauhi sensor, CCW */
-        bool state = true;
-        digitalWrite(NEMA_DIR, LOW);
-        while (distance != getDistanceSensor4())
-        {
-            digitalWrite(NEMA_STEP, state);
-            state = !state;
-            delayMicroseconds(PERIOD_NEMA);
-            if (distance == getDistanceSensor4() || distance < getDistanceSensor4() || getDistanceSensor4() == -1)
-            {
-                break;
-            }
-        }
-    }
-    else if (distance < getDistanceSensor4())
-    {
-        /* mendekati sensor, CW */
-        bool state = true;
-        digitalWrite(NEMA_DIR, HIGH);
-        while (distance != getDistanceSensor4())
-        {
-            digitalWrite(NEMA_STEP, state);
-            state = !state;
-            delayMicroseconds(PERIOD_NEMA);
-            if (distance == getDistanceSensor4() || distance > getDistanceSensor4() || getDistanceSensor4() == -1)
-            {
-                break;
-            }
-        }
-    }
-    digitalWrite(EN_NEMA_4, HIGH);
-}
-
-void WayangHorizontalControl::wayang5(int distance)
-{
-    digitalWrite(EN_NEMA_5, LOW);
-    delay(100);
-    if (distance > getDistanceSensor5())
-    {
-        /* menjauhi sensor, CCW */
-        bool state = true;
-        digitalWrite(NEMA_DIR, LOW);
-        while (distance != getDistanceSensor5())
-        {
-            digitalWrite(NEMA_STEP, state);
-            state = !state;
-            delayMicroseconds(PERIOD_NEMA);
-            if (distance == getDistanceSensor5() || distance < getDistanceSensor5() || getDistanceSensor5() == -1)
-            {
-                break;
-            }
-        }
-    }
-    else if (distance < getDistanceSensor5())
-    {
-        /* mendekati sensor, CW */
-        bool state = true;
-        digitalWrite(NEMA_DIR, HIGH);
-        while (distance != getDistanceSensor5())
-        {
-            digitalWrite(NEMA_STEP, state);
-            state = !state;
-            delayMicroseconds(PERIOD_NEMA);
-            if (distance == getDistanceSensor5() || distance > getDistanceSensor5() || getDistanceSensor5() == -1)
-            {
-                break;
-            }
-        }
-    }
-    digitalWrite(EN_NEMA_5, HIGH);
-}
-
-void WayangHorizontalControl::wayang6(int distance)
-{
-    digitalWrite(EN_NEMA_6, LOW);
-    delay(100);
-    if (distance > getDistanceSensor6())
-    {
-        /* menjauhi sensor, CCW */
-        bool state = true;
-        digitalWrite(NEMA_DIR, LOW);
-        while (distance != getDistanceSensor6())
-        {
-            digitalWrite(NEMA_STEP, state);
-            state = !state;
-            delayMicroseconds(PERIOD_NEMA);
-            if (distance == getDistanceSensor6() || distance < getDistanceSensor6() || getDistanceSensor6() == -1)
-            {
-                break;
-            }
-        }
-    }
-    else if (distance < getDistanceSensor6())
-    {
-        /* mendekati sensor, CW */
-        bool state = true;
-        digitalWrite(NEMA_DIR, HIGH);
-        while (distance != getDistanceSensor6())
-        {
-            digitalWrite(NEMA_STEP, state);
-            state = !state;
-            delayMicroseconds(PERIOD_NEMA);
-            if (distance == getDistanceSensor6() || distance > getDistanceSensor6() || getDistanceSensor6() == -1)
-            {
-                break;
-            }
-        }
-    }
-    digitalWrite(EN_NEMA_6, HIGH);
-}
-
-void WayangHorizontalControl::wayang7(int distance)
-{
-    digitalWrite(EN_NEMA_7, LOW);
-    delay(100);
-    if (distance > getDistanceSensor7())
-    {
-        /* menjauhi sensor, CCW */
-        bool state = true;
-        digitalWrite(NEMA_DIR, LOW);
-        while (distance != getDistanceSensor7())
-        {
-            digitalWrite(NEMA_STEP, state);
-            state = !state;
-            delayMicroseconds(PERIOD_NEMA);
-            if (distance == getDistanceSensor7() || distance < getDistanceSensor7() || getDistanceSensor7() == -1)
-            {
-                break;
-            }
-        }
-    }
-    else if (distance < getDistanceSensor7())
-    {
-        /* mendekati sensor, CW */
-        bool state = true;
-        digitalWrite(NEMA_DIR, HIGH);
-        while (distance != getDistanceSensor7())
-        {
-            digitalWrite(NEMA_STEP, state);
-            state = !state;
-            delayMicroseconds(PERIOD_NEMA);
-            if (distance == getDistanceSensor7() || distance > getDistanceSensor7() || getDistanceSensor7() == -1)
-            {
-                break;
-            }
-        }
-    }
-    digitalWrite(EN_NEMA_7, HIGH);
-}
-
-void WayangHorizontalControl::wayang8(int distance)
-{
-    digitalWrite(EN_NEMA_8, LOW);
-    delay(100);
-    if (distance > getDistanceSensor8())
-    {
-        /* menjauhi sensor, CCW */
-        bool state = true;
-        digitalWrite(NEMA_DIR, LOW);
-        while (distance != getDistanceSensor8())
-        {
-            digitalWrite(NEMA_STEP, state);
-            state = !state;
-            delayMicroseconds(PERIOD_NEMA);
-            if (distance == getDistanceSensor8() || distance < getDistanceSensor8() || getDistanceSensor8() == -1)
-            {
-                break;
-            }
-        }
-    }
-    else if (distance < getDistanceSensor8())
-    {
-        /* mendekati sensor, CW */
-        bool state = true;
-        digitalWrite(NEMA_DIR, HIGH);
-        while (distance != getDistanceSensor8())
-        {
-            digitalWrite(NEMA_STEP, state);
-            state = !state;
-            delayMicroseconds(PERIOD_NEMA);
-            if (distance == getDistanceSensor8() || distance > getDistanceSensor8() || getDistanceSensor8() == -1)
-            {
-                break;
-            }
-        }
-    }
-    digitalWrite(EN_NEMA_8, HIGH);
-}
-
-void WayangHorizontalControl::wayang9(int distance)
-{
-    digitalWrite(EN_NEMA_9, LOW);
-    delay(100);
-    if (distance > getDistanceSensor9())
-    {
-        /* menjauhi sensor, CCW */
-        bool state = true;
-        digitalWrite(NEMA_DIR, LOW);
-        while (distance != getDistanceSensor9())
-        {
-            digitalWrite(NEMA_STEP, state);
-            state = !state;
-            delayMicroseconds(PERIOD_NEMA);
-            if (distance == getDistanceSensor9() || distance < getDistanceSensor9() || getDistanceSensor9() == -1)
-            {
-                break;
-            }
-        }
-    }
-    else if (distance < getDistanceSensor9())
-    {
-        /* mendekati sensor, CW */
-        bool state = true;
-        digitalWrite(NEMA_DIR, HIGH);
-        while (distance != getDistanceSensor9())
-        {
-            digitalWrite(NEMA_STEP, state);
-            state = !state;
-            delayMicroseconds(PERIOD_NEMA);
-            if (distance == getDistanceSensor9() || distance > getDistanceSensor9() || getDistanceSensor9() == -1)
-            {
-                break;
-            }
-        }
-    }
-    digitalWrite(EN_NEMA_9, HIGH);
-}
-
-void WayangHorizontalControl::wayang10(int distance)
-{
-    digitalWrite(EN_NEMA_10, LOW);
-    delay(100);
-    if (distance > getDistanceSensor10())
-    {
-        /* menjauhi sensor, CCW */
-        bool state = true;
-        digitalWrite(NEMA_DIR, LOW);
-        while (distance != getDistanceSensor10())
-        {
-            digitalWrite(NEMA_STEP, state);
-            state = !state;
-            delayMicroseconds(PERIOD_NEMA);
-            if (distance == getDistanceSensor10() || distance < getDistanceSensor10() || getDistanceSensor10() == -1)
-            {
-                break;
-            }
-        }
-    }
-    else if (distance < getDistanceSensor10())
-    {
-        /* mendekati sensor, CW */
-        bool state = true;
-        digitalWrite(NEMA_DIR, HIGH);
-        while (distance != getDistanceSensor10())
-        {
-            digitalWrite(NEMA_STEP, state);
-            state = !state;
-            delayMicroseconds(PERIOD_NEMA);
-            if (distance == getDistanceSensor10() || distance > getDistanceSensor10() || getDistanceSensor10() == -1)
-            {
-                break;
-            }
-        }
-    }
-    digitalWrite(EN_NEMA_10, HIGH);
 }
 
 WayangHandServo::WayangHandServo(int leftOrRight)
@@ -1737,15 +3086,6 @@ void CalibratingFunction::vSlotLinear()
     SoundSystem::playDialogFromACertainFolder(SoundSystem::INDICATOR_SOUND, SoundSystem::INDICATOR_SOUND_NUMBER::INDICATOR_VSLOT_CALIBRATION);
     delay(3500);
 
-    // Serial.println("\nstep converting algorithm\n");
-    // int firstValue = getDistanceSensor2();
-    // Serial.print("first value: " + String(firstValue) + "\n");
-    // wayangRahwana.walk_to_scene(500);
-    // int secondValue = getDistanceSensor2();
-    // Serial.print("second value: " + String(secondValue) + "\n");
-    // float distance_per_step = abs(firstValue - secondValue) / float(500);
-    // Serial.print("distance per step: " + String(distance_per_step) + "mm/step \n");
-
     setAllMOSFETtoHIGH();
 }
 
@@ -2039,29 +3379,29 @@ void CalibratingFunction::commandListHandMovementTest()
 
     // Sugriwa
     //
-    wayangSugriwa.defaultStandPosition();
+    // wayangSugriwa.defaultStandPosition();
     // wayangSugriwa.mathentengA();
-    wayangSugriwa.mathentengC();
-    wayangSugriwa.walk_to_a_certain_distance_before_calibrating_value(250);
-    wayangSugriwa.mathentengA();
-    delay(500);
-    wayangSugriwa.pointToFront();
-    delay(500);
-    wayangSugriwa.lower_pointToFront();
-    delay(500);
-    wayangSugriwa.downFront();
-    delay(500);
-    wayangSugriwa.middleFront();
-    delay(500);
-    wayangSugriwa.downFront();
-    delay(500);
+    // wayangSugriwa.mathentengC();
+    // wayangSugriwa.walk_to_a_certain_distance_before_calibrating_value(250);
+    // wayangSugriwa.mathentengA();
+    // delay(500);
+    // wayangSugriwa.pointToFront();
+    // delay(500);
+    // wayangSugriwa.lower_pointToFront();
+    // delay(500);
+    // wayangSugriwa.downFront();
+    // delay(500);
+    // wayangSugriwa.middleFront();
+    // delay(500);
+    // wayangSugriwa.downFront();
+    // delay(500);
 
-    wayangSugriwa.downBack();
-    wayangSugriwa.pointToBack();
-    delay(500);
+    // wayangSugriwa.downBack();
+    // wayangSugriwa.pointToBack();
+    // delay(500);
     // wayangSugriwa.downBack();
     // delay(500);
-    wayangSugriwa.mathentengA();
+    // wayangSugriwa.mathentengA();
     // wayangSugriwa.onHipBack();
     // delay(500);
     // wayangSugriwa.downBack();
@@ -2070,8 +3410,8 @@ void CalibratingFunction::commandListHandMovementTest()
     // wayangSugriwa.mathentengA();
     //
     // wayangSugriwa.downFront();
-    wayangSugriwa.pointToSelf();
-    delay(500);
+    // wayangSugriwa.pointToSelf();
+    // delay(500);
 
     // wayangSugriwa.downFront();
     // wayangSugriwa.middleFrontBack(); // ignore this
@@ -2088,9 +3428,9 @@ void CalibratingFunction::commandListHandMovementTest()
     // wayangSugriwa.middleFrontBack();
     // delay(500);
     //
-    wayangSugriwa.mathentengC();
-    wayangSugriwa.defaultStandPosition();
-    wayangSugriwa.mathentengA();
+    // wayangSugriwa.mathentengC();
+    // wayangSugriwa.defaultStandPosition();
+    // wayangSugriwa.mathentengA();
 
     // Subali
     // wayangSubali.defaultStandPosition();
@@ -2146,131 +3486,7 @@ void CalibratingFunction::commandListHandMovementTest()
     setAllMOSFETtoHIGH();
 }
 
-void serialReaderTask(void *pvParameters)
-{
-    Serial.println(F("\n\nWayang Debug Serial Monitor!"));
-    WayangDisplayLCD_in_main.introDisplay();
-    beginingAllGPIOS();
-
-    Serial.println(F("\nSetup done!"));
-    while (1)
-    {
-        Serial.flush();
-        String serial_data_json = Serial.readString();
-        JsonDocument serial_data;
-
-        DeserializationError error = deserializeJson(serial_data, serial_data_json);
-        if (error)
-        {
-            Serial.print(F("deserializeJson() failed: "));
-            Serial.println(error.f_str());
-            return;
-        }
-
-        String mode = serial_data["mode"];
-        String command = serial_data["command"];
-
-        if (mode == "play")
-        {
-            if (command == "ep1")
-            {
-                Serial.println("Playing Episode 1");
-                Episodes::Episode_1();
-            }
-            else if (command == "ep2")
-            {
-                Serial.println("Playing Episode 2");
-                Episodes::Episode_2();
-            }
-            else if (command == "ep3")
-            {
-                Serial.println("Playing Episode 3");
-                Episodes::Episode_3();
-            }
-            else if (command == "ep4")
-            {
-                Serial.println("Playing Episode 4");
-                Episodes::Episode_4();
-            }
-            else if (command == "ep5")
-            {
-                Serial.println("Playing Episode 5");
-                Episodes::Episode_5();
-            }
-        }
-        else if (mode == "calibrate")
-        {
-            if (command == "vslot")
-            {
-                Serial.println("Calibrating V-Slot");
-                CalibratingFunction::vSlotLinear();
-            }
-            else if (command == "mp3")
-            {
-                Serial.println("Calibrating Sound System");
-                CalibratingFunction::soundSystem();
-            }
-            else if (command == "wayanghand")
-            {
-                Serial.println("Calibrating Wayang Hand");
-                CalibratingFunction::wayangHand();
-            }
-            else if (command == "tofsensor")
-            {
-                Serial.println("Tof sensor data");
-                Serial.println("Sensor 1: " + getDistanceSensor1());
-                Serial.println("Sensor 2: " + getDistanceSensor2());
-                Serial.println("Sensor 3: " + getDistanceSensor3());
-                Serial.println("Sensor 4: " + getDistanceSensor4());
-                Serial.println("Sensor 5: " + getDistanceSensor5());
-                Serial.println("Sensor 6: " + getDistanceSensor6());
-                Serial.println("Sensor 7: " + getDistanceSensor7());
-                Serial.println("Sensor 8: " + getDistanceSensor8());
-                Serial.println("Sensor 9: " + getDistanceSensor9());
-                Serial.println("Sensor 10: " + getDistanceSensor10());
-            }
-        }
-    }
-}
-
-bool isModeChanged()
-{
-    bool result = false;
-    Serial.flush();
-    String serial_data_json = Serial.readString();
-    JsonDocument serial_data;
-
-    DeserializationError error = deserializeJson(serial_data, serial_data_json);
-    if (error)
-    {
-        Serial.print(F("deserializeJson() failed: "));
-        Serial.println(error.f_str());
-        result = false;
-    }
-    else
-    {
-        String mode = serial_data["mode"];
-        String command = serial_data["command"];
-
-        if (mode == "changemode")
-        {
-            if (command == "onlyserial")
-            {
-                WayangDisplayLCD_in_main.introDisplay();
-                vTaskDelete(mainLoopTaskHandler);
-            }
-        }
-        result = true;
-    }
-    return result;
-}
-
 int getSubPageRoute()
 {
     return subPageRoute;
-}
-
-int getSubSubPageRoute()
-{
-    return subSubPageRoute;
 }

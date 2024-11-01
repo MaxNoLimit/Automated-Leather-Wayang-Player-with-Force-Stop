@@ -67,7 +67,6 @@
 #include <Arduino.h>
 #include <Wire.h>
 #include <Arduino_FreeRTOS.h>
-#include <ArduinoJson.h>
 
 extern TaskHandle_t mainLoopTaskHandler;
 

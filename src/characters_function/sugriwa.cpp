@@ -215,7 +215,7 @@ void Sugriwa::lowPointToBack()
 {
     digitalWrite(WAYANG_HAND_6, HIGH);
     Servo_Sugriwa.moveWhatServo(3, 135, 500);
-    Servo_Sugriwa.moveWhatServo(4, 120, 200);
+    Servo_Sugriwa.moveWhatServo(4, 130, 200);
     // Servo_Sugriwa.moveWhatServo(1, 45, 2000);
     // Servo_Sugriwa.moveWhatServo(2, 40, 500);
     digitalWrite(WAYANG_HAND_6, LOW);

@@ -1916,8 +1916,8 @@ void Episodes::Episode_2()
 
     Serial.println("Current stack size: " + String(uxTaskGetStackHighWaterMark(NULL)));
 
-    xTaskCreate(sugriwaTaskFight1, "sugriwaTaskFight1", 1024, NULL, 1, NULL);
-    xTaskCreate(subaliTaskFight1, "subaliTaskFight1", 1024, NULL, 1, NULL);
+    xTaskCreate(sugriwaTaskFight1, "sugriwaTaskFight1", fighting_STACK_SIZE, NULL, 1, NULL);
+    xTaskCreate(subaliTaskFight1, "subaliTaskFight1", fighting_STACK_SIZE, NULL, 1, NULL);
 
     // vTaskStartScheduler();
 
@@ -2153,8 +2153,8 @@ void Episodes::Episode_2()
     SoundSystem::playMusicWayang();
     subali.walk_to_a_certain_distance_before_calibrating_value(170);
 
-    xTaskCreate(sugriwaTaskFight1, "sugriwaTaskFight1", 1024, NULL, 1, NULL);
-    xTaskCreate(subaliTaskFight1, "subaliTaskFight1", 1024, NULL, 1, NULL);
+    xTaskCreate(sugriwaTaskFight1, "sugriwaTaskFight1", fighting_STACK_SIZE, NULL, 1, NULL);
+    xTaskCreate(subaliTaskFight1, "subaliTaskFight1", fighting_STACK_SIZE, NULL, 1, NULL);
 
     vTaskSuspend(mainLoopTaskHandler);
 
@@ -2177,8 +2177,8 @@ void Episodes::Episode_2()
     subali.walk_to_a_certain_distance_before_calibrating_value(225);
     rama_wijaya.walk_to_a_certain_distance_before_calibrating_value(225);
 
-    xTaskCreate(subaliTaskFight2, "subaliTaskFight2", 1024, NULL, 1, NULL);
-    xTaskCreate(ramaTaskFight1, "ramaTaskFight1", 1024, NULL, 1, NULL);
+    xTaskCreate(subaliTaskFight2, "subaliTaskFight2", fighting_STACK_SIZE, NULL, 1, NULL);
+    xTaskCreate(ramaTaskFight1, "ramaTaskFight1", fighting_STACK_SIZE, NULL, 1, NULL);
 
     vTaskSuspend(mainLoopTaskHandler);
     // rama_wijaya.pointToFront();       // takes 900 ms
