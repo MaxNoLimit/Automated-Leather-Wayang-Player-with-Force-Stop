@@ -4005,9 +4005,6 @@ void Episodes::Episode_3()
 
     // (555) Agh! (933) 
 
-    // (Hanuman is restrained, here, just use basic horizontal movement instead of hands) 
-
-
     /*010_Hanuman-Rawana-Wibhisana_Rawana1v*/
     // Rawana distance is further than Hanoman (in front of Hanoman)
 
@@ -4042,11 +4039,12 @@ void Episodes::Episode_3()
     rahwana.downFront(); // takes 700 ms
 
 
-    /*011_Hanuman-Rawana-Wibhisana_Wibhisana1*/ //RESTRAINED
+    /*011_Hanuman-Rawana-Wibhisana_Wibhisana1*/ 
 
     // *enters* (hanuman moves to just barely in the frame, since the main focus is on Wibhisana and Rawana)
     // *adjust positions*
-
+     
+    delay(87);
     // (87) O king of the world, (1225)  
 
     // (1557) Dasawadana! (2506)  
@@ -4092,7 +4090,7 @@ void Episodes::Episode_3()
 
     // (16782) like anyone who insults me. (18685) 
     rahwana.pointToSelf(); // takes 1100 ms
-    for (int i=0; i<2) // takes 400*2 = 800 ms
+    for (int i=0; i<2; i++) // takes 400*2 = 800 ms
     {
         rahwana.directControl(4, 70, 200);
         rahwana.directControl(4, 80, 200);
@@ -4122,7 +4120,7 @@ void Episodes::Episode_3()
     rahwana.downFront(); // takes 700 ms
 
 
-    /*013_Hanuman-Rawana-Wibhisana_Hanuman1*/ //RESTRAINED
+    /*013_Hanuman-Rawana-Wibhisana_Hanuman1*/ 
 
     // (336) O king of the demons, (2112)  
 
@@ -4466,7 +4464,7 @@ void Episodes::Episode_3()
     rahwana.downFront(); // takes 700 ms
 
 
-    /*015_Hanuman-Rawana-Wibhisana_Hanuman2*/ //RESTRAINED
+    /*015_Hanuman-Rawana-Wibhisana_Hanuman2*/ 
 
     // (579) Why do you blame me for ransacking the trees in the pleasure garden. (4081)  
 
