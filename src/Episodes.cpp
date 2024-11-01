@@ -3365,7 +3365,7 @@ void Episodes::Episode_3()
     sita.walk_to_a_certain_distance_before_calibrating_value(100); // going to the dialog position
 
 
-    /*insert 001_Sita-Rawana-Hanuman_Rawana1v here*/
+    /*001_Sita-Rawana-Hanuman_Rawana1v here*/
 
     delay(821);
     // (821) Hey Maithili, (1930)  
@@ -3426,7 +3426,7 @@ void Episodes::Episode_3()
     /*sita silence */
     delay(5000);
 
-    /*insert 002_Sita-Rawana-Hanuman_Rawana2v here*/
+    /*002_Sita-Rawana-Hanuman_Rawana2v here*/
 
     delay(516); 
     // (516) Janakatmaja! (1649) 
@@ -3603,9 +3603,9 @@ void Episodes::Episode_3()
     rahwana.downFront(); // takes 700 ms
     delay(2000);
 
-    /*insert 003_Sita-Rahwana-Hanuman_Sita1 here*/
+    /*003_Sita-Rahwana-Hanuman_Sita1 here*/
 
-    /*insert 004_Sita-Rawana-Hanuman_Rawana3v here*/
+    /*004_Sita-Rawana-Hanuman_Rawana3v here*/
     delay(370);
     // (370) Janakatmaja, (1518)  
     rahwana.middleFront(); // takes 1200 ms
@@ -3634,8 +3634,36 @@ void Episodes::Episode_3()
     // *Leaves from scene* 
     rahwana.defaultStandPosition();
 
-    /*insert 005_Sita-Rahwana-Hanuman_Sita2*/
-    
+    /*005_Sita-Rahwana-Hanuman_Sita2*/
+
+    /*006_Sita-Rawana-Hanuman_Hanuman1*/
+
+    /*007_Sita-Rahwana-Hanuman_Sita3*/
+
+    /*008_Sita-Rawana-Hanuman_Hanuman2*/
+
+    /*008p5_Sita-Rawana-Hanuman_Hanuman3*/
+
+    /*009_Hanuman-Rawana-Wibhisana_HanumanEnter*/
+
+    /*010_Hanuman-Rawana-Wibhisana_Rawana1v*/
+
+    /*011_Hanuman-Rawana-Wibhisana_Wibhisana1*/
+
+    /*012_Hanuman-Rawana-Wibhisana_Rawana2v*/
+
+    /*013_Hanuman-Rawana-Wibhisana_Hanuman1*/
+
+    /*014_Hanuman-Rawana-Wibhisana_Rawana3v*/
+
+    /*015_Hanuman-Rawana-Wibhisana_Hanuman2*/
+
+    /*016_Hanuman-Rawana-Wibhisana_Rawana4v*/
+
+    /*017_Hanuman-Rawana-Wibhisana_HanumanRoar*/
+
+    /*018_Hanuman-Rawana-Wibhisana_Rawana5v*/
+
 }
 
 void Episodes::Episode_4()
