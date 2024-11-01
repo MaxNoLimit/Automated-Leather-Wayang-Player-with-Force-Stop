@@ -4042,7 +4042,7 @@ void Episodes::Episode_3()
     rahwana.downFront(); // takes 700 ms
 
 
-    /*011_Hanuman-Rawana-Wibhisana_Wibhisana1*/
+    /*011_Hanuman-Rawana-Wibhisana_Wibhisana1*/ //RESTRAINED
 
     // *enters* (hanuman moves to just barely in the frame, since the main focus is on Wibhisana and Rawana)
     // *adjust positions*
@@ -4122,7 +4122,7 @@ void Episodes::Episode_3()
     rahwana.downFront(); // takes 700 ms
 
 
-    /*013_Hanuman-Rawana-Wibhisana_Hanuman1*/
+    /*013_Hanuman-Rawana-Wibhisana_Hanuman1*/ //RESTRAINED
 
     // (336) O king of the demons, (2112)  
 
@@ -4190,97 +4190,283 @@ void Episodes::Episode_3()
     /*014_Hanuman-Rawana-Wibhisana_Rawana3v*/
 
     // *angrier* 
-
+    delay(142);
     // (442) Ah, (801)  
+    rahwana.lower_pointToFront(); // takes 700 ms
+    delay(1152-142-700);
 
     // (1152) debased and deceitful monkey. (3410)  
+    rahwana.directControl(3, 180, 500);
+    rahwana.directControl(4, 140, 200);
+    for (int i=0; i<3; i++) // takes 400*3 = 1200 ms
+    {
+        rahwana.directControl(3, 150, 200);
+        rahwana.directControl(3, 180, 200);
+    }
+    delay(3883-1152-500-200-1200);
 
     // (3883) Foolish and stupid (5462) and not a real messenger. (7247) 
+    rahwana.lower_pointToFront(); // takes 700 ms
+    delay(5462-3883-700);
+    rahwana.downFront(); // takes 700 ms
+    delay(7804-5462-700);
 
-    // (7804) A real messenger says nothing, (9917)  
+    // (7804) A real messenger says nothing, (9917) 
+    rahwana.pointToFront(); // takes 900 ms
+    delay(10428-7804-900); 
 
     // (10428) does nothing. (11450)  
+    rahwana.lower_pointToFront(); // takes 700 ms
+    delay(12144-10428-700);
 
     // (12144) All that he does is just to be a messenger. (14639) 
+    rahwana.directControl(3, 180, 500);
+    rahwana.directControl(4, 140, 200);
+    for (int i=0; i<4; i++) // takes 400*4 = 1600 ms
+    {
+        rahwana.directControl(3, 150, 200);
+        rahwana.directControl(3, 180, 200);
+    }
+    rahwana.downFront(); // takes 700 ms
+    delay(15295-12144-500-200-1600-700);
 
     // (15295) You praised the power of Rama. (17113)  
+    rahwana.pointToFront(); // takes 900 ms
+    delay(17606-15295-900);
 
     // (17606) Empty praises. (18758)  
+    rahwana.lower_pointToFront(); // takes 700 ms
+    delay(19193-17606-700);
 
-    // (19193) You do not know what (20535) and who you are praising, (22175)  
+    // (19193) You do not know what (20535) and who you are praising, (22175) 
+    rahwana.directControl(3, 180, 500);
+    rahwana.directControl(4, 140, 200);
+    delay(20535-19193-500-200);
+    rahwana.lower_pointToFront(); // takes 700 ms
+    delay(23015-20535-700);
 
     // (23015) Rama is unequaled in sinfulness, (25631)  
+    rahwana.directControl(3, 180, 500);
+    rahwana.directControl(4, 140, 200);
+    delay(25974-23015-500-200);
 
     // (25974) because he has killed people (27820) that should not have been killed. (29537) 
+    rahwana.downFront(); // takes 700 ms
+    delay(27820-25974-700);
+    rahwana.pointToFront(); // takes 900 ms
+    delay(30269-27820-900);
 
-    // (30269) You knew Yojanabahu, didn’t you? (32153)  
+    // (30269) You knew Yojanabahu, didn’t you? (32153)
+    rahwana.lower_pointToFront(); // takes 700 ms
+    delay(32611-30269-700);  
 
-    // (32611) He had an accident, (33816)  
+    // (32611) He had an accident, (33816) 
+    rahwana.directControl(3, 180, 500);
+    rahwana.directControl(4, 140, 200); 
+    delay(34091-32611-500-200);
 
     // (34091) he was a cripple (35311) and yet he was killed by Raghuputra. (37714)  
+    rahwana.downFront(); // takes 700 ms
+    delay(35311-34091-700);
+    rahwana.directControl(4, 60, 200);
+    rahwana.directControl(3, 180, 500);
+    delay(38263-35311-200-500-(700+700));
+    rahwana.downFront(); // takes 700 ms
 
     // (38263) Damn you! (39049) Cruel bastard! (40773) 
+    rahwana.middleFront(); // takes 1200 ms - 700 ms
+    delay(39049-38263-(1200-700));
+    rahwana.directControl(3, 180, 500);
+    rahwana.directControl(4, 140, 200); 
+    for (int i=0; i<2; i++) // takes 400 *2 = 800 ms
+    {
+        rahwana.directControl(3, 150, 200);
+        rahwana.directControl(3, 180, 200);
+    }
+    delay(41689-39049-500-200-800);
 
     // (41689) Tataka should not have been killed. (43496)  
+    rahwana.lower_pointToFront(); // takes 700 ms
+    delay(44114-41689-700);
 
     // (44114) She is a woman, (45304) without a protector. (46739)  
+    rahwana.directControl(3, 180, 500);
+    rahwana.directControl(4, 140, 200); 
+    delay(45304-44114-500-200);
+    rahwana.middleFront(); // takes 1200 ms
+    delay(47181-45304-1200);
 
     // (47181) She too was killed by Rama. (49233)  
+    rahwana.directControl(3, 180, 500);
+    rahwana.directControl(4, 140, 200); 
+    delay(49759-47181-500-200);
 
-    // (49759) Ah! (50568) Devilish, (51613) heartless and shameful. (53390) 
+    // (49759) Ah! (50568) Devilish, (51613) heartless and shameful. (53390)
+    rahwana.downFront(); // takes 700 ms
+    delay(50568-49759-700);
+    rahwana.lower_pointToFront(); // takes 700 ms
+    delay(51613-50568-700);
+    rahwana.directControl(3, 180, 500);
+    rahwana.directControl(4, 140, 200);  
+    delay(54374-51613-500-200);
 
-    // (54374) That is not the goal of the people with pride. (56884)  
+    // (54374) That is not the goal of the people with pride. (56884) 
+    rahwana.downFront(); // takes 700 ms
+    delay(57403-54374-700); 
 
     // (57403) It is accomplishment and merit, (59646)  
+    rahwana.middleFront(); // takes 1200 ms
+    delay(60103-57403-1200);
 
     // (60103) that are strived for, (61576)  
+    rahwana.directControl(3, 180, 500);
+    rahwana.directControl(4, 140, 200); 
+    delay(61987-60103-500-200-(700));
 
     // (61987) nothing else. (63076) 
+    rahwana.downFront(); // takes 700 ms
+    rahwana.directControl(4, 60, 200);
+    rahwana.directControl(3, 180, 500);
+    delay(64810-61987-700-200-500);
 
     // (64810) Rama and Sugriwa should be befriended. (67121)  
+    rahwana.downFront(); // takes 700 ms
+    rahwana.middleFront(); // takes 1200 ms
+    delay(67747-64810-700-1200);
 
-    // (67747) That is your foolish and stupid advice. (70485)  
+    // (67747) That is your foolish and stupid advice. (70485) 
+    rahwana.directControl(3, 180, 500);
+    rahwana.directControl(4, 140, 200); 
+    for (int i=0; i<5; i++) // takes 400 *5 = 2000 ms
+    {
+        rahwana.directControl(3, 150, 200);
+        rahwana.directControl(3, 180, 200);
+    } 
+    delay(70485-67747-500-200-2000);
 
     // (71202) Is it proper that a demon be friends with a human being (75299) and a monkey. (76239)  
+    rahwana.middleFront(); // takes 1200 ms
+    delay(75299-71202-1200);
+    rahwana.lower_pointToFront(); // takes 700 ms
+    delay(77130-75299-700);
 
-    // (77130) Their nature (68175) and their conduct (79319) are incompatible. (80936) 
+    // (77130) Their nature (78175) and their conduct (79319) are incompatible. (80936) 
+    rahwana.directControl(3, 180, 500);
+    rahwana.directControl(4, 140, 200);
+    delay(78175-77130-500-200);
+    rahwana.lower_pointToFront(); // takes 700 ms
+    delay(79319-78175-700);
+    rahwana.downFront(); // takes 700 ms
+    delay(82157-79319-700);
 
     // (82157) The hero Wiradha was killed by him. (84270)  
+    rahwana.pointToFront(); // takes 900 ms
+    delay(84811-82157-900);
 
     // (84811) He should not have been killed because he was alone. (87474)  
+    rahwana.downFront(); // takes 700 ms
+    delay(88046-84811-700);
 
     // (88046) Raghawa is extremely deceitful and shameless, (91913)  
+    rahwana.pointToFront(); // takes 900 ms
+    for (int i=0; i<7; i++) // takes 400 *7 = 2800 ms
+    {
+        rahwana.directControl(3, 150, 200);
+        rahwana.directControl(3, 180, 200);
+    } 
+    delay(92623-88046-900-2800);
 
     // (92623) as was his accomplice, Laksmana. (94926) 
+    rahwana.downFront(); // takes 700 ms
+    rahwana.directControl(4, 60, 200);
+    rahwana.directControl(3, 180, 500);
+    delay(95865-92623-700-200-500);
 
-    // (95865) Also the debased Marica, (97642) you should not praise his slayer. (99648)  
+    // (95865) Also the debased Marica, (97642) you should not praise his slayer. (99648) 
+    rahwana.downFront(); // takes 700 ms
+    rahwana.lower_pointToFront(); // takes 700 ms
+    delay(97642-95865-700-700); 
+    rahwana.directControl(3, 180, 500);
+    rahwana.directControl(4, 140, 200);
+    delay(100075-97642-500-200);
 
     // (100075) It was obvious that he was afraid of enemies, (103647)  
+    rahwana.downFront(); // takes 700 ms
+    delay(104210-100075-700);
 
     // (104210) like a deer when it sees a tiger, (106163)  
+    rahwana.lower_pointToFront(); // takes 700 ms
+    delay(106793-104210-700);
 
     // (106793) but he did his deed anyways out of (109626) respect for me. (110870) 
+    rahwana.directControl(3, 180, 500);
+    rahwana.directControl(4, 140, 200);
+    for (int i=0; i<3; i++) // takes 400 *3 = 1200 ms
+    {
+        rahwana.directControl(3, 150, 200);
+        rahwana.directControl(3, 180, 200);
+    }
+    delay(109626-106793-500-200-1200-(900));
+    rahwana.downFront(); // takes 700 ms
+    rahwana.pointToSelf(); // takes 1100 ms - 200 ms
+    delay(111930-109626-(1100-200));
 
     // (111930) You said that Bali the monkey was powerful. (114630)  
+    rahwana.downFront(); // takes 700 ms
+    rahwana.lower_pointToFront(); // takes 700 ms
+    delay(115195-111930-700-700);
 
-    // (115195) How is it that he was pierced with an arrow? (118040)  
+    // (115195) How is it that he was pierced with an arrow? (118040) 
+    rahwana.directControl(3, 180, 500);
+    rahwana.directControl(4, 140, 200);
+    delay(118704-115195-500-200); 
 
     // (118704) If he was truly mighty (120550) that arrow would have been broken. (123265)  
+    rahwana.downFront(); // takes 700 ms
+    delay(120550-118704-700);
+    rahwana.middleFront(); // takes 1200 ms
+    delay(123265-120550-1200);
 
     // (123983) That is why Bali (125272) was in fact powerless. (127293) 
+    rahwana.directControl(3, 180, 500);
+    rahwana.directControl(4, 140, 200);
+    delay(125272-123983-500-200);
+    rahwana.downFront(); // takes 700 ms
+    delay(128155-125272-700);
 
     // (128155) On the other hand (129345) Rama was sinful and (131168) evil in killing the mighty Bali (133953) because he shot him (135341) while he was fighting with his brother. (137561)  
+    rahwana.pointToFront(); // takes 900 ms
+    delay(129345-128155-900);
+    rahwana.lower_pointToFront(); // takes 700 ms
+    delay(131168-129345-700);
+    rahwana.directControl(3, 180, 500);
+    rahwana.directControl(4, 140, 200);
+    delay(133953-131168-500-200);
+    rahwana.downFront(); // takes 700 ms
+    delay(135341-133953-700);
+    rahwana.pointToFront(); // takes 900 ms
+    delay(137958-135341-900);
 
     // (137958) Hah!  
+    rahwana.directControl(3, 130, 500);
+    delay(138926-137958-500);
 
     // (138926) Hah!  
+    rahwana.directControl(3, 80, 500);
+    delay(140238-138926-500);
 
     // (140238) Hah!  
+    rahwana.downFront(); // takes 700 ms
+    delay(141352-140238-700);
 
     // (141352) O! How debased is Rama! (144190) 
+    rahwana.middleFront(); // takes 1200 ms
+    delay(144190-141352-1200);
+    delay(2000);
+    rahwana.downFront(); // takes 700 ms
 
 
-    /*015_Hanuman-Rawana-Wibhisana_Hanuman2*/
+    /*015_Hanuman-Rawana-Wibhisana_Hanuman2*/ //RESTRAINED
 
     // (579) Why do you blame me for ransacking the trees in the pleasure garden. (4081)  
 
@@ -4379,17 +4565,43 @@ void Episodes::Episode_3()
 
     /*016_Hanuman-Rawana-Wibhisana_Rawana4v*/
 
+    delay(262);
     // (662) Hell! (1159) 
+    rahwana.pointToFront(); // takes 900 ms
+    delay(1433-262-900);
 
     // (1433) What kind of monkey are you, (2870)  
+    rahwana.downFront(); // takes 700 ms
+    delay(3278-1433-700);
 
-    // (3278) you dare to talk so insolently. (5277)  
+    // (3278) you dare to talk so insolently. (5277) 
+    rahwana.pointToFront(); // takes 900 ms
+    for (int i=0; i<3; i++) // takes 400 *3 = 1200 ms
+    {
+        rahwana.directControl(3, 150, 200);
+        rahwana.directControl(3, 180, 200);
+    }
+    delay(5665-3278-900-1200);
 
     // (5665) Your words are rubbish, (7338) and yet you seem to believe them. (8970)  
+    rahwana.lower_pointToFront(); // takes 700 ms
+    delay(7338-5665-700);
+    rahwana.directControl(3, 180, 500);
+    rahwana.directControl(4, 140, 200);
+    delay(9660-7338-500-200);
 
     // (9660) Tie his tail very firmly and burn him. (12451)  
+    rahwana.downFront(); // takes 700 ms
+    rahwana.directControl(4, 60, 200);
+    rahwana.directControl(3, 180, 500);
+    delay(12876-9660-700-200-500);
 
     // (12876) Torture him slowly! (14481) 
+    rahwana.downFront(); // takes 700 ms
+    rahwana.pointToFront(); // takes 900 ms
+    delay(14895-12876-700-900);
+    delay(2000);
+    rahwana.downFront(); // takes 700 ms
 
 
     /*017_Hanuman-Rawana-Wibhisana_HanumanRoar*/
@@ -4403,11 +4615,22 @@ void Episodes::Episode_3()
 
     /*018_Hanuman-Rawana-Wibhisana_Rawana5v*/
 
+    // no delay, just move servo immediately
     // (560) What?! (946)  
+    rahwana.directControl(3, 30, 300);
+    rahwana.directControl(4, 110, 200);
+    rahwana.directControl(3, 135, 500);
+    delay(1302-300-200-500);
 
     // (1302) Guards, (1991) don’t let him escape! (3071) 
+    rahwana.directControl(3, 180, 500);
+    rahwana.directControl(4, 140, 200);
+    rahwana.downFront(); // takes 700 ms
+    delay(3071-1302-500-200-700);
+    delay(2000);
 
     // *Rawana leaves the scene*
+    rahwana.defaultStandPosition();
 
 }
 
