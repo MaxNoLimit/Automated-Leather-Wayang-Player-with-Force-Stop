@@ -9,6 +9,7 @@
 #include "mainheader.hpp"
 #include "characters/subali.hpp"
 #include "characters/sugriwa.hpp"
+#include "characters/wibhisana.hpp"
 
 Hanoman hanoman;
 RamaWijaya rama_wijaya;
@@ -17,6 +18,7 @@ Rahwana rahwana;
 Laksmana laksmana;
 Subali subali;
 Sugriwa sugriwa;
+Wibhisana wibhisana;
 
 // TaskHandle_t taskSugriwa;
 // TaskHandle_t taskSubali;
@@ -3994,16 +3996,24 @@ void Episodes::Episode_3()
 
 
     /*008p5_Sita-Rawana-Hanuman_Hanuman3*/
-    // gerak servo bersamaan klo bisa
 
+    delay(481);
     // (481) *roar* (1892) fight me ye demons!! (4209)
+    hanoman.middleFront(); // takes 1200 ms
+    delay(1892-481-1200);
+    hanoman.directControl(3, 180, 300);
+    hanoman.directControl(4, 140, 200);
+    delay(4209-1892-300-200);
+    hanoman.mathenthengC();
+    hanoman.defaultStandPosition();
+    hanoman.defaultHandPosition();
+    delay(2000);
 
 
-    /*009_Hanuman-Rawana-Wibhisana_HanumanEnter*/
-
-    // *thrown into the scene (like a hostage), boleh main audio dlu ato gerak dlu (gw saranin audio dlu)* 
-
+    /*009_Hanuman-Rawana-Wibhisana_HanumanEnter*/ // Gak usah dimainin (konteksny beda karna hanuman 'obedient')
+    hanoman.walk_to_a_certain_distance_before_calibrating_value(160);
     // (555) Agh! (933) 
+
 
     /*010_Hanuman-Rawana-Wibhisana_Rawana1v*/
     // Rawana distance is further than Hanoman (in front of Hanoman)
@@ -4046,14 +4056,25 @@ void Episodes::Episode_3()
      
     delay(87);
     // (87) O king of the world, (1225)  
+    wibhisana.middleFront(); // takes 1200 ms
 
     // (1557) Dasawadana! (2506)  
+    wibhisana.pointToFront(); // takes 900 ms
+    delay(2739-1557-900);
 
     // (2739) Follow the teachings of the holy scriptures. (4869)  
+    wibhisana.lower_pointToFront(); // takes 700 ms
+    delay(5336-2739-700);
 
-    // (5336) A messenger may not be sentenced to death, (7861)  
+    // (5336) A messenger may not be sentenced to death, (7861) 
+    wibhisana.pointToFront(); // takes 900 ms
+    delay(8541-5336-900); 
 
     // (8541) even if he is extremely wicked. (10537) 
+    wibhisana.lower_pointToFront(); // takes 700 ms
+    delay(10537-8541-700);
+    delay(2000);
+    wibhisana.downFront(); // takes 700 ms
 
 
     /*012_Hanuman-Rawana-Wibhisana_Rawana2v*/
@@ -4604,12 +4625,13 @@ void Episodes::Episode_3()
 
     /*017_Hanuman-Rawana-Wibhisana_HanumanRoar*/
 
-    // (Hanuman breaks free here, use hands again)
-
+    // g ad delay, main lgsg
     // (318) *roar* (1665) 
+    hanoman.mathenthengC();
 
     // *Hanuman escapes* 
-
+    hanoman.defaultStandPosition();
+    
 
     /*018_Hanuman-Rawana-Wibhisana_Rawana5v*/
 
