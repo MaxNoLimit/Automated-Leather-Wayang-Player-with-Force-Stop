@@ -3607,65 +3607,131 @@ void Episodes::Episode_3()
 
     /*003_Sita-Rahwana-Hanuman_Sita1 here*/
 
+    delay(118);
     // (118) Wicked ten headed and debased Rawana. (2377)  
+    sita.pointToFront(); // takes 700 ms
+    delay(2377-118-700);
 
-    // (2658) Deceitful mongrel, stupid and filthy imp. (5589)  
+    // (2658) Deceitful mongrel, stupid and filthy imp. (5589) 
+    sita.lower_pointToFront(); // takes 700 ms
+    delay(6183-2658-700); 
 
     // (6183) If you dare to fight prince Raghuttama, why did you abduct me while he was absent? (10566)  
+    sita.pointToFront(); // takes 700 ms
+    delay(11661-6183-700-(700));
+    sita.downFront(); // takes 700 ms
 
     // (11661) If you have courage and are brave in battle, (13833)  
+    sita.middleFront(); // takes 900 ms
+    delay(14205-11661-900);
 
     // (14205) what was the reason that you did not look for him in the forest? (17332)  
+    sita.pointToFront(); // takes 700 ms
+    delay(17786-14205-700);
 
     // (17786) Is he a hero, who only dares to attack when the enemy is not at home. (22549)  
+    sita.downFront(); // takes 700 ms
+    sita.middleFront(); // takes 900 ms
+    delay(23375-17786-700);
 
     // (23375) That man is a coward, (24874)  
+    sita.pointToFront(); // takes 700 ms
+    delay(25196-23375-700);
 
     // (25196) and you are that kind of person, a devilish man. (27745) 
+    sita.lower_pointToFront(); // takes 700 ms
+    delay(28345-25196-700);
 
     // (28435) That is the evidence that you are a coward in battle. (30975)  
+    sita.pointToFront(); // takes 700 ms
+    delay(31665-28435-700);
 
     // (31665) You think only of stealing the wife of another man, nothing else. (35403)  
+    sita.downFront(); // takes 700 ms
+    delay(35919-31665-700);
 
     // (35919) What have I learned about a real hero, (37894)  
+    sita.pointToSelf(); // takes 700 ms
+    delay(38203-35919-700);
 
     // (38203) victorious over his enemies, (39860)  
+    sita.downFront(); // takes 700 ms
+    delay(40454-38203-700);
 
     // (40454) is that he gives freedom to his captives. (42751) 
+    sita.middleFront(); // takes 900 ms
+    delay(43383-40454-900);
 
-    // (43383) What do you learn about prince Raghuttama? (45419)  
+    // (43383) What do you learn about prince Raghuttama? (45419) 
+    sita.pointToFront(); // takes 700 ms
+    delay(45911-43383-700); 
 
     // (45911) Truly he is the Bowman amongst the bowmen of the world. (49071) 
+    sita.lower_pointToFront(); // takes 700 ms
+    delay(49674-45911-700);
 
-    // (49674) He is the incarnation of Purusottama, a divine man. (52991)  
+    // (49674) He is the incarnation of Purusottama, a divine man. (52991) 
+    sita.downFront(); // takes 700 ms
+    sita.middleFront(); // takes 900 ms 
+    delay(53581-49674-700-900);
 
     // (53581) You will surely be killed in battle by him. (56303) 
+    sita.pointToFront(); // takes 700 ms
+    delay(57030-53851-700);
 
     // (57030) Even if you run away (58472)  
+    sita.lower_pointToFront(); // takes 700 ms
+    delay(58678-57030-700);
 
     // (58678) and hide yourself in the ocean, (60384)  
+    sita.pointToFront(); // takes 700 ms
+    delay(61107-58678-700);
 
     // (61107) or in a hole in the earth, (62305)  
+    sita.lower_pointToFront(); // takes 700 ms
+    delay(63193-61107-700);
 
     // (63193) or on an impassible or inaccessible mountain, (66535)  
+    sita.downFront(); // takes 700 ms
+    delay(66865-63193-700);
 
     // (66865) or you make yourself so small (68435)  
+    sita.pointToFront(); // takes 700 ms
+    delay(68926-66865-700);
 
     // (68926) that you cannot be located with the sense-organs of the body, (72334)  
+    sita.lower_pointToFront(); // takes 700 ms
+    delay(72838-68926-700);
 
     // (72838) yet there is no way to escape him in battle. (75155) 
+    sita.downFront(); // takes 700 ms
+    sita.middleFront(); // takes 900 ms
+    delay(75717-72838-700-900);
 
     // (75717) You are too debilitated to fight him in battle. (78055)  
+    sita.pointToFront(); // takes 700 ms
+    delay(78468-75717-700);
 
     // (78468) Go (78794)  
 
     // (79009) and make your obeisance (80409)  
+    sita.downFront(); // takes 700 ms
+    sita.middleFront(); // takes 900 ms
+    delay(80880-78468-700-900);
 
     // (80880) to that noble man, Raghawa. (82648)  
+    sita.pointToFront(); // takes 700 ms
+    delay(83424-80880-700);
 
     // (83424) He is heroic and without equal in valor. (86390)  
+    sita.lower_pointToFront(); // takes 700 ms
+    delay(87167-83424-700);
 
     // (87167) If you do not submit to him, clearly you will be slain. (90083) 
+    sita.pointToFront(); // takes 700 ms
+    delay(90083-87167-700);
+    delay(2000);
+    sita.downFront(); // takes 700 ms
 
 
     /*004_Sita-Rawana-Hanuman_Rawana3v here*/
@@ -3700,41 +3766,82 @@ void Episodes::Episode_3()
 
     /*005_Sita-Rahwana-Hanuman_Sita2*/
 
+    delay(62);
     // (62) Ah, I am in deep sorrow (1743)  
+    sita.pointToSelf(); // takes 700 ms
+    delay(1917-62-700);
 
     // (1917) and brimming with confusion. (3565)  
+    sita.downFront(); // takes 700 ms
+    delay(4213-1917-700);
 
     // (4213) Everything I see or hear is hurting, (6836)  
+    sita.pointToFront(); // takes 700 ms
+    delay(7567-4213-700);
 
     // (7567) even the sound of flutes and string instruments is torture. (11198)  
+    sita.lower_pointToFront(); // takes 700 ms
+    delay(11937-7567-700);
 
-    // (11937) The grief of separation is severe, (14093)  
+    // (11937) The grief of separation is severe, (14093) 
+    sita.downFront(); // takes 700 ms
+    delay(14329-11937-700); 
 
     // (14329) incureable. (15209) 
+    sita.pointToFront(); // takes 700 ms
+    delay(16076-14329-700);
 
     // (16076) When will this longing end? (17571)  
+    sita.downFront(); // takes 700 ms
+    delay(17968-16076-700);
 
     // (17968) My heart is broken and strays aimlessly. (21099)  
+    sita.pointToSelf(); // takes 700 ms
+    delay(21756-17968-700-(700));
+    sita.downFront(); // takes 700 ms
 
     // (21756) O wind, (22561)  
+    sita.pointToFront(); // takes 700 ms
+    delay(22858-21756-700);
 
     // (22858) have pity and help. (24135)  
+    sita.lower_pointToFront(); // takes 700 ms
+    delay(24672-22858-700);
 
     // (24672) Have compassion for me, (26091)  
+    sita.pointToFront(); // takes 700 ms
+    delay(26580-24672-700);
 
     // (26580) separated from my beloved, (28071)  
+    sita.lower_pointToFront(); // takes 700 ms
+    delay(28687-26580-700);
 
     // (28687) please tell prince Raghuttama in the hermitage, that I am here, (32140)  
+    sita.pointToFront(); // takes 700 ms
+    delay(32528-28687-700);
 
     // (32528) kept captive by a demon. (34238) 
+    sita.downFront(); // takes 700 ms
+    delay(34692-32528-700);
 
     // (34692) Convey to him my devotion and love, (37022)  
+    sita.pointToSelf(); // takes 700 ms
+    delay(37505-34692-700);
 
     // (37505) and my incomparable misery of separation. (40149)  
+    sita.downFront(); // takes 700 ms
+    sita.pointToFront(); // takes 700 ms
+    delay(40851-37505-700-700);
 
     // (40851) I am almost dead through being separated from him. (43511)  
+    sita.lower_pointToFront(); // takes 700 ms
+    delay(44036-40851-700);
 
     // (44036) Tell that to the prince who is so far away from me. (46853) 
+    sita.pointToFront(); // takes 700 ms
+    delay(46853-44036-700);
+    delay(2000);
+    sita.downFront(); // takes 700 ms
 
 
     /*006_Sita-Rawana-Hanuman_Hanuman1*/
@@ -3948,29 +4055,60 @@ void Episodes::Episode_3()
 
     /*007_Sita-Rahwana-Hanuman_Sita3*/
 
+    delay(194);
     // (194) Hey Pawanatmaja, step forward! (2280)  
+    sita.pointToFront(); // takes 700 ms
+    delay(2772-194-700);
 
     // (2772) I am happy that you were ordered to come here. (4870)  
+    sita.downFront(); // takes 700 ms
+    sita.pointToSelf(); // takes 700 ms
+    delay(5514-2772-700);
 
     // (5514) Please (5870)  
 
     // (6336) give my crest jewel to Rama. (8026)  
+    sita.downFront(); // takes 700 ms
+    sita.pointToFront(); // takes 700 ms
+    delay(8331-5514-700-700);
 
     // (8331) Also, (8815)  
+    sita.lower_pointToFront(); // takes 700 ms
+    delay(9302-8331-700);
 
     // (9302) take with you my letter as a proof of my sorrow (12305)  
+    sita.downFront(); // takes 700 ms
+    sita.pointToSelf(); // takes 700 ms
+    delay(12714-9302-700-700);
 
     // (12714) and longing. (13420)  
+    sita.downFront(); // takes 700 ms
+    delay(13957-12714-700);
 
     // (13957) Give it to Rama and tell him this. (15878)  
+    sita.pointToFront(); // takes 700 ms
+    delay(16737-13957-700);
 
     // (16737) He should eat, (17443)  
+    sita.lower_pointToFront(); // takes 700 ms
+    delay(17724-16737-700);
 
-    // (17724) sleep and not worry. (19145)  
+    // (17724) sleep and not worry. (19145)
+    sita.downFront(); // takes 700 ms  
+    sita.middleFront(); // takes 900 ms
+    delay(19624-17724-700-900);
 
-    // (19624) I am no longer grieving and miserable, (21917)  
+    // (19624) I am no longer grieving and miserable, (21917) 
+    sita.downFront(); // takes 700 ms 
+    sita.pointToSelf(); // takes 700 ms
+    delay(22429-19624-700-700);
 
     // (22429) as I now know his plans. (24725) 
+    sita.downFront(); // takes 700 ms
+    sita.pointToFront(); // takes 700 ms
+    delay(24725-22429-700-700);
+    delay(2000);
+    sita.downFront(); // takes 700 ms
 
 
     /*008_Sita-Rawana-Hanuman_Hanuman2*/
