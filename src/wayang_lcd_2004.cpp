@@ -65,140 +65,12 @@ const String handMovementList[10] = {
     "Low Point to Back",
     "Middle Back"};
 
-// // For Sita Hand Calibration Display
-// const String sitaHandOption[11] = {
-//     "Wayang Sita",
-//     "Point to Front",
-//     "Low Point to Front",
-//     "Middle Front",
-//     "Down Front",
-//     "Point To Self",
-//     "Down Back",
-//     "On Hip Back",
-//     "Point to Back",
-//     "Low Point to Back",
-//     "Middle Back"};
-
-// // For Rahwana Hand Calibration Display
-// const String rahwanaHandOption[6] = {
-//     "Wayang Rahwana",
-//     "Point to Front",
-//     "Low Point to Front",
-//     "Middle Front",
-//     "Down Front",
-//     "Point To Self"};
-
-// // For Rama Wijaya Hand Calibration Display
-// const String ramaWijayaHandOption[11] = {
-//     "Wayang Rama Wijaya",
-//     "Point to Front",
-//     "Low Point to Front",
-//     "Middle Front",
-//     "Down Front",
-//     "Point To Self",
-//     "Down Back",
-//     "On Hip Back",
-//     "Point to Back",
-//     "Low Point to Back",
-//     "Middle Back"};
-
-// // For Hanoman Hand Calibration Display
-// const String hanomanHandOption[11] = {
-//     "Wayang Hanoman",
-//     "Point to Front",
-//     "Low Point to Front",
-//     "Middle Front",
-//     "Down Front",
-//     "Point To Self",
-//     "Down Back",
-//     "On Hip Back",
-//     "Point to Back",
-//     "Low Point to Back",
-//     "Middle Back"};
-
-// // For Laksmana Hand Calibration Display
-// const String laksmanaHandOption[11] = {
-//     "Wayang Laksmana",
-//     "Point to Front",
-//     "Low Point to Front",
-//     "Middle Front",
-//     "Down Front",
-//     "Point To Self",
-//     "Down Back",
-//     "On Hip Back",
-//     "Point to Back",
-//     "Low Point to Back",
-//     "Middle Back"};
-
-// // For Sugriwa Hand Calibration Display
-// const String sugriwaHandOption[11] = {
-//     "Wayang Sugriwa",
-//     "Point to Front",
-//     "Low Point to Front",
-//     "Middle Front",
-//     "Down Front",
-//     "Point To Self",
-//     "Down Back",
-//     "On Hip Back",
-//     "Point to Back",
-//     "Low Point to Back",
-//     "Middle Back"};
-
-// // For Subali Hand Calibration Display
-// const String subaliHandOption[11] = {
-//     "Wayang Subali",
-//     "Point to Front",
-//     "Low Point to Front",
-//     "Middle Front",
-//     "Down Front",
-//     "Point To Self",
-//     "Down Back",
-//     "On Hip Back",
-//     "Point to Back",
-//     "Low Point to Back",
-//     "Middle Back"};
-
-// // For Wibhisana Hand Calibration Display
-// const String wibhisanaHandOption[11] = {
-//     "Wayang Wibhisana",
-//     "Point to Front",
-//     "Low Point to Front",
-//     "Middle Front",
-//     "Down Front",
-//     "Point To Self",
-//     "Down Back",
-//     "On Hip Back",
-//     "Point to Back",
-//     "Low Point to Back",
-//     "Middle Back"};
-
-// // For Anggada Hand Calibration Display
-// const String anggadaHandOption[11] = {
-//     "Wayang Anggada",
-//     "Point to Front",
-//     "Low Point to Front",
-//     "Middle Front",
-//     "Down Front",
-//     "Point To Self",
-//     "Down Back",
-//     "On Hip Back",
-//     "Point to Back",
-//     "Low Point to Back",
-//     "Middle Back"};
-
-// // For Anila Hand Calibration Display
-// const String anilaHandOption[11] = {
-//     "Wayang Anila",
-//     "Point to Front",
-//     "Low Point to Front",
-//     "Middle Front",
-//     "Down Front",
-//     "Point To Self",
-//     "Down Back",
-//     "On Hip Back",
-//     "Point to Back",
-//     "Low Point to Back",
-//     "Middle Back"};
+// V-Slot Data Farming
+const String vSlotFarmOption[4] = {
+    "Move 100 mm",
+    "Move 200 mm",
+    "Move 300 mm",
+    "Move 400 mm"};
 
 WayangDisplay::WayangDisplayLCD::WayangDisplayLCD()
     : lcdWayang(get_lcd_Address(), 20, 4)
@@ -298,19 +170,26 @@ void WayangDisplay::WayangDisplayLCD::CalibrateDisplay()
     lcdWayang.print("<<");
 }
 
-// void WayangDisplay::WayangDisplayLCD::CalibrateDisplay2()
-// {
-//     lcdWayang.setCursor(0, 0);
-//     lcdWayang.print("V-Slot Linear");
-//     lcdWayang.setCursor(0, 1);
-//     lcdWayang.print("Mp3 Player");
-//     lcdWayang.setCursor(0, 2);
-//     lcdWayang.print("Wayang's Hand");
-//     lcdWayang.setCursor(0, 3);
-//     lcdWayang.print("Sensor status");
-//     lcdWayang.setCursor(18, get_selection_point());
-//     lcdWayang.print("<<");
-// }
+/*
+Function untuk display opsi pengambilan data horizontal movement
+*/
+void WayangDisplay::WayangDisplayLCD::VSlotDataFarmDisplay()
+{
+    for (int i = 0; i < 4; i++)
+    {
+        lcdWayang.setCursor(0, i);
+        if (i + getSubPageRoute() == 0)
+        {
+            lcdWayang.print(calibratingList[0]);
+        }
+        else
+        {
+            lcdWayang.print(vSlotFarmOption[i - 1 + getSubPageRoute()]);
+        }
+    }
+    lcdWayang.setCursor(18, get_selection_point());
+    lcdWayang.print("<<");
+}
 
 void WayangDisplay::WayangDisplayLCD::SensorStatusDisplay()
 {
@@ -364,6 +243,28 @@ void WayangDisplay::WayangDisplayLCD::SettingsDisplay()
     lcdWayang.print("<<");
 }
 
+/*
+Function untuk display please wait
+*/
+void WayangDisplay::WayangDisplayLCD::pleaseWaitDisplay()
+{
+    refreshLCD();
+    lcdWayang.setCursor(4, 1);
+    lcdWayang.print(F("Please wait"));
+}
+
+/*
+Function untuk display episode yang sedang dimainkan
+*/
+void WayangDisplay::WayangDisplayLCD::playingWhatEpisodeDisplay(int nEpisode)
+{
+    refreshLCD();
+    lcdWayang.setCursor(5, 1);
+    lcdWayang.print(F("Playing: "));
+    lcdWayang.setCursor(5, 2);
+    lcdWayang.print(episodeList[nEpisode - 1]);
+}
+
 void WayangDisplay::WayangDisplayLCD::SitaHandCalibration()
 {
     for (int i = 0; i < 4; i++)
@@ -393,7 +294,7 @@ void WayangDisplay::WayangDisplayLCD::RahwanaHandCalibration()
         }
         else
         {
-            lcdWayang.print(handMovementList[i - 1]);
+            lcdWayang.print(handMovementList[i - 1 + getSubPageRoute()]);
         }
     }
     lcdWayang.setCursor(18, get_selection_point());

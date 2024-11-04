@@ -27,9 +27,15 @@ namespace WayangDisplay
 
         void CalibrateDisplay();
 
+        void VSlotDataFarmDisplay();
+
         void SensorStatusDisplay();
 
         void WayangHandCalibrationDisplay();
+
+        void pleaseWaitDisplay();
+
+        void playingWhatEpisodeDisplay(int nEpisode);
 
         // Wayang Hand Calibration options
         // Sita

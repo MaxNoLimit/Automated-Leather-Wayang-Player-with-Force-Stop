@@ -11,6 +11,12 @@ namespace StateManagement
         CALIBRATING_ALL_NEMA,
         MP3_REINIT,
 
+        EXIT_VSLOT_FARM,
+        VSLOT_100_MM,
+        VSLOT_200_MM,
+        VSLOT_300_MM,
+        VSLOT_400_MM,
+
         WAYANG_HAND_CALIBRATION,
 
         SENSOR_CHECK,
@@ -159,6 +165,7 @@ namespace StateManagement
         MENU_PAGE,
         EPISODE_PAGE,
         CALIBRATE_PAGE,
+        VSLOT_DATA_PAGE,
         SETTINGS_PAGE,
         SENSOR_STATUS_PAGE,
         WAYANG_HAND_CALIBRATION_PAGE,
@@ -192,6 +199,11 @@ namespace StateManagement
     {
         CALIBRATE_1,
         CALIBRATE_2,
+    };
+
+    enum VSLOT_DATA_FARM_SUB_PAGE_ROUTE{
+        VSLOT_DISPLAY_1,
+        VSLOT_DISPLAY_2,
     };
 
     enum SENSOR_STATUS_SUB_PAGE_ROUTE

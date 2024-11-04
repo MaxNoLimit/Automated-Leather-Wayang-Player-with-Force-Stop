@@ -117,9 +117,9 @@ void Rahwana::Rahwana_1()
 void Rahwana::defaultHandPosition()
 {
     digitalWrite(WAYANG_HAND_2, HIGH);
-    Servo_Rahwana.moveWhatServo(3, 90, 500);
-    Servo_Rahwana.defaultPosition();
     Servo_Rahwana.resetArray();
+    directControl(3, 90, 500);
+    downFront();
     digitalWrite(WAYANG_HAND_2, LOW);
 }
 
@@ -327,7 +327,7 @@ void Rahwana::hand_movement_18()
 
 void Rahwana::walk_to_a_certain_distance_before_calibrating_value(int desiredDistance)
 {
-    int desiredDistanceAfterCalibratingValue = desiredDistance + 49;
+    int desiredDistanceAfterCalibratingValue = desiredDistance + 48;
     Serial.println("\ndesiredDistance: ");
     Serial.print(desiredDistanceAfterCalibratingValue);
     Serial.println("mm \n");
