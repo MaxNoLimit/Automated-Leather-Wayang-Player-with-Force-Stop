@@ -354,7 +354,6 @@ void WayangDisplay::generalLoop()
     case StateManagement::FSA_STATE::PLAY_EPISODE_1:
         WayangDisplayLCD_in_main.playingWhatEpisodeDisplay(1);
         WayangDisplayLCD_in_main.disableLCD();
-        Serial.println("Episode 1");
         Episodes::Episode_1();
         WayangDisplayLCD_in_main.enableLCD();
         loop_state = StateManagement::FSA_STATE::DEFAULT_LOOPING_LCD;
@@ -364,7 +363,6 @@ void WayangDisplay::generalLoop()
     case StateManagement::FSA_STATE::PLAY_EPISODE_2:
         WayangDisplayLCD_in_main.playingWhatEpisodeDisplay(2);
         WayangDisplayLCD_in_main.disableLCD();
-        Serial.println("Episode 2");
         Episodes::Episode_2();
         WayangDisplayLCD_in_main.enableLCD();
         loop_state = StateManagement::FSA_STATE::DEFAULT_LOOPING_LCD;
@@ -374,7 +372,6 @@ void WayangDisplay::generalLoop()
     case StateManagement::FSA_STATE::PLAY_EPISODE_3:
         WayangDisplayLCD_in_main.playingWhatEpisodeDisplay(3);
         WayangDisplayLCD_in_main.disableLCD();
-        Serial.println("Episode 3");
         Episodes::Episode_3();
         WayangDisplayLCD_in_main.enableLCD();
         loop_state = StateManagement::FSA_STATE::DEFAULT_LOOPING_LCD;
@@ -384,7 +381,6 @@ void WayangDisplay::generalLoop()
     case StateManagement::FSA_STATE::PLAY_EPISODE_4:
         WayangDisplayLCD_in_main.playingWhatEpisodeDisplay(4);
         WayangDisplayLCD_in_main.disableLCD();
-        Serial.println("Episode 4");
         Episodes::Episode_4();
         WayangDisplayLCD_in_main.enableLCD();
         loop_state = StateManagement::FSA_STATE::DEFAULT_LOOPING_LCD;
@@ -394,7 +390,6 @@ void WayangDisplay::generalLoop()
     case StateManagement::FSA_STATE::PLAY_EPISODE_5:
         WayangDisplayLCD_in_main.playingWhatEpisodeDisplay(5);
         WayangDisplayLCD_in_main.disableLCD();
-        Serial.println("Episode 5");
         Episodes::Episode_5();
         WayangDisplayLCD_in_main.enableLCD();
         loop_state = StateManagement::FSA_STATE::DEFAULT_LOOPING_LCD;
@@ -781,7 +776,7 @@ void WayangDisplay::generalLoop()
             delay(1);
             break;
 
-            case StateManagement::FSA_STATE::HANOMAN_POINT_TO_FRONT:
+        case StateManagement::FSA_STATE::HANOMAN_POINT_TO_FRONT:
             setAllMOSFETtoLOW();
             wayangHanoman.pointToFront();
             setAllMOSFETtoHIGH();

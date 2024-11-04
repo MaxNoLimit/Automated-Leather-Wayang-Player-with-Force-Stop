@@ -2,7 +2,8 @@
 #define EPISODES_H
 
 #include <Arduino.h>
-#define fighting_STACK_SIZE 512
+#include <mainheader.hpp>
+#define fighting_STACK_SIZE 256 // already maximum, cannot exceed anymore
 
 namespace Episodes
 {
@@ -24,12 +25,6 @@ namespace Episodes
     void Episode_4();
     void Episode_5();
 
-    void Episode_1_task(void *pvParameters);
-    void Episode_2_task(void *pvParameters);
-    void Episode_3_task(void *pvParameters);
-    void Episode_4_task(void *pvParameters);
-    void Episode_5_task(void *pvParameters);
-
     // static void sugriwaTaskFight1(void *pvParameters);
     // // void sugriwaTaskFight2(void *pvParameters);
 
@@ -39,5 +34,6 @@ namespace Episodes
     // static void ramaTaskFight1(void *pvParameters);
 
 };
+
 
 #endif // EPISODES_H
