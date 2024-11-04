@@ -143,9 +143,9 @@ void beginingAllGPIOS()
     beginSensor9();
     beginSensor10();
     // beginAllSensors();
-    // setAllMOSFETtoLOW();
+    setAllMOSFETtoLOW();
     // setAllXSHUTtoHIGH();
-    setAllMOSFETtoHIGH();
+    // setAllMOSFETtoHIGH();
 }
 
 void setAllXSHUTtoHIGH()
@@ -281,12 +281,14 @@ void WayangDisplay::generalLoop()
         break;
 
     case StateManagement::FSA_STATE::CALIBRATING_ALL_NEMA:
+        // setAllMOSFETtoHIGH();
         CalibratingFunction::vSlotLinear();
         loop_state = StateManagement::FSA_STATE::DEFAULT_LOOPING_LCD;
         delay(1);
         break;
 
     case StateManagement::FSA_STATE::EXIT_VSLOT_FARM:
+        setAllMOSFETtoHIGH();
         WayangDisplayLCD_in_main.pleaseWaitDisplay();
         wayangRahwana.defaultStandPosition();
         pageRoute = StateManagement::PAGE_ROUTE::CALIBRATE_PAGE;
@@ -296,6 +298,7 @@ void WayangDisplay::generalLoop()
         break;
 
     case StateManagement::FSA_STATE::VSLOT_100_MM:
+        setAllMOSFETtoHIGH();
         WayangDisplayLCD_in_main.pleaseWaitDisplay();
         wayangRahwana.defaultStandPosition();
         wayangRahwana.walk_to_a_certain_distance_before_calibrating_value(100); // move 100 mm
@@ -304,6 +307,7 @@ void WayangDisplay::generalLoop()
         break;
 
     case StateManagement::FSA_STATE::VSLOT_200_MM:
+        setAllMOSFETtoHIGH();
         WayangDisplayLCD_in_main.pleaseWaitDisplay();
         wayangRahwana.defaultStandPosition();
         wayangRahwana.walk_to_a_certain_distance_before_calibrating_value(200); // move 200 mm
@@ -312,6 +316,7 @@ void WayangDisplay::generalLoop()
         break;
 
     case StateManagement::FSA_STATE::VSLOT_300_MM:
+        setAllMOSFETtoHIGH();
         WayangDisplayLCD_in_main.pleaseWaitDisplay();
         wayangRahwana.defaultStandPosition();
         wayangRahwana.walk_to_a_certain_distance_before_calibrating_value(300); // move 300 mm
@@ -320,6 +325,7 @@ void WayangDisplay::generalLoop()
         break;
 
     case StateManagement::FSA_STATE::VSLOT_400_MM:
+        setAllMOSFETtoHIGH();
         WayangDisplayLCD_in_main.pleaseWaitDisplay();
         wayangRahwana.defaultStandPosition();
         wayangRahwana.walk_to_a_certain_distance_before_calibrating_value(400); // move 400 mm
@@ -342,6 +348,7 @@ void WayangDisplay::generalLoop()
         break;
 
     case StateManagement::FSA_STATE::SENSOR_CHECK:
+        setAllMOSFETtoHIGH();
         WayangDisplayLCD_in_main.pleaseWaitDisplay();
         WayangDisplayLCD_in_main.setSensorValueData();
         pageRoute = StateManagement::PAGE_ROUTE::SENSOR_STATUS_PAGE;
@@ -397,6 +404,7 @@ void WayangDisplay::generalLoop()
         break;
 
     case StateManagement::FSA_STATE::SIMPLE_WAYANG_HAND_CALIBRATION:
+        setAllMOSFETtoHIGH();
         CalibratingFunction::wayangHand();
         SoundSystem::playDialogFromACertainFolder(SoundSystem::INDICATOR_SOUND, SoundSystem::INDICATOR_SOUND_NUMBER::INDICATOR_WAYANG_HAND_CALIBRATION);
         delay(3500);
@@ -2157,7 +2165,7 @@ void WayangDisplayController::spinRotaryEncoder()
         break;
 
     case StateManagement::PAGE_ROUTE::EPISODE_PAGE:
-        if (millis() - last_run > displayLoopDelay / 10)
+        if (millis() - last_run > displayLoopDelay / 50)
         {
             if (digitalRead(OUTPUT_B) == HIGH)
             {
