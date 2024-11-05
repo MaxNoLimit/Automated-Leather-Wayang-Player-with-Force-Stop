@@ -33,10 +33,10 @@ Anila wayangAnila;
 int lcd_2040_address;
 WayangDisplay::WayangDisplayLCD WayangDisplayLCD_in_main(0x27);
 unsigned long last_run = 0;
-int loop_state = 0;
+unsigned int loop_state = 0;
 
-int pageRoute = 0;
-int subPageRoute = 0;
+unsigned int pageRoute = 0;
+unsigned int subPageRoute = 0;
 const unsigned int displayLoopDelay PROGMEM = 500;
 
 /*
@@ -132,16 +132,22 @@ void beginingAllGPIOS()
     // Serial.print(getDistanceSensor1_v2());
     // Serial.print(" mm\n");
 
-    beginSensor1();
-    beginSensor2();
-    beginSensor3();
-    beginSensor4();
-    beginSensor5();
-    beginSensor6();
-    beginSensor7();
-    beginSensor8();
-    beginSensor9();
-    beginSensor10();
+    // beginSensor1();
+    // beginSensor2();
+    // beginSensor3();
+    // beginSensor4();
+    // beginSensor5();
+    // beginSensor6();
+    // beginSensor7();
+    // beginSensor8();
+    // beginSensor9();
+    // beginSensor10();
+    for (int i = 0; i < 10; i++)
+    {
+        beginSensorNum(i + 1);
+    }
+    
+
     // beginAllSensors();
     setAllMOSFETtoLOW();
     // setAllXSHUTtoHIGH();

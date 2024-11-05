@@ -34,7 +34,7 @@ void Anila::leave_from_scene(int distanceValue)
 void Anila::walk_to_a_certain_distance(int desiredDistance)
 {
 
-    int readValue = getDistanceSensor10();
+    int readValue = getDistanceSensorNum(10);
     if (readValue > 1000)
     {
         readValue = 800;
@@ -55,7 +55,7 @@ void Anila::walk_to_a_certain_distance(int desiredDistance)
         Serial.println(" steps\n");
         leave_from_scene(result_int);
         Serial.println("readValue 2: ");
-        int finalReadValue = getDistanceSensor10();
+        int finalReadValue = getDistanceSensorNum(10);;
         Serial.print(finalReadValue);
         Serial.println("mm \n");
         if (finalReadValue > desiredDistance * 1.1)
@@ -73,7 +73,7 @@ void Anila::walk_to_a_certain_distance(int desiredDistance)
         result_int = abs(result_int);
         walk_to_scene(result_int);
         Serial.println("readValue 2: ");
-        int finalReadValue = getDistanceSensor10();
+        int finalReadValue = getDistanceSensorNum(10);;
         Serial.print(finalReadValue);
         Serial.println("mm \n");
         if (finalReadValue < desiredDistance * 0.9)

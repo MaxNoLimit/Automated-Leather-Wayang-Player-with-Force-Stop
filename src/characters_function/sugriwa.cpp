@@ -40,7 +40,7 @@ void Sugriwa::walk_to_scene(int distanceValue)
 void Sugriwa::walk_to_a_certain_distance(int desiredDistance)
 {
 
-    int readValue = getDistanceSensor6();
+    int readValue = getDistanceSensorNum(6);
     if (readValue > 1000)
     {
         readValue = 800;
@@ -61,7 +61,7 @@ void Sugriwa::walk_to_a_certain_distance(int desiredDistance)
         Serial.println(" steps\n");
         leave_from_scene(result_int);
         Serial.println("readValue 2: ");
-        int finalReadValue = getDistanceSensor6();
+        int finalReadValue = getDistanceSensorNum(6);
         Serial.print(finalReadValue);
         Serial.println("mm \n");
         if (finalReadValue > desiredDistance * 1.1)
@@ -79,7 +79,7 @@ void Sugriwa::walk_to_a_certain_distance(int desiredDistance)
         result_int = abs(result_int);
         walk_to_scene(result_int);
         Serial.println("readValue 2: ");
-        int finalReadValue = getDistanceSensor6();
+        int finalReadValue = getDistanceSensorNum(6);
         Serial.print(finalReadValue);
         Serial.println("mm \n");
         if (finalReadValue < desiredDistance * 0.9)

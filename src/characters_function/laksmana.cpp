@@ -33,7 +33,7 @@ void Laksmana::walk_to_a_certain_distance(int desiredDistance)
 {
 
 
-    int readValue = getDistanceSensor5();
+    int readValue = getDistanceSensorNum(5);
     if (readValue > 1000)
     {
         readValue = 800;
@@ -54,7 +54,7 @@ void Laksmana::walk_to_a_certain_distance(int desiredDistance)
         Serial.println(" steps\n");
         leave_from_scene(result_int);
         Serial.println("readValue 2: ");
-        int finalReadValue = getDistanceSensor5();
+        int finalReadValue = getDistanceSensorNum(5);
         Serial.print(finalReadValue);
         Serial.println("mm \n");
         if (finalReadValue > desiredDistance * 1.1)
@@ -73,7 +73,7 @@ void Laksmana::walk_to_a_certain_distance(int desiredDistance)
         result_int = abs(result_int);
         walk_to_scene(result_int);
         Serial.println("readValue 2: ");
-        int finalReadValue = getDistanceSensor5();
+        int finalReadValue = getDistanceSensorNum(5);
         Serial.print(finalReadValue);
         Serial.println("mm \n");
         if (finalReadValue < desiredDistance * 0.9)

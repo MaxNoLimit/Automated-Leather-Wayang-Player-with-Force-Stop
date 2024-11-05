@@ -4,14 +4,15 @@
 #include "mainfunctions.hpp"
 
 // For Menu Display
-const String menuList[4] = {
+const char * menuList[4] = {
     "Menu",
     "Play episode",
     "Calibrate",
     "Settings"};
 
+
 // For Episode Display
-const String episodeList[5] = {
+const char * episodeList[5] = {
     "Episode 1",
     "Episode 2",
     "Episode 3",
@@ -19,14 +20,14 @@ const String episodeList[5] = {
     "Episode 5"};
 
 // For Calibrate Display
-const String calibratingList[4] = {
+const char * calibratingList[4] = {
     "V-Slot Linear",
     "Mp3 Player",
     "Wayang's Hand",
     "Sensor Data"};
 
 // For Wayang Hand Calibration Display
-const String calibratingWayangCharacterList[11] = {
+const char * calibratingWayangCharacterList[11] = {
     "s1mple Calibration",
     "Wayang Sita",
     "Wayang Rahwana",
@@ -40,7 +41,7 @@ const String calibratingWayangCharacterList[11] = {
     "Wayang Anila"};
 
 // For Sensor Data Display
-const String calibratingSensorList[10] = {
+const char * calibratingSensorList[10] = {
     "Sensor 1:    ",
     "Sensor 2:    ",
     "Sensor 3:    ",
@@ -53,7 +54,7 @@ const String calibratingSensorList[10] = {
     "Sensor 10:   "};
 
 // Hand Movement Option
-const String handMovementList[10] = {
+const char * handMovementList[10] = {
     "Point to Front",
     "Low Point to Front",
     "Middle Front",
@@ -66,7 +67,7 @@ const String handMovementList[10] = {
     "Middle Back"};
 
 // V-Slot Data Farming
-const String vSlotFarmOption[4] = {
+const char * vSlotFarmOption[4] = {
     "Move 100 mm",
     "Move 200 mm",
     "Move 300 mm",
@@ -493,14 +494,8 @@ void WayangDisplay::WayangDisplayLCD::disableLCD()
 
 void WayangDisplay::WayangDisplayLCD::setSensorValueData()
 {
-    sensorValueData[0] = getDistanceSensor1();
-    sensorValueData[1] = getDistanceSensor2();
-    sensorValueData[2] = getDistanceSensor3();
-    sensorValueData[3] = getDistanceSensor4();
-    sensorValueData[4] = getDistanceSensor5();
-    sensorValueData[5] = getDistanceSensor6();
-    sensorValueData[6] = getDistanceSensor7();
-    sensorValueData[7] = getDistanceSensor8();
-    sensorValueData[8] = getDistanceSensor9();
-    sensorValueData[9] = getDistanceSensor10();
+    for (int i = 0; i < 10; i++)
+    {
+        sensorValueData[i] = getDistanceSensorNum(i + 1);
+    }
 }
