@@ -11,6 +11,8 @@
 #include "characters/sugriwa.hpp"
 #include "characters/wibhisana.hpp"
 
+int currentEpisode = 0;
+
 Hanoman hanoman;
 RamaWijaya rama_wijaya;
 Sita sita;
@@ -23,11 +25,11 @@ Wibhisana wibhisana;
 // TaskHandle_t taskSugriwa;
 // TaskHandle_t taskSubali;
 
-TaskHandle_t episode1Handler;
-TaskHandle_t episode2Handler;
-TaskHandle_t episode3Handler;
-TaskHandle_t episode4Handler;
-TaskHandle_t episode5Handler;
+TaskHandle_t episode1TaskHandler;
+TaskHandle_t episode2TaskHandler;
+TaskHandle_t episode3TaskHandler;
+TaskHandle_t episode4TaskHandler;
+TaskHandle_t episode5TaskHandler;
 
 // Execution function for pameran tanggal 2 Mei 2024 di ruang MIS depan
 // void Episodes::Mei2nd_Episode()
@@ -143,7 +145,7 @@ static void subaliTaskFight1(void *pvParameters)
         subali.pointToFront();       // takes 900 ms
         // deleting subaliTaskFight1 task
         // Serial.println("subaliTaskFight1 stack: " + String(uxTaskGetStackHighWaterMark(NULL)));
-        vTaskResume(mainLoopTaskHandler);
+        vTaskResume(episode1TaskHandler);
         vTaskDelete(NULL);
     }
 }
@@ -174,7 +176,7 @@ static void ramaTaskFight1(void *pvParameters)
         rama_wijaya.pointToFront();       // takes 700 ms
         // deleting ramaTaskFight1 task
         // Serial.println("ramaTaskFight1 stack: " + String(uxTaskGetStackHighWaterMark(NULL)));
-        vTaskResume(mainLoopTaskHandler);
+        vTaskResume(episode1TaskHandler);
         vTaskDelete(NULL);
     }
 }
@@ -550,84 +552,6 @@ static void ramaTaskFight1(void *pvParameters)
 //     SoundSystem::playDialogFromACertainFolder(SoundSystem::INDICATOR_SOUND, SoundSystem::INDICATOR_SOUND_NUMBER::INDICATOR_FINISHED_SHOWING);
 //     delay(2000);
 // }
-
-// Function untuk testing lengan Hanuman
-// void Episodes::Testing_Hanuman()
-// {
-//     hanoman.talking(20);
-//     // hanoman.all_high();
-// }
-
-// // Function untuk testing lengan Rama Wijaya
-// void Episodes::Testing_Rama()
-// {
-//     rama_wijaya.talking(20);
-//     // rama_wijaya.all_high();
-// }
-
-/*
-Function untuk begin hanoman dan rama wijaya dari yang passing parameter berupa rpm speed dari stepper lengan
-serta begining nema17 untuk pergerakan horizontal
-*/
-// void Episodes::manual_begin()
-// {
-// }
-
-// /*
-// Function untuk testing pergerakan horizontal dari hanoman
-// */
-// void Episodes::testing_hanuman_horizontal_movement()
-// {
-//     hanoman.walk_to_scene();
-//     delay(5);
-//     hanoman.leave_from_scene();
-//     delay(5);
-// }
-
-/*
-Function untuk testing pergerakan horizontal dari rama wijaya
-*/
-void Episodes::testing_rama_wijaya_horizontal_movement()
-{
-    rama_wijaya.walk_to_scene(1000);
-    delay(5);
-    rama_wijaya.leave_from_scene(1000);
-    delay(5);
-}
-
-/*
-Function untuk testing pergerakan horizontal dari sita
-*/
-
-void Episodes::testing_sita_horizontal_movement()
-{
-    sita.walk_to_scene(1000);
-    delay(5);
-    sita.leave_from_scene(1000);
-    delay(5);
-}
-
-void Episodes::testing_rahwana_horizontal_movement()
-{
-    rahwana.walk_to_scene(1000);
-    delay(5);
-    rahwana.leave_from_scene(1000);
-    delay(5);
-}
-
-void Episodes::randomTesting()
-{
-    setAllMOSFETtoLOW();
-    rahwana.walk_to_a_certain_distance_before_calibrating_value(200); // going to the dialog position
-    delay(2500);
-
-    // SoundSystem::playDialogFromACertainFolder(SoundSystem::EPISODE_NUMBER::EPISODE_2, 1);
-    // rahwana.rahwana_120_bpm_deathstream();
-
-    SoundSystem::playDialogFromACertainFolder(SoundSystem::EPISODE_NUMBER::EPISODE_1, SoundSystem::SPECIAL_EPISODE_29_JULY::SITA_RAHWANA__RAHWANA_DIALOG_1);
-    // rahwana.Rahwana_1();
-    setAllMOSFETtoHIGH();
-}
 
 void Episodes::Episode_1()
 {
@@ -1929,7 +1853,7 @@ void Episodes::Episode_2()
 
     // vTaskStartScheduler();
 
-    vTaskSuspend(mainLoopTaskHandler);
+    vTaskSuspend(episode2TaskHandler);
     // sugriwa.pointToFront();       // takes 900 ms
     // subali.pointToFront();        // takes 900 ms
     // sugriwa.lower_pointToFront(); // takes 700 ms
@@ -2164,7 +2088,7 @@ void Episodes::Episode_2()
     xTaskCreate(sugriwaTaskFight1, "sugriwaTaskFight1", fighting_STACK_SIZE, NULL, 1, NULL);
     xTaskCreate(subaliTaskFight1, "subaliTaskFight1", fighting_STACK_SIZE, NULL, 1, NULL);
 
-    vTaskSuspend(mainLoopTaskHandler);
+    vTaskSuspend(episode2TaskHandler);
 
     // sugriwa.pointToFront();       // takes 900 ms
     // subali.pointToFront();        // takes 900 ms
@@ -2188,7 +2112,7 @@ void Episodes::Episode_2()
     xTaskCreate(subaliTaskFight2, "subaliTaskFight2", fighting_STACK_SIZE, NULL, 1, NULL);
     xTaskCreate(ramaTaskFight1, "ramaTaskFight1", fighting_STACK_SIZE, NULL, 1, NULL);
 
-    vTaskSuspend(mainLoopTaskHandler);
+    vTaskSuspend(episode2TaskHandler);
     // rama_wijaya.pointToFront();       // takes 900 ms
     // subali.pointToFront();            // takes 900 ms
     // rama_wijaya.lower_pointToFront(); // takes 700 ms
@@ -5036,4 +4960,112 @@ void Episodes::Episode_4()
 
 void Episodes::Episode_5()
 {
+}
+
+void Episodes::Episode_1_task(void *pvParameters)
+{
+    attachInterrupt(digitalPinToInterrupt(BUTTON_ROTARY), Episodes::forceQuit, RISING);
+    currentEpisode = 1;
+    Serial.print(F("Current Episode: "));
+    Serial.println(currentEpisode);
+    while (1)
+    {
+        Episode_1();
+        vTaskResume(mainLoopTaskHandler);
+        vTaskDelete(NULL);
+    }
+}
+
+void Episodes::Episode_2_task(void *pvParameters)
+{
+    attachInterrupt(digitalPinToInterrupt(BUTTON_ROTARY), Episodes::forceQuit, RISING);
+    currentEpisode = 2;
+    Serial.print(F("Current Episode: "));
+    Serial.println(currentEpisode);
+    while (1)
+    {
+        Episode_2();
+        vTaskResume(mainLoopTaskHandler);
+        vTaskDelete(NULL);
+    }
+}
+
+void Episodes::Episode_3_task(void *pvParameters)
+{
+    attachInterrupt(digitalPinToInterrupt(BUTTON_ROTARY), Episodes::forceQuit, RISING);
+    currentEpisode = 3;
+    Serial.print(F("Current Episode: "));
+    Serial.println(currentEpisode);
+    while (1)
+    {
+        Episode_3();
+        vTaskResume(mainLoopTaskHandler);
+        vTaskDelete(NULL);
+    }
+}
+
+void Episodes::Episode_4_task(void *pvParameters)
+{
+    attachInterrupt(digitalPinToInterrupt(BUTTON_ROTARY), Episodes::forceQuit, RISING);
+    currentEpisode = 4;
+    Serial.print(F("Current Episode: "));
+    Serial.println(currentEpisode);
+    while (1)
+    {
+        Episode_4();
+        vTaskResume(mainLoopTaskHandler);
+        vTaskDelete(NULL);
+    }
+}
+
+void Episodes::Episode_5_task(void *pvParameters)
+{
+    attachInterrupt(digitalPinToInterrupt(BUTTON_ROTARY), Episodes::forceQuit, RISING);
+    currentEpisode = 5;
+    Serial.print(F("Current Episode: "));
+    Serial.println(currentEpisode);
+    while (1)
+    {
+        Episode_5();
+        vTaskResume(mainLoopTaskHandler);
+        vTaskDelete(NULL);
+    }
+}
+
+void Episodes::forceQuit()
+{
+    Serial.print(F("Force Quit Episode "));
+    Serial.println(currentEpisode);
+    SoundSystem::pause();
+    switch (currentEpisode)
+    {
+    case 1:
+        vTaskResume(mainLoopTaskHandler);
+        vTaskDelete(episode1TaskHandler);
+        break;
+
+    case 2:
+
+        vTaskResume(mainLoopTaskHandler);
+        vTaskDelete(episode2TaskHandler);
+        break;
+
+    case 3:
+        vTaskResume(mainLoopTaskHandler);
+        vTaskDelete(episode3TaskHandler);
+        break;
+
+    case 4:
+        vTaskResume(mainLoopTaskHandler);
+        vTaskDelete(episode4TaskHandler);
+        break;
+
+    case 5:
+        vTaskResume(mainLoopTaskHandler);
+        vTaskDelete(episode5TaskHandler);
+        break;
+
+    default:
+        break;
+    }
 }

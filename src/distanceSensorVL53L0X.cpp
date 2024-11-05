@@ -36,7 +36,7 @@ const int xshut_pis[10] = {
 void beginSensorNum(int nSensor)
 {
     Serial.print(F("\nBegining sensor "));
-    Serial.print(nSensor);
+    Serial.println(nSensor);
     digitalWrite(xshut_pis[nSensor - 1], HIGH);
     delay(100);
     distanceSensor[nSensor - 1].setAddress(0x29 + nSensor);
@@ -44,7 +44,8 @@ void beginSensorNum(int nSensor)
 
     if (!distanceSensor[nSensor - 1].init())
     {
-        Serial.println("Failed to boot VL53L0X Sensor " + String(nSensor));
+        Serial.print(F("Failed to boot VL53L0X Sensor "));
+        Serial.println(nSensor);
         digitalWrite(xshut_pis[nSensor - 1], LOW);
     }
     else

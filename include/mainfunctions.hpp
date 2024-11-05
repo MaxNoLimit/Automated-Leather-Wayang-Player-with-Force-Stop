@@ -6,7 +6,6 @@
 void beginingAllGPIOS();
 void setAllMOSFETtoHIGH();
 void setAllMOSFETtoLOW();
-void setAllXSHUTtoHIGH();
 namespace WayangDisplay
 {
     void lcd2004setupIntro();
@@ -73,5 +72,6 @@ private:
 
 
 int getSubPageRoute();
+void setAllENtoHIGH();
 
 #endif // MAINFUNCTIONS_H

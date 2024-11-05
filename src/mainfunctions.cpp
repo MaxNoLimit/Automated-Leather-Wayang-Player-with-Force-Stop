@@ -86,16 +86,7 @@ void beginingAllGPIOS()
     pinMode(EN_NEMA_9, OUTPUT);
     pinMode(EN_NEMA_10, OUTPUT);
 
-    digitalWrite(EN_NEMA_1, HIGH);
-    digitalWrite(EN_NEMA_2, HIGH);
-    digitalWrite(EN_NEMA_3, HIGH);
-    digitalWrite(EN_NEMA_4, HIGH);
-    digitalWrite(EN_NEMA_5, HIGH);
-    digitalWrite(EN_NEMA_6, HIGH);
-    digitalWrite(EN_NEMA_7, HIGH);
-    digitalWrite(EN_NEMA_8, HIGH);
-    digitalWrite(EN_NEMA_9, HIGH);
-    digitalWrite(EN_NEMA_10, HIGH);
+    setAllENtoHIGH();
 
     // MOSFET FOR SWITCHING WHICH WAYANG WILL BE MOVED
     pinMode(WAYANG_HAND_1, OUTPUT);
@@ -127,42 +118,12 @@ void beginingAllGPIOS()
     Wire.setWireTimeout(5000, true);
     SoundSystem::justInitTheSoundSystem();
 
-    // beginAllinOneSensor();
-    // setAllMOSFETtoLOW();
-    // Serial.print(getDistanceSensor1_v2());
-    // Serial.print(" mm\n");
-
-    // beginSensor1();
-    // beginSensor2();
-    // beginSensor3();
-    // beginSensor4();
-    // beginSensor5();
-    // beginSensor6();
-    // beginSensor7();
-    // beginSensor8();
-    // beginSensor9();
-    // beginSensor10();
     for (int i = 0; i < 10; i++)
     {
         beginSensorNum(i + 1);
     }
-    
 
-    // beginAllSensors();
     setAllMOSFETtoLOW();
-    // setAllXSHUTtoHIGH();
-    // setAllMOSFETtoHIGH();
-}
-
-void setAllXSHUTtoHIGH()
-{
-    digitalWrite(XSHUT_1, HIGH);
-    digitalWrite(XSHUT_2, HIGH);
-    digitalWrite(XSHUT_3, HIGH);
-    digitalWrite(XSHUT_4, HIGH);
-    digitalWrite(XSHUT_5, HIGH);
-    digitalWrite(XSHUT_6, HIGH);
-    // digitalWrite(XSHUT_7, HIGH);
 }
 
 /*
@@ -282,6 +243,7 @@ void WayangDisplay::generalLoop()
     switch (loop_state)
     {
     case StateManagement::FSA_STATE::DEFAULT_LOOPING_LCD:
+        setAllENtoHIGH();
         lcd2004loop();
         delay(0);
         break;
@@ -367,7 +329,18 @@ void WayangDisplay::generalLoop()
     case StateManagement::FSA_STATE::PLAY_EPISODE_1:
         WayangDisplayLCD_in_main.playingWhatEpisodeDisplay(1);
         WayangDisplayLCD_in_main.disableLCD();
-        Episodes::Episode_1();
+        // Episodes::Episode_1();
+        xTaskCreate(
+            Episodes::Episode_1_task,
+            "Episode_1_task",
+            1024 * 2,
+            NULL,
+            1,
+            &episode1TaskHandler);
+        vTaskSuspend(mainLoopTaskHandler);
+        attachInterrupt(digitalPinToInterrupt(BUTTON_ROTARY), WayangDisplayController::pressRotaryEncoder, RISING);
+        Serial.println(F("Back to main loop"));
+        vTaskDelay(100 / portTICK_PERIOD_MS);
         WayangDisplayLCD_in_main.enableLCD();
         loop_state = StateManagement::FSA_STATE::DEFAULT_LOOPING_LCD;
         delay(1);
@@ -376,7 +349,18 @@ void WayangDisplay::generalLoop()
     case StateManagement::FSA_STATE::PLAY_EPISODE_2:
         WayangDisplayLCD_in_main.playingWhatEpisodeDisplay(2);
         WayangDisplayLCD_in_main.disableLCD();
-        Episodes::Episode_2();
+        // Episodes::Episode_2();
+        xTaskCreate(
+            Episodes::Episode_2_task,
+            "Episode_2_task",
+            1024 * 2,
+            NULL,
+            1,
+            &episode2TaskHandler);
+        vTaskSuspend(mainLoopTaskHandler);
+        attachInterrupt(digitalPinToInterrupt(BUTTON_ROTARY), WayangDisplayController::pressRotaryEncoder, RISING);
+        Serial.println(F("Back to main loop"));
+        vTaskDelay(100 / portTICK_PERIOD_MS);
         WayangDisplayLCD_in_main.enableLCD();
         loop_state = StateManagement::FSA_STATE::DEFAULT_LOOPING_LCD;
         delay(1);
@@ -385,7 +369,18 @@ void WayangDisplay::generalLoop()
     case StateManagement::FSA_STATE::PLAY_EPISODE_3:
         WayangDisplayLCD_in_main.playingWhatEpisodeDisplay(3);
         WayangDisplayLCD_in_main.disableLCD();
-        Episodes::Episode_3();
+        // Episodes::Episode_3();
+        xTaskCreate(
+            Episodes::Episode_3_task,
+            "Episode_3_task",
+            1024 * 2,
+            NULL,
+            1,
+            &episode3TaskHandler);
+        vTaskSuspend(mainLoopTaskHandler);
+        attachInterrupt(digitalPinToInterrupt(BUTTON_ROTARY), WayangDisplayController::pressRotaryEncoder, RISING);
+        Serial.println(F("Back to main loop"));
+        vTaskDelay(100 / portTICK_PERIOD_MS);
         WayangDisplayLCD_in_main.enableLCD();
         loop_state = StateManagement::FSA_STATE::DEFAULT_LOOPING_LCD;
         delay(1);
@@ -394,7 +389,18 @@ void WayangDisplay::generalLoop()
     case StateManagement::FSA_STATE::PLAY_EPISODE_4:
         WayangDisplayLCD_in_main.playingWhatEpisodeDisplay(4);
         WayangDisplayLCD_in_main.disableLCD();
-        Episodes::Episode_4();
+        // Episodes::Episode_4();
+        xTaskCreate(
+            Episodes::Episode_4_task,
+            "Episode_4_task",
+            1024 * 2,
+            NULL,
+            1,
+            &episode4TaskHandler);
+        vTaskSuspend(mainLoopTaskHandler);
+        attachInterrupt(digitalPinToInterrupt(BUTTON_ROTARY), WayangDisplayController::pressRotaryEncoder, RISING);
+        Serial.println(F("Back to main loop"));
+        vTaskDelay(100 / portTICK_PERIOD_MS);
         WayangDisplayLCD_in_main.enableLCD();
         loop_state = StateManagement::FSA_STATE::DEFAULT_LOOPING_LCD;
         delay(1);
@@ -403,7 +409,18 @@ void WayangDisplay::generalLoop()
     case StateManagement::FSA_STATE::PLAY_EPISODE_5:
         WayangDisplayLCD_in_main.playingWhatEpisodeDisplay(5);
         WayangDisplayLCD_in_main.disableLCD();
-        Episodes::Episode_5();
+        // Episodes::Episode_5();
+        xTaskCreate(
+            Episodes::Episode_5_task,
+            "Episode_5_task",
+            1024 * 2,
+            NULL,
+            1,
+            &episode5TaskHandler);
+        vTaskSuspend(mainLoopTaskHandler);
+        attachInterrupt(digitalPinToInterrupt(BUTTON_ROTARY), WayangDisplayController::pressRotaryEncoder, RISING);
+        Serial.println(F("Back to main loop"));
+        vTaskDelay(100 / portTICK_PERIOD_MS);
         WayangDisplayLCD_in_main.enableLCD();
         loop_state = StateManagement::FSA_STATE::DEFAULT_LOOPING_LCD;
         delay(1);
@@ -3644,3 +3661,18 @@ int getSubPageRoute()
 {
     return subPageRoute;
 }
+
+void setAllENtoHIGH()
+{
+    digitalWrite(EN_NEMA_1, HIGH);
+    digitalWrite(EN_NEMA_2, HIGH);
+    digitalWrite(EN_NEMA_3, HIGH);
+    digitalWrite(EN_NEMA_4, HIGH);
+    digitalWrite(EN_NEMA_5, HIGH);
+    digitalWrite(EN_NEMA_6, HIGH);
+    digitalWrite(EN_NEMA_7, HIGH);
+    digitalWrite(EN_NEMA_8, HIGH);
+    digitalWrite(EN_NEMA_9, HIGH);
+    digitalWrite(EN_NEMA_10, HIGH);
+}
+
