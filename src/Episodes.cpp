@@ -25,11 +25,13 @@ Wibhisana wibhisana;
 // TaskHandle_t taskSugriwa;
 // TaskHandle_t taskSubali;
 
-TaskHandle_t episode1TaskHandler;
-TaskHandle_t episode2TaskHandler;
-TaskHandle_t episode3TaskHandler;
-TaskHandle_t episode4TaskHandler;
-TaskHandle_t episode5TaskHandler;
+TaskHandle_t episodeTaskHandler[5];
+
+// TaskHandle_t episode1TaskHandler;
+// TaskHandle_t episodeTaskHandler[1];
+// TaskHandle_t episode3TaskHandler;
+// TaskHandle_t episode4TaskHandler;
+// TaskHandle_t episode5TaskHandler;
 
 // Execution function for pameran tanggal 2 Mei 2024 di ruang MIS depan
 // void Episodes::Mei2nd_Episode()
@@ -145,7 +147,7 @@ static void subaliTaskFight1(void *pvParameters)
         subali.pointToFront();       // takes 900 ms
         // deleting subaliTaskFight1 task
         // Serial.println("subaliTaskFight1 stack: " + String(uxTaskGetStackHighWaterMark(NULL)));
-        vTaskResume(episode1TaskHandler);
+        vTaskResume(episodeTaskHandler[1]);
         vTaskDelete(NULL);
     }
 }
@@ -176,7 +178,7 @@ static void ramaTaskFight1(void *pvParameters)
         rama_wijaya.pointToFront();       // takes 700 ms
         // deleting ramaTaskFight1 task
         // Serial.println("ramaTaskFight1 stack: " + String(uxTaskGetStackHighWaterMark(NULL)));
-        vTaskResume(episode1TaskHandler);
+        vTaskResume(episodeTaskHandler[1]);
         vTaskDelete(NULL);
     }
 }
@@ -1853,7 +1855,7 @@ void Episodes::Episode_2()
 
     // vTaskStartScheduler();
 
-    vTaskSuspend(episode2TaskHandler);
+    vTaskSuspend(episodeTaskHandler[1]);
     // sugriwa.pointToFront();       // takes 900 ms
     // subali.pointToFront();        // takes 900 ms
     // sugriwa.lower_pointToFront(); // takes 700 ms
@@ -2085,10 +2087,13 @@ void Episodes::Episode_2()
     SoundSystem::playMusicWayang();
     subali.walk_to_a_certain_distance_before_calibrating_value(170);
 
+    Serial.print(F("Current stack size: "));
+    Serial.println(uxTaskGetStackHighWaterMark(NULL));
+
     xTaskCreate(sugriwaTaskFight1, "sugriwaTaskFight1", fighting_STACK_SIZE, NULL, 1, NULL);
     xTaskCreate(subaliTaskFight1, "subaliTaskFight1", fighting_STACK_SIZE, NULL, 1, NULL);
 
-    vTaskSuspend(episode2TaskHandler);
+    vTaskSuspend(episodeTaskHandler[1]);
 
     // sugriwa.pointToFront();       // takes 900 ms
     // subali.pointToFront();        // takes 900 ms
@@ -2109,10 +2114,13 @@ void Episodes::Episode_2()
     subali.walk_to_a_certain_distance_before_calibrating_value(225);
     rama_wijaya.walk_to_a_certain_distance_before_calibrating_value(225);
 
+    Serial.print(F("Current stack size: "));
+    Serial.println(uxTaskGetStackHighWaterMark(NULL));
+
     xTaskCreate(subaliTaskFight2, "subaliTaskFight2", fighting_STACK_SIZE, NULL, 1, NULL);
     xTaskCreate(ramaTaskFight1, "ramaTaskFight1", fighting_STACK_SIZE, NULL, 1, NULL);
 
-    vTaskSuspend(episode2TaskHandler);
+    vTaskSuspend(episodeTaskHandler[1]);
     // rama_wijaya.pointToFront();       // takes 900 ms
     // subali.pointToFront();            // takes 900 ms
     // rama_wijaya.lower_pointToFront(); // takes 700 ms
@@ -4964,10 +4972,10 @@ void Episodes::Episode_5()
 
 void Episodes::Episode_1_task(void *pvParameters)
 {
-    attachInterrupt(digitalPinToInterrupt(BUTTON_ROTARY), Episodes::forceQuit, RISING);
-    currentEpisode = 1;
-    Serial.print(F("Current Episode: "));
-    Serial.println(currentEpisode);
+    attachInterrupt(digitalPinToInterrupt(BUTTON_ROTARY), Episodes::forceQuit1, RISING);
+    // currentEpisode = 1;
+    // Serial.print(F("Current Episode: "));
+    // Serial.println(currentEpisode);
     while (1)
     {
         Episode_1();
@@ -4978,12 +4986,15 @@ void Episodes::Episode_1_task(void *pvParameters)
 
 void Episodes::Episode_2_task(void *pvParameters)
 {
-    attachInterrupt(digitalPinToInterrupt(BUTTON_ROTARY), Episodes::forceQuit, RISING);
-    currentEpisode = 2;
-    Serial.print(F("Current Episode: "));
-    Serial.println(currentEpisode);
+    Serial.print(F("Episode 2"));
+    // Serial.println(uxTaskGetStackHighWaterMark(NULL));
+    attachInterrupt(digitalPinToInterrupt(BUTTON_ROTARY), Episodes::forceQuit2, RISING);
+    // currentEpisode = 2;
+    // Serial.print(F("Current Episode: "));
+    // Serial.println(currentEpisode);
     while (1)
     {
+        Serial.println(", stack left: " + String(uxTaskGetStackHighWaterMark(NULL)));
         Episode_2();
         vTaskResume(mainLoopTaskHandler);
         vTaskDelete(NULL);
@@ -4992,10 +5003,10 @@ void Episodes::Episode_2_task(void *pvParameters)
 
 void Episodes::Episode_3_task(void *pvParameters)
 {
-    attachInterrupt(digitalPinToInterrupt(BUTTON_ROTARY), Episodes::forceQuit, RISING);
-    currentEpisode = 3;
-    Serial.print(F("Current Episode: "));
-    Serial.println(currentEpisode);
+    attachInterrupt(digitalPinToInterrupt(BUTTON_ROTARY), Episodes::forceQuit3, RISING);
+    // currentEpisode = 3;
+    // Serial.print(F("Current Episode: "));
+    // Serial.println(currentEpisode);
     while (1)
     {
         Episode_3();
@@ -5006,10 +5017,10 @@ void Episodes::Episode_3_task(void *pvParameters)
 
 void Episodes::Episode_4_task(void *pvParameters)
 {
-    attachInterrupt(digitalPinToInterrupt(BUTTON_ROTARY), Episodes::forceQuit, RISING);
-    currentEpisode = 4;
-    Serial.print(F("Current Episode: "));
-    Serial.println(currentEpisode);
+    attachInterrupt(digitalPinToInterrupt(BUTTON_ROTARY), Episodes::forceQuit4, RISING);
+    // currentEpisode = 4;
+    // Serial.print(F("Current Episode: "));
+    // Serial.println(currentEpisode);
     while (1)
     {
         Episode_4();
@@ -5020,10 +5031,10 @@ void Episodes::Episode_4_task(void *pvParameters)
 
 void Episodes::Episode_5_task(void *pvParameters)
 {
-    attachInterrupt(digitalPinToInterrupt(BUTTON_ROTARY), Episodes::forceQuit, RISING);
-    currentEpisode = 5;
-    Serial.print(F("Current Episode: "));
-    Serial.println(currentEpisode);
+    attachInterrupt(digitalPinToInterrupt(BUTTON_ROTARY), Episodes::forceQuit5, RISING);
+    // currentEpisode = 5;
+    // Serial.print(F("Current Episode: "));
+    // Serial.println(currentEpisode);
     while (1)
     {
         Episode_5();
@@ -5032,40 +5043,94 @@ void Episodes::Episode_5_task(void *pvParameters)
     }
 }
 
-void Episodes::forceQuit()
+// void Episodes::forceQuit()
+// {
+//     Serial.print(F("Force Quit Episode "));
+//     Serial.println(currentEpisode);
+//     SoundSystem::pause();
+//     switch (currentEpisode)
+//     {
+//     case 1:
+//         vTaskSuspend(episodeTaskHandler[0]);
+//         vTaskResume(mainLoopTaskHandler);
+//         vTaskDelete(episodeTaskHandler[0]);
+//         break;
+
+//     case 2:
+//         vTaskSuspend(episodeTaskHandler[1]);
+//         vTaskDelete(episodeTaskHandler[1]);
+//         vTaskResume(mainLoopTaskHandler);
+//         break;
+
+//     case 3:
+//         vTaskSuspend(episodeTaskHandler[2]);
+//         vTaskResume(mainLoopTaskHandler);
+//         vTaskDelete(episodeTaskHandler[2]);
+//         break;
+
+//     case 4:
+//         vTaskSuspend(episodeTaskHandler[3]);
+//         vTaskResume(mainLoopTaskHandler);
+//         vTaskDelete(episodeTaskHandler[3]);
+//         break;
+
+//     case 5:
+//         vTaskSuspend(episodeTaskHandler[4]);
+//         vTaskResume(mainLoopTaskHandler);
+//         vTaskDelete(episodeTaskHandler[4]);
+//         break;
+
+//     default:
+//         break;
+//     }
+//     attachInterrupt(digitalPinToInterrupt(BUTTON_ROTARY), WayangDisplayController::pressRotaryEncoder, RISING);
+// }
+
+void Episodes::forceQuit1()
 {
-    Serial.print(F("Force Quit Episode "));
-    Serial.println(currentEpisode);
     SoundSystem::pause();
-    switch (currentEpisode)
-    {
-    case 1:
-        vTaskResume(mainLoopTaskHandler);
-        vTaskDelete(episode1TaskHandler);
-        break;
+    Serial.println(F("Resuming main loop!"));
+    vTaskResume(mainLoopTaskHandler);
+    attachInterrupt(digitalPinToInterrupt(BUTTON_ROTARY), WayangDisplayController::pressRotaryEncoder, RISING);
+    vTaskSuspend(episodeTaskHandler[0]);
+    vTaskDelete(episodeTaskHandler[0]);
+}
 
-    case 2:
+void Episodes::forceQuit2()
+{
+    Serial.print(F("Current stack left: "));
+    Serial.println(uxTaskGetStackHighWaterMark(episodeTaskHandler[1]));
+    SoundSystem::pause();
+    Serial.println(F("Resuming main loop!"));
+    vTaskResume(mainLoopTaskHandler);
+    attachInterrupt(digitalPinToInterrupt(BUTTON_ROTARY), WayangDisplayController::pressRotaryEncoder, RISING);
+    vTaskSuspend(episodeTaskHandler[1]);
+    vTaskDelete(episodeTaskHandler[1]);
+}
 
-        vTaskResume(mainLoopTaskHandler);
-        vTaskDelete(episode2TaskHandler);
-        break;
+void Episodes::forceQuit3()
+{
+    SoundSystem::pause();
+    vTaskSuspend(episodeTaskHandler[2]);
+    vTaskDelete(episodeTaskHandler[2]);
+    vTaskResume(mainLoopTaskHandler);
+    attachInterrupt(digitalPinToInterrupt(BUTTON_ROTARY), WayangDisplayController::pressRotaryEncoder, RISING);
+}
 
-    case 3:
-        vTaskResume(mainLoopTaskHandler);
-        vTaskDelete(episode3TaskHandler);
-        break;
+void Episodes::forceQuit4()
+{
+    SoundSystem::pause();
+    vTaskSuspend(episodeTaskHandler[3]);
+    vTaskDelete(episodeTaskHandler[3]);
+    vTaskResume(mainLoopTaskHandler);
+    attachInterrupt(digitalPinToInterrupt(BUTTON_ROTARY), WayangDisplayController::pressRotaryEncoder, RISING);
+}
 
-    case 4:
-        vTaskResume(mainLoopTaskHandler);
-        vTaskDelete(episode4TaskHandler);
-        break;
-
-    case 5:
-        vTaskResume(mainLoopTaskHandler);
-        vTaskDelete(episode5TaskHandler);
-        break;
-
-    default:
-        break;
-    }
+void Episodes::forceQuit5()
+{
+    SoundSystem::pause();
+    vTaskSuspend(episodeTaskHandler[4]);
+    vTaskDelete(episodeTaskHandler[4]);
+    vTaskResume(mainLoopTaskHandler);
+    attachInterrupt(digitalPinToInterrupt(BUTTON_ROTARY), WayangDisplayController::pressRotaryEncoder, RISING);
 }

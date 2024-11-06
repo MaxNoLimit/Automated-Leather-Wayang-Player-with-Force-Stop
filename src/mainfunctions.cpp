@@ -333,12 +333,12 @@ void WayangDisplay::generalLoop()
         xTaskCreate(
             Episodes::Episode_1_task,
             "Episode_1_task",
-            1024 * 2,
+            1024,
             NULL,
             1,
-            &episode1TaskHandler);
+            &episodeTaskHandler[0]);
         vTaskSuspend(mainLoopTaskHandler);
-        attachInterrupt(digitalPinToInterrupt(BUTTON_ROTARY), WayangDisplayController::pressRotaryEncoder, RISING);
+        // attachInterrupt(digitalPinToInterrupt(BUTTON_ROTARY), WayangDisplayController::pressRotaryEncoder, RISING);
         Serial.println(F("Back to main loop"));
         vTaskDelay(100 / portTICK_PERIOD_MS);
         WayangDisplayLCD_in_main.enableLCD();
@@ -350,15 +350,17 @@ void WayangDisplay::generalLoop()
         WayangDisplayLCD_in_main.playingWhatEpisodeDisplay(2);
         WayangDisplayLCD_in_main.disableLCD();
         // Episodes::Episode_2();
+        Serial.print(F("Main Loop current stack left: "));
+        Serial.println(uxTaskGetStackHighWaterMark(NULL));
         xTaskCreate(
             Episodes::Episode_2_task,
             "Episode_2_task",
-            1024 * 2,
+            1024,
             NULL,
             1,
-            &episode2TaskHandler);
+            &episodeTaskHandler[1]);
         vTaskSuspend(mainLoopTaskHandler);
-        attachInterrupt(digitalPinToInterrupt(BUTTON_ROTARY), WayangDisplayController::pressRotaryEncoder, RISING);
+        // attachInterrupt(digitalPinToInterrupt(BUTTON_ROTARY), WayangDisplayController::pressRotaryEncoder, RISING);
         Serial.println(F("Back to main loop"));
         vTaskDelay(100 / portTICK_PERIOD_MS);
         WayangDisplayLCD_in_main.enableLCD();
@@ -373,12 +375,12 @@ void WayangDisplay::generalLoop()
         xTaskCreate(
             Episodes::Episode_3_task,
             "Episode_3_task",
-            1024 * 2,
+            1024,
             NULL,
             1,
-            &episode3TaskHandler);
+            &episodeTaskHandler[2]);
         vTaskSuspend(mainLoopTaskHandler);
-        attachInterrupt(digitalPinToInterrupt(BUTTON_ROTARY), WayangDisplayController::pressRotaryEncoder, RISING);
+        // attachInterrupt(digitalPinToInterrupt(BUTTON_ROTARY), WayangDisplayController::pressRotaryEncoder, RISING);
         Serial.println(F("Back to main loop"));
         vTaskDelay(100 / portTICK_PERIOD_MS);
         WayangDisplayLCD_in_main.enableLCD();
@@ -393,12 +395,12 @@ void WayangDisplay::generalLoop()
         xTaskCreate(
             Episodes::Episode_4_task,
             "Episode_4_task",
-            1024 * 2,
+            1024,
             NULL,
             1,
-            &episode4TaskHandler);
+            &episodeTaskHandler[3]);
         vTaskSuspend(mainLoopTaskHandler);
-        attachInterrupt(digitalPinToInterrupt(BUTTON_ROTARY), WayangDisplayController::pressRotaryEncoder, RISING);
+        // attachInterrupt(digitalPinToInterrupt(BUTTON_ROTARY), WayangDisplayController::pressRotaryEncoder, RISING);
         Serial.println(F("Back to main loop"));
         vTaskDelay(100 / portTICK_PERIOD_MS);
         WayangDisplayLCD_in_main.enableLCD();
@@ -413,12 +415,12 @@ void WayangDisplay::generalLoop()
         xTaskCreate(
             Episodes::Episode_5_task,
             "Episode_5_task",
-            1024 * 2,
+            1024,
             NULL,
             1,
-            &episode5TaskHandler);
+            &episodeTaskHandler[4]);
         vTaskSuspend(mainLoopTaskHandler);
-        attachInterrupt(digitalPinToInterrupt(BUTTON_ROTARY), WayangDisplayController::pressRotaryEncoder, RISING);
+        // attachInterrupt(digitalPinToInterrupt(BUTTON_ROTARY), WayangDisplayController::pressRotaryEncoder, RISING);
         Serial.println(F("Back to main loop"));
         vTaskDelay(100 / portTICK_PERIOD_MS);
         WayangDisplayLCD_in_main.enableLCD();
@@ -3220,38 +3222,38 @@ void CalibratingFunction::vSlotLinear()
 {
     setAllMOSFETtoLOW();
 
-    Serial.println("\nSensor 1\n");
+    Serial.println(F("\nSensor 1\n"));
     wayangSita.walk_to_a_certain_distance_before_calibrating_value(155);
-    Serial.println("\nSensor 2\n");
+    Serial.println(F("\nSensor 2\n"));
     wayangRahwana.walk_to_a_certain_distance_before_calibrating_value(155);
-    Serial.println("\nSensor 3\n");
+    Serial.println(F("\nSensor 3\n"));
     wayangRamaWijaya.walk_to_a_certain_distance_before_calibrating_value(155);
-    Serial.println("\nSensor 4\n");
+    Serial.println(F("\nSensor 4\n"));
     wayangHanoman.walk_to_a_certain_distance_before_calibrating_value(155);
-    Serial.println("\nSensor 5\n");
+    Serial.println(F("\nSensor 5\n"));
     wayangLaksmana.walk_to_a_certain_distance_before_calibrating_value(155);
-    Serial.println("\nSensor 6\n");
+    Serial.println(F("\nSensor 6\n"));
     wayangSugriwa.walk_to_a_certain_distance_before_calibrating_value(155);
-    Serial.println("\nSensor 7\n");
+    Serial.println(F("\nSensor 7\n"));
     wayangSubali.walk_to_a_certain_distance_before_calibrating_value(155);
-    Serial.println("\nSensor 8\n");
+    Serial.println(F("\nSensor 8\n"));
     wayangWibhisana.walk_to_a_certain_distance_before_calibrating_value(155);
 
-    Serial.println("\nSensor 1\n");
+    Serial.println(F("\nSensor 1\n"));
     wayangSita.defaultStandPosition();
-    Serial.println("\nSensor 2\n");
+    Serial.println(F("\nSensor 2\n"));
     wayangRahwana.defaultStandPosition();
-    Serial.println("\nSensor 3\n");
+    Serial.println(F("\nSensor 3\n"));
     wayangRamaWijaya.defaultStandPosition();
-    Serial.println("\nSensor 4\n");
+    Serial.println(F("\nSensor 4\n"));
     wayangHanoman.defaultStandPosition();
-    Serial.println("\nSensor 5\n");
+    Serial.println(F("\nSensor 5\n"));
     wayangLaksmana.defaultStandPosition();
-    Serial.println("\nSensor 6\n");
+    Serial.println(F("\nSensor 6\n"));
     wayangSugriwa.defaultStandPosition();
-    Serial.println("\nSensor 7\n");
+    Serial.println(F("\nSensor 7\n"));
     wayangSubali.defaultStandPosition();
-    Serial.println("\nSensor 8\n");
+    Serial.println(F("\nSensor 8\n"));
     wayangWibhisana.defaultStandPosition();
 
     SoundSystem::playDialogFromACertainFolder(SoundSystem::INDICATOR_SOUND, SoundSystem::INDICATOR_SOUND_NUMBER::INDICATOR_VSLOT_CALIBRATION);
@@ -3273,52 +3275,28 @@ void CalibratingFunction::wayangHand()
 {
     setAllMOSFETtoLOW();
 
-    wayangSita.walk_to_a_certain_distance_before_calibrating_value(200);
-    delay(500);
     wayangSita.defaultHandPosition();
-    delay(500);
     wayangSita.defaultStandPosition();
 
-    wayangRahwana.walk_to_a_certain_distance_before_calibrating_value(200);
-    delay(500);
     wayangRahwana.defaultHandPosition();
-    delay(500);
     wayangRahwana.defaultStandPosition();
 
-    wayangRamaWijaya.walk_to_a_certain_distance_before_calibrating_value(200);
-    delay(500);
     wayangRamaWijaya.defaultHandPosition();
-    delay(500);
     wayangRamaWijaya.defaultStandPosition();
 
-    wayangHanoman.walk_to_a_certain_distance_before_calibrating_value(200);
-    delay(500);
     wayangHanoman.defaultHandPosition();
-    delay(500);
     wayangHanoman.defaultStandPosition();
 
-    wayangLaksmana.walk_to_a_certain_distance_before_calibrating_value(200);
-    delay(500);
     wayangLaksmana.defaultHandPosition();
-    delay(500);
     wayangLaksmana.defaultStandPosition();
 
-    wayangSugriwa.walk_to_a_certain_distance_before_calibrating_value(200);
-    delay(500);
-    wayangSugriwa.mathentengA();
-    delay(500);
+    wayangSugriwa.defaultHandPosition();
     wayangSugriwa.defaultStandPosition();
 
-    wayangSubali.walk_to_a_certain_distance_before_calibrating_value(200);
-    delay(500);
-    wayangSubali.mathenthengA();
-    delay(500);
+    wayangSubali.defaultHandPosition();
     wayangSubali.defaultStandPosition();
 
-    wayangWibhisana.walk_to_a_certain_distance_before_calibrating_value(200);
-    delay(500);
     wayangWibhisana.defaultHandPosition();
-    delay(500);
     wayangWibhisana.defaultStandPosition();
 
     setAllMOSFETtoHIGH();

@@ -13,7 +13,7 @@ void HorizontalController::step_for_n_dir(int nema_num, int step_value, String d
         {
         case 1:
         {
-            Serial.println("NEMA 1 CCW");
+            Serial.println(F("NEMA 1 CCW"));
             digitalWrite(EN_NEMA_1, LOW);
             digitalWrite(NEMA_DIR, HIGH);
 
@@ -31,7 +31,7 @@ void HorizontalController::step_for_n_dir(int nema_num, int step_value, String d
 
         case 2:
         {
-            Serial.println("NEMA 2 CCW");
+            Serial.println(F("NEMA 2 CCW"));
             digitalWrite(EN_NEMA_2, LOW);
             digitalWrite(NEMA_DIR, HIGH);
 
@@ -49,7 +49,7 @@ void HorizontalController::step_for_n_dir(int nema_num, int step_value, String d
 
         case 3:
         {
-            Serial.println("NEMA 3 CCW");
+            Serial.println(F("NEMA 3 CCW"));
             digitalWrite(EN_NEMA_3, LOW);
             digitalWrite(NEMA_DIR, HIGH);
 
@@ -66,7 +66,7 @@ void HorizontalController::step_for_n_dir(int nema_num, int step_value, String d
         }
         case 4:
         {
-            Serial.println("NEMA 4 CCW");
+            Serial.println(F("NEMA 4 CCW"));
             digitalWrite(EN_NEMA_4, LOW);
             digitalWrite(NEMA_DIR, HIGH);
 
@@ -83,7 +83,7 @@ void HorizontalController::step_for_n_dir(int nema_num, int step_value, String d
         }
         case 5:
         {
-            Serial.println("NEMA 5 CCW");
+            Serial.println(F("NEMA 5 CCW"));
             digitalWrite(EN_NEMA_5, LOW);
             digitalWrite(NEMA_DIR, HIGH);
 
@@ -100,7 +100,7 @@ void HorizontalController::step_for_n_dir(int nema_num, int step_value, String d
         }
         case 6:
         {
-            Serial.println("NEMA 6 CCW");
+            Serial.println(F("NEMA 6 CCW"));
             digitalWrite(EN_NEMA_6, LOW);
             digitalWrite(NEMA_DIR, HIGH);
 
@@ -117,7 +117,7 @@ void HorizontalController::step_for_n_dir(int nema_num, int step_value, String d
         }
         case 7:
         {
-            Serial.println("NEMA 7 CCW");
+            Serial.println(F("NEMA 7 CCW"));
             digitalWrite(EN_NEMA_7, LOW);
             digitalWrite(NEMA_DIR, HIGH);
 
@@ -134,7 +134,7 @@ void HorizontalController::step_for_n_dir(int nema_num, int step_value, String d
         }
         case 8:
         {
-            Serial.println("NEMA 8 CCW");
+            Serial.println(F("NEMA 8 CCW"));
             digitalWrite(EN_NEMA_8, LOW);
             digitalWrite(NEMA_DIR, HIGH);
 
@@ -151,7 +151,7 @@ void HorizontalController::step_for_n_dir(int nema_num, int step_value, String d
         }
         case 9:
         {
-            Serial.println("NEMA 9 CCW");
+            Serial.println(F("NEMA 9 CCW"));
             digitalWrite(EN_NEMA_9, LOW);
             digitalWrite(NEMA_DIR, HIGH);
 
@@ -168,7 +168,7 @@ void HorizontalController::step_for_n_dir(int nema_num, int step_value, String d
         }
         case 10:
         {
-            Serial.println("NEMA 10 CCW");
+            Serial.println(F("NEMA 10 CCW"));
             digitalWrite(EN_NEMA_10, LOW);
             digitalWrite(NEMA_DIR, HIGH);
 
@@ -187,12 +187,12 @@ void HorizontalController::step_for_n_dir(int nema_num, int step_value, String d
     }
     else if (dir == "cw")
     {
-        Serial.println("dir command recognize");
+        Serial.println(F("dir command recognize"));
         switch (nema_num)
         {
         case 1:
         {
-            Serial.println("NEMA 1 CW");
+            Serial.println(F("NEMA 1 CW"));
             digitalWrite(EN_NEMA_1, LOW);
             digitalWrite(NEMA_DIR, LOW);
 
@@ -210,7 +210,7 @@ void HorizontalController::step_for_n_dir(int nema_num, int step_value, String d
 
         case 2:
         {
-            Serial.println("NEMA 2 CW");
+            Serial.println(F("NEMA 2 CW"));
             digitalWrite(EN_NEMA_2, LOW);
             digitalWrite(NEMA_DIR, LOW);
 
@@ -228,7 +228,7 @@ void HorizontalController::step_for_n_dir(int nema_num, int step_value, String d
         }
         case 3:
         {
-            Serial.println("NEMA 3 CW");
+            Serial.println(F("NEMA 3 CW"));
             digitalWrite(EN_NEMA_3, LOW);
             digitalWrite(NEMA_DIR, LOW);
 
@@ -245,7 +245,7 @@ void HorizontalController::step_for_n_dir(int nema_num, int step_value, String d
         }
         case 4:
         {
-            Serial.println("NEMA 4 CW");
+            Serial.println(F("NEMA 4 CW"));
             digitalWrite(EN_NEMA_4, LOW);
             digitalWrite(NEMA_DIR, LOW);
 
@@ -262,7 +262,7 @@ void HorizontalController::step_for_n_dir(int nema_num, int step_value, String d
         }
         case 5:
         {
-            Serial.println("NEMA 5 CW");
+            Serial.println(F("NEMA 5 CW"));
             digitalWrite(EN_NEMA_5, LOW);
             digitalWrite(NEMA_DIR, LOW);
 
@@ -279,7 +279,7 @@ void HorizontalController::step_for_n_dir(int nema_num, int step_value, String d
         }
         case 6:
         {
-            Serial.println("NEMA 6 CW");
+            Serial.println(F("NEMA 6 CW"));
             digitalWrite(EN_NEMA_6, LOW);
             digitalWrite(NEMA_DIR, LOW);
 
@@ -296,7 +296,7 @@ void HorizontalController::step_for_n_dir(int nema_num, int step_value, String d
         }
         case 7:
         {
-            Serial.println("NEMA 7 CW");
+            Serial.println(F("NEMA 7 CW"));
             digitalWrite(EN_NEMA_7, LOW);
             digitalWrite(NEMA_DIR, LOW);
 
@@ -313,7 +313,7 @@ void HorizontalController::step_for_n_dir(int nema_num, int step_value, String d
         }
         case 8:
         {
-            Serial.println("NEMA 8 CW");
+            Serial.println(F("NEMA 8 CW"));
             digitalWrite(EN_NEMA_8, LOW);
             digitalWrite(NEMA_DIR, LOW);
 
@@ -330,7 +330,7 @@ void HorizontalController::step_for_n_dir(int nema_num, int step_value, String d
         }
         case 9:
         {
-            Serial.println("NEMA 9 CW");
+            Serial.println(F("NEMA 9 CW"));
             digitalWrite(EN_NEMA_9, LOW);
             digitalWrite(NEMA_DIR, LOW);
 
@@ -347,7 +347,7 @@ void HorizontalController::step_for_n_dir(int nema_num, int step_value, String d
         }
         case 10:
         {
-            Serial.println("NEMA 10 CW");
+            Serial.println(F("NEMA 10 CW"));
             digitalWrite(EN_NEMA_10, LOW);
             digitalWrite(NEMA_DIR, LOW);
 

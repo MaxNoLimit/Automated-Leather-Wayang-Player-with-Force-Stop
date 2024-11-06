@@ -27,17 +27,24 @@ namespace Episodes
     void Episode_4_task(void *pvParameters);
     void Episode_5_task(void *pvParameters);
 
-    void forceQuit();
+    // void forceQuit();
+
+    void forceQuit1();
+    void forceQuit2();
+    void forceQuit3();
+    void forceQuit4();
+    void forceQuit5();
 
 };
 
-extern TaskHandle_t episode1TaskHandler;
-extern TaskHandle_t episode2TaskHandler;
-extern TaskHandle_t episode3TaskHandler;
-extern TaskHandle_t episode4TaskHandler;
-extern TaskHandle_t episode5TaskHandler;
+extern TaskHandle_t episodeTaskHandler[5];
 
-void forceStopTask(void *pvParameters);
+// extern TaskHandle_t episode1TaskHandler;
+// extern TaskHandle_t episode2TaskHandler;
+// extern TaskHandle_t episode3TaskHandler;
+// extern TaskHandle_t episode4TaskHandler;
+// extern TaskHandle_t episode5TaskHandler;
+
 
 
 #endif // EPISODES_H
