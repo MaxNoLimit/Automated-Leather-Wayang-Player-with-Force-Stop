@@ -12,8 +12,6 @@ void Rahwana::defaultStandPosition()
 
 void Rahwana::walk_to_a_certain_distance(int desiredDistance)
 {
-
-
     int readValue = getDistanceSensorNum(2);
     if (readValue > 1000)
     {
@@ -91,6 +89,7 @@ void Rahwana::walk_to_a_certain_distance_before_calibrating_value(int desiredDis
     Serial.print(desiredDistanceAfterCalibratingValue);
     Serial.println("mm \n");
     walk_to_a_certain_distance(desiredDistanceAfterCalibratingValue);
+    // HC_rahwana.step_for_what_distance(2, desiredDistanceAfterCalibratingValue);
 }
 
 

@@ -34,6 +34,9 @@ int lcd_2040_address;
 WayangDisplay::WayangDisplayLCD WayangDisplayLCD_in_main(0x27);
 unsigned long last_run = 0;
 unsigned int loop_state = 0;
+// bool isEpisodeTaskCreated = false;
+bool isPlaying = true;
+int currentEpisode = 0;
 
 unsigned int pageRoute = 0;
 unsigned int subPageRoute = 0;
@@ -122,7 +125,9 @@ void beginingAllGPIOS()
     {
         beginSensorNum(i + 1);
     }
-
+    Serial.println(F("\nAll GPIOs are set"));
+    Serial.print(F("Current available stack: "));
+    Serial.println(uxTaskGetStackHighWaterMark(NULL));
     setAllMOSFETtoLOW();
 }
 
@@ -231,6 +236,10 @@ void WayangDisplay::lcd2004loop()
     case StateManagement::PAGE_ROUTE::ANILA_HAND_PAGE:
         WayangDisplayLCD_in_main.AnilaHandCalibration();
         break;
+
+    case StateManagement::PAGE_ROUTE::WHILE_PLAYING_PAGE:
+        WayangDisplayLCD_in_main.whilePlayingDisplay();
+        break;
     }
     delay(displayLoopDelay);
 }
@@ -326,10 +335,50 @@ void WayangDisplay::generalLoop()
         delay(1);
         break;
 
+    case StateManagement::FSA_STATE::PAUSE_CONTINUE_PLAYING:
+        if (isPlaying)
+        {
+            Serial.println(F("Pause"));
+            SoundSystem::pause();
+            isPlaying = false;
+            Serial.print(F("Current episode stack left: "));
+            Serial.println(uxTaskGetStackHighWaterMark(episodeTaskHandler[currentEpisode - 1]));
+            vTaskSuspend(episodeTaskHandler[currentEpisode - 1]);
+        }
+        else
+        {
+            Serial.println(F("Continue"));
+            SoundSystem::continuePlaying();
+            isPlaying = true;
+            Serial.print(F("Current episode stack left: "));
+            Serial.println(uxTaskGetStackHighWaterMark(episodeTaskHandler[currentEpisode - 1]));
+            vTaskResume(episodeTaskHandler[currentEpisode - 1]);
+        }
+        loop_state = StateManagement::FSA_STATE::DEFAULT_LOOPING_LCD;
+        delay(1);
+        break;
+
+    case StateManagement::FSA_STATE::STOP_PLAYING:
+        SoundSystem::pause();
+        Serial.println(F("Stop"));
+        Serial.print(F("Current episode stack: "));
+        Serial.println(uxTaskGetStackHighWaterMark(episodeTaskHandler[currentEpisode - 1]));
+        // vTaskSuspend(episodeTaskHandler[currentEpisode - 1]);
+        vTaskDelete(episodeTaskHandler[currentEpisode - 1]);
+        pageRoute = StateManagement::PAGE_ROUTE::EPISODE_PAGE;
+        WayangDisplayLCD_in_main.set_selection_point(1);
+        // vTaskDelay(1000 / portTICK_PERIOD_MS);
+        loop_state = StateManagement::FSA_STATE::DEFAULT_LOOPING_LCD;
+        delay(1);
+        break;
+
     case StateManagement::FSA_STATE::PLAY_EPISODE_1:
+        pageRoute = StateManagement::PAGE_ROUTE::WHILE_PLAYING_PAGE;
         WayangDisplayLCD_in_main.playingWhatEpisodeDisplay(1);
+        WayangDisplayLCD_in_main.set_selection_point(1);
         WayangDisplayLCD_in_main.disableLCD();
         // Episodes::Episode_1();
+        currentEpisode = 1;
         xTaskCreate(
             Episodes::Episode_1_task,
             "Episode_1_task",
@@ -337,19 +386,22 @@ void WayangDisplay::generalLoop()
             NULL,
             1,
             &episodeTaskHandler[0]);
-        vTaskSuspend(mainLoopTaskHandler);
+        // vTaskSuspend(mainLoopTaskHandler);
         // attachInterrupt(digitalPinToInterrupt(BUTTON_ROTARY), WayangDisplayController::pressRotaryEncoder, RISING);
-        Serial.println(F("Back to main loop"));
-        vTaskDelay(100 / portTICK_PERIOD_MS);
+        // Serial.println(F("Back to main loop"));
+        // vTaskDelay(100 / portTICK_PERIOD_MS);
         WayangDisplayLCD_in_main.enableLCD();
         loop_state = StateManagement::FSA_STATE::DEFAULT_LOOPING_LCD;
         delay(1);
         break;
 
     case StateManagement::FSA_STATE::PLAY_EPISODE_2:
+        pageRoute = StateManagement::PAGE_ROUTE::WHILE_PLAYING_PAGE;
         WayangDisplayLCD_in_main.playingWhatEpisodeDisplay(2);
+        WayangDisplayLCD_in_main.set_selection_point(1);
         WayangDisplayLCD_in_main.disableLCD();
         // Episodes::Episode_2();
+        currentEpisode = 2;
         Serial.print(F("Main Loop current stack left: "));
         Serial.println(uxTaskGetStackHighWaterMark(NULL));
         xTaskCreate(
@@ -359,70 +411,79 @@ void WayangDisplay::generalLoop()
             NULL,
             1,
             &episodeTaskHandler[1]);
-        vTaskSuspend(mainLoopTaskHandler);
+        // vTaskSuspend(mainLoopTaskHandler);
         // attachInterrupt(digitalPinToInterrupt(BUTTON_ROTARY), WayangDisplayController::pressRotaryEncoder, RISING);
-        Serial.println(F("Back to main loop"));
-        vTaskDelay(100 / portTICK_PERIOD_MS);
+        // Serial.println(F("Back to main loop"));
+        // vTaskDelay(100 / portTICK_PERIOD_MS);
         WayangDisplayLCD_in_main.enableLCD();
         loop_state = StateManagement::FSA_STATE::DEFAULT_LOOPING_LCD;
         delay(1);
         break;
 
     case StateManagement::FSA_STATE::PLAY_EPISODE_3:
+        pageRoute = StateManagement::PAGE_ROUTE::WHILE_PLAYING_PAGE;
         WayangDisplayLCD_in_main.playingWhatEpisodeDisplay(3);
+        WayangDisplayLCD_in_main.set_selection_point(1);
         WayangDisplayLCD_in_main.disableLCD();
         // Episodes::Episode_3();
+        currentEpisode = 3;
         xTaskCreate(
             Episodes::Episode_3_task,
             "Episode_3_task",
-            1024,
+            512,
             NULL,
             1,
             &episodeTaskHandler[2]);
-        vTaskSuspend(mainLoopTaskHandler);
+        // vTaskSuspend(mainLoopTaskHandler);
         // attachInterrupt(digitalPinToInterrupt(BUTTON_ROTARY), WayangDisplayController::pressRotaryEncoder, RISING);
-        Serial.println(F("Back to main loop"));
-        vTaskDelay(100 / portTICK_PERIOD_MS);
+        // Serial.println(F("Back to main loop"));
+        // vTaskDelay(100 / portTICK_PERIOD_MS);
         WayangDisplayLCD_in_main.enableLCD();
         loop_state = StateManagement::FSA_STATE::DEFAULT_LOOPING_LCD;
         delay(1);
         break;
 
     case StateManagement::FSA_STATE::PLAY_EPISODE_4:
+        pageRoute = StateManagement::PAGE_ROUTE::WHILE_PLAYING_PAGE;
         WayangDisplayLCD_in_main.playingWhatEpisodeDisplay(4);
+        WayangDisplayLCD_in_main.set_selection_point(1);
         WayangDisplayLCD_in_main.disableLCD();
         // Episodes::Episode_4();
+        currentEpisode = 4;
         xTaskCreate(
             Episodes::Episode_4_task,
             "Episode_4_task",
-            1024,
+            512,
             NULL,
             1,
             &episodeTaskHandler[3]);
-        vTaskSuspend(mainLoopTaskHandler);
+        // vTaskSuspend(mainLoopTaskHandler);
         // attachInterrupt(digitalPinToInterrupt(BUTTON_ROTARY), WayangDisplayController::pressRotaryEncoder, RISING);
-        Serial.println(F("Back to main loop"));
-        vTaskDelay(100 / portTICK_PERIOD_MS);
+        // Serial.println(F("Back to main loop"));
+        // vTaskDelay(100 / portTICK_PERIOD_MS);
         WayangDisplayLCD_in_main.enableLCD();
         loop_state = StateManagement::FSA_STATE::DEFAULT_LOOPING_LCD;
         delay(1);
         break;
 
     case StateManagement::FSA_STATE::PLAY_EPISODE_5:
+        pageRoute = StateManagement::PAGE_ROUTE::WHILE_PLAYING_PAGE;
         WayangDisplayLCD_in_main.playingWhatEpisodeDisplay(5);
+        WayangDisplayLCD_in_main.set_selection_point(1);
         WayangDisplayLCD_in_main.disableLCD();
         // Episodes::Episode_5();
+        currentEpisode = 5;
         xTaskCreate(
             Episodes::Episode_5_task,
             "Episode_5_task",
-            1024,
+            512,
             NULL,
             1,
             &episodeTaskHandler[4]);
-        vTaskSuspend(mainLoopTaskHandler);
+        // vTaskSuspend(mainLoopTaskHandler);
         // attachInterrupt(digitalPinToInterrupt(BUTTON_ROTARY), WayangDisplayController::pressRotaryEncoder, RISING);
-        Serial.println(F("Back to main loop"));
-        vTaskDelay(100 / portTICK_PERIOD_MS);
+        // Serial.println(F("Back to main loop"));
+        // vTaskDelay(100 / portTICK_PERIOD_MS);
         WayangDisplayLCD_in_main.enableLCD();
         loop_state = StateManagement::FSA_STATE::DEFAULT_LOOPING_LCD;
         delay(1);
@@ -1508,28 +1569,33 @@ void WayangDisplayController::pressRotaryEncoder()
 
             case 1:
                 // Play Episode 1
+                isPlaying = true;
                 loop_state = StateManagement::FSA_STATE::PLAY_EPISODE_1;
                 // do nothing
                 break;
 
             case 2:
                 // Play Episode 2
+                isPlaying = true;
                 loop_state = StateManagement::FSA_STATE::PLAY_EPISODE_2;
                 // do nothing
                 break;
 
             case 3:
                 // Play Episode 3
+                isPlaying = true;
                 // do nothing
                 break;
 
             case 4:
                 // Play Episode 4
+                isPlaying = true;
                 // do nothing
                 break;
 
             case 5:
                 // Play Episode 5
+                isPlaying = true;
                 // do nothing
                 break;
             }
@@ -2139,6 +2205,25 @@ void WayangDisplayController::pressRotaryEncoder()
 
             case 10:
                 // loop_state = StateManagement::FSA_STATE::ANILA_MIDDLE_BACK;
+                break;
+            }
+            break;
+        case StateManagement::PAGE_ROUTE::WHILE_PLAYING_PAGE:
+            switch (WayangDisplayLCD_in_main.get_selection_point())
+            {
+            case 0:
+                // do nothing
+                break;
+
+            case 1:
+                loop_state = StateManagement::FSA_STATE::PAUSE_CONTINUE_PLAYING;
+                break;
+
+            case 2:
+                loop_state = StateManagement::FSA_STATE::STOP_PLAYING;
+                break;
+
+            default:
                 break;
             }
             break;
@@ -2862,6 +2947,41 @@ void WayangDisplayController::spinRotaryEncoder()
                         subPageRoute--;
                         WayangDisplayLCD_in_main.set_selection_point(1);
                     }
+                }
+            }
+        }
+        last_run = millis();
+        break;
+
+    case StateManagement::PAGE_ROUTE::WHILE_PLAYING_PAGE:
+        if (millis() - last_run > displayLoopDelay / 10)
+        {
+            if (digitalRead(OUTPUT_B) == HIGH)
+            {
+                if (WayangDisplayLCD_in_main.get_selection_point() < 2)
+                {
+                    // Serial.print(WayangDisplayLCD_in_main.get_selection_point());
+                    WayangDisplayLCD_in_main.increment_selection_point();
+                    // WayangDisplayLCD_in_main.refreshLCD();
+                    // WayangDisplayLCD_in_main.MenuDisplay();
+                }
+                else
+                {
+                    Serial.print("UDAH METOK!");
+                }
+            }
+            else if (digitalRead(OUTPUT_B) == LOW)
+            {
+                if (WayangDisplayLCD_in_main.get_selection_point() > 1)
+                {
+                    // Serial.print(WayangDisplayLCD_in_main.get_selection_point());
+                    WayangDisplayLCD_in_main.decrement_selection_point();
+                    // WayangDisplayLCD_in_main.refreshLCD();
+                    // WayangDisplayLCD_in_main.MenuDisplay();
+                }
+                else
+                {
+                    Serial.print("UDAH METOK!");
                 }
             }
         }
@@ -3653,4 +3773,3 @@ void setAllENtoHIGH()
     digitalWrite(EN_NEMA_9, HIGH);
     digitalWrite(EN_NEMA_10, HIGH);
 }
-

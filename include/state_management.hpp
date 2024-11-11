@@ -28,6 +28,9 @@ namespace StateManagement
         PLAY_EPISODE_5,
         SIMPLE_WAYANG_HAND_CALIBRATION,
 
+        PAUSE_CONTINUE_PLAYING,
+        STOP_PLAYING,
+
         SITA_HAND,
         EXIT_SITA_HAND,
         SITA_POINT_TO_FRONT,
@@ -179,6 +182,7 @@ namespace StateManagement
         WIBHISANA_HAND_PAGE,
         ANGGADA_HAND_PAGE,
         ANILA_HAND_PAGE,
+        WHILE_PLAYING_PAGE,
 
     };
 

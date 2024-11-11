@@ -4,15 +4,14 @@
 #include "mainfunctions.hpp"
 
 // For Menu Display
-const char * menuList[4] = {
+const char *menuList[4] = {
     "Menu",
     "Play episode",
     "Calibrate",
     "Settings"};
 
-
 // For Episode Display
-const char * episodeList[5] = {
+const char *episodeList[5] = {
     "Episode 1",
     "Episode 2",
     "Episode 3",
@@ -20,14 +19,14 @@ const char * episodeList[5] = {
     "Episode 5"};
 
 // For Calibrate Display
-const char * calibratingList[4] = {
+const char *calibratingList[4] = {
     "V-Slot Linear",
     "Mp3 Player",
     "Wayang's Hand",
     "Sensor Data"};
 
 // For Wayang Hand Calibration Display
-const char * calibratingWayangCharacterList[11] = {
+const char *calibratingWayangCharacterList[11] = {
     "s1mple Calibration",
     "Wayang Sita",
     "Wayang Rahwana",
@@ -41,7 +40,7 @@ const char * calibratingWayangCharacterList[11] = {
     "Wayang Anila"};
 
 // For Sensor Data Display
-const char * calibratingSensorList[10] = {
+const char *calibratingSensorList[10] = {
     "Sensor 1:    ",
     "Sensor 2:    ",
     "Sensor 3:    ",
@@ -54,7 +53,7 @@ const char * calibratingSensorList[10] = {
     "Sensor 10:   "};
 
 // Hand Movement Option
-const char * handMovementList[10] = {
+const char *handMovementList[10] = {
     "Point to Front",
     "Low Point to Front",
     "Middle Front",
@@ -67,7 +66,7 @@ const char * handMovementList[10] = {
     "Middle Back"};
 
 // V-Slot Data Farming
-const char * vSlotFarmOption[4] = {
+const char *vSlotFarmOption[4] = {
     "Move 100 mm",
     "Move 200 mm",
     "Move 300 mm",
@@ -113,6 +112,27 @@ void WayangDisplay::WayangDisplayLCD::refreshLCD()
 }
 
 /*
+Function untuk menampilkan opsi untuk pause dan stop episode yang sedang dimainkan
+*/
+void WayangDisplay::WayangDisplayLCD::whilePlayingDisplay()
+{
+    lcdWayang.setCursor(0, 0);
+    lcdWayang.print(episodeList[currentEpisode - 1]);
+    lcdWayang.setCursor(0, 1);
+    if (isPlaying)
+    {
+        lcdWayang.print(F("Pause"));
+    } else
+    {
+        lcdWayang.print(F("Continue"));
+    }
+    lcdWayang.setCursor(0, 2);
+    lcdWayang.print(F("Stop"));
+    lcdWayang.setCursor(18, get_selection_point());
+    lcdWayang.print(F("<<"));
+}
+
+/*
 Function untuk display bagian menu
 */
 void WayangDisplay::WayangDisplayLCD::MenuDisplay()
@@ -126,7 +146,7 @@ void WayangDisplay::WayangDisplayLCD::MenuDisplay()
         lcdWayang.print(menuList[i]);
     }
     lcdWayang.setCursor(18, get_selection_point());
-    lcdWayang.print("<<");
+    lcdWayang.print(F("<<"));
 }
 
 /*
@@ -239,7 +259,9 @@ void WayangDisplay::WayangDisplayLCD::SettingsDisplay()
     lcdWayang.setCursor(0, 1);
     lcdWayang.print("Volume:");
     lcdWayang.setCursor(8, 1);
-    lcdWayang.print("30");
+    lcdWayang.print(volumeHardcoded);
+    lcdWayang.setCursor(0, 3);
+    lcdWayang.print(F("Force Stop: O"));
     lcdWayang.setCursor(18, get_selection_point());
     lcdWayang.print("<<");
 }

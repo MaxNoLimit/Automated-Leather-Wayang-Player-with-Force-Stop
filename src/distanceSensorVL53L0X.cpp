@@ -50,10 +50,11 @@ void beginSensorNum(int nSensor)
     }
     else
     {
-        distanceSensor[nSensor - 1].setSignalRateLimit(0.1);                                 // 0.1 MCPS
-        distanceSensor[nSensor - 1].setVcselPulsePeriod(VL53L0X::VcselPeriodPreRange, 18);   // laser pulse periods 18 PCLKs
-        distanceSensor[nSensor - 1].setVcselPulsePeriod(VL53L0X::VcselPeriodFinalRange, 14); // Laser pulse periods 14 PCLKs
-        distanceSensor[nSensor - 1].setMeasurementTimingBudget(200000);                      // HIGH ACCURACY timming budget 200 ms, HIGH SPEED 20 ms
+        distanceSensor[nSensor - 1].startContinuous(200);
+        // distanceSensor[nSensor - 1].setSignalRateLimit(0.1);                                 // 0.1 MCPS
+        // distanceSensor[nSensor - 1].setVcselPulsePeriod(VL53L0X::VcselPeriodPreRange, 18);   // laser pulse periods 18 PCLKs
+        // distanceSensor[nSensor - 1].setVcselPulsePeriod(VL53L0X::VcselPeriodFinalRange, 14); // Laser pulse periods 14 PCLKs
+        // distanceSensor[nSensor - 1].setMeasurementTimingBudget(200000);                      // HIGH ACCURACY timming budget 200 ms, HIGH SPEED 20 ms
         Serial.print(F("VL53L0X Sensor "));
         Serial.print(nSensor);
         Serial.println(F(" booted"));
@@ -557,7 +558,7 @@ int getDistanceSensorNum(int nSensor)
 {
     if (!distanceSensor[nSensor - 1].timeoutOccurred())
     {
-        int data = distanceSensor[nSensor - 1].readRangeSingleMillimeters();
+        int data = distanceSensor[nSensor - 1].readRangeContinuousMillimeters();
         return data;
     }
     else

@@ -1,7 +1,7 @@
 #ifndef A4988_NEMA_H
 #define A4988_NEMA_H
 
-#define PERIOD_NEMA 3000
+#define PERIOD_NEMA 2500
 
 #include "mainheader.hpp"
 
@@ -15,6 +15,7 @@ class HorizontalController{
     // void ccw_step(int nema_num);
 
     void step_for_n_dir(int nema_num, int step_value, String dir);
+    // void step_for_what_distance(int nema_num, int distance);
 };
 
 #endif // A4988_NEMA_H

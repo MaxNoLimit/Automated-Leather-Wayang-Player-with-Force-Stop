@@ -29,13 +29,15 @@ void setup()
       "MainLoop",            /* name of task. */
       512,              /* Stack size of task */
       NULL,                  /* parameter of the task */
-      1,                     /* priority of the task */
+      2,                     /* priority of the task */
       &mainLoopTaskHandler); /* Task handle to keep track of created task */
 
 }
 
 void loop()
 {
+  // not using this anymore, no more simple superloop
+
   // Serial.println(F("Looping..."));
   // WayangDisplay::generalLoop();
 }

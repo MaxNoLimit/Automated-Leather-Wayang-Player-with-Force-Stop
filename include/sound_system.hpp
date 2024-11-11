@@ -18,14 +18,16 @@ namespace SoundSystem
         EXTRA_MUSIC_WAYANG = 7,
     };
 
-    enum INDICATOR_SOUND_NUMBER{
+    enum INDICATOR_SOUND_NUMBER
+    {
         INDICATOR_AUDIO_1 = 1,
         INDICATOR_VSLOT_CALIBRATION = 2,
         INDICATOR_WAYANG_HAND_CALIBRATION = 3,
         INDICATOR_FINISHED_SHOWING = 4,
     };
 
-    enum SPECIAL_EPISODE_29_JULY{
+    enum SPECIAL_EPISODE_29_JULY
+    {
         // Rama - Sita Dialogue
         RAMA_SITA__SITA_DIALOG_1 = 1,
         RAMA_SITA__RAMA_DIALOG_1 = 2,
@@ -47,14 +49,15 @@ namespace SoundSystem
         RAMA_RAHWANA__SITA_1 = 13,
     };
 
-    enum EPISODE_1_DIALOG{
-        // 001 (Sita1Sita-Laksmana dialogue 1) 
+    enum EPISODE_1_DIALOG
+    {
+        // 001 (Sita1Sita-Laksmana dialogue 1)
         SITA1SITA_LAKS_DIALOGUE_1 = 1,
-        // 002 (01 S-L1 Laksmana1F) 
+        // 002 (01 S-L1 Laksmana1F)
         S_L1_LAKS1F = 2,
-        // 003 (Sita2Sita-Laksmana dialogue 1) 
+        // 003 (Sita2Sita-Laksmana dialogue 1)
         SITA2SITA_LAKS_DIALOGUE_1 = 3,
-        // 004 (02 S-L1 Laksmana2F) 
+        // 004 (02 S-L1 Laksmana2F)
         S_L1_LAKS2F = 4,
         // 005 (005SitaRahwanadialogueRahwana1)
         SITA_RAHWANA_DIALOGUE_RAHWANA_1 = 5,
@@ -62,9 +65,9 @@ namespace SoundSystem
         SITA_RAHWANA_DIALOGUE_SITA_1 = 6,
         // 007 (007SitaRahwanadialogueRahwana2)
         SITA_RAHWANA_DIALOGUE_RAHWANA_2 = 7,
-        // 008 (03 L-R1 Laksmana1F) 
+        // 008 (03 L-R1 Laksmana1F)
         L_R1_LAKS1F = 8,
-        // 009 (Rama1Laksmana-Rama Diaglogue(in place of narrator for context)) 
+        // 009 (Rama1Laksmana-Rama Diaglogue(in place of narrator for context))
         RAMA1LAKS_RAMA_DIALOGUE_IN_PLACE_NARATOR = 9,
         // 010 (04 H-R1 Hanuman1F)
         H_R1_HANUMAN1F = 10,
@@ -110,12 +113,11 @@ namespace SoundSystem
         SApol_Hanuman1F = 30,
         // 031 (15 SApol Sugriwa3F)
         SApol_Sugriwa3F = 31,
-        // 032 (Rama forgives sugriwa) 
+        // 032 (Rama forgives sugriwa)
         RAMA_FORGIVES_SUGRIWA = 32,
 
-
     };
-    
+
     enum DIALOG_NUMBER
     {
         NARATOR_INTRO_1,
@@ -125,7 +127,8 @@ namespace SoundSystem
         NARATOR_END_1
     };
 
-    enum MUSIC_NUMBER{
+    enum MUSIC_NUMBER
+    {
         MUSIC_GAMELAN = 1,
     };
 
@@ -140,6 +143,9 @@ namespace SoundSystem
     void pause();
     void playMusicWayang();
     void pauseMusicWayang();
+
 };
+
+extern int volumeHardcoded;
 
 #endif // SOUND_SYSTEM_H

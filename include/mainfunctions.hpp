@@ -70,8 +70,10 @@ private:
     int currentDeg[4] = {0, 0, 0, 0};
 };
 
-
+extern bool isPlaying;
+extern int currentEpisode;
 int getSubPageRoute();
 void setAllENtoHIGH();
+extern TaskHandle_t episodeTaskHandler[5];
 
 #endif // MAINFUNCTIONS_H

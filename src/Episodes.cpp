@@ -11,8 +11,6 @@
 #include "characters/sugriwa.hpp"
 #include "characters/wibhisana.hpp"
 
-int currentEpisode = 0;
-
 Hanoman hanoman;
 RamaWijaya rama_wijaya;
 Sita sita;
@@ -1640,7 +1638,7 @@ void Episodes::Episode_1()
     rama_wijaya.defaultStandPosition();
     hanoman.defaultStandPosition();
 
-    setAllMOSFETtoHIGH();
+    setAllMOSFETtoLOW();
     SoundSystem::playDialogFromACertainFolder(SoundSystem::INDICATOR_SOUND, SoundSystem::INDICATOR_SOUND_NUMBER::INDICATOR_FINISHED_SHOWING);
     delay(2000);
 }
@@ -4972,7 +4970,6 @@ void Episodes::Episode_5()
 
 void Episodes::Episode_1_task(void *pvParameters)
 {
-    attachInterrupt(digitalPinToInterrupt(BUTTON_ROTARY), Episodes::forceQuit1, RISING);
     // currentEpisode = 1;
     // Serial.print(F("Current Episode: "));
     // Serial.println(currentEpisode);
@@ -4988,7 +4985,6 @@ void Episodes::Episode_2_task(void *pvParameters)
 {
     Serial.print(F("Episode 2"));
     // Serial.println(uxTaskGetStackHighWaterMark(NULL));
-    attachInterrupt(digitalPinToInterrupt(BUTTON_ROTARY), Episodes::forceQuit2, RISING);
     // currentEpisode = 2;
     // Serial.print(F("Current Episode: "));
     // Serial.println(currentEpisode);
@@ -5003,7 +4999,6 @@ void Episodes::Episode_2_task(void *pvParameters)
 
 void Episodes::Episode_3_task(void *pvParameters)
 {
-    attachInterrupt(digitalPinToInterrupt(BUTTON_ROTARY), Episodes::forceQuit3, RISING);
     // currentEpisode = 3;
     // Serial.print(F("Current Episode: "));
     // Serial.println(currentEpisode);
@@ -5017,7 +5012,6 @@ void Episodes::Episode_3_task(void *pvParameters)
 
 void Episodes::Episode_4_task(void *pvParameters)
 {
-    attachInterrupt(digitalPinToInterrupt(BUTTON_ROTARY), Episodes::forceQuit4, RISING);
     // currentEpisode = 4;
     // Serial.print(F("Current Episode: "));
     // Serial.println(currentEpisode);
@@ -5031,7 +5025,6 @@ void Episodes::Episode_4_task(void *pvParameters)
 
 void Episodes::Episode_5_task(void *pvParameters)
 {
-    attachInterrupt(digitalPinToInterrupt(BUTTON_ROTARY), Episodes::forceQuit5, RISING);
     // currentEpisode = 5;
     // Serial.print(F("Current Episode: "));
     // Serial.println(currentEpisode);
@@ -5088,6 +5081,7 @@ void Episodes::Episode_5_task(void *pvParameters)
 
 void Episodes::forceQuit1()
 {
+    // vTaskDelay(100 / portTICK_PERIOD_MS);
     SoundSystem::pause();
     Serial.println(F("Resuming main loop!"));
     vTaskResume(mainLoopTaskHandler);
@@ -5098,6 +5092,7 @@ void Episodes::forceQuit1()
 
 void Episodes::forceQuit2()
 {
+    // vTaskDelay(100 / portTICK_PERIOD_MS);
     Serial.print(F("Current stack left: "));
     Serial.println(uxTaskGetStackHighWaterMark(episodeTaskHandler[1]));
     SoundSystem::pause();
@@ -5110,6 +5105,7 @@ void Episodes::forceQuit2()
 
 void Episodes::forceQuit3()
 {
+    // vTaskDelay(100 / portTICK_PERIOD_MS);
     SoundSystem::pause();
     vTaskSuspend(episodeTaskHandler[2]);
     vTaskDelete(episodeTaskHandler[2]);
@@ -5119,6 +5115,7 @@ void Episodes::forceQuit3()
 
 void Episodes::forceQuit4()
 {
+    // vTaskDelay(100 / portTICK_PERIOD_MS);
     SoundSystem::pause();
     vTaskSuspend(episodeTaskHandler[3]);
     vTaskDelete(episodeTaskHandler[3]);
@@ -5128,6 +5125,7 @@ void Episodes::forceQuit4()
 
 void Episodes::forceQuit5()
 {
+    // vTaskDelay(100 / portTICK_PERIOD_MS);
     SoundSystem::pause();
     vTaskSuspend(episodeTaskHandler[4]);
     vTaskDelete(episodeTaskHandler[4]);

@@ -36,6 +36,7 @@ namespace WayangDisplay
         void pleaseWaitDisplay();
 
         void playingWhatEpisodeDisplay(int nEpisode);
+        void whilePlayingDisplay();
 
         // Wayang Hand Calibration options
         // Sita
