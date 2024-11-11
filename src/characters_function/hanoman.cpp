@@ -57,7 +57,7 @@ void Hanoman::walk_to_a_certain_distance(int desiredDistance)
         int finalReadValue = getDistanceSensorNum(4);
         Serial.print(finalReadValue);
         Serial.println("mm \n");
-        if (finalReadValue > desiredDistance * 1.1)
+        if (finalReadValue > desiredDistance * 1.2)
         {
             walk_to_a_certain_distance(desiredDistance);
         }
@@ -76,7 +76,7 @@ void Hanoman::walk_to_a_certain_distance(int desiredDistance)
         int finalReadValue = getDistanceSensorNum(4);
         Serial.print(finalReadValue);
         Serial.println("mm \n");
-        if (finalReadValue < desiredDistance * 0.9)
+        if (finalReadValue < desiredDistance * 0.8)
         {
             walk_to_a_certain_distance(desiredDistance);
         }

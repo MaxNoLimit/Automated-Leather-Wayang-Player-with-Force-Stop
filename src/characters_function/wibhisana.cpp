@@ -64,7 +64,7 @@ void Wibhisana::walk_to_a_certain_distance(int desiredDistance)
         int finalReadValue = getDistanceSensorNum(8);
         Serial.print(finalReadValue);
         Serial.println("mm \n");
-        if (finalReadValue > desiredDistance * 1.1)
+        if (finalReadValue > desiredDistance * 1.2)
         {
             walk_to_a_certain_distance(desiredDistance);
         }
@@ -82,7 +82,7 @@ void Wibhisana::walk_to_a_certain_distance(int desiredDistance)
         int finalReadValue = getDistanceSensorNum(8);
         Serial.print(finalReadValue);
         Serial.println("mm \n");
-        if (finalReadValue < desiredDistance * 0.9)
+        if (finalReadValue < desiredDistance * 0.8)
         {
             walk_to_a_certain_distance(desiredDistance);
         }
@@ -153,7 +153,7 @@ void Wibhisana::downBack()
 {
     digitalWrite(WAYANG_HAND_8, HIGH);
     Servo_Wibhisana.moveWhatServo(3, 60, 500);
-    Servo_Wibhisana.moveWhatServo(4, 80, 200);
+    Servo_Wibhisana.moveWhatServo(4, 60, 200);
     digitalWrite(WAYANG_HAND_8, LOW);
 }
 

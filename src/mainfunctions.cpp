@@ -770,8 +770,8 @@ void WayangDisplay::generalLoop()
             wayangRamaWijaya.defaultStandPosition();
             setAllMOSFETtoHIGH();
             pageRoute = StateManagement::PAGE_ROUTE::WAYANG_HAND_CALIBRATION_PAGE;
-            subPageRoute = StateManagement::WAYANG_HAND_CALIBRATION_SUB_PAGE_ROUTE::WAYANG_HAND_CALIBRATION_1;
-            WayangDisplayLCD_in_main.set_selection_point(4);
+            subPageRoute = StateManagement::WAYANG_HAND_CALIBRATION_SUB_PAGE_ROUTE::WAYANG_HAND_CALIBRATION_2;
+            WayangDisplayLCD_in_main.set_selection_point(3);
             loop_state = StateManagement::FSA_STATE::DEFAULT_LOOPING_LCD;
             delay(1);
             break;
@@ -865,8 +865,8 @@ void WayangDisplay::generalLoop()
             wayangHanoman.defaultStandPosition();
             setAllMOSFETtoHIGH();
             pageRoute = StateManagement::PAGE_ROUTE::WAYANG_HAND_CALIBRATION_PAGE;
-            subPageRoute = StateManagement::WAYANG_HAND_CALIBRATION_SUB_PAGE_ROUTE::WAYANG_HAND_CALIBRATION_1;
-            WayangDisplayLCD_in_main.set_selection_point(5);
+            subPageRoute = StateManagement::WAYANG_HAND_CALIBRATION_SUB_PAGE_ROUTE::WAYANG_HAND_CALIBRATION_3;
+            WayangDisplayLCD_in_main.set_selection_point(3);
             loop_state = StateManagement::FSA_STATE::DEFAULT_LOOPING_LCD;
             delay(1);
             break;
@@ -960,8 +960,8 @@ void WayangDisplay::generalLoop()
             wayangLaksmana.defaultStandPosition();
             setAllMOSFETtoHIGH();
             pageRoute = StateManagement::PAGE_ROUTE::WAYANG_HAND_CALIBRATION_PAGE;
-            subPageRoute = StateManagement::WAYANG_HAND_CALIBRATION_SUB_PAGE_ROUTE::WAYANG_HAND_CALIBRATION_1;
-            WayangDisplayLCD_in_main.set_selection_point(6);
+            subPageRoute = StateManagement::WAYANG_HAND_CALIBRATION_SUB_PAGE_ROUTE::WAYANG_HAND_CALIBRATION_4;
+            WayangDisplayLCD_in_main.set_selection_point(3);
             loop_state = StateManagement::FSA_STATE::DEFAULT_LOOPING_LCD;
             delay(1);
             break;
@@ -1055,8 +1055,8 @@ void WayangDisplay::generalLoop()
             wayangSugriwa.defaultStandPosition();
             setAllMOSFETtoHIGH();
             pageRoute = StateManagement::PAGE_ROUTE::WAYANG_HAND_CALIBRATION_PAGE;
-            subPageRoute = StateManagement::WAYANG_HAND_CALIBRATION_SUB_PAGE_ROUTE::WAYANG_HAND_CALIBRATION_1;
-            WayangDisplayLCD_in_main.set_selection_point(7);
+            subPageRoute = StateManagement::WAYANG_HAND_CALIBRATION_SUB_PAGE_ROUTE::WAYANG_HAND_CALIBRATION_5;
+            WayangDisplayLCD_in_main.set_selection_point(3);
             loop_state = StateManagement::FSA_STATE::DEFAULT_LOOPING_LCD;
             delay(1);
             break;
@@ -1150,8 +1150,8 @@ void WayangDisplay::generalLoop()
             wayangSubali.defaultStandPosition();
             setAllMOSFETtoHIGH();
             pageRoute = StateManagement::PAGE_ROUTE::WAYANG_HAND_CALIBRATION_PAGE;
-            subPageRoute = StateManagement::WAYANG_HAND_CALIBRATION_SUB_PAGE_ROUTE::WAYANG_HAND_CALIBRATION_1;
-            WayangDisplayLCD_in_main.set_selection_point(8);
+            subPageRoute = StateManagement::WAYANG_HAND_CALIBRATION_SUB_PAGE_ROUTE::WAYANG_HAND_CALIBRATION_6;
+            WayangDisplayLCD_in_main.set_selection_point(3);
             loop_state = StateManagement::FSA_STATE::DEFAULT_LOOPING_LCD;
             delay(1);
             break;
@@ -1245,8 +1245,8 @@ void WayangDisplay::generalLoop()
             wayangWibhisana.defaultStandPosition();
             setAllMOSFETtoHIGH();
             pageRoute = StateManagement::PAGE_ROUTE::WAYANG_HAND_CALIBRATION_PAGE;
-            subPageRoute = StateManagement::WAYANG_HAND_CALIBRATION_SUB_PAGE_ROUTE::WAYANG_HAND_CALIBRATION_1;
-            WayangDisplayLCD_in_main.set_selection_point(9);
+            subPageRoute = StateManagement::WAYANG_HAND_CALIBRATION_SUB_PAGE_ROUTE::WAYANG_HAND_CALIBRATION_7;
+            WayangDisplayLCD_in_main.set_selection_point(3);
             loop_state = StateManagement::FSA_STATE::DEFAULT_LOOPING_LCD;
             delay(1);
             break;
@@ -1340,8 +1340,8 @@ void WayangDisplay::generalLoop()
             wayangAnggada.defaultStandPosition();
             setAllMOSFETtoHIGH();
             pageRoute = StateManagement::PAGE_ROUTE::WAYANG_HAND_CALIBRATION_PAGE;
-            subPageRoute = StateManagement::WAYANG_HAND_CALIBRATION_SUB_PAGE_ROUTE::WAYANG_HAND_CALIBRATION_1;
-            WayangDisplayLCD_in_main.set_selection_point(10);
+            subPageRoute = StateManagement::WAYANG_HAND_CALIBRATION_SUB_PAGE_ROUTE::WAYANG_HAND_CALIBRATION_8;
+            WayangDisplayLCD_in_main.set_selection_point(3);
             loop_state = StateManagement::FSA_STATE::DEFAULT_LOOPING_LCD;
             delay(1);
             break;
@@ -1435,8 +1435,8 @@ void WayangDisplay::generalLoop()
             wayangAnila.defaultStandPosition();
             setAllMOSFETtoHIGH();
             pageRoute = StateManagement::PAGE_ROUTE::WAYANG_HAND_CALIBRATION_PAGE;
-            subPageRoute = StateManagement::WAYANG_HAND_CALIBRATION_SUB_PAGE_ROUTE::WAYANG_HAND_CALIBRATION_1;
-            WayangDisplayLCD_in_main.set_selection_point(11);
+            subPageRoute = StateManagement::WAYANG_HAND_CALIBRATION_SUB_PAGE_ROUTE::WAYANG_HAND_CALIBRATION_9;
+            WayangDisplayLCD_in_main.set_selection_point(3);
             loop_state = StateManagement::FSA_STATE::DEFAULT_LOOPING_LCD;
             delay(1);
             break;
@@ -2249,7 +2249,7 @@ void WayangDisplayController::spinRotaryEncoder()
     switch (pageRoute)
     {
     case StateManagement::PAGE_ROUTE::MENU_PAGE:
-        if (millis() - last_run > displayLoopDelay / 10)
+        if (millis() - last_run > displayLoopDelay / 50)
         {
             if (digitalRead(OUTPUT_B) == HIGH)
             {
@@ -2327,7 +2327,7 @@ void WayangDisplayController::spinRotaryEncoder()
         break;
 
     case StateManagement::PAGE_ROUTE::CALIBRATE_PAGE:
-        if (millis() - last_run > displayLoopDelay / 10)
+        if (millis() - last_run > displayLoopDelay / 50)
         {
             if (digitalRead(OUTPUT_B) == HIGH)
             {
@@ -2370,7 +2370,7 @@ void WayangDisplayController::spinRotaryEncoder()
         break;
 
     case StateManagement::PAGE_ROUTE::VSLOT_DATA_PAGE:
-        if (millis() - last_run > displayLoopDelay / 10)
+        if (millis() - last_run > displayLoopDelay / 50)
         {
             if (digitalRead(OUTPUT_B) == HIGH)
             {
@@ -2413,7 +2413,7 @@ void WayangDisplayController::spinRotaryEncoder()
         break;
 
     case StateManagement::PAGE_ROUTE::SETTINGS_PAGE:
-        if (millis() - last_run > displayLoopDelay / 10)
+        if (millis() - last_run > displayLoopDelay / 50)
         {
             if (digitalRead(OUTPUT_B) == HIGH)
             {
@@ -2448,7 +2448,7 @@ void WayangDisplayController::spinRotaryEncoder()
         break;
 
     case StateManagement::PAGE_ROUTE::SENSOR_STATUS_PAGE:
-        if (millis() - last_run > displayLoopDelay / 10)
+        if (millis() - last_run > displayLoopDelay / 50)
         {
             if (digitalRead(OUTPUT_B) == HIGH)
             {
@@ -2491,7 +2491,7 @@ void WayangDisplayController::spinRotaryEncoder()
         break;
 
     case StateManagement::PAGE_ROUTE::WAYANG_HAND_CALIBRATION_PAGE:
-        if (millis() - last_run > displayLoopDelay / 10)
+        if (millis() - last_run > displayLoopDelay / 50)
         {
             if (digitalRead(OUTPUT_B) == HIGH)
             {
@@ -2533,7 +2533,7 @@ void WayangDisplayController::spinRotaryEncoder()
         last_run = millis();
         break;
     case StateManagement::PAGE_ROUTE::SITA_HAND_PAGE:
-        if (millis() - last_run > displayLoopDelay / 10)
+        if (millis() - last_run > displayLoopDelay / 50)
         {
             if (digitalRead(OUTPUT_B) == HIGH)
             {
@@ -2576,7 +2576,7 @@ void WayangDisplayController::spinRotaryEncoder()
         break;
 
     case StateManagement::PAGE_ROUTE::RAHWANA_HAND_PAGE:
-        if (millis() - last_run > displayLoopDelay / 10)
+        if (millis() - last_run > displayLoopDelay / 50)
         {
             if (digitalRead(OUTPUT_B) == HIGH)
             {
@@ -2619,7 +2619,7 @@ void WayangDisplayController::spinRotaryEncoder()
         break;
 
     case StateManagement::PAGE_ROUTE::RAMA_WIJAYA_HAND_PAGE:
-        if (millis() - last_run > displayLoopDelay / 10)
+        if (millis() - last_run > displayLoopDelay / 50)
         {
             if (digitalRead(OUTPUT_B) == HIGH)
             {
@@ -2662,7 +2662,7 @@ void WayangDisplayController::spinRotaryEncoder()
         break;
 
     case StateManagement::PAGE_ROUTE::HANOMAN_HAND_PAGE:
-        if (millis() - last_run > displayLoopDelay / 10)
+        if (millis() - last_run > displayLoopDelay / 50)
         {
             if (digitalRead(OUTPUT_B) == HIGH)
             {
@@ -2705,7 +2705,7 @@ void WayangDisplayController::spinRotaryEncoder()
         break;
 
     case StateManagement::PAGE_ROUTE::LAKSMANA_HAND_PAGE:
-        if (millis() - last_run > displayLoopDelay / 10)
+        if (millis() - last_run > displayLoopDelay / 50)
         {
             if (digitalRead(OUTPUT_B) == HIGH)
             {
@@ -2748,7 +2748,7 @@ void WayangDisplayController::spinRotaryEncoder()
         break;
 
     case StateManagement::PAGE_ROUTE::SUGRIWA_HAND_PAGE:
-        if (millis() - last_run > displayLoopDelay / 10)
+        if (millis() - last_run > displayLoopDelay / 50)
         {
             if (digitalRead(OUTPUT_B) == HIGH)
             {
@@ -2791,7 +2791,7 @@ void WayangDisplayController::spinRotaryEncoder()
         break;
 
     case StateManagement::PAGE_ROUTE::SUBALI_HAND_PAGE:
-        if (millis() - last_run > displayLoopDelay / 10)
+        if (millis() - last_run > displayLoopDelay / 50)
         {
             if (digitalRead(OUTPUT_B) == HIGH)
             {
@@ -2834,7 +2834,7 @@ void WayangDisplayController::spinRotaryEncoder()
         break;
 
     case StateManagement::PAGE_ROUTE::WIBHISANA_HAND_PAGE:
-        if (millis() - last_run > displayLoopDelay / 10)
+        if (millis() - last_run > displayLoopDelay / 50)
         {
             if (digitalRead(OUTPUT_B) == HIGH)
             {
@@ -2877,7 +2877,7 @@ void WayangDisplayController::spinRotaryEncoder()
         break;
 
     case StateManagement::PAGE_ROUTE::ANGGADA_HAND_PAGE:
-        if (millis() - last_run > displayLoopDelay / 10)
+        if (millis() - last_run > displayLoopDelay / 50)
         {
             if (digitalRead(OUTPUT_B) == HIGH)
             {
@@ -2920,7 +2920,7 @@ void WayangDisplayController::spinRotaryEncoder()
         break;
 
     case StateManagement::PAGE_ROUTE::ANILA_HAND_PAGE:
-        if (millis() - last_run > displayLoopDelay / 10)
+        if (millis() - last_run > displayLoopDelay / 50)
         {
             if (digitalRead(OUTPUT_B) == HIGH)
             {
@@ -2963,7 +2963,7 @@ void WayangDisplayController::spinRotaryEncoder()
         break;
 
     case StateManagement::PAGE_ROUTE::WHILE_PLAYING_PAGE:
-        if (millis() - last_run > displayLoopDelay / 10)
+        if (millis() - last_run > displayLoopDelay / 50)
         {
             if (digitalRead(OUTPUT_B) == HIGH)
             {

@@ -64,7 +64,7 @@ void Anggada::walk_to_a_certain_distance(int desiredDistance)
         int finalReadValue = getDistanceSensorNum(9);
         Serial.print(finalReadValue);
         Serial.println(F("mm \n"));
-        if (finalReadValue > desiredDistance * 1.1)
+        if (finalReadValue > desiredDistance * 1.2)
         {
             walk_to_a_certain_distance(desiredDistance);
         }
@@ -82,7 +82,7 @@ void Anggada::walk_to_a_certain_distance(int desiredDistance)
         int finalReadValue = getDistanceSensorNum(9);
         Serial.print(finalReadValue);
         Serial.println(F("mm \n"));
-        if (finalReadValue < desiredDistance * 0.9)
+        if (finalReadValue < desiredDistance * 0.8)
         {
             walk_to_a_certain_distance(desiredDistance);
         }

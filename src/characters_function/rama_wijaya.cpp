@@ -159,7 +159,7 @@ void RamaWijaya::walk_to_a_certain_distance(int desiredDistance)
         int finalReadValue = getDistanceSensorNum(3);;
         Serial.print(finalReadValue);
         Serial.println("mm \n");
-        if (finalReadValue > desiredDistance * 1.1)
+        if (finalReadValue > desiredDistance * 1.2)
         {
             walk_to_a_certain_distance(desiredDistance);
         }
@@ -178,7 +178,7 @@ void RamaWijaya::walk_to_a_certain_distance(int desiredDistance)
         int finalReadValue = getDistanceSensorNum(3);;
         Serial.print(finalReadValue);
         Serial.println("mm \n");
-        if (finalReadValue < desiredDistance * 0.9)
+        if (finalReadValue < desiredDistance * 0.8)
         {
             walk_to_a_certain_distance(desiredDistance);
         }
