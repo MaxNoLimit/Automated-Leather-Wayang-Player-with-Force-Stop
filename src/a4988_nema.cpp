@@ -46,7 +46,7 @@ void HorizontalController::step_for_n_dir(int nema_num, int step_value, String d
             {
                 digitalWrite(NEMA_STEP, state);
                 state = !state;
-                delayMicroseconds(PERIOD_NEMA);
+                delay(PERIOD_NEMA);
             }
             digitalWrite(EN_NEMA_1, HIGH);
             // NEMAs.en_num_gpio_a(NEMAs.DISABLE_ALL_EN);
@@ -64,7 +64,7 @@ void HorizontalController::step_for_n_dir(int nema_num, int step_value, String d
             {
                 digitalWrite(NEMA_STEP, state);
                 state = !state;
-                delayMicroseconds(PERIOD_NEMA);
+                delay(PERIOD_NEMA);
             }
             digitalWrite(EN_NEMA_2, HIGH);
             // NEMAs.en_num_gpio_a(NEMAs.DISABLE_ALL_EN);
@@ -82,7 +82,7 @@ void HorizontalController::step_for_n_dir(int nema_num, int step_value, String d
             {
                 digitalWrite(NEMA_STEP, state);
                 state = !state;
-                delayMicroseconds(PERIOD_NEMA);
+                delay(PERIOD_NEMA);
             }
             digitalWrite(EN_NEMA_3, HIGH);
             // NEMAs.en_num_gpio_a(NEMAs.DISABLE_ALL_EN);
@@ -99,7 +99,7 @@ void HorizontalController::step_for_n_dir(int nema_num, int step_value, String d
             {
                 digitalWrite(NEMA_STEP, state);
                 state = !state;
-                delayMicroseconds(PERIOD_NEMA);
+                delay(PERIOD_NEMA);
             }
             digitalWrite(EN_NEMA_4, HIGH);
             // NEMAs.en_num_gpio_a(NEMAs.DISABLE_ALL_EN);
@@ -116,7 +116,7 @@ void HorizontalController::step_for_n_dir(int nema_num, int step_value, String d
             {
                 digitalWrite(NEMA_STEP, state);
                 state = !state;
-                delayMicroseconds(PERIOD_NEMA);
+                delay(PERIOD_NEMA);
             }
             digitalWrite(EN_NEMA_5, HIGH);
             // NEMAs.en_num_gpio_a(NEMAs.DISABLE_ALL_EN);
@@ -133,7 +133,7 @@ void HorizontalController::step_for_n_dir(int nema_num, int step_value, String d
             {
                 digitalWrite(NEMA_STEP, state);
                 state = !state;
-                delayMicroseconds(PERIOD_NEMA);
+                delay(PERIOD_NEMA);
             }
             digitalWrite(EN_NEMA_6, HIGH);
             // NEMAs.en_num_gpio_a(NEMAs.DISABLE_ALL_EN);
@@ -150,7 +150,7 @@ void HorizontalController::step_for_n_dir(int nema_num, int step_value, String d
             {
                 digitalWrite(NEMA_STEP, state);
                 state = !state;
-                delayMicroseconds(PERIOD_NEMA);
+                delay(PERIOD_NEMA);
             }
             digitalWrite(EN_NEMA_7, HIGH);
             // NEMAs.en_num_gpio_a(NEMAs.DISABLE_ALL_EN);
@@ -167,7 +167,7 @@ void HorizontalController::step_for_n_dir(int nema_num, int step_value, String d
             {
                 digitalWrite(NEMA_STEP, state);
                 state = !state;
-                delayMicroseconds(PERIOD_NEMA);
+                delay(PERIOD_NEMA);
             }
             digitalWrite(EN_NEMA_8, HIGH);
             // NEMAs.en_num_gpio_a(NEMAs.DISABLE_ALL_EN);
@@ -184,7 +184,7 @@ void HorizontalController::step_for_n_dir(int nema_num, int step_value, String d
             {
                 digitalWrite(NEMA_STEP, state);
                 state = !state;
-                delayMicroseconds(PERIOD_NEMA);
+                delay(PERIOD_NEMA);
             }
             digitalWrite(EN_NEMA_9, HIGH);
             // NEMAs.en_num_gpio_a(NEMAs.DISABLE_ALL_EN);
@@ -201,7 +201,7 @@ void HorizontalController::step_for_n_dir(int nema_num, int step_value, String d
             {
                 digitalWrite(NEMA_STEP, state);
                 state = !state;
-                delayMicroseconds(PERIOD_NEMA);
+                delay(PERIOD_NEMA);
             }
             digitalWrite(EN_NEMA_10, HIGH);
             // NEMAs.en_num_gpio_a(NEMAs.DISABLE_ALL_EN);
@@ -225,7 +225,7 @@ void HorizontalController::step_for_n_dir(int nema_num, int step_value, String d
             {
                 digitalWrite(NEMA_STEP, state);
                 state = !state;
-                delayMicroseconds(PERIOD_NEMA);
+                delay(PERIOD_NEMA);
             }
             digitalWrite(EN_NEMA_1, HIGH);
             // NEMAs.en_num_gpio_a(NEMAs.DISABLE_ALL_EN);
@@ -243,7 +243,7 @@ void HorizontalController::step_for_n_dir(int nema_num, int step_value, String d
             {
                 digitalWrite(NEMA_STEP, state);
                 state = !state;
-                delayMicroseconds(PERIOD_NEMA);
+                delay(PERIOD_NEMA);
             }
             // digitalWrite(EN_2_NEMA, HIGH);
             // NEMAs.en_num_gpio_a(NEMAs.DISABLE_ALL_EN);
@@ -261,7 +261,7 @@ void HorizontalController::step_for_n_dir(int nema_num, int step_value, String d
             {
                 digitalWrite(NEMA_STEP, state);
                 state = !state;
-                delayMicroseconds(PERIOD_NEMA);
+                delay(PERIOD_NEMA);
             }
             digitalWrite(EN_NEMA_3, HIGH);
             // NEMAs.en_num_gpio_a(NEMAs.DISABLE_ALL_EN);
@@ -278,7 +278,7 @@ void HorizontalController::step_for_n_dir(int nema_num, int step_value, String d
             {
                 digitalWrite(NEMA_STEP, state);
                 state = !state;
-                delayMicroseconds(PERIOD_NEMA);
+                delay(PERIOD_NEMA);
             }
             digitalWrite(EN_NEMA_4, HIGH);
             // NEMAs.en_num_gpio_a(NEMAs.DISABLE_ALL_EN);
@@ -295,7 +295,7 @@ void HorizontalController::step_for_n_dir(int nema_num, int step_value, String d
             {
                 digitalWrite(NEMA_STEP, state);
                 state = !state;
-                delayMicroseconds(PERIOD_NEMA);
+                delay(PERIOD_NEMA);
             }
             digitalWrite(EN_NEMA_5, HIGH);
             // NEMAs.en_num_gpio_a(NEMAs.DISABLE_ALL_EN);
@@ -312,7 +312,7 @@ void HorizontalController::step_for_n_dir(int nema_num, int step_value, String d
             {
                 digitalWrite(NEMA_STEP, state);
                 state = !state;
-                delayMicroseconds(PERIOD_NEMA);
+                delay(PERIOD_NEMA);
             }
             digitalWrite(EN_NEMA_6, HIGH);
             // NEMAs.en_num_gpio_a(NEMAs.DISABLE_ALL_EN);
@@ -329,7 +329,7 @@ void HorizontalController::step_for_n_dir(int nema_num, int step_value, String d
             {
                 digitalWrite(NEMA_STEP, state);
                 state = !state;
-                delayMicroseconds(PERIOD_NEMA);
+                delay(PERIOD_NEMA);
             }
             digitalWrite(EN_NEMA_7, HIGH);
             // NEMAs.en_num_gpio_a(NEMAs.DISABLE_ALL_EN);
@@ -346,7 +346,7 @@ void HorizontalController::step_for_n_dir(int nema_num, int step_value, String d
             {
                 digitalWrite(NEMA_STEP, state);
                 state = !state;
-                delayMicroseconds(PERIOD_NEMA);
+                delay(PERIOD_NEMA);
             }
             digitalWrite(EN_NEMA_8, HIGH);
             // NEMAs.en_num_gpio_a(NEMAs.DISABLE_ALL_EN);
@@ -363,7 +363,7 @@ void HorizontalController::step_for_n_dir(int nema_num, int step_value, String d
             {
                 digitalWrite(NEMA_STEP, state);
                 state = !state;
-                delayMicroseconds(PERIOD_NEMA);
+                delay(PERIOD_NEMA);
             }
             digitalWrite(EN_NEMA_9, HIGH);
             // NEMAs.en_num_gpio_a(NEMAs.DISABLE_ALL_EN);
@@ -380,7 +380,7 @@ void HorizontalController::step_for_n_dir(int nema_num, int step_value, String d
             {
                 digitalWrite(NEMA_STEP, state);
                 state = !state;
-                delayMicroseconds(PERIOD_NEMA);
+                delay(PERIOD_NEMA);
             }
             digitalWrite(EN_NEMA_10, HIGH);
             // NEMAs.en_num_gpio_a(NEMAs.DISABLE_ALL_EN);
@@ -410,7 +410,7 @@ void HorizontalController::step_for_n_dir(int nema_num, int step_value, String d
 //     {
 //         digitalWrite(NEMA_STEP, state_1);
 //         state_1 = !state_1;
-//         vTaskDelay(2 / portTICK_PERIOD_MS);
+//         delay(2 / portTICK_PERIOD_MS);
 //     }
 // }
 

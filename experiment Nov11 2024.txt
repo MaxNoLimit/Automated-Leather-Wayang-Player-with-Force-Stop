@@ -1,0 +1,36 @@
+Experiment 11/11/2024
+
+1. Experiment 1
+
+- Attempt 1: (lcd broke while playing)
+	MainLoop stack: 512
+	MainLoop priority: 1
+	Episode stack: 1024
+	Episode priority: 1
+
+- Attempt 2: (lcd broke while playing same as attempt 1)
+	MainLoop stack: 1024
+	MainLoop priority: 1
+	Episode stack: 1024
+	Episode priority: 1
+
+
+Conclusion: bad display algorithm while playing episode or wrong priority management, since stack size doesnt affect the lcd broke
+
+2. Experiment 2
+
+- Attempt 1: (lcd didnt break while playing but horizontal movement stutter like move a little bit, not like usual)
+	MainLoop stack: 1024
+	MainLoop priority: 2
+	Episode stack: 1024
+	Episode priority: 1
+
+- Attempt 2: (same as attempt 1)
+	MainLoop stack: 512
+	MainLoop priority: 2
+	Episode stack: 1024
+	Episode priority: 1
+
+Conclusion: bad horizontal movement algorithm, mainloop stack is okay with 512 and episode stack is already enough with 1024 since every fight task, use 2x 352 = 716 bytes
+
+Solusion for bad horizontal movement algorithm: while doing horizontal movement, mainloop task is suspended then resumed after done moving

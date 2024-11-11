@@ -8,7 +8,7 @@ const char *menuList[4] = {
     "Menu",
     "Play episode",
     "Calibrate",
-    "Settings"};
+    "Info"};
 
 // For Episode Display
 const char *episodeList[5] = {
@@ -255,13 +255,13 @@ Function untuk display bagian Settings
 void WayangDisplay::WayangDisplayLCD::SettingsDisplay()
 {
     lcdWayang.setCursor(0, 0);
-    lcdWayang.print("Settings");
+    lcdWayang.print("Info");
     lcdWayang.setCursor(0, 1);
     lcdWayang.print("Volume:");
     lcdWayang.setCursor(8, 1);
     lcdWayang.print(volumeHardcoded);
     lcdWayang.setCursor(0, 3);
-    lcdWayang.print(F("Force Stop: O"));
+    lcdWayang.print(F("FS Firmware"));
     lcdWayang.setCursor(18, get_selection_point());
     lcdWayang.print("<<");
 }
