@@ -75,5 +75,6 @@ extern int currentEpisode;
 int getSubPageRoute();
 void setAllENtoHIGH();
 extern TaskHandle_t episodeTaskHandler[5];
+extern bool isEpisodeTaskCreated;
 
 #endif // MAINFUNCTIONS_H

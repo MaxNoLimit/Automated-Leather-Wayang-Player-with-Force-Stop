@@ -27,7 +27,10 @@ Function untuk membuat suatu nema wayang bergerak sebanyak step_value dan arah t
 void HorizontalController::step_for_n_dir(int nema_num, int step_value, String dir)
 {
     // String temp_dir = (String)tolower(dir);
-    vTaskSuspend(mainLoopTaskHandler);
+    if (isEpisodeTaskCreated)
+    {
+        vTaskSuspend(mainLoopTaskHandler);
+    }
     if (dir == "ccw")
     {
         switch (nema_num)
@@ -385,7 +388,10 @@ void HorizontalController::step_for_n_dir(int nema_num, int step_value, String d
         }
         }
     }
-    vTaskResume(mainLoopTaskHandler);
+    if (isEpisodeTaskCreated)
+    {
+        vTaskResume(mainLoopTaskHandler);
+    }
 }
 
 // void spinNEMA(void *pvParameters)

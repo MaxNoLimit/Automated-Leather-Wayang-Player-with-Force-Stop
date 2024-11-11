@@ -1,7 +1,7 @@
 #ifndef A4988_NEMA_H
 #define A4988_NEMA_H
 
-#define PERIOD_NEMA 2500
+#define PERIOD_NEMA 3000
 
 #include "mainheader.hpp"
 

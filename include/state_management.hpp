@@ -21,15 +21,15 @@ namespace StateManagement
 
         SENSOR_CHECK,
 
+        PAUSE_CONTINUE_PLAYING,
+        STOP_PLAYING,
+
         PLAY_EPISODE_1,
         PLAY_EPISODE_2,
         PLAY_EPISODE_3,
         PLAY_EPISODE_4,
         PLAY_EPISODE_5,
         SIMPLE_WAYANG_HAND_CALIBRATION,
-
-        PAUSE_CONTINUE_PLAYING,
-        STOP_PLAYING,
 
         SITA_HAND,
         EXIT_SITA_HAND,
@@ -172,6 +172,7 @@ namespace StateManagement
         SETTINGS_PAGE,
         SENSOR_STATUS_PAGE,
         WAYANG_HAND_CALIBRATION_PAGE,
+        WHILE_PLAYING_PAGE,
         SITA_HAND_PAGE,
         RAHWANA_HAND_PAGE,
         RAMA_WIJAYA_HAND_PAGE,
@@ -182,7 +183,6 @@ namespace StateManagement
         WIBHISANA_HAND_PAGE,
         ANGGADA_HAND_PAGE,
         ANILA_HAND_PAGE,
-        WHILE_PLAYING_PAGE,
 
     };
 

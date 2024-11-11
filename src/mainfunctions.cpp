@@ -34,7 +34,7 @@ int lcd_2040_address;
 WayangDisplay::WayangDisplayLCD WayangDisplayLCD_in_main(0x27);
 unsigned long last_run = 0;
 unsigned int loop_state = 0;
-// bool isEpisodeTaskCreated = false;
+bool isEpisodeTaskCreated = false;
 bool isPlaying = true;
 int currentEpisode = 0;
 
@@ -365,6 +365,7 @@ void WayangDisplay::generalLoop()
         Serial.println(uxTaskGetStackHighWaterMark(episodeTaskHandler[currentEpisode - 1]));
         // vTaskSuspend(episodeTaskHandler[currentEpisode - 1]);
         vTaskDelete(episodeTaskHandler[currentEpisode - 1]);
+        isEpisodeTaskCreated = false;
         pageRoute = StateManagement::PAGE_ROUTE::EPISODE_PAGE;
         WayangDisplayLCD_in_main.set_selection_point(1);
         // vTaskDelay(1000 / portTICK_PERIOD_MS);
@@ -1570,6 +1571,7 @@ void WayangDisplayController::pressRotaryEncoder()
             case 1:
                 // Play Episode 1
                 isPlaying = true;
+                isEpisodeTaskCreated = true;
                 loop_state = StateManagement::FSA_STATE::PLAY_EPISODE_1;
                 // do nothing
                 break;
@@ -1577,6 +1579,7 @@ void WayangDisplayController::pressRotaryEncoder()
             case 2:
                 // Play Episode 2
                 isPlaying = true;
+                isEpisodeTaskCreated = true;
                 loop_state = StateManagement::FSA_STATE::PLAY_EPISODE_2;
                 // do nothing
                 break;
@@ -1584,18 +1587,24 @@ void WayangDisplayController::pressRotaryEncoder()
             case 3:
                 // Play Episode 3
                 isPlaying = true;
+                isEpisodeTaskCreated = true;
+                loop_state = StateManagement::FSA_STATE::PLAY_EPISODE_3;
                 // do nothing
                 break;
 
             case 4:
                 // Play Episode 4
                 isPlaying = true;
+                isEpisodeTaskCreated = true;
+                loop_state = StateManagement::FSA_STATE::PLAY_EPISODE_4;
                 // do nothing
                 break;
 
             case 5:
                 // Play Episode 5
                 isPlaying = true;
+                isEpisodeTaskCreated = true;
+                loop_state = StateManagement::FSA_STATE::PLAY_EPISODE_5;
                 // do nothing
                 break;
             }

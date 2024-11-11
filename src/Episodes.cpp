@@ -11,8 +11,6 @@
 #include "characters/sugriwa.hpp"
 #include "characters/wibhisana.hpp"
 
-int currentEpisode = 0;
-
 Hanoman hanoman;
 RamaWijaya rama_wijaya;
 Sita sita;
@@ -24,6 +22,8 @@ Wibhisana wibhisana;
 
 // TaskHandle_t taskSugriwa;
 // TaskHandle_t taskSubali;
+
+TaskHandle_t episodeTaskHandler[5];
 
 // TaskHandle_t episode1TaskHandler;
 // TaskHandle_t episode2TaskHandler;
@@ -147,7 +147,7 @@ static void subaliTaskFight1(void *pvParameters)
         subali.pointToFront();       // takes 900 ms
         // deleting subaliTaskFight1 task
         // Serial.println("subaliTaskFight1 stack: " + String(uxTaskGetStackHighWaterMark(NULL)));
-        vTaskResume(mainLoopTaskHandler);
+        vTaskResume(episodeTaskHandler[1]);
         vTaskDelete(NULL);
     }
 }
@@ -180,7 +180,7 @@ static void ramaTaskFight1(void *pvParameters)
         rama_wijaya.pointToFront();       // takes 700 ms
         // deleting ramaTaskFight1 task
         // Serial.println("ramaTaskFight1 stack: " + String(uxTaskGetStackHighWaterMark(NULL)));
-        vTaskResume(mainLoopTaskHandler);
+        vTaskResume(episodeTaskHandler[1]);
         vTaskDelete(NULL);
     }
 }
@@ -1859,7 +1859,7 @@ void Episodes::Episode_2()
 
     // vTaskStartScheduler();
 
-    vTaskSuspend(mainLoopTaskHandler);
+    vTaskSuspend(episodeTaskHandler[1]);
     // sugriwa.pointToFront();       // takes 900 ms
     // subali.pointToFront();        // takes 900 ms
     // sugriwa.lower_pointToFront(); // takes 700 ms
@@ -2094,7 +2094,7 @@ void Episodes::Episode_2()
     xTaskCreate(sugriwaTaskFight1, "sugriwaTaskFight1", fighting_STACK_SIZE, NULL, 1, NULL);
     xTaskCreate(subaliTaskFight1, "subaliTaskFight1", fighting_STACK_SIZE, NULL, 1, NULL);
 
-    vTaskSuspend(mainLoopTaskHandler);
+    vTaskSuspend(episodeTaskHandler[1]);
 
     // sugriwa.pointToFront();       // takes 900 ms
     // subali.pointToFront();        // takes 900 ms
@@ -4998,75 +4998,75 @@ void Episodes::Episode_5()
 {
 }
 
-// void Episodes::Episode_1_task(void *pvParameters)
-// {
-//     attachInterrupt(digitalPinToInterrupt(BUTTON_ROTARY), Episodes::forceQuit, RISING);
-//     currentEpisode = 1;
-//     Serial.print(F("Current Episode: "));
-//     Serial.println(currentEpisode);
-//     while (1)
-//     {
-//         Episode_1();
-//         vTaskResume(mainLoopTaskHandler);
-//         vTaskDelete(NULL);
-//     }
-// }
+void Episodes::Episode_1_task(void *pvParameters)
+{
+    currentEpisode = 1;
+    Serial.print(F("Current Episode: "));
+    Serial.println(currentEpisode);
+    while (1)
+    {
+        Episode_1();
+        vTaskResume(mainLoopTaskHandler);
+        isEpisodeTaskCreated = false;
+        vTaskDelete(NULL);
+    }
+}
 
-// void Episodes::Episode_2_task(void *pvParameters)
-// {
-//     attachInterrupt(digitalPinToInterrupt(BUTTON_ROTARY), Episodes::forceQuit, RISING);
-//     currentEpisode = 2;
-//     Serial.print(F("Current Episode: "));
-//     Serial.println(currentEpisode);
-//     while (1)
-//     {
-//         Episode_2();
-//         vTaskResume(mainLoopTaskHandler);
-//         vTaskDelete(NULL);
-//     }
-// }
+void Episodes::Episode_2_task(void *pvParameters)
+{
+    currentEpisode = 2;
+    Serial.print(F("Current Episode: "));
+    Serial.println(currentEpisode);
+    while (1)
+    {
+        Episode_2();
+        vTaskResume(mainLoopTaskHandler);
+        isEpisodeTaskCreated = false;
+        vTaskDelete(NULL);
+    }
+}
 
-// void Episodes::Episode_3_task(void *pvParameters)
-// {
-//     attachInterrupt(digitalPinToInterrupt(BUTTON_ROTARY), Episodes::forceQuit, RISING);
-//     currentEpisode = 3;
-//     Serial.print(F("Current Episode: "));
-//     Serial.println(currentEpisode);
-//     while (1)
-//     {
-//         Episode_3();
-//         vTaskResume(mainLoopTaskHandler);
-//         vTaskDelete(NULL);
-//     }
-// }
+void Episodes::Episode_3_task(void *pvParameters)
+{
+    currentEpisode = 3;
+    Serial.print(F("Current Episode: "));
+    Serial.println(currentEpisode);
+    while (1)
+    {
+        Episode_3();
+        vTaskResume(mainLoopTaskHandler);
+        isEpisodeTaskCreated = false;
+        vTaskDelete(NULL);
+    }
+}
 
-// void Episodes::Episode_4_task(void *pvParameters)
-// {
-//     attachInterrupt(digitalPinToInterrupt(BUTTON_ROTARY), Episodes::forceQuit, RISING);
-//     currentEpisode = 4;
-//     Serial.print(F("Current Episode: "));
-//     Serial.println(currentEpisode);
-//     while (1)
-//     {
-//         Episode_4();
-//         vTaskResume(mainLoopTaskHandler);
-//         vTaskDelete(NULL);
-//     }
-// }
+void Episodes::Episode_4_task(void *pvParameters)
+{
+    currentEpisode = 4;
+    Serial.print(F("Current Episode: "));
+    Serial.println(currentEpisode);
+    while (1)
+    {
+        Episode_4();
+        vTaskResume(mainLoopTaskHandler);
+        isEpisodeTaskCreated = false;
+        vTaskDelete(NULL);
+    }
+}
 
-// void Episodes::Episode_5_task(void *pvParameters)
-// {
-//     attachInterrupt(digitalPinToInterrupt(BUTTON_ROTARY), Episodes::forceQuit, RISING);
-//     currentEpisode = 5;
-//     Serial.print(F("Current Episode: "));
-//     Serial.println(currentEpisode);
-//     while (1)
-//     {
-//         Episode_5();
-//         vTaskResume(mainLoopTaskHandler);
-//         vTaskDelete(NULL);
-//     }
-// }
+void Episodes::Episode_5_task(void *pvParameters)
+{
+    currentEpisode = 5;
+    Serial.print(F("Current Episode: "));
+    Serial.println(currentEpisode);
+    while (1)
+    {
+        Episode_5();
+        vTaskResume(mainLoopTaskHandler);
+        isEpisodeTaskCreated = false;
+        vTaskDelete(NULL);
+    }
+}
 
 // void Episodes::forceQuit()
 // {
