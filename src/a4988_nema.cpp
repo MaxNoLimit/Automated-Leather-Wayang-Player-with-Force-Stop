@@ -2,24 +2,6 @@
 #include "mainfunctions.hpp"
 #include "distanceSensorVL53L0X.hpp"
 
-// const int nema_pins[10] = {
-//     EN_NEMA_1,
-//     EN_NEMA_2,
-//     EN_NEMA_3,
-//     EN_NEMA_4,
-//     EN_NEMA_5,
-//     EN_NEMA_6,
-//     EN_NEMA_7,
-//     EN_NEMA_8,
-//     EN_NEMA_9,
-//     EN_NEMA_10,
-// };
-
-// int selected_nema = 0;
-// String desiredDir = "cw";
-// int desiredDistance = 0;
-// bool state_1 = true;
-// TaskHandle_t spinNEMAHandler;
 
 /*
 Function untuk membuat suatu nema wayang bergerak sebanyak step_value dan arah tertentu
@@ -394,69 +376,3 @@ void HorizontalController::step_for_n_dir(int nema_num, int step_value, String d
     }
 }
 
-// void spinNEMA(void *pvParameters)
-// {
-//     if (getDistanceSensorNum(selected_nema) - desiredDistance > 0)
-//     {
-//         digitalWrite(nema_pins[selected_nema - 1], LOW);
-//         digitalWrite(NEMA_DIR, HIGH);
-//     }
-//     else
-//     {
-//         digitalWrite(nema_pins[selected_nema - 1], LOW);
-//         digitalWrite(NEMA_DIR, LOW);
-//     }
-//     while (1)
-//     {
-//         digitalWrite(NEMA_STEP, state_1);
-//         state_1 = !state_1;
-//         delay(2 / portTICK_PERIOD_MS);
-//     }
-// }
-
-// void distanceKeeper(void *pvParameters)
-// {
-//     while (1)
-//     {
-//         if (getDistanceSensorNum(selected_nema) == desiredDistance)
-//         {
-//             digitalWrite(nema_pins[selected_nema - 1], HIGH);
-//             vTaskDelete(spinNEMAHandler);
-//             if (isEpisodeTaskCreated)
-//             {
-//                 vTaskResume(episodeTaskHandler[currentEpisode - 1]);
-//             }
-//             free(pvParameters);
-
-//             vTaskDelete(NULL);
-//         }
-//     }
-// }
-
-// /*
-// Function untuk closed loop horizontal movement with thread
-// */
-// void HorizontalController::step_for_what_distance(int nema_num, int distance)
-// {
-//     selected_nema = nema_num;
-//     desiredDistance = distance;
-//     xTaskCreate(
-//         distanceKeeper,   /* Task function. */
-//         "DistanceKeeper", /* name of task. */
-//         128,              /* Stack size of task */
-//         NULL,             /* parameter of the task */
-//         1,                /* priority of the task */
-//         NULL);            /* Task handle to keep track of created task */
-
-//     xTaskCreate(
-//         spinNEMA,          /* Task function. */
-//         "SpinNEMA",        /* name of task. */
-//         128,               /* Stack size of task */
-//         NULL,              /* parameter of the task */
-//         1,                 /* priority of the task */
-//         &spinNEMAHandler); /* Task handle to keep track of created task */
-//     if (isEpisodeTaskCreated)
-//     {
-//         vTaskSuspend(episodeTaskHandler[currentEpisode - 1]);
-//     }
-// }

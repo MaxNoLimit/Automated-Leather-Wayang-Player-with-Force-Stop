@@ -50,7 +50,7 @@ void beginSensorNum(int nSensor)
     }
     else
     {
-        distanceSensor[nSensor - 1].startContinuous(20);
+        distanceSensor[nSensor - 1].startContinuous(200);
         // distanceSensor[nSensor - 1].setSignalRateLimit(0.1);                                 // 0.1 MCPS
         // distanceSensor[nSensor - 1].setVcselPulsePeriod(VL53L0X::VcselPeriodPreRange, 18);   // laser pulse periods 18 PCLKs
         // distanceSensor[nSensor - 1].setVcselPulsePeriod(VL53L0X::VcselPeriodFinalRange, 14); // Laser pulse periods 14 PCLKs

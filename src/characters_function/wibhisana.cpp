@@ -91,7 +91,7 @@ void Wibhisana::walk_to_a_certain_distance(int desiredDistance)
 
 void Wibhisana::walk_to_a_certain_distance_before_calibrating_value(int desiredDistance)
 {
-    int desiredDistanceAfterCalibratingValue = desiredDistance + 61;
+    int desiredDistanceAfterCalibratingValue = desiredDistance + 45;
     Serial.println("\ndesiredDistance: ");
     Serial.print(desiredDistanceAfterCalibratingValue);
     Serial.println("mm \n");
@@ -104,7 +104,7 @@ void Wibhisana::pointToFront()
     digitalWrite(WAYANG_HAND_8, HIGH);
     // Servo_Wibhisana.moveWhatServo(1, 150, 200);
     Servo_Wibhisana.moveWhatServo(2, 75, 200);
-    Servo_Wibhisana.moveWhatServo(1, 0, 500);
+    Servo_Wibhisana.moveWhatServo(1, 5, 500);
     Servo_Wibhisana.moveWhatServo(2, 35, 200);
     digitalWrite(WAYANG_HAND_8, LOW);
 }
@@ -114,7 +114,7 @@ void Wibhisana::lower_pointToFront()
 {
     digitalWrite(WAYANG_HAND_8, HIGH);
     Servo_Wibhisana.moveWhatServo(1, 90, 500);
-    Servo_Wibhisana.moveWhatServo(2, 40, 200);
+    Servo_Wibhisana.moveWhatServo(2, 80, 200);
     digitalWrite(WAYANG_HAND_8, LOW);
 }
 
@@ -122,9 +122,9 @@ void Wibhisana::lower_pointToFront()
 void Wibhisana::middleFront()
 {
     digitalWrite(WAYANG_HAND_8, HIGH);
-    Servo_Wibhisana.moveWhatServo(1, 135, 500);
+    Servo_Wibhisana.moveWhatServo(1, 100, 500);
     Servo_Wibhisana.moveWhatServo(2, 80, 200);
-    Servo_Wibhisana.moveWhatServo(1, 45, 500);
+    Servo_Wibhisana.moveWhatServo(1, 5, 500);
     digitalWrite(WAYANG_HAND_8, LOW);
 }
 
@@ -132,7 +132,7 @@ void Wibhisana::middleFront()
 void Wibhisana::downFront()
 {
     digitalWrite(WAYANG_HAND_8, HIGH);
-    Servo_Wibhisana.moveWhatServo(1, 150, 500);
+    Servo_Wibhisana.moveWhatServo(1, 130, 500);
     Servo_Wibhisana.moveWhatServo(2, 70, 200);
     digitalWrite(WAYANG_HAND_8, LOW);
 }
@@ -152,8 +152,8 @@ void Wibhisana::pointToBack()
 void Wibhisana::downBack()
 {
     digitalWrite(WAYANG_HAND_8, HIGH);
-    Servo_Wibhisana.moveWhatServo(3, 60, 500);
-    Servo_Wibhisana.moveWhatServo(4, 60, 200);
+    Servo_Wibhisana.moveWhatServo(3, 80, 500);
+    Servo_Wibhisana.moveWhatServo(4, 50, 200);
     digitalWrite(WAYANG_HAND_8, LOW);
 }
 

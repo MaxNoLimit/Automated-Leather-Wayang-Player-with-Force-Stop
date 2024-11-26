@@ -2118,7 +2118,7 @@ void Episodes::Episode_2()
     xTaskCreate(subaliTaskFight2, "subaliTaskFight2", fighting_STACK_SIZE, NULL, 1, NULL);
     xTaskCreate(ramaTaskFight1, "ramaTaskFight1", fighting_STACK_SIZE, NULL, 1, NULL);
 
-    vTaskSuspend(mainLoopTaskHandler);
+    vTaskSuspend(episodeTaskHandler[1]);
     // rama_wijaya.pointToFront();       // takes 900 ms
     // subali.pointToFront();            // takes 900 ms
     // rama_wijaya.lower_pointToFront(); // takes 700 ms

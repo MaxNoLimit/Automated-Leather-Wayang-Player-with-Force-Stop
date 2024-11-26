@@ -85,7 +85,7 @@ void Hanoman::walk_to_a_certain_distance(int desiredDistance)
 
 void Hanoman::walk_to_a_certain_distance_before_calibrating_value(int desiredDistance)
 {
-    int desiredDistanceAfterCalibratingValue = desiredDistance + 17;
+    int desiredDistanceAfterCalibratingValue = desiredDistance + 29;
     Serial.println("\ndesiredDistance: ");
     Serial.print(desiredDistanceAfterCalibratingValue);
     Serial.println("mm \n");
@@ -131,8 +131,8 @@ void Hanoman::middleFront()
 void Hanoman::downFront()
 {
     digitalWrite(WAYANG_HAND_4, HIGH);
-    Servo_Hanuman.moveWhatServo(3, 0, 500);
-    Servo_Hanuman.moveWhatServo(4, 120, 200);
+    Servo_Hanuman.moveWhatServo(3, 5, 500);
+    Servo_Hanuman.moveWhatServo(4, 100, 200);
     digitalWrite(WAYANG_HAND_4, LOW);
 }
 
@@ -170,9 +170,15 @@ void Hanoman::onHipBack()
 void Hanoman::pointToSelf()
 {
     digitalWrite(WAYANG_HAND_4, HIGH);
-    Servo_Hanuman.moveWhatServo(4, 60, 200);
+
+    Servo_Hanuman.moveWhatServo(4, 70, 200);
     Servo_Hanuman.moveWhatServo(3, 150, 500);
     Servo_Hanuman.moveWhatServo(4, 80, 200);
+
+    // Servo_Hanuman.moveWhatServo(3, 75, 350);
+    // Servo_Hanuman.moveWhatServo(4, 60, 200);
+    // Servo_Hanuman.moveWhatServo(3, 150, 350);
+
     digitalWrite(WAYANG_HAND_4, LOW);
 }
 
@@ -203,7 +209,7 @@ void Hanoman::middleBack()
     Servo_Hanuman.moveWhatServo(1, 90, 500);
     Servo_Hanuman.moveWhatServo(2, 70, 200);
     Servo_Hanuman.moveWhatServo(1, 0, 500);
-    Servo_Hanuman.moveWhatServo(2, 90, 200);
+    Servo_Hanuman.moveWhatServo(2, 80, 200);
     // Servo_Hanuman.moveWhatServo(2, 40, 500);
     digitalWrite(WAYANG_HAND_4, LOW);
 }

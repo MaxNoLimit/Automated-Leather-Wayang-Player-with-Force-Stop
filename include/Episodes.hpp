@@ -3,7 +3,7 @@
 
 #include <Arduino.h>
 #include <mainheader.hpp>
-#define fighting_STACK_SIZE 256 + 128 // already maximum, cannot exceed anymore
+#define fighting_STACK_SIZE 256 + 256 // already maximum and optimal, cannot exceed anymore
 
 namespace Episodes
 {

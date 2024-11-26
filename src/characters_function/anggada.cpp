@@ -91,7 +91,7 @@ void Anggada::walk_to_a_certain_distance(int desiredDistance)
 
 void Anggada::walk_to_a_certain_distance_before_calibrating_value(int desiredDistance)
 {
-    int desiredDistanceAfterCalibratingValue = desiredDistance + 63;
+    int desiredDistanceAfterCalibratingValue = desiredDistance + 34;
     Serial.println(F("\ndesiredDistance: "));
     Serial.print(desiredDistanceAfterCalibratingValue);
     Serial.println(F("mm \n"));
@@ -103,8 +103,8 @@ void Anggada::pointToFront()
 {
     digitalWrite(WAYANG_HAND_9, HIGH);
     // Servo_Anggada.moveWhatServo(1, 150, 200);
-    Servo_Anggada.moveWhatServo(2, 75, 200);
-    Servo_Anggada.moveWhatServo(1, 0, 500);
+    Servo_Anggada.moveWhatServo(2, 60, 200);
+    Servo_Anggada.moveWhatServo(1, 5, 500);
     Servo_Anggada.moveWhatServo(2, 35, 200);
     digitalWrite(WAYANG_HAND_9, LOW);
 }
@@ -123,7 +123,7 @@ void Anggada::middleFront()
 {
     digitalWrite(WAYANG_HAND_9, HIGH);
     Servo_Anggada.moveWhatServo(1, 135, 500);
-    Servo_Anggada.moveWhatServo(2, 80, 200);
+    Servo_Anggada.moveWhatServo(2, 60, 200);
     Servo_Anggada.moveWhatServo(1, 45, 500);
     digitalWrite(WAYANG_HAND_9, LOW);
 }
@@ -132,8 +132,8 @@ void Anggada::middleFront()
 void Anggada::downFront()
 {
     digitalWrite(WAYANG_HAND_9, HIGH);
-    Servo_Anggada.moveWhatServo(1, 150, 500);
-    Servo_Anggada.moveWhatServo(2, 70, 200);
+    Servo_Anggada.moveWhatServo(1, 175, 500);
+    Servo_Anggada.moveWhatServo(2, 80, 200);
     digitalWrite(WAYANG_HAND_9, LOW);
 }
 
@@ -162,8 +162,8 @@ void Anggada::onHipBack()
 {
     digitalWrite(WAYANG_HAND_9, HIGH);
     // Servo_Anggada.moveWhatServo(4, 80, 200);
-    Servo_Anggada.moveWhatServo(3, 160, 500);
-    Servo_Anggada.moveWhatServo(4, 95, 200);
+    Servo_Anggada.moveWhatServo(3, 170, 500);
+    Servo_Anggada.moveWhatServo(4, 100, 200);
     digitalWrite(WAYANG_HAND_9, LOW);
 }
 

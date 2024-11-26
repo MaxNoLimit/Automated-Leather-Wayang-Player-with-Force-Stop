@@ -85,7 +85,7 @@ void Laksmana::walk_to_a_certain_distance(int desiredDistance)
 
 void Laksmana::walk_to_a_certain_distance_before_calibrating_value(int desiredDistance)
 {
-    int desiredDistanceAfterCalibratingValue = desiredDistance + 51;
+    int desiredDistanceAfterCalibratingValue = desiredDistance + 47;
     Serial.println("\ndesiredDistance: ");
     Serial.print(desiredDistanceAfterCalibratingValue);
     Serial.println("mm \n");
@@ -130,8 +130,8 @@ void Laksmana::middleFront()
 void Laksmana::downFront()
 {
     digitalWrite(WAYANG_HAND_5, HIGH);
-    Servo_Laskmana.moveWhatServo(3, 0, 500);
-    Servo_Laskmana.moveWhatServo(4, 125, 200);
+    Servo_Laskmana.moveWhatServo(3, 30, 500);
+    Servo_Laskmana.moveWhatServo(4, 120, 200);
     digitalWrite(WAYANG_HAND_5, LOW);
 }
 

@@ -27,7 +27,7 @@ void setup()
   xTaskCreate(
       mainLoop,              /* Task function. */
       "MainLoop",            /* name of task. */
-      512,              /* Stack size of task */
+      512 + 128,              /* Stack size of task */
       NULL,                  /* parameter of the task */
       2,                     /* priority of the task */
       &mainLoopTaskHandler); /* Task handle to keep track of created task */

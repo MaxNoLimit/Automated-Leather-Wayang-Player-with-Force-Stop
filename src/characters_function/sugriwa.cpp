@@ -91,7 +91,7 @@ void Sugriwa::walk_to_a_certain_distance(int desiredDistance)
 
 void Sugriwa::walk_to_a_certain_distance_before_calibrating_value(int desiredDistance)
 {
-    int desiredDistanceAfterCalibratingValue = desiredDistance + 57;
+    int desiredDistanceAfterCalibratingValue = desiredDistance + 56;
     Serial.println("\ndesiredDistance: ");
     Serial.print(desiredDistanceAfterCalibratingValue);
     Serial.println("mm \n");

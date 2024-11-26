@@ -213,7 +213,7 @@ void Sita::walk_to_a_certain_distance(int desiredDistance)
 
 void Sita::walk_to_a_certain_distance_before_calibrating_value(int desiredDistance)
 {
-    int desiredDistanceAfterCalibratingValue = desiredDistance + 40;
+    int desiredDistanceAfterCalibratingValue = desiredDistance + 38;
     Serial.println("\ndesiredDistance: ");
     Serial.print(desiredDistanceAfterCalibratingValue);
     Serial.println("mm \n");
@@ -264,7 +264,7 @@ void Sita::lower_pointToFront()
     digitalWrite(WAYANG_HAND_1, HIGH);
     // Servo_Sita.defaultPosition();
     Servo_Sita.moveWhatServo(1, 100, 500);
-    Servo_Sita.moveWhatServo(2, 20, 200);
+    Servo_Sita.moveWhatServo(2, 40, 200);
 
     digitalWrite(WAYANG_HAND_1, LOW);
 }
@@ -273,9 +273,13 @@ void Sita::lower_pointToFront()
 void Sita::middleFront()
 {
     digitalWrite(WAYANG_HAND_1, HIGH);
-    Servo_Sita.moveWhatServo(2, 70, 200);
-    Servo_Sita.moveWhatServo(1, 0, 500);
+    // Servo_Sita.moveWhatServo(2, 70, 200);
+    // Servo_Sita.moveWhatServo(1, 0, 500);
+    // Servo_Sita.moveWhatServo(2, 60, 200);
+
+    Servo_Sita.moveWhatServo(1, 100, 350);
     Servo_Sita.moveWhatServo(2, 60, 200);
+    Servo_Sita.moveWhatServo(1, 0, 350);
     digitalWrite(WAYANG_HAND_1, LOW);
 }
 
@@ -284,7 +288,7 @@ void Sita::downFront()
 {
     digitalWrite(WAYANG_HAND_1, HIGH);
     Servo_Sita.moveWhatServo(1, 170, 500);
-    Servo_Sita.moveWhatServo(2, 95, 200);
+    Servo_Sita.moveWhatServo(2, 70, 200);
     digitalWrite(WAYANG_HAND_1, LOW);
 }
 
@@ -341,7 +345,7 @@ void Sita::pointToSelf()
 
     downFront(); // takes 700 ms
     digitalWrite(WAYANG_HAND_1, HIGH);
-    Servo_Sita.moveWhatServo(2, 100, 200);
+    Servo_Sita.moveWhatServo(2, 105, 200);
     Servo_Sita.moveWhatServo(1, 45, 500);
     // Servo_Sita.moveWhatServo(2, 80, 200);
     digitalWrite(WAYANG_HAND_1, LOW);

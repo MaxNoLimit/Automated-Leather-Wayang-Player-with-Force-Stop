@@ -85,7 +85,7 @@ void Anila::walk_to_a_certain_distance(int desiredDistance)
 
 void Anila::walk_to_a_certain_distance_before_calibrating_value(int desiredDistance)
 {
-    int desiredDistanceAfterCalibratingValue = desiredDistance + 63;
+    int desiredDistanceAfterCalibratingValue = desiredDistance + 50;
     Serial.println("\ndesiredDistance: ");
     Serial.print(desiredDistanceAfterCalibratingValue);
     Serial.println("mm \n");
@@ -103,7 +103,7 @@ void Anila::pointToFront()
     digitalWrite(WAYANG_HAND_10, HIGH);
     // Servo_Anila.moveWhatServo(3, 30, 200);
     Servo_Anila.moveWhatServo(4, 100, 200); // 200 ms
-    Servo_Anila.moveWhatServo(3, 180, 500); // 500 ms
+    Servo_Anila.moveWhatServo(3, 175, 500); // 500 ms
     Servo_Anila.moveWhatServo(4, 140, 200); // 200 ms
     digitalWrite(WAYANG_HAND_10, LOW);
 }
@@ -121,7 +121,7 @@ void Anila::lower_pointToFront()
 void Anila::middleFront()
 {
     digitalWrite(WAYANG_HAND_10, HIGH);
-    Servo_Anila.moveWhatServo(3, 30, 500);
+    Servo_Anila.moveWhatServo(3, 60, 500);
     Servo_Anila.moveWhatServo(4, 110, 200);
     Servo_Anila.moveWhatServo(3, 135, 500);
     digitalWrite(WAYANG_HAND_10, LOW);
@@ -142,7 +142,7 @@ void Anila::pointToBack()
     digitalWrite(WAYANG_HAND_10, HIGH);
     Servo_Anila.moveWhatServo(1, 90, 500);
     Servo_Anila.moveWhatServo(2, 60, 200);
-    Servo_Anila.moveWhatServo(1, 0, 500);
+    Servo_Anila.moveWhatServo(1, 5, 500);
     Servo_Anila.moveWhatServo(2, 40, 200);
     digitalWrite(WAYANG_HAND_10, LOW);
 }

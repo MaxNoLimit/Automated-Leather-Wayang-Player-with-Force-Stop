@@ -67,16 +67,6 @@ void beginingAllGPIOS()
     pinMode(RIGHT_SERVO_3, OUTPUT);
     pinMode(RIGHT_SERVO_4, OUTPUT);
 
-    // digitalWrite(LEFT_SERVO_1, LOW);
-    // digitalWrite(LEFT_SERVO_2, LOW);
-    // digitalWrite(LEFT_SERVO_3, LOW);
-    // digitalWrite(LEFT_SERVO_4, LOW);
-
-    // digitalWrite(RIGHT_SERVO_1, LOW);
-    // digitalWrite(RIGHT_SERVO_2, LOW);
-    // digitalWrite(RIGHT_SERVO_3, LOW);
-    // digitalWrite(RIGHT_SERVO_4, LOW);
-
     // EN 1-10 A4988
     pinMode(EN_NEMA_1, OUTPUT);
     pinMode(EN_NEMA_2, OUTPUT);
@@ -116,7 +106,7 @@ void beginingAllGPIOS()
     pinMode(XSHUT_10, OUTPUT);
 
     Wire.begin();
-    Wire.setClock(400000);
+    Wire.setClock(200000);
     Wire.setTimeout(500);
     Wire.setWireTimeout(5000, true);
     SoundSystem::justInitTheSoundSystem();
@@ -265,7 +255,7 @@ void WayangDisplay::generalLoop()
         break;
 
     case StateManagement::FSA_STATE::EXIT_VSLOT_FARM:
-        setAllMOSFETtoHIGH();
+        // setAllMOSFETtoHIGH();
         WayangDisplayLCD_in_main.pleaseWaitDisplay();
         wayangRahwana.defaultStandPosition();
         pageRoute = StateManagement::PAGE_ROUTE::CALIBRATE_PAGE;
@@ -275,7 +265,7 @@ void WayangDisplay::generalLoop()
         break;
 
     case StateManagement::FSA_STATE::VSLOT_100_MM:
-        setAllMOSFETtoHIGH();
+        // setAllMOSFETtoHIGH();
         WayangDisplayLCD_in_main.pleaseWaitDisplay();
         wayangRahwana.defaultStandPosition();
         wayangRahwana.walk_to_a_certain_distance_before_calibrating_value(100); // move 100 mm
@@ -284,7 +274,7 @@ void WayangDisplay::generalLoop()
         break;
 
     case StateManagement::FSA_STATE::VSLOT_200_MM:
-        setAllMOSFETtoHIGH();
+        // setAllMOSFETtoHIGH();
         WayangDisplayLCD_in_main.pleaseWaitDisplay();
         wayangRahwana.defaultStandPosition();
         wayangRahwana.walk_to_a_certain_distance_before_calibrating_value(200); // move 200 mm
@@ -293,7 +283,7 @@ void WayangDisplay::generalLoop()
         break;
 
     case StateManagement::FSA_STATE::VSLOT_300_MM:
-        setAllMOSFETtoHIGH();
+        // setAllMOSFETtoHIGH();
         WayangDisplayLCD_in_main.pleaseWaitDisplay();
         wayangRahwana.defaultStandPosition();
         wayangRahwana.walk_to_a_certain_distance_before_calibrating_value(300); // move 300 mm
@@ -302,7 +292,7 @@ void WayangDisplay::generalLoop()
         break;
 
     case StateManagement::FSA_STATE::VSLOT_400_MM:
-        setAllMOSFETtoHIGH();
+        // setAllMOSFETtoHIGH();
         WayangDisplayLCD_in_main.pleaseWaitDisplay();
         wayangRahwana.defaultStandPosition();
         wayangRahwana.walk_to_a_certain_distance_before_calibrating_value(400); // move 400 mm
@@ -325,7 +315,7 @@ void WayangDisplay::generalLoop()
         break;
 
     case StateManagement::FSA_STATE::SENSOR_CHECK:
-        setAllMOSFETtoHIGH();
+        // setAllMOSFETtoHIGH();
         WayangDisplayLCD_in_main.pleaseWaitDisplay();
         WayangDisplayLCD_in_main.setSensorValueData();
         pageRoute = StateManagement::PAGE_ROUTE::SENSOR_STATUS_PAGE;
@@ -491,7 +481,8 @@ void WayangDisplay::generalLoop()
         break;
 
     case StateManagement::FSA_STATE::SIMPLE_WAYANG_HAND_CALIBRATION:
-        setAllMOSFETtoHIGH();
+        WayangDisplayLCD_in_main.pleaseWaitDisplay();
+        // setAllMOSFETtoHIGH();
         CalibratingFunction::wayangHand();
         SoundSystem::playDialogFromACertainFolder(SoundSystem::INDICATOR_SOUND, SoundSystem::INDICATOR_SOUND_NUMBER::INDICATOR_WAYANG_HAND_CALIBRATION);
         delay(3500);
@@ -618,7 +609,7 @@ void WayangDisplay::generalLoop()
             setAllMOSFETtoLOW();
             wayangSita.defaultHandPosition();
             wayangSita.defaultStandPosition();
-            setAllMOSFETtoHIGH();
+            // setAllMOSFETtoHIGH();
             pageRoute = StateManagement::PAGE_ROUTE::WAYANG_HAND_CALIBRATION_PAGE;
             subPageRoute = StateManagement::WAYANG_HAND_CALIBRATION_SUB_PAGE_ROUTE::WAYANG_HAND_CALIBRATION_1;
             WayangDisplayLCD_in_main.set_selection_point(2);
@@ -629,7 +620,7 @@ void WayangDisplay::generalLoop()
         case StateManagement::FSA_STATE::SITA_POINT_TO_FRONT:
             setAllMOSFETtoLOW();
             wayangSita.pointToFront();
-            setAllMOSFETtoHIGH();
+            // setAllMOSFETtoHIGH();
             loop_state = StateManagement::FSA_STATE::DEFAULT_LOOPING_LCD;
             delay(1);
             break;
@@ -637,7 +628,7 @@ void WayangDisplay::generalLoop()
         case StateManagement::FSA_STATE::SITA_LOW_POINT_TO_FRONT:
             setAllMOSFETtoLOW();
             wayangSita.lower_pointToFront();
-            setAllMOSFETtoHIGH();
+            // setAllMOSFETtoHIGH();
             loop_state = StateManagement::FSA_STATE::DEFAULT_LOOPING_LCD;
             delay(1);
             break;
@@ -645,7 +636,7 @@ void WayangDisplay::generalLoop()
         case StateManagement::FSA_STATE::SITA_MIDDLE_FRONT:
             setAllMOSFETtoLOW();
             wayangSita.middleFront();
-            setAllMOSFETtoHIGH();
+            // setAllMOSFETtoHIGH();
             loop_state = StateManagement::FSA_STATE::DEFAULT_LOOPING_LCD;
             delay(1);
             break;
@@ -653,7 +644,7 @@ void WayangDisplay::generalLoop()
         case StateManagement::FSA_STATE::SITA_DOWN_FRONT:
             setAllMOSFETtoLOW();
             wayangSita.downFront();
-            setAllMOSFETtoHIGH();
+            // setAllMOSFETtoHIGH();
             loop_state = StateManagement::FSA_STATE::DEFAULT_LOOPING_LCD;
             delay(1);
             break;
@@ -661,7 +652,7 @@ void WayangDisplay::generalLoop()
         case StateManagement::FSA_STATE::SITA_POINT_TO_SELF:
             setAllMOSFETtoLOW();
             wayangSita.pointToSelf();
-            setAllMOSFETtoHIGH();
+            // setAllMOSFETtoHIGH();
             loop_state = StateManagement::FSA_STATE::DEFAULT_LOOPING_LCD;
             delay(1);
             break;
@@ -669,7 +660,7 @@ void WayangDisplay::generalLoop()
         case StateManagement::FSA_STATE::SITA_DOWN_BACK:
             setAllMOSFETtoLOW();
             wayangSita.downBack();
-            setAllMOSFETtoHIGH();
+            // setAllMOSFETtoHIGH();
             loop_state = StateManagement::FSA_STATE::DEFAULT_LOOPING_LCD;
             delay(1);
             break;
@@ -677,7 +668,7 @@ void WayangDisplay::generalLoop()
         case StateManagement::FSA_STATE::SITA_ON_HIP_BACK:
             setAllMOSFETtoLOW();
             wayangSita.onHipBack();
-            setAllMOSFETtoHIGH();
+            // setAllMOSFETtoHIGH();
             loop_state = StateManagement::FSA_STATE::DEFAULT_LOOPING_LCD;
             delay(1);
             break;
@@ -685,7 +676,7 @@ void WayangDisplay::generalLoop()
         case StateManagement::FSA_STATE::SITA_POINT_TO_BACK:
             setAllMOSFETtoLOW();
             wayangSita.pointToBack();
-            setAllMOSFETtoHIGH();
+            // setAllMOSFETtoHIGH();
             loop_state = StateManagement::FSA_STATE::DEFAULT_LOOPING_LCD;
             delay(1);
             break;
@@ -693,7 +684,7 @@ void WayangDisplay::generalLoop()
         case StateManagement::FSA_STATE::SITA_LOW_POINT_TO_BACK:
             setAllMOSFETtoLOW();
             wayangSita.lowPointToBack();
-            setAllMOSFETtoHIGH();
+            // setAllMOSFETtoHIGH();
             loop_state = StateManagement::FSA_STATE::DEFAULT_LOOPING_LCD;
             delay(1);
             break;
@@ -701,7 +692,7 @@ void WayangDisplay::generalLoop()
         case StateManagement::FSA_STATE::SITA_MIDDLE_BACK:
             setAllMOSFETtoLOW();
             wayangSita.middleBack();
-            setAllMOSFETtoHIGH();
+            // setAllMOSFETtoHIGH();
             loop_state = StateManagement::FSA_STATE::DEFAULT_LOOPING_LCD;
             delay(1);
             break;
@@ -713,7 +704,7 @@ void WayangDisplay::generalLoop()
             setAllMOSFETtoLOW();
             wayangRahwana.defaultHandPosition();
             wayangRahwana.defaultStandPosition();
-            setAllMOSFETtoHIGH();
+            // setAllMOSFETtoHIGH();
             pageRoute = StateManagement::PAGE_ROUTE::WAYANG_HAND_CALIBRATION_PAGE;
             subPageRoute = StateManagement::WAYANG_HAND_CALIBRATION_SUB_PAGE_ROUTE::WAYANG_HAND_CALIBRATION_1;
             WayangDisplayLCD_in_main.set_selection_point(3);
@@ -724,7 +715,7 @@ void WayangDisplay::generalLoop()
         case StateManagement::FSA_STATE::RAHWANA_POINT_TO_FRONT:
             setAllMOSFETtoLOW();
             wayangRahwana.pointToFront();
-            setAllMOSFETtoHIGH();
+            // setAllMOSFETtoHIGH();
             loop_state = StateManagement::FSA_STATE::DEFAULT_LOOPING_LCD;
             delay(1);
             break;
@@ -732,7 +723,7 @@ void WayangDisplay::generalLoop()
         case StateManagement::FSA_STATE::RAHWANA_LOW_POINT_TO_FRONT:
             setAllMOSFETtoLOW();
             wayangRahwana.lower_pointToFront();
-            setAllMOSFETtoHIGH();
+            // setAllMOSFETtoHIGH();
             loop_state = StateManagement::FSA_STATE::DEFAULT_LOOPING_LCD;
             delay(1);
             break;
@@ -740,7 +731,7 @@ void WayangDisplay::generalLoop()
         case StateManagement::FSA_STATE::RAHWANA_MIDDLE_FRONT:
             setAllMOSFETtoLOW();
             wayangRahwana.middleFront();
-            setAllMOSFETtoHIGH();
+            // setAllMOSFETtoHIGH();
             loop_state = StateManagement::FSA_STATE::DEFAULT_LOOPING_LCD;
             delay(1);
             break;
@@ -748,7 +739,7 @@ void WayangDisplay::generalLoop()
         case StateManagement::FSA_STATE::RAHWANA_DOWN_FRONT:
             setAllMOSFETtoLOW();
             wayangRahwana.downFront();
-            setAllMOSFETtoHIGH();
+            // setAllMOSFETtoHIGH();
             loop_state = StateManagement::FSA_STATE::DEFAULT_LOOPING_LCD;
             delay(1);
             break;
@@ -756,7 +747,7 @@ void WayangDisplay::generalLoop()
         case StateManagement::FSA_STATE::RAHWANA_POINT_TO_SELF:
             setAllMOSFETtoLOW();
             wayangRahwana.pointToSelf();
-            setAllMOSFETtoHIGH();
+            // setAllMOSFETtoHIGH();
             loop_state = StateManagement::FSA_STATE::DEFAULT_LOOPING_LCD;
             delay(1);
             break;
@@ -768,7 +759,7 @@ void WayangDisplay::generalLoop()
             setAllMOSFETtoLOW();
             wayangRamaWijaya.defaultHandPosition();
             wayangRamaWijaya.defaultStandPosition();
-            setAllMOSFETtoHIGH();
+            // setAllMOSFETtoHIGH();
             pageRoute = StateManagement::PAGE_ROUTE::WAYANG_HAND_CALIBRATION_PAGE;
             subPageRoute = StateManagement::WAYANG_HAND_CALIBRATION_SUB_PAGE_ROUTE::WAYANG_HAND_CALIBRATION_2;
             WayangDisplayLCD_in_main.set_selection_point(3);
@@ -779,7 +770,7 @@ void WayangDisplay::generalLoop()
         case StateManagement::FSA_STATE::RAMA_WIJAYA_POINT_TO_FRONT:
             setAllMOSFETtoLOW();
             wayangRamaWijaya.pointToFront();
-            setAllMOSFETtoHIGH();
+            // setAllMOSFETtoHIGH();
             loop_state = StateManagement::FSA_STATE::DEFAULT_LOOPING_LCD;
             delay(1);
             break;
@@ -787,7 +778,7 @@ void WayangDisplay::generalLoop()
         case StateManagement::FSA_STATE::RAMA_WIJAYA_LOW_POINT_TO_FRONT:
             setAllMOSFETtoLOW();
             wayangRamaWijaya.lower_pointToFront();
-            setAllMOSFETtoHIGH();
+            // setAllMOSFETtoHIGH();
             loop_state = StateManagement::FSA_STATE::DEFAULT_LOOPING_LCD;
             delay(1);
             break;
@@ -795,7 +786,7 @@ void WayangDisplay::generalLoop()
         case StateManagement::FSA_STATE::RAMA_WIJAYA_MIDDLE_FRONT:
             setAllMOSFETtoLOW();
             wayangRamaWijaya.middleFront();
-            setAllMOSFETtoHIGH();
+            // setAllMOSFETtoHIGH();
             loop_state = StateManagement::FSA_STATE::DEFAULT_LOOPING_LCD;
             delay(1);
             break;
@@ -803,7 +794,7 @@ void WayangDisplay::generalLoop()
         case StateManagement::FSA_STATE::RAMA_WIJAYA_DOWN_FRONT:
             setAllMOSFETtoLOW();
             wayangRamaWijaya.downFront();
-            setAllMOSFETtoHIGH();
+            // setAllMOSFETtoHIGH();
             loop_state = StateManagement::FSA_STATE::DEFAULT_LOOPING_LCD;
             delay(1);
             break;
@@ -811,7 +802,7 @@ void WayangDisplay::generalLoop()
         case StateManagement::FSA_STATE::RAMA_WIJAYA_POINT_TO_SELF:
             setAllMOSFETtoLOW();
             wayangRamaWijaya.pointToSelf();
-            setAllMOSFETtoHIGH();
+            // setAllMOSFETtoHIGH();
             loop_state = StateManagement::FSA_STATE::DEFAULT_LOOPING_LCD;
             delay(1);
             break;
@@ -819,7 +810,7 @@ void WayangDisplay::generalLoop()
         case StateManagement::FSA_STATE::RAMA_WIJAYA_DOWN_BACK:
             setAllMOSFETtoLOW();
             wayangRamaWijaya.downBack();
-            setAllMOSFETtoHIGH();
+            // setAllMOSFETtoHIGH();
             loop_state = StateManagement::FSA_STATE::DEFAULT_LOOPING_LCD;
             delay(1);
             break;
@@ -827,7 +818,7 @@ void WayangDisplay::generalLoop()
         case StateManagement::FSA_STATE::RAMA_WIJAYA_ON_HIP_BACK:
             setAllMOSFETtoLOW();
             wayangRamaWijaya.onHipBack();
-            setAllMOSFETtoHIGH();
+            // setAllMOSFETtoHIGH();
             loop_state = StateManagement::FSA_STATE::DEFAULT_LOOPING_LCD;
             delay(1);
             break;
@@ -835,7 +826,7 @@ void WayangDisplay::generalLoop()
         case StateManagement::FSA_STATE::RAMA_WIJAYA_POINT_TO_BACK:
             setAllMOSFETtoLOW();
             wayangRamaWijaya.pointToBack();
-            setAllMOSFETtoHIGH();
+            // setAllMOSFETtoHIGH();
             loop_state = StateManagement::FSA_STATE::DEFAULT_LOOPING_LCD;
             delay(1);
             break;
@@ -843,7 +834,7 @@ void WayangDisplay::generalLoop()
         case StateManagement::FSA_STATE::RAMA_WIJAYA_LOW_POINT_TO_BACK:
             setAllMOSFETtoLOW();
             wayangRamaWijaya.lowPointToBack();
-            setAllMOSFETtoHIGH();
+            // setAllMOSFETtoHIGH();
             loop_state = StateManagement::FSA_STATE::DEFAULT_LOOPING_LCD;
             delay(1);
             break;
@@ -851,7 +842,7 @@ void WayangDisplay::generalLoop()
         case StateManagement::FSA_STATE::RAMA_WIJAYA_MIDDLE_BACK:
             setAllMOSFETtoLOW();
             wayangRamaWijaya.middleBack();
-            setAllMOSFETtoHIGH();
+            // setAllMOSFETtoHIGH();
             loop_state = StateManagement::FSA_STATE::DEFAULT_LOOPING_LCD;
             delay(1);
             break;
@@ -863,7 +854,7 @@ void WayangDisplay::generalLoop()
             setAllMOSFETtoLOW();
             wayangHanoman.defaultHandPosition();
             wayangHanoman.defaultStandPosition();
-            setAllMOSFETtoHIGH();
+            // setAllMOSFETtoHIGH();
             pageRoute = StateManagement::PAGE_ROUTE::WAYANG_HAND_CALIBRATION_PAGE;
             subPageRoute = StateManagement::WAYANG_HAND_CALIBRATION_SUB_PAGE_ROUTE::WAYANG_HAND_CALIBRATION_3;
             WayangDisplayLCD_in_main.set_selection_point(3);
@@ -874,7 +865,7 @@ void WayangDisplay::generalLoop()
         case StateManagement::FSA_STATE::HANOMAN_POINT_TO_FRONT:
             setAllMOSFETtoLOW();
             wayangHanoman.pointToFront();
-            setAllMOSFETtoHIGH();
+            // setAllMOSFETtoHIGH();
             loop_state = StateManagement::FSA_STATE::DEFAULT_LOOPING_LCD;
             delay(1);
             break;
@@ -882,7 +873,7 @@ void WayangDisplay::generalLoop()
         case StateManagement::FSA_STATE::HANOMAN_LOW_POINT_TO_FRONT:
             setAllMOSFETtoLOW();
             wayangHanoman.lower_pointToFront();
-            setAllMOSFETtoHIGH();
+            // setAllMOSFETtoHIGH();
             loop_state = StateManagement::FSA_STATE::DEFAULT_LOOPING_LCD;
             delay(1);
             break;
@@ -890,7 +881,7 @@ void WayangDisplay::generalLoop()
         case StateManagement::FSA_STATE::HANOMAN_MIDDLE_FRONT:
             setAllMOSFETtoLOW();
             wayangHanoman.middleFront();
-            setAllMOSFETtoHIGH();
+            // setAllMOSFETtoHIGH();
             loop_state = StateManagement::FSA_STATE::DEFAULT_LOOPING_LCD;
             delay(1);
             break;
@@ -898,7 +889,7 @@ void WayangDisplay::generalLoop()
         case StateManagement::FSA_STATE::HANOMAN_DOWN_FRONT:
             setAllMOSFETtoLOW();
             wayangHanoman.downFront();
-            setAllMOSFETtoHIGH();
+            // setAllMOSFETtoHIGH();
             loop_state = StateManagement::FSA_STATE::DEFAULT_LOOPING_LCD;
             delay(1);
             break;
@@ -906,7 +897,7 @@ void WayangDisplay::generalLoop()
         case StateManagement::FSA_STATE::HANOMAN_POINT_TO_SELF:
             setAllMOSFETtoLOW();
             wayangHanoman.pointToSelf();
-            setAllMOSFETtoHIGH();
+            // setAllMOSFETtoHIGH();
             loop_state = StateManagement::FSA_STATE::DEFAULT_LOOPING_LCD;
             delay(1);
             break;
@@ -914,7 +905,7 @@ void WayangDisplay::generalLoop()
         case StateManagement::FSA_STATE::HANOMAN_DOWN_BACK:
             setAllMOSFETtoLOW();
             wayangHanoman.downBack();
-            setAllMOSFETtoHIGH();
+            // setAllMOSFETtoHIGH();
             loop_state = StateManagement::FSA_STATE::DEFAULT_LOOPING_LCD;
             delay(1);
             break;
@@ -922,7 +913,7 @@ void WayangDisplay::generalLoop()
         case StateManagement::FSA_STATE::HANOMAN_ON_HIP_BACK:
             setAllMOSFETtoLOW();
             wayangHanoman.onHipBack();
-            setAllMOSFETtoHIGH();
+            // setAllMOSFETtoHIGH();
             loop_state = StateManagement::FSA_STATE::DEFAULT_LOOPING_LCD;
             delay(1);
             break;
@@ -930,7 +921,7 @@ void WayangDisplay::generalLoop()
         case StateManagement::FSA_STATE::HANOMAN_POINT_TO_BACK:
             setAllMOSFETtoLOW();
             wayangHanoman.pointToBack();
-            setAllMOSFETtoHIGH();
+            // setAllMOSFETtoHIGH();
             loop_state = StateManagement::FSA_STATE::DEFAULT_LOOPING_LCD;
             delay(1);
             break;
@@ -938,7 +929,7 @@ void WayangDisplay::generalLoop()
         case StateManagement::FSA_STATE::HANOMAN_LOW_POINT_TO_BACK:
             setAllMOSFETtoLOW();
             wayangHanoman.lowPointToBack();
-            setAllMOSFETtoHIGH();
+            // setAllMOSFETtoHIGH();
             loop_state = StateManagement::FSA_STATE::DEFAULT_LOOPING_LCD;
             delay(1);
             break;
@@ -946,7 +937,7 @@ void WayangDisplay::generalLoop()
         case StateManagement::FSA_STATE::HANOMAN_MIDDLE_BACK:
             setAllMOSFETtoLOW();
             wayangHanoman.middleBack();
-            setAllMOSFETtoHIGH();
+            // setAllMOSFETtoHIGH();
             loop_state = StateManagement::FSA_STATE::DEFAULT_LOOPING_LCD;
             delay(1);
             break;
@@ -958,7 +949,7 @@ void WayangDisplay::generalLoop()
             setAllMOSFETtoLOW();
             wayangLaksmana.defaultHandPosition();
             wayangLaksmana.defaultStandPosition();
-            setAllMOSFETtoHIGH();
+            // setAllMOSFETtoHIGH();
             pageRoute = StateManagement::PAGE_ROUTE::WAYANG_HAND_CALIBRATION_PAGE;
             subPageRoute = StateManagement::WAYANG_HAND_CALIBRATION_SUB_PAGE_ROUTE::WAYANG_HAND_CALIBRATION_4;
             WayangDisplayLCD_in_main.set_selection_point(3);
@@ -969,7 +960,7 @@ void WayangDisplay::generalLoop()
         case StateManagement::FSA_STATE::LAKSMANA_POINT_TO_FRONT:
             setAllMOSFETtoLOW();
             wayangLaksmana.pointToFront();
-            setAllMOSFETtoHIGH();
+            // setAllMOSFETtoHIGH();
             loop_state = StateManagement::FSA_STATE::DEFAULT_LOOPING_LCD;
             delay(1);
             break;
@@ -977,7 +968,7 @@ void WayangDisplay::generalLoop()
         case StateManagement::FSA_STATE::LAKSMANA_LOW_POINT_TO_FRONT:
             setAllMOSFETtoLOW();
             wayangLaksmana.lower_pointToFront();
-            setAllMOSFETtoHIGH();
+            // setAllMOSFETtoHIGH();
             loop_state = StateManagement::FSA_STATE::DEFAULT_LOOPING_LCD;
             delay(1);
             break;
@@ -985,7 +976,7 @@ void WayangDisplay::generalLoop()
         case StateManagement::FSA_STATE::LAKSMANA_MIDDLE_FRONT:
             setAllMOSFETtoLOW();
             wayangLaksmana.middleFront();
-            setAllMOSFETtoHIGH();
+            // setAllMOSFETtoHIGH();
             loop_state = StateManagement::FSA_STATE::DEFAULT_LOOPING_LCD;
             delay(1);
             break;
@@ -993,7 +984,7 @@ void WayangDisplay::generalLoop()
         case StateManagement::FSA_STATE::LAKSMANA_DOWN_FRONT:
             setAllMOSFETtoLOW();
             wayangLaksmana.downFront();
-            setAllMOSFETtoHIGH();
+            // setAllMOSFETtoHIGH();
             loop_state = StateManagement::FSA_STATE::DEFAULT_LOOPING_LCD;
             delay(1);
             break;
@@ -1001,7 +992,7 @@ void WayangDisplay::generalLoop()
         case StateManagement::FSA_STATE::LAKSMANA_POINT_TO_SELF:
             setAllMOSFETtoLOW();
             wayangLaksmana.pointToSelf();
-            setAllMOSFETtoHIGH();
+            // setAllMOSFETtoHIGH();
             loop_state = StateManagement::FSA_STATE::DEFAULT_LOOPING_LCD;
             delay(1);
             break;
@@ -1009,7 +1000,7 @@ void WayangDisplay::generalLoop()
         case StateManagement::FSA_STATE::LAKSMANA_DOWN_BACK:
             setAllMOSFETtoLOW();
             wayangLaksmana.downBack();
-            setAllMOSFETtoHIGH();
+            // setAllMOSFETtoHIGH();
             loop_state = StateManagement::FSA_STATE::DEFAULT_LOOPING_LCD;
             delay(1);
             break;
@@ -1017,7 +1008,7 @@ void WayangDisplay::generalLoop()
         case StateManagement::FSA_STATE::LAKSMANA_ON_HIP_BACK:
             setAllMOSFETtoLOW();
             wayangLaksmana.onHipBack();
-            setAllMOSFETtoHIGH();
+            // setAllMOSFETtoHIGH();
             loop_state = StateManagement::FSA_STATE::DEFAULT_LOOPING_LCD;
             delay(1);
             break;
@@ -1025,7 +1016,7 @@ void WayangDisplay::generalLoop()
         case StateManagement::FSA_STATE::LAKSMANA_POINT_TO_BACK:
             setAllMOSFETtoLOW();
             wayangLaksmana.pointToBack();
-            setAllMOSFETtoHIGH();
+            // setAllMOSFETtoHIGH();
             loop_state = StateManagement::FSA_STATE::DEFAULT_LOOPING_LCD;
             delay(1);
             break;
@@ -1033,7 +1024,7 @@ void WayangDisplay::generalLoop()
         case StateManagement::FSA_STATE::LAKSMANA_LOW_POINT_TO_BACK:
             setAllMOSFETtoLOW();
             wayangLaksmana.lowPointToBack();
-            setAllMOSFETtoHIGH();
+            // setAllMOSFETtoHIGH();
             loop_state = StateManagement::FSA_STATE::DEFAULT_LOOPING_LCD;
             delay(1);
             break;
@@ -1041,7 +1032,7 @@ void WayangDisplay::generalLoop()
         case StateManagement::FSA_STATE::LAKSMANA_MIDDLE_BACK:
             setAllMOSFETtoLOW();
             wayangLaksmana.middleBack();
-            setAllMOSFETtoHIGH();
+            // setAllMOSFETtoHIGH();
             loop_state = StateManagement::FSA_STATE::DEFAULT_LOOPING_LCD;
             delay(1);
             break;
@@ -1053,7 +1044,7 @@ void WayangDisplay::generalLoop()
             setAllMOSFETtoLOW();
             wayangSugriwa.defaultHandPosition();
             wayangSugriwa.defaultStandPosition();
-            setAllMOSFETtoHIGH();
+            // setAllMOSFETtoHIGH();
             pageRoute = StateManagement::PAGE_ROUTE::WAYANG_HAND_CALIBRATION_PAGE;
             subPageRoute = StateManagement::WAYANG_HAND_CALIBRATION_SUB_PAGE_ROUTE::WAYANG_HAND_CALIBRATION_5;
             WayangDisplayLCD_in_main.set_selection_point(3);
@@ -1064,7 +1055,7 @@ void WayangDisplay::generalLoop()
         case StateManagement::FSA_STATE::SUGRIWA_POINT_TO_FRONT:
             setAllMOSFETtoLOW();
             wayangSugriwa.pointToFront();
-            setAllMOSFETtoHIGH();
+            // setAllMOSFETtoHIGH();
             loop_state = StateManagement::FSA_STATE::DEFAULT_LOOPING_LCD;
             delay(1);
             break;
@@ -1072,7 +1063,7 @@ void WayangDisplay::generalLoop()
         case StateManagement::FSA_STATE::SUGRIWA_LOW_POINT_TO_FRONT:
             setAllMOSFETtoLOW();
             wayangSugriwa.lower_pointToFront();
-            setAllMOSFETtoHIGH();
+            // setAllMOSFETtoHIGH();
             loop_state = StateManagement::FSA_STATE::DEFAULT_LOOPING_LCD;
             delay(1);
             break;
@@ -1080,7 +1071,7 @@ void WayangDisplay::generalLoop()
         case StateManagement::FSA_STATE::SUGRIWA_MIDDLE_FRONT:
             setAllMOSFETtoLOW();
             wayangSugriwa.middleFront();
-            setAllMOSFETtoHIGH();
+            // setAllMOSFETtoHIGH();
             loop_state = StateManagement::FSA_STATE::DEFAULT_LOOPING_LCD;
             delay(1);
             break;
@@ -1088,7 +1079,7 @@ void WayangDisplay::generalLoop()
         case StateManagement::FSA_STATE::SUGRIWA_DOWN_FRONT:
             setAllMOSFETtoLOW();
             wayangSugriwa.downFront();
-            setAllMOSFETtoHIGH();
+            // setAllMOSFETtoHIGH();
             loop_state = StateManagement::FSA_STATE::DEFAULT_LOOPING_LCD;
             delay(1);
             break;
@@ -1096,7 +1087,7 @@ void WayangDisplay::generalLoop()
         case StateManagement::FSA_STATE::SUGRIWA_POINT_TO_SELF:
             setAllMOSFETtoLOW();
             wayangSugriwa.pointToSelf();
-            setAllMOSFETtoHIGH();
+            // setAllMOSFETtoHIGH();
             loop_state = StateManagement::FSA_STATE::DEFAULT_LOOPING_LCD;
             delay(1);
             break;
@@ -1104,7 +1095,7 @@ void WayangDisplay::generalLoop()
         case StateManagement::FSA_STATE::SUGRIWA_DOWN_BACK:
             setAllMOSFETtoLOW();
             wayangSugriwa.downBack();
-            setAllMOSFETtoHIGH();
+            // setAllMOSFETtoHIGH();
             loop_state = StateManagement::FSA_STATE::DEFAULT_LOOPING_LCD;
             delay(1);
             break;
@@ -1112,7 +1103,7 @@ void WayangDisplay::generalLoop()
         case StateManagement::FSA_STATE::SUGRIWA_ON_HIP_BACK:
             setAllMOSFETtoLOW();
             wayangSugriwa.onHipBack();
-            setAllMOSFETtoHIGH();
+            // setAllMOSFETtoHIGH();
             loop_state = StateManagement::FSA_STATE::DEFAULT_LOOPING_LCD;
             delay(1);
             break;
@@ -1120,7 +1111,7 @@ void WayangDisplay::generalLoop()
         case StateManagement::FSA_STATE::SUGRIWA_POINT_TO_BACK:
             setAllMOSFETtoLOW();
             wayangSugriwa.pointToBack();
-            setAllMOSFETtoHIGH();
+            // setAllMOSFETtoHIGH();
             loop_state = StateManagement::FSA_STATE::DEFAULT_LOOPING_LCD;
             delay(1);
             break;
@@ -1128,7 +1119,7 @@ void WayangDisplay::generalLoop()
         case StateManagement::FSA_STATE::SUGRIWA_LOW_POINT_TO_BACK:
             setAllMOSFETtoLOW();
             wayangSugriwa.lowPointToBack();
-            setAllMOSFETtoHIGH();
+            // setAllMOSFETtoHIGH();
             loop_state = StateManagement::FSA_STATE::DEFAULT_LOOPING_LCD;
             delay(1);
             break;
@@ -1136,7 +1127,7 @@ void WayangDisplay::generalLoop()
         case StateManagement::FSA_STATE::SUGRIWA_MIDDLE_BACK:
             setAllMOSFETtoLOW();
             wayangSugriwa.middleBack();
-            setAllMOSFETtoHIGH();
+            // setAllMOSFETtoHIGH();
             loop_state = StateManagement::FSA_STATE::DEFAULT_LOOPING_LCD;
             delay(1);
             break;
@@ -1148,7 +1139,7 @@ void WayangDisplay::generalLoop()
             setAllMOSFETtoLOW();
             wayangSubali.defaultHandPosition();
             wayangSubali.defaultStandPosition();
-            setAllMOSFETtoHIGH();
+            // setAllMOSFETtoHIGH();
             pageRoute = StateManagement::PAGE_ROUTE::WAYANG_HAND_CALIBRATION_PAGE;
             subPageRoute = StateManagement::WAYANG_HAND_CALIBRATION_SUB_PAGE_ROUTE::WAYANG_HAND_CALIBRATION_6;
             WayangDisplayLCD_in_main.set_selection_point(3);
@@ -1159,7 +1150,7 @@ void WayangDisplay::generalLoop()
         case StateManagement::FSA_STATE::SUBALI_POINT_TO_FRONT:
             setAllMOSFETtoLOW();
             wayangSubali.pointToFront();
-            setAllMOSFETtoHIGH();
+            // setAllMOSFETtoHIGH();
             loop_state = StateManagement::FSA_STATE::DEFAULT_LOOPING_LCD;
             delay(1);
             break;
@@ -1167,7 +1158,7 @@ void WayangDisplay::generalLoop()
         case StateManagement::FSA_STATE::SUBALI_LOW_POINT_TO_FRONT:
             setAllMOSFETtoLOW();
             wayangSubali.lower_pointToFront();
-            setAllMOSFETtoHIGH();
+            // setAllMOSFETtoHIGH();
             loop_state = StateManagement::FSA_STATE::DEFAULT_LOOPING_LCD;
             delay(1);
             break;
@@ -1175,7 +1166,7 @@ void WayangDisplay::generalLoop()
         case StateManagement::FSA_STATE::SUBALI_MIDDLE_FRONT:
             setAllMOSFETtoLOW();
             wayangSubali.middleFront();
-            setAllMOSFETtoHIGH();
+            // setAllMOSFETtoHIGH();
             loop_state = StateManagement::FSA_STATE::DEFAULT_LOOPING_LCD;
             delay(1);
             break;
@@ -1183,7 +1174,7 @@ void WayangDisplay::generalLoop()
         case StateManagement::FSA_STATE::SUBALI_DOWN_FRONT:
             setAllMOSFETtoLOW();
             wayangSubali.downFront();
-            setAllMOSFETtoHIGH();
+            // setAllMOSFETtoHIGH();
             loop_state = StateManagement::FSA_STATE::DEFAULT_LOOPING_LCD;
             delay(1);
             break;
@@ -1191,7 +1182,7 @@ void WayangDisplay::generalLoop()
         case StateManagement::FSA_STATE::SUBALI_POINT_TO_SELF:
             setAllMOSFETtoLOW();
             wayangSubali.pointToSelf();
-            setAllMOSFETtoHIGH();
+            // setAllMOSFETtoHIGH();
             loop_state = StateManagement::FSA_STATE::DEFAULT_LOOPING_LCD;
             delay(1);
             break;
@@ -1199,7 +1190,7 @@ void WayangDisplay::generalLoop()
         case StateManagement::FSA_STATE::SUBALI_DOWN_BACK:
             setAllMOSFETtoLOW();
             wayangSubali.downBack();
-            setAllMOSFETtoHIGH();
+            // setAllMOSFETtoHIGH();
             loop_state = StateManagement::FSA_STATE::DEFAULT_LOOPING_LCD;
             delay(1);
             break;
@@ -1207,7 +1198,7 @@ void WayangDisplay::generalLoop()
         case StateManagement::FSA_STATE::SUBALI_ON_HIP_BACK:
             setAllMOSFETtoLOW();
             wayangSubali.onHipBack();
-            setAllMOSFETtoHIGH();
+            // setAllMOSFETtoHIGH();
             loop_state = StateManagement::FSA_STATE::DEFAULT_LOOPING_LCD;
             delay(1);
             break;
@@ -1215,7 +1206,7 @@ void WayangDisplay::generalLoop()
         case StateManagement::FSA_STATE::SUBALI_POINT_TO_BACK:
             setAllMOSFETtoLOW();
             wayangSubali.pointToBack();
-            setAllMOSFETtoHIGH();
+            // setAllMOSFETtoHIGH();
             loop_state = StateManagement::FSA_STATE::DEFAULT_LOOPING_LCD;
             delay(1);
             break;
@@ -1223,7 +1214,7 @@ void WayangDisplay::generalLoop()
         case StateManagement::FSA_STATE::SUBALI_LOW_POINT_TO_BACK:
             setAllMOSFETtoLOW();
             wayangSubali.lowPointToBack();
-            setAllMOSFETtoHIGH();
+            // setAllMOSFETtoHIGH();
             loop_state = StateManagement::FSA_STATE::DEFAULT_LOOPING_LCD;
             delay(1);
             break;
@@ -1231,7 +1222,7 @@ void WayangDisplay::generalLoop()
         case StateManagement::FSA_STATE::SUBALI_MIDDLE_BACK:
             setAllMOSFETtoLOW();
             wayangSubali.middleBack();
-            setAllMOSFETtoHIGH();
+            // setAllMOSFETtoHIGH();
             loop_state = StateManagement::FSA_STATE::DEFAULT_LOOPING_LCD;
             delay(1);
             break;
@@ -1243,7 +1234,7 @@ void WayangDisplay::generalLoop()
             setAllMOSFETtoLOW();
             wayangWibhisana.defaultHandPosition();
             wayangWibhisana.defaultStandPosition();
-            setAllMOSFETtoHIGH();
+            // setAllMOSFETtoHIGH();
             pageRoute = StateManagement::PAGE_ROUTE::WAYANG_HAND_CALIBRATION_PAGE;
             subPageRoute = StateManagement::WAYANG_HAND_CALIBRATION_SUB_PAGE_ROUTE::WAYANG_HAND_CALIBRATION_7;
             WayangDisplayLCD_in_main.set_selection_point(3);
@@ -1254,7 +1245,7 @@ void WayangDisplay::generalLoop()
         case StateManagement::FSA_STATE::WIBHISANA_POINT_TO_FRONT:
             setAllMOSFETtoLOW();
             wayangWibhisana.pointToFront();
-            setAllMOSFETtoHIGH();
+            // setAllMOSFETtoHIGH();
             loop_state = StateManagement::FSA_STATE::DEFAULT_LOOPING_LCD;
             delay(1);
             break;
@@ -1262,7 +1253,7 @@ void WayangDisplay::generalLoop()
         case StateManagement::FSA_STATE::WIBHISANA_LOW_POINT_TO_FRONT:
             setAllMOSFETtoLOW();
             wayangWibhisana.lower_pointToFront();
-            setAllMOSFETtoHIGH();
+            // setAllMOSFETtoHIGH();
             loop_state = StateManagement::FSA_STATE::DEFAULT_LOOPING_LCD;
             delay(1);
             break;
@@ -1270,7 +1261,7 @@ void WayangDisplay::generalLoop()
         case StateManagement::FSA_STATE::WIBHISANA_MIDDLE_FRONT:
             setAllMOSFETtoLOW();
             wayangWibhisana.middleFront();
-            setAllMOSFETtoHIGH();
+            // setAllMOSFETtoHIGH();
             loop_state = StateManagement::FSA_STATE::DEFAULT_LOOPING_LCD;
             delay(1);
             break;
@@ -1278,7 +1269,7 @@ void WayangDisplay::generalLoop()
         case StateManagement::FSA_STATE::WIBHISANA_DOWN_FRONT:
             setAllMOSFETtoLOW();
             wayangWibhisana.downFront();
-            setAllMOSFETtoHIGH();
+            // setAllMOSFETtoHIGH();
             loop_state = StateManagement::FSA_STATE::DEFAULT_LOOPING_LCD;
             delay(1);
             break;
@@ -1286,7 +1277,7 @@ void WayangDisplay::generalLoop()
         case StateManagement::FSA_STATE::WIBHISANA_POINT_TO_SELF:
             setAllMOSFETtoLOW();
             wayangWibhisana.pointToSelf();
-            setAllMOSFETtoHIGH();
+            // setAllMOSFETtoHIGH();
             loop_state = StateManagement::FSA_STATE::DEFAULT_LOOPING_LCD;
             delay(1);
             break;
@@ -1294,7 +1285,7 @@ void WayangDisplay::generalLoop()
         case StateManagement::FSA_STATE::WIBHISANA_DOWN_BACK:
             setAllMOSFETtoLOW();
             wayangWibhisana.downBack();
-            setAllMOSFETtoHIGH();
+            // setAllMOSFETtoHIGH();
             loop_state = StateManagement::FSA_STATE::DEFAULT_LOOPING_LCD;
             delay(1);
             break;
@@ -1302,7 +1293,7 @@ void WayangDisplay::generalLoop()
         case StateManagement::FSA_STATE::WIBHISANA_ON_HIP_BACK:
             setAllMOSFETtoLOW();
             wayangWibhisana.onHipBack();
-            setAllMOSFETtoHIGH();
+            // setAllMOSFETtoHIGH();
             loop_state = StateManagement::FSA_STATE::DEFAULT_LOOPING_LCD;
             delay(1);
             break;
@@ -1310,7 +1301,7 @@ void WayangDisplay::generalLoop()
         case StateManagement::FSA_STATE::WIBHISANA_POINT_TO_BACK:
             setAllMOSFETtoLOW();
             wayangWibhisana.pointToBack();
-            setAllMOSFETtoHIGH();
+            // setAllMOSFETtoHIGH();
             loop_state = StateManagement::FSA_STATE::DEFAULT_LOOPING_LCD;
             delay(1);
             break;
@@ -1318,7 +1309,7 @@ void WayangDisplay::generalLoop()
         case StateManagement::FSA_STATE::WIBHISANA_LOW_POINT_TO_BACK:
             setAllMOSFETtoLOW();
             wayangWibhisana.lowPointToBack();
-            setAllMOSFETtoHIGH();
+            // setAllMOSFETtoHIGH();
             loop_state = StateManagement::FSA_STATE::DEFAULT_LOOPING_LCD;
             delay(1);
             break;
@@ -1326,7 +1317,7 @@ void WayangDisplay::generalLoop()
         case StateManagement::FSA_STATE::WIBHISANA_MIDDLE_BACK:
             setAllMOSFETtoLOW();
             wayangWibhisana.middleBack();
-            setAllMOSFETtoHIGH();
+            // setAllMOSFETtoHIGH();
             loop_state = StateManagement::FSA_STATE::DEFAULT_LOOPING_LCD;
             delay(1);
             break;
@@ -1338,7 +1329,7 @@ void WayangDisplay::generalLoop()
             setAllMOSFETtoLOW();
             wayangAnggada.defaultHandPosition();
             wayangAnggada.defaultStandPosition();
-            setAllMOSFETtoHIGH();
+            // setAllMOSFETtoHIGH();
             pageRoute = StateManagement::PAGE_ROUTE::WAYANG_HAND_CALIBRATION_PAGE;
             subPageRoute = StateManagement::WAYANG_HAND_CALIBRATION_SUB_PAGE_ROUTE::WAYANG_HAND_CALIBRATION_8;
             WayangDisplayLCD_in_main.set_selection_point(3);
@@ -1349,7 +1340,7 @@ void WayangDisplay::generalLoop()
         case StateManagement::FSA_STATE::ANGGADA_POINT_TO_FRONT:
             setAllMOSFETtoLOW();
             wayangAnggada.pointToFront();
-            setAllMOSFETtoHIGH();
+            // setAllMOSFETtoHIGH();
             loop_state = StateManagement::FSA_STATE::DEFAULT_LOOPING_LCD;
             delay(1);
             break;
@@ -1357,7 +1348,7 @@ void WayangDisplay::generalLoop()
         case StateManagement::FSA_STATE::ANGGADA_LOW_POINT_TO_FRONT:
             setAllMOSFETtoLOW();
             wayangAnggada.lower_pointToFront();
-            setAllMOSFETtoHIGH();
+            // setAllMOSFETtoHIGH();
             loop_state = StateManagement::FSA_STATE::DEFAULT_LOOPING_LCD;
             delay(1);
             break;
@@ -1365,7 +1356,7 @@ void WayangDisplay::generalLoop()
         case StateManagement::FSA_STATE::ANGGADA_MIDDLE_FRONT:
             setAllMOSFETtoLOW();
             wayangAnggada.middleFront();
-            setAllMOSFETtoHIGH();
+            // setAllMOSFETtoHIGH();
             loop_state = StateManagement::FSA_STATE::DEFAULT_LOOPING_LCD;
             delay(1);
             break;
@@ -1373,7 +1364,7 @@ void WayangDisplay::generalLoop()
         case StateManagement::FSA_STATE::ANGGADA_DOWN_FRONT:
             setAllMOSFETtoLOW();
             wayangAnggada.downFront();
-            setAllMOSFETtoHIGH();
+            // setAllMOSFETtoHIGH();
             loop_state = StateManagement::FSA_STATE::DEFAULT_LOOPING_LCD;
             delay(1);
             break;
@@ -1381,7 +1372,7 @@ void WayangDisplay::generalLoop()
         case StateManagement::FSA_STATE::ANGGADA_POINT_TO_SELF:
             setAllMOSFETtoLOW();
             wayangAnggada.pointToSelf();
-            setAllMOSFETtoHIGH();
+            // setAllMOSFETtoHIGH();
             loop_state = StateManagement::FSA_STATE::DEFAULT_LOOPING_LCD;
             delay(1);
             break;
@@ -1389,7 +1380,7 @@ void WayangDisplay::generalLoop()
         case StateManagement::FSA_STATE::ANGGADA_DOWN_BACK:
             setAllMOSFETtoLOW();
             wayangAnggada.downBack();
-            setAllMOSFETtoHIGH();
+            // setAllMOSFETtoHIGH();
             loop_state = StateManagement::FSA_STATE::DEFAULT_LOOPING_LCD;
             delay(1);
             break;
@@ -1397,7 +1388,7 @@ void WayangDisplay::generalLoop()
         case StateManagement::FSA_STATE::ANGGADA_ON_HIP_BACK:
             setAllMOSFETtoLOW();
             wayangAnggada.onHipBack();
-            setAllMOSFETtoHIGH();
+            // setAllMOSFETtoHIGH();
             loop_state = StateManagement::FSA_STATE::DEFAULT_LOOPING_LCD;
             delay(1);
             break;
@@ -1405,7 +1396,7 @@ void WayangDisplay::generalLoop()
         case StateManagement::FSA_STATE::ANGGADA_POINT_TO_BACK:
             setAllMOSFETtoLOW();
             wayangAnggada.pointToBack();
-            setAllMOSFETtoHIGH();
+            // setAllMOSFETtoHIGH();
             loop_state = StateManagement::FSA_STATE::DEFAULT_LOOPING_LCD;
             delay(1);
             break;
@@ -1413,7 +1404,7 @@ void WayangDisplay::generalLoop()
         case StateManagement::FSA_STATE::ANGGADA_LOW_POINT_TO_BACK:
             setAllMOSFETtoLOW();
             wayangAnggada.lowPointToBack();
-            setAllMOSFETtoHIGH();
+            // setAllMOSFETtoHIGH();
             loop_state = StateManagement::FSA_STATE::DEFAULT_LOOPING_LCD;
             delay(1);
             break;
@@ -1421,7 +1412,7 @@ void WayangDisplay::generalLoop()
         case StateManagement::FSA_STATE::ANGGADA_MIDDLE_BACK:
             setAllMOSFETtoLOW();
             wayangAnggada.middleBack();
-            setAllMOSFETtoHIGH();
+            // setAllMOSFETtoHIGH();
             loop_state = StateManagement::FSA_STATE::DEFAULT_LOOPING_LCD;
             delay(1);
             break;
@@ -1433,7 +1424,7 @@ void WayangDisplay::generalLoop()
             setAllMOSFETtoLOW();
             wayangAnila.defaultHandPosition();
             wayangAnila.defaultStandPosition();
-            setAllMOSFETtoHIGH();
+            // setAllMOSFETtoHIGH();
             pageRoute = StateManagement::PAGE_ROUTE::WAYANG_HAND_CALIBRATION_PAGE;
             subPageRoute = StateManagement::WAYANG_HAND_CALIBRATION_SUB_PAGE_ROUTE::WAYANG_HAND_CALIBRATION_9;
             WayangDisplayLCD_in_main.set_selection_point(3);
@@ -1444,7 +1435,7 @@ void WayangDisplay::generalLoop()
         case StateManagement::FSA_STATE::ANILA_POINT_TO_FRONT:
             setAllMOSFETtoLOW();
             wayangAnila.pointToFront();
-            setAllMOSFETtoHIGH();
+            // setAllMOSFETtoHIGH();
             loop_state = StateManagement::FSA_STATE::DEFAULT_LOOPING_LCD;
             delay(1);
             break;
@@ -1452,7 +1443,7 @@ void WayangDisplay::generalLoop()
         case StateManagement::FSA_STATE::ANILA_LOW_POINT_TO_FRONT:
             setAllMOSFETtoLOW();
             wayangAnila.lower_pointToFront();
-            setAllMOSFETtoHIGH();
+            // setAllMOSFETtoHIGH();
             loop_state = StateManagement::FSA_STATE::DEFAULT_LOOPING_LCD;
             delay(1);
             break;
@@ -1460,7 +1451,7 @@ void WayangDisplay::generalLoop()
         case StateManagement::FSA_STATE::ANILA_MIDDLE_FRONT:
             setAllMOSFETtoLOW();
             wayangAnila.middleFront();
-            setAllMOSFETtoHIGH();
+            // setAllMOSFETtoHIGH();
             loop_state = StateManagement::FSA_STATE::DEFAULT_LOOPING_LCD;
             delay(1);
             break;
@@ -1468,7 +1459,7 @@ void WayangDisplay::generalLoop()
         case StateManagement::FSA_STATE::ANILA_DOWN_FRONT:
             setAllMOSFETtoLOW();
             wayangAnila.downFront();
-            setAllMOSFETtoHIGH();
+            // setAllMOSFETtoHIGH();
             loop_state = StateManagement::FSA_STATE::DEFAULT_LOOPING_LCD;
             delay(1);
             break;
@@ -1476,7 +1467,7 @@ void WayangDisplay::generalLoop()
         case StateManagement::FSA_STATE::ANILA_POINT_TO_SELF:
             setAllMOSFETtoLOW();
             wayangAnila.pointToSelf();
-            setAllMOSFETtoHIGH();
+            // setAllMOSFETtoHIGH();
             loop_state = StateManagement::FSA_STATE::DEFAULT_LOOPING_LCD;
             delay(1);
             break;
@@ -1484,7 +1475,7 @@ void WayangDisplay::generalLoop()
         case StateManagement::FSA_STATE::ANILA_DOWN_BACK:
             setAllMOSFETtoLOW();
             wayangAnila.downBack();
-            setAllMOSFETtoHIGH();
+            // setAllMOSFETtoHIGH();
             loop_state = StateManagement::FSA_STATE::DEFAULT_LOOPING_LCD;
             delay(1);
             break;
@@ -1492,7 +1483,7 @@ void WayangDisplay::generalLoop()
         case StateManagement::FSA_STATE::ANILA_ON_HIP_BACK:
             setAllMOSFETtoLOW();
             wayangAnila.onHipBack();
-            setAllMOSFETtoHIGH();
+            // setAllMOSFETtoHIGH();
             loop_state = StateManagement::FSA_STATE::DEFAULT_LOOPING_LCD;
             delay(1);
             break;
@@ -1500,7 +1491,7 @@ void WayangDisplay::generalLoop()
         case StateManagement::FSA_STATE::ANILA_POINT_TO_BACK:
             setAllMOSFETtoLOW();
             wayangAnila.pointToBack();
-            setAllMOSFETtoHIGH();
+            // setAllMOSFETtoHIGH();
             loop_state = StateManagement::FSA_STATE::DEFAULT_LOOPING_LCD;
             delay(1);
             break;
@@ -1508,7 +1499,7 @@ void WayangDisplay::generalLoop()
         case StateManagement::FSA_STATE::ANILA_LOW_POINT_TO_BACK:
             setAllMOSFETtoLOW();
             wayangAnila.lowPointToBack();
-            setAllMOSFETtoHIGH();
+            // setAllMOSFETtoHIGH();
             loop_state = StateManagement::FSA_STATE::DEFAULT_LOOPING_LCD;
             delay(1);
             break;
@@ -1516,7 +1507,7 @@ void WayangDisplay::generalLoop()
         case StateManagement::FSA_STATE::ANILA_MIDDLE_BACK:
             setAllMOSFETtoLOW();
             wayangAnila.middleBack();
-            setAllMOSFETtoHIGH();
+            // setAllMOSFETtoHIGH();
             loop_state = StateManagement::FSA_STATE::DEFAULT_LOOPING_LCD;
             delay(1);
             break;
@@ -1739,11 +1730,11 @@ void WayangDisplayController::pressRotaryEncoder()
                 break;
 
             case 10:
-                // loop_state = StateManagement::FSA_STATE::ANGGADA_HAND;
+                loop_state = StateManagement::FSA_STATE::ANGGADA_HAND;
                 break;
 
             case 11:
-                // loop_state = StateManagement::FSA_STATE::ANILA_HAND;
+                loop_state = StateManagement::FSA_STATE::ANILA_HAND;
                 break;
             }
             break;
@@ -2128,43 +2119,43 @@ void WayangDisplayController::pressRotaryEncoder()
                 break;
 
             case 1:
-                // loop_state = StateManagement::FSA_STATE::ANGGADA_POINT_TO_FRONT;
+                loop_state = StateManagement::FSA_STATE::ANGGADA_POINT_TO_FRONT;
                 break;
 
             case 2:
-                // loop_state = StateManagement::FSA_STATE::ANGGADA_LOW_POINT_TO_FRONT;
+                loop_state = StateManagement::FSA_STATE::ANGGADA_LOW_POINT_TO_FRONT;
                 break;
 
             case 3:
-                // loop_state = StateManagement::FSA_STATE::ANGGADA_MIDDLE_FRONT;
+                loop_state = StateManagement::FSA_STATE::ANGGADA_MIDDLE_FRONT;
                 break;
 
             case 4:
-                // loop_state = StateManagement::FSA_STATE::ANGGADA_DOWN_FRONT;
+                loop_state = StateManagement::FSA_STATE::ANGGADA_DOWN_FRONT;
                 break;
 
             case 5:
-                // loop_state = StateManagement::FSA_STATE::ANGGADA_POINT_TO_SELF;
+                loop_state = StateManagement::FSA_STATE::ANGGADA_POINT_TO_SELF;
                 break;
 
             case 6:
-                // loop_state = StateManagement::FSA_STATE::ANGGADA_DOWN_BACK;
+                loop_state = StateManagement::FSA_STATE::ANGGADA_DOWN_BACK;
                 break;
 
             case 7:
-                // loop_state = StateManagement::FSA_STATE::ANGGADA_ON_HIP_BACK;
+                loop_state = StateManagement::FSA_STATE::ANGGADA_ON_HIP_BACK;
                 break;
 
             case 8:
-                // loop_state = StateManagement::FSA_STATE::ANGGADA_POINT_TO_BACK;
+                loop_state = StateManagement::FSA_STATE::ANGGADA_POINT_TO_BACK;
                 break;
 
             case 9:
-                // loop_state = StateManagement::FSA_STATE::ANGGADA_LOW_POINT_TO_BACK;
+                loop_state = StateManagement::FSA_STATE::ANGGADA_LOW_POINT_TO_BACK;
                 break;
 
             case 10:
-                // loop_state = StateManagement::FSA_STATE::ANGGADA_MIDDLE_BACK;
+                loop_state = StateManagement::FSA_STATE::ANGGADA_MIDDLE_BACK;
                 break;
             }
             break;
@@ -2173,50 +2164,51 @@ void WayangDisplayController::pressRotaryEncoder()
             switch (WayangDisplayLCD_in_main.get_selection_point() + subPageRoute)
             {
             case 0:
-                // loop_state = StateManagement::FSA_STATE::EXIT_ANILA_HAND;
+                loop_state = StateManagement::FSA_STATE::EXIT_ANILA_HAND;
                 break;
 
             case 1:
-                // loop_state = StateManagement::FSA_STATE::ANILA_POINT_TO_FRONT;
+                loop_state = StateManagement::FSA_STATE::ANILA_POINT_TO_FRONT;
                 break;
 
             case 2:
-                // loop_state = StateManagement::FSA_STATE::ANILA_LOW_POINT_TO_FRONT;
+                loop_state = StateManagement::FSA_STATE::ANILA_LOW_POINT_TO_FRONT;
                 break;
 
             case 3:
-                // loop_state = StateManagement::FSA_STATE::ANILA_MIDDLE_FRONT;
+                loop_state = StateManagement::FSA_STATE::ANILA_MIDDLE_FRONT;
                 break;
 
             case 4:
-                // loop_state = StateManagement::FSA_STATE::ANILA_DOWN_FRONT;
+                loop_state = StateManagement::FSA_STATE::ANILA_DOWN_FRONT;
                 break;
 
             case 5:
-                // loop_state = StateManagement::FSA_STATE::ANILA_POINT_TO_SELF;
+                loop_state = StateManagement::FSA_STATE::ANILA_POINT_TO_SELF;
                 break;
 
             case 6:
-                // loop_state = StateManagement::FSA_STATE::ANILA_DOWN_BACK;
+                loop_state = StateManagement::FSA_STATE::ANILA_DOWN_BACK;
                 break;
 
             case 7:
-                // loop_state = StateManagement::FSA_STATE::ANILA_ON_HIP_BACK;
+                loop_state = StateManagement::FSA_STATE::ANILA_ON_HIP_BACK;
                 break;
 
             case 8:
-                // loop_state = StateManagement::FSA_STATE::ANILA_POINT_TO_BACK;
+                loop_state = StateManagement::FSA_STATE::ANILA_POINT_TO_BACK;
                 break;
 
             case 9:
-                // loop_state = StateManagement::FSA_STATE::ANILA_LOW_POINT_TO_BACK;
+                loop_state = StateManagement::FSA_STATE::ANILA_LOW_POINT_TO_BACK;
                 break;
 
             case 10:
-                // loop_state = StateManagement::FSA_STATE::ANILA_MIDDLE_BACK;
+                loop_state = StateManagement::FSA_STATE::ANILA_MIDDLE_BACK;
                 break;
             }
             break;
+
         case StateManagement::PAGE_ROUTE::WHILE_PLAYING_PAGE:
             switch (WayangDisplayLCD_in_main.get_selection_point())
             {
@@ -3388,7 +3380,7 @@ void CalibratingFunction::vSlotLinear()
     SoundSystem::playDialogFromACertainFolder(SoundSystem::INDICATOR_SOUND, SoundSystem::INDICATOR_SOUND_NUMBER::INDICATOR_VSLOT_CALIBRATION);
     delay(3500);
 
-    setAllMOSFETtoHIGH();
+    // setAllMOSFETtoHIGH();
 }
 
 void CalibratingFunction::soundSystem()
@@ -3428,7 +3420,7 @@ void CalibratingFunction::wayangHand()
     wayangWibhisana.defaultHandPosition();
     wayangWibhisana.defaultStandPosition();
 
-    setAllMOSFETtoHIGH();
+    // setAllMOSFETtoHIGH();
 }
 
 void CalibratingFunction::commandListHandMovementTest()
@@ -3761,7 +3753,7 @@ void CalibratingFunction::commandListHandMovementTest()
     // wayangSubali.defaultStandPosition();
     // wayangSubali.mathenthengA();
 
-    setAllMOSFETtoHIGH();
+    // setAllMOSFETtoHIGH();
 }
 
 int getSubPageRoute()
