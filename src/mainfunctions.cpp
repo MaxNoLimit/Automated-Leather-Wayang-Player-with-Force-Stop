@@ -3388,7 +3388,7 @@ void CalibratingFunction::soundSystem()
     setAllMOSFETtoLOW();
     WayangDisplayLCD_in_main.disableLCD();
     SoundSystem::initSound();
-    setAllMOSFETtoHIGH();
+    // setAllMOSFETtoHIGH();
     WayangDisplayLCD_in_main.enableLCD();
 }
 
