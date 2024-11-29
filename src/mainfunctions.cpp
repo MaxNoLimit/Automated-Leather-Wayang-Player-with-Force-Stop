@@ -3420,6 +3420,12 @@ void CalibratingFunction::wayangHand()
     wayangWibhisana.defaultHandPosition();
     wayangWibhisana.defaultStandPosition();
 
+    wayangAnggada.defaultHandPosition();
+    wayangAnggada.defaultStandPosition();
+
+    wayangAnila.defaultHandPosition();
+    wayangAnila.defaultStandPosition();
+
     // setAllMOSFETtoHIGH();
 }
 
