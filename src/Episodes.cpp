@@ -3911,9 +3911,9 @@ void Episodes::Episode_3()
 
     // pause audio here to show the ring closer
     SoundSystem::pause();
-    hanoman.walk_to_a_certain_distance_before_calibrating_value(140);
-    delay(1000);
     hanoman.walk_to_a_certain_distance_before_calibrating_value(160);
+    delay(1000);
+    hanoman.walk_to_a_certain_distance_before_calibrating_value(140);
 
     // continue audio here
     SoundSystem::continuePlaying();
@@ -4162,6 +4162,7 @@ void Episodes::Episode_3()
     delay(10537 - 8541 - 700);
     delay(2000);
     wibhisana.downFront(); // takes 700 ms
+    wibhisana.defaultStandPosition();
 
     /*012_Hanuman-Rawana-Wibhisana_Rawana2v*/
     SoundSystem::playDialogFromACertainFolder(SoundSystem::EPISODE_NUMBER::EPISODE_3, SoundSystem::EPISODE_3_DIALOG::HANUMAN_RAHWANA_WIBHISANA_RAHWANA2);
@@ -4716,7 +4717,7 @@ void Episodes::Episode_3()
 
     // (25572) What is the use of being angry? (27027)
     hanoman.middleFront(); // takes 1200 ms
-    delay(27658 - 25572 - 1200);
+    delay(27658 - 25572 - 1200); 
 
     // (27658) You have said before, (28815)
     hanoman.directControl(3, 180, 300);
@@ -4991,6 +4992,224 @@ void Episodes::Episode_3()
 
 void Episodes::Episode_4()
 {
+    CalibratingFunction::wayangHand();
+
+    setAllMOSFETtoLOW();
+
+    SoundSystem::playMusicWayang();
+
+    delay(1000);
+
+    hanoman.walk_to_a_certain_distance_before_calibrating_value(200);
+    // play audio here
+    SoundSystem::playDialogFromACertainFolder(SoundSystem::EPISODE_NUMBER::EPISODE_3, SoundSystem::EPISODE_3_DIALOG::SITA_RAHWANA_HANUMAN_HANUMAN1);
+
+    delay(1198);
+    // (1198) Hail to thee, O princess! (3100)
+    hanoman.pointToFront(); // takes 900 ms
+    delay(3519 - 1198 - 900);
+
+    // (3519) Do not have doubts about me. (5071)
+    hanoman.lower_pointToFront(); // takes 700 ms
+    delay(5461 - 3519 - 700 - (700));
+    hanoman.downFront(); // takes 700 ms
+
+    // (5461) I am the son of the Wind-god Pawanatmaja (8253)
+    hanoman.pointToSelf(); // takes 900 ms
+    delay(8642 - 5461 - 900 - (700));
+    hanoman.downFront(); // takes 700 ms
+
+    // (8642) ordered by the prince Rama (10183)
+    hanoman.lower_pointToFront(); // takes 700 ms
+    delay(10183 - 8642 - 700);
+
+    // (10323) to become a messenger (11416)
+    hanoman.middleFront(); // takes 1200 ms
+    delay(11631 - 10183 - 1200);
+
+    // (11631) to find out about you. (12870)
+    hanoman.directControl(3, 180, 300);
+    hanoman.directControl(4, 140, 200);
+    delay(13830 - 11631 - 300 - 200);
+
+    // (13830) Prince Rama is now staying at the mountain of Malyawan, (17046)
+    hanoman.downFront(); // takes 700 ms
+    delay(17465 - 13830 - 700);
+
+    // (17465) north of the mountain Windhya (19151)
+    hanoman.pointToFront(); // takes 900 ms
+    delay(19430 - 17465 - 900);
+
+    // (19430) and south of the mountain Resyamuka. (21454)
+    hanoman.lower_pointToFront(); // takes 700 ms
+    delay(22460 - 19430 - 700 - (700));
+    hanoman.downFront(); // takes 700 ms
+
+    // (22460) I came at night around seven o’clock and entered this garden. (25967)
+    hanoman.pointToSelf(); // takes 900 ms
+    delay(26700 - 22460 - 900 - (700));
+    hanoman.downFront(); // takes 700 ms
+
+    // (26700) When Dasamukha drew his sword, (28549)
+    hanoman.lower_pointToFront(); // takes 700 ms
+    delay(29154 - 26700 - 700);
+
+    // (29154) I wanted to fight him in battle, (31126)
+    hanoman.directControl(3, 180, 300);
+    hanoman.directControl(4, 140, 200);
+    delay(31923 - 29154 - 300 - 200 - (700));
+    hanoman.downFront(); // takes 700 ms
+
+    // (31923) but I reconsidered as to not compromise the order of prince Rama (35807) if I were to be unsuccessful. (38064)
+    hanoman.pointToSelf(); // takes 900 ms
+    delay(35807 - 31923 - 900);
+    hanoman.downFront(); // takes 700 ms
+    delay(39443 - 35807 - 700);
+
+    // (39443) That was why I did not appear to fight him. (41757)
+    hanoman.middleFront(); // takes 1200 ms
+    delay(43130 - 39443 - 1200);
+
+    // (43130) There is a friend of your husband, (44787)
+    hanoman.directControl(3, 180, 300);
+    hanoman.directControl(4, 140, 200);
+    delay(45147 - 43130 - 300 - 200);
+
+    // (45147) Sugriwa by name. (46468)
+    hanoman.lower_pointToFront(); // takes 700 ms
+    delay(47043 - 45147 - 700);
+
+    // (47043) He is the king of the monkeys, (48698)
+    hanoman.directControl(3, 180, 300);
+    hanoman.directControl(4, 140, 200);
+    delay(49698 - 47043 - 300 - 200);
+
+    // (49178) and he ordered me to be the messenger. (51196)
+    hanoman.lower_pointToFront(); // takes 700 ms
+    delay(51783 - 49178 - 700 - (700));
+    hanoman.downFront(); // takes 700 ms
+
+    // (51783) I entered the palace in search of you, (54063)
+    hanoman.pointToSelf(); // takes 900 ms
+    delay(54540 - 51783 - 900 - (700));
+    hanoman.downFront(); // takes 700 ms
+
+    // (54540) to make my audience, (55889)
+    hanoman.middleFront(); // takes 1200 ms
+    delay(56273 - 54540 - 1200);
+
+    // (56273) but you (56849) were not in the city. (58088)
+    hanoman.directControl(3, 180, 300);
+    hanoman.directControl(4, 140, 200);
+    delay(56849 - 56273 - 300 - 200);
+    hanoman.downFront(); // takes 700 ms
+    delay(59204 - 56849 - 700);
+
+    // (59204) King Raghusuta is very depressed (61443) thinking about you. (62653)
+    hanoman.pointToFront(); // takes 900 ms
+    delay(61443 - 59204 - 900);
+    hanoman.lower_pointToFront(); // takes 700 ms
+    delay(63258 - 61443 - 700);
+
+    // (63258) Because of that he is very thin and ordered me (66125)
+    hanoman.directControl(3, 180, 300);
+    hanoman.directControl(4, 140, 200);
+    hanoman.downFront();   // takes 700 ms
+    hanoman.pointToSelf(); // takes 900 ms
+    delay(66485 - 63258 - 300 - 200 - 700 - 900);
+
+    // (66485) to go as a messenger instead. (68166)
+    hanoman.downFront(); // takes 700 ms
+    delay(68800 - 66485 - 700);
+
+    // (69475) He gave me his ring (70772) as a verification of my mission. (73290)
+    hanoman.middleFront(); // takes 1200
+    delay(73290 - 69475 - 1200);
+
+    // pause audio here to show the ring closer
+    SoundSystem::pause();
+    hanoman.walk_to_a_certain_distance_before_calibrating_value(160);
+    delay(1000);
+    hanoman.walk_to_a_certain_distance_before_calibrating_value(140);
+
+    // continue audio here
+    SoundSystem::continuePlaying();
+    delay(74180 - 73290);
+
+    // (74180) You should also know that your younger brother, (76570)
+    hanoman.directControl(3, 180, 300);
+    hanoman.directControl(4, 140, 200);
+    delay(76936 - 74180 - 300 - 200);
+
+    // (76936) Laksmana, (77691)
+    hanoman.lower_pointToFront(); // takes 700 ms
+    delay(78012 - 76936 - 700);
+
+    // (78012) is exceedingly upset (79571)
+    hanoman.middleFront(); // takes 1200 ms
+    delay(80054 - 78012 - 1200);
+
+    // (80054) and that he wants to come here as soon as possible (82694)
+    hanoman.directControl(3, 180, 300);
+    hanoman.directControl(4, 140, 200);
+    delay(82985 - 80054 - 300 - 200);
+
+    // (82985) to kill the wicked Rawana. (84997)
+    hanoman.downFront();          // takes 700 ms
+    hanoman.lower_pointToFront(); // takes 700 ms
+    delay(84997 - 82985 - 700 - 700);
+
+    // (85887) Do not be impatient (87021) and look after your life, (88597)
+    hanoman.directControl(3, 180, 300);
+    hanoman.directControl(4, 140, 200);
+    delay(87021 - 85887 - 300 - 200);
+    hanoman.lower_pointToFront(); // takes 700 ms
+    delay(89260 - 87021 - 700 - (700));
+    hanoman.downFront(); // takes 700 ms
+
+    // (89260) as we have the monkey troops assembled (91272) and ready to attack the enemy. (93343)
+    hanoman.pointToSelf(); // takes 900 ms
+    delay(91272 - 89260 - 900);
+    hanoman.downFront();          // takes 700 ms
+    hanoman.lower_pointToFront(); // takes 700 ms
+    delay(94349 - 91272 - 700 - 700);
+
+    // (94349) With certainty, (95262)
+    hanoman.directControl(3, 180, 300);
+    hanoman.directControl(4, 140, 200);
+    delay(95628 - 94349 - 300 - 200);
+
+    // (95628) Rawana will be killed (96838) by king Rama (98292) in battle. (99187)
+    hanoman.lower_pointToFront(); // takes 700 ms
+    delay(96838 - 95628 - 700);
+    hanoman.directControl(3, 180, 300);
+    hanoman.directControl(4, 140, 200);
+    delay(98292 - 96838 - 300 - 200);
+    hanoman.downFront(); // takes 700 ms
+    delay(100106 - 98292 - 700);
+
+    // (100106) He must pay with his life (101775) for his sins of kidnapping my lady. (104620)
+    hanoman.middleFront(); // takes 1200 ms
+    delay(101775 - 100106 - 1200);
+    hanoman.directControl(3, 180, 300);
+    hanoman.directControl(4, 140, 200);
+    delay(105463 - 101775 - 300 - 200);
+
+    // (105463) Please, (106000)
+    hanoman.lower_pointToFront(); // takes 700 ms
+    delay(106480 - 105463 - 700);
+
+    // (106480) give me your message to Raghusuta, (108260)
+    hanoman.directControl(3, 180, 300);
+    hanoman.directControl(4, 140, 200);
+    delay(108673 - 106480 - 300 - 200);
+
+    // (108673) while the guards are away. (109987)
+    hanoman.downFront();
+    delay(109987 - 108673 - 700);
+    delay(2000);
+
+    hanoman.defaultStandPosition();
 }
 
 void Episodes::Episode_5()
