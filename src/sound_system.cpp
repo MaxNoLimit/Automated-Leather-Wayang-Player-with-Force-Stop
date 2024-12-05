@@ -3,7 +3,7 @@
 bool soundSystemStatus = false;
 DFRobotDFPlayerMini sound_system;
 
-int volumeHardcoded = 25;
+int volumeHardcoded = 20;
 int volumeHardcodedMusic = 18;
 
 /*
