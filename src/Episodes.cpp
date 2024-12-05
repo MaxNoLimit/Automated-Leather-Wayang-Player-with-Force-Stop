@@ -4246,12 +4246,11 @@ void Episodes::Episode_3()
 
     // (7520) I am alone, (8387)
     hanoman.pointToSelf(); // takes 900 ms
-    delay(8706 - 7520 - 900 - (700));
     hanoman.downFront(); // takes 700 ms
 
     // (8706) I am a messenger, (9713)
     hanoman.lower_pointToFront(); // takes 700 ms
-    delay(10027 - 8706 - 700);
+    delay(10027 - 7520 - 900 - 700 - 700);
 
     // (10027) in the grip of a snake. (11365)
     hanoman.directControl(3, 180, 300);
