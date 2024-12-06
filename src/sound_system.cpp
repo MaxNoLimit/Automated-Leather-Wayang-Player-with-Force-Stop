@@ -3,8 +3,8 @@
 bool soundSystemStatus = false;
 DFRobotDFPlayerMini sound_system;
 
-int volumeHardcoded = 20;
-int volumeHardcodedMusic = 18;
+int volumeHardcoded = 17;
+int volumeHardcodedMusic = 17;
 
 /*
 Function untuk initiation sound system dari Wayang

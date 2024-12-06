@@ -3310,10 +3310,10 @@ void WayangHandServo::moveWhatServo(int servoNum, int degree, int desiredDuratio
     }
 }
 
-void WayangHandServo::moveWhatServoV2(int servoNum, int degree, int desireDuration)
+void WayangHandServo::moveWhatServoV2(int servoNum, int degree, int desiredDuration)
 {
     int selectedPin;
-    int startTime, endTime = 0;
+    int endTime = 0;
     switch (servoNum)
     {
     case 1:
