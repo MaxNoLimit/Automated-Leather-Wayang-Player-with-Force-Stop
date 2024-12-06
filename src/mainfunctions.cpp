@@ -3173,7 +3173,6 @@ void WayangHandServo::moveWhatServo(int servoNum, int degree, int desiredDuratio
 
         int mismatchremainder = degmismatch % divVar;
         int remainder = waveAmount % largemismatch;
-        Serial.println((String)largemismatch);
 
         if (curdeg > degree)
         {
