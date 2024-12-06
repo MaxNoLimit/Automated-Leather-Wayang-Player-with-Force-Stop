@@ -3310,6 +3310,201 @@ void WayangHandServo::moveWhatServo(int servoNum, int degree, int desiredDuratio
     }
 }
 
+void WayangHandServo::moveWhatServoV2(int servoNum, int degree, int desireDuration)
+{
+    int selectedPin;
+    int startTime, endTime = 0;
+    switch (servoNum)
+    {
+    case 1:
+        selectedPin = getServoPin1();
+        break;
+
+    case 2:
+        selectedPin = getServoPin2();
+        break;
+
+    case 3:
+        selectedPin = getServoPin3();
+        break;
+
+    case 4:
+        selectedPin = getServoPin4();
+        break;
+    }
+
+    int curdeg = getCurrentDegServo(servoNum);
+    if (curdeg - degree != 0)
+    {
+        int waveAmount = desiredDuration / 20;
+        delay(desiredDuration % 20);
+        int degmismatch = abs(curdeg - degree);
+        int largemismatch = degmismatch;
+        int divVar = 1;
+
+        // subdivide until nondec
+        while (waveAmount / largemismatch < 1)
+        {
+            largemismatch = largemismatch / 2;
+            divVar = divVar * 2;
+        }
+
+        int mismatchremainder = degmismatch % divVar;
+        int remainder = waveAmount % largemismatch;
+
+        if (curdeg > degree)
+        {
+            if (mismatchremainder != 0)
+            {
+                for (int i = 0; i < remainder; i++)
+                {
+                    endTime = micros();
+                    while (endTime - 0 > degreeToDelay(curdeg - mismatchremainder))
+                    {
+                        digitalWrite(selectedPin, HIGH);
+                    }
+                    endTime = 0;
+
+                    for (int i = 0; i < 2; i++)
+                    {
+                        endTime = micros();
+                        while (endTime - 0 > getWavePeriod() - degreeToDelay((curdeg - mismatchremainder) / 2))
+                        {
+                            digitalWrite(selectedPin, LOW);
+                        }
+                        endTime = 0;
+                    }
+                }
+            }
+
+            for (int i = 0; i < largemismatch; i++)
+            {
+                for (int j = 0; j < waveAmount / largemismatch; j++)
+                {
+                    endTime = micros();
+                    while (endTime - 0 > degreeToDelay(curdeg - i * divVar))
+                    {
+                        digitalWrite(selectedPin, HIGH);
+                    }
+                    endTime = 0;
+
+                    for (int i = 0; i < 2; i++)
+                    {
+                        endTime = micros();
+                        while (endTime - 0 > getWavePeriod() - degreeToDelay((curdeg - i * divVar) / 2))
+                        {
+                            digitalWrite(selectedPin, LOW);
+                        }
+                        endTime = 0;
+                    }
+                }
+            }
+
+            if (mismatchremainder == 0 && remainder != 0)
+            {
+                for (int i = 0; i < remainder; i++)
+                {
+                    endTime = micros();
+                    while (endTime - 0 > degreeToDelay(degree))
+                    {
+                        digitalWrite(selectedPin, HIGH);
+                    }
+                    endTime = 0;
+
+                    for (int i = 0; i < 2; i++)
+                    {
+                        endTime = micros();
+                        while (endTime - 0 > getWavePeriod() - degreeToDelay(degree / 2))
+                        {
+                            digitalWrite(selectedPin, LOW);
+                        }
+                        endTime = 0;
+                    }
+                }
+            }
+        }
+        else
+        {
+            if (mismatchremainder != 0)
+            {
+                for (int i = 0; i < remainder; i++)
+                {
+                    endTime = micros();
+                    while (endTime - 0 > degreeToDelay(curdeg + mismatchremainder))
+                    {
+                        digitalWrite(selectedPin, HIGH);
+                    }
+                    endTime = 0;
+
+                    for (int i = 0; i < 2; i++)
+                    {
+                        endTime = micros();
+                        while (endTime - 0 > getWavePeriod() - degreeToDelay((curdeg + mismatchremainder) / 2))
+                        {
+                            digitalWrite(selectedPin, LOW);
+                        }
+                        endTime = 0;
+                    }
+                }
+            }
+
+            for (int i = 0; i < largemismatch; i++)
+            {
+                for (int j = 0; j < waveAmount / largemismatch; j++)
+                {
+                    endTime = micros();
+                    while (endTime - 0 > degreeToDelay(curdeg + i * divVar))
+                    {
+                        digitalWrite(selectedPin, HIGH);
+                    }
+                    endTime = 0;
+
+                    for (int i = 0; i < 2; i++)
+                    {
+                        endTime = micros();
+                        while (endTime - 0 > getWavePeriod() - degreeToDelay((curdeg + i * divVar) / 2))
+                        {
+                            digitalWrite(selectedPin, LOW);
+                        }
+                        endTime = 0;
+                    }
+                }
+            }
+            // int hajime, sutopu = 0;
+
+            if (mismatchremainder == 0 && remainder != 0)
+            {
+                for (int i = 0; i < remainder; i++)
+                {
+                    endTime = micros();
+                    while (endTime - 0 > degreeToDelay(degree))
+                    {
+                        digitalWrite(selectedPin, HIGH);
+                    }
+                    endTime = 0;
+
+                    for (int i = 0; i < 2; i++)
+                    {
+                        endTime = micros();
+                        while (endTime - 0 > getWavePeriod() - degreeToDelay(degree / 2))
+                        {
+                            digitalWrite(selectedPin, LOW);
+                        }
+                        endTime = 0;
+                    }
+                }
+            }
+        }
+
+        setCurrentDegServo(servoNum, degree);
+    }
+    else
+    {
+        // do nothing
+        delay(desiredDuration);
+    }
+}
+
 void setAllMOSFETtoHIGH()
 {
     digitalWrite(WAYANG_HAND_1, HIGH);

@@ -40,6 +40,7 @@ public:
     virtual ~WayangHandServo();
     void defaultPosition();
     void moveWhatServo(int servoNumber, int degree, int desiredDuration);
+    void moveWhatServoV2(int servoNumber, int degree, int desiredDuration);
 
     void setServoPin1(int pin);
     void setServoPin2(int pin);
