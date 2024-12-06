@@ -10,7 +10,8 @@
 #include "characters/subali.hpp"
 #include "characters/sugriwa.hpp"
 #include "characters/wibhisana.hpp"
-#define UNIV_OFFSET 50    //apabila kt g tau bocor waktu dr mn
+#include "mainfunctions.hpp"
+#include "state_management.hpp"
 
 Hanoman hanoman;
 RamaWijaya rama_wijaya;
@@ -1643,7 +1644,8 @@ void Episodes::Episode_1()
     rama_wijaya.defaultStandPosition();
     hanoman.defaultStandPosition();
 
-    setAllMOSFETtoHIGH();
+    // setAllMOSFETtoHIGH();
+    
     SoundSystem::playDialogFromACertainFolder(SoundSystem::INDICATOR_SOUND, SoundSystem::INDICATOR_SOUND_NUMBER::INDICATOR_FINISHED_SHOWING);
     delay(2000);
 }
@@ -5017,7 +5019,8 @@ void Episodes::Episode_1_task(void *pvParameters)
     {
         Episode_1();
         vTaskResume(mainLoopTaskHandler);
-        isEpisodeTaskCreated = false;
+        // isEpisodeTaskCreated = false;
+        backToEpisodeSelection();
         vTaskDelete(NULL);
     }
 }
@@ -5031,7 +5034,8 @@ void Episodes::Episode_2_task(void *pvParameters)
     {
         Episode_2();
         vTaskResume(mainLoopTaskHandler);
-        isEpisodeTaskCreated = false;
+        // isEpisodeTaskCreated = false;
+        backToEpisodeSelection();
         vTaskDelete(NULL);
     }
 }
@@ -5045,7 +5049,8 @@ void Episodes::Episode_3_task(void *pvParameters)
     {
         Episode_3();
         vTaskResume(mainLoopTaskHandler);
-        isEpisodeTaskCreated = false;
+        // isEpisodeTaskCreated = false;
+        backToEpisodeSelection();
         vTaskDelete(NULL);
     }
 }
@@ -5059,7 +5064,8 @@ void Episodes::Episode_4_task(void *pvParameters)
     {
         Episode_4();
         vTaskResume(mainLoopTaskHandler);
-        isEpisodeTaskCreated = false;
+        // isEpisodeTaskCreated = false;
+        backToEpisodeSelection();
         vTaskDelete(NULL);
     }
 }
@@ -5073,7 +5079,8 @@ void Episodes::Episode_5_task(void *pvParameters)
     {
         Episode_5();
         vTaskResume(mainLoopTaskHandler);
-        isEpisodeTaskCreated = false;
+        // isEpisodeTaskCreated = false;
+        backToEpisodeSelection();
         vTaskDelete(NULL);
     }
 }
