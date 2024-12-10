@@ -72,8 +72,12 @@ const char *vSlotFarmOption[4] = {
     "Move 300 mm",
     "Move 400 mm"};
 
-WayangDisplay::WayangDisplayLCD::WayangDisplayLCD()
-    : lcdWayang(get_lcd_Address(), 20, 4)
+const char *volumeOption[4] = {
+    "Debug vol 17",
+    "Normal vol 20",
+    "Show vol 25"};
+
+WayangDisplay::WayangDisplayLCD::WayangDisplayLCD() : lcdWayang(get_lcd_Address(), 20, 4)
 {
 }
 
@@ -122,7 +126,8 @@ void WayangDisplay::WayangDisplayLCD::whilePlayingDisplay()
     if (isPlaying)
     {
         lcdWayang.print(F("Pause"));
-    } else
+    }
+    else
     {
         lcdWayang.print(F("Continue"));
     }
@@ -286,6 +291,25 @@ void WayangDisplay::WayangDisplayLCD::playingWhatEpisodeDisplay(int nEpisode)
     lcdWayang.print(F("Playing: "));
     lcdWayang.setCursor(5, 2);
     lcdWayang.print(episodeList[nEpisode - 1]);
+}
+
+void WayangDisplay::WayangDisplayLCD::volumeSettings()
+{
+    for (int i = 0; i < 4; i++)
+    {
+        if (i == 0)
+        {
+            lcdWayang.setCursor(0, i);
+            lcdWayang.print(F("Volume"));
+        }
+        else
+        {
+            lcdWayang.setCursor(0, i);
+            lcdWayang.print(volumeOption[i - 1]);
+        }
+    }
+    lcdWayang.setCursor(18, get_selection_point());
+    lcdWayang.print("<<");
 }
 
 void WayangDisplay::WayangDisplayLCD::SitaHandCalibration()

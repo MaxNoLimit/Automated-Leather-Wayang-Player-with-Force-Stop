@@ -181,6 +181,7 @@ namespace SoundSystem
     void pause();
     void playMusicWayang();
     void pauseMusicWayang();
+    void setVolume(int volume);
 };
 
 extern int volumeHardcoded;

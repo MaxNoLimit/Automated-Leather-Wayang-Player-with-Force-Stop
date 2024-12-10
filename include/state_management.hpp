@@ -161,6 +161,10 @@ namespace StateManagement
         ANILA_LOW_POINT_TO_BACK,
         ANILA_MIDDLE_BACK,
 
+        VOLUME_TO_17,
+        VOLUME_TO_20,
+        VOLUME_TO_25,
+
     };
 
     enum PAGE_ROUTE
@@ -183,6 +187,7 @@ namespace StateManagement
         WIBHISANA_HAND_PAGE,
         ANGGADA_HAND_PAGE,
         ANILA_HAND_PAGE,
+        VOLUME_SETTINGS_PAGE,
 
     };
 
