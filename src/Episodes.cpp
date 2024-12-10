@@ -3913,13 +3913,13 @@ void Episodes::Episode_3()
     delay(73290 - 69475 - 1200);
 
     // pause audio here to show the ring closer
-    SoundSystem::pause();
-    hanoman.walk_to_a_certain_distance_before_calibrating_value(160);
-    delay(1000);
-    hanoman.walk_to_a_certain_distance_before_calibrating_value(140);
+    // SoundSystem::pause();
+    // // hanoman.walk_to_a_certain_distance_before_calibrating_value(160);
+    // // delay(1000);
+    // // hanoman.walk_to_a_certain_distance_before_calibrating_value(140);
 
-    // continue audio here
-    SoundSystem::continuePlaying();
+    // // continue audio here
+    // SoundSystem::continuePlaying();
     delay(74180 - 73290);
 
     // (74180) You should also know that your younger brother, (76570)
@@ -5003,7 +5003,43 @@ void Episodes::Episode_4()
 
     delay(1000);
 
-    
+    hanoman.walk_to_a_certain_distance_before_calibrating_value(200);
+    sita.walk_to_a_certain_distance_before_calibrating_value(150); 
+
+    /*019_Hanuman_pays_respect_Hanuman1*/
+    // insert audio here
+
+    delay(182);
+    // (182) O, my lady, (1170)  
+    hanoman.pointToFront(); // 900ms
+    delay(1778-182-900);
+
+    // (1778) I am Maruti, (2712) 
+    hanoman.downFront(); // 700
+    delay(2986-1778-700); 
+
+    // (2986) I am really the messenger of Ramabhadra. (5302)  
+    hanoman.pointToSelf(); // 900
+    delay(5751-2986-900-(700));
+    hanoman.downFront(); // 700
+
+    // (5751) Do not doubt that I am the messenger of Raghutanaya, (8729)  
+    hanoman.middleFront(); // 1200
+    delay(9291-5751-1200-(700));
+    hanoman.downFront(); // 700
+
+    // (9291) as you can see by many evidence. (11213)  
+    hanoman.directControl(4, 70, 200);
+    hanoman.directControl(3, 150, 500);
+    delay(11881-9291-200-500);
+
+    // (11881) Well, (12367)  
+    hanoman.downFront(); // 700
+    delay(12687-11881-700);
+
+    // (12687) I must ask your leave to return to convey your message to the great king Ramabhirama. (17594) 
+    hanoman.middleFront(); // 1200
+    delay(17594-12687-1200);
 }
 
 void Episodes::Episode_5()
