@@ -230,6 +230,10 @@ void WayangDisplay::lcd2004loop()
     case StateManagement::PAGE_ROUTE::WHILE_PLAYING_PAGE:
         WayangDisplayLCD_in_main.whilePlayingDisplay();
         break;
+
+    case StateManagement::PAGE_ROUTE::VOLUME_SETTINGS_PAGE:
+        WayangDisplayLCD_in_main.volumeSettings();
+        break;
     }
     delay(displayLoopDelay);
 }
@@ -250,6 +254,33 @@ void WayangDisplay::generalLoop()
     case StateManagement::FSA_STATE::CALIBRATING_ALL_NEMA:
         // setAllMOSFETtoHIGH();
         CalibratingFunction::vSlotLinear();
+        loop_state = StateManagement::FSA_STATE::DEFAULT_LOOPING_LCD;
+        delay(1);
+        break;
+
+    case StateManagement::FSA_STATE::VOLUME_TO_17:
+        // setAllMOSFETtoHIGH();
+        SoundSystem::setVolume(17);
+        pageRoute = StateManagement::PAGE_ROUTE::SETTINGS_PAGE;
+        WayangDisplayLCD_in_main.set_selection_point(1);
+        loop_state = StateManagement::FSA_STATE::DEFAULT_LOOPING_LCD;
+        delay(1);
+        break;
+
+    case StateManagement::FSA_STATE::VOLUME_TO_20:
+        // setAllMOSFETtoHIGH();
+        SoundSystem::setVolume(20);
+        pageRoute = StateManagement::PAGE_ROUTE::SETTINGS_PAGE;
+        WayangDisplayLCD_in_main.set_selection_point(1);
+        loop_state = StateManagement::FSA_STATE::DEFAULT_LOOPING_LCD;
+        delay(1);
+        break;
+
+    case StateManagement::FSA_STATE::VOLUME_TO_25:
+        // setAllMOSFETtoHIGH();
+        SoundSystem::setVolume(25);
+        pageRoute = StateManagement::PAGE_ROUTE::SETTINGS_PAGE;
+        WayangDisplayLCD_in_main.set_selection_point(1);
         loop_state = StateManagement::FSA_STATE::DEFAULT_LOOPING_LCD;
         delay(1);
         break;
@@ -1601,6 +1632,28 @@ void WayangDisplayController::pressRotaryEncoder()
             }
             break;
 
+        case StateManagement::PAGE_ROUTE::VOLUME_SETTINGS_PAGE:
+            switch (WayangDisplayLCD_in_main.get_selection_point())
+            {
+            case 0:
+                pageRoute = StateManagement::PAGE_ROUTE::SETTINGS_PAGE;
+                WayangDisplayLCD_in_main.set_selection_point(1);
+                break;
+
+            case 1:
+                loop_state = StateManagement::FSA_STATE::VOLUME_TO_17;
+                break;
+
+            case 2:
+                loop_state = StateManagement::FSA_STATE::VOLUME_TO_20;
+                break;
+
+            case 3:
+                loop_state = StateManagement::FSA_STATE::VOLUME_TO_25;
+                break;
+            }
+            break;
+
         case StateManagement::PAGE_ROUTE::CALIBRATE_PAGE:
             switch (WayangDisplayLCD_in_main.get_selection_point() + subPageRoute)
             {
@@ -1665,7 +1718,8 @@ void WayangDisplayController::pressRotaryEncoder()
 
             case 1:
                 // Volume
-                // do nothing
+                pageRoute = StateManagement::PAGE_ROUTE::VOLUME_SETTINGS_PAGE;
+                WayangDisplayLCD_in_main.set_selection_point(1);
                 break;
             }
             break;
@@ -2260,6 +2314,41 @@ void WayangDisplayController::spinRotaryEncoder()
             else if (digitalRead(OUTPUT_B) == LOW)
             {
                 if (WayangDisplayLCD_in_main.get_selection_point() > 1)
+                {
+                    // Serial.print(WayangDisplayLCD_in_main.get_selection_point());
+                    WayangDisplayLCD_in_main.decrement_selection_point();
+                    // WayangDisplayLCD_in_main.refreshLCD();
+                    // WayangDisplayLCD_in_main.MenuDisplay();
+                }
+                else
+                {
+                    Serial.print("UDAH METOK!");
+                }
+            }
+        }
+        last_run = millis();
+        break;
+
+    case StateManagement::PAGE_ROUTE::VOLUME_SETTINGS_PAGE:
+        if (millis() - last_run > displayLoopDelay / 50)
+        {
+            if (digitalRead(OUTPUT_B) == HIGH)
+            {
+                if (WayangDisplayLCD_in_main.get_selection_point() < 3)
+                {
+                    // Serial.print(WayangDisplayLCD_in_main.get_selection_point());
+                    WayangDisplayLCD_in_main.increment_selection_point();
+                    // WayangDisplayLCD_in_main.refreshLCD();
+                    // WayangDisplayLCD_in_main.MenuDisplay();
+                }
+                else
+                {
+                    Serial.print("UDAH METOK!");
+                }
+            }
+            else if (digitalRead(OUTPUT_B) == LOW)
+            {
+                if (WayangDisplayLCD_in_main.get_selection_point() > 0)
                 {
                     // Serial.print(WayangDisplayLCD_in_main.get_selection_point());
                     WayangDisplayLCD_in_main.decrement_selection_point();
@@ -3313,7 +3402,7 @@ void WayangHandServo::moveWhatServo(int servoNum, int degree, int desiredDuratio
 void WayangHandServo::moveWhatServoV2(int servoNum, int degree, int desiredDuration)
 {
     int selectedPin;
-    int endTime = 0;
+    int startTime, endTime = 0;
     switch (servoNum)
     {
     case 1:
@@ -3359,20 +3448,19 @@ void WayangHandServo::moveWhatServoV2(int servoNum, int degree, int desiredDurat
                 for (int i = 0; i < remainder; i++)
                 {
                     endTime = micros();
-                    while (endTime - 0 > degreeToDelay(curdeg - mismatchremainder))
+                    while (endTime - startTime > degreeToDelay(curdeg - mismatchremainder))
                     {
                         digitalWrite(selectedPin, HIGH);
                     }
-                    endTime = 0;
+                    startTime = endTime;
 
                     for (int i = 0; i < 2; i++)
                     {
-                        endTime = micros();
-                        while (endTime - 0 > getWavePeriod() - degreeToDelay((curdeg - mismatchremainder) / 2))
+                        while (endTime - startTime > getWavePeriod() - degreeToDelay((curdeg - mismatchremainder) / 2))
                         {
                             digitalWrite(selectedPin, LOW);
                         }
-                        endTime = 0;
+                        startTime = endTime;
                     }
                 }
             }
@@ -3382,20 +3470,19 @@ void WayangHandServo::moveWhatServoV2(int servoNum, int degree, int desiredDurat
                 for (int j = 0; j < waveAmount / largemismatch; j++)
                 {
                     endTime = micros();
-                    while (endTime - 0 > degreeToDelay(curdeg - i * divVar))
+                    while (endTime - startTime > degreeToDelay(curdeg - i * divVar))
                     {
                         digitalWrite(selectedPin, HIGH);
                     }
-                    endTime = 0;
+                    startTime = endTime;
 
                     for (int i = 0; i < 2; i++)
                     {
-                        endTime = micros();
-                        while (endTime - 0 > getWavePeriod() - degreeToDelay((curdeg - i * divVar) / 2))
+                        while (endTime - startTime > getWavePeriod() - degreeToDelay((curdeg - i * divVar) / 2))
                         {
                             digitalWrite(selectedPin, LOW);
                         }
-                        endTime = 0;
+                        startTime = endTime;
                     }
                 }
             }
@@ -3405,20 +3492,19 @@ void WayangHandServo::moveWhatServoV2(int servoNum, int degree, int desiredDurat
                 for (int i = 0; i < remainder; i++)
                 {
                     endTime = micros();
-                    while (endTime - 0 > degreeToDelay(degree))
+                    while (endTime - startTime > degreeToDelay(degree))
                     {
                         digitalWrite(selectedPin, HIGH);
                     }
-                    endTime = 0;
+                    startTime = endTime;
 
                     for (int i = 0; i < 2; i++)
                     {
-                        endTime = micros();
-                        while (endTime - 0 > getWavePeriod() - degreeToDelay(degree / 2))
+                        while (endTime - startTime > getWavePeriod() - degreeToDelay(degree / 2))
                         {
                             digitalWrite(selectedPin, LOW);
                         }
-                        endTime = 0;
+                        startTime = endTime;
                     }
                 }
             }
@@ -3430,20 +3516,19 @@ void WayangHandServo::moveWhatServoV2(int servoNum, int degree, int desiredDurat
                 for (int i = 0; i < remainder; i++)
                 {
                     endTime = micros();
-                    while (endTime - 0 > degreeToDelay(curdeg + mismatchremainder))
+                    while (endTime - startTime > degreeToDelay(curdeg + mismatchremainder))
                     {
                         digitalWrite(selectedPin, HIGH);
                     }
-                    endTime = 0;
+                    startTime = endTime;
 
                     for (int i = 0; i < 2; i++)
                     {
-                        endTime = micros();
-                        while (endTime - 0 > getWavePeriod() - degreeToDelay((curdeg + mismatchremainder) / 2))
+                        while (endTime - startTime > getWavePeriod() - degreeToDelay((curdeg + mismatchremainder) / 2))
                         {
                             digitalWrite(selectedPin, LOW);
                         }
-                        endTime = 0;
+                        startTime = endTime;
                     }
                 }
             }
@@ -3453,20 +3538,19 @@ void WayangHandServo::moveWhatServoV2(int servoNum, int degree, int desiredDurat
                 for (int j = 0; j < waveAmount / largemismatch; j++)
                 {
                     endTime = micros();
-                    while (endTime - 0 > degreeToDelay(curdeg + i * divVar))
+                    while (endTime - startTime > degreeToDelay(curdeg + i * divVar))
                     {
                         digitalWrite(selectedPin, HIGH);
                     }
-                    endTime = 0;
+                    startTime = endTime;
 
                     for (int i = 0; i < 2; i++)
                     {
-                        endTime = micros();
-                        while (endTime - 0 > getWavePeriod() - degreeToDelay((curdeg + i * divVar) / 2))
+                        while (endTime - startTime > getWavePeriod() - degreeToDelay((curdeg + i * divVar) / 2))
                         {
                             digitalWrite(selectedPin, LOW);
                         }
-                        endTime = 0;
+                        startTime = endTime;
                     }
                 }
             }
@@ -3477,20 +3561,19 @@ void WayangHandServo::moveWhatServoV2(int servoNum, int degree, int desiredDurat
                 for (int i = 0; i < remainder; i++)
                 {
                     endTime = micros();
-                    while (endTime - 0 > degreeToDelay(degree))
+                    while (endTime - startTime > degreeToDelay(degree))
                     {
                         digitalWrite(selectedPin, HIGH);
                     }
-                    endTime = 0;
+                    startTime = endTime;
 
                     for (int i = 0; i < 2; i++)
                     {
-                        endTime = micros();
-                        while (endTime - 0 > getWavePeriod() - degreeToDelay(degree / 2))
+                        while (endTime - startTime > getWavePeriod() - degreeToDelay(degree / 2))
                         {
                             digitalWrite(selectedPin, LOW);
                         }
-                        endTime = 0;
+                        startTime = endTime;
                     }
                 }
             }

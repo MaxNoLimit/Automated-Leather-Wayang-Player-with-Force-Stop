@@ -201,3 +201,9 @@ void SoundSystem::pauseMusicWayang()
     sound_system.pause();
     sound_system.volume(volumeHardcoded); // 14 best idk why, less fart :v
 }
+
+void SoundSystem::setVolume(int volume)
+{
+    volumeHardcoded = volume;
+    volumeHardcodedMusic = volume;
+}
