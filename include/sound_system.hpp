@@ -18,14 +18,16 @@ namespace SoundSystem
         EXTRA_MUSIC_WAYANG = 7,
     };
 
-    enum INDICATOR_SOUND_NUMBER{
+    enum INDICATOR_SOUND_NUMBER
+    {
         INDICATOR_AUDIO_1 = 1,
         INDICATOR_VSLOT_CALIBRATION = 2,
         INDICATOR_WAYANG_HAND_CALIBRATION = 3,
         INDICATOR_FINISHED_SHOWING = 4,
     };
 
-    enum SPECIAL_EPISODE_29_JULY{
+    enum SPECIAL_EPISODE_29_JULY
+    {
         // Rama - Sita Dialogue
         RAMA_SITA__SITA_DIALOG_1 = 1,
         RAMA_SITA__RAMA_DIALOG_1 = 2,
@@ -47,14 +49,15 @@ namespace SoundSystem
         RAMA_RAHWANA__SITA_1 = 13,
     };
 
-    enum EPISODE_1_DIALOG{
-        // 001 (Sita1Sita-Laksmana dialogue 1) 
+    enum EPISODE_1_DIALOG
+    {
+        // 001 (Sita1Sita-Laksmana dialogue 1)
         SITA1SITA_LAKS_DIALOGUE_1 = 1,
-        // 002 (01 S-L1 Laksmana1F) 
+        // 002 (01 S-L1 Laksmana1F)
         S_L1_LAKS1F = 2,
-        // 003 (Sita2Sita-Laksmana dialogue 1) 
+        // 003 (Sita2Sita-Laksmana dialogue 1)
         SITA2SITA_LAKS_DIALOGUE_1 = 3,
-        // 004 (02 S-L1 Laksmana2F) 
+        // 004 (02 S-L1 Laksmana2F)
         S_L1_LAKS2F = 4,
         // 005 (005SitaRahwanadialogueRahwana1)
         SITA_RAHWANA_DIALOGUE_RAHWANA_1 = 5,
@@ -62,9 +65,9 @@ namespace SoundSystem
         SITA_RAHWANA_DIALOGUE_SITA_1 = 6,
         // 007 (007SitaRahwanadialogueRahwana2)
         SITA_RAHWANA_DIALOGUE_RAHWANA_2 = 7,
-        // 008 (03 L-R1 Laksmana1F) 
+        // 008 (03 L-R1 Laksmana1F)
         L_R1_LAKS1F = 8,
-        // 009 (Rama1Laksmana-Rama Diaglogue(in place of narrator for context)) 
+        // 009 (Rama1Laksmana-Rama Diaglogue(in place of narrator for context))
         RAMA1LAKS_RAMA_DIALOGUE_IN_PLACE_NARATOR = 9,
         // 010 (04 H-R1 Hanuman1F)
         H_R1_HANUMAN1F = 10,
@@ -110,13 +113,13 @@ namespace SoundSystem
         SApol_Hanuman1F = 30,
         // 031 (15 SApol Sugriwa3F)
         SApol_Sugriwa3F = 31,
-        // 032 (Rama forgives sugriwa) 
+        // 032 (Rama forgives sugriwa)
         RAMA_FORGIVES_SUGRIWA = 32,
-
 
     };
 
-    enum EPISODE_3_DIALOG{
+    enum EPISODE_3_DIALOG
+    {
         // 001_Sita-Rahwana-Hanuman_Rawana1
         SITA_RAHWANA_HANUMAN_RAHWANA1 = 1,
         // 002_Sita-Rahwana-Hanuman_Rawana2
@@ -155,9 +158,86 @@ namespace SoundSystem
         HANUMAN_RAHWANA_WIBHISANA_HANUMANROAR = 18,
         // 019_Hanuman-Rahwana-Wibhisana_Rahwana5
         HANUMAN_RAHWANA_WIBHISANA_RAHWANA5 = 19,
-        
+
     };
-    
+
+    enum EPISODE_4_DIALOG
+    {
+        // 019_Hanuman_pays_respect_Hanuman1
+        HANUMAN_PAYS_RESPECT_HANUMAN1 = 1,
+        // 021_Hanuman_returns_to_rama_Nila1
+        HANUMAN_RETURNS_TO_RAMA_NILA1 = 2,
+        // 022_Hanuman_returns_to_rama_Anggada1
+        HANUMAN_RETURNS_TO_RAMA_ANGGADA1 = 3,
+        // 023_Hanuman_returns_to_rama_Nila2
+        HANUMAN_RETURNS_TO_RAMA_NILA2 = 4,
+        // 024_Hanuman_returns_to_rama_Anggada2
+        HANUMAN_RETURNS_TO_RAMA_ANGGADA2 = 5,
+        // 027_Hanuman_returns_to_rama_Hanuman1
+        HANUMAN_RETURNS_TO_RAMA_HANUMAN1 = 6,
+        // 028_Hanuman_returns_to_rama_Rama1
+        HANUMAN_RETURNS_TO_RAMA_RAMA1 = 7,
+        // 029_Hanuman_returns_to_rama_Hanuman2
+        HANUMAN_RETURNS_TO_RAMA_HANUMAN2 = 8,
+        // 030_Hanuman_returns_to_rama_Rama2
+        HANUMAN_RETURNS_TO_RAMA_RAMA2 = 9,
+
+        // 031_Wibhisana-Rahwana_Wibhisana1
+        WIBHISANA_RAHWANA_WIBHISANA1 = 10,
+        // 032_Wibhisana-Rahwana_Rahwana1
+        WIBHISANA_RAHWANA_RAHWANA1 = 11,
+        // 032.5_wibhisana-Rahwana_Rahwana2 (punch)
+        WIBHISANA_RAHWANA_RAHWANA2 = 12,
+        // 033_Wibhisana-Rahwana_Wibhisana2
+        WIBHISANA_RAHWANA_WIBHISANA2 = 13,
+        
+        // 034_Wibhisana_Defects_Hanuman1
+        WIBHISANA_DEFECTS_HANUMAN1 = 14,
+        // 035_Wibhisana_Defects_Wibhisana1
+        WIBHISANA_DEFECTS_WIBHISANA1 = 15,
+        // 036_Wibhisana_Defects_Hanuman2
+        WIBHISANA_DEFECTS_HANUMAN2 = 16,
+        // 037_Wibhisana_Defects_Nila1
+        WIBHISANA_DEFECTS_NILA1 = 17,
+        
+        // 038_Rama_informed_Nila1
+        RAMA_INFORMED_NILA1 = 18,
+        // 039_Rama_informed_Rama1
+        RAMA_INFORMED_RAMA1 = 19,
+        
+        // 040_Before_final_ultimatum_Sugriwa1
+        BEFORE_FINAL_ULTIMATUM_SUGRIWA1 = 20,
+        // 041_Before_final_ultimatum_Laksmana1
+        BEFORE_FINAL_ULTIMATUM_LAKSMANA1 = 21,
+        // 042_Before_final_ultimatum_Rama1
+        BEFORE_FINAL_ULTIMATUM_RAMA1 = 22,
+    };
+
+    enum EPISODE_5_DIALOG{
+        // 043_Ultimatum_Anggada1
+        ULTIMATUM_ANGGADA1 = 1,
+        // 044_Ultimatum_Rahwana1
+        ULTIMATUM_RAHWANA1 = 2,
+
+        // 045_Night_before_battle_Anggada1
+        NIGHT_BEFORE_BATTLE_ANGGADA1 = 3,
+        // 046_Night_before_battle_Rama1
+        NIGHT_BEFORE_BATTLE_RAMA1 = 4,
+        // 047_Night_before_battle_Anggada2
+
+        //048_After_battle_Rahwana1
+        AFTER_BATTLE_RAHWANA1 = 5,
+        //049_After_battle_Wibhisana1
+        AFTER_BATTLE_WIBHISANA1 = 6,
+        //050_After_battle_Rama1
+        AFTER_BATTLE_RAMA1 = 7,
+
+        // 051_reunion_Rama1
+        REUNION_RAMA1 = 8,
+        // 052_reunion_Sita1
+        REUNION_SITA1 = 9,
+    };
+
     enum DIALOG_NUMBER
     {
         NARATOR_INTRO_1,
@@ -167,7 +247,8 @@ namespace SoundSystem
         NARATOR_END_1
     };
 
-    enum MUSIC_NUMBER{
+    enum MUSIC_NUMBER
+    {
         MUSIC_GAMELAN = 1,
     };
 
