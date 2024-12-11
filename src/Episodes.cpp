@@ -5016,7 +5016,7 @@ void Episodes::Episode_4()
     sita.walk_to_a_certain_distance_before_calibrating_value(150); 
 
     /*019_Hanuman_pays_respect_Hanuman1*/
-    // insert audio here
+    SoundSystem::playDialogFromACertainFolder(SoundSystem::EPISODE_NUMBER::EPISODE_4, SoundSystem::EPISODE_4_DIALOG::HANUMAN_PAYS_RESPECT_HANUMAN1);
 
     delay(182);
     // (182) O, my lady, (1170)  
@@ -5065,7 +5065,7 @@ void Episodes::Episode_4()
     hanoman.walk_to_a_certain_distance_before_calibrating_value(450);
 
     /*Nila:  021 */
-    // insert audio here
+    SoundSystem::playDialogFromACertainFolder(SoundSystem::EPISODE_NUMBER::EPISODE_4, SoundSystem::EPISODE_4_DIALOG::HANUMAN_RETURNS_TO_RAMA_NILA1);
 
     delay(1114);
     // (1114) Brothers, look at Hanuman! (2752) 
@@ -5077,7 +5077,7 @@ void Episodes::Episode_4()
     delay(4755-3304-700);
 
     /*Angada: 022 */
-    //insert audio here
+    SoundSystem::playDialogFromACertainFolder(SoundSystem::EPISODE_NUMBER::EPISODE_4, SoundSystem::EPISODE_4_DIALOG::HANUMAN_RETURNS_TO_RAMA_ANGGADA1);
 
     delay(1032);
     // (1032) Ah! Only a hero is capable of enduring the pain as he did it on purpose (5842)  
@@ -5091,7 +5091,7 @@ void Episodes::Episode_4()
     anggada.downFront();
 
     /*Nila: 023 */
-    // insert audio here
+    SoundSystem::playDialogFromACertainFolder(SoundSystem::EPISODE_NUMBER::EPISODE_4, SoundSystem::EPISODE_4_DIALOG::HANUMAN_RETURNS_TO_RAMA_NILA2);
 
     delay(610);
     // (610) Pawanatmaja is like the sun. (2631) 
@@ -5101,7 +5101,7 @@ void Episodes::Episode_4()
     anila.downFront();
 
     /*Angada: 024 */
-    // insert audio here
+    SoundSystem::playDialogFromACertainFolder(SoundSystem::EPISODE_NUMBER::EPISODE_4, SoundSystem::EPISODE_4_DIALOG::HANUMAN_RETURNS_TO_RAMA_ANGGADA2);
 
     delay(826);
     // (826) He is like light, and the severe lovesickness of Lord Rama is the intense darkness that is destroyed by him. (7018) 
@@ -5133,7 +5133,7 @@ void Episodes::Episode_4()
     rama_wijaya.walk_to_a_certain_distance_before_calibrating_value(200);
 
     /*Hanuman: 027 */
-    //insert audio here
+    SoundSystem::playDialogFromACertainFolder(SoundSystem::EPISODE_NUMBER::EPISODE_4, SoundSystem::EPISODE_4_DIALOG::HANUMAN_RETURNS_TO_RAMA_HANUMAN1);
 
     delay(379);
     // (379) Here is the crest jewel and her letter my Lord (3063) 
@@ -5147,7 +5147,7 @@ void Episodes::Episode_4()
     delay(3000);
 
     /*Rama: 028*/ 
-    //insert audio here
+    SoundSystem::playDialogFromACertainFolder(SoundSystem::EPISODE_NUMBER::EPISODE_4, SoundSystem::EPISODE_4_DIALOG::HANUMAN_RETURNS_TO_RAMA_RAMA1);
 
     delay(140);
     // (140) *sobbing* (883) 
@@ -5203,7 +5203,7 @@ void Episodes::Episode_4()
     rama_wijaya.downFront();
 
     /* Hanuman: 029 */ 
-    //insert audio here
+    SoundSystem::playDialogFromACertainFolder(SoundSystem::EPISODE_NUMBER::EPISODE_4, SoundSystem::EPISODE_4_DIALOG::HANUMAN_RETURNS_TO_RAMA_HANUMAN2);
 
     //langsung jalan no delay
     // (350) Well my lord, (1400)  
@@ -5307,7 +5307,7 @@ void Episodes::Episode_4()
     hanoman.downFront();
 
     /* Rama: 030 */ 
-    //insert audio here
+    SoundSystem::playDialogFromACertainFolder(SoundSystem::EPISODE_NUMBER::EPISODE_4, SoundSystem::EPISODE_4_DIALOG::HANUMAN_RETURNS_TO_RAMA_RAMA2);
 
     delay(874-(500)); //minjem 500
     // (874) You are right. (1352)  
@@ -5339,7 +5339,7 @@ void Episodes::Episode_4()
 
     /*Wibhisana-Rawana*/
     /*Wibhisana: 031*/ 
-    //insert audio here
+    SoundSystem::playDialogFromACertainFolder(SoundSystem::EPISODE_NUMBER::EPISODE_4, SoundSystem::EPISODE_4_DIALOG::WIBHISANA_RAHWANA_WIBHISANA1);
 
     delay(598);
     // (598) O, Dasasya. (1716)  
@@ -5422,7 +5422,7 @@ void Episodes::Episode_4()
     wibhisana.downFront();
 
     /*Rawana: 032*/
-    //insert audio here 
+    SoundSystem::playDialogFromACertainFolder(SoundSystem::EPISODE_NUMBER::EPISODE_4, SoundSystem::EPISODE_4_DIALOG::WIBHISANA_RAHWANA_RAHWANA1);
 
     delay(609);
     // (609) Hey Wibhisana, (1674)  
@@ -5541,7 +5541,7 @@ void Episodes::Episode_4()
     rahwana.walk_to_a_certain_distance_before_calibrating_value(340); //ini harus ditentuin posisiny
     
     /*32 Rawana_punches_wibhisana */
-    //insert audio here
+    SoundSystem::playDialogFromACertainFolder(SoundSystem::EPISODE_NUMBER::EPISODE_4, SoundSystem::EPISODE_4_DIALOG::WIBHISANA_RAHWANA_RAHWANA2);
 
     delay(800-(300)); //minjem 300
     // (800) Bastard! (ini harus dicut sih karena takut desync[done])  
@@ -5564,7 +5564,7 @@ void Episodes::Episode_4()
     wibhisana.walk_to_a_certain_distance_before_calibrating_value(150);
 
     /*Wibhisana: 033 */
-    //insert audio here
+    SoundSystem::playDialogFromACertainFolder(SoundSystem::EPISODE_NUMBER::EPISODE_4, SoundSystem::EPISODE_4_DIALOG::WIBHISANA_RAHWANA_WIBHISANA2);
 
     delay(803-(200)); //minjem 200
     // (803) O king, (1524)  
@@ -5669,7 +5669,7 @@ void Episodes::Episode_4()
 
     /*Wibhisana_Defects*/
     /*Hanuman: 034*/ 
-    //insert audio here
+    SoundSystem::playDialogFromACertainFolder(SoundSystem::EPISODE_NUMBER::EPISODE_4, SoundSystem::EPISODE_4_DIALOG::WIBHISANA_DEFECTS_HANUMAN1);
     
     delay(343);
     // (343) Ah, (914)  
@@ -5700,7 +5700,7 @@ void Episodes::Episode_4()
     hanoman.downFront();
 
     /*Wibhisana: 035*/ 
-    //insert audio here
+    SoundSystem::playDialogFromACertainFolder(SoundSystem::EPISODE_NUMBER::EPISODE_4, SoundSystem::EPISODE_4_DIALOG::WIBHISANA_DEFECTS_WIBHISANA1);
 
     //langsung jalan
     // (1061) Of course, (1803) my name is Wibhisana, (3324) and I have come here to render my devotion to Raghusuta. (7228) 
@@ -5720,7 +5720,7 @@ void Episodes::Episode_4()
     wibhisana.downFront();
 
     /*Hanuman: 036*/ 
-    //insert audio here
+    SoundSystem::playDialogFromACertainFolder(SoundSystem::EPISODE_NUMBER::EPISODE_4, SoundSystem::EPISODE_4_DIALOG::WIBHISANA_DEFECTS_HANUMAN2);
 
     //langsung jalan
     // (537) Very well! (1291)  
@@ -5749,7 +5749,7 @@ void Episodes::Episode_4()
     anila.walk_to_a_certain_distance_before_calibrating_value(340); //cari value pasti
 
     /*Nila: 037*/ 
-    //insert audio here
+    SoundSystem::playDialogFromACertainFolder(SoundSystem::EPISODE_NUMBER::EPISODE_4, SoundSystem::EPISODE_4_DIALOG::WIBHISANA_DEFECTS_NILA1);
 
     delay(861);
     // (861) Yes brother. (1507) 
@@ -5766,7 +5766,7 @@ void Episodes::Episode_4()
     rama_wijaya.walk_to_a_certain_distance_before_calibrating_value(150);
     /*Rama_informed*/ 
     /*Nila: 038*/
-    //insert audio here 
+    SoundSystem::playDialogFromACertainFolder(SoundSystem::EPISODE_NUMBER::EPISODE_4, SoundSystem::EPISODE_4_DIALOG::RAMA_INFORMED_NILA1);
 
     delay(933);
     // (933) The most outstanding Wibhisana has come to render his service without reservation at the feet (7007) of my lord. (7644)  
@@ -5799,7 +5799,7 @@ void Episodes::Episode_4()
     anila.downFront();
 
     /*Rama: 039*/
-    //insert audio here 
+    SoundSystem::playDialogFromACertainFolder(SoundSystem::EPISODE_NUMBER::EPISODE_4, SoundSystem::EPISODE_4_DIALOG::RAMA_INFORMED_RAMA1); 
 
     delay(589);
     // (589) I agree with your sentiment, (2633) please lead him to our camp. (4885) 
@@ -5816,7 +5816,7 @@ void Episodes::Episode_4()
 
     /*Before final ultimatum*/ 
     /*Sugriwa: 040*/
-    //insert audio here 
+    SoundSystem::playDialogFromACertainFolder(SoundSystem::EPISODE_NUMBER::EPISODE_4, SoundSystem::EPISODE_4_DIALOG::BEFORE_FINAL_ULTIMATUM_SUGRIWA1);
 
     //langsung jalan
     // (459) My lord, (992)  
@@ -5844,7 +5844,7 @@ void Episodes::Episode_4()
     laksmana.walk_to_a_certain_distance_before_calibrating_value(250); //cari value
 
     /*Laksmana: 041*/
-    //insert audio here  
+    SoundSystem::playDialogFromACertainFolder(SoundSystem::EPISODE_NUMBER::EPISODE_4, SoundSystem::EPISODE_4_DIALOG::BEFORE_FINAL_ULTIMATUM_LAKSMANA1);
 
     //langsung jalan
     // (318) What about it brother? (1380)  
@@ -5881,7 +5881,7 @@ void Episodes::Episode_4()
     laksmana.downFront();
 
     /*Rama: 042*/
-    //insert audio here  
+    SoundSystem::playDialogFromACertainFolder(SoundSystem::EPISODE_NUMBER::EPISODE_4, SoundSystem::EPISODE_4_DIALOG::BEFORE_FINAL_ULTIMATUM_RAMA1);
 
     //langsung jalan
     // (819) Alright, (1158) 
