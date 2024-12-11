@@ -213,6 +213,31 @@ namespace SoundSystem
         BEFORE_FINAL_ULTIMATUM_RAMA1 = 22,
     };
 
+    enum EPISODE_5_DIALOG{
+        // 043_Ultimatum_Anggada1
+        ULTIMATUM_ANGGADA1 = 1,
+        // 044_Ultimatum_Rahwana1
+        ULTIMATUM_RAHWANA1 = 2,
+
+        // 045_Night_before_battle_Anggada1
+        NIGHT_BEFORE_BATTLE_ANGGADA1 = 3,
+        // 046_Night_before_battle_Rama1
+        NIGHT_BEFORE_BATTLE_RAMA1 = 4,
+        // 047_Night_before_battle_Anggada2
+
+        //048_After_battle_Rahwana1
+        AFTER_BATTLE_RAHWANA1 = 5,
+        //049_After_battle_Wibhisana1
+        AFTER_BATTLE_WIBHISANA1 = 6,
+        //050_After_battle_Rama1
+        AFTER_BATTLE_RAMA1 = 7,
+
+        // 051_reunion_Rama1
+        REUNION_RAMA1 = 8,
+        // 052_reunion_Sita1
+        REUNION_SITA1 = 9,
+    };
+
     enum DIALOG_NUMBER
     {
         NARATOR_INTRO_1,
