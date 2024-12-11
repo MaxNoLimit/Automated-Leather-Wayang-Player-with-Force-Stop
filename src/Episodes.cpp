@@ -5933,6 +5933,252 @@ void Episodes::Episode_4()
 
 void Episodes::Episode_5()
 {
+    CalibratingFunction::wayangHand();
+
+    setAllMOSFETtoLOW();
+
+    SoundSystem::playMusicWayang();
+
+    delay(1000);
+
+    anggada.walk_to_a_certain_distance_before_calibrating_value(150);
+    rahwana.walk_to_a_certain_distance_before_calibrating_value(250);
+
+    /*Ultimatum */
+    /* Angada: 043*/
+    //insert audio here 
+
+    
+    // (1003) Hey king Dasanana. (2666) Listen to my words. (3651)  
+
+    // (4174) I am the well-known Angada, (5871) the son of Bali. (6883) 
+
+    // (7388) My lord Rama, the son of Raghu, (9762) king of the Universe, (11066) ordered me to come to you. (12514)  
+
+    // (13011) That is why I am here, (14571) to urge you to surrender to Lord Rama with all your subjects. (18428)  
+
+    // (19139) Beg for your life, so that you can enjoy your luxurious life forever. (23099)  
+
+    // (23690) All valuables in the palace must be brought along and handed over, (27890) let ornaments, jewels, precious stones, and other luxuries accompany the return of princess Sita. (34053) 
+
+    // (34773) If you refuse to surrender (36452) and to return princess Maithili, (38312) Lord Ramabhadra will be annoyed and might destroy you. (41681)  
+
+    // (42126) Clearly all of you will be smashed to dust completely, (45161) 
+
+    // (45589) because his Lordship is exceedingly powerful and irresistible in the world. (50140) 
+
+    // (50646) Anyway (51409) what is the use of being haughty and boastful all the time? (54314) 
+
+    // (54726) It is true that a man can live for a long time, but vitality does not remain for long. (60374) Likewise is the union with one’s beloved, (63237) it is very changeable. (64617) 
+
+    // (65174) Ah, you are cruel, (66802) evil is in your head, Rawana! (68971) You are a very stupid and foolish adulterer with a dumb mind. (73916) The arrow of Lord Rama is very sharp (76436) and extremely venomous. (77885)  
+
+    // (78399) You do not think about that, how stupid! (81176) 
+
+    
+
+    /*Rawana: 044*/ 
+    //insert audio here 
+
+    // (701) Ah. (1169)  
+
+    // (1708) How shameful and sinful is this ape. (4081)  
+
+    // (4809) Alright, (5339)  
+
+    // (5843) he is courageous and mighty, (7632)  
+
+    // (8315) because he is the son of Bali, (10005)  
+
+    // (10571) but he is talking utter rubbish (12951)  
+
+    // (13295) and has no shame before people who know (16656) that he is debased. (18369) 
+
+    // (19263) He talks about the power of dignity, (21573)  
+
+    // (22113) while he himself (23497) is the destroyer of the greatest dignity. (26553) 
+
+    // (27416) You are dumb and arrogant (29528) and uncontrolled. (30652)  
+
+    // (31416) You have a debased mind, (33259)  
+
+    // (33762) because you serve the despised enemy. (36423)  
+
+    // (37079) It does not penetrate into your skull (39569)  
+
+    // (39911) about the death of your father. (41681)  
+
+    // (42338) You ape, (43194)  
+
+    // (43668) betrayer of teachers (45259)  
+
+    // (45556) will go to hell. (46818) 
+
+    // (47605) You are bad (48594) through and through (49807) and now you ask me to follow suit. (51731)  
+
+    // (52684) You think I am so dumb (54275)  
+
+    // (54616) that you can talk me into doing it. (56504)  
+
+    // (57223) Even if God tells me to return Sita to Raghusuta, (60935)  
+
+    // (61349) I will refuse, (62527)  
+
+    // (62922) least of all you. (64286) 
+
+    // (65052) Go home, quickly. (66097)  
+
+    // (66473) Tell your master (67614) that I refuse (69097) and urge him to attack me. (71057) 
+
+    // (71623) Let him start. (72567)  
+
+    // (74467) Even if a thousand Ramas come to the attack, (75974)  
+
+    // (76378) I will not be afraid, (77897)  
+
+    // (78392) let alone him alone (79974) with the monkeys. (81080)  
+
+    // (81511) Even hunters can take care of you. (84283) 
+
+    
+
+    /*Night before battle*/ 
+    /*Angada: 045*/ 
+    //insert audio here 
+
+    // (1002) My lord, (1574)  
+
+    // (2040) it seems that Rawana will not see reason, (4779) he has insulted me (6064) as well as my lord. (7687) 
+
+    
+
+    /*Rama: 046*/ 
+    //insert audio here 
+
+    // (1260) I see, (1986)  
+
+    // (2331) order the monkeys to eat up their fill and prepare for tomorrow’s battle. (6540) 
+
+    
+
+    /*Angada: 047*/
+    //insert audio here  
+
+    // (1113) As you wish, my lord. (2891) 
+
+    
+
+    /*Battle*/ 
+
+    // *Rama, Laksmana, Wibhisana step forward* 
+
+    // *Rawana step forward* 
+
+    // *Rawana gets wombo comboed* 
+
+    
+
+    /* Rawana: 048*/
+    //insert audio here  
+
+    // (487) *eugh..* (1187) 
+
+    
+
+    /*Wibhisana: 049 */ 
+    //insert audio here 
+
+    // (355) *sobbing* 
+
+    // (1749) My brother, O, Dasanana. (3694) Look at me (4470) and forgive me. (5484)  
+
+    // (5748) Let me not suffer, because I left you, (7704) 
+
+    // (7978) since I went to an unselfish person, (10330) and my purpose was the weal of others. (13056)  
+
+    // (13518) I chose to be the servant of a great and noble person, (17025) who cared for the whole world. (18804) 
+
+    // (19600) What makes me cry is only that you die because of misguidance. (23259) 
+
+    // (23609) You did not follow my good advice in the council formerly, (26777) because of disinclination. (28211) 
+
+    // (28627) Now you can see the result of the words of Prahasta, (31774) 
+
+    // (32166) your death (33011) has come. (33852) 
+
+    // (35043) From the beginning (36118) this result has been clearly seen. (38196) 
+
+    // (39276) My devotion to religion is confirmed now, since I see the fruit of your misguided deeds. (44927) See what you obtain because you were so obstinate, (47740) your death.(48815) 
+
+    // (50264) You had taken wrong counsel; (52053) you disappointed me in the council. (53873) 
+
+    // (54263) Even though my advice was a good one (56438) you did not take it. (57598) 
+
+    // (58039) I had the development of your wellbeing at heart, (60654) 
+
+    // (61024) when I gave you that good advice, (63437) but you were out of your mind, because of your eagerness (66397) to fight. (66914) 
+
+    // (67370) Because of your lack of love (68947) and your great anger, (70204)  
+
+    // (70563) my mind was very much perturbed (72342) and tortured, (73305) as you did not obey the guidance of a wise man. (75875) 
+
+    // (76752) Indeed, I was correct to think that you were wrong (79910) in disobeying wise people, (81790) because one who had insulted his elders (84309) and was cruel (85277) and malicious, (86286)  
+
+    // (86595) his well-being (87796) and good life disappeared whilst his sorrow and death were near. (91157) 
+
+    // (91552) Ah! My brother. (92931) This is the result when you have reached the ultimate of (95972) ingloriousness. (97051) 
+    
+    
+
+    /* Rama: 050*/ 
+    //insert audio here 
+
+    // (1961) Wibhisana, (2520) 
+
+    // (2899) it is enough. (3345) 
+
+    // (3859) Do not be so sad, (5243) because Dasasya has died with honor. (7565) 
+
+    // (8295) He was known to have performed asceticism and was a renowned universal monarch. (13173) 
+
+    // (13638) He died in fierce combat. (15135) 
+
+    // (15693) Whoever dies in battle (17461) goes to heaven. (18457) 
+
+    // (18813) You should not grieve over him, (20613) because he died in great glory in the battlefield. (23276) 
+
+    // (23867) On the other hand you must succeed him as king, (26784) 
+
+    // (27135) because your excellent virtues are truly faultless. (29831) 
+
+    // (30318) Rebuild (31058) and beautify the whole country of Lenka. (33321) 
+
+    // (33654) You will be the ruler over the demons. (36134) 
+
+    // (36504) Make the evil-minded demons realize their wrongdoings by good examples (41188) and devotion to religion. (42910) 
+
+    
+
+    /* Reunion*/ 
+    /* Rama: 051*/
+    //insert audio here  
+
+    // (621) Sita! (1388) 
+
+    // (1796) How long have I waited to be with you once more, (5059) I’m glad (6106) you’re safe. (6903) 
+
+    
+
+    /* Sita: 052 */
+    //insert audio here  
+
+    // (420) Oh I have longed to be in your presence again Rama. (3576) 
+
+    // (3954) Please, take me home to Ayodhya. (6058) 
+
+    
+
+    // *end*  
 }
 
 void Episodes::Episode_1_task(void *pvParameters)
