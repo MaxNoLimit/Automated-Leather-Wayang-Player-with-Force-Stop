@@ -224,18 +224,19 @@ namespace SoundSystem
         // 046_Night_before_battle_Rama1
         NIGHT_BEFORE_BATTLE_RAMA1 = 4,
         // 047_Night_before_battle_Anggada2
+        NIGHT_BEFORE_BATTLE_ANGGADA2 = 5,
 
         //048_After_battle_Rahwana1
-        AFTER_BATTLE_RAHWANA1 = 5,
+        AFTER_BATTLE_RAHWANA1 = 6,
         //049_After_battle_Wibhisana1
-        AFTER_BATTLE_WIBHISANA1 = 6,
+        AFTER_BATTLE_WIBHISANA1 = 7,
         //050_After_battle_Rama1
-        AFTER_BATTLE_RAMA1 = 7,
+        AFTER_BATTLE_RAMA1 = 8,
 
         // 051_reunion_Rama1
-        REUNION_RAMA1 = 8,
+        REUNION_RAMA1 = 9,
         // 052_reunion_Sita1
-        REUNION_SITA1 = 9,
+        REUNION_SITA1 = 10,
     };
 
     enum DIALOG_NUMBER

@@ -5946,7 +5946,7 @@ void Episodes::Episode_5()
 
     /*Ultimatum */
     /* Angada: 043*/
-    //insert audio here 
+    SoundSystem::playDialogFromACertainFolder(SoundSystem::EPISODE_NUMBER::EPISODE_5, SoundSystem::EPISODE_5_DIALOG::ULTIMATUM_ANGGADA1); 
 
     
     // (1003) Hey king Dasanana. (2666) Listen to my words. (3651)  
@@ -5978,7 +5978,7 @@ void Episodes::Episode_5()
     
 
     /*Rawana: 044*/ 
-    //insert audio here 
+    SoundSystem::playDialogFromACertainFolder(SoundSystem::EPISODE_NUMBER::EPISODE_5, SoundSystem::EPISODE_5_DIALOG::ULTIMATUM_RAHWANA1); 
 
     // (701) Ah. (1169)  
 
@@ -6044,7 +6044,7 @@ void Episodes::Episode_5()
 
     /*Night before battle*/ 
     /*Angada: 045*/ 
-    //insert audio here 
+    SoundSystem::playDialogFromACertainFolder(SoundSystem::EPISODE_NUMBER::EPISODE_5, SoundSystem::EPISODE_5_DIALOG::NIGHT_BEFORE_BATTLE_ANGGADA1); 
 
     // (1002) My lord, (1574)  
 
@@ -6053,7 +6053,7 @@ void Episodes::Episode_5()
     
 
     /*Rama: 046*/ 
-    //insert audio here 
+    SoundSystem::playDialogFromACertainFolder(SoundSystem::EPISODE_NUMBER::EPISODE_5, SoundSystem::EPISODE_5_DIALOG::NIGHT_BEFORE_BATTLE_RAMA1);
 
     // (1260) I see, (1986)  
 
@@ -6062,7 +6062,7 @@ void Episodes::Episode_5()
     
 
     /*Angada: 047*/
-    //insert audio here  
+    SoundSystem::playDialogFromACertainFolder(SoundSystem::EPISODE_NUMBER::EPISODE_5, SoundSystem::EPISODE_5_DIALOG::NIGHT_BEFORE_BATTLE_ANGGADA2);  
 
     // (1113) As you wish, my lord. (2891) 
 
@@ -6079,14 +6079,14 @@ void Episodes::Episode_5()
     
 
     /* Rawana: 048*/
-    //insert audio here  
+    SoundSystem::playDialogFromACertainFolder(SoundSystem::EPISODE_NUMBER::EPISODE_5, SoundSystem::EPISODE_5_DIALOG::AFTER_BATTLE_RAHWANA1);
 
     // (487) *eugh..* (1187) 
 
     
 
     /*Wibhisana: 049 */ 
-    //insert audio here 
+    SoundSystem::playDialogFromACertainFolder(SoundSystem::EPISODE_NUMBER::EPISODE_5, SoundSystem::EPISODE_5_DIALOG::AFTER_BATTLE_WIBHISANA1);
 
     // (355) *sobbing* 
 
@@ -6131,7 +6131,7 @@ void Episodes::Episode_5()
     
 
     /* Rama: 050*/ 
-    //insert audio here 
+    SoundSystem::playDialogFromACertainFolder(SoundSystem::EPISODE_NUMBER::EPISODE_5, SoundSystem::EPISODE_5_DIALOG::AFTER_BATTLE_RAMA1);
 
     // (1961) Wibhisana, (2520) 
 
@@ -6161,7 +6161,7 @@ void Episodes::Episode_5()
 
     /* Reunion*/ 
     /* Rama: 051*/
-    //insert audio here  
+    SoundSystem::playDialogFromACertainFolder(SoundSystem::EPISODE_NUMBER::EPISODE_5, SoundSystem::EPISODE_5_DIALOG::REUNION_RAMA1);
 
     // (621) Sita! (1388) 
 
@@ -6170,7 +6170,7 @@ void Episodes::Episode_5()
     
 
     /* Sita: 052 */
-    //insert audio here  
+    SoundSystem::playDialogFromACertainFolder(SoundSystem::EPISODE_NUMBER::EPISODE_5, SoundSystem::EPISODE_5_DIALOG::REUNION_SITA1);
 
     // (420) Oh I have longed to be in your presence again Rama. (3576) 
 
