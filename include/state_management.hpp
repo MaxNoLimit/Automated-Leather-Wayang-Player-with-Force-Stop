@@ -11,6 +11,7 @@ namespace StateManagement
         CALIBRATING_ALL_NEMA,
         MP3_REINIT,
 
+        ENTER_VSLOT_FARM,
         EXIT_VSLOT_FARM,
         VSLOT_100_MM,
         VSLOT_200_MM,
