@@ -6010,7 +6010,7 @@ void Episodes::Episode_5()
     delay(27890-23690-700-300-700);
     anggada.downFront();
     anggada.middleFront();
-    for (int i=0; i<4)
+    for (int i=0; i<4; i++)
     {
         anggada.directControl(1, 75, 500);
         anggada.directControl(1, 45, 500);
@@ -6045,7 +6045,7 @@ void Episodes::Episode_5()
 
     // (54726) It is true that a man can live for a long time, but vitality does not remain for long. (60374) Likewise is the union with one’s beloved, (63237) it is very changeable. (64617) 
     anggada.middleFront();
-    for (int i=0; i<4)
+    for (int i=0; i<4; i++)
     {
         anggada.directControl(1, 75, 500);
         anggada.directControl(1, 45, 500);
@@ -6063,7 +6063,7 @@ void Episodes::Episode_5()
     anggada.pointToFront();
     delay(68971-66802-900);
     anggada.middleFront();
-    for (int i=0; i<3)
+    for (int i=0; i<3; i++)
     {
         anggada.directControl(1, 75, 500);
         anggada.directControl(1, 45, 500);
