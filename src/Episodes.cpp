@@ -27,16 +27,7 @@ Anggada anggada;
 Anila anila;
 
 
-// TaskHandle_t taskSugriwa;
-// TaskHandle_t taskSubali;
-
-TaskHandle_t episodeTaskHandler[5];
-
-// TaskHandle_t episode1TaskHandler;
-// TaskHandle_t episode2TaskHandler;
-// TaskHandle_t episode3TaskHandler;
-// TaskHandle_t episode4TaskHandler;
-// TaskHandle_t episode5TaskHandler;
+TaskHandle_t episodeTaskHandler[6];
 
 // Execution function for pameran tanggal 2 Mei 2024 di ruang MIS depan
 // void Episodes::Mei2nd_Episode()
@@ -6592,6 +6583,10 @@ void Episodes::Episode_5()
     // *end*  
 }
 
+void Episodes::Episode_Extra(){
+    /* put the scene debug code below */
+}
+
 void Episodes::Episode_1_task(void *pvParameters)
 {
     currentEpisode = 1;
@@ -6665,6 +6660,19 @@ void Episodes::Episode_5_task(void *pvParameters)
         backToEpisodeSelection();
         vTaskDelete(NULL);
     }
+}
+
+void Episodes::Extra_Debug_task(void *pvParameters){
+    currentEpisode = 6;
+    Serial.println(F("Currently in debugging a scene!"));
+    while (1)
+    {
+        Episode_Extra();
+        vTaskResume(mainLoopTaskHandler);
+        backToEpisodeSelection();
+        vTaskDelete(NULL);
+    }
+    
 }
 
 // void Episodes::forceQuit()

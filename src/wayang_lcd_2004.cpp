@@ -290,7 +290,14 @@ void WayangDisplay::WayangDisplayLCD::playingWhatEpisodeDisplay(int nEpisode)
     lcdWayang.setCursor(5, 1);
     lcdWayang.print(F("Playing: "));
     lcdWayang.setCursor(5, 2);
-    lcdWayang.print(episodeList[nEpisode - 1]);
+    if (nEpisode == 6)
+    {
+        lcdWayang.print(F("Debugging..."));
+    }
+    else
+    {
+        lcdWayang.print(episodeList[nEpisode - 1]);
+    }
 }
 
 void WayangDisplay::WayangDisplayLCD::volumeSettings()

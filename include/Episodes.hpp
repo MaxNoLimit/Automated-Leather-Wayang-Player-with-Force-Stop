@@ -12,6 +12,7 @@ namespace Episodes
     void Episode_3();
     void Episode_4();
     void Episode_5();
+    void Episode_Extra();
 
     // static void sugriwaTaskFight1(void *pvParameters);
     // // void sugriwaTaskFight2(void *pvParameters);
@@ -26,6 +27,7 @@ namespace Episodes
     void Episode_3_task(void *pvParameters);
     void Episode_4_task(void *pvParameters);
     void Episode_5_task(void *pvParameters);
+    void Extra_Debug_task(void *pvParameters);
 
     // void forceQuit();
 
@@ -37,7 +39,7 @@ namespace Episodes
 
 };
 
-extern TaskHandle_t episodeTaskHandler[5];
+extern TaskHandle_t episodeTaskHandler[6];
 
 // extern TaskHandle_t episode1TaskHandler;
 // extern TaskHandle_t episode2TaskHandler;

@@ -30,6 +30,7 @@ namespace StateManagement
         PLAY_EPISODE_3,
         PLAY_EPISODE_4,
         PLAY_EPISODE_5,
+        EXTRA_DEBUG_EPISODE,
         SIMPLE_WAYANG_HAND_CALIBRATION,
 
         SITA_HAND,
@@ -197,6 +198,7 @@ namespace StateManagement
         EPISODE123,
         EPISODE1234,
         EPISODE2345,
+        EPISODE345EX,
     };
 
     enum SETTINGS_PAGE_ROUTE
