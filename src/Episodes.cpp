@@ -5531,9 +5531,7 @@ void Episodes::Episode_4()
     rahwana.downFront();
     delay(54803-52590-700);
     rahwana.pointToFront();
-    rahwana.directControl(3, 150, 200);
-    rahwana.directControl(3, 180, 200);
-    delay(56496-54803-900-400-(700));
+    delay(56496-54803-900-(700));
     rahwana.downFront();
     delay(2000);
 
