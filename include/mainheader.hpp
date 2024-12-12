@@ -69,6 +69,7 @@
 #include <Arduino_FreeRTOS.h>
 
 extern TaskHandle_t mainLoopTaskHandler;
+extern float conv_value;
 
 
 #endif //MAINHEADER_H

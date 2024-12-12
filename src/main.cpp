@@ -5,6 +5,7 @@
 
 // TaskHandle_t MainTaskHandler;
 TaskHandle_t mainLoopTaskHandler;
+float conv_value = 0.33;
 
 static void mainLoop(void *pvParameters)
 {

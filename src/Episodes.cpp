@@ -5055,14 +5055,16 @@ void Episodes::Episode_4()
 
     delay(1000);
 
+    SoundSystem::playMusicWayang();
+
     hanoman.defaultStandPosition();
     sita.defaultStandPosition();
 
     /*20 preparing next scene*/
-    anggada.walk_to_a_certain_distance_before_calibrating_value(150);
+    anggada.walk_to_a_certain_distance_before_calibrating_value(200);
     anila.walk_to_a_certain_distance_before_calibrating_value(250);
-    delay(2000);
-    hanoman.walk_to_a_certain_distance_before_calibrating_value(450);
+    // delay(1000);
+    // hanoman.walk_to_a_certain_distance_before_calibrating_value(300);
 
     /*Nila:  021 */
     SoundSystem::playDialogFromACertainFolder(SoundSystem::EPISODE_NUMBER::EPISODE_4, SoundSystem::EPISODE_4_DIALOG::HANUMAN_RETURNS_TO_RAMA_NILA1);
@@ -5123,6 +5125,8 @@ void Episodes::Episode_4()
     delay(2000);
     anila.downFront(); //aksi 2
     anggada.downFront(); //aksi 2
+
+    SoundSystem::playMusicWayang();
 
     //balek ke commandlist biasa
     anila.defaultStandPosition();
@@ -5329,9 +5333,11 @@ void Episodes::Episode_4()
     delay(6161-4586-500-200);
     delay(2000);
 
+    SoundSystem::playMusicWayang();
+
     hanoman.defaultStandPosition();
     rama_wijaya.defaultStandPosition();
-    delay(2000);
+    delay(1000);
 
 
     rahwana.walk_to_a_certain_distance_before_calibrating_value(250);
@@ -5555,7 +5561,7 @@ void Episodes::Episode_4()
     rahwana.pointToFront();
     wibhisana.walk_to_a_certain_distance_before_calibrating_value(120); //perlu disetting
 
-    delay(2000);
+    delay(1000);
 
     rahwana.walk_to_a_certain_distance_before_calibrating_value(250);
 
@@ -5656,12 +5662,14 @@ void Episodes::Episode_4()
     // (64596) I shall take my leave now. (66457) 
     wibhisana.pointToSelf();
     delay(66457-64596-900);
-    delay(2000);
+    delay(1000);
+
+    SoundSystem::playMusicWayang();
 
     wibhisana.defaultStandPosition();
     delay(1000);
     rahwana.defaultStandPosition();
-    delay(2000);
+    delay(1000);
 
     hanoman.walk_to_a_certain_distance_before_calibrating_value(250);
     delay(1000);
@@ -5746,6 +5754,8 @@ void Episodes::Episode_4()
     hanoman.downFront();
     delay(14242-11601-700);
 
+    SoundSystem::playMusicWayang();
+
     anila.walk_to_a_certain_distance_before_calibrating_value(340); //cari value pasti
 
     /*Nila: 037*/ 
@@ -5757,10 +5767,12 @@ void Episodes::Episode_4()
     delay(2000);
     anila.downFront();
 
+    SoundSystem::playMusicWayang();
+
     anila.defaultStandPosition();
     hanoman.defaultStandPosition();
     wibhisana.defaultStandPosition();
-    delay(2000);
+    delay(1000);
 
     anila.walk_to_a_certain_distance_before_calibrating_value(250);
     rama_wijaya.walk_to_a_certain_distance_before_calibrating_value(150);
@@ -5811,6 +5823,8 @@ void Episodes::Episode_4()
     delay(2000);
     rama_wijaya.downFront();
 
+    SoundSystem::playMusicWayang();
+
     anila.defaultStandPosition();
     sugriwa.walk_to_a_certain_distance_before_calibrating_value(270);
 
@@ -5839,6 +5853,8 @@ void Episodes::Episode_4()
     sugriwa.lower_pointToFront();
     delay(2000);
     sugriwa.downFront();
+
+    SoundSystem::playMusicWayang();
 
     sugriwa.defaultStandPosition();
     laksmana.walk_to_a_certain_distance_before_calibrating_value(250); //cari value
@@ -5922,10 +5938,11 @@ void Episodes::Episode_4()
     delay(2000);
     rama_wijaya.downFront();
 
+    SoundSystem::playMusicWayang();
+
     laksmana.defaultStandPosition();
     rama_wijaya.defaultStandPosition();
 
-    setAllMOSFETtoHIGH();
     SoundSystem::playDialogFromACertainFolder(SoundSystem::INDICATOR_SOUND, SoundSystem::INDICATOR_SOUND_NUMBER::INDICATOR_FINISHED_SHOWING);
     delay(2000);
 
@@ -5935,11 +5952,9 @@ void Episodes::Episode_5()
 {
     CalibratingFunction::wayangHand();
 
-    setAllMOSFETtoLOW();
-
     SoundSystem::playMusicWayang();
 
-    delay(1000);
+    delay(500);
 
     anggada.walk_to_a_certain_distance_before_calibrating_value(150);
     rahwana.walk_to_a_certain_distance_before_calibrating_value(250);

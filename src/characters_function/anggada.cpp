@@ -55,7 +55,7 @@ void Anggada::walk_to_a_certain_distance(int desiredDistance)
     if (difference > 0)
     {
         // difference = difference + 10;
-        float result = difference / 0.3;
+        float result = difference / conv_value;
         int result_int = (int)result + 1;
         Serial.print(result_int);
         Serial.println(F(" steps\n"));
@@ -73,7 +73,7 @@ void Anggada::walk_to_a_certain_distance(int desiredDistance)
     {
         // difference = difference - 10;
         float result = difference / 0.3;
-        int result_int = (int)result - 1;
+        int result_int = (int)result + 1;
         Serial.print(result_int);
         Serial.println(F(" steps\n"));
         result_int = abs(result_int);

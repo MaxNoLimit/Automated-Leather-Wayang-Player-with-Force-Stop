@@ -285,6 +285,21 @@ void WayangDisplay::generalLoop()
         delay(1);
         break;
 
+    case StateManagement::FSA_STATE::ENTER_VSLOT_FARM:
+        // setAllMOSFETtoHIGH();
+        WayangDisplayLCD_in_main.pleaseWaitDisplay();
+        // wayangRahwana.defaultStandPosition();
+        setConvValue();
+        // Serial.print(F("Conv value: "));
+        // Serial.println(conv_value);
+        // wayangRahwana.defaultStandPosition();
+        pageRoute = StateManagement::PAGE_ROUTE::VSLOT_DATA_PAGE;
+        subPageRoute = StateManagement::VSLOT_DATA_FARM_SUB_PAGE_ROUTE::VSLOT_DISPLAY_1;
+        WayangDisplayLCD_in_main.set_selection_point(1);
+        loop_state = StateManagement::FSA_STATE::DEFAULT_LOOPING_LCD;
+        delay(1);
+        break;
+
     case StateManagement::FSA_STATE::EXIT_VSLOT_FARM:
         // setAllMOSFETtoHIGH();
         WayangDisplayLCD_in_main.pleaseWaitDisplay();
@@ -1664,8 +1679,9 @@ void WayangDisplayController::pressRotaryEncoder()
 
             case 1:
                 // loop_state = StateManagement::FSA_STATE::CALIBRATING_ALL_NEMA;
-                pageRoute = StateManagement::PAGE_ROUTE::VSLOT_DATA_PAGE;
-                WayangDisplayLCD_in_main.set_selection_point(1);
+                // pageRoute = StateManagement::PAGE_ROUTE::VSLOT_DATA_PAGE;
+                // WayangDisplayLCD_in_main.set_selection_point(1);
+                loop_state = StateManagement::FSA_STATE::ENTER_VSLOT_FARM;
                 break;
             case 2:
                 loop_state = StateManagement::FSA_STATE::MP3_REINIT;
@@ -3672,6 +3688,7 @@ void CalibratingFunction::soundSystem()
 void CalibratingFunction::wayangHand()
 {
     setAllMOSFETtoLOW();
+    setConvValue();
 
     wayangSita.defaultHandPosition();
     wayangSita.defaultStandPosition();
@@ -3733,4 +3750,18 @@ void setAllENtoHIGH()
     digitalWrite(EN_NEMA_8, HIGH);
     digitalWrite(EN_NEMA_9, HIGH);
     digitalWrite(EN_NEMA_10, HIGH);
+}
+
+void setConvValue()
+{
+    float initialPosition = getDistanceSensorNum(2);
+    Serial.print("Initial Position: " + String(initialPosition) + "\n");
+    wayangRahwana.walk_to_scene(500);
+    float lastPosition = getDistanceSensorNum(2);
+    Serial.print("Last Position: " + String(lastPosition) + "\n");
+
+    conv_value = (lastPosition - initialPosition) / 500.0;
+    // Serial.print(F("Conv value: "));
+    // Serial.println(conv_value);
+    wayangRahwana.defaultStandPosition();
 }

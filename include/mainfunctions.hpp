@@ -79,4 +79,6 @@ extern TaskHandle_t episodeTaskHandler[5];
 extern bool isEpisodeTaskCreated;
 void backToEpisodeSelection();
 
+void setConvValue();
+
 #endif // MAINFUNCTIONS_H
