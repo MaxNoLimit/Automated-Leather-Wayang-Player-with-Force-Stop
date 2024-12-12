@@ -5961,123 +5961,349 @@ void Episodes::Episode_5()
     /* Angada: 043*/
     SoundSystem::playDialogFromACertainFolder(SoundSystem::EPISODE_NUMBER::EPISODE_5, SoundSystem::EPISODE_5_DIALOG::ULTIMATUM_ANGGADA1); 
 
-    
+    delay(1003);
     // (1003) Hey king Dasanana. (2666) Listen to my words. (3651)  
+    anggada.pointToFront();
+    delay(2666-1003-900);
+    anggada.directControl(1, 55, 400);
+    anggada.directControl(1, 5, 400);
+    delay(4174-2666-400-400-(700));
+    anggada.downFront();
 
     // (4174) I am the well-known Angada, (5871) the son of Bali. (6883) 
+    delay(300);
+    anggada.pointToSelf();
+    delay(7388-4174-300-900);
 
     // (7388) My lord Rama, the son of Raghu, (9762) king of the Universe, (11066) ordered me to come to you. (12514)  
+    anggada.downFront();
+    delay(9762-7388-700);
+    anggada.middleFront();
+    delay(11066-9762-1200);
+    anggada.directControl(1, 5, 500);
+    anggada.directControl(2, 35, 200);
+    delay(13011-11066-500-200-(1000));
+    anggada.downFront();
+    delay(300);
 
     // (13011) That is why I am here, (14571) to urge you to surrender to Lord Rama with all your subjects. (18428)  
+    anggada.pointToSelf();
+    delay(14571-13011-900);
+    anggada.downFront();
+    anggada.pointToFront();
+    delay(19139-14571-700-900);
 
     // (19139) Beg for your life, so that you can enjoy your luxurious life forever. (23099)  
+    anggada.lower_pointToFront();
+    for (int i=0; i<5; i++) //3000
+    {
+        anggada.directControl(1, 60, 300);
+        anggada.directControl(1, 90, 300);
+    }
+    delay(23609-19139-700-3000);
 
     // (23690) All valuables in the palace must be brought along and handed over, (27890) let ornaments, jewels, precious stones, and other luxuries accompany the return of princess Sita. (34053) 
+    anggada.downFront();
+    delay(300);
+    anggada.directControl(2, 120, 200);
+    anggada.directControl(1, 20, 500);
+    delay(27890-23690-700-300-700);
+    anggada.downFront();
+    anggada.middleFront();
+    for (int i=0; i<4)
+    {
+        anggada.directControl(1, 75, 500);
+        anggada.directControl(1, 45, 500);
+    }
+    delay(34773-27890-700-1200-4000);
 
     // (34773) If you refuse to surrender (36452) and to return princess Maithili, (38312) Lord Ramabhadra will be annoyed and might destroy you. (41681)  
+    anggada.directControl(1, 5, 500);
+    anggada.directControl(2, 35, 200);
+    delay(36452-34773-500-200);
+    anggada.lower_pointToFront();
+    delay(38312-36452-700);
 
     // (42126) Clearly all of you will be smashed to dust completely, (45161) 
+    anggada.downFront();
+    delay(300);
+    anggada.directControl(2, 120, 200);
+    anggada.directControl(1, 20, 500);
+    delay(45589-42126-700-300-200-500);
 
     // (45589) because his Lordship is exceedingly powerful and irresistible in the world. (50140) 
-
+    anggada.downFront();
+    anggada.lower_pointToFront();
+    delay(50646-45589-700-700);
+    
     // (50646) Anyway (51409) what is the use of being haughty and boastful all the time? (54314) 
+    anggada.directControl(1, 5, 500);
+    anggada.directControl(2, 35, 200);
+    delay(51409-50646-500-200);
+    anggada.downFront();
+    delay(54726-51409-700);
 
     // (54726) It is true that a man can live for a long time, but vitality does not remain for long. (60374) Likewise is the union with one’s beloved, (63237) it is very changeable. (64617) 
+    anggada.middleFront();
+    for (int i=0; i<4)
+    {
+        anggada.directControl(1, 75, 500);
+        anggada.directControl(1, 45, 500);
+    }
+    delay(60374-54726-1200-4000);
+    anggada.lower_pointToFront();
+    delay(63237-60374-700);
+    anggada.directControl(1, 5, 500);
+    anggada.directControl(2, 35, 200);
+    delay(65174-63237-500-200);
 
     // (65174) Ah, you are cruel, (66802) evil is in your head, Rawana! (68971) You are a very stupid and foolish adulterer with a dumb mind. (73916) The arrow of Lord Rama is very sharp (76436) and extremely venomous. (77885)  
+    anggada.downFront();
+    delay(66802-65174-700);
+    anggada.pointToFront();
+    delay(68971-66802-900);
+    anggada.middleFront();
+    for (int i=0; i<3)
+    {
+        anggada.directControl(1, 75, 500);
+        anggada.directControl(1, 45, 500);
+    }
+    delay(73916-68971-1200-3000);
+    anggada.directControl(1, 5, 500);
+    anggada.directControl(2, 35, 200);
+    delay(76436-73916-500-2000);
+    anggada.lower_pointToFront();
+    delay(78399-76436-700);
 
     // (78399) You do not think about that, how stupid! (81176) 
-
-    
+    anggada.downFront();
+    anggada.pointToFront();
+    anggada.downFront();
+    delay(81176-78399-700-900-700);
+    delay(2000);
 
     /*Rawana: 044*/ 
     SoundSystem::playDialogFromACertainFolder(SoundSystem::EPISODE_NUMBER::EPISODE_5, SoundSystem::EPISODE_5_DIALOG::ULTIMATUM_RAHWANA1); 
 
+    //langsung jalan
     // (701) Ah. (1169)  
+    rahwana.middleFront();
+    delay(1708-1200);
 
     // (1708) How shameful and sinful is this ape. (4081)  
+    rahwana.directControl(3, 180, 500);
+    rahwana.directControl(4, 140, 200);
+    delay(4809-1708-500-200);
 
     // (4809) Alright, (5339)  
+    rahwana.downFront();
+    delay(5843-4809-700);
 
     // (5843) he is courageous and mighty, (7632)  
+    rahwana.middleFront();
+    delay(8315-5843-1200);
 
     // (8315) because he is the son of Bali, (10005)  
+    rahwana.lower_pointToFront();
+    delay(10571-8315-700);
 
     // (10571) but he is talking utter rubbish (12951)  
+    for(int i=0; i<5; i++)
+    {
+        rahwana.directControl(3, 150, 200);
+        rahwana.directControl(3, 120, 200);
+    }
+    delay(13925-10571-2000);
 
     // (13295) and has no shame before people who know (16656) that he is debased. (18369) 
+    rahwana.downFront();
+    rahwana.directControl(4, 65, 200);
+    rahwana.directControl(3, 179, 500);
+    delay(16656-13295-700-200-500);
+    rahwana.downFront();
+    rahwana.pointToFront();
+    delay(19263-16656-700-900);
 
     // (19263) He talks about the power of dignity, (21573)  
+    rahwana.lower_pointToFront();
+    delay(22113-19263-700);
 
     // (22113) while he himself (23497) is the destroyer of the greatest dignity. (26553) 
+    rahwana.directControl(3, 180, 500);
+    rahwana.directControl(4, 140, 200);
+    delay(23497-22113-500-200);
+    rahwana.downFront();
+    rahwana.directControl(4, 65, 200);
+    rahwana.directControl(3, 179, 500);
+    delay(27416-23497-700-200-500-(700));
+    rahwana.downFront();
 
     // (27416) You are dumb and arrogant (29528) and uncontrolled. (30652)  
+    rahwana.pointToFront();
+    delay(29528-27416-900);
+    rahwana.lower_pointToFront();
+    delay(31416-29528-700);
 
     // (31416) You have a debased mind, (33259)  
+    rahwana.directControl(3, 180, 500);
+    rahwana.directControl(4, 140, 200);
+    for (int i=0; i<3; i++)
+    {
+        rahwana.directControl(3, 150, 200);
+        rahwana.directControl(3, 180, 200);
+    }
+    delay(33762-31416-500-200-1200);;
 
     // (33762) because you serve the despised enemy. (36423)  
+    rahwana.middleFront();
+    delay(37079-33762-1200);
 
     // (37079) It does not penetrate into your skull (39569)  
+    rahwana.directControl(3, 180, 500);
+    rahwana.directControl(4, 140, 200);
+    delay(39911-37079-500-200);
 
     // (39911) about the death of your father. (41681)  
+    rahwana.downFront();
+    delay(42338-39911-700);
 
     // (42338) You ape, (43194)  
+    rahwana.lower_pointToFront();
+    delay(43668-42338-700);
 
     // (43668) betrayer of teachers (45259)  
+    rahwana.directControl(3, 180, 500);
+    rahwana.directControl(4, 140, 200);
+    delay(45556-43668-500-200);
 
     // (45556) will go to hell. (46818) 
+    rahwana.downFront();
+    delay(47605-45556-700-(500));
 
     // (47605) You are bad (48594) through and through (49807) and now you ask me to follow suit. (51731)  
+    rahwana.middleFront();
+    delay(48594-47605-(1200-500));
+    rahwana.directControl(3, 180, 500);
+    rahwana.directControl(4, 140, 200);
+    delay(49807-48594-500-200);
+    rahwana.downFront();
+    delay(52684-49807-700);
 
     // (52684) You think I am so dumb (54275)  
+    rahwana.pointToFront();
+    delay(54616-52684-900-(700));
+    rahwana.downFront();
 
     // (54616) that you can talk me into doing it. (56504)  
+    delay(300);
+    rahwana.pointToSelf();
+    delay(57223-54616-300-1100);
 
     // (57223) Even if God tells me to return Sita to Raghusuta, (60935)  
+    rahwana.downFront();
+    rahwana.pointToFront();
+    delay(61349-57223-700-900);
 
-    // (61349) I will refuse, (62527)  
+    // (61349) I will refuse, (62527)
+    rahwana.lower_pointToFront();
+    delay(62922-61349-700);  
 
     // (62922) least of all you. (64286) 
+    rahwana.downFront();
+    delay(65052-62922-700);
 
     // (65052) Go home, quickly. (66097)  
+    rahwana.lower_pointToFront();
+    delay(66473-65052-700);
 
     // (66473) Tell your master (67614) that I refuse (69097) and urge him to attack me. (71057) 
+    rahwana.directControl(3, 180, 500);
+    rahwana.directControl(4, 140, 200);
+    delay(67614-66473-500-200);
+    rahwana.lower_pointToFront();
+    delay(69097-67614-700);
+    rahwana.directControl(3, 180, 500);
+    rahwana.directControl(4, 140, 200);
+    delay(71623-69097-500-200);
 
     // (71623) Let him start. (72567)  
+    rahwana.lower_pointToFront();
+    delay(74467-71623-700);
 
     // (74467) Even if a thousand Ramas come to the attack, (75974)  
+    rahwana.downFront();
+    delay(76378-74467-700-(500));
 
     // (76378) I will not be afraid, (77897)  
+    rahwana.pointToSelf();
+    delay(78392-76378-(1100-500));
 
     // (78392) let alone him alone (79974) with the monkeys. (81080)  
+    rahwana.downFront();
+    delay(79974-78392-700);
+    rahwana.middleFront();
+    delay(81511-79974-1200);
 
     // (81511) Even hunters can take care of you. (84283) 
+    rahwana.directControl(3, 180, 500);
+    rahwana.directControl(4, 140, 200);
+    delay(84283-81511-500-200);
+    rahwana.defaultStandPosition();
+
+    delay(2000);
+    anggada.defaultStandPosition();
 
     
+    anggada.walk_to_a_certain_distance_before_calibrating_value(150);
+    rama_wijaya.walk_to_a_certain_distance_before_calibrating_value(250);
 
     /*Night before battle*/ 
     /*Angada: 045*/ 
     SoundSystem::playDialogFromACertainFolder(SoundSystem::EPISODE_NUMBER::EPISODE_5, SoundSystem::EPISODE_5_DIALOG::NIGHT_BEFORE_BATTLE_ANGGADA1); 
 
+    //langsung jalan 
     // (1002) My lord, (1574)  
+    anggada.pointToSelf();
+    delay(2040-900);
 
     // (2040) it seems that Rawana will not see reason, (4779) he has insulted me (6064) as well as my lord. (7687) 
-
-    
+    anggada.downFront();
+    delay(4779-2040-700);
+    anggada.lower_pointToFront();
+    delay(6064-4779-700);
+    anggada.directControl(1, 5, 500);
+    anggada.directControl(2, 35, 200);
+    delay(7687-6064-500-200);
+    delay(2000);
+    anggada.downFront();
 
     /*Rama: 046*/ 
     SoundSystem::playDialogFromACertainFolder(SoundSystem::EPISODE_NUMBER::EPISODE_5, SoundSystem::EPISODE_5_DIALOG::NIGHT_BEFORE_BATTLE_RAMA1);
 
+    delay(1260-(500));
     // (1260) I see, (1986)  
+    rama_wijaya.middleFront();
+    delay(2331-1260-(1200-500));
 
     // (2331) order the monkeys to eat up their fill and prepare for tomorrow’s battle. (6540) 
-
-    
+    rama_wijaya.directControl(1, 0, 500);
+    rama_wijaya.directControl(2, 10, 200);
+    delay(6540-2331-500-200-(700));
+    rama_wijaya.downFront();
+    delay(2000);
 
     /*Angada: 047*/
     SoundSystem::playDialogFromACertainFolder(SoundSystem::EPISODE_NUMBER::EPISODE_5, SoundSystem::EPISODE_5_DIALOG::NIGHT_BEFORE_BATTLE_ANGGADA2);  
 
+    delay(1113);
     // (1113) As you wish, my lord. (2891) 
+    anggada.pointToSelf();
+    delay(2891-1113-900);
+    anggada.downFront();
+    anggada.defaultStandPosition();
+
+    delay(2000);
+    rama_wijaya.defaultStandPosition();
 
     
 
@@ -6094,102 +6320,274 @@ void Episodes::Episode_5()
     /* Rawana: 048*/
     SoundSystem::playDialogFromACertainFolder(SoundSystem::EPISODE_NUMBER::EPISODE_5, SoundSystem::EPISODE_5_DIALOG::AFTER_BATTLE_RAHWANA1);
 
-    // (487) *eugh..* (1187) 
+    //langsung jalan
+    // (487) *eugh..* (1187)
+    rahwana.pointToSelf();
+    delay(2000); 
 
     
 
     /*Wibhisana: 049 */ 
     SoundSystem::playDialogFromACertainFolder(SoundSystem::EPISODE_NUMBER::EPISODE_5, SoundSystem::EPISODE_5_DIALOG::AFTER_BATTLE_WIBHISANA1);
 
+    delay(1749);
     // (355) *sobbing* 
-
     // (1749) My brother, O, Dasanana. (3694) Look at me (4470) and forgive me. (5484)  
+    wibhisana.pointToFront();
+    delay(3694-1749-900);
+    wibhisana.lower_pointToFront();
+    delay(4470-3694-700);
+    wibhisana.downFront();
+    delay(5748-4470-700);
 
     // (5748) Let me not suffer, because I left you, (7704) 
+    wibhisana.pointToSelf();
+    delay(7978-5748-900);
 
     // (7978) since I went to an unselfish person, (10330) and my purpose was the weal of others. (13056)  
+    wibhisana.directControl(1, 130, 1000); //df 2x lambat
+    wibhisana.directControl(2, 70, 400);
+    delay(10330-7978-1400);
+    wibhisana.directControl(1, 90, 1000); //lptf 2x lambat
+    wibhisana.directControl(2, 80, 400);
+    delay(13518-10330-1400);
 
     // (13518) I chose to be the servant of a great and noble person, (17025) who cared for the whole world. (18804) 
+    wibhisana.pointToSelf();
+    delay(17025-13518-900);
+    wibhisana.directControl(1, 130, 1000); //df 2x lambat
+    wibhisana.directControl(2, 70, 400);
+    delay(19600-17025-1400);
 
     // (19600) What makes me cry is only that you die because of misguidance. (23259) 
+    wibhisana.directControl(2, 75, 400); //ptf 2x lambat
+    wibhisana.directControl(1, 5, 1000);
+    wibhisana.directControl(2, 35, 400);
+    delay(23609-19600-400-1000-400);
 
     // (23609) You did not follow my good advice in the council formerly, (26777) because of disinclination. (28211) 
+    wibhisana.directControl(1, 90, 1000); //lptf 2x lambat
+    wibhisana.directControl(2, 80, 400);
+    delay(26777-23609-1000-400);
+    wibhisana.directControl(1, 130, 1000); //df 2x lambat
+    wibhisana.directControl(2, 70, 400);
+    delay(28627-26777-1000-400);
 
     // (28627) Now you can see the result of the words of Prahasta, (31774) 
+    wibhisana.directControl(2, 75, 400); //ptf 2x lambat
+    wibhisana.directControl(1, 5, 1000);
+    wibhisana.directControl(2, 35, 400);
+    delay(32166-28627-1800);
 
     // (32166) your death (33011) has come. (33852) 
+    wibhisana.directControl(1, 130, 1000); //df 2x lambat
+    wibhisana.directControl(2, 70, 400);
+    delay(35043-32166-1000-400);
 
     // (35043) From the beginning (36118) this result has been clearly seen. (38196) 
+    wibhisana.lower_pointToFront();
+    delay(36118-35043-700);
+    wibhisana.downFront();
+    delay(39276-36118-700);
 
     // (39276) My devotion to religion is confirmed now, since I see the fruit of your misguided deeds. (44927) See what you obtain because you were so obstinate, (47740) your death.(48815) 
+    wibhisana.pointToSelf();
+    delay(44927-39276-900);
+    wibhisana.directControl(1, 130, 1000); //df 2x lambat
+    wibhisana.directControl(2, 70, 400);
+    delay(47740-44927-1000-400);
+    wibhisana.pointToFront();
+    delay(50264-47740-900);
 
     // (50264) You had taken wrong counsel; (52053) you disappointed me in the council. (53873) 
+    wibhisana.lower_pointToFront();
+    delay(52053-50264-700);
+    wibhisana.downFront();
+    delay(54263-52053-700);
 
     // (54263) Even though my advice was a good one (56438) you did not take it. (57598) 
+    wibhisana.pointToSelf();
+    delay(56438-54263-900);
+    wibhisana.downFront();
+    delay(58039-56438-700);
 
     // (58039) I had the development of your wellbeing at heart, (60654) 
+    wibhisana.middleFront();
+    delay(61024-58039-1200);
 
     // (61024) when I gave you that good advice, (63437) but you were out of your mind, because of your eagerness (66397) to fight. (66914) 
+    wibhisana.directControl(1, 5, 500);
+    wibhisana.directControl(2, 35, 200);
+    delay(63437-61024-500-200);
+    wibhisana.lower_pointToFront();
+    delay(66397-63437-700);
+    wibhisana.downFront();
+    delay(67370-66397-700);
 
     // (67370) Because of your lack of love (68947) and your great anger, (70204)  
+    wibhisana.pointToFront();
+    delay(68947-67370-900);
+    wibhisana.downFront();
+    delay(70563-68947-700);
 
     // (70563) my mind was very much perturbed (72342) and tortured, (73305) as you did not obey the guidance of a wise man. (75875) 
+    wibhisana.pointToSelf();
+    delay(72342-70563-900);
+    wibhisana.downFront();
+    delay(73305-72342-700);
+    wibhisana.pointToFront();
+    delay(76752-73305-900);
 
     // (76752) Indeed, I was correct to think that you were wrong (79910) in disobeying wise people, (81790) because one who had insulted his elders (84309) and was cruel (85277) and malicious, (86286)  
+    wibhisana.directControl(1, 130, 1000); //df 2x lambat
+    wibhisana.directControl(2, 70, 400);
+    delay(79910-76752-1000-400);
+    wibhisana.directControl(1, 90, 1000); //lptf 2x lambat
+    wibhisana.directControl(2, 80, 400);
+    delay(81790-79910-1000-400);
+    wibhisana.directControl(1, 5, 1000);
+    wibhisana.directControl(2, 35, 400);
+    delay(84309-81790-1000-400);
+    wibhisana.lower_pointToFront();
+    delay(85277-84309-700);
+    wibhisana.downFront();
+    delay(86595-85277-700);
 
     // (86595) his well-being (87796) and good life disappeared whilst his sorrow and death were near. (91157) 
+    wibhisana.middleFront();
+    wibhisana.directControl(1, 5, 1000);
+    wibhisana.directControl(2, 35, 400);
+    delay(91552-86595-1200-1000-400);
 
     // (91552) Ah! My brother. (92931) This is the result when you have reached the ultimate of (95972) ingloriousness. (97051) 
-    
+    wibhisana.lower_pointToFront();
+    wibhisana.downFront();
+    delay(95972-91552-700-700);
+    wibhisana.lower_pointToFront();
+    delay(97051-95972-700);
+    wibhisana.downFront();
     
 
     /* Rama: 050*/ 
     SoundSystem::playDialogFromACertainFolder(SoundSystem::EPISODE_NUMBER::EPISODE_5, SoundSystem::EPISODE_5_DIALOG::AFTER_BATTLE_RAMA1);
 
+    delay(1961-(300));
     // (1961) Wibhisana, (2520) 
+    rama_wijaya.pointToFront();
+    delay(2899-1961-(1200-300));
 
     // (2899) it is enough. (3345) 
+    rama_wijaya.lower_pointToFront();
+    delay(3859-2899-700);
 
     // (3859) Do not be so sad, (5243) because Dasasya has died with honor. (7565) 
+    rama_wijaya.directControl(1, 0, 500);
+    rama_wijaya.directControl(2, 10, 200);
+    delay(5243-3859-500-200);
+    rama_wijaya.lower_pointToFront();
+    delay(8295-5243-700);
 
     // (8295) He was known to have performed asceticism and was a renowned universal monarch. (13173) 
+    rama_wijaya.downFront();
+    delay(200);
+    rama_wijaya.middleFront();
+    delay(13638-8295-700-200-1200);
 
     // (13638) He died in fierce combat. (15135) 
+    rama_wijaya.downFront();
+    delay(15693-13638-700);
 
     // (15693) Whoever dies in battle (17461) goes to heaven. (18457) 
+    rama_wijaya.lower_pointToFront();
+    delay(17461-15693-700);
+    rama_wijaya.directControl(1, 0, 500);
+    rama_wijaya.directControl(2, 10, 200);
+    delay(18813-17461-500-200);
 
     // (18813) You should not grieve over him, (20613) because he died in great glory in the battlefield. (23276) 
+    rama_wijaya.lower_pointToFront();
+    delay(20613-18813-700);
+    rama_wijaya.directControl(1, 0, 500);
+    rama_wijaya.directControl(2, 10, 200);
+    delay(23867-20613-500-200);
 
     // (23867) On the other hand you must succeed him as king, (26784) 
+    rama_wijaya.downFront();
+    rama_wijaya.middleFront();
+    delay(27135-23867-700-1200);
 
     // (27135) because your excellent virtues are truly faultless. (29831) 
+    rama_wijaya.directControl(1, 0, 500);
+    rama_wijaya.directControl(2, 10, 200);
+    delay(30318-27135-500-200);
 
     // (30318) Rebuild (31058) and beautify the whole country of Lenka. (33321) 
+    for (int i=0; i<5; i++)
+    {
+        rama_wijaya.directControl(1, 30, 300);
+        rama_wijaya.directControl(1, 0, 300);
+    }
+    delay(33654-30318-3000);
 
     // (33654) You will be the ruler over the demons. (36134) 
+    rama_wijaya.lower_pointToFront();
+    delay(36504-33654-700);
 
     // (36504) Make the evil-minded demons realize their wrongdoings by good examples (41188) and devotion to religion. (42910) 
-
+    rama_wijaya.directControl(1, 0, 500);
+    rama_wijaya.directControl(2, 10, 200);
+    for (int i=0; i<5; i++)
+    {
+        rama_wijaya.directControl(1, 30, 300);
+        rama_wijaya.directControl(1, 0, 300);
+    }
+    delay(41188-36504-500-200-3000);
+    rama_wijaya.lower_pointToFront();
+    delay(42910-41188-700);
+    delay(2000);
+    rama_wijaya.defaultStandPosition();
+    delay(2000);
+    wibhisana.defaultStandPosition();
+    delay(2000);
     
 
     /* Reunion*/ 
     /* Rama: 051*/
     SoundSystem::playDialogFromACertainFolder(SoundSystem::EPISODE_NUMBER::EPISODE_5, SoundSystem::EPISODE_5_DIALOG::REUNION_RAMA1);
 
+    //langsung jalan
     // (621) Sita! (1388) 
+    rama_wijaya.pointToFront();
+    delay(1796-1200);
 
     // (1796) How long have I waited to be with you once more, (5059) I’m glad (6106) you’re safe. (6903) 
+    rama_wijaya.downFront();
+    delay(5059-1796-700);
+    rama_wijaya.pointToSelf();
+    delay(6903-5059-900) ;
 
     
 
     /* Sita: 052 */
     SoundSystem::playDialogFromACertainFolder(SoundSystem::EPISODE_NUMBER::EPISODE_5, SoundSystem::EPISODE_5_DIALOG::REUNION_SITA1);
 
+    delay(420);
     // (420) Oh I have longed to be in your presence again Rama. (3576) 
+    sita.lower_pointToFront();
+    delay(3954-700-(700));
+    sita.downFront();
 
     // (3954) Please, take me home to Ayodhya. (6058) 
+    delay(300);
+    sita.pointToSelf();
+    delay(6058-3954-300-1400);
+    delay(2000);
 
-    
+    rama_wijaya.defaultStandPosition();
+    sita.defaultStandPosition();
+
+    SoundSystem::playDialogFromACertainFolder(SoundSystem::INDICATOR_SOUND, SoundSystem::INDICATOR_SOUND_NUMBER::INDICATOR_FINISHED_SHOWING);
+    delay(2000);
 
     // *end*  
 }
