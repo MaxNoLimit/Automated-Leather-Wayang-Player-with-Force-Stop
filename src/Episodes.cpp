@@ -6152,7 +6152,7 @@ void Episodes::Episode_5()
         rahwana.directControl(3, 150, 200);
         rahwana.directControl(3, 180, 200);
     }
-    delay(33762-31416-500-200-1200);;
+    delay(33762-31416-500-200-1200);
 
     // (33762) because you serve the despised enemy. (36423)  
     rahwana.middleFront();
@@ -6564,7 +6564,7 @@ void Episodes::Episode_5()
     rama_wijaya.downFront();
     delay(5059-1796-700);
     rama_wijaya.pointToSelf();
-    delay(6903-5059-900) ;
+    delay(6903-5059-900);
 
     
 
