@@ -526,6 +526,23 @@ void WayangDisplay::generalLoop()
         delay(1);
         break;
 
+    case StateManagement::FSA_STATE::EXTRA_DEBUG_EPISODE:
+        pageRoute = StateManagement::PAGE_ROUTE::WHILE_PLAYING_PAGE;
+        WayangDisplayLCD_in_main.playingWhatEpisodeDisplay(6);
+        WayangDisplayLCD_in_main.set_selection_point(1);
+        WayangDisplayLCD_in_main.disableLCD();
+        // Episodes::ExtraDebugEpisode();
+        currentEpisode = 6;
+        xTaskCreate(
+            Episodes::ExtraDebugEpisode_task,
+            "ExtraDebugEpisode_task",
+            512,
+            NULL,
+            1,
+            &episodeTaskHandler[5]);
+        break;
+    
+
     case StateManagement::FSA_STATE::SIMPLE_WAYANG_HAND_CALIBRATION:
         WayangDisplayLCD_in_main.pleaseWaitDisplay();
         // setAllMOSFETtoHIGH();
@@ -1644,6 +1661,12 @@ void WayangDisplayController::pressRotaryEncoder()
                 loop_state = StateManagement::FSA_STATE::PLAY_EPISODE_5;
                 // do nothing
                 break;
+
+            case 6:
+                // Run debug hardcoded scene
+                isPlaying = true;
+                isEpisodeTaskCreated = true;
+                loop_state = StateManagement::FSA_STATE::EXTRA_DEBUG_EPISODE;
             }
             break;
 
@@ -2394,7 +2417,7 @@ void WayangDisplayController::spinRotaryEncoder()
                 }
                 else
                 {
-                    if (subPageRoute < StateManagement::EPISODE_SUB_PAGE_ROUTE::EPISODE2345)
+                    if (subPageRoute < StateManagement::EPISODE_SUB_PAGE_ROUTE::EPISODE345EX)
                     {
                         subPageRoute++;
                         WayangDisplayLCD_in_main.set_selection_point(2);
