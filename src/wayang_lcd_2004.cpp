@@ -11,12 +11,13 @@ const char *menuList[4] = {
     "Info"};
 
 // For Episode Display
-const char *episodeList[5] = {
+const char *episodeList[6] = {
     "Episode 1",
     "Episode 2",
     "Episode 3",
     "Episode 4",
-    "Episode 5"};
+    "Episode 5",
+    "Extra YTTA"};
 
 // For Calibrate Display
 const char *calibratingList[4] = {

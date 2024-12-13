@@ -5042,12 +5042,13 @@ void Episodes::Episode_4()
 
     SoundSystem::playMusicWayang();
 
+    hanoman.downFront();
     hanoman.defaultStandPosition();
     sita.defaultStandPosition();
 
     /*20 preparing next scene*/
-    anggada.walk_to_a_certain_distance_before_calibrating_value(180);
-    anila.walk_to_a_certain_distance_before_calibrating_value(180);
+    anggada.walk_to_a_certain_distance_before_calibrating_value(150);
+    anila.walk_to_a_certain_distance_before_calibrating_value(150);
     // delay(1000);
     // hanoman.walk_to_a_certain_distance_before_calibrating_value(300);
 
@@ -5127,8 +5128,8 @@ void Episodes::Episode_4()
     anggada.defaultStandPosition();
 
     // siapin next scene
-    hanoman.walk_to_a_certain_distance_before_calibrating_value(180);
-    rama_wijaya.walk_to_a_certain_distance_before_calibrating_value(180);
+    hanoman.walk_to_a_certain_distance_before_calibrating_value(150);
+    rama_wijaya.walk_to_a_certain_distance_before_calibrating_value(150);
 
     /*Hanuman: 027 */
     SoundSystem::playDialogFromACertainFolder(SoundSystem::EPISODE_NUMBER::EPISODE_4, SoundSystem::EPISODE_4_DIALOG::HANUMAN_RETURNS_TO_RAMA_HANUMAN1);
@@ -5330,11 +5331,12 @@ void Episodes::Episode_4()
     SoundSystem::playMusicWayang();
 
     hanoman.defaultStandPosition();
+    rama_wijaya.defaultHandPosition();
     rama_wijaya.defaultStandPosition();
     delay(1000);
 
-    rahwana.walk_to_a_certain_distance_before_calibrating_value(200);
-    wibhisana.walk_to_a_certain_distance_before_calibrating_value(180);
+    rahwana.walk_to_a_certain_distance_before_calibrating_value(150);
+    wibhisana.walk_to_a_certain_distance_before_calibrating_value(150);
 
     /*Wibhisana-Rawana*/
     /*Wibhisana: 031*/
@@ -5535,7 +5537,7 @@ void Episodes::Episode_4()
     delay(2000);
 
     // *walk forward*
-    rahwana.walk_to_a_certain_distance_before_calibrating_value(340); // ini harus ditentuin posisiny
+    rahwana.walk_to_a_certain_distance_before_calibrating_value(280); // ini harus ditentuin posisiny
 
     /*32 Rawana_punches_wibhisana */
     SoundSystem::playDialogFromACertainFolder(SoundSystem::EPISODE_NUMBER::EPISODE_4, SoundSystem::EPISODE_4_DIALOG::WIBHISANA_RAHWANA_RAHWANA2);
@@ -5550,11 +5552,12 @@ void Episodes::Episode_4()
     // (2003) Euagh!
     // *punch*
     rahwana.pointToFront();
-    wibhisana.walk_to_a_certain_distance_before_calibrating_value(120); // perlu disetting
+    wibhisana.walk_to_a_certain_distance_before_calibrating_value(130); // perlu disetting
+    rahwana.downFront();
 
     delay(1000);
 
-    rahwana.walk_to_a_certain_distance_before_calibrating_value(250);
+    rahwana.walk_to_a_certain_distance_before_calibrating_value(150);
 
     delay(1000);
 
@@ -5662,9 +5665,9 @@ void Episodes::Episode_4()
     rahwana.defaultStandPosition();
     delay(1000);
 
-    hanoman.walk_to_a_certain_distance_before_calibrating_value(230);
+    hanoman.walk_to_a_certain_distance_before_calibrating_value(150);
     delay(1000);
-    wibhisana.walk_to_a_certain_distance_before_calibrating_value(180);
+    wibhisana.walk_to_a_certain_distance_before_calibrating_value(150);
 
     /*Wibhisana_Defects*/
     /*Hanuman: 034*/
@@ -5747,6 +5750,7 @@ void Episodes::Episode_4()
 
     SoundSystem::playMusicWayang();
 
+    wibhisana.defaultStandPosition();
     anila.walk_to_a_certain_distance_before_calibrating_value(340); // cari value pasti
 
     /*Nila: 037*/
@@ -5762,10 +5766,9 @@ void Episodes::Episode_4()
 
     anila.defaultStandPosition();
     hanoman.defaultStandPosition();
-    wibhisana.defaultStandPosition();
     delay(1000);
 
-    anila.walk_to_a_certain_distance_before_calibrating_value(250);
+    anila.walk_to_a_certain_distance_before_calibrating_value(150);
     rama_wijaya.walk_to_a_certain_distance_before_calibrating_value(150);
     /*Rama_informed*/
     /*Nila: 038*/
@@ -5848,7 +5851,7 @@ void Episodes::Episode_4()
     SoundSystem::playMusicWayang();
 
     sugriwa.defaultStandPosition();
-    laksmana.walk_to_a_certain_distance_before_calibrating_value(250); // cari value
+    laksmana.walk_to_a_certain_distance_before_calibrating_value(150); // cari value
 
     /*Laksmana: 041*/
     SoundSystem::playDialogFromACertainFolder(SoundSystem::EPISODE_NUMBER::EPISODE_4, SoundSystem::EPISODE_4_DIALOG::BEFORE_FINAL_ULTIMATUM_LAKSMANA1);
@@ -5944,8 +5947,8 @@ void Episodes::Episode_5()
 
     SoundSystem::playMusicWayang();
 
-    anggada.walk_to_a_certain_distance_before_calibrating_value(180);
-    rahwana.walk_to_a_certain_distance_before_calibrating_value(180);
+    anggada.walk_to_a_certain_distance_before_calibrating_value(150);
+    rahwana.walk_to_a_certain_distance_before_calibrating_value(150);
 
     /*Ultimatum */
     /* Angada: 043*/
@@ -6070,7 +6073,7 @@ void Episodes::Episode_5()
     anggada.pointToFront();
     anggada.downFront();
     delay(81176 - 78399 - 700 - 900 - 700);
-    delay(2000);
+    delay(1000);
 
     /*Rawana: 044*/
     SoundSystem::playDialogFromACertainFolder(SoundSystem::EPISODE_NUMBER::EPISODE_5, SoundSystem::EPISODE_5_DIALOG::ULTIMATUM_RAHWANA1);
@@ -6240,11 +6243,12 @@ void Episodes::Episode_5()
     delay(84283 - 81511 - 500 - 200);
 
     SoundSystem::playMusicWayang();
+    rahwana.downFront();
     anggada.defaultStandPosition();
     rahwana.defaultStandPosition();
 
-    anggada.walk_to_a_certain_distance_before_calibrating_value(180);
-    rama_wijaya.walk_to_a_certain_distance_before_calibrating_value(250);
+    anggada.walk_to_a_certain_distance_before_calibrating_value(150);
+    rama_wijaya.walk_to_a_certain_distance_before_calibrating_value(330);
 
     /*Night before battle*/
     /*Angada: 045*/
@@ -6302,7 +6306,6 @@ void Episodes::Episode_5()
 
     // *Rawana gets wombo comboed*
 
-    SoundSystem::playMusicWayang();
     /*
         Rama fight first, pushing Rahwana back a little bit
         Laskmana flank, pushing Rahwana front a little bit
@@ -6311,28 +6314,31 @@ void Episodes::Episode_5()
      */
 
     /* Rama fight first, pushing Rahwana back a little bit */
-    rama_wijaya.walk_to_a_certain_distance_before_calibrating_value(230);
-    rahwana.walk_to_a_certain_distance_before_calibrating_value(230);
+    rama_wijaya.walk_to_a_certain_distance_before_calibrating_value(200);
+    rahwana.walk_to_a_certain_distance_before_calibrating_value(200);
 
     xTaskCreate(RamaFirstAttackTask, "RamaFirstAttackTask", fighting_STACK_SIZE, NULL, 1, NULL);
     xTaskCreate(RahwanaFirstDefendTask, "RahwanaFirstDefendTask", fighting_STACK_SIZE, NULL, 1, NULL);
 
     vTaskSuspend(episodeTaskHandler[4]);
 
+    rahwana.walk_to_a_certain_distance_before_calibrating_value(150);
+    rahwana.downFront();
+    rama_wijaya.downFront();
     rama_wijaya.defaultStandPosition();
     rahwana.walk_to_a_certain_distance_before_calibrating_value(270);
 
     /* Laskmana flank, pushing Rahwana front a little bit */
-    laksmana.walk_to_a_certain_distance_before_calibrating_value(230);
+    laksmana.walk_to_a_certain_distance_before_calibrating_value(200);
     laksmana.pointToFront();
 
-    rahwana.walk_to_a_certain_distance_before_calibrating_value(280);
+    rahwana.walk_to_a_certain_distance_before_calibrating_value(290);
     laksmana.downFront();
     laksmana.defaultStandPosition();
 
     /* Wibhisana fight like rama, pushing Rahwana back a little bit */
-    rahwana.walk_to_a_certain_distance_before_calibrating_value(230);
-    wibhisana.walk_to_a_certain_distance_before_calibrating_value(230);
+    rahwana.walk_to_a_certain_distance_before_calibrating_value(210);
+    wibhisana.walk_to_a_certain_distance_before_calibrating_value(240);
 
     xTaskCreate(WibhisanaFirstAttackTask, "WibhisanaFirstAttackTask", fighting_STACK_SIZE, NULL, 1, NULL);
     xTaskCreate(RahwanaSecondDefendTask, "RahwanaFirstDefendTask", fighting_STACK_SIZE, NULL, 1, NULL);
@@ -6345,11 +6351,11 @@ void Episodes::Episode_5()
     wibhisana.defaultStandPosition();
 
     /* Rama one tap finishing Rahwana, ded */
-    rahwana.walk_to_a_certain_distance_before_calibrating_value(230);
-    rama_wijaya.walk_to_a_certain_distance_before_calibrating_value(250);
+    rahwana.walk_to_a_certain_distance_before_calibrating_value(180);
+    rama_wijaya.walk_to_a_certain_distance_before_calibrating_value(270);
 
     rama_wijaya.pointToFront();
-    rahwana.walk_to_a_certain_distance_before_calibrating_value(180);
+    rahwana.walk_to_a_certain_distance_before_calibrating_value(150);
     rama_wijaya.downFront();
 
     /* Rawana: 048*/
@@ -6359,6 +6365,12 @@ void Episodes::Episode_5()
     //  (487) *eugh..* (1187)
     rahwana.pointToSelf();
     delay(2000);
+
+    SoundSystem::playMusicWayang();
+    rahwana.defaultStandPosition();
+    rahwana.downFront();
+    rama_wijaya.walk_to_a_certain_distance_before_calibrating_value(150);
+    wibhisana.walk_to_a_certain_distance_before_calibrating_value(300);
 
     /*Wibhisana: 049 */
     SoundSystem::playDialogFromACertainFolder(SoundSystem::EPISODE_NUMBER::EPISODE_5, SoundSystem::EPISODE_5_DIALOG::AFTER_BATTLE_WIBHISANA1);
@@ -6581,9 +6593,8 @@ void Episodes::Episode_5()
     rama_wijaya.defaultStandPosition();
     wibhisana.defaultStandPosition();
 
-    rama_wijaya.walk_to_a_certain_distance_before_calibrating_value(180);
-    sita.walk_to_a_certain_distance_before_calibrating_value(230);
-
+    rama_wijaya.walk_to_a_certain_distance_before_calibrating_value(150);
+    sita.walk_to_a_certain_distance_before_calibrating_value(330);
 
     /* Reunion*/
     /* Rama: 051*/
@@ -6617,6 +6628,8 @@ void Episodes::Episode_5()
 
     SoundSystem::playMusicWayang();
 
+    rama_wijaya.downFront();
+    sita.downFront();
     rama_wijaya.defaultStandPosition();
     sita.defaultStandPosition();
 
