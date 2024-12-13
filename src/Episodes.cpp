@@ -29,90 +29,28 @@ Anila anila;
 
 TaskHandle_t episodeTaskHandler[6];
 
-// Execution function for pameran tanggal 2 Mei 2024 di ruang MIS depan
-// void Episodes::Mei2nd_Episode()
-// {
+static void anggadaCheeringTask(void *pvParameters){
+    while (1)
+    {
+        anila.pointToFront();
+        delay(2000);
+        anila.downFront();
+        vTaskResume(episodeTaskHandler[3]);
+        vTaskDelete(NULL);
+    }
+    
+}
 
-//     // Narator Opening
-//     SoundSystem::play_dialog_direct(SoundSystem::DIALOG_NUMBER::NARATOR_INTRO_1);
-//     // SoundSystem::hold_the_section_until_finished(123*1000);
-//     static unsigned long stop_watch = millis();
-
-//     while (millis() - stop_watch < 123 * 1000)
-//     {
-//         // put the movement command here
-//     }
-
-//     Serial.println("\nNarator Opening Done");
-//     delay(1000);
-
-//     // Hanuman Dialog 1
-//     hanoman.walk_to_scene();         // going to the dialog position
-//     rama_wijaya.walk_to_scene(1100); // going to the dialog position
-//     SoundSystem::play_dialog_direct(SoundSystem::DIALOG_NUMBER::HANUMAN_1);
-//     // SoundSystem::hold_the_section_until_finished(98 * 1000);
-//     stop_watch = millis();
-//     // starting_hanoman_talking(98);
-
-//     if (millis() - stop_watch < 97 * 1000)
-//     {
-//         // put the movement command here
-//         hanoman.talking(96);
-//     }
-
-//     Serial.println("\nHanuman Dialog 1 Done");
-//     delay(1000);
-
-//     // Rama Dialog 1
-//     SoundSystem::play_dialog_direct(SoundSystem::DIALOG_NUMBER::RAMA_1);
-//     // SoundSystem::hold_the_section_until_finished(66 * 1000);
-//     stop_watch = millis();
-//     // starting_rama_talking(66);
-
-//     if (millis() - stop_watch < 65 * 1000)
-//     {
-//         // put the movement command here
-//         rama_wijaya.talking(64);
-//     }
-
-//     Serial.println("\nRama Dialog 1 Done");
-//     delay(1000);
-
-//     // Hanuman Dialog 2
-//     SoundSystem::play_dialog_direct(SoundSystem::DIALOG_NUMBER::HANUMAN_2);
-//     // SoundSystem::hold_the_section_until_finished(68 * 1000);
-//     stop_watch = millis();
-//     // starting_hanoman_talking(68);
-//     if (millis() - stop_watch < 67 * 1000)
-//     {
-//         // put the movement command here
-//         hanoman.talking(66);
-//     }
-
-//     Serial.println("\nHanuman Dialog 2 Done");
-//     delay(500);
-
-//     /* Core where the task should run */
-
-//     // run_both_instant();
-
-//     hanoman.leave_from_scene();         // going back to first position
-//     rama_wijaya.leave_from_scene(1100); // going back to first position
-//     delay(500);
-
-//     // Narator Ending
-//     SoundSystem::play_dialog_direct(SoundSystem::DIALOG_NUMBER::NARATOR_END_1);
-//     // SoundSystem::hold_the_section_until_finished(14 * 1000);
-//     stop_watch = millis();
-
-//     while (millis() - stop_watch < 14 * 1000)
-//     {
-//         // put the movement command here
-//     }
-
-//     Serial.println("\nDone!");
-//     digitalWrite(LED_BUILTIN, LOW);
-// }
+static void anilaCheeringTask(void *pvParameters){
+    while (1)
+    {
+        anggada.pointToFront();
+        delay(2000);
+        anggada.downFront();
+        vTaskDelete(NULL);
+    }
+    
+}
 
 static void sugriwaTaskFight1(void *pvParameters)
 {
@@ -5052,8 +4990,8 @@ void Episodes::Episode_4()
     sita.defaultStandPosition();
 
     /*20 preparing next scene*/
-    anggada.walk_to_a_certain_distance_before_calibrating_value(200);
-    anila.walk_to_a_certain_distance_before_calibrating_value(250);
+    anggada.walk_to_a_certain_distance_before_calibrating_value(180);
+    anila.walk_to_a_certain_distance_before_calibrating_value(180);
     // delay(1000);
     // hanoman.walk_to_a_certain_distance_before_calibrating_value(300);
 
@@ -5110,12 +5048,21 @@ void Episodes::Episode_4()
     delay(7018-826-900-700-(600*6)-700);
     delay(2000);
 
+    /* Using RTOS for Anggada and Anila cheering simultaneously */
     //cheering (lakukan ini bersamaan kalo bisa)
-    anila.pointToFront(); //aksi 1
-    anggada.pointToFront(); //aksi 1
-    delay(2000);
-    anila.downFront(); //aksi 2
-    anggada.downFront(); //aksi 2
+
+    /*
+        anila.pointToFront(); //aksi 1
+        anggada.pointToFront(); //aksi 1
+        delay(2000);
+        anila.downFront(); //aksi 2
+        anggada.downFront(); //aksi 2
+    */
+   xTaskCreate(anggadaCheeringTask, "AnggadaCheeringTask", fighting_STACK_SIZE, NULL, 1, NULL);
+   xTaskCreate(anilaCheeringTask, "AnilaCheeringTask", fighting_STACK_SIZE, NULL, 1, NULL);
+
+    // suspend general episode 3 task, running anila and anggada cheering task
+    vTaskSuspend(episodeTaskHandler[3]);
 
     SoundSystem::playMusicWayang();
 
@@ -5124,8 +5071,8 @@ void Episodes::Episode_4()
     anggada.defaultStandPosition();
 
     //siapin next scene
-    hanoman.walk_to_a_certain_distance_before_calibrating_value(250);
-    rama_wijaya.walk_to_a_certain_distance_before_calibrating_value(200);
+    hanoman.walk_to_a_certain_distance_before_calibrating_value(180);
+    rama_wijaya.walk_to_a_certain_distance_before_calibrating_value(180);
 
     /*Hanuman: 027 */
     SoundSystem::playDialogFromACertainFolder(SoundSystem::EPISODE_NUMBER::EPISODE_4, SoundSystem::EPISODE_4_DIALOG::HANUMAN_RETURNS_TO_RAMA_HANUMAN1);
@@ -5331,8 +5278,8 @@ void Episodes::Episode_4()
     delay(1000);
 
 
-    rahwana.walk_to_a_certain_distance_before_calibrating_value(250);
-    wibhisana.walk_to_a_certain_distance_before_calibrating_value(150);
+    rahwana.walk_to_a_certain_distance_before_calibrating_value(200);
+    wibhisana.walk_to_a_certain_distance_before_calibrating_value(180);
 
     /*Wibhisana-Rawana*/
     /*Wibhisana: 031*/ 
@@ -5660,9 +5607,9 @@ void Episodes::Episode_4()
     rahwana.defaultStandPosition();
     delay(1000);
 
-    hanoman.walk_to_a_certain_distance_before_calibrating_value(250);
+    hanoman.walk_to_a_certain_distance_before_calibrating_value(230);
     delay(1000);
-    wibhisana.walk_to_a_certain_distance_before_calibrating_value(150);
+    wibhisana.walk_to_a_certain_distance_before_calibrating_value(180);
 
     /*Wibhisana_Defects*/
     /*Hanuman: 034*/ 

@@ -534,7 +534,7 @@ void WayangDisplay::generalLoop()
         // Episodes::ExtraDebugEpisode();
         currentEpisode = 6;
         xTaskCreate(
-            Episodes::ExtraDebugEpisode_task,
+            Episodes::Extra_Debug_task,
             "ExtraDebugEpisode_task",
             512,
             NULL,

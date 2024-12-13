@@ -75,7 +75,7 @@ extern bool isPlaying;
 extern int currentEpisode;
 int getSubPageRoute();
 void setAllENtoHIGH();
-extern TaskHandle_t episodeTaskHandler[5];
+extern TaskHandle_t episodeTaskHandler[6];
 extern bool isEpisodeTaskCreated;
 void backToEpisodeSelection();
 

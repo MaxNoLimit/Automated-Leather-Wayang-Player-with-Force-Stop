@@ -39,7 +39,7 @@ namespace Episodes
 
 };
 
-extern TaskHandle_t episodeTaskHandler[6];
+// extern TaskHandle_t episodeTaskHandler[6];
 
 // extern TaskHandle_t episode1TaskHandler;
 // extern TaskHandle_t episode2TaskHandler;
