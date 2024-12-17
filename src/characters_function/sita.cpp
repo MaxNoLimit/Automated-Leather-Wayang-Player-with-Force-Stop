@@ -273,10 +273,6 @@ void Sita::lower_pointToFront()
 void Sita::middleFront()
 {
     digitalWrite(WAYANG_HAND_1, HIGH);
-    // Servo_Sita.moveWhatServo(2, 70, 200);
-    // Servo_Sita.moveWhatServo(1, 0, 500);
-    // Servo_Sita.moveWhatServo(2, 60, 200);
-
     Servo_Sita.moveWhatServo(1, 100, 350);
     Servo_Sita.moveWhatServo(2, 60, 200);
     Servo_Sita.moveWhatServo(1, 0, 350);

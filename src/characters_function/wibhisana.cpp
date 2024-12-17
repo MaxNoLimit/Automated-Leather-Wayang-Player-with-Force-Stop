@@ -113,8 +113,8 @@ void Wibhisana::pointToFront()
 void Wibhisana::lower_pointToFront()
 {
     digitalWrite(WAYANG_HAND_8, HIGH);
-    Servo_Wibhisana.moveWhatServo(1, 90, 500);
-    Servo_Wibhisana.moveWhatServo(2, 80, 200);
+    Servo_Wibhisana.moveWhatServo(1, 50, 500);
+    Servo_Wibhisana.moveWhatServo(2, 60, 200);
     digitalWrite(WAYANG_HAND_8, LOW);
 }
 
@@ -123,7 +123,7 @@ void Wibhisana::middleFront()
 {
     digitalWrite(WAYANG_HAND_8, HIGH);
     Servo_Wibhisana.moveWhatServo(1, 100, 500);
-    Servo_Wibhisana.moveWhatServo(2, 80, 200);
+    Servo_Wibhisana.moveWhatServo(2, 70, 200);
     Servo_Wibhisana.moveWhatServo(1, 5, 500);
     digitalWrite(WAYANG_HAND_8, LOW);
 }
