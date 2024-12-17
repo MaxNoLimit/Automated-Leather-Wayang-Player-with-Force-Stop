@@ -3337,7 +3337,7 @@ void Episodes::Episode_3()
 
     // (23382) Now my longing for you is profound. (25804)
     rahwana.pointToFront(); // takes 900 ms
-    delay(26570 - 23382 - 900 - (700))
+    delay(26570 - 23382 - 900 - (700));
     rahwana.downFront(); // takes 700 ms
 
     // (26570) I prefer to die, (28024)
