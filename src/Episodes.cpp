@@ -3712,7 +3712,7 @@ void Episodes::Episode_3()
     /*009_Hanuman-Rawana-Wibhisana_HanumanEnter*/ // Gak usah dimainin (konteksny beda karna hanuman 'obedient')
     hanoman.walk_to_a_certain_distance_before_calibrating_value(160);
     // (555) Agh! (933)
-    rahwana.walk_to_a_certain_distance_before_calibrating_value(300);
+    rahwana.walk_to_a_certain_distance_before_calibrating_value(320);
 
     /*010_Hanuman-Rawana-Wibhisana_Rawana1v*/
     SoundSystem::playDialogFromACertainFolder(SoundSystem::EPISODE_NUMBER::EPISODE_3, SoundSystem::EPISODE_3_DIALOG::HANUMAN_RAHWANA_WIBHISANA_RAHWANA1);
@@ -3751,6 +3751,8 @@ void Episodes::Episode_3()
     rahwana.downFront(); // takes 700 ms
 
     SoundSystem::playMusicWayang();
+    hanoman.defaultStandPosition();
+    rahwana.walk_to_a_certain_distance_before_calibrating_value(200);
     wibhisana.walk_to_a_certain_distance_before_calibrating_value(250);
 
     /*011_Hanuman-Rawana-Wibhisana_Wibhisana1*/
@@ -3847,6 +3849,10 @@ void Episodes::Episode_3()
     delay(2000);
     rahwana.downFront(); // takes 700 ms
 
+    SoundSystem::playMusicWayang();
+    hanoman.walk_to_a_certain_distance_before_calibrating_value(160);
+    rahwana.walk_to_a_certain_distance_before_calibrating_value(320);
+
     /*013_Hanuman-Rawana-Wibhisana_Hanuman1*/
     SoundSystem::playDialogFromACertainFolder(SoundSystem::EPISODE_NUMBER::EPISODE_3, SoundSystem::EPISODE_3_DIALOG::HANUMAN_RAHWANA_WIBHISANA_HANUMAN1);
 
@@ -3927,10 +3933,10 @@ void Episodes::Episode_3()
     delay(46000 - 43894 - 900);
 
     // (46000) Clearly the world would be happy with that (48463) and your fortune would increase. (50569)
-    hanoman.downBack();    // takes 700 ms
+    hanoman.downBack(); // takes 700 ms
     delay(48463 - 46000 - 700);
     hanoman.pointToFront(); // 900
-    delay(51143-48463-900);
+    delay(51143 - 48463 - 900);
 
     // (51143) Do not doubt. Be peaceful of mind! (53293)
     hanoman.downFront(); // takes 700 ms
@@ -4093,7 +4099,7 @@ void Episodes::Episode_3()
     delay(35311 - 34091 - 700);
     rahwana.directControl(4, 60, 200);
     rahwana.directControl(3, 180, 500);
-    delay(38263 - 35311 - 200 - 500 - (700+700));
+    delay(38263 - 35311 - 200 - 500 - (700 + 700));
     rahwana.downFront(); // takes 700 ms
 
     // (38263) Damn you! (39049) Cruel bastard! (40773)
