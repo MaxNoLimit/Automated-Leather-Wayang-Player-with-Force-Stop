@@ -2964,8 +2964,8 @@ void Episodes::Episode_3()
     rahwana.downFront(); // takes 700 ms
 
     // (23382) Now my longing for you is profound. (25804)
-    rahwana.pointToFront(); // takes 1200 ms
-    delay(26570 - 23382 - 1200 - (700));
+    rahwana.pointToFront(); // takes 900 ms
+    delay(26570 - 23382 - 900 - (700));
     rahwana.downFront(); // takes 700 ms
 
     // (26570) I prefer to die, (28024)
@@ -3019,7 +3019,7 @@ void Episodes::Episode_3()
 
     // (17411) I have reserved for you a jeweled pavilion. (20019)
     rahwana.middleFront(); // takes 1200 ms
-    delay(20785 - 17411 - 1200);
+    delay(20787 - 17411 - 1200);
 
     // (20787) Let us sleep there and have fun together, my dear. (23658)
     rahwana.directControl(3, 180, 500); // takes 500 ms
@@ -3057,8 +3057,8 @@ void Episodes::Episode_3()
     delay(41731 - 40424 - 700);
 
     // (41731) listen to my words my dear, (43609)
-    rahwana.pointToFront(); // takes 1200 ms
-    delay(44285 - 41731 - 1200);
+    rahwana.pointToFront(); // takes 900 ms
+    delay(44285 - 41731 - 900);
 
     // (44249) they are true. (45291)
     rahwana.lower_pointToFront(); // takes 700 ms
@@ -3190,7 +3190,7 @@ void Episodes::Episode_3()
     // (17786) Is he a hero, who only dares to attack when the enemy is not at home. (22549)
     sita.downFront();   // takes 700 ms
     sita.middleFront(); // takes 900 ms
-    delay(23375 - 17786 - 700);
+    delay(23375 - 17786 - 700 - 900);
 
     // (23375) That man is a coward, (24874)
     sita.pointToFront(); // takes 700 ms
@@ -3209,8 +3209,8 @@ void Episodes::Episode_3()
     delay(35919 - 31665 - 700);
 
     // (35919) What have I learned about a real hero, (37894)
-    sita.pointToSelf(); // takes 700 ms
-    delay(38203 - 35919 - 700);
+    sita.pointToSelf(); // takes 1400 ms
+    delay(38203 - 35919 - 1400);
 
     // (38203) victorious over his enemies, (39860)
     sita.downFront(); // takes 700 ms
@@ -3313,7 +3313,7 @@ void Episodes::Episode_3()
 
     // (14340) for sure it will fall upon your neck (17843) savagely. (19018)
     rahwana.pointToFront(); // takes 900 ms
-    delay(17843 - 14340 - 700);
+    delay(17843 - 14340 - 900);
     rahwana.lower_pointToFront(); // takes 700 ms
     delay(19018 - 17843 - 700);
     rahwana.downFront(); // takes 700 ms
@@ -3327,8 +3327,8 @@ void Episodes::Episode_3()
 
     delay(62);
     // (62) Ah, I am in deep sorrow (1743)
-    sita.pointToSelf(); // takes 700 ms
-    delay(1917 - 62 - 700);
+    sita.pointToSelf(); // takes 1400 ms
+    delay(1917 - 62 - 1400);
 
     // (1917) and brimming with confusion. (3565)
     sita.downFront(); // takes 700 ms
@@ -3355,8 +3355,8 @@ void Episodes::Episode_3()
     delay(17968 - 16076 - 700);
 
     // (17968) My heart is broken and strays aimlessly. (21099)
-    sita.pointToSelf(); // takes 700 ms
-    delay(21756 - 17968 - 700 - (700));
+    sita.pointToSelf(); // takes 1400 ms
+    delay(21756 - 17968 - 1400 - (700));
     sita.downFront(); // takes 700 ms
 
     // (21756) O wind, (22561)
@@ -3384,8 +3384,8 @@ void Episodes::Episode_3()
     delay(34692 - 32528 - 700);
 
     // (34692) Convey to him my devotion and love, (37022)
-    sita.pointToSelf(); // takes 700 ms
-    delay(37505 - 34692 - 700);
+    sita.pointToSelf(); // takes 1400 ms
+    delay(37505 - 34692 - 1400);
 
     // (37505) and my incomparable misery of separation. (40149)
     sita.downFront();    // takes 700 ms
@@ -3486,7 +3486,7 @@ void Episodes::Episode_3()
     // (47043) He is the king of the monkeys, (48698)
     hanoman.directControl(3, 180, 300);
     hanoman.directControl(4, 140, 200);
-    delay(49698 - 47043 - 300 - 200);
+    delay(49178 - 47043 - 300 - 200);
 
     // (49178) and he ordered me to be the messenger. (51196)
     hanoman.lower_pointToFront(); // takes 700 ms
@@ -3524,7 +3524,7 @@ void Episodes::Episode_3()
 
     // (66485) to go as a messenger instead. (68166)
     hanoman.downFront(); // takes 700 ms
-    delay(68800 - 66485 - 700);
+    delay(69475 - 66485 - 700);
 
     // (69475) He gave me his ring (70772) as a verification of my mission. (73290)
     hanoman.middleFront(); // takes 1200
@@ -3561,7 +3561,7 @@ void Episodes::Episode_3()
     // (82985) to kill the wicked Rawana. (84997)
     hanoman.downFront();          // takes 700 ms
     hanoman.lower_pointToFront(); // takes 700 ms
-    delay(84997 - 82985 - 700 - 700);
+    delay(85887 - 82985 - 700 - 700);
 
     // (85887) Do not be impatient (87021) and look after your life, (88597)
     hanoman.directControl(3, 180, 300);
@@ -3622,9 +3622,8 @@ void Episodes::Episode_3()
     delay(2772 - 194 - 700);
 
     // (2772) I am happy that you were ordered to come here. (4870)
-    sita.downFront();   // takes 700 ms
-    sita.pointToSelf(); // takes 700 ms
-    delay(5514 - 2772 - 700);
+    sita.pointToSelf(); // takes 1400 ms
+    delay(5514 - 2772 - 1400);
 
     // (5514) Please (5870)
 
@@ -3638,9 +3637,8 @@ void Episodes::Episode_3()
     delay(9302 - 8331 - 700);
 
     // (9302) take with you my letter as a proof of my sorrow (12305)
-    sita.downFront();   // takes 700 ms
-    sita.pointToSelf(); // takes 700 ms
-    delay(12714 - 9302 - 700 - 700);
+    sita.pointToSelf(); // takes 1400 ms
+    delay(12714 - 9302 - 1400);
 
     // (12714) and longing. (13420)
     sita.downFront(); // takes 700 ms
@@ -3660,9 +3658,8 @@ void Episodes::Episode_3()
     delay(19624 - 17724 - 700 - 900);
 
     // (19624) I am no longer grieving and miserable, (21917)
-    sita.downFront();   // takes 700 ms
-    sita.pointToSelf(); // takes 700 ms
-    delay(22429 - 19624 - 700 - 700);
+    sita.pointToSelf(); // takes 1400 ms
+    delay(22429 - 19624 - 1400);
 
     // (22429) as I now know his plans. (24725)
     sita.downFront();    // takes 700 ms
@@ -3765,6 +3762,7 @@ void Episodes::Episode_3()
     delay(87);
     // (87) O king of the world, (1225)
     wibhisana.middleFront(); // takes 1200 ms
+    delay(1557 - 87 - 1200);
 
     // (1557) Dasawadana! (2506)
     wibhisana.pointToFront(); // takes 900 ms
@@ -3930,8 +3928,9 @@ void Episodes::Episode_3()
 
     // (46000) Clearly the world would be happy with that (48463) and your fortune would increase. (50569)
     hanoman.downBack();    // takes 700 ms
-    hanoman.pointToSelf(); // takes 900 ms
-    delay(48463 - 46000 - 700 - 900);
+    delay(48463 - 46000 - 700);
+    hanoman.pointToFront(); // 900
+    delay(51143-48463-900);
 
     // (51143) Do not doubt. Be peaceful of mind! (53293)
     hanoman.downFront(); // takes 700 ms
@@ -3993,6 +3992,7 @@ void Episodes::Episode_3()
     hanoman.directControl(3, 180, 300);
     hanoman.directControl(4, 140, 200);
     delay(88616 - 83570 - 300 - 200 - (700));
+    hanoman.downFront();
 
     // (88616) It was very good of Raghuputra to kill the wicked demons. (92142)
     hanoman.middleFront(); // takes 1200 ms
@@ -4093,7 +4093,7 @@ void Episodes::Episode_3()
     delay(35311 - 34091 - 700);
     rahwana.directControl(4, 60, 200);
     rahwana.directControl(3, 180, 500);
-    delay(38263 - 35311 - 200 - 500 - (700 + 700));
+    delay(38263 - 35311 - 200 - 500 - (700+700));
     rahwana.downFront(); // takes 700 ms
 
     // (38263) Damn you! (39049) Cruel bastard! (40773)
@@ -4145,12 +4145,12 @@ void Episodes::Episode_3()
     rahwana.directControl(3, 180, 500);
     rahwana.directControl(4, 140, 200);
     delay(61987 - 60103 - 500 - 200 - (700));
+    rahwana.downFront(); // takes 700 ms
 
     // (61987) nothing else. (63076)
-    rahwana.downFront(); // takes 700 ms
     rahwana.directControl(4, 60, 200);
     rahwana.directControl(3, 180, 500);
-    delay(64810 - 61987 - 700 - 200 - 500);
+    delay(64810 - 61987 - 200 - 500);
 
     // (64810) Rama and Sugriwa should be befriended. (67121)
     rahwana.downFront();   // takes 700 ms
@@ -4165,7 +4165,7 @@ void Episodes::Episode_3()
         rahwana.directControl(3, 150, 200);
         rahwana.directControl(3, 180, 200);
     }
-    delay(70485 - 67747 - 500 - 200 - 2000);
+    delay(71202 - 67747 - 500 - 200 - 2000);
 
     // (71202) Is it proper that a demon be friends with a human being (75299) and a monkey. (76239)
     rahwana.middleFront(); // takes 1200 ms
@@ -4229,7 +4229,7 @@ void Episodes::Episode_3()
         rahwana.directControl(3, 150, 200);
         rahwana.directControl(3, 180, 200);
     }
-    delay(109626 - 106793 - 500 - 200 - 1200 - (900));
+    delay(109626 - 106793 - 500 - 200 - 1200 - (700 + 200));
     rahwana.downFront();   // takes 700 ms
     rahwana.pointToSelf(); // takes 1100 ms - 200 ms
     delay(111930 - 109626 - (1100 - 200));
@@ -4248,7 +4248,7 @@ void Episodes::Episode_3()
     rahwana.downFront(); // takes 700 ms
     delay(120550 - 118704 - 700);
     rahwana.middleFront(); // takes 1200 ms
-    delay(123265 - 120550 - 1200);
+    delay(123983 - 120550 - 1200);
 
     // (123983) That is why Bali (125272) was in fact powerless. (127293)
     rahwana.directControl(3, 180, 500);
@@ -4315,7 +4315,7 @@ void Episodes::Episode_3()
 
     // (13254) On this matter I did not want to guess. (15487)
     hanoman.pointToSelf(); // takes 900 ms
-    delay(15754 - 13254 - 900 - (700));
+    delay(15910 - 13254 - 900 - (700));
     hanoman.downFront(); // takes 700 ms
 
     // (15910) I wanted to know the matter exactly. (17899)
@@ -4353,10 +4353,11 @@ void Episodes::Episode_3()
     hanoman.downFront();   // takes 700 ms
     hanoman.pointToSelf(); // takes 900 ms
     delay(36489 - 32095 - 700 - 900 - (700));
+    hanoman.downFront();
 
     // (36489) You also make a rule, (37727) that you also follow prakreti, (39450)
     hanoman.lower_pointToFront(); // takes 700 ms
-    delay(47727 - 36489 - 700);
+    delay(37727 - 36489 - 700);
     hanoman.directControl(3, 180, 300);
     hanoman.directControl(4, 140, 200);
     delay(40303 - 37727 - 300 - 200);
@@ -4432,7 +4433,7 @@ void Episodes::Episode_3()
 
     // (89370) running and leaping away in all directions. (92279)
     hanoman.middleFront();      // takes 1200 ms
-    for (int i = 0; i < 3; i++) // takes 600 *2 = 1200 ms
+    for (int i = 0; i < 2; i++) // takes 600 *2 = 1200 ms
     {
         hanoman.directControl(3, 105, 300);
         hanoman.directControl(3, 135, 300);
@@ -4521,12 +4522,12 @@ void Episodes::Episode_3()
     hanoman.directControl(3, 180, 300);
     hanoman.directControl(4, 140, 200);
     delay(135016 - 133191 - 300 - 200 - (700));
+    hanoman.downFront(); // takes 700 ms
 
     // (135016) and return her to king Rama. (136805)
-    hanoman.downFront(); // takes 700 ms
     hanoman.directControl(4, 60, 200);
     hanoman.directControl(3, 150, 500);
-    delay(137421 - 135016 - 700 - 200 - 500);
+    delay(137421 - 135016 - 200 - 500);
 
     // (137421) Bring along gold, jewels and most of all, (140159) your homage. (141205)
     hanoman.downFront();   // takes 700 ms
@@ -4575,7 +4576,7 @@ void Episodes::Episode_3()
     // (12876) Torture him slowly! (14481)
     rahwana.downFront();    // takes 700 ms
     rahwana.pointToFront(); // takes 900 ms
-    delay(14895 - 12876 - 700 - 900);
+    delay(14481 - 12876 - 700 - 900);
     delay(2000);
     rahwana.downFront(); // takes 700 ms
 
