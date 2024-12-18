@@ -23,11 +23,9 @@ public:
     void downBack();
     void onHipBack();
     void pointToSelf();
-    // void lowPointToSelf();
     void middleFrontBack();
     void lowPointToBack();
     void middleBack();
-    // void respect();
 
 
     // Gerakan diam

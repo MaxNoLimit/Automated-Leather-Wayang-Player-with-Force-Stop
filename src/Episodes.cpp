@@ -2906,7 +2906,7 @@ void Episodes::Episode_2()
     rama_wijaya.defaultStandPosition();
     sugriwa.defaultStandPosition();
 
-    setAllMOSFETtoHIGH();
+    // setAllMOSFETtoHIGH();
     SoundSystem::playDialogFromACertainFolder(SoundSystem::INDICATOR_SOUND, SoundSystem::INDICATOR_SOUND_NUMBER::INDICATOR_FINISHED_SHOWING);
     delay(2000);
 }
@@ -3710,9 +3710,9 @@ void Episodes::Episode_3()
     delay(1000);
 
     /*009_Hanuman-Rawana-Wibhisana_HanumanEnter*/ // Gak usah dimainin (konteksny beda karna hanuman 'obedient')
-    hanoman.walk_to_a_certain_distance_before_calibrating_value(160);
+    hanoman.walk_to_a_certain_distance_before_calibrating_value(140);
     // (555) Agh! (933)
-    rahwana.walk_to_a_certain_distance_before_calibrating_value(320);
+    rahwana.walk_to_a_certain_distance_before_calibrating_value(350);
 
     /*010_Hanuman-Rawana-Wibhisana_Rawana1v*/
     SoundSystem::playDialogFromACertainFolder(SoundSystem::EPISODE_NUMBER::EPISODE_3, SoundSystem::EPISODE_3_DIALOG::HANUMAN_RAHWANA_WIBHISANA_RAHWANA1);
@@ -3850,8 +3850,8 @@ void Episodes::Episode_3()
     rahwana.downFront(); // takes 700 ms
 
     SoundSystem::playMusicWayang();
-    hanoman.walk_to_a_certain_distance_before_calibrating_value(160);
-    rahwana.walk_to_a_certain_distance_before_calibrating_value(320);
+    hanoman.walk_to_a_certain_distance_before_calibrating_value(140);
+    rahwana.walk_to_a_certain_distance_before_calibrating_value(350);
 
     /*013_Hanuman-Rawana-Wibhisana_Hanuman1*/
     SoundSystem::playDialogFromACertainFolder(SoundSystem::EPISODE_NUMBER::EPISODE_3, SoundSystem::EPISODE_3_DIALOG::HANUMAN_RAHWANA_WIBHISANA_HANUMAN1);
@@ -4615,9 +4615,10 @@ void Episodes::Episode_3()
     delay(2000);
 
     // *Rawana leaves the scene*
+    SoundSystem::playMusicWayang();
     rahwana.defaultStandPosition();
 
-    setAllMOSFETtoHIGH();
+    // setAllMOSFETtoHIGH();
     SoundSystem::playDialogFromACertainFolder(SoundSystem::INDICATOR_SOUND, SoundSystem::INDICATOR_SOUND_NUMBER::INDICATOR_FINISHED_SHOWING);
     delay(2000);
 }
@@ -5295,6 +5296,7 @@ void Episodes::Episode_4()
 
     SoundSystem::playMusicWayang();
 
+    wibhisana.downFront();
     wibhisana.defaultStandPosition();
     delay(1000);
     rahwana.defaultStandPosition();

@@ -13,15 +13,6 @@ void Sita::defaultStandPosition()
 // takes 1400 ms
 void Sita::defaultHandPosition()
 {
-    // digitalWrite(WAYANG_HAND_1, HIGH);
-    // // Servo_Sita.moveWhatServo(1, 120, 2000);
-    // // Servo_Sita.moveWhatServo(3, 60, 2000);
-    // Servo_Sita.defaultPosition();
-    // // Servo_Sita.moveWhatServo(2, 60, 2000);
-    // downBack();
-    // onHipBack();
-    // Servo_Sita.resetArray();
-    // digitalWrite(WAYANG_HAND_1, LOW);
     anjujur();
 }
 
@@ -35,130 +26,8 @@ void Sita::leave_from_scene(int distanceValue)
     HC_sita.step_for_n_dir(1, distanceValue, "cw");
 }
 
-void Sita::hand_movement_test_1()
-{
-    digitalWrite(WAYANG_HAND_1, HIGH);
-    Servo_Sita.moveWhatServo(1, 0, 2000);
-    Servo_Sita.moveWhatServo(2, 85, 2000);
-
-    // Servo_Sita.moveWhatServo(1, 0);
-    // delay(10);
-    // Servo_Sita.moveWhatServo(2, 0);
-    // delay(10);
-    // Servo_Sita.moveWhatServo(3, 180);
-    // delay(10);
-    // Servo_Sita.moveWhatServo(4, 180);
-    // delay(1000);
-    // Servo_Sita.moveWhatServo(1, 180);
-    // delay(10);
-    // Servo_Sita.moveWhatServo(2, 180);
-    // delay(10);
-    // Servo_Sita.moveWhatServo(3, 0);
-    // delay(10);
-    // Servo_Sita.moveWhatServo(4, 0);
-    // delay(1000);
-    digitalWrite(WAYANG_HAND_1, LOW);
-}
-
-void Sita::hand_movement_test_2()
-{
-    digitalWrite(WAYANG_HAND_1, HIGH);
-    Servo_Sita.moveWhatServo(1, 30, 2000);
-    Servo_Sita.moveWhatServo(2, 65, 2000);
-    digitalWrite(WAYANG_HAND_1, LOW);
-}
-
-void Sita::hand_movement_test_3()
-{
-    digitalWrite(WAYANG_HAND_1, HIGH);
-    Servo_Sita.moveWhatServo(4, 65, 2000);
-    Servo_Sita.moveWhatServo(3, 100, 2000);
-    Servo_Sita.moveWhatServo(1, 180, 2000);
-    Servo_Sita.moveWhatServo(2, 120, 2000);
-    digitalWrite(WAYANG_HAND_1, LOW);
-}
-
-void Sita::hand_movement_test_4()
-{
-    digitalWrite(WAYANG_HAND_1, HIGH);
-    Servo_Sita.moveWhatServo(1, 90, 2000);
-    Servo_Sita.moveWhatServo(2, 65, 2000);
-    Servo_Sita.moveWhatServo(1, 65, 2000);
-    Servo_Sita.moveWhatServo(2, 90, 2000);
-    digitalWrite(WAYANG_HAND_1, LOW);
-}
-
-void Sita::left_raise_hand()
-{
-    digitalWrite(WAYANG_HAND_1, HIGH);
-    Servo_Sita.moveWhatServo(1, 180, 500);
-    Servo_Sita.moveWhatServo(2, 65, 500);
-    digitalWrite(WAYANG_HAND_1, LOW);
-}
-
-void Sita::left_raise_half_hand()
-{
-    digitalWrite(WAYANG_HAND_1, HIGH);
-    Servo_Sita.moveWhatServo(1, 110, 500);
-    Servo_Sita.moveWhatServo(2, 65, 500);
-    digitalWrite(WAYANG_HAND_1, LOW);
-}
-
-void Sita::left_lower_hand()
-{
-    digitalWrite(WAYANG_HAND_1, HIGH);
-    Servo_Sita.moveWhatServo(2, 75, 2000);
-    Servo_Sita.moveWhatServo(1, 0, 2000);
-    digitalWrite(WAYANG_HAND_1, LOW);
-}
-
-void Sita::left_lower_half_hand()
-{
-    digitalWrite(WAYANG_HAND_1, HIGH);
-    Servo_Sita.moveWhatServo(2, 75, 750);
-    Servo_Sita.moveWhatServo(1, 70, 750);
-    digitalWrite(WAYANG_HAND_1, LOW);
-}
-
-void Sita::right_raise_hand()
-{
-    digitalWrite(WAYANG_HAND_1, HIGH);
-    Servo_Sita.moveWhatServo(3, 0, 2000);
-    Servo_Sita.moveWhatServo(4, 65, 2000);
-    digitalWrite(WAYANG_HAND_1, LOW);
-}
-
-void Sita::right_raise_half_hand()
-{
-    digitalWrite(WAYANG_HAND_1, HIGH);
-    Servo_Sita.moveWhatServo(3, 45, 2000);
-    Servo_Sita.moveWhatServo(4, 65, 2000);
-    digitalWrite(WAYANG_HAND_1, LOW);
-}
-
-void Sita::right_lower_hand()
-{
-    digitalWrite(WAYANG_HAND_1, HIGH);
-    Servo_Sita.moveWhatServo(4, 90, 2000);
-    Servo_Sita.moveWhatServo(3, 180, 2000);
-    digitalWrite(WAYANG_HAND_1, LOW);
-}
-
-void Sita::right_lower_half_hand()
-{
-    digitalWrite(WAYANG_HAND_1, HIGH);
-    Servo_Sita.moveWhatServo(4, 90, 2000);
-    Servo_Sita.moveWhatServo(3, 135, 2000);
-    digitalWrite(WAYANG_HAND_1, LOW);
-}
-
 void Sita::walk_to_a_certain_distance(int desiredDistance)
 {
-
-    // desiredDistance = desiredDistance + (float)desiredDistance * 0.093;
-    // Serial.println("\ndesiredDistance: ");
-    // Serial.print(desiredDistance);
-    // Serial.println("mm \n");
     int readValue = getDistanceSensorNum(1);
     if (readValue > 1000)
     {
@@ -218,27 +87,6 @@ void Sita::walk_to_a_certain_distance_before_calibrating_value(int desiredDistan
     Serial.print(desiredDistanceAfterCalibratingValue);
     Serial.println("mm \n");
     walk_to_a_certain_distance(desiredDistanceAfterCalibratingValue);
-}
-
-void Sita::oscillate(int desiredDurationForOscillating)
-{
-    digitalWrite(WAYANG_HAND_1, HIGH);
-    int loopCount = desiredDurationForOscillating / 700;
-    bool upDown = true;
-
-    for (int i = 0; i < loopCount; i++)
-    {
-        if (upDown)
-        {
-            pointToFront(); // takes 700 ms
-        }
-        else if (!upDown)
-        {
-            lower_pointToFront(); // takes 700 ms
-        }
-        upDown = !upDown;
-    }
-    digitalWrite(WAYANG_HAND_1, LOW);
 }
 
 // takes 700 ms

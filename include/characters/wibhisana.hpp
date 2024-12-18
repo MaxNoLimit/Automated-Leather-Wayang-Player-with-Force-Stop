@@ -3,8 +3,6 @@
 
 class Wibhisana
 {
-private:
-    /* data */
 public:
     void defaultStandPosition();
     void defaultHandPosition();
@@ -24,18 +22,14 @@ public:
     void downBack();
     void onHipBack();
     void pointToSelf();
-    // void lowPointToSelf();
     void middleFrontBack();
     void lowPointToBack();
     void middleBack();
-    // void respect();
 
 
     // Gerakan diam
     void mathentengA();
-    // void mathentengB();
     void mathentengC();
 
     void directControl(int num, int angle, int duration);
 };
-

@@ -7,17 +7,6 @@ HorizontalController HC_anila;
 
 void Anila::defaultHandPosition()
 {
-    // digitalWrite(WAYANG_HAND_10, HIGH);
-    // // Servo_Anila.moveWhatServo(4, 100, 500);
-    // // Servo_Anila.moveWhatServo(2, 140, 500);
-    // // Servo_Anila.defaultPosition();
-    // // Servo_Anila.moveWhatServo(4, 110, 200);
-    // downFront();
-    // downBack();
-    // onHipBack();
-    // // Servo_Anila.resetArray();
-
-    // digitalWrite(WAYANG_HAND_10, LOW);
     mathentengA();
 }
 
@@ -48,7 +37,6 @@ void Anila::walk_to_a_certain_distance(int desiredDistance)
     Serial.println("mm \n");
     if (difference > 0)
     {
-        // difference = difference + 10;
         float result = difference / conv_value;
         int result_int = (int)result + 1;
         Serial.print(result_int);
@@ -65,7 +53,6 @@ void Anila::walk_to_a_certain_distance(int desiredDistance)
     }
     else if (difference < 0)
     {
-        // difference = difference - 10;
         float result = difference / conv_value;
         int result_int = (int)result + 1;
         Serial.print(result_int);
@@ -225,11 +212,8 @@ void Anila::middleBack()
 {
     digitalWrite(WAYANG_HAND_10, HIGH);
     Servo_Anila.moveWhatServo(2, 70, 200);
-    // Servo_Anila.moveWhatServo(1, 90, 500);
-    // Servo_Anila.moveWhatServo(2, 70, 200);
     Servo_Anila.moveWhatServo(1, 0, 500);
     Servo_Anila.moveWhatServo(2, 60, 200);
-    // Servo_Anila.moveWhatServo(2, 40, 500);
     digitalWrite(WAYANG_HAND_10, LOW);
 }
 

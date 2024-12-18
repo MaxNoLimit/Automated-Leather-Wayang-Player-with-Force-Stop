@@ -20,7 +20,6 @@ public:
     void middleFront();
     void downFront();
     void pointToSelf();
-    // void respect();
 
     void directControl(int num, int angle, int duration);
 };

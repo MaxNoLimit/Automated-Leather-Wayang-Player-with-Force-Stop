@@ -1,7 +1,6 @@
 #ifndef DISTANCE_SENSOR_VL53L0X_HPP
 #define DISTANCE_SENSOR_VL53L0X_HPP
 
-
 #define SENSOR_ADDRESS_1 0x30
 #define SENSOR_ADDRESS_2 0x31
 #define SENSOR_ADDRESS_3 0x32
@@ -17,31 +16,7 @@
 #include <Wire.h>
 
 
-// void beginSensor1();
-// void beginSensor2();
-// void beginSensor3();
-// void beginSensor4();
-// void beginSensor5();
-// void beginSensor6();
-// void beginSensor7();
-// void beginSensor8();
-// void beginSensor9();
-// void beginSensor10();
-
-// int getDistanceSensor1();
-// int getDistanceSensor2();
-// int getDistanceSensor3();
-// int getDistanceSensor4();
-// int getDistanceSensor5();
-// int getDistanceSensor6();
-// int getDistanceSensor7();
-// int getDistanceSensor8();
-// int getDistanceSensor9();
-// int getDistanceSensor10();
-
 void beginSensorNum(int nSensor);
 int getDistanceSensorNum(int nSensor);
-
-
 
 #endif // DISTANCE_SENSOR_VL53L0X_HPP

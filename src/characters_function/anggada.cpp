@@ -7,18 +7,6 @@ HorizontalController HC_anggada;
 
 void Anggada::defaultHandPosition()
 {
-    // digitalWrite(WAYANG_HAND_9, HIGH);
-    // // Servo_Anggada.moveWhatServo(4, 100, 500);
-    // // Servo_Anggada.moveWhatServo(2, 140, 500);
-    // // Servo_Anggada.defaultPosition();
-    // // Servo_Anggada.moveWhatServo(4, 110, 200);
-    // downFront();
-    // downBack();
-    // onHipBack();
-    // directControl(2, 70, 200);
-    // Servo_Anggada.resetArray();
-
-    // digitalWrite(WAYANG_HAND_9, LOW);
     mathentengA();
 }
 
@@ -71,7 +59,6 @@ void Anggada::walk_to_a_certain_distance(int desiredDistance)
     }
     else if (difference < 0)
     {
-        // difference = difference - 10;
         float result = difference / conv_value;
         int result_int = (int)result + 1;
         Serial.print(result_int);
@@ -102,7 +89,6 @@ void Anggada::walk_to_a_certain_distance_before_calibrating_value(int desiredDis
 void Anggada::pointToFront()
 {
     digitalWrite(WAYANG_HAND_9, HIGH);
-    // Servo_Anggada.moveWhatServo(1, 150, 200);
     Servo_Anggada.moveWhatServo(2, 60, 200);
     Servo_Anggada.moveWhatServo(1, 5, 500);
     Servo_Anggada.moveWhatServo(2, 35, 200);
@@ -161,7 +147,6 @@ void Anggada::downBack()
 void Anggada::onHipBack()
 {
     digitalWrite(WAYANG_HAND_9, HIGH);
-    // Servo_Anggada.moveWhatServo(4, 80, 200);
     Servo_Anggada.moveWhatServo(3, 170, 500);
     Servo_Anggada.moveWhatServo(4, 100, 200);
     digitalWrite(WAYANG_HAND_9, LOW);
@@ -183,7 +168,6 @@ void Anggada::mathentengC()
     downBack();
     downFront();
     digitalWrite(WAYANG_HAND_9, HIGH);
-    // Servo_Anggada.moveWhatServo(4, 105, 200);
     Servo_Anggada.moveWhatServo(3, 180, 500);
     Servo_Anggada.moveWhatServo(4, 110, 200);
     Servo_Anggada.moveWhatServo(2, 60, 200);
@@ -194,7 +178,6 @@ void Anggada::mathentengC()
 void Anggada::pointToSelf()
 {
     digitalWrite(WAYANG_HAND_9, HIGH);
-    // Servo_Anggada.moveWhatServo(1, 135, 500);
     Servo_Anggada.moveWhatServo(2, 120, 200);
     Servo_Anggada.moveWhatServo(1, 20, 500);
     Servo_Anggada.moveWhatServo(2, 100, 200);
@@ -216,8 +199,6 @@ void Anggada::lowPointToBack()
     digitalWrite(WAYANG_HAND_9, HIGH);
     Servo_Anggada.moveWhatServo(3, 135, 500);
     Servo_Anggada.moveWhatServo(4, 125, 200);
-    // Servo_Anggada.moveWhatServo(1, 45, 2000);
-    // Servo_Anggada.moveWhatServo(2, 40, 500);
     digitalWrite(WAYANG_HAND_9, LOW);
 }
 
@@ -229,7 +210,6 @@ void Anggada::middleBack()
     Servo_Anggada.moveWhatServo(4, 110, 200);
     Servo_Anggada.moveWhatServo(3, 180, 500);
     Servo_Anggada.moveWhatServo(4, 115, 200);
-    // Servo_Anggada.moveWhatServo(2, 40, 500);
     digitalWrite(WAYANG_HAND_9, LOW);
 }
 
