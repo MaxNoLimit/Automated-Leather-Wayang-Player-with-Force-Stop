@@ -5393,7 +5393,8 @@ void Episodes::Episode_4()
     /*Nila: 037*/
     SoundSystem::playDialogFromACertainFolder(SoundSystem::EPISODE_NUMBER::EPISODE_4, SoundSystem::EPISODE_4_DIALOG::WIBHISANA_DEFECTS_NILA1);
 
-    delay(861);
+    anila.downFront();
+    delay(861 - 700);
     // (861) Yes brother. (1507)
     anila.pointToSelf();
     delay(2000);
@@ -5416,7 +5417,8 @@ void Episodes::Episode_4()
     anila.pointToFront();
     delay(1000);
     anila.lower_pointToFront();
-    delay(7007 - 933 - 900 - 1000 - 700);
+    delay(7007 - 933 - 900 - 1000 - 700 - 700);
+    anila.downFront();
     anila.pointToSelf();
     delay(8104 - 7007 - 900);
 
@@ -5963,13 +5965,13 @@ void Episodes::Episode_5()
     rahwana.downFront();
     rama_wijaya.downFront();
     rama_wijaya.defaultStandPosition();
-    rahwana.walk_to_a_certain_distance_before_calibrating_value(270);
+    rahwana.walk_to_a_certain_distance_before_calibrating_value(320);
 
     /* Laskmana flank, pushing Rahwana front a little bit */
     laksmana.walk_to_a_certain_distance_before_calibrating_value(200);
     laksmana.pointToFront();
 
-    rahwana.walk_to_a_certain_distance_before_calibrating_value(290);
+    rahwana.walk_to_a_certain_distance_before_calibrating_value(340);
     laksmana.downFront();
     laksmana.defaultStandPosition();
 

@@ -72,7 +72,7 @@ void Anila::walk_to_a_certain_distance(int desiredDistance)
 
 void Anila::walk_to_a_certain_distance_before_calibrating_value(int desiredDistance)
 {
-    int desiredDistanceAfterCalibratingValue = desiredDistance + 54;
+    int desiredDistanceAfterCalibratingValue = desiredDistance + 60;
     Serial.println("\ndesiredDistance: ");
     Serial.print(desiredDistanceAfterCalibratingValue);
     Serial.println("mm \n");

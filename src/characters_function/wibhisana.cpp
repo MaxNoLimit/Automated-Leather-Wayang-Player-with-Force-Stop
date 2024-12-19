@@ -132,7 +132,7 @@ void Wibhisana::middleFront()
 void Wibhisana::downFront()
 {
     digitalWrite(WAYANG_HAND_8, HIGH);
-    Servo_Wibhisana.moveWhatServo(1, 130, 500);
+    Servo_Wibhisana.moveWhatServo(1, 150, 500);
     Servo_Wibhisana.moveWhatServo(2, 70, 200);
     digitalWrite(WAYANG_HAND_8, LOW);
 }

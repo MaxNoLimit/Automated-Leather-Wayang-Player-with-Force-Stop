@@ -85,7 +85,7 @@ void Hanoman::walk_to_a_certain_distance(int desiredDistance)
 
 void Hanoman::walk_to_a_certain_distance_before_calibrating_value(int desiredDistance)
 {
-    int desiredDistanceAfterCalibratingValue = desiredDistance + 27;
+    int desiredDistanceAfterCalibratingValue = desiredDistance + 28;
     Serial.println("\ndesiredDistance: ");
     Serial.print(desiredDistanceAfterCalibratingValue);
     Serial.println("mm \n");
