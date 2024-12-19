@@ -6032,7 +6032,8 @@ void Episodes::Episode_5()
     delay(10330 - 7978 - 1400);
     wibhisana.directControl(1, 90, 1000); // lptf 2x lambat
     wibhisana.directControl(2, 80, 400);
-    delay(13518 - 10330 - 1400);
+    wibhisana.downFront();
+    delay(13518 - 10330 - 1400 - 700);
 
     // (13518) I chose to be the servant of a great and noble person, (17025) who cared for the whole world. (18804)
     wibhisana.pointToSelf();
