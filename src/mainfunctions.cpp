@@ -540,8 +540,10 @@ void WayangDisplay::generalLoop()
             NULL,
             1,
             &episodeTaskHandler[5]);
+        WayangDisplayLCD_in_main.enableLCD();
+        loop_state = StateManagement::FSA_STATE::DEFAULT_LOOPING_LCD;
+        delay(1);
         break;
-    
 
     case StateManagement::FSA_STATE::SIMPLE_WAYANG_HAND_CALIBRATION:
         WayangDisplayLCD_in_main.pleaseWaitDisplay();
