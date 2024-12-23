@@ -6282,6 +6282,9 @@ void Episodes::Episode_5()
 void Episodes::Episode_Extra()
 {
     /* put the scene debug code below */
+
+    SoundSystem::playDialogFromACertainFolder(SoundSystem::INDICATOR_SOUND, SoundSystem::INDICATOR_SOUND_NUMBER::INDICATOR_FINISHED_SHOWING);
+    delay(2000);
 }
 
 void Episodes::Episode_1_task(void *pvParameters)
