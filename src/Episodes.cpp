@@ -6283,6 +6283,46 @@ void Episodes::Episode_Extra()
 {
     /* put the scene debug code below */
 
+    //////////////////////////////////////////////////////
+    CalibratingFunction::wayangHand();
+
+    SoundSystem::playMusicWayang();
+
+    rahwana.walk_to_a_certain_distance_before_calibrating_value(200);
+
+    /* would be crazy about you and fall heels over ears */
+    rahwana.downFront();   // 700
+    delay(400);            // 400
+    rahwana.middleFront(); // 1200
+    delay(16906 - 13390 - 700 - 400 - 1200);
+
+    /*in love with you */
+    rahwana.pointToFront(); // 700
+    rahwana.downFront();    // 700
+    // delay(19101-16906-700-700);
+
+    /*My name is Rawana, */ //(18306)
+    rahwana.pointToSelf();  // 1100
+    delay(20828 - 18306 - 1100);
+
+    delay(5000);
+
+    rahwana.defaultStandPosition();
+
+    // //////////////////////////////////////////////////////
+
+    // /*you may rule over it,*/
+    // rahwana.pointToFront(); // 700
+    // delay(36311 - 34625 - 700 - 700);
+    // rahwana.downFront(); // 700
+
+    // /*and share a luxurious life with me. */
+    // rahwana.pointToSelf(); // 1100
+    // delay(39143 - 36311 - 1100 - 700);
+    // rahwana.downFront(); // 700
+
+    // //////////////////////////////////////////////////////
+
     SoundSystem::playDialogFromACertainFolder(SoundSystem::INDICATOR_SOUND, SoundSystem::INDICATOR_SOUND_NUMBER::INDICATOR_FINISHED_SHOWING);
     delay(2000);
 }
