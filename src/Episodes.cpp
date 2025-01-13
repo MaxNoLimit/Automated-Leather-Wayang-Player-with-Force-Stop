@@ -1,4 +1,3 @@
-// #include <Arduino_FreeRTOS.h>
 #include "Episodes.hpp"
 #include "sound_system.hpp"
 #include "characters/hanoman.hpp"
@@ -118,17 +117,12 @@ static void sugriwaTaskFight1(void *pvParameters)
         sugriwa.lower_pointToFront(); // takes 700 ms
         sugriwa.downFront();          // takes 700 ms
         sugriwa.lower_pointToFront(); // takes 700 ms
-        // vTaskDelay(200 / portTICK_PERIOD_MS);
-
-        // deleting sugriwaTaskFight1 task
-        // Serial.println("sugriwaTaskFight1 stack: " + String(uxTaskGetStackHighWaterMark(NULL)));
         vTaskDelete(NULL);
     }
 }
 
 static void subaliTaskFight1(void *pvParameters)
 {
-    // vTaskSuspend(mainLoopTaskHandler);
     while (1)
     {
         Serial.print(F("Running subaliTaskFight1: "));
@@ -137,8 +131,6 @@ static void subaliTaskFight1(void *pvParameters)
         subali.lower_pointToFront(); // takes 700 ms
         subali.downFront();          // takes 700 ms
         subali.pointToFront();       // takes 900 ms
-        // deleting subaliTaskFight1 task
-        // Serial.println("subaliTaskFight1 stack: " + String(uxTaskGetStackHighWaterMark(NULL)));
         vTaskResume(episodeTaskHandler[1]);
         vTaskDelete(NULL);
     }
@@ -154,8 +146,6 @@ static void subaliTaskFight2(void *pvParameters)
         subali.lower_pointToFront(); // takes 700 ms
         subali.downFront();          // takes 700 ms
         subali.lower_pointToFront(); // takes 900 ms
-        // deleting subaliTaskFight2 task
-        // Serial.println("subaliTaskFight2 stack: " + String(uxTaskGetStackHighWaterMark(NULL)));
         vTaskDelete(NULL);
     }
 }
@@ -170,8 +160,6 @@ static void ramaTaskFight1(void *pvParameters)
         rama_wijaya.lower_pointToFront(); // takes 700 ms
         rama_wijaya.downFront();          // takes 700 ms
         rama_wijaya.pointToFront();       // takes 700 ms
-        // deleting ramaTaskFight1 task
-        // Serial.println("ramaTaskFight1 stack: " + String(uxTaskGetStackHighWaterMark(NULL)));
         vTaskResume(episodeTaskHandler[1]);
         vTaskDelete(NULL);
     }
@@ -280,8 +268,6 @@ void Episodes::Episode_1()
 
     laksmana.directControl(4, 115, 400); // 37372 (400)
     laksmana.directControl(4, 120, 400); // 37772 (400)
-    // laksmana.directControl(4, 115, 400); // 38172 (400)
-    // laksmana.directControl(4, 120, 400); // 38572 (400)
     delay(38746 - 38572 - 100); // 38746 (174-100)
 
     /*it was the call of an evil demon, */
@@ -436,14 +422,7 @@ void Episodes::Episode_1()
     // (48476) if Rama is killed in battle (50462)
 
     delay(46341 - 42759 - 1400);
-    // sita.oscillate(50722 - 46341); // takes 4381 ms ~~ 4200 ms
     sita.downBack(); // takes 700 ms
-    // sita.middleFrontBack(); // takes 700 ms
-    // for (int i = 0; i < 3; i++)
-    // {
-    //     sita.directControl(3, 90, 400);
-    //     sita.directControl(3, 120, 400);
-    // } // takes 800 ms each loop
 
     // (50722) butted by the deer, (51570)
 
@@ -6308,20 +6287,6 @@ void Episodes::Episode_Extra()
     delay(5000);
 
     rahwana.defaultStandPosition();
-
-    // //////////////////////////////////////////////////////
-
-    // /*you may rule over it,*/
-    // rahwana.pointToFront(); // 700
-    // delay(36311 - 34625 - 700 - 700);
-    // rahwana.downFront(); // 700
-
-    // /*and share a luxurious life with me. */
-    // rahwana.pointToSelf(); // 1100
-    // delay(39143 - 36311 - 1100 - 700);
-    // rahwana.downFront(); // 700
-
-    // //////////////////////////////////////////////////////
 
     SoundSystem::playDialogFromACertainFolder(SoundSystem::INDICATOR_SOUND, SoundSystem::INDICATOR_SOUND_NUMBER::INDICATOR_FINISHED_SHOWING);
     delay(2000);

@@ -101,9 +101,9 @@ void WayangDisplay::WayangDisplayLCD::introDisplay()
     lcdWayang.backlight();
     lcdWayang.clear();
     lcdWayang.setCursor(0, 0);
-    lcdWayang.print("Automated Leather");
+    lcdWayang.print(F("Automated Leather"));
     lcdWayang.setCursor(0, 1);
-    lcdWayang.print("Wayang Player");
+    lcdWayang.print(F("Wayang Player 2024"));
     // lcdWayang.setCursor(0, 3);
     // lcdWayang.print("Please wait...");
 }

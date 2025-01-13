@@ -7,15 +7,6 @@ HorizontalController HC_laksmana;
 
 void Laksmana::defaultHandPosition()
 {
-    // digitalWrite(WAYANG_HAND_5, HIGH);
-    // Servo_Laskmana.moveWhatServo(3, 10, 20);
-    // Servo_Laskmana.defaultPosition();
-    // downFront();
-    // Servo_Laskmana.moveWhatServo(4, 100, 200);
-    // // Servo_Laskmana.moveWhatServo(1, 45, 500);
-    // downBack();
-    // onHipBack();
-    // digitalWrite(WAYANG_HAND_5, LOW);
     mathenthengA();
 }
 
@@ -199,10 +190,8 @@ void Laksmana::lowPointToBack()
 void Laksmana::middleBack()
 {
     digitalWrite(WAYANG_HAND_5, HIGH);
-    // Servo_Laskmana.moveWhatServo(1, 90, 500);
     Servo_Laskmana.moveWhatServo(2, 50, 200);
     Servo_Laskmana.moveWhatServo(1, 45, 500);
-    // Servo_Laskmana.moveWhatServo(2, 70, 200);
     digitalWrite(WAYANG_HAND_5, LOW);
 }
 

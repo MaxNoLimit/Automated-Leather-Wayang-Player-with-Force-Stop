@@ -180,7 +180,7 @@ void Anila::mathentengC()
 void Anila::pointToSelf()
 {
     digitalWrite(WAYANG_HAND_10, HIGH);
-    Servo_Anila.moveWhatServo(4, 65, 200);
+    Servo_Anila.moveWhatServo(4, 55, 200);
     Servo_Anila.moveWhatServo(3, 150, 500);
     Servo_Anila.moveWhatServo(4, 80, 200);
     digitalWrite(WAYANG_HAND_10, LOW);

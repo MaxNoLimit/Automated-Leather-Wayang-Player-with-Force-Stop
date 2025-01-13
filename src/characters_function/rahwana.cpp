@@ -89,7 +89,6 @@ void Rahwana::walk_to_a_certain_distance_before_calibrating_value(int desiredDis
     Serial.print(desiredDistanceAfterCalibratingValue);
     Serial.println("mm \n");
     walk_to_a_certain_distance(desiredDistanceAfterCalibratingValue);
-    // HC_rahwana.step_for_what_distance(2, desiredDistanceAfterCalibratingValue);
 }
 
 
@@ -97,11 +96,6 @@ void Rahwana::walk_to_a_certain_distance_before_calibrating_value(int desiredDis
 void Rahwana::pointToFront()
 {
     digitalWrite(WAYANG_HAND_2, HIGH);
-    // Servo_Rahwana.defaultPosition();
-    // Servo_Rahwana.moveWhatServo(4, 120, 2000);
-    // Servo_Rahwana.moveWhatServo(3, 180, 3000);
-    // Servo_Rahwana.moveWhatServo(4, 130, 2000);
-    
     Servo_Rahwana.moveWhatServo(4, 120, 200);
     Servo_Rahwana.moveWhatServo(3, 180, 500);
     Servo_Rahwana.moveWhatServo(4, 140, 200);
@@ -141,7 +135,7 @@ void Rahwana::pointToSelf()
 {
     digitalWrite(WAYANG_HAND_2, HIGH);
     // Servo_Rahwana.defaultPosition();
-    Servo_Rahwana.moveWhatServo(4, 65, 200);
+    Servo_Rahwana.moveWhatServo(4, 55, 200);
     Servo_Rahwana.moveWhatServo(3, 179, 500);
     Servo_Rahwana.moveWhatServo(4, 80, 400);
     digitalWrite(WAYANG_HAND_2, LOW);

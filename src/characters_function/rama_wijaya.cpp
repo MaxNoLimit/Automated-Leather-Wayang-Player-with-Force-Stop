@@ -28,11 +28,6 @@ void RamaWijaya::leave_from_scene(int distanceValue)
 
 void RamaWijaya::walk_to_a_certain_distance(int desiredDistance)
 {
-
-    // desiredDistance = desiredDistance + (float)desiredDistance * 0.093;
-    // Serial.println("\ndesiredDistance: ");
-    // Serial.print(desiredDistance);
-    // Serial.println("mm \n");
     int readValue = getDistanceSensorNum(3);
     if (readValue > 1000)
     {
@@ -81,9 +76,6 @@ void RamaWijaya::walk_to_a_certain_distance(int desiredDistance)
             walk_to_a_certain_distance(desiredDistance);
         }
     }
-    else
-    {
-    }
 }
 
 void RamaWijaya::walk_to_a_certain_distance_before_calibrating_value(int desiredDistance)
@@ -99,9 +91,7 @@ void RamaWijaya::walk_to_a_certain_distance_before_calibrating_value(int desired
 void RamaWijaya::pointToFront()
 {
     digitalWrite(WAYANG_HAND_3, HIGH);
-    // Servo_RamaWijaya.resetArray();
-    // Servo_RamaWijaya.moveWhatServo(2, 70, 500);
-    Servo_RamaWijaya.moveWhatServo(1, 30, 500); // this is to avoid resetArray bug that skip servo1 to 0 deg or move to highest position
+    Servo_RamaWijaya.moveWhatServo(1, 30, 500);
     Servo_RamaWijaya.moveWhatServo(1, 0, 500);
     Servo_RamaWijaya.moveWhatServo(2, 10, 200);
     digitalWrite(WAYANG_HAND_3, LOW);
@@ -120,7 +110,7 @@ void RamaWijaya::lower_pointToFront()
 void RamaWijaya::middleFront()
 {
     digitalWrite(WAYANG_HAND_3, HIGH);
-    Servo_RamaWijaya.moveWhatServo(2, 50, 200);
+    Servo_RamaWijaya.moveWhatServo(2, 40, 200);
     Servo_RamaWijaya.moveWhatServo(1, 30, 500);
     Servo_RamaWijaya.moveWhatServo(1, 0, 500);
     digitalWrite(WAYANG_HAND_3, LOW);
@@ -169,7 +159,6 @@ void RamaWijaya::onHipBack()
 void RamaWijaya::pointToSelf()
 {
     digitalWrite(WAYANG_HAND_3, HIGH);
-    // Servo_RamaWijaya.defaultPosition();
     Servo_RamaWijaya.moveWhatServo(2, 105, 200);
     Servo_RamaWijaya.moveWhatServo(1, 22, 500);
     Servo_RamaWijaya.moveWhatServo(2, 80, 200);
@@ -180,9 +169,6 @@ void RamaWijaya::pointToSelf()
 void RamaWijaya::middleFrontBack()
 {
     digitalWrite(WAYANG_HAND_3, HIGH);
-    // downBack();
-    // onHipBack();
-    // defaultHandPosition();
     Servo_RamaWijaya.moveWhatServo(3, 30, 500);
     Servo_RamaWijaya.moveWhatServo(4, 60, 200);
     Servo_RamaWijaya.moveWhatServo(3, 125, 500);
@@ -195,8 +181,6 @@ void RamaWijaya::lowPointToBack()
     digitalWrite(WAYANG_HAND_3, HIGH);
     Servo_RamaWijaya.moveWhatServo(3, 90, 500);
     Servo_RamaWijaya.moveWhatServo(4, 120, 200);
-    // Servo_RamaWijaya.moveWhatServo(3, 180, 2000);
-    // Servo_RamaWijaya.moveWhatServo(4, 150, 500);
     digitalWrite(WAYANG_HAND_3, LOW);
 }
 

@@ -1584,7 +1584,7 @@ Function interrupt untuk press button dari Rotary Encoder
 */
 void WayangDisplayController::pressRotaryEncoder()
 {
-    if (millis() - last_run > 10)
+    if (millis() - last_run > 20)
     {
         switch (pageRoute)
         {
@@ -3786,7 +3786,5 @@ void setConvValue()
     Serial.print("Last Position: " + String(lastPosition) + "\n");
 
     conv_value = (lastPosition - initialPosition) / 500.0;
-    // Serial.print(F("Conv value: "));
-    // Serial.println(conv_value);
     wayangRahwana.defaultStandPosition();
 }

@@ -22,10 +22,6 @@ void SoundSystem::justInitTheSoundSystem()
         Serial.println(F("Unable to begin:"));
         Serial.println(F("1.Please recheck the connection!"));
         Serial.println(F("2.Please insert the SD card!"));
-        // while (true)
-        // {
-        //     delay(0);
-        // }
     }
     digitalWrite(LED_BUILTIN, HIGH);
     Serial.println(F("DFPlayer Mini online."));
@@ -72,10 +68,6 @@ Function untuk play suatu dialog yang ada di suatu chapter
 void SoundSystem::play_dialog(int chapter_number, int dialog_number)
 {
     sound_system.playFolder(chapter_number, dialog_number);
-    // if (sound_system.available())
-    // {
-    //     printDetail(sound_system.readType(), sound_system.read());
-    // }
 }
 
 /*
@@ -152,27 +144,6 @@ void SoundSystem::play_dialog_direct(int dialog_number)
 {
     sound_system.playMp3Folder(dialog_number + 1);
 }
-
-// void SoundSystem::hold_the_section_until_finished()
-// {
-//     while (sound_system.readType() != DFPlayerPlayFinished)
-//     {
-//         // do nothing
-//     }
-//     Serial.println("\nDone!");
-//     digitalWrite(LED_BUILTIN, LOW);
-// }
-
-// function to stop a while loop after df player finished playing current file
-// void SoundSystem::hold_the_section_until_finished(int delay_time)
-// {
-//     static unsigned long stop_watch = millis();
-
-//     while (millis() - stop_watch < delay_time)
-//     {
-//         // do nothing, just waiting
-//     }
-// }
 
 void SoundSystem::playDialogFromACertainFolder(int nEpisode, int nDialog)
 {

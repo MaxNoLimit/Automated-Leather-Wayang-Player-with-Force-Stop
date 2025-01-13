@@ -3,7 +3,6 @@
 #include "wayang_lcd_2004.hpp"
 #include "distanceSensorVL53L0X.hpp"
 
-// TaskHandle_t MainTaskHandler;
 TaskHandle_t mainLoopTaskHandler;
 float conv_value = 0.33;
 

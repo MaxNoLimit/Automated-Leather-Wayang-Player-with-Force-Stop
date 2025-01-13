@@ -2,13 +2,11 @@
 #include "mainfunctions.hpp"
 #include "distanceSensorVL53L0X.hpp"
 
-
 /*
 Function untuk membuat suatu nema wayang bergerak sebanyak step_value dan arah tertentu
 */
 void HorizontalController::step_for_n_dir(int nema_num, int step_value, String dir)
 {
-    // String temp_dir = (String)tolower(dir);
     if (isEpisodeTaskCreated)
     {
         vTaskSuspend(mainLoopTaskHandler);
@@ -31,7 +29,6 @@ void HorizontalController::step_for_n_dir(int nema_num, int step_value, String d
                 delay(PERIOD_NEMA);
             }
             digitalWrite(EN_NEMA_1, HIGH);
-            // NEMAs.en_num_gpio_a(NEMAs.DISABLE_ALL_EN);
             break;
         }
 
@@ -49,7 +46,6 @@ void HorizontalController::step_for_n_dir(int nema_num, int step_value, String d
                 delay(PERIOD_NEMA);
             }
             digitalWrite(EN_NEMA_2, HIGH);
-            // NEMAs.en_num_gpio_a(NEMAs.DISABLE_ALL_EN);
             break;
         }
 
@@ -67,7 +63,6 @@ void HorizontalController::step_for_n_dir(int nema_num, int step_value, String d
                 delay(PERIOD_NEMA);
             }
             digitalWrite(EN_NEMA_3, HIGH);
-            // NEMAs.en_num_gpio_a(NEMAs.DISABLE_ALL_EN);
             break;
         }
         case 4:
@@ -84,7 +79,6 @@ void HorizontalController::step_for_n_dir(int nema_num, int step_value, String d
                 delay(PERIOD_NEMA);
             }
             digitalWrite(EN_NEMA_4, HIGH);
-            // NEMAs.en_num_gpio_a(NEMAs.DISABLE_ALL_EN);
             break;
         }
         case 5:
@@ -101,7 +95,6 @@ void HorizontalController::step_for_n_dir(int nema_num, int step_value, String d
                 delay(PERIOD_NEMA);
             }
             digitalWrite(EN_NEMA_5, HIGH);
-            // NEMAs.en_num_gpio_a(NEMAs.DISABLE_ALL_EN);
             break;
         }
         case 6:
@@ -118,7 +111,6 @@ void HorizontalController::step_for_n_dir(int nema_num, int step_value, String d
                 delay(PERIOD_NEMA);
             }
             digitalWrite(EN_NEMA_6, HIGH);
-            // NEMAs.en_num_gpio_a(NEMAs.DISABLE_ALL_EN);
             break;
         }
         case 7:
@@ -135,7 +127,6 @@ void HorizontalController::step_for_n_dir(int nema_num, int step_value, String d
                 delay(PERIOD_NEMA);
             }
             digitalWrite(EN_NEMA_7, HIGH);
-            // NEMAs.en_num_gpio_a(NEMAs.DISABLE_ALL_EN);
             break;
         }
         case 8:
@@ -152,7 +143,6 @@ void HorizontalController::step_for_n_dir(int nema_num, int step_value, String d
                 delay(PERIOD_NEMA);
             }
             digitalWrite(EN_NEMA_8, HIGH);
-            // NEMAs.en_num_gpio_a(NEMAs.DISABLE_ALL_EN);
             break;
         }
         case 9:
@@ -169,7 +159,6 @@ void HorizontalController::step_for_n_dir(int nema_num, int step_value, String d
                 delay(PERIOD_NEMA);
             }
             digitalWrite(EN_NEMA_9, HIGH);
-            // NEMAs.en_num_gpio_a(NEMAs.DISABLE_ALL_EN);
             break;
         }
         case 10:
@@ -186,7 +175,6 @@ void HorizontalController::step_for_n_dir(int nema_num, int step_value, String d
                 delay(PERIOD_NEMA);
             }
             digitalWrite(EN_NEMA_10, HIGH);
-            // NEMAs.en_num_gpio_a(NEMAs.DISABLE_ALL_EN);
             break;
         }
         }
@@ -210,7 +198,6 @@ void HorizontalController::step_for_n_dir(int nema_num, int step_value, String d
                 delay(PERIOD_NEMA);
             }
             digitalWrite(EN_NEMA_1, HIGH);
-            // NEMAs.en_num_gpio_a(NEMAs.DISABLE_ALL_EN);
             break;
         }
 
@@ -227,8 +214,6 @@ void HorizontalController::step_for_n_dir(int nema_num, int step_value, String d
                 state = !state;
                 delay(PERIOD_NEMA);
             }
-            // digitalWrite(EN_2_NEMA, HIGH);
-            // NEMAs.en_num_gpio_a(NEMAs.DISABLE_ALL_EN);
             digitalWrite(EN_NEMA_2, HIGH);
             break;
         }
@@ -246,7 +231,6 @@ void HorizontalController::step_for_n_dir(int nema_num, int step_value, String d
                 delay(PERIOD_NEMA);
             }
             digitalWrite(EN_NEMA_3, HIGH);
-            // NEMAs.en_num_gpio_a(NEMAs.DISABLE_ALL_EN);
             break;
         }
         case 4:
@@ -263,7 +247,6 @@ void HorizontalController::step_for_n_dir(int nema_num, int step_value, String d
                 delay(PERIOD_NEMA);
             }
             digitalWrite(EN_NEMA_4, HIGH);
-            // NEMAs.en_num_gpio_a(NEMAs.DISABLE_ALL_EN);
             break;
         }
         case 5:
@@ -280,7 +263,6 @@ void HorizontalController::step_for_n_dir(int nema_num, int step_value, String d
                 delay(PERIOD_NEMA);
             }
             digitalWrite(EN_NEMA_5, HIGH);
-            // NEMAs.en_num_gpio_a(NEMAs.DISABLE_ALL_EN);
             break;
         }
         case 6:
@@ -297,7 +279,6 @@ void HorizontalController::step_for_n_dir(int nema_num, int step_value, String d
                 delay(PERIOD_NEMA);
             }
             digitalWrite(EN_NEMA_6, HIGH);
-            // NEMAs.en_num_gpio_a(NEMAs.DISABLE_ALL_EN);
             break;
         }
         case 7:
@@ -314,7 +295,6 @@ void HorizontalController::step_for_n_dir(int nema_num, int step_value, String d
                 delay(PERIOD_NEMA);
             }
             digitalWrite(EN_NEMA_7, HIGH);
-            // NEMAs.en_num_gpio_a(NEMAs.DISABLE_ALL_EN);
             break;
         }
         case 8:
@@ -331,7 +311,6 @@ void HorizontalController::step_for_n_dir(int nema_num, int step_value, String d
                 delay(PERIOD_NEMA);
             }
             digitalWrite(EN_NEMA_8, HIGH);
-            // NEMAs.en_num_gpio_a(NEMAs.DISABLE_ALL_EN);
             break;
         }
         case 9:
@@ -348,7 +327,6 @@ void HorizontalController::step_for_n_dir(int nema_num, int step_value, String d
                 delay(PERIOD_NEMA);
             }
             digitalWrite(EN_NEMA_9, HIGH);
-            // NEMAs.en_num_gpio_a(NEMAs.DISABLE_ALL_EN);
             break;
         }
         case 10:
@@ -365,7 +343,6 @@ void HorizontalController::step_for_n_dir(int nema_num, int step_value, String d
                 delay(PERIOD_NEMA);
             }
             digitalWrite(EN_NEMA_10, HIGH);
-            // NEMAs.en_num_gpio_a(NEMAs.DISABLE_ALL_EN);
             break;
         }
         }

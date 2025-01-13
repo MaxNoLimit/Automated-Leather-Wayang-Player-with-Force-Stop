@@ -7,18 +7,6 @@ HorizontalController HC_wibhisana;
 
 void Wibhisana::defaultHandPosition()
 {
-    // digitalWrite(WAYANG_HAND_8, HIGH);
-    // // Servo_Wibhisana.moveWhatServo(4, 100, 500);
-    // // Servo_Wibhisana.moveWhatServo(2, 140, 500);
-    // // Servo_Wibhisana.defaultPosition();
-    // // Servo_Wibhisana.moveWhatServo(4, 110, 200);
-    // downFront();
-    // downBack();
-    // onHipBack();
-    // directControl(2, 70, 200);
-    // Servo_Wibhisana.resetArray();
-
-    // digitalWrite(WAYANG_HAND_8, LOW);
     mathentengA();
 }
 
@@ -55,8 +43,8 @@ void Wibhisana::walk_to_a_certain_distance(int desiredDistance)
     if (difference > 0)
     {
         // difference = difference + 10;
-        float result = difference / conv_value; // converting distance in mm to steps
-        int result_int = (int)result + 1; // rounding
+        float result = difference / conv_value;
+        int result_int = (int)result + 1; 
         Serial.print(result_int);
         Serial.println(" steps\n");
         leave_from_scene(result_int);
@@ -102,7 +90,6 @@ void Wibhisana::walk_to_a_certain_distance_before_calibrating_value(int desiredD
 void Wibhisana::pointToFront()
 {
     digitalWrite(WAYANG_HAND_8, HIGH);
-    // Servo_Wibhisana.moveWhatServo(1, 150, 200);
     Servo_Wibhisana.moveWhatServo(2, 75, 200);
     Servo_Wibhisana.moveWhatServo(1, 5, 500);
     Servo_Wibhisana.moveWhatServo(2, 35, 200);
@@ -161,7 +148,6 @@ void Wibhisana::downBack()
 void Wibhisana::onHipBack()
 {
     digitalWrite(WAYANG_HAND_8, HIGH);
-    // Servo_Wibhisana.moveWhatServo(4, 80, 200);
     Servo_Wibhisana.moveWhatServo(3, 160, 500);
     Servo_Wibhisana.moveWhatServo(4, 95, 200);
     digitalWrite(WAYANG_HAND_8, LOW);
@@ -183,7 +169,6 @@ void Wibhisana::mathentengC()
     downBack();
     downFront();
     digitalWrite(WAYANG_HAND_8, HIGH);
-    // Servo_Wibhisana.moveWhatServo(4, 105, 200);
     Servo_Wibhisana.moveWhatServo(3, 180, 500);
     Servo_Wibhisana.moveWhatServo(4, 110, 200);
     Servo_Wibhisana.moveWhatServo(2, 60, 200);
@@ -194,7 +179,6 @@ void Wibhisana::mathentengC()
 void Wibhisana::pointToSelf()
 {
     digitalWrite(WAYANG_HAND_8, HIGH);
-    // Servo_Wibhisana.moveWhatServo(1, 135, 500);
     Servo_Wibhisana.moveWhatServo(2, 120, 200);
     Servo_Wibhisana.moveWhatServo(1, 20, 500);
     Servo_Wibhisana.moveWhatServo(2, 100, 200);
@@ -216,8 +200,6 @@ void Wibhisana::lowPointToBack()
     digitalWrite(WAYANG_HAND_8, HIGH);
     Servo_Wibhisana.moveWhatServo(3, 135, 500);
     Servo_Wibhisana.moveWhatServo(4, 125, 200);
-    // Servo_Wibhisana.moveWhatServo(1, 45, 2000);
-    // Servo_Wibhisana.moveWhatServo(2, 40, 500);
     digitalWrite(WAYANG_HAND_8, LOW);
 }
 
@@ -229,7 +211,6 @@ void Wibhisana::middleBack()
     Servo_Wibhisana.moveWhatServo(4, 110, 200);
     Servo_Wibhisana.moveWhatServo(3, 180, 500);
     Servo_Wibhisana.moveWhatServo(4, 115, 200);
-    // Servo_Wibhisana.moveWhatServo(2, 40, 500);
     digitalWrite(WAYANG_HAND_8, LOW);
 }
 

@@ -75,9 +75,6 @@ void Sita::walk_to_a_certain_distance(int desiredDistance)
             walk_to_a_certain_distance(desiredDistance);
         }
     }
-    else
-    {
-    }
 }
 
 void Sita::walk_to_a_certain_distance_before_calibrating_value(int desiredDistance)
@@ -92,17 +89,9 @@ void Sita::walk_to_a_certain_distance_before_calibrating_value(int desiredDistan
 // takes 700 ms
 void Sita::pointToFront()
 {
-    // digitalWrite(WAYANG_HAND_3, HIGH);
-    // Servo_Sita.moveWhatServo(1, 0, 2000);
-    // Servo_Sita.moveWhatServo(2, 60, 2000);
-    // digitalWrite(WAYANG_HAND_3, LOW);
-
     digitalWrite(WAYANG_HAND_1, HIGH);
-    // Servo_Sita.defaultPosition();
-    // Servo_Sita.resetArray();
     Servo_Sita.moveWhatServo(1, 10, 500);
     Servo_Sita.moveWhatServo(2, 20, 200);
-
     digitalWrite(WAYANG_HAND_1, LOW);
 }
 
@@ -110,10 +99,8 @@ void Sita::pointToFront()
 void Sita::lower_pointToFront()
 {
     digitalWrite(WAYANG_HAND_1, HIGH);
-    // Servo_Sita.defaultPosition();
     Servo_Sita.moveWhatServo(1, 100, 500);
     Servo_Sita.moveWhatServo(2, 40, 200);
-
     digitalWrite(WAYANG_HAND_1, LOW);
 }
 
@@ -159,39 +146,21 @@ void Sita::downBack()
 // takes 900 ms
 void Sita::onHipBack()
 {
-    // digitalWrite(WAYANG_HAND_3, HIGH);
-    // Servo_Sita.moveWhatServo(4, 70, 2000);
-    // Servo_Sita.moveWhatServo(3, 80, 2000);
-    // Servo_Sita.moveWhatServo(4, 50, 2000);
-    // digitalWrite(WAYANG_HAND_3, LOW);
-
     digitalWrite(WAYANG_HAND_1, HIGH);
     Servo_Sita.defaultPosition();
     Servo_Sita.moveWhatServo(4, 60 + 10, 200);
     Servo_Sita.moveWhatServo(3, 90, 500);
     Servo_Sita.moveWhatServo(4, 80, 200);
-    // Servo_RamaWijaya.moveWhatServo(4, 70, 2500);
-    // Servo_RamaWijaya.moveWhatServo(3, 80, 2500);
-    // Servo_RamaWijaya.moveWhatServo(4, 50, 2500);
-    // Servo_RamaWijaya.moveWhatServo(3, 100, 2500);
-    // Servo_RamaWijaya.moveWhatServo(4, 90, 2500);
     digitalWrite(WAYANG_HAND_1, LOW);
 }
 
 // takes 1400 ms
 void Sita::pointToSelf()
 {
-    // digitalWrite(WAYANG_HAND_1, HIGH);
-    // Servo_Sita.moveWhatServo(2, 135, 2000);
-    // Servo_Sita.moveWhatServo(1, 30, 2000);
-    // Servo_Sita.moveWhatServo(2, 85, 2000);
-    // digitalWrite(WAYANG_HAND_1, LOW);
-
     downFront(); // takes 700 ms
     digitalWrite(WAYANG_HAND_1, HIGH);
     Servo_Sita.moveWhatServo(2, 105, 200);
     Servo_Sita.moveWhatServo(1, 45, 500);
-    // Servo_Sita.moveWhatServo(2, 80, 200);
     digitalWrite(WAYANG_HAND_1, LOW);
 }
 
@@ -211,7 +180,6 @@ void Sita::lowPointToBack()
     Servo_Sita.moveWhatServo(3, 90, 500);
     Servo_Sita.moveWhatServo(4, 130, 200);
     Servo_Sita.moveWhatServo(3, 100, 500);
-    // Servo_Sita.moveWhatServo(4, 140, 200);
     digitalWrite(WAYANG_HAND_1, LOW);
 }
 
@@ -221,7 +189,6 @@ void Sita::middleBack()
     digitalWrite(WAYANG_HAND_1, HIGH);
     Servo_Sita.moveWhatServo(4, 110, 200);
     Servo_Sita.moveWhatServo(3, 120, 500);
-    // Servo_Sita.moveWhatServo(4, 120, 200);
     digitalWrite(WAYANG_HAND_1, LOW);
 }
 
