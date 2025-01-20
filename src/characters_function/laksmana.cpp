@@ -23,7 +23,6 @@ void Laksmana::leave_from_scene(int distanceValue)
 void Laksmana::walk_to_a_certain_distance(int desiredDistance)
 {
 
-
     int readValue = getDistanceSensorNum(5);
     if (readValue > 1000)
     {
@@ -76,7 +75,7 @@ void Laksmana::walk_to_a_certain_distance(int desiredDistance)
 
 void Laksmana::walk_to_a_certain_distance_before_calibrating_value(int desiredDistance)
 {
-    int desiredDistanceAfterCalibratingValue = desiredDistance + 47;
+    int desiredDistanceAfterCalibratingValue = desiredDistance + 51;
     Serial.println("\ndesiredDistance: ");
     Serial.print(desiredDistanceAfterCalibratingValue);
     Serial.println("mm \n");
@@ -204,7 +203,8 @@ void Laksmana::directControl(int num, int angle, int duration)
 }
 
 // takes 2600 ms
-void Laksmana::mathenthengA(){
+void Laksmana::mathenthengA()
+{
     Servo_Laskmana.resetArray();
     downBack();
     downFront();

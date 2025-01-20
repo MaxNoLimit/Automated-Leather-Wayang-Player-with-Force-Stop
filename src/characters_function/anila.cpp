@@ -43,7 +43,8 @@ void Anila::walk_to_a_certain_distance(int desiredDistance)
         Serial.println(" steps\n");
         leave_from_scene(result_int);
         Serial.println("readValue 2: ");
-        int finalReadValue = getDistanceSensorNum(10);;
+        int finalReadValue = getDistanceSensorNum(10);
+        ;
         Serial.print(finalReadValue);
         Serial.println("mm \n");
         if (finalReadValue > desiredDistance * 1.2)
@@ -60,7 +61,8 @@ void Anila::walk_to_a_certain_distance(int desiredDistance)
         result_int = abs(result_int);
         walk_to_scene(result_int);
         Serial.println("readValue 2: ");
-        int finalReadValue = getDistanceSensorNum(10);;
+        int finalReadValue = getDistanceSensorNum(10);
+        ;
         Serial.print(finalReadValue);
         Serial.println("mm \n");
         if (finalReadValue < desiredDistance * 0.8)
@@ -72,7 +74,7 @@ void Anila::walk_to_a_certain_distance(int desiredDistance)
 
 void Anila::walk_to_a_certain_distance_before_calibrating_value(int desiredDistance)
 {
-    int desiredDistanceAfterCalibratingValue = desiredDistance + 60;
+    int desiredDistanceAfterCalibratingValue = desiredDistance + 49;
     Serial.println("\ndesiredDistance: ");
     Serial.print(desiredDistanceAfterCalibratingValue);
     Serial.println("mm \n");
@@ -217,7 +219,7 @@ void Anila::middleBack()
     digitalWrite(WAYANG_HAND_10, LOW);
 }
 
-// takes the duration value 
+// takes the duration value
 void Anila::directControl(int num, int angle, int duration)
 {
     digitalWrite(WAYANG_HAND_10, HIGH);

@@ -81,16 +81,14 @@ void Rahwana::leave_from_scene(int distanceValue)
     HC_rahwana.step_for_n_dir(2, distanceValue, "ccw");
 }
 
-
 void Rahwana::walk_to_a_certain_distance_before_calibrating_value(int desiredDistance)
 {
-    int desiredDistanceAfterCalibratingValue = desiredDistance + 48;
+    int desiredDistanceAfterCalibratingValue = desiredDistance + 49;
     Serial.println("\ndesiredDistance: ");
     Serial.print(desiredDistanceAfterCalibratingValue);
     Serial.println("mm \n");
     walk_to_a_certain_distance(desiredDistanceAfterCalibratingValue);
 }
-
 
 // takes 900 ms
 void Rahwana::pointToFront()

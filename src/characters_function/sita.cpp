@@ -49,7 +49,8 @@ void Sita::walk_to_a_certain_distance(int desiredDistance)
         Serial.println(" steps\n");
         leave_from_scene(result_int);
         Serial.println("readValue 2: ");
-        int finalReadValue = getDistanceSensorNum(1);;
+        int finalReadValue = getDistanceSensorNum(1);
+        ;
         Serial.print(finalReadValue);
         Serial.println("mm \n");
         if (finalReadValue > desiredDistance * 1.2)
@@ -67,7 +68,8 @@ void Sita::walk_to_a_certain_distance(int desiredDistance)
         result_int = abs(result_int);
         walk_to_scene(result_int);
         Serial.println("readValue 2: ");
-        int finalReadValue = getDistanceSensorNum(1);;
+        int finalReadValue = getDistanceSensorNum(1);
+        ;
         Serial.print(finalReadValue);
         Serial.println("mm \n");
         if (finalReadValue < desiredDistance * 0.8)
@@ -79,7 +81,7 @@ void Sita::walk_to_a_certain_distance(int desiredDistance)
 
 void Sita::walk_to_a_certain_distance_before_calibrating_value(int desiredDistance)
 {
-    int desiredDistanceAfterCalibratingValue = desiredDistance + 37;
+    int desiredDistanceAfterCalibratingValue = desiredDistance + 38;
     Serial.println("\ndesiredDistance: ");
     Serial.print(desiredDistanceAfterCalibratingValue);
     Serial.println("mm \n");
