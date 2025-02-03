@@ -111,8 +111,8 @@ void Anila::middleFront()
 {
     digitalWrite(WAYANG_HAND_10, HIGH);
     Servo_Anila.moveWhatServo(3, 60, 500);
-    Servo_Anila.moveWhatServo(4, 110, 200);
-    Servo_Anila.moveWhatServo(3, 135, 500);
+    Servo_Anila.moveWhatServo(4, 105, 200);
+    Servo_Anila.moveWhatServo(3, 145, 500);
     digitalWrite(WAYANG_HAND_10, LOW);
 }
 
@@ -121,7 +121,7 @@ void Anila::downFront()
 {
     digitalWrite(WAYANG_HAND_10, HIGH);
     Servo_Anila.moveWhatServo(3, 10, 500);
-    Servo_Anila.moveWhatServo(4, 120, 200);
+    Servo_Anila.moveWhatServo(4, 130, 200);
     digitalWrite(WAYANG_HAND_10, LOW);
 }
 

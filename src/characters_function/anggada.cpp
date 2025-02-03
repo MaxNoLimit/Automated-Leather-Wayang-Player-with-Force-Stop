@@ -148,7 +148,7 @@ void Anggada::onHipBack()
 {
     digitalWrite(WAYANG_HAND_9, HIGH);
     Servo_Anggada.moveWhatServo(3, 170, 500);
-    Servo_Anggada.moveWhatServo(4, 100, 200);
+    Servo_Anggada.moveWhatServo(4, 110, 200);
     digitalWrite(WAYANG_HAND_9, LOW);
 }
 

@@ -28,7 +28,7 @@ void beginSensorNum(int nSensor)
     {
         Serial.print(F("Failed to boot VL53L0X Sensor "));
         Serial.println(nSensor);
-        digitalWrite(xshut_pis[nSensor - 1], LOW);
+        // digitalWrite(xshut_pis[nSensor - 1], LOW);
     }
     else
     {

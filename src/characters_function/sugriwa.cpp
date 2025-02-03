@@ -140,7 +140,7 @@ void Sugriwa::downBack()
 {
     digitalWrite(WAYANG_HAND_6, HIGH);
     Servo_Sugriwa.moveWhatServo(3, 60, 500);
-    Servo_Sugriwa.moveWhatServo(4, 80, 200); 
+    Servo_Sugriwa.moveWhatServo(4, 80, 200);
     digitalWrite(WAYANG_HAND_6, LOW);
 }
 
@@ -148,7 +148,8 @@ void Sugriwa::downBack()
 void Sugriwa::onHipBack()
 {
     digitalWrite(WAYANG_HAND_6, HIGH);
-    Servo_Sugriwa.moveWhatServo(3, 160, 500);
+    Servo_Sugriwa.moveWhatServo(4, 60, 200);
+    Servo_Sugriwa.moveWhatServo(3, 160, 300);
     Servo_Sugriwa.moveWhatServo(4, 85, 200);
     digitalWrite(WAYANG_HAND_6, LOW);
 }
@@ -179,7 +180,7 @@ void Sugriwa::mathentengC()
 void Sugriwa::pointToSelf()
 {
     digitalWrite(WAYANG_HAND_6, HIGH);
-    Servo_Sugriwa.moveWhatServo(2, 110, 200);
+    Servo_Sugriwa.moveWhatServo(2, 120, 200);
     Servo_Sugriwa.moveWhatServo(1, 20, 500);
     Servo_Sugriwa.moveWhatServo(2, 90, 200);
     digitalWrite(WAYANG_HAND_6, LOW);

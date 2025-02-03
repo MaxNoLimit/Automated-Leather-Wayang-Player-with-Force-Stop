@@ -44,7 +44,7 @@ void Wibhisana::walk_to_a_certain_distance(int desiredDistance)
     {
         // difference = difference + 10;
         float result = difference / conv_value;
-        int result_int = (int)result + 1; 
+        int result_int = (int)result + 1;
         Serial.print(result_int);
         Serial.println(" steps\n");
         leave_from_scene(result_int);
@@ -91,8 +91,8 @@ void Wibhisana::pointToFront()
 {
     digitalWrite(WAYANG_HAND_8, HIGH);
     Servo_Wibhisana.moveWhatServo(2, 75, 200);
-    Servo_Wibhisana.moveWhatServo(1, 5, 500);
-    Servo_Wibhisana.moveWhatServo(2, 35, 200);
+    Servo_Wibhisana.moveWhatServo(1, 20, 500);
+    Servo_Wibhisana.moveWhatServo(2, 20, 200);
     digitalWrite(WAYANG_HAND_8, LOW);
 }
 
@@ -111,7 +111,7 @@ void Wibhisana::middleFront()
     digitalWrite(WAYANG_HAND_8, HIGH);
     Servo_Wibhisana.moveWhatServo(1, 100, 500);
     Servo_Wibhisana.moveWhatServo(2, 70, 200);
-    Servo_Wibhisana.moveWhatServo(1, 5, 500);
+    Servo_Wibhisana.moveWhatServo(1, 20, 500);
     digitalWrite(WAYANG_HAND_8, LOW);
 }
 
@@ -119,8 +119,8 @@ void Wibhisana::middleFront()
 void Wibhisana::downFront()
 {
     digitalWrite(WAYANG_HAND_8, HIGH);
-    Servo_Wibhisana.moveWhatServo(1, 150, 500);
-    Servo_Wibhisana.moveWhatServo(2, 70, 200);
+    Servo_Wibhisana.moveWhatServo(1, 130, 500);
+    Servo_Wibhisana.moveWhatServo(2, 50, 200);
     digitalWrite(WAYANG_HAND_8, LOW);
 }
 
@@ -179,8 +179,8 @@ void Wibhisana::mathentengC()
 void Wibhisana::pointToSelf()
 {
     digitalWrite(WAYANG_HAND_8, HIGH);
-    Servo_Wibhisana.moveWhatServo(2, 120, 200);
-    Servo_Wibhisana.moveWhatServo(1, 20, 500);
+    Servo_Wibhisana.moveWhatServo(2, 140, 200);
+    Servo_Wibhisana.moveWhatServo(1, 10, 500);
     Servo_Wibhisana.moveWhatServo(2, 100, 200);
     digitalWrite(WAYANG_HAND_8, LOW);
 }
