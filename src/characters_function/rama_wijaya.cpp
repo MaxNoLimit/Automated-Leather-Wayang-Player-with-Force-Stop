@@ -25,7 +25,6 @@ void RamaWijaya::leave_from_scene(int distanceValue)
     HC_rama_wijaya.step_for_n_dir(3, distanceValue, "cw");
 }
 
-
 void RamaWijaya::walk_to_a_certain_distance(int desiredDistance)
 {
     int readValue = getDistanceSensorNum(3);
@@ -49,7 +48,8 @@ void RamaWijaya::walk_to_a_certain_distance(int desiredDistance)
         Serial.println(" steps\n");
         leave_from_scene(result_int);
         Serial.println("readValue 2: ");
-        int finalReadValue = getDistanceSensorNum(3);;
+        int finalReadValue = getDistanceSensorNum(3);
+        ;
         Serial.print(finalReadValue);
         Serial.println("mm \n");
         if (finalReadValue > desiredDistance * 1.2)
@@ -68,7 +68,8 @@ void RamaWijaya::walk_to_a_certain_distance(int desiredDistance)
         result_int = abs(result_int);
         walk_to_scene(result_int);
         Serial.println("readValue 3: ");
-        int finalReadValue = getDistanceSensorNum(3);;
+        int finalReadValue = getDistanceSensorNum(3);
+        ;
         Serial.print(finalReadValue);
         Serial.println("mm \n");
         if (finalReadValue < desiredDistance * 0.8)
@@ -93,7 +94,7 @@ void RamaWijaya::pointToFront()
     digitalWrite(WAYANG_HAND_3, HIGH);
     Servo_RamaWijaya.moveWhatServo(1, 30, 500);
     Servo_RamaWijaya.moveWhatServo(1, 0, 500);
-    Servo_RamaWijaya.moveWhatServo(2, 10, 200);
+    Servo_RamaWijaya.moveWhatServo(2, 9, 200);
     digitalWrite(WAYANG_HAND_3, LOW);
 }
 
@@ -203,20 +204,23 @@ void RamaWijaya::directControl(int num, int angle, int duration)
 }
 
 // takes 1400 ms
-void RamaWijaya::anjujur(){
+void RamaWijaya::anjujur()
+{
     Servo_RamaWijaya.resetArray();
     downBack();
     downFront();
 }
 
 // takes 2300 ms
-void RamaWijaya::mathenthengA(){
+void RamaWijaya::mathenthengA()
+{
     anjujur();
     onHipBack();
 }
 
 // takes 2300 ms
-void RamaWijaya::mathentengC(){
+void RamaWijaya::mathentengC()
+{
     anjujur();
     digitalWrite(WAYANG_HAND_3, HIGH);
     Servo_RamaWijaya.moveWhatServo(4, 60 + 10, 200);
