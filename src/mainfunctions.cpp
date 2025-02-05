@@ -3213,6 +3213,11 @@ void WayangHandServo::resetArray()
 {
     for (int i = 0; i < 4; i++)
     {
+        if ((i + 1) % 2 == 0)
+        {
+            setCurrentDegServo(i + 1, 90);
+        }
+
         setCurrentDegServo(i + 1, 0);
     }
 }

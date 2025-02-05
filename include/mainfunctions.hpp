@@ -20,7 +20,8 @@ namespace WayangDisplayController
     void pressRotaryEncoder();
 };
 
-namespace CalibratingFunction{
+namespace CalibratingFunction
+{
     void vSlotLinear();
     void soundSystem();
     void wayangHand();
@@ -67,7 +68,7 @@ private:
     int servoPin2;
     int servoPin3;
     int servoPin4;
-    int currentDeg[4] = {0, 0, 0, 0};
+    int currentDeg[4] = {0, 91, 0, 91};
 };
 
 extern bool isPlaying;
