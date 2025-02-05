@@ -6151,7 +6151,7 @@ void Episodes::Episode_5()
 
     // (3859) Do not be so sad, (5243) because Dasasya has died with honor. (7565)
     rama_wijaya.directControl(1, 0, 500);
-    rama_wijaya.directControl(2, 10, 200);
+    rama_wijaya.directControl(2, 9, 200);
     delay(5243 - 3859 - 500 - 200);
     rama_wijaya.lower_pointToFront();
     delay(8295 - 5243 - 700);
@@ -6170,14 +6170,14 @@ void Episodes::Episode_5()
     rama_wijaya.lower_pointToFront();
     delay(17461 - 15693 - 700);
     rama_wijaya.directControl(1, 0, 500);
-    rama_wijaya.directControl(2, 10, 200);
+    rama_wijaya.directControl(2, 9, 200);
     delay(18813 - 17461 - 500 - 200);
 
     // (18813) You should not grieve over him, (20613) because he died in great glory in the battlefield. (23276)
     rama_wijaya.lower_pointToFront();
     delay(20613 - 18813 - 700);
     rama_wijaya.directControl(1, 0, 500);
-    rama_wijaya.directControl(2, 10, 200);
+    rama_wijaya.directControl(2, 9, 200);
     delay(23867 - 20613 - 500 - 200);
 
     // (23867) On the other hand you must succeed him as king, (26784)
@@ -6187,7 +6187,7 @@ void Episodes::Episode_5()
 
     // (27135) because your excellent virtues are truly faultless. (29831)
     rama_wijaya.directControl(1, 0, 500);
-    rama_wijaya.directControl(2, 10, 200);
+    rama_wijaya.directControl(2, 9, 200);
     delay(30318 - 27135 - 500 - 200);
 
     // (30318) Rebuild (31058) and beautify the whole country of Lenka. (33321)
@@ -6204,7 +6204,7 @@ void Episodes::Episode_5()
 
     // (36504) Make the evil-minded demons realize their wrongdoings by good examples (41188) and devotion to religion. (42910)
     rama_wijaya.directControl(1, 0, 500);
-    rama_wijaya.directControl(2, 10, 200);
+    rama_wijaya.directControl(2, 9, 200);
     for (int i = 0; i < 5; i++)
     {
         rama_wijaya.directControl(1, 30, 300);
